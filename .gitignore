@@ -1,0 +1,4 @@
+# ignore the dependencies for node
+node_modules/
+# ignore the generated production build files
+docs/.vuepress/dist/
