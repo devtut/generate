@@ -2,9 +2,9 @@ module.exports = {
     title: "VuePress",
     description: "Vue-powered Static Site Generator",
     themeConfig: {
-      repo: "devtut/devtut.github.io",
+      repo: "devtut/generate",
       editLinks: true,
-      // docsDir: '/guide/',
+      docsDir: 'docs',
       smoothScroll: true,
       editLinkText: "Edit this page on GitHub",
       lastUpdated: "Last Updated",
