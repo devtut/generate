@@ -19,7 +19,7 @@ module.exports = {
         {
           title: "Python",
           collapsable: false,
-          sidebarDepth: 2,
+          // sidebarDepth: 2,
           children: [
             ["", "Default"],
             "getting-started-with-python-language",
