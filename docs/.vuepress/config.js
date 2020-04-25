@@ -1,5 +1,5 @@
 module.exports = {
-    title: "VuePress",
+    title: "DevTut",
     description: "Vue-powered Static Site Generator",
     themeConfig: {
       repo: "devtut/generate",
@@ -10,14 +10,14 @@ module.exports = {
       lastUpdated: "Last Updated",
       nav: [
         {
-          text: "Guide",
-          link: "/guide/",
+          text: "Python",
+          link: "/python/",
         },
       ],
       sidebar: {
-        "/guide/": [
+        "/python/": [
           {
-            title: "Guide",
+            title: "Python",
             collapsable: false,
             sidebarDepth: 2,
             children: [
