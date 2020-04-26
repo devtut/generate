@@ -30,7 +30,7 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 
 HandlerClass = SimpleHTTPRequestHandler
 ServerClass  = BaseHTTPServer.HTTPServer
-Protocol     = &quot;HTTP/1.0&quot;
+Protocol     = =HTTP/1.0=
 
 if sys.argv[1:]:
    port = int(sys.argv[1])
@@ -42,7 +42,7 @@ HandlerClass.protocol_version = Protocol
 httpd = ServerClass(server_address, HandlerClass)
 
 sa = httpd.socket.getsockname()
-print &quot;Serving HTTP on&quot;, sa[0], &quot;port&quot;, sa[1], &quot;...&quot;
+print =Serving HTTP on=, sa[0], =port=, sa[1], =...=
 httpd.serve_forever()
 
 ```
@@ -65,8 +65,8 @@ import SocketServer
 PORT = 8000
 
 handler = SimpleHTTPServer.SimpleHTTPRequestHandler
-httpd = SocketServer.TCPServer((&quot;localhost&quot;, PORT), handler)
-print &quot;Serving files at port {}&quot;.format(PORT)
+httpd = SocketServer.TCPServer((=localhost=, PORT), handler)
+print =Serving files at port {}=.format(PORT)
 httpd.serve_forever()
 
 ```
@@ -78,8 +78,8 @@ import socketserver
 PORT = 8000
 
 handler = http.server.SimpleHTTPRequestHandler
-httpd = socketserver.TCPServer((&quot;&quot;, PORT), handler)
-print(&quot;serving at port&quot;, PORT)
+httpd = socketserver.TCPServer((==, PORT), handler)
+print(=serving at port=, PORT)
 httpd.serve_forever()
 
 ```
@@ -133,13 +133,13 @@ The test function is invoked following request handlers and ServerClass. Now Bas
 
 ```
 def test(HandlerClass = BaseHTTPRequestHandler,
-         ServerClass = HTTPServer, protocol=&quot;HTTP/1.0&quot;):
-&quot;&quot;&quot;Test the HTTP request handler class.
+         ServerClass = HTTPServer, protocol==HTTP/1.0=):
+===Test the HTTP request handler class.
 
 This runs an HTTP server on port 8000 (or the first command line
 argument).
 
-&quot;&quot;&quot;
+===
 
 if sys.argv[1:]:
     port = int(sys.argv[1])
@@ -151,7 +151,7 @@ HandlerClass.protocol_version = protocol
 httpd = ServerClass(server_address, HandlerClass)
 
 sa = httpd.socket.getsockname()
-print &quot;Serving HTTP on&quot;, sa[0], &quot;port&quot;, sa[1], &quot;...&quot;
+print =Serving HTTP on=, sa[0], =port=, sa[1], =...=
 httpd.serve_forever()
 
 ```
@@ -196,14 +196,14 @@ class HandleRequests(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._set_headers()
-        self.wfile.write(&quot;received get request&quot;)
+        self.wfile.write(=received get request=)
         
     def do_POST(self):
         '''Reads post request body'''
         self._set_headers()
         content_len = int(self.headers.getheader('content-length', 0))
         post_body = self.rfile.read(content_len)
-        self.wfile.write(&quot;received post request:<br>{}&quot;.format(post_body))
+        self.wfile.write(=received post request:<br>{}=.format(post_body))
 
     def do_PUT(self):
         self.do_POST()

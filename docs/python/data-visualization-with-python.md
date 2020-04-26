@@ -81,7 +81,7 @@ y = [i**2 for i in x]
 # Plot the data x, y with some keyword arguments that control the plot style.
 # Use two different plot commands to plot both points (scatter) and a line (plot).
 
-plt.scatter(x, y, c='blue', marker='x', s=100) # Create blue markers of shape &quot;x&quot; and size 100
+plt.scatter(x, y, c='blue', marker='x', s=100) # Create blue markers of shape =x= and size 100
 plt.plot(x, y, color='red', linewidth=2) # Create a red line with linewidth 2.
 
 # Add some text to the axes and a title.

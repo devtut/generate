@@ -12,17 +12,17 @@ Basic example:
 ```
 from bs4 import BeautifulSoup
 
-data = &quot;&quot;&quot;
+data = ===
 <ul>
-    <li class=&quot;item&quot;>item1</li>
-    <li class=&quot;item&quot;>item2</li>
-    <li class=&quot;item&quot;>item3</li>
+    <li class==item=>item1</li>
+    <li class==item=>item2</li>
+    <li class==item=>item3</li>
 </ul>
-&quot;&quot;&quot;
+===
 
-soup = BeautifulSoup(data, &quot;html.parser&quot;)
+soup = BeautifulSoup(data, =html.parser=)
 
-for item in soup.select(&quot;li.item&quot;):
+for item in soup.select(=li.item=):
     print(item.get_text())
 
 ```
@@ -51,23 +51,23 @@ Imagine you have the following HTML:
 
 ```
 
-And you need to locate the text &quot;John Smith&quot; after the `label` element.
+And you need to locate the text =John Smith= after the `label` element.
 
 In this case, you can locate the `label` element by text and then use [`.next_sibling` property](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#next-sibling-and-previous-sibling):
 
 ```
 from bs4 import BeautifulSoup
 
-data = &quot;&quot;&quot;
+data = ===
 <div>
     <label>Name:</label>
     John Smith
 </div>
-&quot;&quot;&quot;
+===
 
-soup = BeautifulSoup(data, &quot;html.parser&quot;)
+soup = BeautifulSoup(data, =html.parser=)
 
-label = soup.find(&quot;label&quot;, text=&quot;Name:&quot;)
+label = soup.find(=label=, text==Name:=)
 print(label.next_sibling.strip())
 
 ```
@@ -84,9 +84,9 @@ pyquery is a jquery-like library for python. It has very well support for css se
 ```
 from pyquery import PyQuery
 
-html = &quot;&quot;&quot;
+html = ===
 <h1>Sales</h1>
-<table id=&quot;table&quot;>
+<table id==table=>
 <tr>
     <td>Lorem</td>
     <td>46</td>
@@ -104,7 +104,7 @@ html = &quot;&quot;&quot;
     <td>90</td>
 </tr>
 </table>
-&quot;&quot;&quot;
+===
 
 doc = PyQuery(html)
 
@@ -119,7 +119,7 @@ for row in rows:
     name = PyQuery(row).find('td').eq(0).text()
     value = PyQuery(row).find('td').eq(1).text()
 
-    print &quot;%s\t  %s&quot; % (name, value) 
+    print =%s\t  %s= % (name, value) 
 
 ```
 

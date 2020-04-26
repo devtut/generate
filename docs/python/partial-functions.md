@@ -28,7 +28,7 @@ Let's suppose **y** can be one of **[3,4,5]** and let's say you don't want offer
 def raise(x, y):
     if y in (3,4,5):
         return x**y
-    raise NumberNotInRangeException(&quot;You should provide a valid exponent&quot;)
+    raise NumberNotInRangeException(=You should provide a valid exponent=)
 
 ```
 

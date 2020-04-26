@@ -61,7 +61,7 @@ def t_newline( t ):
   t.lexer.lineno += len( t.value )
 
 def t_error( t ):
-  print(&quot;Invalid Token:&quot;,t.value[0])
+  print(=Invalid Token:=,t.value[0])
   t.lexer.skip( 1 )
 
 lexer = lex.lex()
@@ -92,7 +92,7 @@ def p_mult_div( p ) :
         p[0] = p[1] * p[3]
     else :
         if p[3] == 0 :
-            print(&quot;Can't divide by 0&quot;)
+            print(=Can't divide by 0=)
             raise ZeroDivisionError('integer division by 0')
         p[0] = p[1] / p[3]
 
@@ -105,11 +105,11 @@ def p_parens( p ) :
     p[0] = p[2]
 
 def p_error( p ):
-    print(&quot;Syntax error in input!&quot;)
+    print(=Syntax error in input!=)
 
 parser = yacc.yacc()
 
-res = parser.parse(&quot;-4*-(3-5)&quot;) # the input
+res = parser.parse(=-4*-(3-5)=) # the input
 print(res)
 
 ```
@@ -172,7 +172,7 @@ This section provides a simple example of how to **tokenize** user input, and th
 
     # Error handling rule
     def t_error(t):
-        print(&quot;Illegal character '%s'&quot; % t.value[0])
+        print(=Illegal character '%s'= % t.value[0])
         t.lexer.skip(1)
 
     # Build the lexer
@@ -289,7 +289,7 @@ If nothing is returned from a regex rule function, the token is discarded. If yo
 </code></pre>
 <h3></h3>
 <sup>This is of course invalid if you're carrying out some action when you see a comment. In which case, use a function to define the regex rule.</sup>
-If you haven't defined a token for some characters but still want to ignore it, use `t_ignore = &quot;<characters to ignore>&quot;` (these prefixes are necessary):
+If you haven't defined a token for some characters but still want to ignore it, use `t_ignore = =<characters to ignore>=` (these prefixes are necessary):
 <pre><code>   t_ignore_COMMENT = r'\#.*'
    t_ignore  = ' \t'    # ignores spaces and tabs
 </code></pre>
@@ -314,7 +314,7 @@ Define a list of literals as such:</p>
 <pre><code>literals = [ '+', '-', '*', '/' ]
 </code></pre>
 or,
-<pre><code>literals = &quot;+-*/&quot;
+<pre><code>literals = =+-*/=
 </code></pre>
 <h3></h3>
 It is possible to write token functions that perform additional actions when literals are matched. However, you'll need to set the token type appropriately. For example:
@@ -333,7 +333,7 @@ def t_lbrace(t):
 Handle errors with t_error function.
 <pre><code># Error handling rule
 def t_error(t):
-    print(&quot;Illegal character '%s'&quot; % t.value[0])
+    print(=Illegal character '%s'= % t.value[0])
     t.lexer.skip(1) # skip the illegal token (don't process it)
 </code></pre>
 In general, `t.lexer.skip(n)` skips n characters in the input string.
@@ -367,7 +367,7 @@ You can also put everything inside a class and call use instance of the class to
 
  m = MyLexer()
  m.build()           # Build the lexer
- m.test(&quot;3 + 4&quot;)     #
+ m.test(=3 + 4=)     #
 
 ```
 
@@ -432,7 +432,7 @@ def p_factor_expr(p):
 
 # Error rule for syntax errors
 def p_error(p):
-    print(&quot;Syntax error in input!&quot;)
+    print(=Syntax error in input!=)
 
 # Build the parser
 parser = yacc.yacc()
@@ -462,7 +462,7 @@ Each grammar rule is defined by a function where the docstring to that function 
 </li>
 
 <li>
-For tokens, the &quot;value&quot; of the corresponding `p[i]` is the same as the `p.value` attribute assigned in the lexer module. So, `PLUS` will have the value `+`.
+For tokens, the =value= of the corresponding `p[i]` is the same as the `p.value` attribute assigned in the lexer module. So, `PLUS` will have the value `+`.
 </li>
 <li>
 <p>For non-terminals, the value is determined by whatever is placed in `p[0]`. If nothing is placed, the value is None.

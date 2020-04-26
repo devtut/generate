@@ -11,11 +11,11 @@ from openpyxl import Workbook
 from datetime import datetime
 
 dt = datetime.now()
-list_values = [[&quot;01/01/2016&quot;, &quot;05:00:00&quot;, 3], \
-               [&quot;01/02/2016&quot;, &quot;06:00:00&quot;, 4], \
-               [&quot;01/03/2016&quot;, &quot;07:00:00&quot;, 5], \
-               [&quot;01/04/2016&quot;, &quot;08:00:00&quot;, 6], \
-               [&quot;01/05/2016&quot;, &quot;09:00:00&quot;, 7]]
+list_values = [[=01/01/2016=, =05:00:00=, 3], \
+               [=01/02/2016=, =06:00:00=, 4], \
+               [=01/03/2016=, =07:00:00=, 5], \
+               [=01/04/2016=, =08:00:00=, 6], \
+               [=01/05/2016=, =09:00:00=, 7]]
 
 # Create a Workbook on Excel:
 wb = Workbook()
@@ -36,12 +36,12 @@ for item in list_values:
     sheet['C'+str(row)] = item[2]
 
 # Save a file by date:
-filename = 'data_' + dt.strftime(&quot;%Y%m%d_%I%M%S&quot;) + '.xlsx'
+filename = 'data_' + dt.strftime(=%Y%m%d_%I%M%S=) + '.xlsx'
 wb.save(filename)
 
 # Open the file for the user:
 os.chdir(sys.path[0])
-os.system('start excel.exe &quot;%s\\%s&quot;' % (sys.path[0], filename, ))
+os.system('start excel.exe =%s\\%s=' % (sys.path[0], filename, ))
 
 ```
 

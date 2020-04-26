@@ -22,8 +22,8 @@ We want to create the same subdir1, subdir2 under a new directory dir2, which do
 ```
 import os
 
-os.makedirs(&quot;./dir2/subdir1&quot;)
-os.makedirs(&quot;./dir2/subdir2&quot;)
+os.makedirs(=./dir2/subdir1=)
+os.makedirs(=./dir2/subdir2=)
 
 ```
 
@@ -44,7 +44,7 @@ dir2 is only created the first time it is needed, for subdir1's creation.
 If we had used **os.mkdir** instead, we would have had an exception because dir2 would not have existed yet.
 
 ```
-    os.mkdir(&quot;./dir2/subdir1&quot;)
+    os.mkdir(=./dir2/subdir1=)
 OSError: [Errno 2] No such file or directory: './dir2/subdir1'
 
 ```
@@ -60,15 +60,15 @@ However, this could easily be fixed by catching the exception and checking that 
 
 ```
 try:
-    os.makedirs(&quot;./dir2/subdir1&quot;)
+    os.makedirs(=./dir2/subdir1=)
 except OSError:
-    if not os.path.isdir(&quot;./dir2/subdir1&quot;):
+    if not os.path.isdir(=./dir2/subdir1=):
         raise
 
 try:
-    os.makedirs(&quot;./dir2/subdir2&quot;)
+    os.makedirs(=./dir2/subdir2=)
 except OSError:
-    if not os.path.isdir(&quot;./dir2/subdir2&quot;):
+    if not os.path.isdir(=./dir2/subdir2=):
         raise
 
 ```

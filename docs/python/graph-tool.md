@@ -84,7 +84,7 @@ c ->a;
 
 ```
 import pygraphviz as pgv
-G = pgv.AGraph(&quot;demo.dot&quot;)
+G = pgv.AGraph(=demo.dot=)
 G.draw('test', format='svg', prog='dot')
 
 ```

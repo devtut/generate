@@ -18,9 +18,9 @@ async def main():
 
 async def func():
     # Do time intensive stuff...
-    return &quot;Hello, world!&quot;
+    return =Hello, world!=
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 
@@ -38,9 +38,9 @@ def main():
 @asyncio.coroutine
 def func():
     # Do time intensive stuff..
-    return &quot;Hello, world!&quot;
+    return =Hello, world!=
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 
@@ -52,16 +52,16 @@ Here is an example that shows how two functions can be run asynchronously:
 import asyncio
 
 async def cor1():
-    print(&quot;cor1 start&quot;)
+    print(=cor1 start=)
     for i in range(10):
         await asyncio.sleep(1.5)
-        print(&quot;cor1&quot;, i)
+        print(=cor1=, i)
 
 async def cor2():
-    print(&quot;cor2 start&quot;)
+    print(=cor2 start=)
     for i in range(15):
         await asyncio.sleep(1)
-        print(&quot;cor2&quot;, i)
+        print(=cor2=, i)
 
 loop = asyncio.get_event_loop()
 cors = asyncio.wait([cor1(), cor2()])
@@ -90,17 +90,17 @@ def func(a, b):
 
 async def main(loop):
     executor = ThreadPoolExecutor()
-    result = await loop.run_in_executor(executor, func, &quot;Hello,&quot;, &quot; world!&quot;)
+    result = await loop.run_in_executor(executor, func, =Hello,=, = world!=)
     print(result)
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main(loop))
 
 
 ```
 
-Each event loop also has a &quot;default&quot; `Executor` slot that can be assigned to an `Executor`. To assign an `Executor` and schedule tasks from the loop you use the `set_default_executor()` method.
+Each event loop also has a =default= `Executor` slot that can be assigned to an `Executor`. To assign an `Executor` and schedule tasks from the loop you use the `set_default_executor()` method.
 
 ```
 import asyncio
@@ -112,10 +112,10 @@ def func(a, b):
 
 async def main(loop):
     # NOTE: Using `None` as the first parameter designates the `default` Executor.
-    result = await loop.run_in_executor(None, func, &quot;Hello,&quot;, &quot; world!&quot;)
+    result = await loop.run_in_executor(None, func, =Hello,=, = world!=)
     print(result)
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     loop = asyncio.get_event_loop()
     loop.set_default_executor(ThreadPoolExecutor())
     loop.run_until_complete(main(loop))
@@ -138,7 +138,7 @@ Contrast that to the `ProcessPoolExecutor` which spawns a new process for each t
 import asyncio
 import uvloop
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     asyncio.set_event_loop(uvloop.new_event_loop())
     # Do your stuff here ...
 
@@ -150,7 +150,7 @@ One can also change the event loop factory by setting the `EventLoopPolicy` to t
 import asyncio
 import uvloop
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
     loop = asyncio.new_event_loop()
 
@@ -231,7 +231,7 @@ session = aiohttp.ClientSession()                          # handles the context
 class EchoWebsocket:
     
     async def connect(self):
-        self.websocket = await session.ws_connect(&quot;wss://echo.websocket.org&quot;)
+        self.websocket = await session.ws_connect(=wss://echo.websocket.org=)
         
     async def send(self, message):
         self.websocket.send_str(message)
@@ -243,8 +243,8 @@ class EchoWebsocket:
 async def main():
     echo = EchoWebsocket()
     await echo.connect()
-    await echo.send(&quot;Hello World!&quot;)
-    print(await echo.receive())                            # &quot;Hello World!&quot;
+    await echo.send(=Hello World!=)
+    print(await echo.receive())                            # =Hello World!=
 
 
 if __name__ == '__main__':

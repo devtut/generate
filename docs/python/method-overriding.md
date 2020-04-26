@@ -10,15 +10,15 @@ Here is an example of basic overriding in Python (for the sake of clarity and co
 ```
 class Parent(object):
     def introduce(self):
-        print(&quot;Hello!&quot;)
+        print(=Hello!=)
 
     def print_name(self):
-        print(&quot;Parent&quot;)
+        print(=Parent=)
     
     
 class Child(Parent):
     def print_name(self):
-        print(&quot;Child&quot;)
+        print(=Child=)
     
     
 p = Parent()
@@ -40,5 +40,5 @@ Child
 
 When the `Child` class is created, it inherits the methods of the `Parent` class. This means that any methods that the parent class has, the child class will also have. In the example, the `introduce` is defined for the `Child` class because it is defined for `Parent`, despite not being defined explicitly in the class definition of `Child`.
 
-In this example, the overriding occurs when `Child` defines its own `print_name` method. If this method was not declared, then `c.print_name()` would have printed `&quot;Parent&quot;`. However, `Child` has overriden the `Parent`'s definition of `print_name`, and so now upon calling `c.print_name()`, the word `&quot;Child&quot;` is printed.
+In this example, the overriding occurs when `Child` defines its own `print_name` method. If this method was not declared, then `c.print_name()` would have printed `=Parent=`. However, `Child` has overriden the `Parent`'s definition of `print_name`, and so now upon calling `c.print_name()`, the word `=Child=` is printed.
 

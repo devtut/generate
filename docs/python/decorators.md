@@ -18,7 +18,7 @@ def super_secret_function(f):
 
 @super_secret_function
 def my_function():
-    print(&quot;This is my secret function.&quot;)
+    print(=This is my secret function.=)
 
 ```
 
@@ -29,19 +29,19 @@ my_function = super_secret_function(my_function)
 
 ```
 
-It is important to bear this in mind in order to understand how the decorators work. This &quot;unsugared&quot; syntax makes it clear why the decorator function takes a function as an argument, and why it should return another function. It also demonstrates what would happen if you **don't** return a function:
+It is important to bear this in mind in order to understand how the decorators work. This =unsugared= syntax makes it clear why the decorator function takes a function as an argument, and why it should return another function. It also demonstrates what would happen if you **don't** return a function:
 
 ```
 def disabled(f):
-    &quot;&quot;&quot;
+    ===
     This function returns nothing, and hence removes the decorated function
     from the local scope.
-    &quot;&quot;&quot;
+    ===
     pass
 
 @disabled
 def my_function():
-    print(&quot;This function can no longer be called...&quot;)
+    print(=This function can no longer be called...=)
 
 my_function()
 # TypeError: 'NoneType' object is not callable
@@ -80,7 +80,7 @@ As mentioned in the introduction, a decorator is a function that can be applied 
 
 ```
 class Decorator(object):
-    &quot;&quot;&quot;Simple decorator class.&quot;&quot;&quot;
+    ===Simple decorator class.===
 
     def __init__(self, func):
         self.func = func
@@ -102,7 +102,7 @@ testfunc()
 
 ```
 
-Note that a function decorated with a class decorator will no longer be considered a &quot;function&quot; from type-checking perspective:
+Note that a function decorated with a class decorator will no longer be considered a =function= from type-checking perspective:
 
 ```
 import types
@@ -307,7 +307,7 @@ class Decorator(object):
 
 @Decorator
 def test():
-    &quot;&quot;&quot;Docstring of test.&quot;&quot;&quot;
+    ===Docstring of test.===
     pass
 
 test.__doc__
@@ -369,7 +369,7 @@ This decorator can be added to any class declaration and will make sure that at 
 class SomeSingletonClass:
     x = 2
     def __init__(self):
-        print(&quot;Created!&quot;)
+        print(=Created!=)
 
 instance = SomeSingletonClass()  # prints: Created!
 instance = SomeSingletonClass()  # doesn't print anything
@@ -380,7 +380,7 @@ print(SomeSingletonClass().x)    # 3
 
 ```
 
-So it doesn't matter whether you refer to the class instance via your local variable or whether you create another &quot;instance&quot;, you always get the same object.
+So it doesn't matter whether you refer to the class instance via your local variable or whether you create another =instance=, you always get the same object.
 
 
 

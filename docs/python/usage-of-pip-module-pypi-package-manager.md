@@ -58,7 +58,7 @@ if __name__ == '__main__':
     try:
         import requests
     except ImportError:
-        print(&quot;To use this module you need 'requests' module&quot;)
+        print(=To use this module you need 'requests' module=)
         t = input('Install requests? y/n: ')
         if t == 'y':
             import pip

@@ -22,7 +22,7 @@ Below are the operators that can be overloaded in classes, along with the method
 |`**` Power|`__pow__(self, other[, modulo])`|`a1 ** a2`
 |`<<` Bitwise Left Shift|`__lshift__(self, other)`|`a1 << a2`
 |`>>` Bitwise Right Shift|`__rshift__(self, other)`|`a1 >> a2`
-|`&amp;` Bitwise AND|`__and__(self, other)`|`a1 &amp; a2`
+|`&` Bitwise AND|`__and__(self, other)`|`a1 & a2`
 |`^` Bitwise XOR|`__xor__(self, other)`|`a1 ^ a2`
 |`|` (Bitwise OR)|`__or__(self, other)`|`a1 | a2`
 |`-` Negation (Arithmetic)|`__neg__(self)`|`-a1`
@@ -40,7 +40,7 @@ Below are the operators that can be overloaded in classes, along with the method
 
 **The optional parameter `modulo` for `__pow__` is only used by the `pow` built-in function.**
 
-Each of the methods corresponding to a **binary** operator has a corresponding &quot;right&quot; method which start with `__r`, for example `__radd__`:
+Each of the methods corresponding to a **binary** operator has a corresponding =right= method which start with `__r`, for example `__radd__`:
 
 ```
 class A:
@@ -49,7 +49,7 @@ class A:
     def __add__(self, other):
         return self.a + other
     def __radd__(self, other):
-        print(&quot;radd&quot;)
+        print(=radd=)
         return other + self.a
 
 A(1) + 2  # Out:  3
@@ -65,7 +65,7 @@ class B:
         self.b = b
     def __iadd__(self, other):
         self.b += other
-        print(&quot;iadd&quot;)
+        print(=iadd=)
         return self
 
 b = B(2)
@@ -86,7 +86,7 @@ Some of these uses are listed below.
 |Casting to `unicode`|`__unicode__(self)`|`unicode(a1)` (Python 2 only)
 |String representation|`__repr__(self)`|`repr(a1)`
 |Casting to `bool`|`__nonzero__(self)`|`bool(a1)`
-|String formatting|`__format__(self, formatstr)`|`&quot;Hi {:abc}&quot;.format(a1)`
+|String formatting|`__format__(self, formatstr)`|`=Hi {:abc}=.format(a1)`
 |Hashing|`__hash__(self)`|`hash(a1)`
 |Length|`__len__(self)`|`len(a1)`
 |Reversed|`__reversed__(self)`|`reversed(a1)`
@@ -150,7 +150,7 @@ v = Vector(1, 4)
 u = Vector(2, 0)
 
 u + v           # Vector(3, 4)
-print(u + v)    # &quot;<3, 4>&quot; (implicit string conversion)
+print(u + v)    # =<3, 4>= (implicit string conversion)
 u - v           # Vector(1, -4)
 u == v          # False
 u + v == v + u  # True
@@ -287,7 +287,7 @@ In use:
 >>> y = Addable(2)
 >>> x + x
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unsupported operand type(s) for +: 'NotAddable' and 'NotAddable'
 >>> y + y
 <so.Addable object at 0x1095974d0>

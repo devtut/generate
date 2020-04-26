@@ -13,7 +13,7 @@ PyAudio provides Python bindings for PortAudio, the cross-platform audio I/O lib
 
 
 ```
-&quot;&quot;&quot;PyAudio Example: Play a wave file (callback version).&quot;&quot;&quot;
+===PyAudio Example: Play a wave file (callback version).===
 
 import pyaudio
 import wave
@@ -21,7 +21,7 @@ import time
 import sys
 
 if len(sys.argv) < 2:
-    print(&quot;Plays a wave file.\n\nUsage: %s filename.wav&quot; % sys.argv[0])
+    print(=Plays a wave file.\n\nUsage: %s filename.wav= % sys.argv[0])
     sys.exit(-1)
 
 wf = wave.open(sys.argv[1], 'rb')
@@ -69,7 +69,7 @@ To keep the stream active, the main thread must not terminate, e.g., by sleeping
 ## Blocking Mode Audio I/O
 
 
-&quot;&quot;&quot;PyAudio Example: Play a wave file.&quot;&quot;&quot;
+===PyAudio Example: Play a wave file.===
 
 ```
 import pyaudio
@@ -79,7 +79,7 @@ import sys
 CHUNK = 1024
 
 if len(sys.argv) < 2:
-    print(&quot;Plays a wave file.\n\nUsage: %s filename.wav&quot; % sys.argv[0])
+    print(=Plays a wave file.\n\nUsage: %s filename.wav= % sys.argv[0])
     sys.exit(-1)
 
 wf = wave.open(sys.argv[1], 'rb')

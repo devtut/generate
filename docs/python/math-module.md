@@ -129,14 +129,14 @@ math.sin(math.radians(90))   # Sine of 90 degrees
 # Out: 1.0
 
 math.asin(1)
-# Out: 1.5707963267948966    # &quot;= pi / 2&quot;
+# Out: 1.5707963267948966    # == pi / 2=
 math.asin(1) / math.pi
 # Out: 0.5
 
 # Cosine and arc cosine:
 math.cos(math.pi / 2)
 # Out: 6.123233995736766e-17 
-# Almost zero but not exactly because &quot;pi&quot; is a float with limited precision!
+# Almost zero but not exactly because =pi= is a float with limited precision!
 
 math.acos(1)
 # Out: 0.0
@@ -144,33 +144,33 @@ math.acos(1)
 # Tangent and arc tangent:
 math.tan(math.pi/2)
 # Out: 1.633123935319537e+16 
-# Very large but not exactly &quot;Inf&quot; because &quot;pi&quot; is a float with limited precision
+# Very large but not exactly =Inf= because =pi= is a float with limited precision
 
 ```
 
 ```
 math.atan(math.inf)
-# Out: 1.5707963267948966 # This is just &quot;pi / 2&quot;
+# Out: 1.5707963267948966 # This is just =pi / 2=
 
 ```
 
 ```
 math.atan(float('inf'))
-# Out: 1.5707963267948966 # This is just &quot;pi / 2&quot;
+# Out: 1.5707963267948966 # This is just =pi / 2=
 
 ```
 
 Apart from the `math.atan` there is also a two-argument `math.atan2` function, which computes the correct quadrant and avoids pitfalls of division by zero:
 
 ```
-math.atan2(1, 2)   # Equivalent to &quot;math.atan(1/2)&quot;
+math.atan2(1, 2)   # Equivalent to =math.atan(1/2)=
 # Out: 0.4636476090008061 # ≈ 26.57 degrees, 1st quadrant
 
-math.atan2(-1, -2) # Not equal to &quot;math.atan(-1/-2)&quot; == &quot;math.atan(1/2)&quot;
+math.atan2(-1, -2) # Not equal to =math.atan(-1/-2)= == =math.atan(1/2)=
 # Out: -2.677945044588987 # ≈ -153.43 degrees (or 206.57 degrees), 3rd quadrant
 
 math.atan2(1, 0)   # math.atan(1/0) would raise ZeroDivisionError
-# Out: 1.5707963267948966 # This is just &quot;pi / 2&quot;
+# Out: 1.5707963267948966 # This is just =pi / 2=
 
 ```
 
@@ -249,7 +249,7 @@ math.log(1, 10)   # 0.0
 
 ```
 
-Python 3.5 and higher have constants for infinity and NaN (&quot;not a number&quot;). The older syntax of passing a string to `float()` still works.
+Python 3.5 and higher have constants for infinity and NaN (=not a number=). The older syntax of passing a string to `float()` still works.
 
 ```
 math.inf == float('inf')
@@ -269,12 +269,12 @@ math.nan == float('nan')
 ## Infinity and NaN ("not a number")
 
 
-In all versions of Python, we can represent infinity and NaN (&quot;not a number&quot;) as follows:
+In all versions of Python, we can represent infinity and NaN (=not a number=) as follows:
 
 ```
 pos_inf = float('inf')     # positive infinity
 neg_inf = float('-inf')    # negative infinity
-not_a_num = float('nan')   # NaN (&quot;not a number&quot;)
+not_a_num = float('nan')   # NaN (=not a number=)
 
 ```
 
@@ -365,7 +365,7 @@ try:
     x = 1.0 / 0.0
     print(x)
 except ZeroDivisionError:
-    print(&quot;Division by zero&quot;)
+    print(=Division by zero=)
 
 # Out: Division by zero
 
@@ -405,7 +405,7 @@ Out: True
 
 ```
 
-NaN always compares as &quot;not equal&quot;, but never less than or greater than:
+NaN always compares as =not equal=, but never less than or greater than:
 
 ```
 not_a_num != 5.0   # or any random value
@@ -416,7 +416,7 @@ not_a_num > 5.0   or   not_a_num < 5.0   or   not_a_num == 5.0
 
 ```
 
-Arithmetic operations on NaN always give NaN. This includes multiplication by -1: there is no &quot;negative NaN&quot;.
+Arithmetic operations on NaN always give NaN. This includes multiplication by -1: there is no =negative NaN=.
 
 ```
 5.0 * not_a_num
@@ -488,7 +488,7 @@ math.copysign(1, -0.0)  # -1.0, on a platform which supports signed zero
 ## Imaginary Numbers
 
 
-Imaginary numbers in Python are represented by a &quot;j&quot; or &quot;J&quot; trailing the target number.
+Imaginary numbers in Python are represented by a =j= or =J= trailing the target number.
 
 ```
 1j         # Equivalent to the square root of -1.
@@ -519,7 +519,7 @@ We must use `1j` since `j` would be the name of a variable rather than a numeric
 Out: (-1+0j)
 
 1j ** 1j
-# Out: (0.20787957635076193+0j)     # &quot;i to the i&quot;  ==  math.e ** -(math.pi/2)
+# Out: (0.20787957635076193+0j)     # =i to the i=  ==  math.e ** -(math.pi/2)
 
 ```
 
@@ -597,7 +597,7 @@ cmath.rect(math.sqrt(2), math.atan(1))
 
 ```
 
-The mathematical field of complex analysis is beyond the scope of this example, but many functions in the complex plane have a &quot;branch cut&quot;, usually along the real axis or the imaginary axis. Most modern platforms support &quot;signed zero&quot; as specified in IEEE 754, which provides continuity of those functions on both sides of the branch cut. The following example is from the Python documentation:
+The mathematical field of complex analysis is beyond the scope of this example, but many functions in the complex plane have a =branch cut=, usually along the real axis or the imaginary axis. Most modern platforms support =signed zero= as specified in IEEE 754, which provides continuity of those functions on both sides of the branch cut. The following example is from the Python documentation:
 
 ```
 cmath.phase(complex(-1.0, 0.0))
@@ -629,7 +629,7 @@ type(cmath.pi)
 
 ```
 
-The `cmath` module also provides complex versions of `isinf`, and (for Python 3.2+) `isfinite`. See &quot;[Infinity and NaN](http://stackoverflow.com/documentation/python/230/math-module/3973/infinity-and-nan-not-a-number)&quot;. A complex number is considered infinite if either its real part or its imaginary part is infinite.
+The `cmath` module also provides complex versions of `isinf`, and (for Python 3.2+) `isfinite`. See =[Infinity and NaN](http://stackoverflow.com/documentation/python/230/math-module/3973/infinity-and-nan-not-a-number)=. A complex number is considered infinite if either its real part or its imaginary part is infinite.
 
 ```
 cmath.isinf(complex(float('inf'), 0.0))
@@ -637,7 +637,7 @@ cmath.isinf(complex(float('inf'), 0.0))
 
 ```
 
-Likewise, the `cmath` module provides a complex version of `isnan`. See &quot;[Infinity and NaN](http://stackoverflow.com/documentation/python/230/math-module/3973/infinity-and-nan-not-a-number)&quot;. A complex number is considered &quot;not a number&quot; if either its real part or its imaginary part is &quot;not a number&quot;.
+Likewise, the `cmath` module provides a complex version of `isnan`. See =[Infinity and NaN](http://stackoverflow.com/documentation/python/230/math-module/3973/infinity-and-nan-not-a-number)=. A complex number is considered =not a number= if either its real part or its imaginary part is =not a number=.
 
 ```
 cmath.isnan(0.0, float('nan'))

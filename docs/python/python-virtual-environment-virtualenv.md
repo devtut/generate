@@ -1,9 +1,9 @@
 # Python Virtual Environment - virtualenv
 
 
-A Virtual Environment (&quot;virtualenv&quot;) is a tool to create isolated Python environments. It keeps the dependencies required by different projects in separate places, by creating virtual Python env for them. It solves the “project A depends on version 2.xxx but, project B needs 2.xxx” dilemma, and keeps your global site-packages directory clean and manageable.
+A Virtual Environment (=virtualenv=) is a tool to create isolated Python environments. It keeps the dependencies required by different projects in separate places, by creating virtual Python env for them. It solves the “project A depends on version 2.xxx but, project B needs 2.xxx” dilemma, and keeps your global site-packages directory clean and manageable.
 
-&quot;virtualenv&quot; creates a folder which contains all the necessary libs and bins to use the packages that a Python project would need.
+=virtualenv= creates a folder which contains all the necessary libs and bins to use the packages that a Python project would need.
 
 
 

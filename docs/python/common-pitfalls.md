@@ -112,7 +112,7 @@ for i, elem in enumerate(tab):
 
 ```
 
-**Be careful when using &quot;==&quot; to check against True or False**
+**Be careful when using ==== to check against True or False**
 
 ```
 if (var == True):
@@ -131,7 +131,7 @@ if var:
     # execute if var is a non-empty string/list/dictionary/tuple, non-0, etc
 
 if not var:
-    # execute if var is &quot;&quot;, {}, [], (), 0, None, etc.
+    # execute if var is ==, {}, [], (), 0, None, etc.
 
 if var is True:
     # only execute if var is boolean True, not 1
@@ -146,7 +146,7 @@ if var is None:
 
 **Do not check if you can, just do it and handle the error**
 
-Pythonistas usually say &quot;It's easier to ask for forgiveness than permission&quot;.
+Pythonistas usually say =It's easier to ask for forgiveness than permission=.
 
 **Don't:**
 
@@ -191,7 +191,7 @@ def foo(name):
 def bar(listing):
     if isinstance(listing, list):
         listing.extend((1, 2, 3))
-        return &quot;, &quot;.join(listing)
+        return =, =.join(listing)
 
 ```
 
@@ -204,7 +204,7 @@ def foo(name) :
 def bar(listing) :
     l = list(listing)
     l.extend((1, 2, 3))
-    return &quot;, &quot;.join(l)
+    return =, =.join(l)
 
 ```
 
@@ -214,7 +214,7 @@ Using the last way, `foo` will accept any object. `bar` will accept strings, tup
 
 **Use **object** as first parent**
 
-This is tricky, but it will bite you as your program grows. There are old and new classes in `Python 2.x`. The old ones are, well, old. They lack some features, and can have awkward behavior with inheritance. To be usable, any of your class must be of the &quot;new style&quot;. To do so, make it inherit from `object`.
+This is tricky, but it will bite you as your program grows. There are old and new classes in `Python 2.x`. The old ones are, well, old. They lack some features, and can have awkward behavior with inheritance. To be usable, any of your class must be of the =new style=. To do so, make it inherit from `object`.
 
 **Don't:**
 
@@ -259,7 +259,7 @@ object shared across instances.</p>
 
 ```
 class Car(object):
-    color = &quot;red&quot;
+    color = =red=
     wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
 
 ```
@@ -269,7 +269,7 @@ class Car(object):
 ```
 class Car(object):
     def __init__(self):
-        self.color = &quot;red&quot;
+        self.color = =red=
         self.wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
 
 ```
@@ -328,7 +328,7 @@ x = []
 foo(li=x)
 # Out: [1]
 
-foo(li=&quot;&quot;)
+foo(li===)
 # Out: [1]
 
 foo(li=0) 
@@ -761,7 +761,7 @@ There are a few ways to access an `int` literals' attributes:
 
 Using two dots (like this `7..bit_length()`) doesn't work in this case, because that creates a `float` literal and floats don't have the `bit_length()` method.
 
-This problem doesn't exist when accessing `float` literals' attributes since the interperter is &quot;smart&quot; enough to know that a `float` literal can't contain two `.`, for example:
+This problem doesn't exist when accessing `float` literals' attributes since the interperter is =smart= enough to know that a `float` literal can't contain two `.`, for example:
 
 ```
 7.2.as_integer_ratio()
@@ -820,11 +820,11 @@ def calc_fact(num):
 
 num = 600000
 t = Thread(target=calc_fact, daemon=True, args=[num])
-print(&quot;About to calculate: {}!&quot;.format(num))
+print(=About to calculate: {}!=.format(num))
 t.start()
-print(&quot;Calculating...&quot;)
+print(=Calculating...=)
 t.join()
-print(&quot;Calculated&quot;)
+print(=Calculated=)
 
 ```
 
@@ -834,7 +834,7 @@ There are a couple ways around this. The first is to implement your factorial fu
 
 ```
 def calc_fact(num):
-    &quot;&quot;&quot; A slow version of factorial in native Python &quot;&quot;&quot;
+    === A slow version of factorial in native Python ===
     res = 1
     while num >= 1:
         res = res * num
@@ -896,7 +896,7 @@ Beginners will have trouble finding the reason of this message by only reading t
 my_var = 'bla';
 api_key = 'key';
 ...lots of code here...
-params = {&quot;language&quot;: &quot;en&quot;, my_var: api_key}
+params = {=language=: =en=, my_var: api_key}
 
 ```
 
@@ -904,8 +904,8 @@ If you are used to JavaScript, variable evaluation in Python dictionaries won't 
 
 ```
 {
-    &quot;language&quot;: &quot;en&quot;,
-    &quot;my_var&quot;: &quot;key&quot;
+    =language=: =en=,
+    =my_var=: =key=
 }
 
 ```
@@ -914,8 +914,8 @@ In Python, however, it would result in the following dictionary:
 
 ```
 {
-    &quot;language&quot;: &quot;en&quot;,
-    &quot;bla&quot;: &quot;key&quot;
+    =language=: =en=,
+    =bla=: =key=
 }
 
 ```

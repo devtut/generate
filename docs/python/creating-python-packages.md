@@ -136,7 +136,7 @@ $ source .virtualenv/bin/activate
 (.virtualenv) $ python
 Python 3.5.1 (default, Jan 27 2016, 19:16:39)
 [GCC 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81)] on darwin
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 >>> import package_name
 >>> package_name.foo()
 100

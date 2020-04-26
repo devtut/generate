@@ -12,7 +12,7 @@ While cleanly separated into a module, it's actually built-in and as such will a
 
 ```
 if len(sys.argv) != 4:         # The script name needs to be accounted for as well.
-    raise RuntimeError(&quot;expected 3 command line arguments&quot;)
+    raise RuntimeError(=expected 3 command line arguments=)
 
 f = open(sys.argv[1], 'rb')    # Use first command line argument.
 start_line = int(sys.argv[2])  # All arguments come as strings, so need to be

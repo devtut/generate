@@ -14,26 +14,26 @@ A class, functions as a template that defines the basic characteristics of a par
 
 ```
 class Person(object):
-     &quot;&quot;&quot;A simple class.&quot;&quot;&quot;                            # docstring
-     species = &quot;Homo Sapiens&quot;                         # class attribute
+     ===A simple class.===                            # docstring
+     species = =Homo Sapiens=                         # class attribute
 
      def __init__(self, name):                        # special method
-         &quot;&quot;&quot;This is the initializer. It's a special
+         ===This is the initializer. It's a special
          method (see below).
-         &quot;&quot;&quot;
+         ===
          self.name = name                             # instance attribute
 
      def __str__(self):                               # special method
-         &quot;&quot;&quot;This method is run when Python tries 
+         ===This method is run when Python tries 
          to cast the object to a string. Return 
          this string when using print(), etc.
-         &quot;&quot;&quot;
+         ===
          return self.name
 
      def rename(self, renamed):                       # regular method
-         &quot;&quot;&quot;Reassign and print the name attribute.&quot;&quot;&quot;
+         ===Reassign and print the name attribute.===
          self.name = renamed
-         print(&quot;Now my name is {}&quot;.format(self.name))
+         print(=Now my name is {}=.format(self.name))
 
 ```
 
@@ -45,16 +45,16 @@ There are a few things to note when looking at the above example.
 1. Attributes that apply to the whole class are defined first, and are called **class attributes**.
 1. Attributes that apply to a specific instance of a class (an object) are called **instance attributes**. They are generally defined inside `__init__()`; this is not necessary, but it is recommended (since attributes defined outside of `__init__()` run the risk of being accessed before they are defined).
 1. Every method, included in the class definition passes the object in question as its first parameter. The word `self` is used for this parameter (usage of `self` is actually by convention, as the word `self` has no inherent meaning in Python, but this is one of Python's most respected conventions, and you should always follow it).
-1. Those used to object-oriented programming in other languages may be surprised by a few things. One is that Python has no real concept of `private` elements, so everything, by default, imitates the behavior of the C++/Java `public` keyword. For more information, see the &quot;Private Class Members&quot; example on this page.
-1. Some of the class's methods have the following form: `__functionname__(self, other_stuff)`. All such methods are called &quot;magic methods&quot; and are an important part of classes in Python. For instance, operator overloading in Python is implemented with magic methods. For more information, see [the relevant documentation](http://stackoverflow.com/documentation/python/2063/overloading/1113/magic-dunder-methods#t=201608092225343955327).
+1. Those used to object-oriented programming in other languages may be surprised by a few things. One is that Python has no real concept of `private` elements, so everything, by default, imitates the behavior of the C++/Java `public` keyword. For more information, see the =Private Class Members= example on this page.
+1. Some of the class's methods have the following form: `__functionname__(self, other_stuff)`. All such methods are called =magic methods= and are an important part of classes in Python. For instance, operator overloading in Python is implemented with magic methods. For more information, see [the relevant documentation](http://stackoverflow.com/documentation/python/2063/overloading/1113/magic-dunder-methods#t=201608092225343955327).
 
 Now let's make a few instances of our `Person` class!
 
 ```
 >>> # Instances
->>> kelly = Person(&quot;Kelly&quot;)
->>> joseph = Person(&quot;Joseph&quot;)
->>> john_doe = Person(&quot;John Doe&quot;)
+>>> kelly = Person(=Kelly=)
+>>> joseph = Person(=Joseph=)
+>>> john_doe = Person(=John Doe=)
 
 ```
 
@@ -85,7 +85,7 @@ We can execute the methods of the class using the same dot operator `.`:
 'John Doe'
 >>>  print(john_doe)
 'John Doe'
->>>  john_doe.rename(&quot;John&quot;)
+>>>  john_doe.rename(=John=)
 'Now my name is John'
 
 ```
@@ -149,11 +149,11 @@ A.f(1, 7)
 # Python 3: 14   
 a = A()
 A.f(a, 20)
-# Python 2 &amp; 3: 40
+# Python 2 & 3: 40
 
 ```
 
-Now suppose `a` is an instance of class `A`, what is `a.f` then? Well, intuitively this should be the same method `f` of class `A`, only it should somehow &quot;know&quot; that it was applied to the object `a` – in Python this is called method **bound** to `a`.
+Now suppose `a` is an instance of class `A`, what is `a.f` then? Well, intuitively this should be the same method `f` of class `A`, only it should somehow =know= that it was applied to the object `a` – in Python this is called method **bound** to `a`.
 
 The nitty-gritty details are as follows: writing `a.f` invokes the magic `__getattribute__` method of `a`, which first checks whether `a` has an attribute named `f` (it doesn't), then checks the class `A` whether it contains a method with such a name (it does), and creates a new object `m` of type `method` which has the reference to the original `A.f` in `m.__func__`, and a reference to the object `a` in `m.__self__`. When this object is called as a function, it simply does the following: `m(...) => m.__func__(m.__self__, ...)`. Thus this object is called a **bound method** because when invoked it knows to supply the object it was bound to as the first argument. (These things work same way in Python 2 and 3).
 
@@ -185,7 +185,7 @@ class D(object):
 
     @staticmethod
     def g(name):
-        print(&quot;Hello, %s&quot; % name)
+        print(=Hello, %s= % name)
 
 D.f
 # <bound method type.f of <class '__main__.D'>>
@@ -193,7 +193,7 @@ D.f(12)
 # 24
 D.g
 # <function D.g at ...>
-D.g(&quot;world&quot;)
+D.g(=world=)
 # Hello, world
 
 ```
@@ -314,7 +314,7 @@ isinstance(s, Square)
 ## Monkey Patching
 
 
-In this case, &quot;monkey patching&quot; means adding a new variable or method to a class after it's been defined. For instance, say we defined class `A` as
+In this case, =monkey patching= means adding a new variable or method to a class after it's been defined. For instance, say we defined class `A` as
 
 ```
 class A(object):
@@ -440,10 +440,10 @@ class Person(object):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-        self.full_name = first_name + &quot; &quot; + last_name
+        self.full_name = first_name + = = + last_name
     
     def greet(self):
-        print(&quot;Hello, my name is &quot; + self.full_name + &quot;.&quot;)
+        print(=Hello, my name is = + self.full_name + =.=)
 
 ```
 
@@ -454,16 +454,16 @@ class Person(object):
 
     def __init__(self, first_name, age, last_name=None):
         if last_name is None:
-            self.first_name, self.last_name = first_name.split(&quot; &quot;, 2)
+            self.first_name, self.last_name = first_name.split(= =, 2)
         else:
             self.first_name = first_name
             self.last_name = last_name
         
-        self.full_name = self.first_name + &quot; &quot; + self.last_name
+        self.full_name = self.first_name + = = + self.last_name
         self.age = age
 
     def greet(self):
-        print(&quot;Hello, my name is &quot; + self.full_name + &quot;.&quot;)
+        print(=Hello, my name is = + self.full_name + =.=)
 
 ```
 
@@ -485,17 +485,17 @@ class Person(object):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-        self.full_name = first_name + &quot; &quot; + last_name
+        self.full_name = first_name + = = + last_name
     
     @classmethod
     def from_full_name(cls, name, age):
-        if &quot; &quot; not in name:
+        if = = not in name:
             raise ValueError
-        first_name, last_name = name.split(&quot; &quot;, 2)
+        first_name, last_name = name.split(= =, 2)
         return cls(first_name, last_name, age)
     
     def greet(self):
-        print(&quot;Hello, my name is &quot; + self.full_name + &quot;.&quot;)
+        print(=Hello, my name is = + self.full_name + =.=)
 
 ```
 
@@ -504,9 +504,9 @@ Notice `cls` instead of `self` as the first argument to `from_full_name`. Class 
 To show that this works as expected, let's create instances of `Person` in more than one way without the branching in `__init__`:
 
 ```
-In [2]: bob = Person(&quot;Bob&quot;, &quot;Bobberson&quot;, 42)
+In [2]: bob = Person(=Bob=, =Bobberson=, 42)
 
-In [3]: alice = Person.from_full_name(&quot;Alice Henderson&quot;, 31)
+In [3]: alice = Person.from_full_name(=Alice Henderson=, 31)
 
 In [4]: bob.greet()
 Hello, my name is Bob Bobberson.
@@ -589,11 +589,11 @@ Another powerful feature in inheritance is `super`. super can fetch parent class
 ```
 class Foo(object):
     def foo_method(self):
-        print &quot;foo Method&quot;
+        print =foo Method=
 
 class Bar(object):
     def bar_method(self):
-        print &quot;bar Method&quot;
+        print =bar Method=
 
 class FooBar(Foo, Bar):
     def foo_method(self):
@@ -608,15 +608,15 @@ for below example  only Foo class **init** method getting called **Bar** class i
 ```
     class Foo(object):
         def __init__(self):
-            print &quot;foo init&quot;
+            print =foo init=
 
     class Bar(object):
         def __init__(self):
-            print &quot;bar init&quot;
+            print =bar init=
 
     class FooBar(Foo, Bar):
         def __init__(self):
-            print &quot;foobar init&quot;
+            print =foobar init=
             super(FooBar, self).__init__()
 
     a = FooBar()
@@ -660,17 +660,17 @@ Python classes support **properties**, which look like regular object variables,
 class MyClass(object):
 
     def __init__(self):
-       self._my_string = &quot;&quot;
+       self._my_string = ==
     
     @property
     def string(self):
-        &quot;&quot;&quot;A profoundly important string.&quot;&quot;&quot;
+        ===A profoundly important string.===
         return self._my_string
 
     @string.setter
     def string(self, new_value):
         assert isinstance(new_value, str), \
-               &quot;Give me a string, not a %r!&quot; % type(new_value)
+               =Give me a string, not a %r!= % type(new_value)
         self._my_string = new_value
 
     @string.deleter
@@ -683,7 +683,7 @@ The object's of class `MyClass` will **appear** to have have a property `.string
 
 ```
 mc = MyClass()
-mc.string = &quot;String!&quot;
+mc.string = =String!=
 print(mc.string)
 del mc.string
 
@@ -969,7 +969,7 @@ For example:
 
 ```
 
-It is common to look only for &quot;non-magic&quot; members. This can be done using a simple comprehension that lists members with names not starting with `__`:
+It is common to look only for =non-magic= members. This can be done using a simple comprehension that lists members with names not starting with `__`:
 
 ```
 >>> [m for m in dir(list) if not m.startswith('__')]
@@ -1017,7 +1017,7 @@ Another method is to decorate your class. Following the example from this [answe
 
 ```
 class Singleton:
-    &quot;&quot;&quot;
+    ===
     A non-thread-safe helper class to ease implementing singletons.
     This should be used as a decorator -- not a metaclass -- to the
     class that should be a singleton.
@@ -1031,18 +1031,18 @@ class Singleton:
 
     Limitations: The decorated class cannot be inherited from.
 
-    &quot;&quot;&quot;
+    ===
 
     def __init__(self, decorated):
         self._decorated = decorated
 
     def Instance(self):
-        &quot;&quot;&quot;
+        ===
         Returns the singleton instance. Upon its first call, it creates a
         new instance of the decorated class and calls its `__init__` method.
         On all subsequent calls, the already created instance is returned.
 
-        &quot;&quot;&quot;
+        ===
         try:
             return self._instance
         except AttributeError:

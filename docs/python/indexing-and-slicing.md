@@ -23,54 +23,54 @@ where,
 Examples:
 
 ```
-a = &quot;abcdef&quot;
-a            # &quot;abcdef&quot; 
+a = =abcdef=
+a            # =abcdef= 
              # Same as a[:] or a[::] since it uses the defaults for all three indices
-a[-1]        # &quot;f&quot;
-a[:]         # &quot;abcdef&quot; 
-a[::]        # &quot;abcdef&quot; 
-a[3:]        # &quot;def&quot; (from index 3, to end(defaults to size of iterable)) 
-a[:4]        # &quot;abcd&quot; (from beginning(default 0) to position 4 (excluded)) 
-a[2:4]       # &quot;cd&quot; (from position 2, to position 4 (excluded)) 
+a[-1]        # =f=
+a[:]         # =abcdef= 
+a[::]        # =abcdef= 
+a[3:]        # =def= (from index 3, to end(defaults to size of iterable)) 
+a[:4]        # =abcd= (from beginning(default 0) to position 4 (excluded)) 
+a[2:4]       # =cd= (from position 2, to position 4 (excluded)) 
 
 ```
 
 In addition, any of the above can be used with the step size defined:
 
 ```
-a[::2]       # &quot;ace&quot; (every 2nd element)
-a[1:4:2]     # &quot;bd&quot; (from index 1, to index 4 (excluded), every 2nd element)
+a[::2]       # =ace= (every 2nd element)
+a[1:4:2]     # =bd= (from index 1, to index 4 (excluded), every 2nd element)
 
 ```
 
 Indices can be negative, in which case they're computed from the end of the sequence
 
 ```
-a[:-1]     # &quot;abcde&quot; (from index 0 (default), to the second last element (last element - 1))
-a[:-2]     # &quot;abcd&quot; (from index 0 (default), to the third last element (last element -2))
-a[-1:]     # &quot;f&quot; (from the last element to the end (default len()) 
+a[:-1]     # =abcde= (from index 0 (default), to the second last element (last element - 1))
+a[:-2]     # =abcd= (from index 0 (default), to the third last element (last element -2))
+a[-1:]     # =f= (from the last element to the end (default len()) 
 
 ```
 
 Step sizes can also be negative, in which case slice will iterate through the list in reverse order:
 
 ```
-a[3:1:-1]   # &quot;dc&quot; (from index 2 to None (default), in reverse order)
+a[3:1:-1]   # =dc= (from index 2 to None (default), in reverse order)
 
 ```
 
 This construct is useful for reversing an iterable
 
 ```
-a[::-1]     # &quot;fedcba&quot; (from last element (default len()-1), to first, in reverse order(-1))
+a[::-1]     # =fedcba= (from last element (default len()-1), to first, in reverse order(-1))
 
 ```
 
 Notice that for negative steps the default `end_index` is `None` (see [http://stackoverflow.com/a/12521981](http://stackoverflow.com/a/12521981) )
 
 ```
-a[5:None:-1] # &quot;fedcba&quot; (this is equivalent to a[::-1])
-a[5:0:-1]    # &quot;fedcb&quot; (from the last element (index 5) to second element (index 1)
+a[5:None:-1] # =fedcba= (this is equivalent to a[::-1])
+a[5:0:-1]    # =fedcb= (from the last element (index 5) to second element (index 1)
 
 ```
 
@@ -276,7 +276,7 @@ If you try to access an index which is not present in the list, an `IndexError` 
 ```
 print arr[6]
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 IndexError: list index out of range
 
 ```
@@ -315,7 +315,7 @@ Slices are objects in themselves and can be stored in variables with the built-i
 
 |Paramer|Description
 |------
-|`obj`|The object that you want to extract a &quot;sub-object&quot; from
+|`obj`|The object that you want to extract a =sub-object= from
 |`start`|The index of `obj` that you want the sub-object to start from (keep in mind that Python is zero-indexed, meaning that the first item of `obj` has an index of `0`). If omitted, defaults to `0`.
 |`stop`|The (non-inclusive) index of `obj` that you want the sub-object to end at. If omitted, defaults to `len(obj)`.
 |`step`|Allows you to select only every `step` item. If omitted, defaults to `1`.

@@ -15,12 +15,12 @@ from flask import Flask
 from flask import render_template
 app = Flask(__name__)
 
-@app.route(&quot;/about&quot;)
+@app.route(=/about=)
 def about():
-    return render_template(&quot;about-us.html&quot;)
+    return render_template(=about-us.html=)
 
-if __name__ == &quot;__main__&quot;:
-    app.run(host=&quot;0.0.0.0&quot;, port=80, debug=True)
+if __name__ == =__main__=:
+    app.run(host==0.0.0.0=, port=80, debug=True)
 
 ```
 
@@ -43,7 +43,7 @@ This will use our template file `about-us.html`. To ensure our application can f
 
 Most importantly, references to these files in the HTML must look like this:
 
-`<link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;, href=&quot;{{url_for('static', filename='styles/about-style.css')}}&quot;>`
+`<link rel==stylesheet= type==text/css=, href=={{url_for('static', filename='styles/about-style.css')}}=>`
 
 which will direct the application to look for `about-style.css` in the styles folder under the static folder. The same format of path applies to all references to images, styles, scripts, or files.
 
@@ -65,10 +65,10 @@ app = Flask(__name__)
 # The function run on the index route
 def hello_world():
     # Returns the text to be displayed
-    return &quot;Hello World!&quot;
+    return =Hello World!=
 
 # If this script isn't an import
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     # Run the app until stopped
     app.run()
 
@@ -79,8 +79,8 @@ Running this script (with all the right dependencies installed) should start up 
 `app.run()` has three parameters, **host**, **port**, and **debug**. The host is by default `127.0.0.1`, but setting this to `0.0.0.0` will make your web server accessible from any device on your network using your private IP address in the URL. the port is by default 5000 but if the parameter is set to port `80`, users will not need to specify a port number as browsers use port 80 by default. As for the debug option, during the development process (never in production) it helps to set this parameter to True, as your server will restart when changes made to your Flask project.
 
 ```
-if __name__ == &quot;__main__&quot;:
-    app.run(host=&quot;0.0.0.0&quot;, port=80, debug=True)
+if __name__ == =__main__=:
+    app.run(host==0.0.0.0=, port=80, debug=True)
 
 ```
 
@@ -92,34 +92,34 @@ if __name__ == &quot;__main__&quot;:
 With Flask, URL routing is traditionally done using decorators. These decorators can be used for static routing, as well as routing URLs with parameters. For the following example, imagine this Flask script is running the website `www.example.com`.
 
 ```
-@app.route(&quot;/&quot;)
+@app.route(=/=)
 def index():
-    return &quot;You went to www.example.com&quot;
+    return =You went to www.example.com=
 
-@app.route(&quot;/about&quot;)
+@app.route(=/about=)
 def about():
-    return &quot;You went to www.example.com/about&quot;
+    return =You went to www.example.com/about=
 
-@app.route(&quot;/users/guido-van-rossum&quot;)
-    return &quot;You went to www.example.com/guido-van-rossum&quot;
+@app.route(=/users/guido-van-rossum=)
+    return =You went to www.example.com/guido-van-rossum=
 
 ```
 
 With that last route, you can see that given a URL with /users/ and the profile name, we could return a profile. Since it would be horribly inefficient and messy to include a `@app.route()` for every user, Flask offers to take parameters from the URL:
 
 ```
-@app.route(&quot;/users/<username>&quot;)
+@app.route(=/users/<username>=)
 def profile(username):
-    return &quot;Welcome to the profile of &quot; + username
+    return =Welcome to the profile of = + username
 
-cities = [&quot;OMAHA&quot;, &quot;MELBOURNE&quot;, &quot;NEPAL&quot;, &quot;STUTTGART&quot;, &quot;LIMA&quot;, &quot;CAIRO&quot;, &quot;SHANGHAI&quot;]
+cities = [=OMAHA=, =MELBOURNE=, =NEPAL=, =STUTTGART=, =LIMA=, =CAIRO=, =SHANGHAI=]
 
-@app.route(&quot;/stores/locations/<city>&quot;)
+@app.route(=/stores/locations/<city>=)
 def storefronts(city):
     if city in cities:
-        return &quot;Yes! We are located in &quot; + city
+        return =Yes! We are located in = + city
     else:
-        return &quot;No. We are not located in &quot; + city
+        return =No. We are not located in = + city
 
 ```
 
@@ -131,15 +131,15 @@ def storefronts(city):
 The two most common HTTP methods are **GET** and **POST**. Flask can run different code from the same URL dependent on the HTTP method used. For example, in a web service with accounts, it is most convenient to route the sign in page and the sign in process through the same URL. A GET request, the same that is made when you open a URL in your browser should show the login form, while a POST request (carrying login data) should be processed separately. A route is also created to handle the DELETE and PUT HTTP method.
 
 ```
-@app.route(&quot;/login&quot;, methods=[&quot;GET&quot;])
+@app.route(=/login=, methods=[=GET=])
 def login_form():
-    return &quot;This is the login form&quot;
-@app.route(&quot;/login&quot;, methods=[&quot;POST&quot;])
+    return =This is the login form=
+@app.route(=/login=, methods=[=POST=])
 def login_auth():
-    return &quot;Processing your data&quot;
-@app.route(&quot;/login&quot;, methods=[&quot;DELETE&quot;, &quot;PUT&quot;])
+    return =Processing your data=
+@app.route(=/login=, methods=[=DELETE=, =PUT=])
 def deny():
-    return &quot;This method is not allowed&quot;
+    return =This method is not allowed=
 
 ```
 
@@ -148,14 +148,14 @@ To simplify the code a bit, we can import the `request` package from flask.
 ```
 from flask import request
 
-@app.route(&quot;/login&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PUT&quot;])
+@app.route(=/login=, methods=[=GET=, =POST=, =DELETE=, =PUT=])
 def login():
-    if request.method == &quot;DELETE&quot; or request.method == &quot;PUT&quot;:
-        return &quot;This method is not allowed&quot;
-    elif request.method == &quot;GET&quot;:
-        return &quot;This is the login forum&quot;
-    elif request.method == &quot;POST&quot;:
-        return &quot;Processing your data&quot;
+    if request.method == =DELETE= or request.method == =PUT=:
+        return =This method is not allowed=
+    elif request.method == =GET=:
+        return =This is the login forum=
+    elif request.method == =POST=:
+        return =Processing your data=
 
 ```
 
@@ -163,14 +163,14 @@ To retrieve data from the POST request, we must use the `request` package:
 
 ```
 from flask import request
-@app.route(&quot;/login&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PUT&quot;])
+@app.route(=/login=, methods=[=GET=, =POST=, =DELETE=, =PUT=])
 def login():
-    if request.method == &quot;DELETE&quot; or request.method == &quot;PUT&quot;:
-        return &quot;This method is not allowed&quot;
-    elif request.method == &quot;GET&quot;:
-        return &quot;This is the login forum&quot;
-    elif request.method == &quot;POST&quot;:
-        return &quot;Username was &quot; + request.form[&quot;username&quot;] + &quot; and password was &quot; + request.form[&quot;password&quot;]
+    if request.method == =DELETE= or request.method == =PUT=:
+        return =This method is not allowed=
+    elif request.method == =GET=:
+        return =This is the login forum=
+    elif request.method == =POST=:
+        return =Username was = + request.form[=username=] + = and password was = + request.form[=password=]
 
 ```
 
@@ -184,12 +184,12 @@ Similar to Meteor.js, Flask integrates well with front end templating services. 
 When we render a template, any parameters beyond the template file name are passed into the HTML templating service. The following route will pass the username and joined date (from a function somewhere else) into the HTML.
 
 ```
-@app.route(&quot;/users/<username>)
+@app.route(=/users/<username>)
 def profile(username):
     joinedDate = get_joined_date(username) # This function's code is irrelevant
     awards = get_awards(username) # This function's code is irrelevant
     # The joinDate is a string and awards is an array of strings
-    return render_template(&quot;profile.html&quot;, username=username, joinDate=joinDate, awards=awards)
+    return render_template(=profile.html=, username=username, joinDate=joinDate, awards=awards)
 
 ```
 
@@ -251,21 +251,21 @@ from flask import request
 In previous examples `request.method` and `request.form` were used, however we can also use the `request.args` property to retrieve a dictionary of the keys/values in the URL parameters.
 
 ```
-@app.route(&quot;/api/users/<username>&quot;)
+@app.route(=/api/users/<username>=)
 def user_api(username):
     try:
-        token = request.args.get(&quot;key&quot;)
-        if key == &quot;pA55w0Rd&quot;:
+        token = request.args.get(=key=)
+        if key == =pA55w0Rd=:
             if isUser(username): # The code of this method is irrelevant
                 joined = joinDate(username) # The code of this method is irrelevant
-                return &quot;User &quot; + username + &quot; joined on &quot; + joined
+                return =User = + username + = joined on = + joined
             else:
-                return &quot;User not found&quot;
+                return =User not found=
         else:
-            return &quot;Incorrect key&quot;
+            return =Incorrect key=
     # If there is no key parameter
     except KeyError:
-        return &quot;No key provided&quot;
+        return =No key provided=
 
 ```
 
@@ -278,10 +278,10 @@ To correctly authenticate in this context, the following URL would be needed (re
 If a file upload was part of the submitted form in a POST request, the files can be handled using the `request` object:
 
 ```
-@app.route(&quot;/upload&quot;, methods=[&quot;POST&quot;])
+@app.route(=/upload=, methods=[=POST=])
 def upload_file():
-    f = request.files[&quot;wordlist-upload&quot;]
-    f.save(&quot;/var/www/uploads/&quot; + f.filename) # Store with the original filename
+    f = request.files[=wordlist-upload=]
+    f.save(=/var/www/uploads/= + f.filename) # Store with the original filename
 
 ```
 
@@ -290,13 +290,13 @@ def upload_file():
 The request may also include cookies in a dictionary similar to the URL parameters.
 
 ```
-@app.route(&quot;/home&quot;)
+@app.route(=/home=)
 def home():
     try:
-        username = request.cookies.get(&quot;username&quot;)
-        return &quot;Your stored username is &quot; + username
+        username = request.cookies.get(=username=)
+        return =Your stored username is = + username
     except KeyError:
-        return &quot;No username cookies was found&quot;)
+        return =No username cookies was found=)
 
 ```
 
@@ -305,6 +305,6 @@ def home():
 #### Syntax
 
 
-- @app.route(&quot;/urlpath&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PUTS&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;])
-- @app.route(&quot;/urlpath/<param>&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;, &quot;DELETE&quot;, &quot;PUTS&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;])
+- @app.route(=/urlpath=, methods=[=GET=, =POST=, =DELETE=, =PUTS=, =HEAD=, =OPTIONS=])
+- @app.route(=/urlpath/<param>=, methods=[=GET=, =POST=, =DELETE=, =PUTS=, =HEAD=, =OPTIONS=])
 

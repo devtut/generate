@@ -11,8 +11,8 @@ In Python, the `itertools.groupby()` method allows developers to group values of
 In this example we see what happens when we use different types of iterable.
 
 ```
-things = [(&quot;animal&quot;, &quot;bear&quot;), (&quot;animal&quot;, &quot;duck&quot;), (&quot;plant&quot;, &quot;cactus&quot;), (&quot;vehicle&quot;, &quot;harley&quot;), \
-          (&quot;vehicle&quot;, &quot;speed boat&quot;), (&quot;vehicle&quot;, &quot;school bus&quot;)]
+things = [(=animal=, =bear=), (=animal=, =duck=), (=plant=, =cactus=), (=vehicle=, =harley=), \
+          (=vehicle=, =speed boat=), (=vehicle=, =school bus=)]
 dic = {}
 f = lambda x: x[0]
 for key, group in groupby(sorted(things, key=f), f):
@@ -35,8 +35,8 @@ Results in
 This example below is essentially the same as the one above it. The only difference is that I have changed all the tuples to lists.
 
 ```
-things = [[&quot;animal&quot;, &quot;bear&quot;], [&quot;animal&quot;, &quot;duck&quot;], [&quot;vehicle&quot;, &quot;harley&quot;], [&quot;plant&quot;, &quot;cactus&quot;], \
-          [&quot;vehicle&quot;, &quot;speed boat&quot;], [&quot;vehicle&quot;, &quot;school bus&quot;]]
+things = [[=animal=, =bear=], [=animal=, =duck=], [=vehicle=, =harley=], [=plant=, =cactus=], \
+          [=vehicle=, =speed boat=], [=vehicle=, =school bus=]]
 dic = {}
 f = lambda x: x[0]
 for key, group in groupby(sorted(things, key=f), f):

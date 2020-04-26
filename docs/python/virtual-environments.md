@@ -236,7 +236,7 @@ Find more commands and features in the official [conda documentation](http://con
 ## Installing packages in a virtual environment
 
 
-Once your virtual environment has been activated, any package that you install will now be installed in the `virtualenv` &amp; not globally. Hence, new packages can be without needing root privileges.
+Once your virtual environment has been activated, any package that you install will now be installed in the `virtualenv` & not globally. Hence, new packages can be without needing root privileges.
 
 To verify that the packages are being installed into the `virtualenv` run the following command to check the path of the executable that is being used :
 
@@ -425,13 +425,13 @@ Install virtualfish to the global space
 </li>
 <li>
 Load the python module virtualfish during the fish shell startup
-<pre><code> $ echo &quot;eval (python -m virtualfish)&quot; > ~/.config/fish/config.fish
+<pre><code> $ echo =eval (python -m virtualfish)= > ~/.config/fish/config.fish
 </code></pre>
 </li>
 <li>
 Edit this function `fish_prompt` by `$ funced fish_prompt --editor vim` and add the below lines and close the vim editor
 <pre><code> if set -q VIRTUAL_ENV
-     echo -n -s (set_color -b blue white) &quot;(&quot; (basename &quot;$VIRTUAL_ENV&quot;) &quot;)&quot; (set_color normal) &quot; &quot;
+     echo -n -s (set_color -b blue white) =(= (basename =$VIRTUAL_ENV=) =)= (set_color normal) = =
  end
 </code></pre>
 Note: If you are unfamiliar with vim, simply supply your favorite editor like this `$ funced fish_prompt --editor nano` or `$ funced fish_prompt --editor gedit`
@@ -453,7 +453,7 @@ If you want create a new python3 environment specify it via `-p` flag
 </code></pre>
 </li>
 <li>
-To switch between virtualenvironments use `vf deactivate` &amp; `vf activate another_env`
+To switch between virtualenvironments use `vf deactivate` & `vf activate another_env`
 </li>
 
 Official Links:

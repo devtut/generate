@@ -6,13 +6,13 @@
 ## Simple example
 
 
-For Python, Guido van Rossum based the grouping of statements on indentation. The reasons for this are explained in [the first section of the &quot;Design and History Python FAQ&quot;](https://docs.python.org/3/faq/design.html). Colons, `:`, are used to [declare an indented code block](https://docs.python.org/3/faq/design.html#why-are-colons-required-for-the-if-while-def-class-statements), such as the following example:
+For Python, Guido van Rossum based the grouping of statements on indentation. The reasons for this are explained in [the first section of the =Design and History Python FAQ=](https://docs.python.org/3/faq/design.html). Colons, `:`, are used to [declare an indented code block](https://docs.python.org/3/faq/design.html#why-are-colons-required-for-the-if-while-def-class-statements), such as the following example:
 
 ```
 class ExampleClass:
     #Every function belonging to a class must be indented equally
     def __init__(self):
-        name = &quot;example&quot;
+        name = =example=
 
     def someFunction(self, a):
         #Notice everything belonging to a function must be indented
@@ -44,13 +44,13 @@ The recommended [indentation is 4 spaces](https://www.python.org/dev/peps/pep-00
 
 Whitespace is handled by the lexical analyzer before being parsed.
 
-The lexical analyzer uses a stack to store indentation levels. At the beginning, the stack contains just the value 0, which is the leftmost position. Whenever a nested block begins, the new indentation level is pushed on the stack, and an &quot;INDENT&quot; token is inserted into the token stream which is passed to the parser. There can never be more than one &quot;INDENT&quot; token in a row (`IndentationError`).
+The lexical analyzer uses a stack to store indentation levels. At the beginning, the stack contains just the value 0, which is the leftmost position. Whenever a nested block begins, the new indentation level is pushed on the stack, and an =INDENT= token is inserted into the token stream which is passed to the parser. There can never be more than one =INDENT= token in a row (`IndentationError`).
 
-When a line is encountered with a smaller indentation level, values are popped from the stack until a value is on top which is equal to the new indentation level (if none is found, a syntax error occurs). For each value popped, a &quot;DEDENT&quot; token is generated. Obviously, there can be multiple &quot;DEDENT&quot; tokens in a row.
+When a line is encountered with a smaller indentation level, values are popped from the stack until a value is on top which is equal to the new indentation level (if none is found, a syntax error occurs). For each value popped, a =DEDENT= token is generated. Obviously, there can be multiple =DEDENT= tokens in a row.
 
-The lexical analyzer skips empty lines (those containing only whitespace and possibly comments), and will never generate either &quot;INDENT&quot; or &quot;DEDENT&quot; tokens for them.
+The lexical analyzer skips empty lines (those containing only whitespace and possibly comments), and will never generate either =INDENT= or =DEDENT= tokens for them.
 
-At the end of the source code, &quot;DEDENT&quot; tokens are generated for each indentation level left on the stack, until just the 0 is left.
+At the end of the source code, =DEDENT= tokens are generated for each indentation level left on the stack, until just the 0 is left.
 
 For example:
 
@@ -75,7 +75,7 @@ is analyzed as:
 
 ```
 
-The parser than handles the &quot;INDENT&quot; and &quot;DEDENT&quot; tokens as block delimiters.
+The parser than handles the =INDENT= and =DEDENT= tokens as block delimiters.
 
 
 
@@ -87,10 +87,10 @@ The spacing should be even and uniform throughout. Improper indentation can caus
 ```
 a = 7
 if a > 5:
-  print &quot;foo&quot;
+  print =foo=
 else:
-  print &quot;bar&quot;
- print &quot;done&quot;
+  print =bar=
+ print =done=
 
 ```
 
@@ -98,7 +98,7 @@ Or if the line following a colon is not indented, an `IndentationError` will als
 
 ```
 if True:
-print &quot;true&quot;
+print =true=
 
 ```
 

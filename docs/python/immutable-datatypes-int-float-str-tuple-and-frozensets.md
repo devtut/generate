@@ -7,8 +7,8 @@
 
 
 ```
-foo = &quot;bar&quot;
-foo[0] = &quot;c&quot; # Error 
+foo = =bar=
+foo[0] = =c= # Error 
 
 ```
 
@@ -20,7 +20,7 @@ Immutable variable value can not be changed once they are created.
 
 
 ```
-foo = (&quot;bar&quot;, 1, &quot;Hello!&quot;,)
+foo = (=bar=, 1, =Hello!=,)
 foo[1] = 2 # ERROR!! 
 
 ```
@@ -34,7 +34,7 @@ Because of tuple's immutability.<br>
 
 
 ```
-foo = frozenset([&quot;bar&quot;, 1, &quot;Hello!&quot;])
+foo = frozenset([=bar=, 1, =Hello!=])
 foo[2] = 7 # ERROR
 foo.add(3) # ERROR
 

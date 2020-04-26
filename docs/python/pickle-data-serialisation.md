@@ -17,7 +17,7 @@ import pickle
 # An arbitrary collection of objects supported by pickle.
 data = {
     'a': [1, 2.0, 3, 4+6j],
-    'b': (&quot;character string&quot;, b&quot;byte string&quot;),
+    'b': (=character string=, b=byte string=),
     'c': {None, True, False}
 }
 

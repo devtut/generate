@@ -13,7 +13,7 @@ class IntegerContainer(object):
         self.value = value
         
     def __repr__(self):
-        return &quot;{}({})&quot;.format(self.__class__.__name__, self.value)
+        return ={}({})=.format(self.__class__.__name__, self.value)
     
     def __lt__(self, other):
         print('{!r} - Test less than {!r}'.format(self, other))
@@ -93,7 +93,7 @@ print(res)
 But `sorted` can use `__gt__` instead if the default is not implemented:
 
 ```
-del IntegerContainer.__lt__   # The IntegerContainer no longer implements &quot;less than&quot;
+del IntegerContainer.__lt__   # The IntegerContainer no longer implements =less than=
 
 res = min(alist) 
 # Out: IntegerContainer(5) - Test greater than IntegerContainer(3)
@@ -107,7 +107,7 @@ print(res)
 Sorting methods will raise a `TypeError` if neither `__lt__` nor `__gt__` are implemented:
 
 ```
-del IntegerContainer.__gt__   # The IntegerContainer no longer implements &quot;greater then&quot;
+del IntegerContainer.__gt__   # The IntegerContainer no longer implements =greater then=
 
 res = min(alist) 
 
@@ -128,7 +128,7 @@ class IntegerContainer(object):
         self.value = value
         
     def __repr__(self):
-        return &quot;{}({})&quot;.format(self.__class__.__name__, self.value)
+        return ={}({})=.format(self.__class__.__name__, self.value)
     
     def __lt__(self, other):
         print('{!r} - Test less than {!r}'.format(self, other))

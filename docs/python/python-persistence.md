@@ -95,7 +95,7 @@ def load(filename):
 pickle.dump(obj, file, protocol=None, *, fix_imports=True)
 </li>
 <li>
-pickle.load(file, *, fix_imports=True, encoding=&quot;ASCII&quot;, errors=&quot;strict&quot;)
+pickle.load(file, *, fix_imports=True, encoding==ASCII=, errors==strict=)
 </li>
 
 

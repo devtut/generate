@@ -101,11 +101,11 @@ Python 2.x doesn't support keyword-only parameters. This behavior can be emulate
 ```
 def func(arg1, arg2=10, **kwargs):
     try:
-        kwarg1 = kwargs.pop(&quot;kwarg1&quot;)
+        kwarg1 = kwargs.pop(=kwarg1=)
     except KeyError:
-        raise TypeError(&quot;missing required keyword-only argument: 'kwarg1'&quot;)
+        raise TypeError(=missing required keyword-only argument: 'kwarg1'=)
 
-    kwarg2 = kwargs.pop(&quot;kwarg2&quot;, 2)
+    kwarg2 = kwargs.pop(=kwarg2=, 2)
     # function body ...
 
 ```
@@ -160,7 +160,7 @@ Here’s an example of a simple function definition which purpose is to print `H
 
 ```
 def greet():
-    print(&quot;Hello&quot;)
+    print(=Hello=)
 
 ```
 
@@ -183,7 +183,7 @@ def greet_two(greeting):
 After that the `greet_two()` function must be called with an argument:
 
 ```
-greet_two(&quot;Howdy&quot;)
+greet_two(=Howdy=)
 # Out: Howdy
 
 ```
@@ -191,7 +191,7 @@ greet_two(&quot;Howdy&quot;)
 Also you can give a default value to that function argument:
 
 ```
-def greet_two(greeting=&quot;Howdy&quot;):
+def greet_two(greeting==Howdy=):
     print(greeting)
 
 ```
@@ -209,7 +209,7 @@ You'll notice that unlike many other languages, you do not need to explicitly de
 ```
 def many_types(x):
     if x < 0:
-        return &quot;Hello!&quot;
+        return =Hello!=
     else:
         return 0
 
@@ -248,7 +248,7 @@ Consider the function:
 
 ```
 def greeting():
-    return &quot;Hello&quot;
+    return =Hello=
 
 ```
 
@@ -269,7 +269,7 @@ Hello
 This can be written as a lambda function as follows:
 
 ```
-greet_me = lambda: &quot;Hello&quot;
+greet_me = lambda: =Hello=
 
 ```
 
@@ -298,7 +298,7 @@ Hello
 ```
 strip_and_upper_case = lambda s: s.strip().upper()
 
-strip_and_upper_case(&quot;  Hello   &quot;)
+strip_and_upper_case(=  Hello   =)
 
 ```
 
@@ -329,7 +329,7 @@ hello ('world',) {'world': 'world'}
 For example, this line sorts a list of strings ignoring their case and ignoring whitespace at the beginning and at the end:
 
 ```
-sorted( [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;], key=lambda s: s.strip().upper())
+sorted( [= foo =, =    bAR=, =BaZ    =], key=lambda s: s.strip().upper())
 # Out:
 # ['    bAR', 'BaZ    ', ' foo ']
 
@@ -338,7 +338,7 @@ sorted( [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;], key=lambd
 Sort list just ignoring whitespaces:
 
 ```
-sorted( [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;], key=lambda s: s.strip())
+sorted( [= foo =, =    bAR=, =BaZ    =], key=lambda s: s.strip())
 # Out:
 # ['BaZ    ', '    bAR', ' foo ']
 
@@ -347,11 +347,11 @@ sorted( [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;], key=lambd
 Examples with `map`:
 
 ```
-sorted( map( lambda s: s.strip().upper(), [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;]))
+sorted( map( lambda s: s.strip().upper(), [= foo =, =    bAR=, =BaZ    =]))
 # Out:
 # ['BAR', 'BAZ', 'FOO']
 
-sorted( map( lambda s: s.strip(), [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;]))
+sorted( map( lambda s: s.strip(), [= foo =, =    bAR=, =BaZ    =]))
 # Out:
 # ['BaZ', 'bAR', 'foo']
 
@@ -381,7 +381,7 @@ One can call other functions (with/without arguments) from inside a lambda funct
 def foo(msg):
     print(msg)
 
-greet = lambda x = &quot;hello world&quot;: foo(x)
+greet = lambda x = =hello world=: foo(x)
 greet()
 
 ```
@@ -426,10 +426,10 @@ def make(action='nothing'):
 Calling this function is possible in 3 different ways:
 
 ```
-make(&quot;fun&quot;)
+make(=fun=)
 # Out: fun
 
-make(action=&quot;sleep&quot;)
+make(action==sleep=)
 # Out: sleep
 
 # The argument is optional so the function will use the default value if the argument is 
@@ -468,7 +468,7 @@ For **immutable** types (see [Argument passing and mutability](https://stackover
 
 ```
 def append(elem, to=[]):
-    to.append(elem)      # This call to append() mutates the default variable &quot;to&quot;
+    to.append(elem)      # This call to append() mutates the default variable =to=
     return to
 
 append(1)
@@ -539,7 +539,7 @@ Reassigning the parameter won’t reassign the argument.
     x[2] = 8       # This mutates x's list, not y's list
   
 y = [4, 5, 6]      # y is the argument, x is the parameter
-foo(y)             # Pretend that we wrote &quot;x = y&quot;, then go to line 1
+foo(y)             # Pretend that we wrote =x = y=, then go to line 1
 y
 # Out: [9, 5, 6]
 </code></pre>
@@ -639,7 +639,7 @@ Closures in Python are created by function calls. Here, the call to `makeInc` cr
 ```
 def makeInc(x):
   def inc(y):
-     # x is &quot;attached&quot; in the definition of inc
+     # x is =attached= in the definition of inc
      return y + x
 
   return inc
@@ -940,11 +940,11 @@ def unpacking(a, b, c=45, d=60, *args, **kwargs):
 1 2 3 4 () {}
 >>> unpacking(1, 2, *pair, c=3)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 >>> unpacking(1, 2, c=3, *pair)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 
 >>> args_list = [3]
@@ -954,11 +954,11 @@ TypeError: unpacking() got multiple values for argument 'c'
 1 2 3 4 () {}
 >>> unpacking(1, 2, c=3, *args_list)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 >>> unpacking(1, 2, *args_list, c=3)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 
 
@@ -969,11 +969,11 @@ TypeError: unpacking() got multiple values for argument 'c'
 1 2 3 4 (3, 4) {}
 >>> unpacking(1, 2, d=4, *pair)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 >>> unpacking(1, 2, *pair, d=4)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 
 
@@ -985,11 +985,11 @@ TypeError: unpacking() got multiple values for argument 'd'
 1 2 3 4 (3, 4) {}
 >>> unpacking(1, 2, d=4, *args_list)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 >>> unpacking(1, 2, *args_list, d=4)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 
 
@@ -1006,11 +1006,11 @@ TypeError: unpacking() got multiple values for argument 'd'
 
 >>> unpacking(1, 2, *pair, **arg_dict)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 >>> unpacking(1, 2, 3, 4, **arg_dict)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 
 # Positional arguments take priority over any other form of argument passing
@@ -1018,7 +1018,7 @@ TypeError: unpacking() got multiple values for argument 'd'
 1 2 3 4 () {'not_a_parameter': 75}
 >>> unpacking(1, 2, 3, **arg_dict, c=3)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 
 ```
@@ -1093,9 +1093,9 @@ b(a, 'Sophia')           # Output: Hello Sophia
 Inner functions have access to the enclosing scope ([Closure](https://stackoverflow.com/documentation/python/228/functions/3885/closure) )
 <pre><code>def outer_fun(name):
     def inner_fun():     # the variable name is available to the inner function
-        return &quot;Hello &quot;+ name + &quot;!&quot;
+        return =Hello =+ name + =!=
     return inner_fun
-greet = outer_fun(&quot;Sophia&quot;)
+greet = outer_fun(=Sophia=)
 print(greet())            # Output: Hello Sophia!
 </code></pre>
 </li>

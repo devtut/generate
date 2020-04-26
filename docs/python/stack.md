@@ -52,7 +52,7 @@ print('Current stack:', stack.fullStack())
 print('Stack empty?:', stack.isEmpty())
 print('Pushing integer 1')
 stack.push(1)
-print('Pushing string &quot;Told you, I am generic stack!&quot;')
+print('Pushing string =Told you, I am generic stack!=')
 stack.push('Told you, I am generic stack!')
 print('Pushing integer 3')
 stack.push(3)
@@ -69,7 +69,7 @@ Output:
 Current stack: []
 Stack empty?: True
 Pushing integer 1
-Pushing string &quot;Told you, I am generic stack!&quot;
+Pushing string =Told you, I am generic stack!=
 Pushing integer 3
 Current stack: [1, 'Told you, I am generic stack!', 3]
 Popped item: 3
@@ -90,7 +90,7 @@ For example, the string `([])` is matching, because the outer and inner brackets
 ```
 def checkParenth(str):
     stack = Stack()
-    pushChars, popChars = &quot;<({[&quot;, &quot;>)}]&quot;
+    pushChars, popChars = =<({[=, =>)}]=
     for c in str:
         if c in pushChars:
             stack.push(c)

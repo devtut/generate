@@ -229,8 +229,8 @@ Or we can create an empty `OrderedDict` and then add items:
 
 ```
 >>> o = OrderedDict()
->>> o['key1'] = &quot;value1&quot;
->>> o['key2'] = &quot;value2&quot;
+>>> o['key1'] = =value1=
+>>> o['key2'] = =value2=
 >>> print(o)
 OrderedDict([('key1', 'value1'), ('key2', 'value2')])
 
@@ -367,7 +367,7 @@ deque(['l', 'k', 'j', 'i', 'h', 'g'])
 >>> d.clear()                        # empty the deque
 >>> d.pop()                          # cannot pop from an empty deque
 Traceback (most recent call last):
-  File &quot;<pyshell#6>&quot;, line 1, in -toplevel-
+  File =<pyshell#6>=, line 1, in -toplevel-
     d.pop()
 IndexError: pop from an empty deque
 

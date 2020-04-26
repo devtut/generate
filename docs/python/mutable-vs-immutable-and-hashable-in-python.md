@@ -31,12 +31,12 @@ To highlight this property, let's play with the `id` builtin. This function retu
 Okay, 1 is not 3... Breaking news... Maybe not. However, this behaviour is often forgotten when it comes to more complex types, especially strings.
 
 ```
->>> stack = &quot;Overflow&quot;
+>>> stack = =Overflow=
 >>> stack
 'Overflow'
 >>> id(stack)
 140128123955504
->>> stack += &quot; rocks!&quot;
+>>> stack += = rocks!=
 >>> stack
 'Overflow rocks!'
 
@@ -53,8 +53,8 @@ Aha! See? We can modify it!
 No. While it seems we can change the string named by the variable `stack`, what we actually do, is creating a new object to contain the result of the concatenation. We are fooled because in the process, the old object goes nowhere, so it is destroyed. In another situation, that would have been more obvious:
 
 ```
->>> stack = &quot;Stack&quot;
->>> stackoverflow = stack + &quot;Overflow&quot;
+>>> stack = =Stack=
+>>> stackoverflow = stack + =Overflow=
 >>> id(stack)
 140128069348184
 >>> id(stackoverflow)
@@ -69,10 +69,10 @@ In this case it is clear that if we want to retain the first string, we need a c
 Now, knowing how a immutable types work, what would you say with the below piece of code? Is it wise?
 
 ```
-s = &quot;&quot;
+s = ==
 for i in range(1, 1000):
     s += str(i)
-    s += &quot;,&quot;
+    s += =,=
 
 ```
 
@@ -192,11 +192,11 @@ At the beginning of the function, `tin` and `a` reference the same object. But t
 ```
 >>> def yoda(prologue, sentence):
     sentence.reverse()
-    prologue += &quot; &quot;.join(sentence)
+    prologue += = =.join(sentence)
     return prologue
 
->>> focused = [&quot;You must&quot;, &quot;stay focused&quot;]
->>> saying = &quot;Yoda said: &quot;
+>>> focused = [=You must=, =stay focused=]
+>>> saying = =Yoda said: =
 >>> yoda_sentence = yoda(saying, focused)
 
 ```

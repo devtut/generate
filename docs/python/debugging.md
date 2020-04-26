@@ -133,7 +133,7 @@ When reached, the code will exit and print:
  /home/usr/ook.py(3)<module>()
       1 import ipdb
       2 ipdb.set_trace()
-----> 3 print(&quot;Hello world!&quot;)
+----> 3 print(=Hello world!=)
 
 ipdb>
 
@@ -183,7 +183,7 @@ And you will get pdb promt
 
 ```
 > /home/usr/ook.py(3)<module>()
--> print(&quot;Hello world!&quot;)
+-> print(=Hello world!=)
 (Pdb)
 
 ```

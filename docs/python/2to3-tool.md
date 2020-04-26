@@ -10,8 +10,8 @@ Consider the following Python2.x code. Save the file as `example.py`
 
 ```
 def greet(name):
-    print &quot;Hello, {0}!&quot;.format(name)
-print &quot;What's your name?&quot;
+    print =Hello, {0}!=.format(name)
+print =What's your name?=
 name = raw_input()
 greet(name)
 
@@ -45,11 +45,11 @@ RefactoringTool: Refactored example.py
 +++ example.py    (refactored)
 @@ -1,5 +1,5 @@
  def greet(name):
--    print &quot;Hello, {0}!&quot;.format(name)
--print &quot;What's your name?&quot;
+-    print =Hello, {0}!=.format(name)
+-print =What's your name?=
 -name = raw_input()
-+    print(&quot;Hello, {0}!&quot;.format(name))
-+print(&quot;What's your name?&quot;)
++    print(=Hello, {0}!=.format(name))
++print(=What's your name?=)
 +name = input()
  greet(name)
 RefactoringTool: Files that need to be modified:
@@ -79,8 +79,8 @@ Once finished, `example.py` will contain the following valid Python3.x code:
 
 ```
 def greet(name):
-    print(&quot;Hello, {0}!&quot;.format(name))
-print(&quot;What's your name?&quot;)
+    print(=Hello, {0}!=.format(name))
+print(=What's your name?=)
 name = input()
 greet(name)
 

@@ -16,7 +16,7 @@ try:
 except Exception:
     # log / try to reconnect / exit gratiously
 finally:
-    print &quot;The END&quot;
+    print =The END=
     # it runs no matter what execute.
 
 ```
@@ -50,7 +50,7 @@ In this case, simply use the `raise` statement with no parameters.
 try:
     5 / 0
 except ZeroDivisionError:
-    print(&quot;Got an error&quot;)
+    print(=Got an error=)
     raise
 
 ```
@@ -62,7 +62,7 @@ So it might be a better idea to raise a different exception, containing your com
 try:
     5 / 0
 except ZeroDivisionError as e:
-    raise ZeroDivisionError(&quot;Got an error&quot;, e)
+    raise ZeroDivisionError(=Got an error=, e)
 
 ```
 
@@ -71,7 +71,7 @@ But this has the drawback of reducing the exception trace to exactly this `raise
 In Python 3 you can keep the original stack by using the `raise`-`from` syntax:
 
 ```
-    raise ZeroDivisionError(&quot;Got an error&quot;) from e
+    raise ZeroDivisionError(=Got an error=) from e
 
 ```
 
@@ -90,7 +90,7 @@ try:
     a = d[1]
     b = d.non_existing_field
 except (KeyError, AttributeError) as e:
-    print(&quot;A KeyError or an AttributeError exception has been caught.&quot;)
+    print(=A KeyError or an AttributeError exception has been caught.=)
 
 ```
 
@@ -102,9 +102,9 @@ try:
     a = d[1]
     b = d.non_existing_field
 except KeyError as e:
-    print(&quot;A KeyError has occurred. Exception message:&quot;, e)
+    print(=A KeyError has occurred. Exception message:=, e)
 except AttributeError as e:
-    print(&quot;An AttributeError has occurred. Exception message:&quot;, e)
+    print(=An AttributeError has occurred. Exception message:=, e)
 
 ```
 
@@ -120,11 +120,11 @@ try:
     x = 5 / 0
 except ZeroDivisionError as e:
     # `e` is the exception object
-    print(&quot;Got a divide by zero! The exception was:&quot;, e)
+    print(=Got a divide by zero! The exception was:=, e)
     # handle exceptional case
     x = 0  
 finally:
-    print &quot;The END&quot;
+    print =The END=
     # it runs no matter what execute.
 
 ```
@@ -145,7 +145,7 @@ And so, the following will still catch the `ZeroDivisionError`:
 try:
     5 / 0
 except ArithmeticError:
-    print(&quot;Got arithmetic error&quot;)
+    print(=Got arithmetic error=)
 
 ```
 
@@ -330,7 +330,7 @@ If your code encounters a condition it doesn't know how to handle, such as an in
 ```
 def even_the_odds(odds):
     if odds % 2 != 1:
-        raise ValueError(&quot;Did not get an odd number&quot;)
+        raise ValueError(=Did not get an odd number=)
     
     return odds + 1
 
@@ -347,9 +347,9 @@ Create a class inheriting from `Exception`:
 class FooException(Exception):
     pass
 try:
-    raise FooException(&quot;insert description here&quot;)
+    raise FooException(=insert description here=)
 except FooException:
-    print(&quot;A FooException was raised.&quot;)
+    print(=A FooException was raised.=)
 
 ```
 
@@ -362,14 +362,14 @@ class NegativeError(ValueError):
 def foo(x):
     # function that only accepts positive values of x
     if x < 0:
-        raise NegativeError(&quot;Cannot process negative numbers&quot;)
+        raise NegativeError(=Cannot process negative numbers=)
     ...  # rest of function body
 try:
-    result = foo(int(input(&quot;Enter a positive integer: &quot;)))  # raw_input in Python 2.x
+    result = foo(int(input(=Enter a positive integer: =)))  # raw_input in Python 2.x
 except NegativeError:
-    print(&quot;You entered a negative number!&quot;)
+    print(=You entered a negative number!=)
 else:
-    print(&quot;The result was &quot; + str(result))
+    print(=The result was = + str(result))
 
 ```
 
@@ -385,8 +385,8 @@ Exceptions are just regular Python objects that inherit from the built-in `BaseE
 ...     raise ValueError('Example error!')
 >>> failing_function()
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
-  File &quot;<stdin>&quot;, line 2, in failing_function
+  File =<stdin>=, line 1, in <module>
+  File =<stdin>=, line 2, in failing_function
 ValueError: Example error!
 
 ```
@@ -495,16 +495,16 @@ You can chain exceptions to show how the handling of exceptions proceeded:
 >>> try:
     5 / 0
 except ZeroDivisionError as e:
-    raise ValueError(&quot;Division failed&quot;) from e
+    raise ValueError(=Division failed=) from e
 
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 ZeroDivisionError: division by zero
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 4, in <module>
+  File =<stdin>=, line 4, in <module>
 ValueError: Division failed
 
 ```

@@ -9,7 +9,7 @@
 To print a test field (TestField) from a test feature class (TestFC) in a test file geodatabase (Test.gdb) located in a temporary folder (C:\Temp):
 
 ```
-with arcpy.da.SearchCursor(r&quot;C:\Temp\Test.gdb\TestFC&quot;,[&quot;TestField&quot;]) as cursor:
+with arcpy.da.SearchCursor(r=C:\Temp\Test.gdb\TestFC=,[=TestField=]) as cursor:
     for row in cursor:
         print row[0]
 
@@ -22,13 +22,13 @@ with arcpy.da.SearchCursor(r&quot;C:\Temp\Test.gdb\TestFC&quot;,[&quot;TestField
 
 ```
 def createDissolvedGDB(workspace, gdbName):
-    gdb_name = workspace + &quot;/&quot; + gdbName + &quot;.gdb&quot;
+    gdb_name = workspace + =/= + gdbName + =.gdb=
 
     if(arcpy.Exists(gdb_name):
         arcpy.Delete_management(gdb_name)
-        arcpy.CreateFileGDB_management(workspace, gdbName, &quot;&quot;)
+        arcpy.CreateFileGDB_management(workspace, gdbName, ==)
     else:
-        arcpy.CreateFileGDB_management(workspace, gdbName, &quot;&quot;)
+        arcpy.CreateFileGDB_management(workspace, gdbName, ==)
 
     return gdb_name
 

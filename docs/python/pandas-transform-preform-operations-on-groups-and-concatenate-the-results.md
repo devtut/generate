@@ -47,7 +47,7 @@ count_number_of_orders = lambda x: len(x.unique())
 # And now, we can tranform each group using the logic defined above
 orders_df['number_of_orders_per_cient'] = (               # Put the results into a new column that is called 'number_of_orders_per_cient'
                      orders_df                            # Take the original dataframe
-                    .groupby(['customer_id'])['order_id'] # Create a seperate group for each customer_id &amp; select the order_id
+                    .groupby(['customer_id'])['order_id'] # Create a seperate group for each customer_id & select the order_id
                     .transform(count_number_of_orders))   # Apply the function to each group seperatly 
 
 # Inspecting the results ... 
@@ -98,7 +98,7 @@ def multiple_items_per_order(_items):
 # Then, we transform each group according to the defined function
 orders_df['item_duplicated_per_order'] = (                    # Put the results into a new column 
                         orders_df                             # Take the orders dataframe
-                        .groupby(['order_id'])['item']        # Create a seperate group for each order_id &amp; select the item
+                        .groupby(['order_id'])['item']        # Create a seperate group for each order_id & select the item
                         .transform(multiple_items_per_order)) # Apply the defined function to each group separately
 
 # Inspecting the results ... 

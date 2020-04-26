@@ -92,7 +92,7 @@ That's where `functools.cmp_to_key` comes in:
 ```
 >>> import functools
 >>> import locale
->>> sorted([&quot;A&quot;, &quot;S&quot;, &quot;F&quot;, &quot;D&quot;], key=functools.cmp_to_key(locale.strcoll))
+>>> sorted([=A=, =S=, =F=, =D=], key=functools.cmp_to_key(locale.strcoll))
 ['A', 'D', 'F', 'S']
 
 ```

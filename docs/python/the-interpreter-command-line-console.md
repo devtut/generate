@@ -17,12 +17,12 @@ the tutorial on the Internet at http://docs.python.org/3.4/tutorial/.
 
 Enter the name of any module, keyword, or topic to get help on writing
 Python programs and using Python modules.  To quit this help utility and
-return to the interpreter, just type &quot;quit&quot;.
+return to the interpreter, just type =quit=.
 
 To get a list of available modules, keywords, symbols, or topics, type
-&quot;modules&quot;, &quot;keywords&quot;, &quot;symbols&quot;, or &quot;topics&quot;.  Each module also comes
+=modules=, =keywords=, =symbols=, or =topics=.  Each module also comes
 with a one-line summary of what it does; to list the modules whose name
-or summary contain a given string such as &quot;spam&quot;, type &quot;modules spam&quot;.
+or summary contain a given string such as =spam=, type =modules spam=.
 
 ```
 
@@ -46,7 +46,7 @@ To get the value of the last result from your last expression in the console, us
 This magic underscore value is only updated when using a python expression that results in a value. Defining functions or for loops does not change the value. If the expression raises an exception there will be no changes to `_`.
 
 ```
->>> &quot;Hello, {0}&quot;.format(&quot;World&quot;)
+>>> =Hello, {0}=.format(=World=)
 'Hello, World'
 >>> _
 'Hello, World'
@@ -56,7 +56,7 @@ This magic underscore value is only updated when using a python expression that 
 'Hello, World'
 >>> 27 / 0
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 ZeroDivisionError: division by zero
 >>> _
 'Hello, World'
@@ -75,7 +75,7 @@ The console for the primary version of Python can usually be opened by typing `p
 ```
 $ py
 Python 3.4.3 (v3.4.3:9b73f1c3e601, Feb 24 2015, 22:44:40) [MSC v.1600 64 bit (AMD64)] on win32
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 >>>
 
 ```
@@ -94,7 +94,7 @@ You can set an environment variable called PYTHONSTARTUP for Python's console. W
 If the PYTHONSTARTUP variable was set to the location of a file containing this:
 
 ```
-print(&quot;Welcome!&quot;)
+print(=Welcome!=)
 
 ```
 
@@ -103,7 +103,7 @@ Then opening the Python console would result in this extra output:
 ```
 $ py
 Python 3.4.3 (v3.4.3:9b73f1c3e601, Feb 24 2015, 22:44:40) [MSC v.1600 64 bit (AMD64)] on win32
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 Welcome!
 >>>    
 

@@ -16,7 +16,7 @@ One conceptual approach to defining an abstract class is to stub out the class m
 class Fruit:
     
     def check_ripeness(self):
-        raise NotImplementedError(&quot;check_ripeness method not implemented!&quot;)
+        raise NotImplementedError(=check_ripeness method not implemented!=)
 
 
 class Apple(Fruit):
@@ -62,7 +62,7 @@ class Subclass(AbstractClass):
 
 Abstract base classes (ABCs) enforce what derived classes implement particular methods from the base class.
 
-To understand how this works and why we should use it, let's take a look at an example that Van Rossum would enjoy. Let's say we have a Base class &quot;MontyPython&quot; with two methods (joke &amp; punchline) that must be implemented by all derived classes.
+To understand how this works and why we should use it, let's take a look at an example that Van Rossum would enjoy. Let's say we have a Base class =MontyPython= with two methods (joke & punchline) that must be implemented by all derived classes.
 
 ```
 class MontyPython:
@@ -74,7 +74,7 @@ class MontyPython:
 
 class ArgumentClinic(MontyPython):
     def joke(self):
-        return &quot;Hahahahahah&quot;
+        return =Hahahahahah=
 
 ```
 
@@ -105,7 +105,7 @@ def punchline(self):
 
 class ArgumentClinic(MontyPython):
     def joke(self):
-        return &quot;Hahahahahah&quot;
+        return =Hahahahahah=
 
 ```
 
@@ -114,7 +114,7 @@ This time when we try to instantiate an object from the incomplete class, we imm
 ```
 >>> c = ArgumentClinic()
 TypeError:
-&quot;Can't instantiate abstract class ArgumentClinic with abstract methods punchline&quot;
+=Can't instantiate abstract class ArgumentClinic with abstract methods punchline=
 
 ```
 
@@ -123,10 +123,10 @@ In this case, it's easy to complete the class to avoid any TypeErrors:
 ```
 class ArgumentClinic(MontyPython):
     def joke(self):
-        return &quot;Hahahahahah&quot;
+        return =Hahahahahah=
 
     def punchline(self):
-        return &quot;Send in the constable!&quot;
+        return =Send in the constable!=
 
 ```
 

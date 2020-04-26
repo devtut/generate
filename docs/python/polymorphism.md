@@ -10,17 +10,17 @@ Polymorphism without inheritance in the form of duck typing as available in Pyth
 ```
 class Duck:
     def quack(self):
-        print(&quot;Quaaaaaack!&quot;)
+        print(=Quaaaaaack!=)
     def feathers(self):
-        print(&quot;The duck has white and gray feathers.&quot;)
+        print(=The duck has white and gray feathers.=)
 
 class Person:
     def quack(self):
-        print(&quot;The person imitates a duck.&quot;)
+        print(=The person imitates a duck.=)
     def feathers(self):
-        print(&quot;The person takes a feather from the ground and shows it.&quot;)
+        print(=The person takes a feather from the ground and shows it.=)
     def name(self):
-        print(&quot;John Smith&quot;)
+        print(=John Smith=)
 
 def in_the_forest(obj):
     obj.quack()
@@ -51,56 +51,56 @@ Polymorphism is the ability to perform an action on an object regardless of its 
 
 ```
 class Shape:
-    &quot;&quot;&quot;
+    ===
     This is a parent class that is intended to be inherited by other classes
-    &quot;&quot;&quot;
+    ===
 
     def calculate_area(self):
-        &quot;&quot;&quot;
+        ===
         This method is intended to be overridden in subclasses.
         If a subclass doesn't implement it but it is called, NotImplemented will be raised.
 
-        &quot;&quot;&quot;
+        ===
         raise NotImplemented
 
 class Square(Shape):
-    &quot;&quot;&quot;
+    ===
     This is a subclass of the Shape class, and represents a square
-    &quot;&quot;&quot;
+    ===
     side_length = 2     # in this example, the sides are 2 units long
 
     def calculate_area(self):
-        &quot;&quot;&quot;
+        ===
         This method overrides Shape.calculate_area(). When an object of type
         Square has its calculate_area() method called, this is the method that
         will be called, rather than the parent class' version.
 
         It performs the calculation necessary for this shape, a square, and
         returns the result.
-        &quot;&quot;&quot;
+        ===
         return self.side_length * 2
 
 class Triangle(Shape):
-    &quot;&quot;&quot;
+    ===
     This is also a subclass of the Shape class, and it represents a triangle
-    &quot;&quot;&quot;
+    ===
     base_length = 4
     height = 3
 
     def calculate_area(self):
-        &quot;&quot;&quot;
+        ===
         This method also overrides Shape.calculate_area() and performs the area
         calculation for a triangle, returning the result.
-        &quot;&quot;&quot;
+        ===
 
         return 0.5 * self.base_length * self.height
 
 def get_area(input_obj):
-    &quot;&quot;&quot;
+    ===
     This function accepts an input object, and will call that object's
     calculate_area() method. Note that the object type is not specified. It
     could be a Square, Triangle, or Shape object.
-    &quot;&quot;&quot;
+    ===
 
     print(input_obj.calculate_area())
 
@@ -150,10 +150,10 @@ def get_area(input_obj):
     # could get very complicated for a more complex example, resulting in
     # duplicate and difficult to maintain code.
 
-    if type(input_obj).__name__ == &quot;Square&quot;:
+    if type(input_obj).__name__ == =Square=:
         area = input_obj.calculate_square_area()
 
-    elif type(input_obj).__name__ == &quot;Triangle&quot;:
+    elif type(input_obj).__name__ == =Triangle=:
         area = input_obj.calculate_triangle_area()
 
     print(area)
@@ -177,5 +177,5 @@ We should see this output:
 
 
 **Important Note**<br />
-Note that the classes used in the counter example are &quot;new style&quot; classes and implicitly inherit from the object class if Python 3 is being used. Polymorphism will work in both Python 2.x and 3.x, but the polymorphism counterexample code will raise an exception if run in a Python 2.x interpreter because type(input_obj).**name** will return &quot;instance&quot; instead of the class name if they do not explicitly inherit from object, resulting in area never being assigned to.
+Note that the classes used in the counter example are =new style= classes and implicitly inherit from the object class if Python 3 is being used. Polymorphism will work in both Python 2.x and 3.x, but the polymorphism counterexample code will raise an exception if run in a Python 2.x interpreter because type(input_obj).**name** will return =instance= instead of the class name if they do not explicitly inherit from object, resulting in area never being assigned to.
 

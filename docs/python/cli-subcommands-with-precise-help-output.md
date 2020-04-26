@@ -11,25 +11,25 @@ Different ways to create subcommands like in `hg` or `svn` with the exact comman
 
 
 ```
-&quot;&quot;&quot;
+===
 usage: sub <command>
 
 commands:
 
   status -  show status
   list   -  print list
-&quot;&quot;&quot;
+===
 
 import sys
 
 def check():
-    print(&quot;status&quot;)
+    print(=status=)
     return 0
 
 if sys.argv[1:] == ['status']:
     sys.exit(check())
 elif sys.argv[1:] == ['list']:
-    print(&quot;list&quot;)
+    print(=list=)
 else:
     print(__doc__.strip())
 
@@ -63,11 +63,11 @@ import argparse
 import sys
 
 def check():
-    print(&quot;status&quot;)
+    print(=status=)
     return 0
 
-parser = argparse.ArgumentParser(prog=&quot;sub&quot;, add_help=False)
-subparser = parser.add_subparsers(dest=&quot;cmd&quot;)
+parser = argparse.ArgumentParser(prog==sub=, add_help=False)
+subparser = parser.add_subparsers(dest==cmd=)
 
 subparser.add_parser('status', help='show status')
 subparser.add_parser('list', help='print list')
@@ -126,10 +126,10 @@ class CustomHelpFormatter(argparse.HelpFormatter):
             # format subcommand help line
             subcommand = self._format_action_invocation(action) # type: str
             width = self._subcommand_max_length
-            help_text = &quot;&quot;
+            help_text = ==
             if action.help:
                 help_text = self._expand_help(action)
-            return &quot;  {:{width}} -  {}\n&quot;.format(subcommand, help_text, width=width)
+            return =  {:{width}} -  {}\n=.format(subcommand, help_text, width=width)
 
         elif type(action) == argparse._SubParsersAction:
             # process subcommand help section
@@ -142,18 +142,18 @@ class CustomHelpFormatter(argparse.HelpFormatter):
 
 
 def check():
-    print(&quot;status&quot;)
+    print(=status=)
     return 0
 
-parser = argparse.ArgumentParser(usage=&quot;sub <command>&quot;, add_help=False,
+parser = argparse.ArgumentParser(usage==sub <command>=, add_help=False,
              formatter_class=CustomHelpFormatter)
 
-subparser = parser.add_subparsers(dest=&quot;cmd&quot;)
+subparser = parser.add_subparsers(dest==cmd=)
 subparser.add_parser('status', help='show status')
 subparser.add_parser('list', help='print list')
 
 # custom help messge
-parser._positionals.title = &quot;commands&quot;
+parser._positionals.title = =commands=
 
 # hack to show help when no arguments supplied
 if len(sys.argv) == 1:

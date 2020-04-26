@@ -33,17 +33,17 @@ class LinkedList:
         self.head = None
 
     def isEmpty(self):
-        &quot;&quot;&quot;Check if the list is empty&quot;&quot;&quot;
+        ===Check if the list is empty===
         return self.head is None
 
     def add(self, item):
-        &quot;&quot;&quot;Add the item to the list&quot;&quot;&quot;
+        ===Add the item to the list===
         new_node = Node(item)
         new_node.setNext(self.head)
         self.head = new_node
 
     def size(self):
-        &quot;&quot;&quot;Return the length/size of the list&quot;&quot;&quot;
+        ===Return the length/size of the list===
         count = 0
         current = self.head
         while current is not None:
@@ -52,7 +52,7 @@ class LinkedList:
         return count
 
     def search(self, item):
-        &quot;&quot;&quot;Search for item in list. If found, return True. If not found, return False&quot;&quot;&quot;
+        ===Search for item in list. If found, return True. If not found, return False===
         current = self.head
         found = False
         while current is not None and not found:
@@ -63,7 +63,7 @@ class LinkedList:
         return found
 
     def remove(self, item):
-        &quot;&quot;&quot;Remove item from list. If item is not found in list, raise ValueError&quot;&quot;&quot;
+        ===Remove item from list. If item is not found in list, raise ValueError===
         current = self.head
         previous = None
         found = False
@@ -83,13 +83,13 @@ class LinkedList:
             print 'Value not found.'
 
     def insert(self, position, item):
-        &quot;&quot;&quot;
+        ===
         Insert item at position specified. If position specified is
         out of bounds, raise IndexError
-        &quot;&quot;&quot;
+        ===
         if position > self.size() - 1:
             raise IndexError
-            print &quot;Index out of bounds.&quot;
+            print =Index out of bounds.=
         current = self.head
         previous = None
         pos = 0
@@ -105,10 +105,10 @@ class LinkedList:
             new_node.setNext(current)
 
     def index(self, item):
-        &quot;&quot;&quot;
+        ===
         Return the index where item is found.
         If item is not found, return None.
-        &quot;&quot;&quot;
+        ===
         current = self.head
         pos = 0
         found = False
@@ -125,11 +125,11 @@ class LinkedList:
         return pos
 
     def pop(self, position = None):
-        &quot;&quot;&quot;
+        ===
         If no argument is provided, return and remove the item at the head. 
         If position is provided, return and remove the item at that position.
         If index is out of bounds, raise IndexError
-        &quot;&quot;&quot;
+        ===
         if position > self.size():
             print 'Index out of bounds'
             raise IndexError
@@ -151,7 +151,7 @@ class LinkedList:
         return ret
 
     def append(self, item):
-        &quot;&quot;&quot;Append item to the end of the list&quot;&quot;&quot;
+        ===Append item to the end of the list===
         current = self.head
         previous = None
         pos = 0
@@ -168,7 +168,7 @@ class LinkedList:
             previous.setNext(new_node)
 
     def printList(self):
-        &quot;&quot;&quot;Print the list&quot;&quot;&quot;
+        ===Print the list===
         current = self.head
         while current is not None:
             print current.getData()

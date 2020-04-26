@@ -13,7 +13,7 @@ UTC offset in the form `+HHMM` or `-HHMM` (empty string if the object is naive).
 
 ```
 import datetime
-dt = datetime.datetime.strptime(&quot;2016-04-15T08:27:18-0500&quot;, &quot;%Y-%m-%dT%H:%M:%S%z&quot;)
+dt = datetime.datetime.strptime(=2016-04-15T08:27:18-0500=, =%Y-%m-%dT%H:%M:%S%z=)
 
 ```
 
@@ -21,7 +21,7 @@ For other versions of Python, you can use an external library such as [`dateutil
 
 ```
 import dateutil.parser
-dt = dateutil.parser.parse(&quot;2016-04-15T08:27:18-0500&quot;)
+dt = dateutil.parser.parse(=2016-04-15T08:27:18-0500=)
 
 ```
 
@@ -160,7 +160,7 @@ Arithmetic operations for these objects are only supported within same datatype 
 # subtraction of noon from today
 noon-today
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: unsupported operand type(s) for -: 'datetime.time' and 'datetime.date'
 However, it is straightforward to convert between types.
 
@@ -210,7 +210,7 @@ To get n day's after and n day's before date we could use :
 **n day's after date:**
 
 ```
-def get_n_days_after_date(date_format=&quot;%d %B %Y&quot;, add_days=120):
+def get_n_days_after_date(date_format==%d %B %Y=, add_days=120):
 
     date_n_days_after = datetime.datetime.now() + timedelta(days=add_days)
     return date_n_days_after.strftime(date_format)
@@ -220,7 +220,7 @@ def get_n_days_after_date(date_format=&quot;%d %B %Y&quot;, add_days=120):
 **n day's before date:**
 
 ```
- def get_n_days_before_date(self, date_format=&quot;%d %B %Y&quot;, days_before=120):
+ def get_n_days_before_date(self, date_format==%d %B %Y=, days_before=120):
 
         date_n_days_ago = datetime.datetime.now() - timedelta(days=days_before)
         return date_n_days_ago.strftime(date_format)
@@ -330,7 +330,7 @@ Using the `dateutils` module
 import datetime
 import dateutil.relativedelta
 
-d = datetime.datetime.strptime(&quot;2013-03-31&quot;, &quot;%Y-%m-%d&quot;)
+d = datetime.datetime.strptime(=2013-03-31=, =%Y-%m-%d=)
 d2 = d - dateutil.relativedelta.relativedelta(months=1)  #datetime.datetime(2013, 2, 28, 0, 0)
 
 ```
@@ -374,7 +374,7 @@ Which produces:
 ## Parsing a string with a short time zone name into a timezone aware datetime object
 
 
-Using the [`dateutil`](https://dateutil.readthedocs.io) library as in the [previous example on parsing timezone-aware timestamps](https://stackoverflow.com/documentation/python/484/date-and-time/1592/parsing-a-string-into-a-timezone-aware-datetime-object), it is also possible to parse timestamps with a specified &quot;short&quot; time zone name.
+Using the [`dateutil`](https://dateutil.readthedocs.io) library as in the [previous example on parsing timezone-aware timestamps](https://stackoverflow.com/documentation/python/484/date-and-time/1592/parsing-a-string-into-a-timezone-aware-datetime-object), it is also possible to parse timestamps with a specified =short= time zone name.
 
 For dates formatted with short time zone names or abbreviations, which are generally ambiguous (e.g. CST, which could be Central Standard Time, China Standard Time, Cuba Standard Time, etc - more can be found [here](https://www.timeanddate.com/time/zones/)) or not necessarily available in a standard database, it is necessary to specify a mapping between time zone abbreviation and `tzinfo` object.
 
@@ -440,12 +440,12 @@ dt_fixed.tzinfo # Now it's EST.
 ## Fuzzy datetime parsing (extracting datetime out of a text)
 
 
-It is possible to extract a date out of a text using the [`dateutil` parser](https://dateutil.readthedocs.io/en/stable/parser.html#dateutil.parser.parse) in a &quot;fuzzy&quot; mode, where components of the string not recognized as being part of a date are ignored.
+It is possible to extract a date out of a text using the [`dateutil` parser](https://dateutil.readthedocs.io/en/stable/parser.html#dateutil.parser.parse) in a =fuzzy= mode, where components of the string not recognized as being part of a date are ignored.
 
 ```
 from dateutil.parser import parse
 
-dt = parse(&quot;Today is January 1, 2047 at 8:21:00AM&quot;, fuzzy=True)
+dt = parse(=Today is January 1, 2047 at 8:21:00AM=, fuzzy=True)
 print(dt)
 
 ```
@@ -475,7 +475,7 @@ str(datetime.datetime(2016, 7, 22, 9, 25, 59, 0))
 
 But these 2 forms need a **different** format for `strptime`. Furthermore, `strptime' does not support at all parsing minute timezones that have a`:`in it, thus`2016-07-22 09:25:59+0300`can be parsed, but the standard format`2016-07-22 09:25:59+03:00` cannot.
 
-There is a [single-file](https://bitbucket.org/micktwomey/pyiso8601/src/43c6749d06c4aac6b1156911e85a0b952ca8a324/iso8601/iso8601.py?at=default&amp;fileviewer=file-view-default) library called [`iso8601`](https://pypi.python.org/pypi/iso8601) which properly parses ISO 8601 timestamps and only them.
+There is a [single-file](https://bitbucket.org/micktwomey/pyiso8601/src/43c6749d06c4aac6b1156911e85a0b952ca8a324/iso8601/iso8601.py?at=default&fileviewer=file-view-default) library called [`iso8601`](https://pypi.python.org/pypi/iso8601) which properly parses ISO 8601 timestamps and only them.
 
 It supports fractions and timezones, and the `T` separator all with a single function:
 

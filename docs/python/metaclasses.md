@@ -221,7 +221,7 @@ class AnotherMetaclass(type):
 class VerboseMetaclass(type):
 
     def __new__(cls, class_name, class_parents, class_dict):
-        print(&quot;Creating class &quot;, class_name)
+        print(=Creating class =, class_name)
         new_class = super().__new__(cls, class_name, class_parents, class_dict)
         return new_class
 
@@ -232,7 +232,7 @@ You can use the metaclass like so:
 ```
 class Spam(metaclass=VerboseMetaclass):
     def eggs(self):
-        print(&quot;[insert example string here]&quot;)
+        print(=[insert example string here]=)
 s = Spam()
 s.eggs()
 
@@ -305,7 +305,7 @@ So what is a metaclass? For now lets pretend it is just a fancy name for the cla
 - The class of a class is called a metaclass
 - The default metaclass is `type`, and by far it is the most common metaclass
 
-But why should you know about metaclasses? Well, Python itself is quite &quot;hackable&quot;, and the concept of metaclass is important if you are doing advanced stuff like meta-programming or if you want to control how your classes are initialized.
+But why should you know about metaclasses? Well, Python itself is quite =hackable=, and the concept of metaclass is important if you are doing advanced stuff like meta-programming or if you want to control how your classes are initialized.
 
 
 

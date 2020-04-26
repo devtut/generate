@@ -63,14 +63,14 @@ In the shell, there is a prompt of three right angle brackets:
 Now write the following code in the prompt:
 
 ```
->>> print(&quot;Hello, World&quot;)
+>>> print(=Hello, World=)
 
 ```
 
 Hit <kbd>Enter</kbd>.
 
 ```
->>> print(&quot;Hello, World&quot;)
+>>> print(=Hello, World=)
 Hello, World
 
 ```
@@ -112,7 +112,7 @@ Hello, World
 
 You should see `Hello, World` printed to the console.
 
-You can also substitute `hello.py` with the path to your file. For example, if you have the file in your home directory and your user is &quot;user&quot; on Linux, you can type `python /home/user/hello.py`.
+You can also substitute `hello.py` with the path to your file. For example, if you have the file in your home directory and your user is =user= on Linux, you can type `python /home/user/hello.py`.
 
 ### Launch an interactive Python shell
 
@@ -122,7 +122,7 @@ By executing (running) the `python` command in your terminal, you are presented 
 $ python
 Python 2.7.12 (default, Jun 28 2016, 08:46:01) 
 [GCC 6.1.1 20160602] on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 >>> print 'Hello, World'
 Hello, World
 >>>
@@ -135,7 +135,7 @@ If you want to run Python 3 from your terminal, execute the command `python3`.
 $ python3
 Python 3.6.0 (default, Jan 13 2017, 00:00:00) 
 [GCC 6.1.1 20160602] on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 >>> print('Hello, World')
 Hello, World
 >>>
@@ -148,7 +148,7 @@ In command line, run:
 
 ```
 $ python -i hello.py
-&quot;Hello World&quot;
+=Hello World=
 >>>
 
 ```
@@ -206,7 +206,7 @@ shows execution time</li>
 Python can be passed arbitrary code as a string in the shell:
 
 ```
-$ python -c 'print(&quot;Hello, World&quot;)'
+$ python -c 'print(=Hello, World=)'
 Hello, World
 
 ```
@@ -312,7 +312,7 @@ Rules for variable naming:
 1. The remainder of your variable name may consist of letters, numbers and underscores.
 
 ```
-has_0_in_it = &quot;Still Valid&quot; 
+has_0_in_it = =Still Valid= 
 
 ```
 
@@ -365,7 +365,7 @@ When you use `=` to do an assignment operation, what's on the left of `=` is a *
 That is:
 
 ```
-a_name = an_object  # &quot;a_name&quot; is now a name for the reference to the object &quot;an_object&quot;
+a_name = an_object  # =a_name= is now a name for the reference to the object =an_object=
 
 ```
 
@@ -380,13 +380,13 @@ print(a, b, c)
 
 a, b, c = 1, 2
 => Traceback (most recent call last):
-=>   File &quot;name.py&quot;, line N, in <module>
+=>   File =name.py=, line N, in <module>
 =>     a, b, c = 1, 2
 => ValueError: need more than 2 values to unpack
 
 a, b = 1, 2, 3
 => Traceback (most recent call last):
-=>   File &quot;name.py&quot;, line N, in <module>
+=>   File =name.py=, line N, in <module>
 =>     a, b = 1, 2, 3
 => ValueError: too many values to unpack
 
@@ -406,7 +406,7 @@ Note that the number of _ and number of remaining values must be equal. Otherwis
 ```
 a, b, _ = 1,2,3,4
 =>Traceback (most recent call last):
-=>File &quot;name.py&quot;, line N, in <module>
+=>File =name.py=, line N, in <module>
 =>a, b, _ = 1,2,3,4
 =>ValueError: too many values to unpack (expected 3)
 
@@ -471,7 +471,7 @@ a = 2
 print(a)
 # Output: 2
 
-a = &quot;New value&quot;
+a = =New value=
 print(a)
 # Output: New value
 
@@ -550,7 +550,7 @@ Citing [PEP 8](https://www.python.org/dev/peps/pep-0008/#tabs-or-spaces):
 When invoking the Python 2 command line interpreter with the `-t` option, it issues warnings about code that illegally mixes tabs and spaces. When using `-tt` these warnings become errors. These options are highly recommended!
 
 
-Many editors have &quot;tabs to spaces&quot; configuration. When configuring the editor, one should differentiate between the tab **character** ('\t') and the <kbd>Tab</kbd> key.
+Many editors have =tabs to spaces= configuration. When configuring the editor, one should differentiate between the tab **character** ('\t') and the <kbd>Tab</kbd> key.
 
 - The tab **character** should be configured to show 8 spaces, to match the language semantics - at least in cases when (accidental) mixed indentation is possible. Editors can also automatically convert the tab character to spaces.
 - However, it might be helpful to configure the editor so that pressing the <kbd>Tab</kbd> key will insert 4 spaces, instead of inserting a tab character.
@@ -895,7 +895,7 @@ Append object to end of list with `L.append(object)`, returns `None`.
 
 ```
 names = ['Alice', 'Bob', 'Craig', 'Diana', 'Eric']
-names.append(&quot;Sia&quot;)
+names.append(=Sia=)
 print(names) 
 # Outputs ['Alice', 'Bob', 'Craig', 'Diana', 'Eric', 'Sia']
 
@@ -904,7 +904,7 @@ print(names)
 Add a new element to list at a specific index. `L.insert(index, object)`
 
 ```
-names.insert(1, &quot;Nikki&quot;)
+names.insert(1, =Nikki=)
 print(names)
 # Outputs ['Alice', 'Nikki', 'Bob', 'Craig', 'Diana', 'Eric', 'Sia']
 
@@ -913,7 +913,7 @@ print(names)
 Remove the first occurrence of a value with `L.remove(value)`, returns `None`
 
 ```
-names.remove(&quot;Bob&quot;)
+names.remove(=Bob=)
 print(names) # Outputs ['Alice', 'Nikki', 'Craig', 'Diana', 'Eric', 'Sia']
 
 ```
@@ -921,7 +921,7 @@ print(names) # Outputs ['Alice', 'Nikki', 'Craig', 'Diana', 'Eric', 'Sia']
 Get the index in the list of the first item whose value is x. It will show an error if there is no such item.
 
 ```
-name.index(&quot;Alice&quot;)
+name.index(=Alice=)
 0
 
 ```
@@ -1085,7 +1085,7 @@ If we try to access a non-existent key, python returns us an error as follows
 >>> state_capitals['Alabama']
 Traceback (most recent call last):
 
-  File &quot;<ipython-input-61-236329695e6f>&quot;, line 1, in <module>
+  File =<ipython-input-61-236329695e6f>=, line 1, in <module>
     state_capitals['Alabama']
 
 KeyError: 'Alabama'
@@ -1150,7 +1150,7 @@ Note that there are lots of alternatives, see for example [this discussion](http
 
 <li>
 **Windows**
-If you're on Windows, the default command is `python`. If you receive a `&quot;'python' is not recognized&quot;` error, the most likely cause is that Python's location is not in your system's `PATH` environment variable. This can be accessed by right-clicking on 'My Computer' and selecting 'Properties' or by navigating to 'System' through 'Control Panel'. Click on 'Advanced system settings' and then 'Environment Variables...'. Edit the `PATH` variable to include the directory of your Python installation, as well as the Script folder (usually `C:\Python27;C:\Python27\Scripts`). This requires administrative privileges and may require a restart.
+If you're on Windows, the default command is `python`. If you receive a `='python' is not recognized=` error, the most likely cause is that Python's location is not in your system's `PATH` environment variable. This can be accessed by right-clicking on 'My Computer' and selecting 'Properties' or by navigating to 'System' through 'Control Panel'. Click on 'Advanced system settings' and then 'Environment Variables...'. Edit the `PATH` variable to include the directory of your Python installation, as well as the Script folder (usually `C:\Python27;C:\Python27\Scripts`). This requires administrative privileges and may require a restart.
 When using multiple versions of Python on the same machine, a possible solution is to rename one of the `python.exe` files. For example, naming one version `python27.exe` would cause `python27` to become the Python command for that version.
 You can also use the Python Launcher for Windows, which is available through the installer and comes by default. It allows you to select the version of Python to run by using `py -[x.y]` instead of `python[x.y]`. You can use the latest version of Python 2 by running scripts with `py -2` and the latest version of Python 3 by running scripts with `py -3`.
 </li>
@@ -1182,7 +1182,7 @@ Python 3 is sometimes bound to `python` instead of `python3`. To use Python 2 on
 To get input from the user, use the `input` function (**note**: in Python 2.x, the function is called `raw_input` instead, although Python 2.x has its own version of [`input`](https://docs.python.org/2/library/functions.html#input) that is completely different):
 
 ```
-name = raw_input(&quot;What is your name? &quot;)
+name = raw_input(=What is your name? =)
 # Out: What is your name? _
 
 ```
@@ -1192,7 +1192,7 @@ name = raw_input(&quot;What is your name? &quot;)
 
 
 ```
-name = input(&quot;What is your name? &quot;)
+name = input(=What is your name? =)
 # Out: What is your name? _
 
 ```
@@ -1202,15 +1202,15 @@ The remainder of this example will be using Python 3 syntax.
 The function takes a string argument, which displays it as a prompt and returns a string. The above code provides a prompt, waiting for the user to input.
 
 ```
-name = input(&quot;What is your name? &quot;)
+name = input(=What is your name? =)
 # Out: What is your name?
 
 ```
 
-If the user types &quot;Bob&quot; and hits enter, the variable `name` will be assigned to the string `&quot;Bob&quot;`:
+If the user types =Bob= and hits enter, the variable `name` will be assigned to the string `=Bob=`:
 
 ```
-name = input(&quot;What is your name? &quot;)
+name = input(=What is your name? =)
 # Out: What is your name? Bob
 print(name)
 # Out: Bob
@@ -1220,7 +1220,7 @@ print(name)
 Note that the `input` is always of type `str`, which is important if you want the user to enter numbers. Therefore, you need to convert the `str` before trying to use it as a number:
 
 ```
-x = input(&quot;Write a number:&quot;)
+x = input(=Write a number:=)
 # Out: Write a number: 10
 x / 2
 # Out: TypeError: unsupported operand type(s) for /: 'str' and 'int'
@@ -1444,10 +1444,10 @@ it seems `__doc__` is useful to provide some documentation in, say, functions
 In addition to functions, documentation can also be provided in modules. So, if you have a file named `helloWorld.py` like this:
 
 ```
-&quot;&quot;&quot;This is the module docstring.&quot;&quot;&quot;
+===This is the module docstring.===
 
 def sayHello():
-    &quot;&quot;&quot;This is the function docstring.&quot;&quot;&quot;
+    ===This is the function docstring.===
     return 'Hello World'
 
 ```
@@ -1478,7 +1478,7 @@ recursively the attributes of its class's base classes can be retrieved using di
 Any data type can be simply converted to string using a builtin function called `str`. This function is called by default when a data type is passed to `print`
 
 ```
->>> str(123)    # &quot;123&quot;
+>>> str(123)    # =123=
 
 ```
 
@@ -1494,7 +1494,7 @@ A module can be created by creating a `.py` file.
 ```
 # hello.py
 def say_hello():
-    print(&quot;Hello!&quot;)
+    print(=Hello!=)
 
 ```
 
@@ -1506,7 +1506,7 @@ For modules that you have made, they will need to be in the same directory as th
 $ python
 >>> import hello
 >>> hello.say_hello()
-=> &quot;Hello!&quot;
+=> =Hello!=
 
 ```
 
@@ -1551,7 +1551,7 @@ Run it!
 
 ```
 $ python run_hello.py
-=> &quot;Hello!&quot;
+=> =Hello!=
 
 ```
 
@@ -1622,12 +1622,12 @@ Python 3 will install the Python launcher which can be used to launch Python 2.x
 ```
 P:\>py -3
 Python 3.6.1 (v3.6.1:69c0db5, Mar 21 2017, 17:54:52) [MSC v.1900 32 bit (Intel)] on win32
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 >>>
 
 C:\>py -2
 Python 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 20:42:59) [MSC v.1500 32 Intel)] on win32
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type =help=, =copyright=, =credits= or =license= for more information.
 >>>
 
 ```
@@ -1697,7 +1697,7 @@ considered the stable production version. ([source](http://docs.python-guide.org
 Install [Homebrew](https://brew.sh/):
 
 ```
-/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+/usr/bin/ruby -e =$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)=
 
 ```
 
@@ -1732,9 +1732,9 @@ For strings, this returns the string itself. The difference between this and `re
 Example 1:
 
 ```
-s = &quot;&quot;&quot;w'o&quot;w&quot;&quot;&quot;
-repr(s) # Output: '\'w\\\'o&quot;w\''  
-str(s)  # Output: 'w\'o&quot;w'
+s = ===w'o=w===
+repr(s) # Output: '\'w\\\'o=w\''  
+str(s)  # Output: 'w\'o=w'
 eval(str(s)) == s  # Gives a SyntaxError 
 eval(repr(s)) == s # Output: True
 
@@ -1759,21 +1759,21 @@ class Represent(object):
         self.x, self.y = x, y
 
     def __repr__(self):
-        return &quot;Represent(x={},y=\&quot;{}\&quot;)&quot;.format(self.x, self.y)
+        return =Represent(x={},y=\={}\=)=.format(self.x, self.y)
 
     def __str__(self):
-        return &quot;Representing x as {} and y as {}&quot;.format(self.x, self.y)
+        return =Representing x as {} and y as {}=.format(self.x, self.y)
 
 ```
 
 Using the above class we can see the results:
 
 ```
-r = Represent(1, &quot;Hopper&quot;)
+r = Represent(1, =Hopper=)
 print(r)  # prints __str__
-print(r.__repr__)  # prints __repr__: '<bound method Represent.__repr__ of Represent(x=1,y=&quot;Hopper&quot;)>'
+print(r.__repr__)  # prints __repr__: '<bound method Represent.__repr__ of Represent(x=1,y==Hopper=)>'
 rep = r.__repr__()  # sets the execution of __repr__ to a new variable
-print(rep)  # prints 'Represent(x=1,y=&quot;Hopper&quot;)'
+print(rep)  # prints 'Represent(x=1,y==Hopper=)'
 r2 = eval(rep) # evaluates rep
 print(r2)  # prints __str__ from new object
 print(r2 == r)  # prints 'False' because they are different objects

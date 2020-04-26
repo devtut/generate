@@ -18,31 +18,31 @@ The following C source file (which we will call `hello.c` for demonstration purp
 static PyObject *hello_greet(PyObject *self, PyObject *args)
 {
     const char *input;
-    if (!PyArg_ParseTuple(args, &quot;s&quot;, &amp;input)) {
+    if (!PyArg_ParseTuple(args, =s=, &input)) {
         return NULL;
     }
-    printf(&quot;%s&quot;, input);
+    printf(=%s=, input);
     Py_RETURN_NONE;
 }
 
 static PyMethodDef HelloMethods[] = {
-    { &quot;greet&quot;, hello_greet, METH_VARARGS, &quot;Greet the user&quot; },
+    { =greet=, hello_greet, METH_VARARGS, =Greet the user= },
     { NULL, NULL, 0, NULL }
 };
 
 #ifdef IS_PY3K
 static struct PyModuleDef hellomodule = {
-    PyModuleDef_HEAD_INIT, &quot;hello&quot;, NULL, -1, HelloMethods
+    PyModuleDef_HEAD_INIT, =hello=, NULL, -1, HelloMethods
 };
 
 PyMODINIT_FUNC PyInit_hello(void)
 {
-    return PyModule_Create(&amp;hellomodule);
+    return PyModule_Create(&hellomodule);
 }
 #else
 PyMODINIT_FUNC inithello(void)
 {
-    (void) Py_InitModule(&quot;hello&quot;, HelloMethods);
+    (void) Py_InitModule(=hello=, HelloMethods);
 }
 #endif
 
@@ -56,7 +56,7 @@ To execute the `greet()` function that we wrote earlier, create a file in the sa
 
 ```
 import hello          # imports the compiled library
-hello.greet(&quot;Hello!&quot;) # runs the greet() function with &quot;Hello!&quot; as an argument
+hello.greet(=Hello!=) # runs the greet() function with =Hello!= as an argument
 
 ```
 
@@ -80,7 +80,7 @@ C++ code put in hello.cpp:
 // Return a hello world string.
 std::string get_hello_function()
 {
-   return &quot;Hello world!&quot;;
+   return =Hello world!=;
 }
 
 // hello class that can return a list of count hello world strings.
@@ -106,17 +106,17 @@ private:
 };
 
 
-// Defining a python module naming it to &quot;hello&quot;.
+// Defining a python module naming it to =hello=.
 BOOST_PYTHON_MODULE(hello)
 {
    // Here you declare what functions and classes that should be exposed on the module.
 
    // The get_hello_function exposed to python as a function.
-   boost::python::def(&quot;get_hello&quot;, get_hello_function);
+   boost::python::def(=get_hello=, get_hello_function);
 
    // The hello_class exposed to python as a class.
-   boost::python::class_<hello_class>(&quot;Hello&quot;, boost::python::init<std::string>())
-      .def(&quot;as_list&quot;, &amp;hello_class::as_list)
+   boost::python::class_<hello_class>(=Hello=, boost::python::init<std::string>())
+      .def(=as_list=, &hello_class::as_list)
       ;   
 }
 
@@ -146,7 +146,7 @@ import hello
 
 print(hello.get_hello())
 
-h = hello.Hello(&quot;World hello!&quot;)
+h = hello.Hello(=World hello!=)
 print(h.as_list(3))
 
 ```
@@ -182,7 +182,7 @@ To convert an integer file descriptor back into a python object, use
 
 ```
 int fd; /* Existing file descriptor */
-PyObject *fobj = PyFile_FromFd(fd, &quot;filename&quot;,&quot;r&quot;,-1,NULL,NULL,NULL,1);
+PyObject *fobj = PyFile_FromFd(fd, =filename=,=r=,-1,NULL,NULL,NULL,1);
 
 ```
 

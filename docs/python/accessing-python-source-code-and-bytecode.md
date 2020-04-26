@@ -41,8 +41,8 @@ import inspect
 print(inspect.getsource(random.randint)) 
 # Output:
 #    def randint(self, a, b):
-#        &quot;&quot;&quot;Return random integer in range [a, b], including both end points.
-#        &quot;&quot;&quot;
+#        ===Return random integer in range [a, b], including both end points.
+#        ===
 #
 #        return self.randrange(a, b+1)
 

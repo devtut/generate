@@ -23,10 +23,10 @@ class Node:
 
       def display(lst):
           if lst:
-             w(&quot;%s &quot; % lst)
+             w(=%s = % lst)
              display(lst.cdr)
           else:
-             w(&quot;nil\n&quot;)
+             w(=nil\n=)
 
 ```
 

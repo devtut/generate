@@ -29,7 +29,7 @@ Output:
 
 ```
 Traceback (most recent call last):
-  File &quot;error_custom.py&quot;, line 8, in <module>
+  File =error_custom.py=, line 8, in <module>
     raise CustomError('This is custom error')
 __main__.CustomError: This is custom error
 

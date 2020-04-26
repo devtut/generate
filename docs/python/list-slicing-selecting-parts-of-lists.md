@@ -67,7 +67,7 @@ print(b)
 
 ```
 def shift_list(array, s):
-    &quot;&quot;&quot;Shifts the elements of a list to the left or right.
+    ===Shifts the elements of a list to the left or right.
 
     Args:
         array - the list to shift
@@ -75,7 +75,7 @@ def shift_list(array, s):
 
     Returns:
         shifted_array - the shifted list
-    &quot;&quot;&quot;
+    ===
     # calculate actual shift amount (e.g., 11 --> 1 if length of the array is 5)
     s %= len(array)
 

@@ -198,7 +198,7 @@ The `filter` or `map` functions should often be replaced by [list comprehensions
 `filter(P, S)` is almost always written clearer as `[x for x in S if P(x)]`, and this has the huge advantage that the most common usages involve predicates that are comparisons, e.g. `x==42`, and defining a lambda for that just requires much more effort for the reader (plus the lambda is slower than the list comprehension). Even more so for `map(F, S)` which becomes `[F(x) for x in S]`. Of course, in many cases you'd be able to use generator expressions instead.
 
 
-The following lines of code are considered &quot;**not pythonic**&quot; and will raise errors in many python linters.
+The following lines of code are considered =**not pythonic**= and will raise errors in many python linters.
 
 ```
 filter(lambda x: x % 2 == 0, range(10)) # even numbers < 10
@@ -222,10 +222,10 @@ Taking what we have learned from the previous quote, we can break down these `fi
 
 ```
 
-Readability becomes even more apparent when dealing with chaining functions.  Where due to readability, the results of one map or filter function should be passed as a result to the next; with simple cases, these can be replaced with a single list comprehension.  Further, we can easily tell from the list comprehension what the outcome of our process is, where there is more cognitive load when reasoning about the chained Map &amp; Filter process.
+Readability becomes even more apparent when dealing with chaining functions.  Where due to readability, the results of one map or filter function should be passed as a result to the next; with simple cases, these can be replaced with a single list comprehension.  Further, we can easily tell from the list comprehension what the outcome of our process is, where there is more cognitive load when reasoning about the chained Map & Filter process.
 
 ```
-# Map &amp; Filter
+# Map & Filter
 filtered = filter(lambda x: x % 2 == 0, range(10))
 results = map(lambda x: 2*x, filtered)
 

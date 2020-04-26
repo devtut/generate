@@ -63,7 +63,7 @@ import requests
 
 
 def main():
-    r = requests.get(&quot;https://httpbin.org&quot;)
+    r = requests.get(=https://httpbin.org=)
     html_source = r.text
     root_element = lxml.html.fromstring(html_source)
     # Note root_element.xpath() gives a *list* of results.
@@ -122,7 +122,7 @@ for question in questions:  # iterate over questions
     question_excerpt = question.find_element_by_css_selector('.summary .excerpt').text
     question_vote = question.find_element_by_css_selector('.stats .vote .votes .vote-count-post').text
     
-    print &quot;%s\n%s\n%s votes\n-----------\n&quot; % (question_title, question_excerpt, question_vote) 
+    print =%s\n%s\n%s votes\n-----------\n= % (question_title, question_excerpt, question_vote) 
 
 ```
 
@@ -145,7 +145,7 @@ page = BeautifulSoup(res.text, 'lxml')   # the text field contains the source of
 
 # Now use a CSS selector in order to get the table containing the list of problems
 datatable_tags = page.select('table.dataTable')  # The problems are in the <table> tag,
-                                                 # with class &quot;dataTable&quot;
+                                                 # with class =dataTable=
 # We extract the first tag from the list, since that's what we desire
 datatable = datatable_tags[0]
 # Now since we want problem names, they are contained in <b> tags, which are
@@ -162,7 +162,7 @@ print prob_names
 ## Modify Scrapy user agent
 
 
-Sometimes the default Scrapy user agent (`&quot;Scrapy/VERSION (+http://scrapy.org)&quot;`) is blocked by the host. To change the default user agent open **settings.py**, uncomment and edit the following line to what ever you want.
+Sometimes the default Scrapy user agent (`=Scrapy/VERSION (+http://scrapy.org)=`) is blocked by the host. To change the default user agent open **settings.py**, uncomment and edit the following line to what ever you want.
 
 ```
 #USER_AGENT = 'projectName (+http://www.yourdomain.com)'

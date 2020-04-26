@@ -92,7 +92,7 @@ Frozen Sets - They are immutable and new elements cannot added after its defined
 <pre>b = frozenset('asdfagsa')
 print(b)
 > frozenset({'f', 'g', 'd', 'a', 's'})
-cities = frozenset([&quot;Frankfurt&quot;, &quot;Basel&quot;,&quot;Freiburg&quot;])
+cities = frozenset([=Frankfurt=, =Basel=,=Freiburg=])
 print(cities)
 > frozenset({'Frankfurt', 'Basel', 'Freiburg'})
 </pre>

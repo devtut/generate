@@ -44,12 +44,12 @@ A context manager is any object that implements two magic methods `__enter__()` 
 class AContextManager():
 
     def __enter__(self):
-        print(&quot;Entered&quot;)
+        print(=Entered=)
         # optionally return an object
-        return &quot;A-instance&quot;
+        return =A-instance=
 
     def __exit__(self, exc_type, exc_value, traceback):
-        print(&quot;Exited&quot; + (&quot; (with an exception)&quot; if exc_type else &quot;&quot;))
+        print(=Exited= + (= (with an exception)= if exc_type else ==))
         # return True if you want to suppress the exception
 
 ```
@@ -60,17 +60,17 @@ If an exception occurs and is passed to the `__exit__` method, the method can re
 
 ```
 with AContextManager() as a:
-    print(&quot;a is %r&quot; % a)
+    print(=a is %r= % a)
 # Entered
 # a is 'A-instance'
 # Exited
 
 with AContextManager() as a:
-    print(&quot;a is %d&quot; % a)
+    print(=a is %d= % a)
 # Entered
 # Exited (with an exception)
 # Traceback (most recent call last):
-#   File &quot;<stdin>&quot;, line 2, in <module>
+#   File =<stdin>=, line 2, in <module>
 # TypeError: %d format: a number is required, not str
 
 ```
@@ -129,17 +129,17 @@ If an exception needs to be handled by the context manager, a `try..except..fina
 ```
 @contextlib.contextmanager
 def error_handling_context_manager(num):
-    print(&quot;Enter&quot;)
+    print(=Enter=)
     try:
         yield num + 1
     except ZeroDivisionError:
-        print(&quot;Caught error&quot;)
+        print(=Caught error=)
     finally:
-        print(&quot;Cleaning up&quot;)
-    print(&quot;Exit&quot;)
+        print(=Cleaning up=)
+    print(=Exit=)
 
 with error_handling_context_manager(-1) as cm:
-    print(&quot;Dividing by cm = {}&quot;.format(cm))
+    print(=Dividing by cm = {}=.format(cm))
     print(2 / cm)
 
 ```
@@ -244,7 +244,7 @@ for _ in range(10000):
 #### Syntax
 
 
-- with &quot;context_manager&quot;( as &quot;alias&quot;)(, &quot;context_manager&quot;( as &quot;alias&quot;)?)*:
+- with =context_manager=( as =alias=)(, =context_manager=( as =alias=)?)*:
 
 
 
@@ -270,7 +270,7 @@ The translation of the above statement is:
    exc = True
    try:
        try:
-           VAR = value  # Only if &quot;as VAR&quot; is present
+           VAR = value  # Only if =as VAR= is present
            BLOCK
        except:
            # The exceptional case is handled here

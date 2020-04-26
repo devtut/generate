@@ -23,7 +23,7 @@ c.execute('''CREATE TABLE stocks
          (date text, trans text, symbol text, qty real, price real)''')
 
 # Insert a row of data
-c.execute(&quot;INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)&quot;)
+c.execute(=INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)=)
 
 # Save (commit) the changes
 conn.commit()
@@ -47,7 +47,7 @@ Print row values returned by select query
 import sqlite3
 conn = sqlite3.connect('example.db')
 c = conn.cursor()
-c.execute(&quot;SELECT * from table_name where id=cust_id&quot;)
+c.execute(=SELECT * from table_name where id=cust_id=)
 for row in c:
     print row # will be a list
 
@@ -75,7 +75,7 @@ Error handling can be done using sqlite3.Error built in function
 try:
     #SQL Code
 except sqlite3.Error as e:
-    print &quot;An error occurred:&quot;, e.args[0]
+    print =An error occurred:=, e.args[0]
 
 ```
 

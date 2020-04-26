@@ -16,7 +16,7 @@ import csv
 def csv_writer(data, path):
     
     #Open CSV file whose path we passed.
-    with open(path, &quot;wb&quot;) as csv_file:
+    with open(path, =wb=) as csv_file:
         
         writer = csv.writer(csv_file, delimiter=',')
         for line in data:
@@ -26,20 +26,20 @@ def csv_writer(data, path):
 
 #---- Define our list here, and call function ------------
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
 
-    &quot;&quot;&quot;
+    ===
     data = our list that we want to write. 
     Split it so we get a list of lists.
-    &quot;&quot;&quot;
-    data = [&quot;first_name,last_name,age&quot;.split(&quot;,&quot;),
-            &quot;John,Doe,22&quot;.split(&quot;,&quot;),
-            &quot;Jane,Doe,31&quot;.split(&quot;,&quot;),
-            &quot;Jack,Reacher,27&quot;.split(&quot;,&quot;)
+    ===
+    data = [=first_name,last_name,age=.split(=,=),
+            =John,Doe,22=.split(=,=),
+            =Jane,Doe,31=.split(=,=),
+            =Jack,Reacher,27=.split(=,=)
             ]
 
     # Path to CSV file we want to write to.
-    path = &quot;output.csv&quot;
+    path = =output.csv=
     csv_writer(data, path)
 
 ```
@@ -51,8 +51,8 @@ if __name__ == &quot;__main__&quot;:
 
 ```
 def append_to_csv(input_string):
-    with open(&quot;fileName.csv&quot;, &quot;a&quot;) as csv_file:
-        csv_file.write(input_row + &quot;\n&quot;)
+    with open(=fileName.csv=, =a=) as csv_file:
+        csv_file.write(input_row + =\n=)
 
 ```
 
@@ -63,8 +63,8 @@ def append_to_csv(input_string):
 
 |Parameter|Details
 |------
-|open (**&quot;/path/&quot;**, &quot;mode&quot;)|Specify the path to your CSV file
-|open (path, **&quot;mode&quot;**)|Specify mode to open file in (read, write, etc.)
+|open (**=/path/=**, =mode=)|Specify the path to your CSV file
+|open (path, **=mode=**)|Specify mode to open file in (read, write, etc.)
 |csv.writer(**file**, delimiter)|Pass opened CSV file here
 |csv.writer(file, **delimiter=' '**)|Specify delimiter character or pattern
 
@@ -74,12 +74,12 @@ def append_to_csv(input_string):
 
 
 > 
-`open( path, &quot;wb&quot;)`
+`open( path, =wb=)`
 
 
-`&quot;wb&quot;` - Write mode.
+`=wb=` - Write mode.
 
-The `b` parameter in `&quot;wb&quot;` we have used, is necessary only if you want to open it in binary mode, which is needed only in some operating systems like Windows.
+The `b` parameter in `=wb=` we have used, is necessary only if you want to open it in binary mode, which is needed only in some operating systems like Windows.
 
 > 
 `csv.writer ( csv_file, delimiter=',' )`

@@ -123,21 +123,21 @@ bin(60 ^ 30)
 ## Bitwise AND
 
 
-The `&amp;` operator will perform a binary **AND**, where a bit is copied if it exists in **both** operands. That means:
+The `&` operator will perform a binary **AND**, where a bit is copied if it exists in **both** operands. That means:
 
 ```
-# 0 &amp; 0 = 0
-# 0 &amp; 1 = 0
-# 1 &amp; 0 = 0
-# 1 &amp; 1 = 1
+# 0 & 0 = 0
+# 0 & 1 = 0
+# 1 & 0 = 0
+# 1 & 1 = 1
 
 # 60 = 0b111100
 # 30 = 0b011110
-60 &amp; 30
+60 & 30
 # Out: 28
 # 28 = 0b11100
 
-bin(60 &amp; 30)
+bin(60 & 30)
 # Out: 0b11100
 
 ```
@@ -147,7 +147,7 @@ bin(60 &amp; 30)
 ## Bitwise OR
 
 
-The `|` operator will perform a binary &quot;or,&quot; where a bit is copied if it exists in either operand. That means:
+The `|` operator will perform a binary =or,= where a bit is copied if it exists in either operand. That means:
 
 ```
 # 0 | 0 = 0
@@ -171,7 +171,7 @@ bin(60 | 30)
 ## Bitwise Left Shift
 
 
-The `<<` operator will perform a bitwise &quot;left shift,&quot; where the left operand's value is moved left by the number of bits given by the right operand.
+The `<<` operator will perform a bitwise =left shift,= where the left operand's value is moved left by the number of bits given by the right operand.
 
 ```
 # 2 = 0b10
@@ -205,7 +205,7 @@ Performing a left bit shift of `n` is equivalent to multiplication by `2**n`:
 ## Bitwise Right Shift
 
 
-The `>>` operator will perform a bitwise &quot;right shift,&quot; where the left operand's value is moved right by the number of bits given by the right operand.
+The `>>` operator will perform a bitwise =right shift,= where the left operand's value is moved right by the number of bits given by the right operand.
 
 ```
 # 8 = 0b1000
@@ -249,7 +249,7 @@ All of the Bitwise operators (except `~`) have their own in place versions
 
 ```
 a = 0b001
-a &amp;= 0b010 
+a &= 0b010 
 # a = 0b000
 
 a = 0b001
@@ -282,7 +282,7 @@ x << y  # Bitwise Left Shift
 x >> y # Bitwise Right Shift
 </li>
 <li>
-x &amp; y  # Bitwise AND
+x & y  # Bitwise AND
 </li>
 <li>
 x | y  # Bitwise OR

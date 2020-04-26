@@ -28,7 +28,7 @@ Only `imported_by_star` is imported when using `from mymodule import *`:
 42
 >>> not_imported_by_star
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 NameError: name 'not_imported_by_star' is not defined
 
 ```
@@ -143,7 +143,7 @@ The keywords and syntax shown above can also be used in combinations:
 1482807222.7240417
 >>> print(arctan(60))
 1.554131203080956
->>> filepath = &quot;/dogs/jumping poodle (december).png&quot;
+>>> filepath = =/dogs/jumping poodle (december).png=
 >>> print(path2url(filepath))
 /dogs/jumping%20poodle%20%28december%29.png
 
@@ -158,7 +158,7 @@ If you want to import a module that doesn't already exist as a built-in module i
 
 ```
 import sys
-sys.path.append(&quot;/path/to/directory/containing/your/module&quot;)
+sys.path.append(=/path/to/directory/containing/your/module=)
 import mymodule
 
 ```
@@ -190,7 +190,7 @@ This will import all names defined in the `math` module into the global namespac
 
 ```
 def sqrt(num):
-    print(&quot;I don't know what's the square root of {}.&quot;.format(num))
+    print(=I don't know what's the square root of {}.=.format(num))
 
 sqrt(4)
 # Output: I don't know what's the square root of 4.
@@ -233,14 +233,14 @@ To import a module through a function call, use the `importlib` module (included
 
 ```
 import importlib
-random = importlib.import_module(&quot;random&quot;)
+random = importlib.import_module(=random=)
 
 ```
 
 The `importlib.import_module()` function will also import the submodule of a package directly:
 
 ```
-collections_abc = importlib.import_module(&quot;collections.abc&quot;)
+collections_abc = importlib.import_module(=collections.abc=)
 
 ```
 
@@ -304,7 +304,7 @@ Avoid using relative imports; use explicit imports instead.
 Instead of importing the complete module you can import only specified names:
 
 ```
-from random import randint # Syntax &quot;from MODULENAME import NAME1[, NAME2[, ...]]&quot;
+from random import randint # Syntax =from MODULENAME import NAME1[, NAME2[, ...]]=
 print(randint(1, 10))      # Out: 5
 
 ```
@@ -322,7 +322,7 @@ print(pi)                  # Out: 3.14159265359
 The following example will raise an error, because we haven't imported a module:
 
 ```
-random.randrange(1, 10)    # works only if &quot;import random&quot; has been run before
+random.randrange(1, 10)    # works only if =import random= has been run before
 
 ```
 
@@ -361,8 +361,8 @@ This imports `function` from `module.submodule`.
 The `__import__()` function can be used to import modules where the name is only known at runtime
 
 ```
-if user_input == &quot;os&quot;:
-    os = __import__(&quot;os&quot;)
+if user_input == =os=:
+    os = __import__(=os=)
 
 # equivalent to import os
 
@@ -371,7 +371,7 @@ if user_input == &quot;os&quot;:
 This function can also be used to specify the file path to a module
 
 ```
-mod = __import__(r&quot;C:/path/to/file/anywhere/on/computer/module.py&quot;)
+mod = __import__(r=C:/path/to/file/anywhere/on/computer/module.py=)
 
 ```
 

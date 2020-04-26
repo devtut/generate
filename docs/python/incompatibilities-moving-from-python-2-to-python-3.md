@@ -112,7 +112,7 @@ print(last)
 Similarly, unpacking a `str`:
 
 ```
-begin, *tail = &quot;Hello&quot;
+begin, *tail = =Hello=
 print(begin)
 # Out: 'H'
 print(tail)
@@ -245,7 +245,7 @@ s = 'Café'           # type(s) == str (note the accented trailing e)
 
 ```
 
-Additionally, Python 3 added a [`bytes` object](https://docs.python.org/3/library/functions.html#func-bytes), suitable for binary &quot;blobs&quot; or writing to encoding-independent files.  To create a bytes object, you can prefix `b` to a string literal or call the string's `encode` method:
+Additionally, Python 3 added a [`bytes` object](https://docs.python.org/3/library/functions.html#func-bytes), suitable for binary =blobs= or writing to encoding-independent files.  To create a bytes object, you can prefix `b` to a string literal or call the string's `encode` method:
 
 ```
 # Or, if you really need a byte string:
@@ -272,7 +272,7 @@ Python 2’s raw Unicode string prefix `ur` is not supported, however:
 
 ```
 >>> ur'Café'
-  File &quot;<stdin>&quot;, line 1
+  File =<stdin>=, line 1
     ur'Café'
            ^
 SyntaxError: invalid syntax
@@ -293,7 +293,7 @@ While the `bytes` type exists in both Python 2 and 3, the `unicode` type only ex
 
 ```
 from __future__ import unicode_literals
-print(repr(&quot;hi&quot;))
+print(repr(=hi=))
 # u'hi'
 
 ```
@@ -301,14 +301,14 @@ print(repr(&quot;hi&quot;))
 Another important difference is that indexing bytes in Python 3 results in an `int` output like so:
 
 ```
-b&quot;abc&quot;[0] == 97
+b=abc=[0] == 97
 
 ```
 
 Whilst slicing in a size of one results in a length 1 bytes object:
 
 ```
-b&quot;abc&quot;[0:1] == b&quot;a&quot;
+b=abc=[0:1] == b=a=
 
 ```
 
@@ -316,9 +316,9 @@ In addition, Python 3 [fixes some unusual behavior](https://eev.ee/blog/2016/11/
 
 ```
 # -*- coding: utf8 -*-
-print(&quot;Hi, my name is Łukasz Langa.&quot;)
-print(u&quot;Hi, my name is Łukasz Langa.&quot;[::-1])
-print(&quot;Hi, my name is Łukasz Langa.&quot;[::-1])
+print(=Hi, my name is Łukasz Langa.=)
+print(u=Hi, my name is Łukasz Langa.=[::-1])
+print(=Hi, my name is Łukasz Langa.=[::-1])
 
 # Output in Python 2
 # Hi, my name is Łukasz Langa.
@@ -340,30 +340,30 @@ print(&quot;Hi, my name is Łukasz Langa.&quot;[::-1])
 In Python 2, [`print`](https://docs.python.org/2/library/functions.html#print) is a statement:
 
 ```
-print &quot;Hello World&quot;
+print =Hello World=
 print                         # print a newline
-print &quot;No newline&quot;,           # add trailing comma to remove newline 
-print >>sys.stderr, &quot;Error&quot;   # print to stderr
-print(&quot;hello&quot;)                # print &quot;hello&quot;, since (&quot;hello&quot;) == &quot;hello&quot;
-print()                       # print an empty tuple &quot;()&quot;
-print 1, 2, 3                 # print space-separated arguments: &quot;1 2 3&quot;
-print(1, 2, 3)                # print tuple &quot;(1, 2, 3)&quot;
+print =No newline=,           # add trailing comma to remove newline 
+print >>sys.stderr, =Error=   # print to stderr
+print(=hello=)                # print =hello=, since (=hello=) == =hello=
+print()                       # print an empty tuple =()=
+print 1, 2, 3                 # print space-separated arguments: =1 2 3=
+print(1, 2, 3)                # print tuple =(1, 2, 3)=
 
 ```
 
 In Python 3, [`print()`](https://docs.python.org/3/library/functions.html#print) is a function, with keyword arguments for common uses:
 
 ```
-print &quot;Hello World&quot;              # SyntaxError
-print(&quot;Hello World&quot;)
+print =Hello World=              # SyntaxError
+print(=Hello World=)
 print()                          # print a newline (must use parentheses)
-print(&quot;No newline&quot;, end=&quot;&quot;)      # end specifies what to append (defaults to newline)
-print(&quot;Error&quot;, file=sys.stderr)  # file specifies the output buffer
-print(&quot;Comma&quot;, &quot;separated&quot;, &quot;output&quot;, sep=&quot;,&quot;)  # sep specifies the separator
-print(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, sep=&quot;&quot;)     # null string for sep: prints as ABC
-print(&quot;Flush this&quot;, flush=True)  # flush the output buffer, added in Python 3.3
-print(1, 2, 3)                   # print space-separated arguments: &quot;1 2 3&quot;
-print((1, 2, 3))                 # print tuple &quot;(1, 2, 3)&quot;
+print(=No newline=, end===)      # end specifies what to append (defaults to newline)
+print(=Error=, file=sys.stderr)  # file specifies the output buffer
+print(=Comma=, =separated=, =output=, sep==,=)  # sep specifies the separator
+print(=A=, =B=, =C=, sep===)     # null string for sep: prints as ABC
+print(=Flush this=, flush=True)  # flush the output buffer, added in Python 3.3
+print(1, 2, 3)                   # print space-separated arguments: =1 2 3=
+print((1, 2, 3))                 # print tuple =(1, 2, 3)=
 
 ```
 
@@ -443,7 +443,7 @@ print(isinstance(range(1, 10), range))
 # print(xrange(1, 10))
 # The output will be:
 #Traceback (most recent call last):
-#  File &quot;<stdin>&quot;, line 1, in <module>
+#  File =<stdin>=, line 1, in <module>
 #NameError: name 'xrange' is not defined
 
 ```
@@ -466,7 +466,7 @@ The advantage of using a special sequence type instead of a list is that the int
 # range(10000000000000000)
 # The output would be:
 # Traceback (most recent call last):
-#  File &quot;<stdin>&quot;, line 1, in <module>
+#  File =<stdin>=, line 1, in <module>
 # MemoryError
 
 print(xrange(100000000000000000))
@@ -516,7 +516,7 @@ This is the Python 2 syntax, note the commas `,` on the `raise` and `except` lin
 
 ```
 try:
-    raise IOError, &quot;input/output error&quot;
+    raise IOError, =input/output error=
 except IOError, exc:
     print exc
 
@@ -526,7 +526,7 @@ In Python 3, the `,` syntax is dropped and replaced by parenthesis and the `as` 
 
 ```
 try:
-    raise IOError(&quot;input/output error&quot;)
+    raise IOError(=input/output error=)
 except IOError as exc:
     print(exc)
 
@@ -548,13 +548,13 @@ The exception raised in the `except` statement is of type `DatabaseError`, but t
 
 ```
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 FileNotFoundError
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 4, in <module>
+  File =<stdin>=, line 4, in <module>
 DatabaseError('Cannot open database.db')
 
 ```
@@ -573,13 +573,13 @@ The traceback is
 
 ```
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 FileNotFoundError
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 4, in <module>
+  File =<stdin>=, line 4, in <module>
 DatabaseError('Cannot open database.db')
 
 ```
@@ -597,11 +597,11 @@ except:
     sys_vers = getattr(sys, 'version_info', (0,))
     if sys_vers < (3, 0):
         traceback.print_exc()
-    raise Exception(&quot;new exception&quot;)
+    raise Exception(=new exception=)
 
 ```
 
-To &quot;forget&quot; the previously thrown exception, use `raise from None`
+To =forget= the previously thrown exception, use `raise from None`
 
 ```
 try:
@@ -615,7 +615,7 @@ Now the traceback would simply be
 
 ```
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 4, in <module>
+  File =<stdin>=, line 4, in <module>
 DatabaseError('Cannot open database.db')
 
 ```
@@ -902,20 +902,20 @@ True
 False
 >>> foo = 'hello world'
 >>> repr(foo)
-&quot;'hello world'&quot;
+='hello world'=
 >>> `foo`
-&quot;'hello world'&quot;
+='hello world'=
 
 ```
 
 ```
 >>> 1 <> 2
-  File &quot;<stdin>&quot;, line 1
+  File =<stdin>=, line 1
     1 <> 2
        ^
 SyntaxError: invalid syntax
 >>> `foo`
-  File &quot;<stdin>&quot;, line 1
+  File =<stdin>=, line 1
     `foo`
     ^
 SyntaxError: invalid syntax
@@ -1032,7 +1032,7 @@ In order to **ensure compatibility** between both versions of Python, classes ca
 
 ```
 class mycls(object):
-    &quot;&quot;&quot;I am fully compatible with Python 2/3&quot;&quot;&quot;
+    ===I am fully compatible with Python 2/3===
 
 ```
 
@@ -1042,7 +1042,7 @@ Alternatively, if the `__metaclass__` variable is set to `type` at global scope,
 __metaclass__ = type
 
 class mycls:
-    &quot;&quot;&quot;I am also fully compatible with Python 2/3&quot;&quot;&quot;
+    ===I am also fully compatible with Python 2/3===
 
 ```
 
@@ -1171,7 +1171,7 @@ The `..` is used for parent-level relative imports. Add more `.`s with number of
 >>> type(_)
 <class 'map'>
 
-# We need to apply map again because we &quot;consumed&quot; the previous map....
+# We need to apply map again because we =consumed= the previous map....
 >>> map(str, [1, 2, 3, 4, 5])
 >>> list(_)
 ['1', '2', '3', '4', '5']
@@ -1189,7 +1189,7 @@ In Python 2, you can pass `None` to serve as an identity function. This no longe
 ```
 >>> list(map(None, [0, 1, 2, 3, 0, 5]))
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: 'NoneType' object is not callable
 
 ```
@@ -1413,7 +1413,7 @@ and the latter forms are guaranteed to work identically in both Python 2 and Pyt
 
 
 ```
-&quot;1deadbeef3&quot;.decode('hex')
+=1deadbeef3=.decode('hex')
 # Out: '\x1d\xea\xdb\xee\xf3'
 '\x1d\xea\xdb\xee\xf3'.encode('hex')
 # Out: 1deadbeef3
@@ -1421,24 +1421,24 @@ and the latter forms are guaranteed to work identically in both Python 2 and Pyt
 ```
 
 ```
-&quot;1deadbeef3&quot;.decode('hex')
+=1deadbeef3=.decode('hex')
 # Traceback (most recent call last):
-#   File &quot;<stdin>&quot;, line 1, in <module>
+#   File =<stdin>=, line 1, in <module>
 # AttributeError: 'str' object has no attribute 'decode'
 
-b&quot;1deadbeef3&quot;.decode('hex')
+b=1deadbeef3=.decode('hex')
 # Traceback (most recent call last):
-#   File &quot;<stdin>&quot;, line 1, in <module>
+#   File =<stdin>=, line 1, in <module>
 # LookupError: 'hex' is not a text encoding; use codecs.decode() to handle arbitrary codecs
 
 '\x1d\xea\xdb\xee\xf3'.encode('hex')
 # Traceback (most recent call last):
-#   File &quot;<stdin>&quot;, line 1, in <module>
+#   File =<stdin>=, line 1, in <module>
 # LookupError: 'hex' is not a text encoding; use codecs.encode() to handle arbitrary codecs
 
 b'\x1d\xea\xdb\xee\xf3'.encode('hex')
 # Traceback (most recent call last):
-#  File &quot;<stdin>&quot;, line 1, in <module>
+#  File =<stdin>=, line 1, in <module>
 # AttributeError: 'bytes' object has no attribute 'encode'
 
 ```
@@ -1562,18 +1562,18 @@ This bug is fixed in Python3. So if you use Python 2, use
 try:
     a.get
 except AttributeError:
-    print(&quot;no get property!&quot;)
+    print(=no get property!=)
 
 ```
 
 or use `getattr` instead
 
 ```
-p = getattr(a, &quot;get&quot;, None)
+p = getattr(a, =get=, None)
 if p is not None:
     print(p)
 else:
-    print(&quot;no get property!&quot;)
+    print(=no get property!=)
 
 ```
 

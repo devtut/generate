@@ -15,7 +15,7 @@ To evaluate code by an untrusted user you need to turn to some third-party modul
 
 
 ```
->>> code = &quot;&quot;&quot;for i in range(5):\n    print('Hello world!')&quot;&quot;&quot;
+>>> code = ===for i in range(5):\n    print('Hello world!')===
 >>> exec(code)
 Hello world!
 Hello world!
@@ -49,7 +49,7 @@ Hello world!
 ```
 >>> code = compile('a * b + c', '<string>', 'eval')
 >>> code
-<code object <module> at 0x7f0e51a58830, file &quot;<string>&quot;, line 1>
+<code object <module> at 0x7f0e51a58830, file =<string>=, line 1>
 >>> a, b, c = 1, 2, 3
 >>> eval(code)
 5
@@ -75,8 +75,8 @@ As a plus, with this the code cannot accidentally refer to the names defined out
 {'a': 6, 'b': 7}
 >>> eval('variables', globals=variables)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
-  File &quot;<string>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
+  File =<string>=, line 1, in <module>
 NameError: name 'variables' is not defined
 
 ```
@@ -100,7 +100,7 @@ If you have a string that contains Python literals, such as strings, floats etc,
 
 ```
 >>> import ast
->>> code = &quot;&quot;&quot;(1, 2, {'foo': 'bar'})&quot;&quot;&quot;
+>>> code = ===(1, 2, {'foo': 'bar'})===
 >>> object = ast.literal_eval(code)
 >>> object
 (1, 2, {'foo': 'bar'})

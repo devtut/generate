@@ -267,7 +267,7 @@ You are able to append a string to a character array using `fromstring()`
 
 ```
 my_char_array = array('c', ['g','e','e','k'])
-my_char_array.fromstring(&quot;stuff&quot;)
+my_char_array.fromstring(=stuff=)
 print(my_char_array)
 #array('c', 'geekstuff')
 

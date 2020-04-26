@@ -44,7 +44,7 @@ with open(filename, 'r') as f:
 Let's say we have the following data:
 
 ```
->>> data = {&quot;cats&quot;: [{&quot;name&quot;: &quot;Tubbs&quot;, &quot;color&quot;: &quot;white&quot;}, {&quot;name&quot;: &quot;Pepper&quot;, &quot;color&quot;: &quot;black&quot;}]}
+>>> data = {=cats=: [{=name=: =Tubbs=, =color=: =white=}, {=name=: =Pepper=, =color=: =black=}]}
 
 ```
 
@@ -52,7 +52,7 @@ Just dumping this as JSON does not do anything special here:
 
 ```
 >>> print(json.dumps(data))
-{&quot;cats&quot;: [{&quot;name&quot;: &quot;Tubbs&quot;, &quot;color&quot;: &quot;white&quot;}, {&quot;name&quot;: &quot;Pepper&quot;, &quot;color&quot;: &quot;black&quot;}]}
+{=cats=: [{=name=: =Tubbs=, =color=: =white=}, {=name=: =Pepper=, =color=: =black=}]}
 
 ```
 
@@ -63,14 +63,14 @@ If we want pretty printing, we can set an `indent` size:
 ```
 >>> print(json.dumps(data, indent=2))
 {
-  &quot;cats&quot;: [
+  =cats=: [
     {
-      &quot;name&quot;: &quot;Tubbs&quot;,
-      &quot;color&quot;: &quot;white&quot;
+      =name=: =Tubbs=,
+      =color=: =white=
     },
     {
-      &quot;name&quot;: &quot;Pepper&quot;,
-      &quot;color&quot;: &quot;black&quot;
+      =name=: =Pepper=,
+      =color=: =black=
     }
   ]
 }
@@ -83,7 +83,7 @@ By default the order of keys in the output is undefined. We can get them in alph
 
 ```
 >>> print(json.dumps(data, sort_keys=True))
-{&quot;cats&quot;: [{&quot;color&quot;: &quot;white&quot;, &quot;name&quot;: &quot;Tubbs&quot;}, {&quot;color&quot;: &quot;black&quot;, &quot;name&quot;: &quot;Pepper&quot;}]}
+{=cats=: [{=color=: =white=, =name=: =Tubbs=}, {=color=: =black=, =name=: =Pepper=}]}
 
 ```
 
@@ -93,7 +93,7 @@ We might want to get rid of the unnecessary spaces, which is done by setting sep
 
 ```
 >>>print(json.dumps(data, separators=(',', ':')))
-{&quot;cats&quot;:[{&quot;name&quot;:&quot;Tubbs&quot;,&quot;color&quot;:&quot;white&quot;},{&quot;name&quot;:&quot;Pepper&quot;,&quot;color&quot;:&quot;black&quot;}]}
+{=cats=:[{=name=:=Tubbs=,=color=:=white=},{=name=:=Pepper=,=color=:=black=}]}
 
 ```
 
@@ -116,7 +116,7 @@ json.dumps(d)
 The above snippet will return the following:
 
 ```
-'{&quot;wonderland&quot;: [1, 2, 3], &quot;foo&quot;: &quot;bar&quot;, &quot;alice&quot;: 1}'
+'{=wonderland=: [1, 2, 3], =foo=: =bar=, =alice=: 1}'
 
 ```
 
@@ -127,7 +127,7 @@ The above snippet will return the following:
 
 ```
 import json
-s = '{&quot;wonderland&quot;: [1, 2, 3], &quot;foo&quot;: &quot;bar&quot;, &quot;alice&quot;: 1}'
+s = '{=wonderland=: [1, 2, 3], =foo=: =bar=, =alice=: 1}'
 json.loads(s)
 
 ```
@@ -151,11 +151,11 @@ Here we use the string-based functions:
 ```
 import json
 
-data = {u&quot;foo&quot;: u&quot;bar&quot;, u&quot;baz&quot;: []}
+data = {u=foo=: u=bar=, u=baz=: []}
 json_string = json.dumps(data)
-# u'{&quot;foo&quot;: &quot;bar&quot;, &quot;baz&quot;: []}'
+# u'{=foo=: =bar=, =baz=: []}'
 json.loads(json_string)
-# {u&quot;foo&quot;: u&quot;bar&quot;, u&quot;baz&quot;: []}
+# {u=foo=: u=bar=, u=baz=: []}
 
 ```
 
@@ -167,14 +167,14 @@ import json
 from io import StringIO
 
 json_file = StringIO()
-data = {u&quot;foo&quot;: u&quot;bar&quot;, u&quot;baz&quot;: []}
+data = {u=foo=: u=bar=, u=baz=: []}
 json.dump(data, json_file)
 json_file.seek(0)  # Seek back to the start of the file before reading
 json_file_content = json_file.read()
-# u'{&quot;foo&quot;: &quot;bar&quot;, &quot;baz&quot;: []}'
+# u'{=foo=: =bar=, =baz=: []}'
 json_file.seek(0)  # Seek back to the start of the file before reading
 json.load(json_file)
-# {u&quot;foo&quot;: u&quot;bar&quot;, u&quot;baz&quot;: []}
+# {u=foo=: u=bar=, u=baz=: []}
 
 ```
 
@@ -184,18 +184,18 @@ As you can see the main difference is that when dumping json data you must pass 
 import json
 
 json_file_path = './data.json'
-data = {u&quot;foo&quot;: u&quot;bar&quot;, u&quot;baz&quot;: []}
+data = {u=foo=: u=bar=, u=baz=: []}
 
 with open(json_file_path, 'w') as json_file:
     json.dump(data, json_file)
 
 with open(json_file_path) as json_file:
     json_file_content = json_file.read()
-    # u'{&quot;foo&quot;: &quot;bar&quot;, &quot;baz&quot;: []}'
+    # u'{=foo=: =bar=, =baz=: []}'
 
 with open(json_file_path) as json_file:
     json.load(json_file)
-    # {u&quot;foo&quot;: u&quot;bar&quot;, u&quot;baz&quot;: []}
+    # {u=foo=: u=bar=, u=baz=: []}
 
 ```
 
@@ -218,10 +218,10 @@ with open(file_path, 'w') as json_file:
 ## Calling `json.tool` from the command line to pretty-print JSON output
 
 
-Given some JSON file &quot;foo.json&quot; like:
+Given some JSON file =foo.json= like:
 
 ```
-{&quot;foo&quot;: {&quot;bar&quot;: {&quot;baz&quot;: 1}}}
+{=foo=: {=bar=: {=baz=: 1}}}
 
 ```
 
@@ -230,9 +230,9 @@ we can call the module directly from the command line (passing the filename as a
 ```
 $ python -m json.tool foo.json
 {
-    &quot;foo&quot;: {
-        &quot;bar&quot;: {
-            &quot;baz&quot;: 1
+    =foo=: {
+        =bar=: {
+            =baz=: 1
         }
     }
 }
@@ -281,7 +281,7 @@ and then use this encoder class instead of `json.dumps`:
 ```
 encoder = DatetimeJSONEncoder()
 print(encoder.encode(data))
-# prints {&quot;datetime&quot;: &quot;2016-09-26T04:44:00&quot;}
+# prints {=datetime=: =2016-09-26T04:44:00=}
 
 ```
 

@@ -95,7 +95,7 @@ def main():
     # Don't forget to provide a return code
     return 0
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     sys.exit(main())
 
 ```

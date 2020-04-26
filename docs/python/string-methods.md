@@ -21,10 +21,10 @@ With unicode strings (the default in Python 3), these operations are **not** 1:1
 `str.casefold` creates a lowercase string that is suitable for case insensitive comparisons. This is more aggressive than `str.lower` and may modify strings that are already in lowercase or cause strings to grow in length, and is not intended for display purposes.
 
 ```
-&quot;XßΣ&quot;.casefold()
+=XßΣ=.casefold()
 # 'xssσ'
 
-&quot;XßΣ&quot;.lower()
+=XßΣ=.lower()
 # 'xßς'
 
 ```
@@ -36,8 +36,8 @@ The transformations that take place under casefolding are defined by the Unicode
 `str.upper` takes every character in a string and converts it to its uppercase equivalent, for example:
 
 ```
-&quot;This is a 'string'.&quot;.upper()
-# &quot;THIS IS A 'STRING'.&quot;
+=This is a 'string'.=.upper()
+# =THIS IS A 'STRING'.=
 
 ```
 
@@ -46,8 +46,8 @@ The transformations that take place under casefolding are defined by the Unicode
 `str.lower` does the opposite; it takes every character in a string and converts it to its lowercase equivalent:
 
 ```
-&quot;This IS a 'string'.&quot;.lower()
-# &quot;this is a 'string'.&quot;
+=This IS a 'string'.=.lower()
+# =this is a 'string'.=
 
 ```
 
@@ -56,8 +56,8 @@ The transformations that take place under casefolding are defined by the Unicode
 `str.capitalize` returns a capitalized version of the string, that is, it makes the first character have upper case and the rest lower:
 
 ```
-&quot;this Is A 'String'.&quot;.capitalize() # Capitalizes the first character and lowercases all others
-# &quot;This is a 'string'.&quot;
+=this Is A 'String'.=.capitalize() # Capitalizes the first character and lowercases all others
+# =This is a 'string'.=
 
 ```
 
@@ -66,8 +66,8 @@ The transformations that take place under casefolding are defined by the Unicode
 `str.title` returns the title cased version of the string, that is, every letter in the beginning of a word is made upper case and all others are made lower case:
 
 ```
-&quot;this Is a 'String'&quot;.title()
-# &quot;This Is A 'String'&quot;
+=this Is a 'String'=.title()
+# =This Is A 'String'=
 
 ```
 
@@ -76,8 +76,8 @@ The transformations that take place under casefolding are defined by the Unicode
 `str.swapcase` returns a new string object in which all lower case characters are swapped to upper case and all upper case characters to lower:
 
 ```
-&quot;this iS A STRiNG&quot;.swapcase() #Swaps case of each character
-# &quot;THIS Is a strIng&quot;
+=this iS A STRiNG=.swapcase() #Swaps case of each character
+# =THIS Is a strIng=
 
 ```
 
@@ -86,16 +86,16 @@ The transformations that take place under casefolding are defined by the Unicode
 It is worth noting that these methods may be called either on string objects (as shown above) or as a class method of the `str` class (with an explicit call to `str.upper`, etc.)
 
 ```
-str.upper(&quot;This is a 'string'&quot;)
-# &quot;THIS IS A 'STRING'&quot;
+str.upper(=This is a 'string'=)
+# =THIS IS A 'STRING'=
 
 ```
 
 This is most useful when applying one of these methods to many strings at once in say, a **[`map`](http://stackoverflow.com/documentation/python/333/map-function)**  function.
 
 ```
-map(str.upper,[&quot;These&quot;,&quot;are&quot;,&quot;some&quot;,&quot;'strings'&quot;])
-# ['THESE', 'ARE', 'SOME', &quot;'STRINGS'&quot;]
+map(str.upper,[=These=,=are=,=some=,='strings'=])
+# ['THESE', 'ARE', 'SOME', ='STRINGS'=]
 
 ```
 
@@ -110,8 +110,8 @@ Python supports a `translate` method on the `str` type which allows you to speci
 table</code></td>|It is a lookup table that defines the mapping from one character to another.</tr>|`deletechars`|A list of characters which are to be removed from the string.
 </tbody></table>
 The `maketrans` method (`str.maketrans` in Python 3 and `string.maketrans` in Python 2) allows you to generate a translation table.
-<pre><code>>>> translation_table = str.maketrans(&quot;aeiou&quot;, &quot;12345&quot;)
->>> my_string = &quot;This is a string!&quot;
+<pre><code>>>> translation_table = str.maketrans(=aeiou=, =12345=)
+>>> my_string = =This is a string!=
 >>> translated = my_string.translate(translation_table)
 'Th3s 3s 1 str3ng!'
 
@@ -139,7 +139,7 @@ Given the following variables:
 ```
 i = 10
 f = 1.5
-s = &quot;foo&quot;
+s = =foo=
 l = ['a', 1, 2]
 d = {'a': 1, 2: 'foo'}
 
@@ -148,50 +148,50 @@ d = {'a': 1, 2: 'foo'}
 The following statements are all equivalent
 
 ```
-&quot;10 1.5 foo ['a', 1, 2] {'a': 1, 2: 'foo'}&quot;
+=10 1.5 foo ['a', 1, 2] {'a': 1, 2: 'foo'}=
 
 ```
 
 ```
->>> &quot;{} {} {} {} {}&quot;.format(i, f, s, l, d)
+>>> ={} {} {} {} {}=.format(i, f, s, l, d)
 
->>> str.format(&quot;{} {} {} {} {}&quot;, i, f, s, l, d)
+>>> str.format(={} {} {} {} {}=, i, f, s, l, d)
 
->>> &quot;{0} {1} {2} {3} {4}&quot;.format(i, f, s, l, d)
+>>> ={0} {1} {2} {3} {4}=.format(i, f, s, l, d)
 
->>> &quot;{0:d} {1:0.1f} {2} {3!r} {4!r}&quot;.format(i, f, s, l, d)
+>>> ={0:d} {1:0.1f} {2} {3!r} {4!r}=.format(i, f, s, l, d)
 
->>> &quot;{i:d} {f:0.1f} {s} {l!r} {d!r}&quot;.format(i=i, f=f, s=s, l=l, d=d)
-
-```
+>>> ={i:d} {f:0.1f} {s} {l!r} {d!r}=.format(i=i, f=f, s=s, l=l, d=d)
 
 ```
->>> f&quot;{i} {f} {s} {l} {d}&quot;
 
->>> f&quot;{i:d} {f:0.1f} {s} {l!r} {d!r}&quot;
+```
+>>> f={i} {f} {s} {l} {d}=
+
+>>> f={i:d} {f:0.1f} {s} {l!r} {d!r}=
 
 ```
 
 For reference, Python also supports C-style qualifiers for string formatting. The examples below are equivalent to those above, but the `str.format` versions are preferred due to benefits in flexibility, consistency of notation, and extensibility:
 
 ```
-&quot;%d %0.1f %s %r %r&quot; % (i, f, s, l, d)
+=%d %0.1f %s %r %r= % (i, f, s, l, d)
 
-&quot;%(i)d %(f)0.1f %(s)s %(l)r %(d)r&quot; % dict(i=i, f=f, s=s, l=l, d=d)
+=%(i)d %(f)0.1f %(s)s %(l)r %(d)r= % dict(i=i, f=f, s=s, l=l, d=d)
 
 ```
 
 The braces uses for interpolation in `str.format` can also be numbered to reduce duplication when formatting strings. For example, the following are equivalent:
 
 ```
-&quot;I am from Australia. I love cupcakes from Australia!&quot;
+=I am from Australia. I love cupcakes from Australia!=
 
 ```
 
 ```
->>> &quot;I am from {}. I love cupcakes from {}!&quot;.format(&quot;Australia&quot;, &quot;Australia&quot;)
+>>> =I am from {}. I love cupcakes from {}!=.format(=Australia=, =Australia=)
 
->>> &quot;I am from {0}. I love cupcakes from {0}!&quot;.format(&quot;Australia&quot;)
+>>> =I am from {0}. I love cupcakes from {0}!=.format(=Australia=)
 
 ```
 
@@ -200,14 +200,14 @@ While the official python documentation is, as usual, thorough enough, [pyformat
 Additionally, the `{` and `}` characters can be escaped by using double brackets:
 
 ```
-&quot;{'a': 5, 'b': 6}&quot;
+={'a': 5, 'b': 6}=
 
 ```
 
 ```
->>> &quot;{{'{}': {}, '{}': {}}}&quot;.format(&quot;a&quot;, 5, &quot;b&quot;, 6)
+>>> ={{'{}': {}, '{}': {}}}=.format(=a=, 5, =b=, 6)
 
->>> f&quot;{{'{'a'}': {5}, '{'b'}': {6}}&quot;
+>>> f={{'{'a'}': {5}, '{'b'}': {6}}=
 
 ```
 
@@ -291,7 +291,7 @@ Contains all characters which are considered punctuation in the `C` locale:
 
 ```
 >>> string.punctuation
-'!&quot;#$%&amp;\'()*+,-./:;<=>?@[\\]^_`{|}~'
+'!=#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 
 ```
 
@@ -313,7 +313,7 @@ Contains all characters which are considered printable; a combination of `string
 
 ```
 >>> string.printable
-'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
+'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!=#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
 
 ```
 
@@ -329,13 +329,13 @@ Contains all characters which are considered printable; a combination of `string
 If `sep` isn't provided, or is `None`, then the splitting takes place wherever there is whitespace. However, leading and trailing whitespace is ignored, and multiple consecutive whitespace characters are treated the same as a single whitespace character:
 
 ```
->>> &quot;This is a sentence.&quot;.split()
+>>> =This is a sentence.=.split()
 ['This', 'is', 'a', 'sentence.']
 
->>> &quot; This is    a sentence.  &quot;.split()
+>>> = This is    a sentence.  =.split()
 ['This', 'is', 'a', 'sentence.']
 
->>> &quot;            &quot;.split()
+>>> =            =.split()
 []
 
 ```
@@ -343,19 +343,19 @@ If `sep` isn't provided, or is `None`, then the splitting takes place wherever t
 The `sep` parameter can be used to define a delimiter string. The original string is split where the delimiter string occurs, and the delimiter itself is discarded. Multiple consecutive delimiters are **not** treated the same as a single occurrence, but rather cause empty strings to be created.
 
 ```
->>> &quot;This is a sentence.&quot;.split(' ')
+>>> =This is a sentence.=.split(' ')
 ['This', 'is', 'a', 'sentence.']
 
->>> &quot;Earth,Stars,Sun,Moon&quot;.split(',')
+>>> =Earth,Stars,Sun,Moon=.split(',')
 ['Earth', 'Stars', 'Sun', 'Moon']
 
->>> &quot; This is    a sentence.  &quot;.split(' ')
+>>> = This is    a sentence.  =.split(' ')
 ['', 'This', 'is', '', '', '', 'a', 'sentence.', '', '']
 
->>> &quot;This is a sentence.&quot;.split('e')
+>>> =This is a sentence.=.split('e')
 ['This is a s', 'nt', 'nc', '.']
 
->>> &quot;This is a sentence.&quot;.split('en')
+>>> =This is a sentence.=.split('en')
 ['This is a s', 't', 'ce.']
 
 ```
@@ -363,29 +363,29 @@ The `sep` parameter can be used to define a delimiter string. The original strin
 The default is to split on **every** occurrence of the delimiter, however the `maxsplit` parameter limits the number of splittings that occur. The default value of `-1` means no limit:
 
 ```
->>> &quot;This is a sentence.&quot;.split('e', maxsplit=0)
+>>> =This is a sentence.=.split('e', maxsplit=0)
 ['This is a sentence.']
 
->>> &quot;This is a sentence.&quot;.split('e', maxsplit=1)
+>>> =This is a sentence.=.split('e', maxsplit=1)
 ['This is a s', 'ntence.']
 
->>> &quot;This is a sentence.&quot;.split('e', maxsplit=2)
+>>> =This is a sentence.=.split('e', maxsplit=2)
 ['This is a s', 'nt', 'nce.']
 
->>> &quot;This is a sentence.&quot;.split('e', maxsplit=-1)
+>>> =This is a sentence.=.split('e', maxsplit=-1)
 ['This is a s', 'nt', 'nc', '.']
 
 ```
 
 ### `str.rsplit(sep=None, maxsplit=-1)`
 
-`str.rsplit` (&quot;right split&quot;) differs from `str.split` (&quot;left split&quot;) when `maxsplit` is specified. The splitting starts at the end of the string rather than at the beginning:
+`str.rsplit` (=right split=) differs from `str.split` (=left split=) when `maxsplit` is specified. The splitting starts at the end of the string rather than at the beginning:
 
 ```
->>> &quot;This is a sentence.&quot;.rsplit('e', maxsplit=1)
+>>> =This is a sentence.=.rsplit('e', maxsplit=1)
 ['This is a sentenc', '.']
 
->>> &quot;This is a sentence.&quot;.rsplit('e', maxsplit=2)
+>>> =This is a sentence.=.rsplit('e', maxsplit=2)
 ['This is a sent', 'nc', '.']
 
 ```
@@ -406,24 +406,24 @@ Python's `str` type also has a method for replacing occurences of one sub-string
 For example, in order to replace `'foo'` with `'spam'` in the following string,  we can call `str.replace` with `old = 'foo'` and `new = 'spam'`:
 
 ```
->>> &quot;Make sure to foo your sentence.&quot;.replace('foo', 'spam')
-&quot;Make sure to spam your sentence.&quot;
+>>> =Make sure to foo your sentence.=.replace('foo', 'spam')
+=Make sure to spam your sentence.=
 
 ```
 
 If the given string contains multiple examples that match the `old` argument, **all** occurrences are replaced with the value supplied in `new`:
 
 ```
->>> &quot;It can foo multiple examples of foo if you want.&quot;.replace('foo', 'spam')
-&quot;It can spam multiple examples of spam if you want.&quot;
+>>> =It can foo multiple examples of foo if you want.=.replace('foo', 'spam')
+=It can spam multiple examples of spam if you want.=
 
 ```
 
 unless, of course, we supply a value for `count`. In this case `count` occurrences are going to get replaced:
 
 ```
->>> &quot;&quot;&quot;It can foo multiple examples of foo if you want, \
-... or you can limit the foo with the third argument.&quot;&quot;&quot;.replace('foo', 'spam', 1)
+>>> ===It can foo multiple examples of foo if you want, \
+... or you can limit the foo with the third argument.===.replace('foo', 'spam', 1)
 'It can spam multiple examples of foo if you want, or you can limit the foo with the third argument.'
 
 ```
@@ -440,18 +440,18 @@ Python's `str` type also features a number of methods that can be used to evalua
 `str.isalpha` takes no arguments and returns `True` if the all characters in a given string are alphabetic, for example:
 
 ```
->>> &quot;Hello World&quot;.isalpha()  # contains a space
+>>> =Hello World=.isalpha()  # contains a space
 False
->>> &quot;Hello2World&quot;.isalpha()  # contains a number
+>>> =Hello2World=.isalpha()  # contains a number
 False
->>> &quot;HelloWorld!&quot;.isalpha()  # contains punctuation
+>>> =HelloWorld!=.isalpha()  # contains punctuation
 False
->>> &quot;HelloWorld&quot;.isalpha()
+>>> =HelloWorld=.isalpha()
 True
 
 ```
 
-As an edge case, the empty string evaluates to `False` when used with `&quot;&quot;.isalpha()`.
+As an edge case, the empty string evaluates to `False` when used with `==.isalpha()`.
 
 ### `str.isupper`, `str.islower`, `str.istitle`
 
@@ -460,11 +460,11 @@ These methods test the capitalization in a given string.
 `str.isupper` is a method that returns `True` if all characters in a given string are uppercase and `False` otherwise.
 
 ```
->>> &quot;HeLLO WORLD&quot;.isupper()
+>>> =HeLLO WORLD=.isupper()
 False
->>> &quot;HELLO WORLD&quot;.isupper()
+>>> =HELLO WORLD=.isupper()
 True
->>> &quot;&quot;.isupper()
+>>> ==.isupper()
 False
 
 ```
@@ -472,11 +472,11 @@ False
 Conversely, `str.islower` is a method that returns `True` if all characters in a given string are lowercase and `False` otherwise.
 
 ```
->>> &quot;Hello world&quot;.islower()
+>>> =Hello world=.islower()
 False
->>> &quot;hello world&quot;.islower()
+>>> =hello world=.islower()
 True
->>> &quot;&quot;.islower()
+>>> ==.islower()
 False
 
 ```
@@ -484,13 +484,13 @@ False
 `str.istitle` returns `True` if the given string is title cased; that is, every word begins with an uppercase character followed by lowercase characters.
 
 ```
->>> &quot;hello world&quot;.istitle()
+>>> =hello world=.istitle()
 False
->>> &quot;Hello world&quot;.istitle()
+>>> =Hello world=.istitle()
 False
->>> &quot;Hello World&quot;.istitle()
+>>> =Hello World=.istitle()
 True
->>> &quot;&quot;.istitle()
+>>> ==.istitle()
 False
 
 ```
@@ -524,13 +524,13 @@ As with `str.isalpha`, the empty string evaluates to `False`.
 This is a combination of `str.isalpha` and `str.isnumeric`, specifically it evaluates to `True` if all characters in the given string are **alphanumeric**, that is, they consist of alphabetic **or** numeric characters:
 
 ```
->>> &quot;Hello2World&quot;.isalnum()
+>>> =Hello2World=.isalnum()
 True
->>> &quot;HelloWorld&quot;.isalnum()
+>>> =HelloWorld=.isalnum()
 True
->>> &quot;2016&quot;.isalnum()
+>>> =2016=.isalnum()
 True
->>> &quot;Hello World&quot;.isalnum()  # contains whitespace
+>>> =Hello World=.isalnum()  # contains whitespace
 False
 
 ```
@@ -540,9 +540,9 @@ False
 Evaluates to `True` if the string contains only whitespace characters.
 
 ```
->>> &quot;\t\r\n&quot;.isspace()
+>>> =\t\r\n=.isspace()
 True
->>> &quot; &quot;.isspace()
+>>> = =.isspace()
 True
 
 ```
@@ -550,7 +550,7 @@ True
 Sometimes a string looks “empty” but we don't know whether it's because it contains just whitespace or no character at all
 
 ```
->>> &quot;&quot;.isspace()
+>>> ==.isspace()
 False
 
 ```
@@ -586,7 +586,7 @@ Three methods are provided that offer the ability to strip leading and trailing 
 `str.strip` acts on a given string and removes (strips) any leading or trailing characters contained in the argument `chars`; if `chars` is not supplied or is `None`, all white space characters are removed by default. For example:
 
 ```
->>> &quot;    a line with leading and trailing space     &quot;.strip() 
+>>> =    a line with leading and trailing space     =.strip() 
 'a line with leading and trailing space'
 
 ```
@@ -594,7 +594,7 @@ Three methods are provided that offer the ability to strip leading and trailing 
 If `chars` is supplied, all characters contained in it are removed from the string, which is returned. For example:
 
 ```
->>> &quot;>>> a Python prompt&quot;.strip('> ')  # strips '>' character and space character 
+>>> =>>> a Python prompt=.strip('> ')  # strips '>' character and space character 
 'a Python prompt'
 
 ```
@@ -606,7 +606,7 @@ These methods have similar semantics and arguments with `str.strip()`, their dif
 For example, using `str.rstrip`:
 
 ```
->>> &quot;     spacious string      &quot;.rstrip()
+>>> =     spacious string      =.rstrip()
 '     spacious string'
 
 ```
@@ -614,7 +614,7 @@ For example, using `str.rstrip`:
 While, using `str.lstrip`:
 
 ```
->>> &quot;     spacious string      &quot;.rstrip()
+>>> =     spacious string      =.rstrip()
 'spacious string      '
 
 ```
@@ -663,16 +663,16 @@ single string using the `join()` method. For example you can create a string
 where each element in a list is separated by a space.
 
 ```
->>> &quot; &quot;.join([&quot;once&quot;,&quot;upon&quot;,&quot;a&quot;,&quot;time&quot;])
-&quot;once upon a time&quot;
+>>> = =.join([=once=,=upon=,=a=,=time=])
+=once upon a time=
 
 ```
 
 The following example separates the string elements with three hyphens.
 
 ```
->>> &quot;---&quot;.join([&quot;once&quot;, &quot;upon&quot;, &quot;a&quot;, &quot;time&quot;])
-&quot;once---upon---a---time&quot;
+>>> =---=.join([=once=, =upon=, =a=, =time=])
+=once---upon---a---time=
 
 ```
 
@@ -684,7 +684,7 @@ The following example separates the string elements with three hyphens.
 Python makes it extremely intuitive to check if a string contains a given substring. Just use the `in` operator:
 
 ```
->>> &quot;foo&quot; in &quot;foo.baz.bar&quot;
+>>> =foo= in =foo.baz.bar=
 True
 
 ```
@@ -692,7 +692,7 @@ True
 Note: testing an empty string will always result in `True`:
 
 ```
->>> &quot;&quot; in &quot;test&quot;
+>>> == in =test=
 True
 
 ```
@@ -709,14 +709,14 @@ One method is available for counting the number of occurrences of a sub-string i
 `str.count` returns an `int` indicating the number of non-overlapping occurrences of the sub-string `sub` in another string. The optional arguments `start` and `end` indicate the beginning and the end in which the search will take place. By default `start = 0` and `end = len(str)` meaning the whole string will be searched:
 
 ```
->>> s = &quot;She sells seashells by the seashore.&quot;
->>> s.count(&quot;sh&quot;)
+>>> s = =She sells seashells by the seashore.=
+>>> s.count(=sh=)
 2
->>> s.count(&quot;se&quot;)
+>>> s.count(=se=)
 3
->>> s.count(&quot;sea&quot;)
+>>> s.count(=sea=)
 2
->>> s.count(&quot;seashells&quot;)
+>>> s.count(=seashells=)
 1
 
 ```
@@ -724,7 +724,7 @@ One method is available for counting the number of occurrences of a sub-string i
 By specifying a different value for `start`, `end` we can get a more localized search and count, for example, if `start` is equal to `13` the call to:
 
 ```
->>> s.count(&quot;sea&quot;, start)
+>>> s.count(=sea=, start)
 1
 
 ```
@@ -733,7 +733,7 @@ is equivalent to:
 
 ```
 >>> t = s[start:]
->>> t.count(&quot;sea&quot;)
+>>> t.count(=sea=)
 1
 
 ```
@@ -745,38 +745,38 @@ is equivalent to:
 
 Comparing string in a case insensitive way seems like something that's trivial, but it's not. This section only considers unicode strings (the default in Python 3). Note that Python 2 may have subtle weaknesses relative to Python 3 - the later's unicode handling is much more complete.
 
-The first thing to note it that case-removing conversions in unicode aren't trivial. There is text for which `text.lower() != text.upper().lower()`, such as `&quot;ß&quot;`:
+The first thing to note it that case-removing conversions in unicode aren't trivial. There is text for which `text.lower() != text.upper().lower()`, such as `=ß=`:
 
 ```
->>> &quot;ß&quot;.lower()
+>>> =ß=.lower()
 'ß'
 
->>> &quot;ß&quot;.upper().lower()
+>>> =ß=.upper().lower()
 'ss'
 
 ```
 
-But let's say you wanted to caselessly compare `&quot;BUSSE&quot;` and `&quot;Buße&quot;`. Heck, you probably also want to compare `&quot;BUSSE&quot;` and `&quot;BUẞE&quot;` equal - that's the newer capital form. The recommended way is to use `casefold`:
+But let's say you wanted to caselessly compare `=BUSSE=` and `=Buße=`. Heck, you probably also want to compare `=BUSSE=` and `=BUẞE=` equal - that's the newer capital form. The recommended way is to use `casefold`:
 
 ```
 >>> help(str.casefold)
-&quot;&quot;&quot;
+===
 Help on method_descriptor:
 
 casefold(...)
       S.casefold() -> str
     
      Return a version of S suitable for caseless comparisons.
-&quot;&quot;&quot;
+===
 
 ```
 
 Do not just use `lower`. If `casefold` is not available, doing `.upper().lower()` helps (but only somewhat).
 
-Then you should consider accents. If your font renderer is good, you probably think `&quot;ê&quot; == &quot;ê&quot;` - but it doesn't:
+Then you should consider accents. If your font renderer is good, you probably think `=ê= == =ê=` - but it doesn't:
 
 ```
->>> &quot;ê&quot; == &quot;ê&quot;
+>>> =ê= == =ê=
 False
 
 ```
@@ -786,10 +786,10 @@ This is because they are actually
 ```
 >>> import unicodedata
 
->>> [unicodedata.name(char) for char in &quot;ê&quot;]
+>>> [unicodedata.name(char) for char in =ê=]
 ['LATIN SMALL LETTER E WITH CIRCUMFLEX']
 
->>> [unicodedata.name(char) for char in &quot;ê&quot;]
+>>> [unicodedata.name(char) for char in =ê=]
 ['LATIN SMALL LETTER E', 'COMBINING CIRCUMFLEX ACCENT']
 
 ```
@@ -797,7 +797,7 @@ This is because they are actually
 The simplest way to deal with this is `unicodedata.normalize`. You probably want to use **NFKD** normalization, but feel free to check the documentation. Then one does
 
 ```
->>> unicodedata.normalize(&quot;NFKD&quot;, &quot;ê&quot;) == unicodedata.normalize(&quot;NFKD&quot;, &quot;ê&quot;)
+>>> unicodedata.normalize(=NFKD=, =ê=) == unicodedata.normalize(=NFKD=, =ê=)
 True
 
 ```
@@ -808,7 +808,7 @@ To finish up, here this is expressed in functions:
 import unicodedata
 
 def normalize_caseless(text):
-    return unicodedata.normalize(&quot;NFKD&quot;, text.casefold())
+    return unicodedata.normalize(=NFKD=, text.casefold())
 
 def caseless_equal(left, right):
     return normalize_caseless(left) == normalize_caseless(right)
@@ -827,12 +827,12 @@ In order to test the beginning and ending of a given string in Python, one can u
 As it's name implies, `str.startswith` is used to test whether a given string starts with the given characters in `prefix`.
 
 ```
->>> s = &quot;This is a test string&quot;
->>> s.startswith(&quot;T&quot;)
+>>> s = =This is a test string=
+>>> s.startswith(=T=)
 True
->>> s.startswith(&quot;Thi&quot;)
+>>> s.startswith(=Thi=)
 True
->>> s.startswith(&quot;thi&quot;)  
+>>> s.startswith(=thi=)  
 False
 
 ```
@@ -840,7 +840,7 @@ False
 The optional arguments `start` and `end` specify the start and end points from which the testing will start and finish. In the following example, by specifying a start value of `2` our string will be searched from position `2` and afterwards:
 
 ```
->>> s.startswith(&quot;is&quot;, 2)
+>>> s.startswith(=is=, 2)
 True
 
 ```
@@ -862,7 +862,7 @@ False
 `str.endswith` is exactly similar to `str.startswith` with the only difference being that it searches for ending characters and not starting characters. For example, to test if a string ends in a full stop, one could write:
 
 ```
->>> s = &quot;this ends in a full stop.&quot;
+>>> s = =this ends in a full stop.=
 >>> s.endswith('.')
 True
 >>> s.endswith('!')
@@ -931,10 +931,10 @@ The `ljust` function pads the end of the string it is called on with the `fillch
 
 The contents of files and network messages may represent encoded characters. They often need to be converted to unicode for proper display.
 
-In Python 2, you may need to convert str data to Unicode characters. The default (`''`, `&quot;&quot;`, etc.) is an ASCII string, with any values outside of ASCII range displayed as escaped values. Unicode strings are `u''` (or `u&quot;&quot;`, etc.).
+In Python 2, you may need to convert str data to Unicode characters. The default (`''`, `==`, etc.) is an ASCII string, with any values outside of ASCII range displayed as escaped values. Unicode strings are `u''` (or `u==`, etc.).
 
 ```
-# You get &quot;© abc&quot; encoded in UTF-8 from a file, network, or other data source
+# You get =© abc= encoded in UTF-8 from a file, network, or other data source
 
 s = '\xc2\xa9 abc'  # s is a byte array, not a string of characters
                     # Doesn't know the original was UTF-8
@@ -954,10 +954,10 @@ u.encode('utf-8')   # '\xc2\xa9 abc'
 
 ```
 
-In Python 3 you may need to convert arrays of bytes (referred to as a 'byte literal') to strings of Unicode characters. The default is now a Unicode string, and bytestring literals must now be entered as `b''`, `b&quot;&quot;`, etc. A byte literal will return `True` to `isinstance(some_val, byte)`, assuming `some_val` to be a string that might be encoded as bytes.
+In Python 3 you may need to convert arrays of bytes (referred to as a 'byte literal') to strings of Unicode characters. The default is now a Unicode string, and bytestring literals must now be entered as `b''`, `b==`, etc. A byte literal will return `True` to `isinstance(some_val, byte)`, assuming `some_val` to be a string that might be encoded as bytes.
 
 ```
-# You get from file or network &quot;© abc&quot; encoded in UTF-8
+# You get from file or network =© abc= encoded in UTF-8
 
 s = b'\xc2\xa9 abc' # s is a byte array, not characters
                     # In Python 3, the default string literal is Unicode; byte array literals need a leading b
@@ -984,8 +984,8 @@ u.encode('utf-8')   # b'\xc2\xa9 abc'
 - str.casefold() -> str             [only for Python > 3.3]
 - str.center(width[, fillchar]) -> str
 - str.count(sub[, start[, end]]) -> int
-- str.decode(encoding=&quot;utf-8&quot;[, errors]) -> unicode [only in Python 2.x]
-- str.encode(encoding=&quot;utf-8&quot;, errors=&quot;strict&quot;) -> bytes
+- str.decode(encoding==utf-8=[, errors]) -> unicode [only in Python 2.x]
+- str.encode(encoding==utf-8=, errors==strict=) -> bytes
 - str.endswith(suffix[, start[, end]]) -> bool
 - str.expandtabs(tabsize=8) -> str
 - str.find(sub[, start[, end]]) -> int

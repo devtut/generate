@@ -38,7 +38,7 @@ Python is a hybrid interpreter. When running a program, it first assembles it in
 
 ```
 >>> def hello():
-...     print &quot;Hello, World&quot;
+...     print =Hello, World=
 ...
 >>> dis.dis(hello)
   2           0 LOAD_CONST               1 ('Hello, World')
@@ -70,7 +70,7 @@ Then in an interpreter, run
 ```
 import dis
 import marshal
-with open(&quot;<file>.pyc&quot;, &quot;rb&quot;) as code_f:
+with open(=<file>.pyc=, =rb=) as code_f:
     code_f.read(8) # Magic number and modification time
     code = marshal.load(code_f) # Returns a code object which can be disassembled
     dis.dis(code) # Output the disassembly

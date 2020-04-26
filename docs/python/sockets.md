@@ -12,12 +12,12 @@ UDP is a connectionless protocol. Messages to other processes or computers are s
 
 The following code sends a message to a process listening on localhost port 6667 using UDP
 
-**Note that there is no need to &quot;close&quot; the socket after the send, because UDP is [connectionless](https://en.wikipedia.org/wiki/Connectionless_communication).**
+**Note that there is no need to =close= the socket after the send, because UDP is [connectionless](https://en.wikipedia.org/wiki/Connectionless_communication).**
 
 ```
 from socket import socket, AF_INET, SOCK_DGRAM
 s = socket(AF_INET, SOCK_DGRAM)
-msg = (&quot;Hello you there!&quot;).encode('utf-8')  # socket.sendto() takes bytes as input, hence we must encode the string first.
+msg = (=Hello you there!=).encode('utf-8')  # socket.sendto() takes bytes as input, hence we must encode the string first.
 s.sendto(msg, ('localhost', 6667)) 
 
 ```
@@ -38,7 +38,7 @@ sock.bind(('localhost', 6667))
 
 while True:
     msg, addr = sock.recvfrom(8192)  # This is the amount of bytes to read at maximum
-    print(&quot;Got message from %s: %s&quot; % (addr, msg))
+    print(=Got message from %s: %s= % (addr, msg))
 
 ```
 
@@ -49,10 +49,10 @@ from socketserver import BaseRequestHandler, UDPServer
 
 class MyHandler(BaseRequestHandler):
     def handle(self):
-        print(&quot;Got connection from: %s&quot; % self.client_address)
+        print(=Got connection from: %s= % self.client_address)
         msg, sock = self.request
-        print(&quot;It said: %s&quot; % msg)
-        sock.sendto(&quot;Got your message!&quot;.encode(), self.client_address) # Send reply
+        print(=It said: %s= % msg)
+        sock.sendto(=Got your message!=.encode(), self.client_address) # Send reply
 
 serv = UDPServer(('localhost', 6667), MyHandler)
 serv.serve_forever()
@@ -109,7 +109,7 @@ def handle_client(client_list, conn, address):
     conn.close()
 
 def server(client_list):
-    print &quot;Starting server...&quot;
+    print =Starting server...=
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind(('127.0.0.1', 5000))
@@ -144,7 +144,7 @@ def main():
         try:
             server(client_list)
         except KeyboardInterrupt:
-            print &quot;Keyboard interrupt&quot;
+            print =Keyboard interrupt=
 
 if __name__ == '__main__':
     main()
@@ -164,10 +164,10 @@ Starting server...
 ```
 $ python client_list.py -c -n name1
 {
-    &quot;name1&quot;: {
-        &quot;address&quot;: &quot;127.0.0.1&quot;, 
-        &quot;port&quot;: 62210, 
-        &quot;name&quot;: &quot;name1&quot;
+    =name1=: {
+        =address=: =127.0.0.1=, 
+        =port=: 62210, 
+        =name=: =name1=
     }
 }
 
@@ -198,18 +198,18 @@ Then send your packet, using a SOCK_RAW socket:
 #!/usr/bin/env python
 from socket import socket, AF_PACKET, SOCK_RAW
 s = socket(AF_PACKET, SOCK_RAW)
-s.bind((&quot;eth1&quot;, 0))
+s.bind((=eth1=, 0))
 
 # We're putting together an ethernet frame here, 
 # but you could have anything you want instead
 # Have a look at the 'struct' module for more 
 # flexible packing/unpacking of binary data
 # and 'binascii' for 32 bit CRC
-src_addr = &quot;\x01\x02\x03\x04\x05\x06&quot;
-dst_addr = &quot;\x01\x02\x03\x04\x05\x06&quot;
-payload = (&quot;[&quot;*30)+&quot;PAYLOAD&quot;+(&quot;]&quot;*30)
-checksum = &quot;\x1a\x2b\x3c\x4d&quot;
-ethertype = &quot;\x08\x01&quot;
+src_addr = =\x01\x02\x03\x04\x05\x06=
+dst_addr = =\x01\x02\x03\x04\x05\x06=
+payload = (=[=*30)+=PAYLOAD=+(=]=*30)
+checksum = =\x1a\x2b\x3c\x4d=
+ethertype = =\x08\x01=
 
 s.send(dst_addr+src_addr+ethertype+payload+checksum)
 

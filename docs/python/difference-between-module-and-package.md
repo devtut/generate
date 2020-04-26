@@ -11,7 +11,7 @@ A module is a single Python file that can be imported. Using a module looks like
 
 ```
 def hi():
-    print(&quot;Hello world!&quot;)
+    print(=Hello world!=)
 
 ```
 
@@ -57,7 +57,7 @@ from package.hi import hi
 
 ```
 def woof():
-    print(&quot;WOOF!!!&quot;)
+    print(=WOOF!!!=)
 
 ```
 
@@ -65,7 +65,7 @@ def woof():
 
 ```
 def hi():
-    print(&quot;Hello world!&quot;)
+    print(=Hello world!=)
 
 ```
 
@@ -80,7 +80,7 @@ It is possible to put a Python package in a ZIP file, and use it that way if you
 
 ```
 import sys
-sys.path.append(&quot;package.zip&quot;)
+sys.path.append(=package.zip=)
 
 ```
 

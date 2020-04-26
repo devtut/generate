@@ -19,7 +19,7 @@ You can use `str.format` to format output. Bracket pairs are replaced with argum
 
 ```
 print('{}, {} and {}'.format(foo, bar, baz))
-# Out: &quot;1, bar and 3.14&quot;
+# Out: =1, bar and 3.14=
 
 ```
 
@@ -27,7 +27,7 @@ Indexes can also be specified inside the brackets. The numbers correspond to ind
 
 ```
 print('{0}, {1}, {2}, and {1}'.format(foo, bar, baz))
-# Out: &quot;1, bar, 3.14, and bar&quot;
+# Out: =1, bar, 3.14, and bar=
 print('{0}, {1}, {2}, and {3}'.format(foo, bar, baz))
 # Out: index out of range error
 
@@ -36,8 +36,8 @@ print('{0}, {1}, {2}, and {3}'.format(foo, bar, baz))
 Named arguments can be also used:
 
 ```
-print(&quot;X value is: {x_val}. Y value is: {y_val}.&quot;.format(x_val=2, y_val=3))
-# Out: &quot;X value is: 2. Y value is: 3.&quot;
+print(=X value is: {x_val}. Y value is: {y_val}.=.format(x_val=2, y_val=3))
+# Out: =X value is: 2. Y value is: 3.=
 
 ```
 
@@ -48,8 +48,8 @@ class AssignValue(object):
     def __init__(self, value):
         self.value = value
 my_value = AssignValue(6)
-print('My value is: {0.value}'.format(my_value))  # &quot;0&quot; is optional
-# Out: &quot;My value is: 6&quot;
+print('My value is: {0.value}'.format(my_value))  # =0= is optional
+# Out: =My value is: 6=
 
 ```
 
@@ -57,8 +57,8 @@ Dictionary keys can be used as well:
 
 ```
 my_dict = {'key': 6, 'other_key': 7}
-print(&quot;My other key is: {0[other_key]}&quot;.format(my_dict))  # &quot;0&quot; is optional
-# Out: &quot;My other key is: 7&quot;
+print(=My other key is: {0[other_key]}=.format(my_dict))  # =0= is optional
+# Out: =My other key is: 7=
 
 ```
 
@@ -66,8 +66,8 @@ Same applies to list and tuple indices:
 
 ```
 my_list = ['zero', 'one', 'two']
-print(&quot;2nd element is: {0[2]}&quot;.format(my_list))  # &quot;0&quot; is optional
-# Out: &quot;2nd element is: two&quot;
+print(=2nd element is: {0[2]}=.format(my_list))  # =0= is optional
+# Out: =2nd element is: two=
 
 ```
 
@@ -175,7 +175,7 @@ The format strings can also be **nested**:
 
 ```
 >>> price = 478.23
->>> f&quot;{f'${price:0.2f}':*>20s}&quot;
+>>> f={f'${price:0.2f}':*>20s}=
 '*************$478.23'
 
 ```
@@ -387,7 +387,7 @@ Only integers can be converted:
 ```
 >>> '{:x}'.format(42.0)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 ValueError: Unknown format code 'x' for object of type 'float'
 
 ```
@@ -415,12 +415,12 @@ Those can also be provided as parameters to `format` by nesting more `{}` inside
 
 ```
 
-In the latter example, the format string `'{:{}{}{}}'` is modified to `'{:*^15}'` (i.e. &quot;center and pad with * to total length of 15&quot;) before applying it to the actual string `'foo'` to be formatted that way.
+In the latter example, the format string `'{:{}{}{}}'` is modified to `'{:*^15}'` (i.e. =center and pad with * to total length of 15=) before applying it to the actual string `'foo'` to be formatted that way.
 
 This can be useful in cases when parameters are not known beforehand, for instances when aligning tabular data:
 
 ```
->>> data = [&quot;a&quot;, &quot;bbbbbbb&quot;, &quot;ccc&quot;]
+>>> data = [=a=, =bbbbbbb=, =ccc=]
 >>> m = max(map(len, data))
 >>> for d in data:
 ...     print('{:>{}}'.format(d, m))
@@ -440,7 +440,7 @@ Say you want to print variables in a 3 character column.
 Note:  doubling `{` and `}` escapes them.
 
 ```
-s = &quot;&quot;&quot;
+s = ===
 
 pad
 {{:3}}             :{a:3}:
@@ -453,9 +453,9 @@ combined
 {{:3.3}}           :{a:3.3}:
 {{:3.3}}           :{c:3.3}:
 {{:3.3}}           :{e:3.3}:
-&quot;&quot;&quot;
+===
 
-print (s.format(a=&quot;1&quot;*1, c=&quot;3&quot;*3, e=&quot;5&quot;*5))
+print (s.format(a==1=*1, c==3=*3, e==5=*5))
 
 ```
 
@@ -507,21 +507,21 @@ class Example(object):
         self.a, self.b, self.c = a,b,c
 
     def __format__(self, format_spec):
-        &quot;&quot;&quot; Implement special semantics for the 's' format specifier &quot;&quot;&quot;
+        === Implement special semantics for the 's' format specifier ===
         # Reject anything that isn't an s
         if format_spec[-1] != 's':
             raise ValueError('{} format specifier not understood for this object', format_spec[:-1])
 
         # Output in this example will be (<a>,<b>,<c>)
-        raw = &quot;(&quot; + &quot;,&quot;.join([str(self.a), str(self.b), str(self.c)]) + &quot;)&quot;
+        raw = =(= + =,=.join([str(self.a), str(self.b), str(self.c)]) + =)=
         # Honor the format language by using the inbuilt string format
         # Since we know the original format_spec ends in an 's' 
         # we can take advantage of the str.format method with a 
         # string argument we constructed above
-        return &quot;{r:{f}}&quot;.format( r=raw, f=format_spec )
+        return ={r:{f}}=.format( r=raw, f=format_spec )
 
 inst = Example(1,2,3)
-print &quot;{0:>20s}&quot;.format( inst )
+print ={0:>20s}=.format( inst )
 # out :              (1,2,3)
 # Note how the right align and field width of 20 has been honored.
 
@@ -545,16 +545,16 @@ your custom class.</p>
 #### Syntax
 
 
-- &quot;{}&quot;.format(42) ==> &quot;42&quot;
-- &quot;{0}&quot;.format(42) ==> &quot;42&quot;
-- &quot;{0:.2f}&quot;.format(42) ==> &quot;42.00&quot;
-- &quot;{0:.0f}&quot;.format(42.1234) ==> &quot;42&quot;
-- &quot;{answer}&quot;.format(no_answer=41, answer=42) ==> &quot;42&quot;
-- &quot;{answer:.2f}&quot;.format(no_answer=41, answer=42) ==> &quot;42.00&quot;
-- &quot;{[key]}&quot;.format({'key': 'value'}) ==> &quot;value&quot;
-- &quot;{[1]}&quot;.format(['zero', 'one', 'two']) ==> &quot;one&quot;
-- &quot;{answer} = {answer}&quot;.format(answer=42) ==> &quot;42 = 42&quot;
-- ' '.join(['stack', 'overflow']) ==> &quot;stack overflow&quot;
+- ={}=.format(42) ==> =42=
+- ={0}=.format(42) ==> =42=
+- ={0:.2f}=.format(42) ==> =42.00=
+- ={0:.0f}=.format(42.1234) ==> =42=
+- ={answer}=.format(no_answer=41, answer=42) ==> =42=
+- ={answer:.2f}=.format(no_answer=41, answer=42) ==> =42.00=
+- ={[key]}=.format({'key': 'value'}) ==> =value=
+- ={[1]}=.format(['zero', 'one', 'two']) ==> =one=
+- ={answer} = {answer}=.format(answer=42) ==> =42 = 42=
+- ' '.join(['stack', 'overflow']) ==> =stack overflow=
 
 
 

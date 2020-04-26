@@ -71,7 +71,7 @@ from multiprocessing import Pool
 def cube(x):
     return x ** 3
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == =__main__=:
     pool = Pool(5)
     result = pool.map(cube, [0, 1, 2, 3])
 

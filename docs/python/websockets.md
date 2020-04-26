@@ -15,11 +15,11 @@ from aiohttp import ClientSession
 with ClientSession() as session:
     async def hello_world():
 
-        websocket = await session.ws_connect(&quot;wss://echo.websocket.org&quot;)
+        websocket = await session.ws_connect(=wss://echo.websocket.org=)
 
-        websocket.send_str(&quot;Hello, world!&quot;)
+        websocket.send_str(=Hello, world!=)
 
-        print(&quot;Received:&quot;, (await websocket.receive()).data)
+        print(=Received:=, (await websocket.receive()).data)
 
         await websocket.close()
 
@@ -41,40 +41,40 @@ from aiohttp import ClientSession
 
 class EchoWebSocket(ClientSession):
 
-    URL = &quot;wss://echo.websocket.org&quot;
+    URL = =wss://echo.websocket.org=
 
     def __init__(self):
         super().__init__()
         self.websocket = None
 
     async def connect(self):
-        &quot;&quot;&quot;Connect to the WebSocket.&quot;&quot;&quot;
+        ===Connect to the WebSocket.===
         self.websocket = await self.ws_connect(self.URL)
 
     async def send(self, message):
-        &quot;&quot;&quot;Send a message to the WebSocket.&quot;&quot;&quot;
-        assert self.websocket is not None, &quot;You must connect first!&quot;
+        ===Send a message to the WebSocket.===
+        assert self.websocket is not None, =You must connect first!=
         self.websocket.send_str(message)
-        print(&quot;Sent:&quot;, message)
+        print(=Sent:=, message)
 
     async def receive(self):
-        &quot;&quot;&quot;Receive one message from the WebSocket.&quot;&quot;&quot;
-        assert self.websocket is not None, &quot;You must connect first!&quot;
+        ===Receive one message from the WebSocket.===
+        assert self.websocket is not None, =You must connect first!=
         return (await self.websocket.receive()).data
 
     async def read(self):
-        &quot;&quot;&quot;Read messages from the WebSocket.&quot;&quot;&quot;
-        assert self.websocket is not None, &quot;You must connect first!&quot;
+        ===Read messages from the WebSocket.===
+        assert self.websocket is not None, =You must connect first!=
 
         while self.websocket.receive():
             message = await self.receive()
-            print(&quot;Received:&quot;, message)
-            if message == &quot;Echo 9!&quot;:
+            print(=Received:=, message)
+            if message == =Echo 9!=:
                 break
 
 async def send(websocket):
     for n in range(10):
-        await websocket.send(&quot;Echo {}!&quot;.format(n))
+        await websocket.send(=Echo {}!=.format(n))
         await asyncio.sleep(1)
 
 loop = asyncio.get_event_loop()
@@ -135,7 +135,7 @@ class MyServerProtocol(WebSocketServerProtocol):
         when the server receives a message.
         It has the required arguments payload 
         and the bool isBinary. The payload is the 
-        actual contents of the &quot;message&quot; and isBinary
+        actual contents of the =message= and isBinary
         is simply a flag to let the user know that 
         the payload contains binary data. I typically 
         elsewise assume that the payload is a string.
@@ -153,7 +153,7 @@ if__name__=='__main__':
     above defined protocol(the class that inherits from 
     autobahn.asyncio.websocket.WebSocketServerProtocol)'''
     factory.protocol=MyServerProtocol
-    '''This above line can be thought of as &quot;binding&quot; the methods
+    '''This above line can be thought of as =binding= the methods
     onConnect, onMessage, et-c that were described in the MyServerProtocol class
     to the server, setting the servers functionality, ie, protocol'''
     loop=asyncio.get_event_loop()

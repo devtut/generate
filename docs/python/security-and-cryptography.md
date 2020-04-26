@@ -262,8 +262,8 @@ decrypted = cipher.decrypt(encrypted)
 Many of the methods in `hashlib` will require you to pass values interpretable as buffers of bytes, rather than strings. This is the case for `hashlib.new().update()` as well as `hashlib.pbkdf2_hmac`. If you have a string, you can convert it to a byte buffer by prepending the character `b` to the start of the string:
 
 ```
-  &quot;This is a string&quot;
- b&quot;This is a buffer of bytes&quot;
+  =This is a string=
+ b=This is a buffer of bytes=
 
 ```
 

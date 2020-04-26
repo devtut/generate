@@ -9,10 +9,10 @@
 ```
 from collections import Counter
 
-c = Counter([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;])
+c = Counter([=a=, =b=, =c=, =d=, =a=, =b=, =a=, =c=, =d=])
 c
 # Out: Counter({'a': 3, 'b': 2, 'c': 2, 'd': 2})
-c[&quot;a&quot;]
+c[=a=]
 # Out: 3
 
 c[7]     # not in the list (7 occurred 0 times!)
@@ -25,11 +25,11 @@ The `collections.Counter` can be used for any iterable and counts every occurren
 **Note**: One exception is if a `dict` or another `collections.Mapping`-like class is given, then it will not count them, rather it creates a Counter with these values:
 
 ```
-Counter({&quot;e&quot;: 2})
-# Out: Counter({&quot;e&quot;: 2})
+Counter({=e=: 2})
+# Out: Counter({=e=: 2})
 
-Counter({&quot;e&quot;: &quot;e&quot;})        # warning Counter does not verify the values are int
-# Out: Counter({&quot;e&quot;: &quot;e&quot;})
+Counter({=e=: =e=})        # warning Counter does not verify the values are int
+# Out: Counter({=e=: =e=})
 
 ```
 

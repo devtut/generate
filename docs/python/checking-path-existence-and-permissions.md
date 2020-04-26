@@ -9,7 +9,7 @@
 
 ```
 import os
-path = &quot;/home/myFiles/directory1&quot;
+path = =/home/myFiles/directory1=
 
 ## Check if path exists
 os.access(path, os.F_OK)
@@ -28,7 +28,7 @@ os.access(path, os.E_OK)
 also it's possible to perfrom all checks together
 
 ```
-os.access(path, os.F_OK &amp; os.R_OK &amp; os.W_OK &amp; os.E_OK)
+os.access(path, os.F_OK & os.R_OK & os.W_OK & os.E_OK)
 
 ```
 

@@ -10,7 +10,7 @@
 ```
 # Intersection    
 {1, 2, 3, 4, 5}.intersection({3, 4, 5, 6})  # {3, 4, 5}
-{1, 2, 3, 4, 5} &amp; {3, 4, 5, 6}              # {3, 4, 5}
+{1, 2, 3, 4, 5} & {3, 4, 5, 6}              # {3, 4, 5}
 
 # Union
 {1, 2, 3, 4, 5}.union({3, 4, 5, 6})  # {1, 2, 3, 4, 5, 6}
@@ -63,7 +63,7 @@ Set operations return new sets, but     have the corresponding in-place versions
 |method|in-place operation|in-place method
 |------
 |union|s |= t|update
-|intersection|s &amp;= t|intersection_update
+|intersection|s &= t|intersection_update
 |difference|s -= t|difference_update
 |symmetric_difference|s ^= t|symmetric_difference_update
 
@@ -83,10 +83,10 @@ s.update({3, 4})   # s == {1, 2, 3, 4}
 Let's say you've got a list of restaurants -- maybe you read it from a file.  You care about the **unique** restaurants in the list.  The best way to get the unique elements from a list is to turn it into a set:
 
 ```
-restaurants = [&quot;McDonald's&quot;, &quot;Burger King&quot;, &quot;McDonald's&quot;, &quot;Chicken Chicken&quot;]
+restaurants = [=McDonald's=, =Burger King=, =McDonald's=, =Chicken Chicken=]
 unique_restaurants = set(restaurants)
 print(unique_restaurants)
-# prints {'Chicken Chicken', &quot;McDonald's&quot;, 'Burger King'}
+# prints {'Chicken Chicken', =McDonald's=, 'Burger King'}
 
 ```
 
@@ -96,7 +96,7 @@ This can easily be transformed back into a `List` with Python's built in `list` 
 
 ```
 list(unique_restaurants)
-# ['Chicken Chicken', &quot;McDonald's&quot;, 'Burger King']
+# ['Chicken Chicken', =McDonald's=, 'Burger King']
 
 ```
 
@@ -216,7 +216,7 @@ The latter operations have equivalent operators as shown below:
 
 |Method|Operator
 |------
-|`a.intersection(b)`|`a &amp; b`
+|`a.intersection(b)`|`a & b`
 |`a.union(b)`|`a`|`b`
 |`a.difference(b)`|`a - b`
 |`a.symmetric_difference(b)`|`a ^ b`
@@ -235,11 +235,11 @@ False
 True
 
 # This is an equivalent check, but less efficient
->>> len(a &amp; d) == 0
+>>> len(a & d) == 0
 True
 
 # This is even less efficient
->>> a &amp; d == set()
+>>> a & d == set()
 True
 
 ```

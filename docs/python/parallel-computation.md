@@ -10,8 +10,8 @@
 import multiprocessing
 
 def fib(n):
-    &quot;&quot;&quot;computing the Fibonacci in an inefficient way
-    was chosen to slow down the CPU.&quot;&quot;&quot;
+    ===computing the Fibonacci in an inefficient way
+    was chosen to slow down the CPU.===
     if n <= 2:
         return 1
     else:
@@ -35,7 +35,7 @@ As the execution of each call to `fib` happens in parallel, the time of executio
 The idea here is to move the computationally intensive jobs to C (using special macros), independent of Python, and have the C code release the GIL while it's working.
 
 ```
-#include &quot;Python.h&quot;
+#include =Python.h=
 ...
 PyObject *pyfunc(PyObject *self, PyObject *args) {
     ...
@@ -59,11 +59,11 @@ PyObject *pyfunc(PyObject *self, PyObject *args) {
 import time
 
 def main():
-    print &quot;starting work&quot;
+    print =starting work=
     time.sleep(1)
-    print &quot;work work work work work&quot;
+    print =work work work work work=
     time.sleep(1)
-    print &quot;done working&quot;
+    print =done working=
 
 if __name__ == '__main__':
     main()
@@ -77,7 +77,7 @@ import os
 
 def main():
     for i in range(5):
-        os.system(&quot;python child.py &amp;&quot;)
+        os.system(=python child.py &=)
 
 if __name__ == '__main__':
     main()
@@ -107,7 +107,7 @@ if rank == 0:
   msh = 'P0'
   pp.send(msg, destination=1)
   msg = pp.receive(source=rank-1)
-  print 'Processor 0 received message &quot;%s&quot; from rank %d' % (msg, rank-1)
+  print 'Processor 0 received message =%s= from rank %d' % (msg, rank-1)
 else:
   source = rank-1
   destination = (rank+1) % ncpus

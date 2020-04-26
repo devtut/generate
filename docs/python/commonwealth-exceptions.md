@@ -1,7 +1,7 @@
 # Commonwealth Exceptions
 
 
-Here in Stack Overflow we often see duplicates talking about the same errors: `&quot;ImportError: No module named '??????'`, `SyntaxError: invalid syntax` or `NameError: name '???' is not defined`. This is an effort to reduce them and to have some documentation to link to.
+Here in Stack Overflow we often see duplicates talking about the same errors: `=ImportError: No module named '??????'`, `SyntaxError: invalid syntax` or `NameError: name '???' is not defined`. This is an effort to reduce them and to have some documentation to link to.
 
 
 
@@ -58,7 +58,7 @@ b = 400 + 'foo'
 Or they may not be even used for anything:
 
 ```
-c = [&quot;a&quot;,&quot;b&quot;] - [1,2]
+c = [=a=,=b=] - [1,2]
 
 ```
 
@@ -98,7 +98,7 @@ You are defining a variable and calling it later (like what you do with a functi
 ### Example
 
 ```
-foo = &quot;notAFunction&quot;
+foo = =notAFunction=
 foo()
 
 ```
@@ -136,7 +136,7 @@ def baz():
 #needs import math
 
 def sqrt():
-    x = float(input(&quot;Value: &quot;))
+    x = float(input(=Value: =))
     return math.sqrt(x)
 
 ```
@@ -193,28 +193,28 @@ This exception is raised when the indentation level increases with no reason.
 There is no reason to increase the level here:
 
 ```
- print &quot;This line is ok&quot;
-     print &quot;This line isn't ok&quot;
+ print =This line is ok=
+     print =This line isn't ok=
 
 ```
 
 ```
- print(&quot;This line is ok&quot;)
-     print(&quot;This line isn't ok&quot;)
+ print(=This line is ok=)
+     print(=This line isn't ok=)
 
 ```
 
 Here there are two errors: the last one and that the indentation does not match any indentation level. However just one is shown:
 
 ```
- print &quot;This line is ok&quot;
-  print &quot;This line isn't ok&quot;
+ print =This line is ok=
+  print =This line isn't ok=
 
 ```
 
 ```
- print(&quot;This line is ok&quot;)
-  print(&quot;This line isn't ok&quot;)
+ print(=This line is ok=)
+  print(=This line isn't ok=)
 
 ```
 
@@ -226,15 +226,15 @@ Appears you didn't unindent completely.
 
 ```
 def foo():
-    print &quot;This should be part of foo()&quot;
-   print &quot;ERROR!&quot;
-print &quot;This is not a part of foo()&quot;
+    print =This should be part of foo()=
+   print =ERROR!=
+print =This is not a part of foo()=
 
 ```
 
 ```
- print(&quot;This line is ok&quot;)
-  print(&quot;This line isn't ok&quot;)
+ print(=This line is ok=)
+  print(=This line isn't ok=)
 
 ```
 
@@ -265,8 +265,8 @@ def foo():
 ```
 def foo():
     if ok:
-      return &quot;Two != Four != Tab&quot;
-        return &quot;i dont care i do whatever i want&quot;
+      return =Two != Four != Tab=
+        return =i dont care i do whatever i want=
 
 ```
 
@@ -322,36 +322,36 @@ Error raised when the user presses the interrupt key, normally <kbd>Ctrl</kbd> +
 You tried to calculate `1/0` which is undefined. See this example to find the divisors of a number:
 
 ```
-div = float(raw_input(&quot;Divisors of: &quot;))
+div = float(raw_input(=Divisors of: =))
 for x in xrange(div+1): #includes the number itself and zero
     if div/x == div//x:
-        print x, &quot;is a divisor of&quot;, div
+        print x, =is a divisor of=, div
 
 ```
 
 ```
-div = int(input(&quot;Divisors of: &quot;))
+div = int(input(=Divisors of: =))
 for x in range(div+1): #includes the number itself and zero
     if div/x == div//x:
-        print(x, &quot;is a divisor of&quot;, div)
+        print(x, =is a divisor of=, div)
 
 ```
 
 It raises `ZeroDivisionError` because the `for` loop assigns that value to `x`. Instead it should be:
 
 ```
-div = float(raw_input(&quot;Divisors of: &quot;))
+div = float(raw_input(=Divisors of: =))
 for x in xrange(1,div+1): #includes the number itself but not zero
     if div/x == div//x:
-        print x, &quot;is a divisor of&quot;, div
+        print x, =is a divisor of=, div
 
 ```
 
 ```
-div = int(input(&quot;Divisors of: &quot;))
+div = int(input(=Divisors of: =))
 for x in range(1,div+1): #includes the number itself but not zero
     if div/x == div//x:
-        print(x, &quot;is a divisor of&quot;, div)
+        print(x, =is a divisor of=, div)
 
 ```
 
@@ -372,7 +372,7 @@ def my_print():
 Returns
 
 ```
-  File &quot;<input>&quot;, line 3
+  File =<input>=, line 3
     print(x)
         ^
 SyntaxError: invalid syntax
@@ -384,9 +384,9 @@ The most common reason for this issue is mismatched parentheses/brackets, as the
 There is one major caveat for print statements in Python 3:
 
 ```
- >>> print &quot;hello world&quot;
-  File &quot;<stdin>&quot;, line 1
-    print &quot;hello world&quot;
+ >>> print =hello world=
+  File =<stdin>=, line 1
+    print =hello world=
                       ^
 SyntaxError: invalid syntax
 
@@ -395,7 +395,7 @@ SyntaxError: invalid syntax
 Because [the `print` statement was replaced with the `print()` function](https://docs.python.org/3/whatsnew/3.0.html#print-is-a-function), so you want:
 
 ```
-print(&quot;hello world&quot;)  # Note this is valid for both Py2 &amp; Py3
+print(=hello world=)  # Note this is valid for both Py2 & Py3
 
 ```
 

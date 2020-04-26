@@ -8,9 +8,9 @@
 ```
 results = News.objects.todays_news()
 for r in results:
-    article = graph.merge_one(&quot;NewsArticle&quot;, &quot;news_id&quot;, r)
-    article.properties[&quot;title&quot;] = results[r]['news_title']
-    article.properties[&quot;timestamp&quot;] = results[r]['news_timestamp']
+    article = graph.merge_one(=NewsArticle=, =news_id=, r)
+    article.properties[=title=] = results[r]['news_title']
+    article.properties[=timestamp=] = results[r]['news_timestamp']
     article.push()
     [...]
 
@@ -29,7 +29,7 @@ Adding nodes to the graph is pretty simple,`graph.merge_one` is important as it 
 
 ```
 from py2neo import authenticate, Graph, Node, Relationship
-authenticate(&quot;localhost:7474&quot;, &quot;neo4j&quot;, &quot;<pass>&quot;)
+authenticate(=localhost:7474=, =neo4j=, =<pass>=)
 graph = Graph()
 
 ```
@@ -46,12 +46,12 @@ the `graph` object is your interface to the neo4j instance in the rest of your p
 ```
 results = News.objects.todays_news()
 for r in results:
-    article = graph.merge_one(&quot;NewsArticle&quot;, &quot;news_id&quot;, r)
+    article = graph.merge_one(=NewsArticle=, =news_id=, r)
     if 'LOCATION' in results[r].keys():
         for loc in results[r]['LOCATION']:
-            loc = graph.merge_one(&quot;Location&quot;, &quot;name&quot;, loc)
+            loc = graph.merge_one(=Location=, =name=, loc)
             try:
-                rel = graph.create_unique(Relationship(article, &quot;about_place&quot;, loc))
+                rel = graph.create_unique(Relationship(article, =about_place=, loc))
             except Exception, e:
                 print e
 
@@ -67,9 +67,9 @@ The relationship name is also important as you would use it in advanced cases.
 
 ```
 def get_autocomplete(text):
-    query = &quot;&quot;&quot;
+    query = ===
     start n = node(*) where n.name =~ '(?i)%s.*' return n.name,labels(n) limit 10;
-    &quot;&quot;&quot;
+    ===
     query = query % (text)
     obj = []
     for res in graph.cypher.execute(query):
@@ -88,11 +88,11 @@ This is a sample cypher query to get all nodes with the property `name` that sta
 
 ```
 def search_news_by_entity(location,timestamp):
-    query = &quot;&quot;&quot;
+    query = ===
     MATCH (n)-[]->(l) 
     where l.name='%s' and n.timestamp='%s'
     RETURN n.news_id limit 10
-    &quot;&quot;&quot;
+    ===
 
     query = query % (location,timestamp)
 

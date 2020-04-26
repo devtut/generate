@@ -126,7 +126,7 @@ If you want to log exceptions you can and should make use of the `logging.except
 ...
 ERROR:root:bar
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 Exception: foo
 
 ```
@@ -143,7 +143,7 @@ As `logging.exception(msg)` expects a `msg` arg, it is a common pitfall to pass 
 ...
 ERROR:root:foo
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 Exception: foo
 
 ```
@@ -157,11 +157,11 @@ While it might look as if this is the right thing to do at first, it is actually
 ...     logging.exception(e)
 ...
 Traceback (most recent call last):
-  File &quot;/.../python2.7/logging/__init__.py&quot;, line 861, in emit
+  File =/.../python2.7/logging/__init__.py=, line 861, in emit
     msg = self.format(record)
-  File &quot;/.../python2.7/logging/__init__.py&quot;, line 734, in format
+  File =/.../python2.7/logging/__init__.py=, line 734, in format
     return fmt.format(record)
-  File &quot;/.../python2.7/logging/__init__.py&quot;, line 469, in format
+  File =/.../python2.7/logging/__init__.py=, line 469, in format
     s = self._fmt % record.__dict__
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 1-2: ordinal not in range(128)
 Logged from file <stdin>, line 4
@@ -184,7 +184,7 @@ If instead of the exception you just pass a message and let python do its magic,
 ...
 ERROR:root:bar
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 Exception: f\xf6\xf6
 
 ```
@@ -214,7 +214,7 @@ Be aware that libraries out there might throw exceptions with messages as any of
 ...
 ERROR:root:received this exception: Exception(u'f\xf6\xf6',)
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 2, in <module>
+  File =<stdin>=, line 2, in <module>
 Exception: f\xf6\xf6
 
 ```

@@ -86,7 +86,7 @@ One of the main differences between `list`s and `tuple`s in Python is that tuple
 >>> t = (1, 4, 9)
 >>> t[0] = 2
 Traceback (most recent call last):
-  File &quot;<stdin>&quot;, line 1, in <module>
+  File =<stdin>=, line 1, in <module>
 TypeError: 'tuple' object does not support item assignment
 
 ```
@@ -123,7 +123,7 @@ TypeError: 'tuple' object does not support item assignment
 
 ```
 
-You can use the `+=` operator to &quot;append&quot; to a tuple - this works by creating a new tuple with the new element you &quot;appended&quot; and assign it to its current variable; the old tuple is not changed, but replaced!
+You can use the `+=` operator to =append= to a tuple - this works by creating a new tuple with the new element you =appended= and assign it to its current variable; the old tuple is not changed, but replaced!
 
 This avoids converting to and from a list, but this is slow and is a bad practice, especially if you're going to append multiple times.
 
@@ -219,7 +219,7 @@ If elements are of the same type, python performs the comparison and returns the
 - If either element is a number, then the other element is returned.
 - Otherwise, types are sorted alphabetically .
 
-If we reached the end of one of the lists, the longer list is &quot;larger.&quot; If both list are same it returns 0.
+If we reached the end of one of the lists, the longer list is =larger.= If both list are same it returns 0.
 
 ```
 tuple1 = ('a', 'b', 'c', 'd', 'e')
@@ -301,7 +301,7 @@ Out: ('a', 'b', 'c', 'd', 'e', '1', '2', '3')
 
 ```
 hash( (1, 2) )  # ok
-hash( ([], {&quot;hello&quot;})  # not ok, since lists and sets are not hashabe
+hash( ([], {=hello=})  # not ok, since lists and sets are not hashabe
 
 ```
 
@@ -309,7 +309,7 @@ Thus a tuple can be put inside a `set` or as a key in a `dict` only if each of i
 
 ```
 { (1, 2) } #  ok
-{ ([], {&quot;hello&quot;}) ) # not ok
+{ ([], {=hello=}) ) # not ok
 
 ```
 
@@ -354,11 +354,11 @@ print(x[1:3])   # (2, 3)
 Reverse elements within a tuple
 
 ```
-colors = &quot;red&quot;, &quot;green&quot;, &quot;blue&quot;
+colors = =red=, =green=, =blue=
 rev = colors[::-1]
-# rev: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+# rev: (=blue=, =green=, =red=)
 colors = rev
-# colors: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+# colors: (=blue=, =green=, =red=)
 
 ```
 
@@ -366,9 +366,9 @@ Or using reversed (reversed gives an iterable which is converted to a tuple):
 
 ```
 rev = tuple(reversed(colors))
-# rev: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+# rev: (=blue=, =green=, =red=)
 colors = rev
-# colors: (&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+# colors: (=blue=, =green=, =red=)
 
 ```
 
@@ -378,7 +378,7 @@ colors = rev
 
 
 <li>
-(1, a, &quot;hello&quot;) # a must be a variable
+(1, a, =hello=) # a must be a variable
 </li>
 <li>
 ()  # an empty tuple

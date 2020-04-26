@@ -23,7 +23,7 @@ zip.close()
 
 ```
 
-In Python 2.7 and in Python 3 versions higher than 3.2, we can use the `with` context manager. We open the file in &quot;read&quot; mode, and then print a list of filenames:
+In Python 2.7 and in Python 3 versions higher than 3.2, we can use the `with` context manager. We open the file in =read= mode, and then print a list of filenames:
 
 ```
 with zipfile.ZipFile(filename, 'r') as z:
@@ -112,7 +112,7 @@ To create new archive open zipfile with write mode.
 
 ```
 import zipfile
-new_arch=zipfile.ZipFile(&quot;filename.zip&quot;,mode=&quot;w&quot;)
+new_arch=zipfile.ZipFile(=filename.zip=,mode==w=)
 
 ```
 
@@ -127,7 +127,7 @@ new_arch.close()
 If you want to write string of bytes into the archive you can use writestr() method.
 
 ```
-str_bytes=&quot;string buffer&quot;
+str_bytes==string buffer=
 new_arch.writestr('filename_string_in_archive.txt',str_bytes)
 new_arch.close()
 

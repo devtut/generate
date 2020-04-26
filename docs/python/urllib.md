@@ -36,10 +36,10 @@ print response.read()
 ```
 import urllib.request
 
-print(urllib.request.urlopen(&quot;http://stackoverflow.com/documentation/&quot;))
+print(urllib.request.urlopen(=http://stackoverflow.com/documentation/=))
 # Prints: <http.client.HTTPResponse at 0x7f37a97e3b00>
 
-response = urllib.request.urlopen(&quot;http://stackoverflow.com/documentation/&quot;)
+response = urllib.request.urlopen(=http://stackoverflow.com/documentation/=)
 
 print(response.code)
 # Prints: 200
@@ -63,7 +63,7 @@ To POST data pass the encoded query arguments as data to urlopen()
 import urllib
 query_parms = {'username':'stackoverflow', 'password':'me.me'}
 encoded_parms = urllib.urlencode(query_parms)
-response = urllib.urlopen(&quot;https://stackoverflow.com/users/login&quot;, encoded_parms)
+response = urllib.urlopen(=https://stackoverflow.com/users/login=, encoded_parms)
 response.code
 # Output: 200
 response.read()
@@ -77,7 +77,7 @@ response.read()
 import urllib
 query_parms = {'username':'stackoverflow', 'password':'me.me'}
 encoded_parms = urllib.parse.urlencode(query_parms).encode('utf-8')
-response = urllib.request.urlopen(&quot;https://stackoverflow.com/users/login&quot;, encoded_parms)
+response = urllib.request.urlopen(=https://stackoverflow.com/users/login=, encoded_parms)
 response.code
 # Output: 200
 response.read()
@@ -95,7 +95,7 @@ The received bytes have to be decoded with the correct character encoding to be 
 ```
 import urllib.request
 
-response = urllib.request.urlopen(&quot;http://stackoverflow.com/&quot;)
+response = urllib.request.urlopen(=http://stackoverflow.com/=)
 data = response.read()
 
 encoding = response.info().get_content_charset()
@@ -105,7 +105,7 @@ html = data.decode(encoding)
 
 ```
 import urllib2
-response = urllib2.urlopen(&quot;http://stackoverflow.com/&quot;)
+response = urllib2.urlopen(=http://stackoverflow.com/=)
 data = response.read()
 
 encoding = response.info().getencoding()

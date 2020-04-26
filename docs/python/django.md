@@ -12,7 +12,7 @@ Make a simple `Hello World` Example using your django.
 
 let's make sure that you have django installed on your PC first.
 
-open a terminal and type: python -c &quot;import django&quot;<br />
+open a terminal and type: python -c =import django=<br />
 -->if no error comes that means django is already installed.
 
 Now lets create a project in django. For that write below command on terminal:<br />
@@ -38,7 +38,7 @@ Here's a view that returns a hello world message.(views.py)
 from django.http import HttpResponse
 
 define helloWorld(request):
-    return HttpResponse(&quot;Hello World!! Django Welcomes You.&quot;)
+    return HttpResponse(=Hello World!! Django Welcomes You.=)
 
 ```
 
@@ -86,5 +86,5 @@ python manage.py runserver
 
 by default the server will be run at 127.0.0.1:8000
 
-Open your browser and type 127.0.0.1:8000/helloworld/. The page will show you &quot;Hello World!! Django Welcomes You.&quot;
+Open your browser and type 127.0.0.1:8000/helloworld/. The page will show you =Hello World!! Django Welcomes You.=
 

@@ -10,7 +10,7 @@ Import the ElementTree object, open the relevant .xml file and get the root tag:
 
 ```
 import xml.etree.ElementTree as ET
-tree = ET.parse(&quot;yourXMLfile.xml&quot;)
+tree = ET.parse(=yourXMLfile.xml=)
 root = tree.getroot()
 
 ```
@@ -33,8 +33,8 @@ print(root[0][1].text)
 To search for specific tags by name, use the `.find` or `.findall`:
 
 ```
-print(root.findall(&quot;myTag&quot;))
-print(root[0].find(&quot;myOtherTag&quot;))
+print(root.findall(=myTag=))
+print(root[0].find(=myOtherTag=))
 
 ```
 
@@ -57,7 +57,7 @@ Element object can be manipulated by changing its fields, adding and modifying a
 
 ```
 element.set('attribute_name', 'attribute_value') #set the attribute to xml element
-element.text=&quot;string_text&quot;
+element.text==string_text=
 
 ```
 
@@ -114,7 +114,7 @@ If you want to save to a file create a xml tree with ElementTree() function and 
 
 ```
 tree = ET.ElementTree(p)
-tree.write(&quot;output.xml&quot;)
+tree.write(=output.xml=)
 
 ```
 
@@ -143,17 +143,17 @@ import xml.etree.ElementTree as ET
 Open the .xml file and iterate over all the elements:
 
 ```
-for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;):
+for event, elem in ET.iterparse(=yourXMLfile.xml=):
     ... do something ...
 
 ```
 
 Alternatively, we can only look for specific events, such as start/end tags or namespaces.
-If this option is omitted (as above), only &quot;end&quot; events are returned:
+If this option is omitted (as above), only =end= events are returned:
 
 ```
-events=(&quot;start&quot;, &quot;end&quot;, &quot;start-ns&quot;, &quot;end-ns&quot;)
-for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;, events=events):
+events=(=start=, =end=, =start-ns=, =end-ns=)
+for event, elem in ET.iterparse(=yourXMLfile.xml=, events=events):
     ... do something ...
 
 ```
@@ -161,8 +161,8 @@ for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;, events=events):
 Here is the complete example showing how to clear elements from the in-memory tree when we are finished with them:
 
 ```
-for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;, events=(&quot;start&quot;,&quot;end&quot;)):        
-    if elem.tag == &quot;record_tag&quot; and event == &quot;end&quot;:
+for event, elem in ET.iterparse(=yourXMLfile.xml=, events=(=start=,=end=)):        
+    if elem.tag == =record_tag= and event == =end=:
         print elem.text
         elem.clear()
     ... do something else ...
@@ -179,15 +179,15 @@ Starting with version 2.7 `ElementTree` has a better support for XPath queries. 
 ```
  <Catalog>
     <Books>
-        <Book id=&quot;1&quot; price=&quot;7.95&quot;>
+        <Book id==1= price==7.95=>
             <Title>Do Androids Dream of Electric Sheep?</Title>
             <Author>Philip K. Dick</Author>
         </Book>
-        <Book id=&quot;5&quot; price=&quot;5.95&quot;>
+        <Book id==5= price==5.95=>
             <Title>The Colour of Magic</Title>
             <Author>Terry Pratchett</Author>
         </Book>
-        <Book id=&quot;7&quot; price=&quot;6.95&quot;>
+        <Book id==7= price==6.95=>
             <Title>The Eye of The World</Title>
             <Author>Robert Jordan</Author>
         </Book>
@@ -208,7 +208,7 @@ tree.findall('Books/Book')
 Searching for the book with title = 'The Colour of Magic':
 
 ```
-tree.find(&quot;Books/Book[Title='The Colour of Magic']&quot;) 
+tree.find(=Books/Book[Title='The Colour of Magic']=) 
 # always use '' in the right side of the comparison
 
 ```
@@ -216,7 +216,7 @@ tree.find(&quot;Books/Book[Title='The Colour of Magic']&quot;)
 Searching for the book with id = 5:
 
 ```
-tree.find(&quot;Books/Book[@id='5']&quot;)
+tree.find(=Books/Book[@id='5']=)
 # searches with xml attributes must have '@' before the name
 
 ```
@@ -224,7 +224,7 @@ tree.find(&quot;Books/Book[@id='5']&quot;)
 Search for the second book:
 
 ```
-tree.find(&quot;Books/Book[2]&quot;)
+tree.find(=Books/Book[2]=)
 # indexes starts at 1, not 0
 
 ```
@@ -232,7 +232,7 @@ tree.find(&quot;Books/Book[2]&quot;)
 Search for the last book:
 
 ```
-tree.find(&quot;Books/Book[last()]&quot;)
+tree.find(=Books/Book[last()]=)
 # 'last' is the only xpath function allowed in ElementTree
 
 ```
@@ -240,7 +240,7 @@ tree.find(&quot;Books/Book[last()]&quot;)
 Search for all authors:
 
 ```
-tree.findall(&quot;.//Author&quot;)
+tree.findall(=.//Author=)
 #searches with // must use a relative path
 
 ```

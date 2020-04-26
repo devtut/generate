@@ -314,7 +314,7 @@ Here's an example countdown written using tail recursion:
 ```
 def countdown(n):
     if n == 0:
-        print &quot;Blastoff!&quot;
+        print =Blastoff!=
     else:
         print n
         countdown(n-1)
@@ -357,7 +357,7 @@ class TailRecurseException:
         self.kwargs = kwargs
 
 def tail_call_optimized(g):
-&quot;&quot;&quot;
+===
 This function decorates a function with tail call
 optimization. It does this by throwing an exception
 if it is it's own grandparent, and catching such
@@ -365,7 +365,7 @@ exceptions to fake the tail call optimization.
   
 This function fails if the decorated
 function recurses in a non-tail context.
-&quot;&quot;&quot;
+===
       
     def func(*args, **kwargs):
         f = sys._getframe()
@@ -390,7 +390,7 @@ Factorial Example:
 ```
 @tail_call_optimized
 def factorial(n, acc=1):
-  &quot;calculate a factorial&quot;
+  =calculate a factorial=
   if n == 0:
     return acc
   return factorial(n-1, n*acc)

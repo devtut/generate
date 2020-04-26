@@ -60,7 +60,7 @@ The following table summarizes the operator precedences in Python, from lowest p
 |in, not in, is, is not, <, <=, >, >=, <>, !=, ==|Comparisons, including membership tests and identity tests
 |||Bitwise OR
 |^|Bitwise XOR
-|&amp;|Bitwise AND
+|&|Bitwise AND
 |<<, >>|Shifts
 |+, -|Addition and subtraction
 |*, /, //, %|Multiplication, division, remainder [8]

@@ -97,7 +97,7 @@ Output:
 Start with an iterable which needs to be grouped
 
 ```
-lst = [(&quot;a&quot;, 5, 6), (&quot;b&quot;, 2, 4), (&quot;a&quot;, 2, 5), (&quot;c&quot;, 2, 6)]
+lst = [(=a=, 5, 6), (=b=, 2, 4), (=a=, 2, 5), (=c=, 2, 6)]
 
 ```
 
@@ -119,7 +119,7 @@ testGroupBy(lst)
 Only groups of consecutive elements are grouped. You may need to sort by the same key before calling groupby For E.g, (Last element is changed)
 
 ```
-lst = [(&quot;a&quot;, 5, 6), (&quot;b&quot;, 2, 4), (&quot;a&quot;, 2, 5), (&quot;c&quot;, 5, 6)]
+lst = [(=a=, 5, 6), (=b=, 2, 4), (=a=, 2, 5), (=c=, 5, 6)]
 testGroupBy(lst)
 
 # 5 [('a', 5, 6)]
@@ -131,7 +131,7 @@ testGroupBy(lst)
 The group returned by groupby is an iterator that will be invalid before next iteration. E.g the following will not work if you want the groups to be sorted by key. Group 5 is empty below because when group 2 is fetched it invalidates 5
 
 ```
-lst = [(&quot;a&quot;, 5, 6), (&quot;b&quot;, 2, 4), (&quot;a&quot;, 2, 5), (&quot;c&quot;, 2, 6)]
+lst = [(=a=, 5, 6), (=b=, 2, 4), (=a=, 2, 5), (=c=, 2, 6)]
 groups = itertools.groupby(lst, key=lambda x: x[1])
 for key, group in sorted(groups):
     print(key, list(group))
@@ -158,7 +158,7 @@ for key, group in sorted((key, list(group)) for key, group in groups):
 ## Take a slice of a generator
 
 
-Itertools &quot;islice&quot; allows you to slice a generator:
+Itertools =islice= allows you to slice a generator:
 
 ```
 results = fetch_paged_results()  # returns a generator
@@ -186,7 +186,7 @@ Will give
 
 ```
 Traceback (most recent call last):
-  File &quot;gen.py&quot;, line 6, in <module>
+  File =gen.py=, line 6, in <module>
     for part in gen()[:3]:
 TypeError: 'generator' object is not subscriptable
 

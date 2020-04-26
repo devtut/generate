@@ -116,17 +116,17 @@ See [PEP 238](https://www.python.org/dev/peps/pep-0238/) for more information.
 ```
 a, b = 1, 2
 
-# Using the &quot;+&quot; operator:
+# Using the =+= operator:
 a + b                  # = 3
 
-# Using the &quot;in-place&quot; &quot;+=&quot; operator to add and assign:
+# Using the =in-place= =+== operator to add and assign:
 a += b                 # a = 3 (equivalent to a = a + b)
 
 import operator        # contains 2 argument arithmetic functions for the examples
 
 operator.add(a, b)     # = 5  since a is set to 3 right before this line
 
-# The &quot;+=&quot; operator is equivalent to: 
+# The =+== operator is equivalent to: 
 a = operator.iadd(a, b)    # a = 5 since a is set to 3 right before this line
 
 ```
@@ -143,7 +143,7 @@ Possible combinations (builtin types):
 Note: the `+` operator is also used for concatenating strings, lists and tuples:
 
 ```
-&quot;first string &quot; + &quot;second string&quot;    # = 'first string second string'
+=first string = + =second string=    # = 'first string second string'
 
 [1, 2, 3] + [4, 5, 6]                # = [1, 2, 3, 4, 5, 6]
 
@@ -246,7 +246,7 @@ math.hypot(a, b) # returns the Euclidean norm, same as math.sqrt(a*a + b*b)
 
 > 
 Note that `math.hypot(x, y)` is also the length of the vector (or Euclidean distance) from the origin `(0, 0)` to the point `(x, y)`.
-<p>To compute the Euclidean distance between two points `(x1, y1)` &amp; `(x2, y2)` you can use
+<p>To compute the Euclidean distance between two points `(x1, y1)` & `(x2, y2)` you can use
 `math.hypot` as follows</p>
 <pre><code>math.hypot(x2-x1, y2-y1)
 </code></pre>
@@ -311,7 +311,7 @@ Other in place operators exist for the bitwise operators (`^`, `|` etc)
 ```
 a, b = 1, 2
 
-# Using the &quot;-&quot; operator:
+# Using the =-= operator:
 b - a                  # = 1
 
 

@@ -138,7 +138,7 @@ This command takes all packages in the local virtualenv and checks if they are o
 `pip` doesn't current contain a flag to allow a user to update all outdated packages in one shot. However, this can be accomplished by piping commands together in a Windows environment:
 
 ```
-for /F &quot;delims= &quot; %i in ('pip list --outdated --local') do pip install -U %i
+for /F =delims= = %i in ('pip list --outdated --local') do pip install -U %i
 
 ```
 
@@ -210,7 +210,7 @@ You can also invoke installation of a package to a specific python installation 
 
 On OS-X/Linux/Unix platforms it is important to be aware of the distinction between the system version of python, (which upgrading make render your system inoperable), and the user version(s) of python.  You **may**, **depending on which you are trying to upgrade**, need to prefix these commands with `sudo` and input a password.
 
-Likewise on Windows some python installations, especially those that are a part of another package, can end up installed in system directories - those you will have to upgrade from a command window running in Admin mode - if you find that it looks like you need to do this it is a **very** good idea to check which python installation you are trying to upgrade with a command such as `python -c&quot;import sys;print(sys.path);&quot;` or `py -3.5 -c&quot;import sys;print(sys.path);&quot;` you can also check which pip you are trying to run with `pip --version`
+Likewise on Windows some python installations, especially those that are a part of another package, can end up installed in system directories - those you will have to upgrade from a command window running in Admin mode - if you find that it looks like you need to do this it is a **very** good idea to check which python installation you are trying to upgrade with a command such as `python -c=import sys;print(sys.path);=` or `py -3.5 -c=import sys;print(sys.path);=` you can also check which pip you are trying to run with `pip --version`
 
 On Windows, if you have both python 2 and python 3 installed, and on your path and your python 3 is greater than 3.4 then you will probably also have the python launcher `py` on your system path. You can then do tricks like:
 
@@ -222,7 +222,7 @@ py -2.7-32 -m pip install -U some_package # Install/Upgrade some_package to pyth
 
 ```
 
-If you are running &amp; maintaining multiple versions of python I would strongly recommend reading up about the python `virtualenv` or `venv` [virtual enviroments](https://virtualenv.pypa.io/en/stable/) which allow you to isolate both the version of python and which packages are present.
+If you are running & maintaining multiple versions of python I would strongly recommend reading up about the python `virtualenv` or `venv` [virtual enviroments](https://virtualenv.pypa.io/en/stable/) which allow you to isolate both the version of python and which packages are present.
 
 
 
@@ -241,7 +241,7 @@ Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010, 
 
 - Install “[Visual C++ Compiler Package for Python 2.7](https://www.microsoft.com/en-gb/download/details.aspx?id=44266)”, which is available from Microsoft’s website **or**
 - Install “[Windows SDK for Windows 7 and .NET Framework 4](https://www.microsoft.com/en-gb/download/details.aspx?id=8279)” (v7.1), which is available from Microsoft’s website **or**
-- Install [Visual Studio 2015 Community Edition](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx), **(or any later version, when these are released)**, **ensuring you select the options to install C &amp; C++ support** **no longer the default** -**I am told that this can take up to** ****8 hours**** to download and install so make **sure** that those options are set on the first try.
+- Install [Visual Studio 2015 Community Edition](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx), **(or any later version, when these are released)**, **ensuring you select the options to install C & C++ support** **no longer the default** -**I am told that this can take up to** ****8 hours**** to download and install so make **sure** that those options are set on the first try.
 
 **Then** you **may need** to locate the header files, **at the matching revision** for any libraries that your desired package links to and download those to an appropriate locations.
 
@@ -253,7 +253,7 @@ Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010, 
 
 ### Note on Installing Pre-Releases
 
-Pip follows the rules of [Semantic Versioning](http://semver.org/) and by default prefers released packages over pre-releases. So if a given package has been released as `V0.98` and there is also a release candidate `V1.0-rc1` the default behaviour of `pip install` will be to install `V0.98` - if you wish to install the release candidate, **you are advised to test in a virtual environment first**, you can enable do so with `--pip install --pre` **package-name** or `--pip install --pre --upgrade` **package-name**. In many cases pre-releases or release candidates may not have wheels built for all platform &amp; version combinations so you are more likely to encounter the issues above.
+Pip follows the rules of [Semantic Versioning](http://semver.org/) and by default prefers released packages over pre-releases. So if a given package has been released as `V0.98` and there is also a release candidate `V1.0-rc1` the default behaviour of `pip install` will be to install `V0.98` - if you wish to install the release candidate, **you are advised to test in a virtual environment first**, you can enable do so with `--pip install --pre` **package-name** or `--pip install --pre --upgrade` **package-name**. In many cases pre-releases or release candidates may not have wheels built for all platform & version combinations so you are more likely to encounter the issues above.
 
 ### Note on Installing Development Versions
 
@@ -262,7 +262,7 @@ You can also use pip to install development versions of packages from github and
 Three options exist for such installations:
 
 1. Download compressed snapshot, most online version control systems have the option to download a compressed snapshot of the code. This can be downloaded manually and then installed with `pip install` **path/to/downloaded/file** note that for most compression formats pip will handle unpacking to a cache area, etc.
-1. Let pip handle the download &amp; install for you with: `pip install` **URL/of/package/repository** - you may also need to use the `--trusted-host`, `--client-cert` and/or `--proxy` flags for this to work correctly, especially in a corporate environment. e.g:
+1. Let pip handle the download & install for you with: `pip install` **URL/of/package/repository** - you may also need to use the `--trusted-host`, `--client-cert` and/or `--proxy` flags for this to work correctly, especially in a corporate environment. e.g:
 
 ```
     > py -3.5-32 -m venv demo-pip

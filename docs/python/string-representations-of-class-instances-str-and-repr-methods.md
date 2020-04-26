@@ -25,7 +25,7 @@ six_of_hearts = Card('Hearts', 6)
 
 ```
 
-You've even created a list of cards, in order to represent a &quot;hand&quot;:
+You've even created a list of cards, in order to represent a =hand=:
 
 ```
 my_hand = [ace_of_spades, four_of_clubs, six_of_hearts]
@@ -68,7 +68,7 @@ First, however, it's important to understand what's going on here.  When you wro
 
 That output is comprised of two important bits: the [`type`](https://docs.python.org/3/library/functions.html#type) of the object and the object's [`id`](https://docs.python.org/3/library/functions.html#id).  The second part alone (the hexidecimal number) is enough to uniquely identify the object at the time of the `print` call.[1]
 
-What really went on was that you asked Python to &quot;put into words&quot; the essence of that object and then display it to you.  A more explicit version of the same machinery might be:
+What really went on was that you asked Python to =put into words= the essence of that object and then display it to you.  A more explicit version of the same machinery might be:
 
 ```
 string_of_card = str(ace_of_spades)
@@ -86,7 +86,7 @@ And since it didn't know, when you (implicitly) wrote `str(ace_of_spades)`, it g
 
 ### The Solution (Part 1)
 
-But **we can** tell Python how we want instances of our custom classes to be converted to strings.  And the way we do this is with the `__str__` &quot;dunder&quot; (for double-underscore) or &quot;magic&quot; method.
+But **we can** tell Python how we want instances of our custom classes to be converted to strings.  And the way we do this is with the `__str__` =dunder= (for double-underscore) or =magic= method.
 
 Whenever you tell Python to create a string from a class instance, it will look for a `__str__` method on the class, and call it.
 
@@ -103,13 +103,13 @@ class Card:
 
         card_name = special_names.get(self.pips, str(self.pips))
 
-        return &quot;%s of %s&quot; % (card_name, self.suit)
+        return =%s of %s= % (card_name, self.suit)
 
 ```
 
 Here, we've now defined the `__str__` method on our `Card` class which, after a simple dictionary lookup for face cards, **returns** a string formatted however we decide.
 
-(Note that &quot;returns&quot; is in bold here, to stress the importance of returning a string, and not simply printing it.  Printing it may seem to work, but then you'd have the card printed when you did something like `str(ace_of_spades)`, without even having a print function call in your main program.  So to be clear, make sure that `__str__` returns a string.).
+(Note that =returns= is in bold here, to stress the importance of returning a string, and not simply printing it.  Printing it may seem to work, but then you'd have the card printed when you did something like `str(ace_of_spades)`, without even having a print function call in your main program.  So to be clear, make sure that `__str__` returns a string.).
 
 The `__str__` method is a method, so the first argument will be `self` and it should neither accept, nor be passed additonal arguments.
 
@@ -144,7 +144,7 @@ What's going on?  We told Python how we wanted our `Card` instances to be displa
 
 Well, the behind-the-scenes machinery is a bit different when Python wants to get the string representation of items in a list.  It turns out, Python doesn't care about `__str__` for this purpose.
 
-Instead, it looks for a different method, `__repr__`, and if **that's** not found, it falls back on the &quot;hexidecimal thing&quot;.[2]
+Instead, it looks for a different method, `__repr__`, and if **that's** not found, it falls back on the =hexidecimal thing=.[2]
 
 **So you're saying I have to make two methods to do the same thing?  One for when I want to `print` my card by itself and another when it's in some sort of container?**
 
@@ -160,11 +160,11 @@ class Card:
 
     def __str__(self):
         card_name = Card.special_names.get(self.pips, str(self.pips))
-        return &quot;%s of %s (S)&quot; % (card_name, self.suit)
+        return =%s of %s (S)= % (card_name, self.suit)
 
     def __repr__(self):
         card_name = Card.special_names.get(self.pips, str(self.pips))
-        return &quot;%s of %s (R)&quot; % (card_name, self.suit)
+        return =%s of %s (R)= % (card_name, self.suit)
 
 ```
 
@@ -229,7 +229,7 @@ class Card:
 
     def __repr__(self):
         card_name = Card.special_names.get(self.pips, str(self.pips))
-        return &quot;%s of %s&quot; % (card_name, self.suit)
+        return =%s of %s= % (card_name, self.suit)
 
 ```
 
@@ -251,7 +251,7 @@ print(repr(six_of_hearts))      # 6 of Hearts  (explicit conversion)
 
 ### Summary
 
-In order for you to empower your class instances to &quot;show themselves&quot; in user-friendly ways, you'll want to consider implementing at least your class's `__repr__` method.  If memory serves, during a talk Raymond Hettinger said that ensuring classes implement `__repr__` is one of the first things he looks for while doing Python code reviews, and by now it should be clear why. The amount of information you **could** have added to debugging statements, crash reports, or log files with a simple method is overwhelming when compared to the paltry, and often less-than-helpful (type, id) information that is given by default.
+In order for you to empower your class instances to =show themselves= in user-friendly ways, you'll want to consider implementing at least your class's `__repr__` method.  If memory serves, during a talk Raymond Hettinger said that ensuring classes implement `__repr__` is one of the first things he looks for while doing Python code reviews, and by now it should be clear why. The amount of information you **could** have added to debugging statements, crash reports, or log files with a simple method is overwhelming when compared to the paltry, and often less-than-helpful (type, id) information that is given by default.
 
 If you want **different** representations for when, for example, inside a container, you'll want to implement both `__repr__` and `__str__` methods.  (More on how you might use these two methods differently below).
 
@@ -274,14 +274,14 @@ class Card:
     #   print(str(card1)
     def __str__(self):
         card_name = Card.special_names.get(self.pips, str(self.pips))
-        return &quot;%s of %s&quot; % (card_name, self.suit)
+        return =%s of %s= % (card_name, self.suit)
 
     # Called when instance is converted to a string via repr()
     # Examples:
     #   print([card1, card2, card3])
     #   print(repr(card1))
     def __repr__(self):
-        return &quot;Card(%s, %d)&quot; % (self.suit, self.pips)
+        return =Card(%s, %d)= % (self.suit, self.pips)
 
 ```
 
@@ -292,7 +292,7 @@ class Card:
 
 ### A note about implemeting both methods
 
-When both methods are implemented, it's somewhat common to have a `__str__` method that returns a human-friendly representation (e.g. &quot;Ace of Spaces&quot;) and `__repr__` return an [`eval`](https://docs.python.org/3/library/functions.html#eval)-friendly representation.
+When both methods are implemented, it's somewhat common to have a `__str__` method that returns a human-friendly representation (e.g. =Ace of Spaces=) and `__repr__` return an [`eval`](https://docs.python.org/3/library/functions.html#eval)-friendly representation.
 
 In fact, the Python docs for [`repr()`](https://docs.python.org/3/library/functions.html#repr) note exactly this:
 
@@ -300,9 +300,9 @@ In fact, the Python docs for [`repr()`](https://docs.python.org/3/library/functi
 For many types, this function makes an attempt to return a string that would yield an object with the same value when passed to eval(), otherwise the representation is a string enclosed in angle brackets that contains the name of the type of the object together with additional information often including the name and address of the object.
 
 
-What that means is that  `__str__` might be implemented to return something like &quot;Ace of Spaces&quot; as shown previously, `__repr__` might be implemented to instead return `Card('Spades', 1)`
+What that means is that  `__str__` might be implemented to return something like =Ace of Spaces= as shown previously, `__repr__` might be implemented to instead return `Card('Spades', 1)`
 
-This string could be passed directly back into `eval` in somewhat of a &quot;round-trip&quot;:
+This string could be passed directly back into `eval` in somewhat of a =round-trip=:
 
 ```
 object -> string -> object
@@ -313,7 +313,7 @@ An example of an implementation of such a method might be:
 
 ```
 def __repr__(self):
-    return &quot;Card(%s, %d)&quot; % (self.suit, self.pips)
+    return =Card(%s, %d)= % (self.suit, self.pips)
 
 ```
 

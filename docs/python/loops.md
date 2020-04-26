@@ -10,14 +10,14 @@ As one of the most basic functions in programming, loops are an important piece 
 
 ### `break` statement
 
-When a `break` statement executes inside a loop, control flow &quot;breaks&quot; out of the loop immediately:
+When a `break` statement executes inside a loop, control flow =breaks= out of the loop immediately:
 
 ```
 i = 0
 while i < 7:
     print(i)
     if i == 4:
-        print(&quot;Breaking from loop&quot;)
+        print(=Breaking from loop=)
         break
     i += 1
 
@@ -385,11 +385,11 @@ for i in a:
         print(i)
         break
 else:
-    print(&quot;no exception&quot;) 
+    print(=no exception=) 
 
 ```
 
-To make the `else` in this construct less confusing one can think of it as &quot;**if not break**&quot; or &quot;**if not found**&quot;.
+To make the `else` in this construct less confusing one can think of it as =**if not break**= or =**if not found**=.
 
 Some discussions on this can be found in [[Python-ideas] Summary of for...else threads](https://mail.python.org/pipermail/python-ideas/2009-October/006155.html), <a href="https://stackoverflow.com/questions/9979970/why-does-python-use-else-after-for-and-while-loops">Why does python use 'else' after for and while loops?
 </a>, and [Else Clauses on Loop Statements](http://python-notes.curiousefficiency.org/en/latest/python_concepts/break_else.html)
@@ -402,7 +402,7 @@ Some discussions on this can be found in [[Python-ideas] Summary of for...else t
 Considering the following dictionary:
 
 ```
- d = {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
+ d = {=a=: 1, =b=: 2, =c=: 3}
 
 ```
 
@@ -417,9 +417,9 @@ for key in d:
 Output:
 
 ```
-&quot;a&quot;
-&quot;b&quot;
-&quot;c&quot;
+=a=
+=b=
+=c=
 
 ```
 
@@ -460,7 +460,7 @@ To iterate through its keys and values, use:
 
 ```
 for key, value in d.items():
-    print(key, &quot;::&quot;, value)
+    print(key, =::=, value)
 
 ```
 
@@ -543,7 +543,7 @@ If the condition is always true the while loop will run forever (infinite loop) 
 
 ```
 while True:
-    print &quot;Infinite loop&quot;
+    print =Infinite loop=
 # Infinite loop
 # Infinite loop
 # Infinite loop
@@ -590,7 +590,7 @@ Often you need both the element and the index of that element. The `enumerate` k
 
 ```
 for idx, s in enumerate(lst):
-    print(&quot;%s has an index of %d&quot; % (s, idx))
+    print(=%s has an index of %d= % (s, idx))
 
 ```
 
@@ -611,7 +611,7 @@ If we want to iterate over a range (remembering that Python uses zero-based inde
 
 ```
 for i in range(2,4):
-    print(&quot;lst at %d contains %s&quot; % (i, lst[i]))
+    print(=lst at %d contains %s= % (i, lst[i]))
 
 ```
 
