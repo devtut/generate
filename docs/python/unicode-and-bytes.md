@@ -12,15 +12,15 @@ The default is `'strict'`, which raises exceptions on error. Other modes are mor
 ### Encoding
 
 ```
-&gt;&gt;&gt; "£13.55".encode('ascii', errors='replace')
+>>> &quot;£13.55&quot;.encode('ascii', errors='replace')
 b'?13.55'
-&gt;&gt;&gt; "£13.55".encode('ascii', errors='ignore')
+>>> &quot;£13.55&quot;.encode('ascii', errors='ignore')
 b'13.55'
-&gt;&gt;&gt; "£13.55".encode('ascii', errors='namereplace')
+>>> &quot;£13.55&quot;.encode('ascii', errors='namereplace')
 b'\\N{POUND SIGN}13.55'
-&gt;&gt;&gt; "£13.55".encode('ascii', errors='xmlcharrefreplace')
+>>> &quot;£13.55&quot;.encode('ascii', errors='xmlcharrefreplace')
 b'&amp;#163;13.55'
-&gt;&gt;&gt; "£13.55".encode('ascii', errors='backslashreplace')
+>>> &quot;£13.55&quot;.encode('ascii', errors='backslashreplace')
 b'\\xa313.55'
 
 ```
@@ -28,12 +28,12 @@ b'\\xa313.55'
 ### Decoding
 
 ```
-&gt;&gt;&gt; b = "£13.55".encode('utf8')
-&gt;&gt;&gt; b.decode('ascii', errors='replace')
+>>> b = &quot;£13.55&quot;.encode('utf8')
+>>> b.decode('ascii', errors='replace')
 '��13.55'
-&gt;&gt;&gt; b.decode('ascii', errors='ignore')
+>>> b.decode('ascii', errors='ignore')
 '13.55'
-&gt;&gt;&gt; b.decode('ascii', errors='backslashreplace')
+>>> b.decode('ascii', errors='backslashreplace')
 '\\xc2\\xa313.55'
 
 ```
@@ -54,7 +54,7 @@ open(fn, mode='r')                    # opens file for reading in utf8
 open(fn, mode='r', encoding='utf16')  # opens file for reading utf16
 
 # ERROR: cannot write bytes when a string is expected:
-open("foo.txt", "w").write(b"foo")
+open(&quot;foo.txt&quot;, &quot;w&quot;).write(b&quot;foo&quot;)
 
 ```
 
@@ -64,7 +64,7 @@ Files opened in a binary mode (e.g. `'rb'` or `'wb'`) deal with bytes. No encodi
 open(fn, mode='wb')  # open file for writing bytes
 
 # ERROR: cannot write string when bytes is expected:
-open(fn, mode='wb').write("hi")
+open(fn, mode='wb').write(&quot;hi&quot;)
 
 ```
 
@@ -76,16 +76,16 @@ open(fn, mode='wb').write("hi")
 **In Python 3** `str` is the type for unicode-enabled strings, while `bytes` is the type for sequences of raw bytes.
 
 ```
-type("f") == type(u"f")  # True, &lt;class 'str'&gt;
-type(b"f")               # &lt;class 'bytes'&gt;
+type(&quot;f&quot;) == type(u&quot;f&quot;)  # True, <class 'str'>
+type(b&quot;f&quot;)               # <class 'bytes'>
 
 ```
 
-**In Python 2** a casual string was a sequence of raw bytes by default and the unicode string was every string with "u" prefix.
+**In Python 2** a casual string was a sequence of raw bytes by default and the unicode string was every string with &quot;u&quot; prefix.
 
 ```
-type("f") == type(b"f")  # True, &lt;type 'str'&gt;
-type(u"f")               # &lt;type 'unicode'&gt;
+type(&quot;f&quot;) == type(b&quot;f&quot;)  # True, <type 'str'>
+type(u&quot;f&quot;)               # <type 'unicode'>
 
 ```
 
@@ -96,9 +96,9 @@ Unicode strings can be converted to bytes with `.encode(encoding)`.
 **Python 3**
 
 ```
-&gt;&gt;&gt; "£13.55".encode('utf8')
+>>> &quot;£13.55&quot;.encode('utf8')
 b'\xc2\xa313.55'
-&gt;&gt;&gt; "£13.55".encode('utf16')
+>>> &quot;£13.55&quot;.encode('utf16')
 b'\xff\xfe\xa3\x001\x003\x00.\x005\x005\x00'
 
 ```
@@ -108,23 +108,23 @@ b'\xff\xfe\xa3\x001\x003\x00.\x005\x005\x00'
 in py2 the default console encoding is `sys.getdefaultencoding() == 'ascii'` and not `utf-8` as in py3, therefore printing it as in the previous example is not directly possible.
 
 ```
-&gt;&gt;&gt; print type(u"£13.55".encode('utf8'))
-&lt;type 'str'&gt;
-&gt;&gt;&gt; print u"£13.55".encode('utf8')
+>>> print type(u&quot;£13.55&quot;.encode('utf8'))
+<type 'str'>
+>>> print u&quot;£13.55&quot;.encode('utf8')
 SyntaxError: Non-ASCII character '\xc2' in...
 
 # with encoding set inside a file
 
 # -*- coding: utf-8 -*-
-&gt;&gt;&gt; print u"£13.55".encode('utf8')
+>>> print u&quot;£13.55&quot;.encode('utf8')
 ┬ú13.55
 
 ```
 
 ```
-&gt;&gt;&gt; "£13.55".encode('ascii')
+>>> &quot;£13.55&quot;.encode('ascii')
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 UnicodeEncodeError: 'ascii' codec can't encode character '\xa3' in position 0: ordinal not in range(128)
 
 ```
@@ -136,7 +136,7 @@ Bytes can be converted to unicode strings with `.decode(encoding)`.
 **A sequence of bytes can only be converted into a unicode string via the appropriate encoding!**
 
 ```
-&gt;&gt;&gt; b'\xc2\xa313.55'.decode('utf8')
+>>> b'\xc2\xa313.55'.decode('utf8')
 '£13.55'
 
 ```
@@ -144,10 +144,10 @@ Bytes can be converted to unicode strings with `.decode(encoding)`.
 If the encoding can't handle the string, a `UnicodeDecodeError` is raised:
 
 ```
-&gt;&gt;&gt; b'\xc2\xa313.55'.decode('utf16')
+>>> b'\xc2\xa313.55'.decode('utf16')
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-  File "/Users/csaftoiu/csaftoiu-github/yahoo-groups-backup/.virtualenv/bin/../lib/python3.5/encodings/utf_16.py", line 16, in decode
+  File &quot;<stdin>&quot;, line 1, in <module>
+  File &quot;/Users/csaftoiu/csaftoiu-github/yahoo-groups-backup/.virtualenv/bin/../lib/python3.5/encodings/utf_16.py&quot;, line 16, in decode
     return codecs.utf_16_decode(input, errors, True)
 UnicodeDecodeError: 'utf-16-le' codec can't decode byte 0x35 in position 6: truncated data
 

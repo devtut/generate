@@ -13,23 +13,23 @@ class IntegerContainer(object):
         self.value = value
         
     def __repr__(self):
-        return "{}({})".format(self.__class__.__name__, self.value)
+        return &quot;{}({})&quot;.format(self.__class__.__name__, self.value)
     
     def __lt__(self, other):
         print('{!r} - Test less than {!r}'.format(self, other))
-        return self.value &lt; other.value
+        return self.value < other.value
     
     def __le__(self, other):
         print('{!r} - Test less than or equal to {!r}'.format(self, other))
-        return self.value &lt;= other.value
+        return self.value <= other.value
 
     def __gt__(self, other):
         print('{!r} - Test greater than {!r}'.format(self, other))
-        return self.value &gt; other.value
+        return self.value > other.value
 
     def __ge__(self, other):
         print('{!r} - Test greater than or equal to {!r}'.format(self, other))
-        return self.value &gt;= other.value
+        return self.value >= other.value
 
     def __eq__(self, other):
         print('{!r} - Test equal to {!r}'.format(self, other))
@@ -41,7 +41,7 @@ class IntegerContainer(object):
 
 ```
 
-Though implementing all these methods would seem unnecessary, [omitting some of them will make your code prone to bugs](http://web.archive.org/web/20170816193759/http://stackoverflow.com/a/8796908/918959).
+Though implementing all these methods would seem unnecessary, [omitting some of them will make your code prone to bugs](http://stackoverflow.com/a/8796908/918959).
 
 Examples:
 
@@ -93,7 +93,7 @@ print(res)
 But `sorted` can use `__gt__` instead if the default is not implemented:
 
 ```
-del IntegerContainer.__lt__   # The IntegerContainer no longer implements "less than"
+del IntegerContainer.__lt__   # The IntegerContainer no longer implements &quot;less than&quot;
 
 res = min(alist) 
 # Out: IntegerContainer(5) - Test greater than IntegerContainer(3)
@@ -107,20 +107,17 @@ print(res)
 Sorting methods will raise a `TypeError` if neither `__lt__` nor `__gt__` are implemented:
 
 ```
-del IntegerContainer.__gt__   # The IntegerContainer no longer implements "greater then"
+del IntegerContainer.__gt__   # The IntegerContainer no longer implements &quot;greater then&quot;
 
 res = min(alist) 
 
 ```
 
 > 
-TypeError: unorderable types: IntegerContainer() &lt; IntegerContainer()
+TypeError: unorderable types: IntegerContainer() < IntegerContainer()
 
 
----
-
-
-[`functools.total_ordering`](http://web.archive.org/web/20170816193759/https://docs.python.org/3.3/library/functools.html#functools.total_ordering) decorator can be used simplifying the effort of writing these rich comparison methods. If you decorate your class with `total_ordering`, you need to implement `__eq__`, `__ne__` and only one of the `__lt__`, `__le__`, `__ge__` or `__gt__`, and the decorator will fill in the rest:
+[`functools.total_ordering`](https://docs.python.org/3.3/library/functools.html#functools.total_ordering) decorator can be used simplifying the effort of writing these rich comparison methods. If you decorate your class with `total_ordering`, you need to implement `__eq__`, `__ne__` and only one of the `__lt__`, `__le__`, `__ge__` or `__gt__`, and the decorator will fill in the rest:
 
 ```
 import functools
@@ -131,11 +128,11 @@ class IntegerContainer(object):
         self.value = value
         
     def __repr__(self):
-        return "{}({})".format(self.__class__.__name__, self.value)
+        return &quot;{}({})&quot;.format(self.__class__.__name__, self.value)
     
     def __lt__(self, other):
         print('{!r} - Test less than {!r}'.format(self, other))
-        return self.value &lt; other.value
+        return self.value < other.value
     
     def __eq__(self, other):
         print('{!r} - Test equal to {!r}'.format(self, other))
@@ -146,18 +143,18 @@ class IntegerContainer(object):
         return self.value != other.value
 
 
-IntegerContainer(5) &gt; IntegerContainer(6)
+IntegerContainer(5) > IntegerContainer(6)
 # Output: IntegerContainer(5) - Test less than IntegerContainer(6)
 # Returns: False
 
-IntegerContainer(6) &gt; IntegerContainer(5)
+IntegerContainer(6) > IntegerContainer(5)
 # Output: IntegerContainer(6) - Test less than IntegerContainer(5)
 # Output: IntegerContainer(6) - Test equal to IntegerContainer(5)
 # Returns True
 
 ```
 
-Notice how the `&gt;` (**greater than**) now ends up calling the **less than** method, and in some cases even the `__eq__` method. This also means that if speed is of great importance, you should implement each rich comparison method yourself.
+Notice how the `>` (**greater than**) now ends up calling the **less than** method, and in some cases even the `__eq__` method. This also means that if speed is of great importance, you should implement each rich comparison method yourself.
 
 
 
@@ -217,103 +214,6 @@ sorted(adict.items(), key=operator.itemgetter(1), reverse=True)
 
 
 
-## Default Argument to max, min
-
-
-You can't pass an empty sequence into `max` or `min`:
-
-```
-min([])
-
-```
-
-> 
-ValueError: min() arg is an empty sequence
-
-
-However, with Python 3, you can pass in the keyword argument `default` with a value that will be returned if the sequence is empty, instead of raising an exception:
-
-```
-max([], default=42)        
-# Output: 42
-max([], default=0)        
-# Output: 0
-
-```
-
-
-
-## Extracting N largest or N smallest items from an iterable
-
-
-To find some number (more than one) of largest or smallest values of an iterable, you can use the [`nlargest`](http://web.archive.org/web/20170816193759/https://docs.python.org/3/library/heapq.html#heapq.nlargest) and [`nsmallest`](http://web.archive.org/web/20170816193759/https://docs.python.org/3/library/heapq.html#heapq.nlargest) of the [`heapq`](http://web.archive.org/web/20170816193759/https://docs.python.org/3/library/heapq.html) module:
-
-```
-import heapq
-
-# get 5 largest items from the range
-
-heapq.nlargest(5, range(10))
-# Output: [9, 8, 7, 6, 5]
-
-heapq.nsmallest(5, range(10))
-# Output: [0, 1, 2, 3, 4]
-
-```
-
-This is much more efficient than sorting the whole iterable and then slicing from the end or beginning. Internally these functions use the [binary heap](http://web.archive.org/web/20170816193759/https://en.wikipedia.org/wiki/Binary_heap) [priority queue](http://web.archive.org/web/20170816193759/https://en.wikipedia.org/wiki/Priority_queue) data structure, which is very efficient for this use case.
-
-Like `min`, `max` and `sorted`, these functions accept the optional `key` keyword argument, which must be a function that, given an element, returns its sort key.
-
-Here is a program that extracts 1000 longest lines from a file:
-
-```
-import heapq
-with open(filename) as f:
-    longest_lines = heapq.nlargest(1000, f, key=len)
-
-```
-
-Here we open the file, and pass the file handle `f` to `nlargest`. Iterating the file yields each line of the file as a separate string; `nlargest` then passes each element (or line) is passed to the function `len` to determine its sort key. `len`, given a string, returns the length of the line in characters.
-
-This only needs storage for a list of 1000 largest lines so far, which can be contrasted with
-
-```
-longest_lines = sorted(f, key=len)[1000:]
-
-```
-
-which will have to hold **the entire file in memory**.
-
-
-
-## Getting a sorted sequence
-
-
-Using **one** sequence:
-
-```
-sorted((7, 2, 1, 5))                 # tuple
-# Output: [1, 2, 5, 7]
-
-sorted(['c', 'A', 'b'])              # list
-# Output: ['A', 'b', 'c']
-
-sorted({11, 8, 1})                   # set
-# Output: [1, 8, 11]
-
-sorted({'11': 5, '3': 2, '10': 15})  # dict
-# Output: ['10', '11', '3']          # only iterates over the keys
-
-sorted('bdca')                       # string
-# Output: ['a','b','c','d']
-
-```
-
-The result is always a new `list`; the original data remains unchanged.
-
-
-
 ## Using the key argument
 
 
@@ -356,6 +256,103 @@ sorted(list_of_tuples, key=operator.itemgetter(1), reverse=True) # Reversed(decr
 # Output: [(1, 15), (0, 10), (2, 8)]
 
 ```
+
+
+
+## Default Argument to max, min
+
+
+You can't pass an empty sequence into `max` or `min`:
+
+```
+min([])
+
+```
+
+> 
+ValueError: min() arg is an empty sequence
+
+
+However, with Python 3, you can pass in the keyword argument `default` with a value that will be returned if the sequence is empty, instead of raising an exception:
+
+```
+max([], default=42)        
+# Output: 42
+max([], default=0)        
+# Output: 0
+
+```
+
+
+
+## Getting a sorted sequence
+
+
+Using **one** sequence:
+
+```
+sorted((7, 2, 1, 5))                 # tuple
+# Output: [1, 2, 5, 7]
+
+sorted(['c', 'A', 'b'])              # list
+# Output: ['A', 'b', 'c']
+
+sorted({11, 8, 1})                   # set
+# Output: [1, 8, 11]
+
+sorted({'11': 5, '3': 2, '10': 15})  # dict
+# Output: ['10', '11', '3']          # only iterates over the keys
+
+sorted('bdca')                       # string
+# Output: ['a','b','c','d']
+
+```
+
+The result is always a new `list`; the original data remains unchanged.
+
+
+
+## Extracting N largest or N smallest items from an iterable
+
+
+To find some number (more than one) of largest or smallest values of an iterable, you can use the [`nlargest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) and [`nsmallest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) of the [`heapq`](https://docs.python.org/3/library/heapq.html) module:
+
+```
+import heapq
+
+# get 5 largest items from the range
+
+heapq.nlargest(5, range(10))
+# Output: [9, 8, 7, 6, 5]
+
+heapq.nsmallest(5, range(10))
+# Output: [0, 1, 2, 3, 4]
+
+```
+
+This is much more efficient than sorting the whole iterable and then slicing from the end or beginning. Internally these functions use the [binary heap](https://en.wikipedia.org/wiki/Binary_heap) [priority queue](https://en.wikipedia.org/wiki/Priority_queue) data structure, which is very efficient for this use case.
+
+Like `min`, `max` and `sorted`, these functions accept the optional `key` keyword argument, which must be a function that, given an element, returns its sort key.
+
+Here is a program that extracts 1000 longest lines from a file:
+
+```
+import heapq
+with open(filename) as f:
+    longest_lines = heapq.nlargest(1000, f, key=len)
+
+```
+
+Here we open the file, and pass the file handle `f` to `nlargest`. Iterating the file yields each line of the file as a separate string; `nlargest` then passes each element (or line) is passed to the function `len` to determine its sort key. `len`, given a string, returns the length of the line in characters.
+
+This only needs storage for a list of 1000 largest lines so far, which can be contrasted with
+
+```
+longest_lines = sorted(f, key=len)[1000:]
+
+```
+
+which will have to hold **the entire file in memory**.
 
 
 
@@ -405,7 +402,7 @@ class MyClass(object):
         self.name = name
         
     def __lt__(self, other):
-        return self.value &lt; other.value
+        return self.value < other.value
     
     def __repr__(self):
         return str(self.name)
@@ -417,5 +414,5 @@ max([MyClass(4, 'first'), MyClass(1, 'second'), MyClass(4, 'third')])
 
 ```
 
-Any iterable containing elements that support `&lt;` or `&gt;` operations are allowed.
+Any iterable containing elements that support `<` or `>` operations are allowed.
 

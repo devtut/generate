@@ -2,6 +2,7 @@
 
 
 
+
 ## Opening and reading using an ElementTree
 
 
@@ -9,7 +10,7 @@ Import the ElementTree object, open the relevant .xml file and get the root tag:
 
 ```
 import xml.etree.ElementTree as ET
-tree = ET.parse("yourXMLfile.xml")
+tree = ET.parse(&quot;yourXMLfile.xml&quot;)
 root = tree.getroot()
 
 ```
@@ -32,8 +33,45 @@ print(root[0][1].text)
 To search for specific tags by name, use the `.find` or `.findall`:
 
 ```
-print(root.findall("myTag"))
-print(root[0].find("myOtherTag"))
+print(root.findall(&quot;myTag&quot;))
+print(root[0].find(&quot;myOtherTag&quot;))
+
+```
+
+
+
+## Modifying an XML File
+
+
+Import Element Tree module and open xml file, get an xml element
+
+```
+import xml.etree.ElementTree as ET
+tree = ET.parse('sample.xml')
+root=tree.getroot()
+element = root[0] #get first child of root element
+
+```
+
+Element object can be manipulated by changing its fields, adding and modifying attributes, adding and removing children
+
+```
+element.set('attribute_name', 'attribute_value') #set the attribute to xml element
+element.text=&quot;string_text&quot;
+
+```
+
+If you want to remove an element use Element.remove() method
+
+```
+root.remove(element)
+
+```
+
+ElementTree.write() method used to output xml object to xml files.
+
+```
+tree.write('output.xml')
 
 ```
 
@@ -68,7 +106,7 @@ dump() function is used to dump xml elements.
 ```
 ET.dump(p)
 # Output will be like this
-#&lt;parent&gt;&lt;child1 /&gt;&lt;/parent&gt;
+#<parent><child1 /></parent>
 
 ```
 
@@ -76,7 +114,7 @@ If you want to save to a file create a xml tree with ElementTree() function and 
 
 ```
 tree = ET.ElementTree(p)
-tree.write("output.xml")
+tree.write(&quot;output.xml&quot;)
 
 ```
 
@@ -85,43 +123,6 @@ Comment() function is used to insert comments in xml file.
 ```
 comment = ET.Comment('user comment')
 p.append(comment) #this comment will be appended to parent element
-
-```
-
-
-
-## Modifying an XML File
-
-
-Import Element Tree module and open xml file, get an xml element
-
-```
-import xml.etree.ElementTree as ET
-tree = ET.parse('sample.xml')
-root=tree.getroot()
-element = root[0] #get first child of root element
-
-```
-
-Element object can be manipulated by changing its fields, adding and modifying attributes, adding and removing children
-
-```
-element.set('attribute_name', 'attribute_value') #set the attribute to xml element
-element.text="string_text"
-
-```
-
-If you want to remove an element use Element.remove() method
-
-```
-root.remove(element)
-
-```
-
-ElementTree.write() method used to output xml object to xml files.
-
-```
-tree.write('output.xml')
 
 ```
 
@@ -142,17 +143,17 @@ import xml.etree.ElementTree as ET
 Open the .xml file and iterate over all the elements:
 
 ```
-for event, elem in ET.iterparse("yourXMLfile.xml"):
+for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;):
     ... do something ...
 
 ```
 
 Alternatively, we can only look for specific events, such as start/end tags or namespaces.
-If this option is omitted (as above), only "end" events are returned:
+If this option is omitted (as above), only &quot;end&quot; events are returned:
 
 ```
-events=("start", "end", "start-ns", "end-ns")
-for event, elem in ET.iterparse("yourXMLfile.xml", events=events):
+events=(&quot;start&quot;, &quot;end&quot;, &quot;start-ns&quot;, &quot;end-ns&quot;)
+for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;, events=events):
     ... do something ...
 
 ```
@@ -160,8 +161,8 @@ for event, elem in ET.iterparse("yourXMLfile.xml", events=events):
 Here is the complete example showing how to clear elements from the in-memory tree when we are finished with them:
 
 ```
-for event, elem in ET.iterparse("yourXMLfile.xml", events=("start","end")):        
-    if elem.tag == "record_tag" and event == "end":
+for event, elem in ET.iterparse(&quot;yourXMLfile.xml&quot;, events=(&quot;start&quot;,&quot;end&quot;)):        
+    if elem.tag == &quot;record_tag&quot; and event == &quot;end&quot;:
         print elem.text
         elem.clear()
     ... do something else ...
@@ -176,22 +177,22 @@ for event, elem in ET.iterparse("yourXMLfile.xml", events=("start","end")):
 Starting with version 2.7 `ElementTree` has a better support for XPath queries. XPath is a syntax to enable you to navigate through an xml like SQL is used to search through a database. Both `find` and `findall` functions support XPath. The xml below will be used for this example
 
 ```
- &lt;Catalog&gt;
-    &lt;Books&gt;
-        &lt;Book id="1" price="7.95"&gt;
-            &lt;Title&gt;Do Androids Dream of Electric Sheep?&lt;/Title&gt;
-            &lt;Author&gt;Philip K. Dick&lt;/Author&gt;
-        &lt;/Book&gt;
-        &lt;Book id="5" price="5.95"&gt;
-            &lt;Title&gt;The Colour of Magic&lt;/Title&gt;
-            &lt;Author&gt;Terry Pratchett&lt;/Author&gt;
-        &lt;/Book&gt;
-        &lt;Book id="7" price="6.95"&gt;
-            &lt;Title&gt;The Eye of The World&lt;/Title&gt;
-            &lt;Author&gt;Robert Jordan&lt;/Author&gt;
-        &lt;/Book&gt;
-    &lt;/Books&gt;
-&lt;/Catalog&gt;
+ <Catalog>
+    <Books>
+        <Book id=&quot;1&quot; price=&quot;7.95&quot;>
+            <Title>Do Androids Dream of Electric Sheep?</Title>
+            <Author>Philip K. Dick</Author>
+        </Book>
+        <Book id=&quot;5&quot; price=&quot;5.95&quot;>
+            <Title>The Colour of Magic</Title>
+            <Author>Terry Pratchett</Author>
+        </Book>
+        <Book id=&quot;7&quot; price=&quot;6.95&quot;>
+            <Title>The Eye of The World</Title>
+            <Author>Robert Jordan</Author>
+        </Book>
+    </Books>
+</Catalog>
 
 ```
 
@@ -207,7 +208,7 @@ tree.findall('Books/Book')
 Searching for the book with title = 'The Colour of Magic':
 
 ```
-tree.find("Books/Book[Title='The Colour of Magic']") 
+tree.find(&quot;Books/Book[Title='The Colour of Magic']&quot;) 
 # always use '' in the right side of the comparison
 
 ```
@@ -215,7 +216,7 @@ tree.find("Books/Book[Title='The Colour of Magic']")
 Searching for the book with id = 5:
 
 ```
-tree.find("Books/Book[@id='5']")
+tree.find(&quot;Books/Book[@id='5']&quot;)
 # searches with xml attributes must have '@' before the name
 
 ```
@@ -223,7 +224,7 @@ tree.find("Books/Book[@id='5']")
 Search for the second book:
 
 ```
-tree.find("Books/Book[2]")
+tree.find(&quot;Books/Book[2]&quot;)
 # indexes starts at 1, not 0
 
 ```
@@ -231,7 +232,7 @@ tree.find("Books/Book[2]")
 Search for the last book:
 
 ```
-tree.find("Books/Book[last()]")
+tree.find(&quot;Books/Book[last()]&quot;)
 # 'last' is the only xpath function allowed in ElementTree
 
 ```
@@ -239,7 +240,7 @@ tree.find("Books/Book[last()]")
 Search for all authors:
 
 ```
-tree.findall(".//Author")
+tree.findall(&quot;.//Author&quot;)
 #searches with // must use a relative path
 
 ```

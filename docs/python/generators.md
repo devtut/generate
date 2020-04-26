@@ -1,6 +1,9 @@
 # Generators
 
 
+Generators are lazy iterators created by generator functions (using `yield`) or generator expressions (using `(an_expression for x in an_iterator)`).
+
+
 
 ## Introduction
 
@@ -14,7 +17,7 @@ expression = (x**2 for x in range(10))
 
 This example generates the 10 first perfect squares, including 0 (in which x = 0).
 
-**Generator functions** are similar to regular functions, except that they have one or more [`yield`](http://web.archive.org/web/20170405181136/https://docs.python.org/3/reference/simple_stmts.html#yield) statements in their body. Such functions cannot `return` any values (however empty `return`s are allowed if you want to stop the generator early).
+**Generator functions** are similar to regular functions, except that they have one or more [`yield`](https://docs.python.org/3/reference/simple_stmts.html#yield) statements in their body. Such functions cannot `return` any values (however empty `return`s are allowed if you want to stop the generator early).
 
 ```
 def function():
@@ -23,17 +26,16 @@ def function():
 
 ```
 
-This generator function is equivalent to the previous generator expression, it outputs the same. **Note**: all generator expressions have their own **equivalent** functions, but not vice versa.
+This generator function is equivalent to the previous generator expression, it outputs the same.
 
----
-
+**Note**: all generator expressions have their own **equivalent** functions, but not vice versa.
 
 A generator expression can be used without parentheses if both parentheses would be repeated otherwise:
 
 ```
 sum(i for i in range(10) if i % 2 == 0)   #Output: 20
 any(x = 0 for x in foo)                   #Output: True or False depending on foo
-type(a &gt; b for a in foo if a % 2 == 1)    #Output: &lt;class 'generator'&gt;
+type(a > b for a in foo if a % 2 == 1)    #Output: <class 'generator'>
 
 ```
 
@@ -42,27 +44,24 @@ Instead of:
 ```
 sum((i for i in range(10) if i % 2 == 0))
 any((x = 0 for x in foo))
-type((a &gt; b for a in foo if a % 2 == 1))
+type((a > b for a in foo if a % 2 == 1))
 
 ```
 
 But not:
 
 ```
-fooFunction((i for i in range(10) if i % 2 == 0,foo,bar)
+fooFunction(i for i in range(10) if i % 2 == 0,foo,bar)
 return x = 0 for x in foo
-barFunction(baz, a &gt; b for a in foo if a % 2 == 1)
+barFunction(baz, a > b for a in foo if a % 2 == 1)
 
 ```
-
----
-
 
 Calling a generator function produces a **generator object**, which can later be iterated over. Unlike other types of iterators, generator objects may only be traversed once.
 
 ```
 g1 = function()
-print(g1)  # Out: &lt;generator object function at 0x1012e1888&gt;
+print(g1)  # Out: <generator object function at 0x1012e1888>
 
 ```
 
@@ -70,13 +69,13 @@ Notice that a generator's body is **not** immediately executed: when you call `f
 
 For this reason, generators are often used in data science, and other contexts involving large amounts of data. Another advantage is that other code can immediately use the values yielded by a generator, without waiting for the complete sequence to be produced.
 
-However, if you need to use the values produced by a generator more than once, and if generating them costs more than storing, it may be better to store the yielded values as a `list` than to re-generate the sequence.
+However, if you need to use the values produced by a generator more than once, and if generating them costs more than storing, it may be better to store the yielded values as a `list` than to re-generate the sequence. See 'Resetting a generator' below for more details.
 
 Typically a generator object is used in a loop, or in any function that requires an iterable:
 
 ```
 for x in g1:
-    print("Received", x)
+    print(&quot;Received&quot;, x)
 
 # Output:
 # Received 0
@@ -97,7 +96,7 @@ arr2 = list(g2)  # arr2 = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 ```
 
-Since generator objects are iterators, one can iterate over them manually using the [`next()`](http://web.archive.org/web/20170405181136/https://docs.python.org/3/library/functions.html#next) function. It will return the yielded values one by one on each subsequent invocation.
+Since generator objects are iterators, one can iterate over them manually using the [`next()`](https://docs.python.org/3/library/functions.html#next) function. Doing so will return the yielded values one by one on each subsequent invocation.
 
 Under the hood, each time you call `next()` on a generator, Python executes statements in the body of the generator function until it hits the next `yield` statement. At this point it returns the argument of the `yield` command, and remembers the point where that happened. Calling `next()` once again will resume execution from that point and continue until the next `yield` statement.
 
@@ -114,6 +113,12 @@ j = next(g3)  # Raises StopIteration, j remains undefined
 ```
 
 Note that in Python 2 generator objects had `.next()` methods that could be used to iterate through the yielded values manually. In Python 3 this method was replaced with the `.__next__()` standard for all iterators.
+
+**Resetting a generator**
+
+Remember that you can only iterate through the objects generated by a generator **once**. If you have already iterated through the objects in a script, any further attempt do so will yield `None`.
+
+If you need to use the objects generated by a generator more than once, you can either define the generator function again and use it a second time, or, alternatively, you can store the output of the generator function in a list on first use. Re-defining the generator function will be a good option if you are dealing with large volumes of data, and storing a list of all data items would take up a lot of disc space. Conversely, if it is costly to generate the items initially, you may prefer to store the generated items in a list so that you can re-use them.
 
 
 
@@ -132,7 +137,7 @@ natural_numbers = integers_starting_from(1)
 
 ```
 
-Infinite sequence of numbers as above can also be generated with the help of [`itertools.count`](http://web.archive.org/web/20170405181136/https://docs.python.org/3/library/itertools.html#itertools.count). The above code could be written as below
+Infinite sequence of numbers as above can also be generated with the help of [`itertools.count`](https://docs.python.org/3/library/itertools.html#itertools.count). The above code could be written as below
 
 ```
 natural_numbers = itertools.count(1)
@@ -154,7 +159,7 @@ list(multiples_of_two)  # will never terminate, or raise an OS-specific error
 
 ```
 
-Instead, use list/set comprehensions with [`range`](http://web.archive.org/web/20170405181136/https://docs.python.org/3/library/functions.html#func-range) (or `xrange` for python &lt; 3.0):
+Instead, use list/set comprehensions with [`range`](https://docs.python.org/3/library/functions.html#func-range) (or `xrange` for python < 3.0):
 
 ```
 first_five_multiples_of_three = [next(multiples_of_three) for _ in range(5)] 
@@ -162,7 +167,7 @@ first_five_multiples_of_three = [next(multiples_of_three) for _ in range(5)]
 
 ```
 
-or use [`itertools.islice()`](http://web.archive.org/web/20170405181136/https://docs.python.org/3/library/itertools.html#itertools.islice) to slice the iterator to a subset:
+or use [`itertools.islice()`](https://docs.python.org/3/library/itertools.html#itertools.islice) to slice the iterator to a subset:
 
 ```
 from itertools import islice
@@ -172,7 +177,7 @@ first_five_multiples_of_four = list(islice(multiples_of_four, 5))
 
 ```
 
-Note that the original generator is updated too, just like all other generators coming from the same "root":
+Note that the original generator is updated too, just like all other generators coming from the same &quot;root&quot;:
 
 ```
 next(natural_numbers)    # yields 16
@@ -181,7 +186,7 @@ next(multiples_of_four)  # yields 24
 
 ```
 
-An infinite sequence can also be iterated with a [`for`-loop](http://web.archive.org/web/20170405181136/http://stackoverflow.com/documentation/python/237/loops/862/for-loops). Make sure to include a conditional `break` statement so that the loop would terminate eventually:
+An infinite sequence can also be iterated with a [`for`-loop](http://stackoverflow.com/documentation/python/237/loops/862/for-loops). Make sure to include a conditional `break` statement so that the loop would terminate eventually:
 
 ```
 for idx, number in enumerate(multiplies_of_two):
@@ -232,7 +237,7 @@ def accumulator():
 
 generator = accumulator()
 
-# advance until the first "yield"
+# advance until the first &quot;yield&quot;
 next(generator)      # 0
 
 # from this point on, the generator aggregates values
@@ -274,7 +279,7 @@ This works with generators as well.
 def fibto(n):
     a, b = 1, 1
     while True:
-        if a &gt;= n: break
+        if a >= n: break
         yield a
         a, b = b, a + b
 
@@ -297,7 +302,7 @@ A generator object supports the **iterator protocol**. That is, it provides a `n
 # naive partial implementation of the Python 2.x xrange()
 def xrange(n):
     i = 0
-    while i &lt; n:
+    while i < n:
         yield i
         i += 1
 
@@ -312,6 +317,31 @@ a, b, c = xrange(3)  # 0, 1, 2
 l = list(xrange(10))  # [0, 1, ..., 9]
 
 ```
+
+
+
+## The next() function
+
+
+The [`next()`](https://docs.python.org/3/library/functions.html#next) built-in is a convenient wrapper which can be used to receive a value from any iterator (including a generator iterator) and to provide a default value in case the iterator is exhausted.
+
+```
+def nums():
+    yield 1
+    yield 2
+    yield 3
+generator = nums()
+
+next(generator, None)  # 1
+next(generator, None)  # 2
+next(generator, None)  # 3
+next(generator, None)  # None
+next(generator, None)  # None
+# ...
+
+```
+
+The syntax is `next(iterator[, default])`. If iterator ends and a default value was passed, it is returned. If no default was provided, `StopIteration` is raised.
 
 
 
@@ -344,31 +374,6 @@ s.send(2) # 3
 ```
 
 Coroutines are commonly used to implement state machines, as they are primarily useful for creating single-method procedures that require a state to function properly. They operate on an existing state and return the value obtained on completion of the operation.
-
-
-
-## The next() function
-
-
-The [`next()`](http://web.archive.org/web/20170405181136/https://docs.python.org/3/library/functions.html#next) built-in is a convenient wrapper which can be used to receive a value from any iterator (including a generator iterator) and to provide a default value in case the iterator is exhausted.
-
-```
-def nums():
-    yield 1
-    yield 2
-    yield 3
-generator = nums()
-
-next(generator, None)  # 1
-next(generator, None)  # 2
-next(generator, None)  # 3
-next(generator, None)  # None
-next(generator, None)  # None
-# ...
-
-```
-
-The syntax is `next(iterator[, default])`. If iterator ends and a default value was passed, it is returned. If no default was provided, `StopIteration` is raised.
 
 
 
@@ -431,32 +436,6 @@ def get_files_recursive(directory):
 
 
 
-## Generator expressions
-
-
-It's possible to create generator iterators using a comprehension-like syntax.
-
-```
-generator = (i * 2 for i in range(3))
-
-next(generator)  # 0
-next(generator)  # 2
-next(generator)  # 4
-next(generator)  # raises StopIteration
-
-```
-
-If a function doesn't necessarily need to be passed a list, you can save on characters (and improve readability) by placing a generator expression inside a function call. The parenthesis from the function call implicitly make your expression a generator expression.
-
-```
-sum(i ** 2 for i in range(4))  # 0^2 + 1^2 + 2^2 + 3^2 = 0 + 1 + 4 + 9 = 14
-
-```
-
-Additionally, you will save on memory because instead of loading the entire list you are iterating over (`[0, 1, 2, 3]` in the above example), the generator allows Python to use values as needed.
-
-
-
 ## Refactoring list-building code
 
 
@@ -487,7 +466,7 @@ values = list(create_gen())
 
 ```
 
-If the logic is recursive, use `yield from` to include all the values from the recursive call in a "flattened" result:
+If the logic is recursive, use `yield from` to include all the values from the recursive call in a &quot;flattened&quot; result:
 
 ```
 def preorder_traversal(node):
@@ -496,6 +475,55 @@ def preorder_traversal(node):
         yield from preorder_traversal(child)
 
 ```
+
+
+
+## Generator expressions
+
+
+It's possible to create generator iterators using a comprehension-like syntax.
+
+```
+generator = (i * 2 for i in range(3))
+
+next(generator)  # 0
+next(generator)  # 2
+next(generator)  # 4
+next(generator)  # raises StopIteration
+
+```
+
+If a function doesn't necessarily need to be passed a list, you can save on characters (and improve readability) by placing a generator expression inside a function call. The parenthesis from the function call implicitly make your expression a generator expression.
+
+```
+sum(i ** 2 for i in range(4))  # 0^2 + 1^2 + 2^2 + 3^2 = 0 + 1 + 4 + 9 = 14
+
+```
+
+Additionally, you will save on memory because instead of loading the entire list you are iterating over (`[0, 1, 2, 3]` in the above example), the generator allows Python to use values as needed.
+
+
+
+## Using a generator to find Fibonacci Numbers
+
+
+A practical use case of a generator is to iterate through values of an infinite series. Here's an example of finding the first ten terms of the [Fibonacci Sequence](https://oeis.org/A000045).
+
+```
+def fib(a=0, b=1):
+    &quot;&quot;&quot;Generator that yields Fibonacci numbers. `a` and `b` are the seed values&quot;&quot;&quot;
+    while True:
+        yield a
+        a, b = b, a + b
+
+f = fib()
+print(', '.join(str(next(f)) for _ in range(10)))
+
+```
+
+> 
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+
 
 
 
@@ -537,29 +565,6 @@ def first(generator):
 
 
 
-## Using a generator to find Fibonacci Numbers
-
-
-A practical use case of a generator is to iterate through values of an infinite series. Here's an example of finding the first ten terms of the [Fibonacci Sequence](http://web.archive.org/web/20170405181136/https://oeis.org/A000045).
-
-```
-def fib(a=0, b=1):
-    """Generator that yields Fibonacci numbers. `a` and `b` are the seed values"""
-    while True:
-        yield a
-        a, b = b, a + b
-
-f = fib()
-print(', '.join(str(next(f)) for _ in range(10)))
-
-```
-
-> 
-0, 1, 1, 2, 3, 5, 8, 13, 21, 34
-
-
-
-
 ## Iterating over generators in parallel
 
 
@@ -582,15 +587,15 @@ Results in:
 
 In python 2 you should use `itertools.izip` instead. Here we can also see that the all the `zip` functions yield tuples.
 
-Note that zip will stop iterating as soon as one of the iterables runs out of items. If you'd like to iterate for as long as the longest iterable, use [`itertools.zip_longest()`](http://web.archive.org/web/20170405181136/http://stackoverflow.com/documentation/python/1564/itertools-module/6943/itertools-zip-longest#t=201608100113008888583).
+Note that zip will stop iterating as soon as one of the iterables runs out of items. If you'd like to iterate for as long as the longest iterable, use [`itertools.zip_longest()`](http://stackoverflow.com/documentation/python/1564/itertools-module/6943/itertools-zip-longest#t=201608100113008888583).
 
 
 
 #### Syntax
 
 
-- yield `&lt;expr&gt;`
-- yield from `&lt;expr&gt;`
-- `&lt;var&gt;` = yield `&lt;expr&gt;`
-- next(`&lt;iter&gt;`)
+- yield `<expr>`
+- yield from `<expr>`
+- `<var>` = yield `<expr>`
+- next(`<iter>`)
 

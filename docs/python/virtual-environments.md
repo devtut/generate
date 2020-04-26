@@ -16,7 +16,7 @@ This helps isolate your environments for different projects from each other and 
 
 This is only required once. The `virtualenv` program may be available through your distribution. On Debian-like distributions, the package is called `python-virtualenv` or `python3-virtualenv`.
 
-You can alternatively install `virtualenv` using [pip](http://web.archive.org/web/20170405113458/https://stackoverflow.com/documentation/python/193/introduction-to-python/15322/installing-external-modules-using-pip):
+You can alternatively install `virtualenv` using [pip](https://stackoverflow.com/documentation/python/193/introduction-to-python/15322/installing-external-modules-using-pip):
 
 ```
 $ pip install virtualenv
@@ -63,12 +63,12 @@ Once a virtual environment has been activated, the `python` and `pip` binaries a
 To save the modules that you have installed via `pip`, you can list all of those modules (and the corresponding versions) into a text file by using the `freeze` command. This allows others to quickly install the Python modules needed for the application by using the install command. The conventional name for such a file is `requirements.txt`:
 
 ```
-(foo)$ pip freeze &gt; requirements.txt
+(foo)$ pip freeze > requirements.txt
 (foo)$ pip install -r requirements.txt
 
 ```
 
-Please note that `freeze` lists all the modules, including the transitive dependencies required by the top-level modules you installed manually. As such, you may prefer to [craft the `requirements.txt` file by hand](http://web.archive.org/web/20170405113458/https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file), by putting only the top-level modules you need.
+Please note that `freeze` lists all the modules, including the transitive dependencies required by the top-level modules you installed manually. As such, you may prefer to [craft the `requirements.txt` file by hand](https://pip.pypa.io/en/stable/reference/pip_install/#example-requirements-file), by putting only the top-level modules you need.
 
 ### Exiting a virtual environment
 
@@ -102,7 +102,7 @@ If you are looking to use the `activate_this.py` script, remember to deploy with
 
 ### Built-in virtual environments
 
-From Python 3.3 onwards, the [venv module](http://web.archive.org/web/20170405113458/https://docs.python.org/3/library/venv.html) will create virtual environments. The `pyvenv` command does not need installing separately:
+From Python 3.3 onwards, the [venv module](https://docs.python.org/3/library/venv.html) will create virtual environments. The `pyvenv` command does not need installing separately:
 
 ```
 $ pyvenv foo
@@ -183,6 +183,56 @@ Actually you can create virtual environment based on any version of working pyth
 
 
 
+## Making virtual environments using Anaconda
+
+
+A powerful alternative to `virtualenv` is [Anaconda](https://www.continuum.io/downloads) - a cross-platform, `pip`-like package manager bundled with features for quickly making and removing virtual environments. After installing Anaconda, here are some commands to get started:
+
+### Create an environment
+
+```
+conda create --name <envname> python=<version>
+
+```
+
+where `<envname>` in an arbitrary name for your virtual environment, and `<version>` is a specific Python version you wish to setup.
+
+### Activate and deactivate your environment
+
+```
+# Linux, Mac
+source activate <envname>                            
+source deactivate
+
+```
+
+or
+
+```
+# Windows
+activate <envname>                                    
+deactivate
+
+```
+
+### View a list of created environments
+
+```
+conda env list
+
+```
+
+### Remove an environment
+
+```
+conda env remove -n <envname>
+
+```
+
+Find more commands and features in the official [conda documentation](http://conda.pydata.org/docs/using/envs.html#create-an-environment).
+
+
+
 ## Installing packages in a virtual environment
 
 
@@ -191,18 +241,18 @@ Once your virtual environment has been activated, any package that you install w
 To verify that the packages are being installed into the `virtualenv` run the following command to check the path of the executable that is being used :
 
 ```
-(&lt;Virtualenv Name) $ which python
-/&lt;Virtualenv Directory&gt;/bin/python
+(<Virtualenv Name) $ which python
+/<Virtualenv Directory>/bin/python
 
 (Virtualenv Name) $ which pip
-/&lt;Virtualenv Directory&gt;/bin/pip
+/<Virtualenv Directory>/bin/pip
 
 ```
 
 Any package then installed using pip will be installed in the `virtualenv` itself in the following directory :
 
 ```
-/&lt;Virtualenv Directory&gt;/lib/python2.7/site-packages/
+/<Virtualenv Directory>/lib/python2.7/site-packages/
 
 ```
 
@@ -232,77 +282,27 @@ You can also get a list of the packages and their versions currently installed i
 pip freeze
 
 # Output list of packages and versions into a requirement.txt file so you can recreate the virtual environment
-pip freeze &gt; requirements.txt
+pip freeze > requirements.txt
 
 ```
 
 Alternatively, you do not have to activate your virtual environment each time you have to install a package. You can directly use the pip executable in the virtual environment directory to install packages.
 
 ```
-$ /&lt;Virtualenv Directory&gt;/bin/pip install requests
+$ /<Virtualenv Directory>/bin/pip install requests
 
 ```
 
-More information about using pip can be found on the [PIP topic](http://web.archive.org/web/20170405113458/http://stackoverflow.com/documentation/python/1781).
+More information about using pip can be found on the [PIP topic](http://stackoverflow.com/documentation/python/1781).
 
 Since you're installing without root in a virtual environment, this is **not** a global install, across the entire system - the installed package will only be available in the current virtual environment.
-
-
-
-## Making virtual environments using Anaconda
-
-
-A powerful alternative to `virtualenv` is [Anaconda](http://web.archive.org/web/20170405113458/https://www.continuum.io/downloads) - a cross-platform, `pip`-like package manager bundled with features for quickly making and removing virtual environments. After installing Anaconda, here are some commands to get started:
-
-### Create an environment
-
-```
-conda create -name &lt;envname&gt; python=&lt;version&gt;
-
-```
-
-where `&lt;envname&gt;` in an arbitrary name for your virtual environment, and `&lt;version&gt;` is a specific Python version you wish to setup.
-
-### Activate and deactivate your environment
-
-```
-# Linux, Mac
-source activate &lt;envname&gt;                            
-source deactivate
-
-```
-
-or
-
-```
-# Windows
-activate &lt;envname&gt;                                    
-deactivate
-
-```
-
-### View a list of created environments
-
-```
-conda env list
-
-```
-
-### Remove an environment
-
-```
-conda env remove -n &lt;envname&gt;
-
-```
-
-Find more commands and features in the official [conda documentation](http://web.archive.org/web/20170405113458/http://conda.pydata.org/docs/using/envs.html#create-an-environment).
 
 
 
 ## Managing multiple virtual enviroments with virtualenvwrapper
 
 
-The [`virtualenvwrapper`](http://web.archive.org/web/20170405113458/https://virtualenvwrapper.readthedocs.io/) utility simplifies working with virtual environments and is especially useful if you are dealing with many virtual environments/projects.
+The [`virtualenvwrapper`](https://virtualenvwrapper.readthedocs.io/) utility simplifies working with virtual environments and is especially useful if you are dealing with many virtual environments/projects.
 
 Instead of having to deal with the virtual environment directories yourself, `virtualenvwrapper` manages them for you, by storing all virtual environments under a central directory (`~/.virtualenvs` by default).
 
@@ -338,7 +338,7 @@ pip install virtualenvwrapper
 
 ```
 
-Under Windows you can use either [`virtualenvwrapper-win`](http://web.archive.org/web/20170405113458/https://pypi.python.org/pypi/virtualenvwrapper-win) or [`virtualenvwrapper-powershell`](http://web.archive.org/web/20170405113458/https://pypi.python.org/pypi/virtualenvwrapper-powershell) instead.
+Under Windows you can use either [`virtualenvwrapper-win`](https://pypi.python.org/pypi/virtualenvwrapper-win) or [`virtualenvwrapper-powershell`](https://pypi.python.org/pypi/virtualenvwrapper-powershell) instead.
 
 ### Usage
 
@@ -394,9 +394,9 @@ rmvirtualenv my-project
 
 ```
 
-Each virtualenv managed by virtualenvwrapper includes 4 empty bash scripts: `preactivate`, `postactivate`, `predeactivate`, and `postdeactivate`. These serve as hooks for executing bash commands at certain points in the life cycle of the virtualenv; for example, any commands in the `postactivate` script will execute just after the virtualenv is activated. This would be a good place to set special environment variables, aliases, or anything else relevant. All 4 scripts are located under `.virtualenvs/&lt;virtualenv_name&gt;/bin/`.
+Each virtualenv managed by virtualenvwrapper includes 4 empty bash scripts: `preactivate`, `postactivate`, `predeactivate`, and `postdeactivate`. These serve as hooks for executing bash commands at certain points in the life cycle of the virtualenv; for example, any commands in the `postactivate` script will execute just after the virtualenv is activated. This would be a good place to set special environment variables, aliases, or anything else relevant. All 4 scripts are located under `.virtualenvs/<virtualenv_name>/bin/`.
 
-For more details read the [virtualenvwrapper documentation](http://web.archive.org/web/20170405113458/https://virtualenvwrapper.readthedocs.io/).
+For more details read the [virtualenvwrapper documentation](https://virtualenvwrapper.readthedocs.io/).
 
 
 
@@ -413,31 +413,6 @@ If you are using the default `bash` prompt on Linux, you should see the name of 
 
 
 
-## Checking if running inside a virtual environment
-
-
-Sometimes the shell prompt doesn't display the name of the virtual environment and you want to be sure if you are in a virtual environment or not.
-
-Run the python interpreter and try:
-
-```
-import sys
-sys.prefix
-sys.real_prefix
-
-```
-
-<li>
-Outside a virtual, environment `sys.prefix` will point to the system python installation and `sys.real_prefix` is not defined.
-</li>
-<li>
-Inside a virtual environment, `sys.prefix` will point to the virtual environment python installation and `sys.real_prefix` will point to the system python installation.
-</li>
-
-For virtual environments created using the standard library [venv module](http://web.archive.org/web/20170405113458/https://docs.python.org/3/library/venv.html) there is no `sys.real_prefix`. Instead, check whether `sys.base_prefix` is the same as `sys.prefix`.
-
-
-
 ## Using virtualenv with fish shell
 
 
@@ -450,13 +425,13 @@ Install virtualfish to the global space
 </li>
 <li>
 Load the python module virtualfish during the fish shell startup
-<pre><code> $ echo "eval (python -m virtualfish)" &gt; ~/.config/fish/config.fish
+<pre><code> $ echo &quot;eval (python -m virtualfish)&quot; > ~/.config/fish/config.fish
 </code></pre>
 </li>
 <li>
 Edit this function `fish_prompt` by `$ funced fish_prompt --editor vim` and add the below lines and close the vim editor
 <pre><code> if set -q VIRTUAL_ENV
-     echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+     echo -n -s (set_color -b blue white) &quot;(&quot; (basename &quot;$VIRTUAL_ENV&quot;) &quot;)&quot; (set_color normal) &quot; &quot;
  end
 </code></pre>
 Note: If you are unfamiliar with vim, simply supply your favorite editor like this `$ funced fish_prompt --editor nano` or `$ funced fish_prompt --editor gedit`
@@ -483,8 +458,33 @@ To switch between virtualenvironments use `vf deactivate` &amp; `vf activate ano
 
 Official Links:
 
-- [https://github.com/adambrenecki/virtualfish](http://web.archive.org/web/20170405113458/https://github.com/adambrenecki/virtualfish)
-- [http://virtualfish.readthedocs.io/en/latest/](http://web.archive.org/web/20170405113458/http://virtualfish.readthedocs.io/en/latest/)
+- [https://github.com/adambrenecki/virtualfish](https://github.com/adambrenecki/virtualfish)
+- [http://virtualfish.readthedocs.io/en/latest/](http://virtualfish.readthedocs.io/en/latest/)
+
+
+
+## Checking if running inside a virtual environment
+
+
+Sometimes the shell prompt doesn't display the name of the virtual environment and you want to be sure if you are in a virtual environment or not.
+
+Run the python interpreter and try:
+
+```
+import sys
+sys.prefix
+sys.real_prefix
+
+```
+
+<li>
+Outside a virtual, environment `sys.prefix` will point to the system python installation and `sys.real_prefix` is not defined.
+</li>
+<li>
+Inside a virtual environment, `sys.prefix` will point to the virtual environment python installation and `sys.real_prefix` will point to the system python installation.
+</li>
+
+For virtual environments created using the standard library [venv module](https://docs.python.org/3/library/venv.html) there is no `sys.real_prefix`. Instead, check whether `sys.base_prefix` is the same as `sys.prefix`.
 
 
 

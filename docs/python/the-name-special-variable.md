@@ -28,7 +28,7 @@ print('hello')
 
 ```
 
-Running **module1.py** will print `hello`<br/>
+Running **module1.py** will print `hello`<br />
 Running **module2.py** will print `hello`
 
 ### Situation 2
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
 ```
 
-Running **module1.py** will print nothing<br/>
+Running **module1.py** will print nothing<br />
 Running **module2.py** will print `hello`
 
 
@@ -63,17 +63,17 @@ def f(x):
 
 
 print(f)
-# &lt;function f at 0x029976B0&gt;
+# <function f at 0x029976B0>
 print(f.__name__)
 # f
 
 print(C)
-# &lt;class '__main__.C'&gt;
+# <class '__main__.C'>
 print(C.__name__)
 # C
 
 print(os)
-# &lt;module 'os' from '/spam/eggs/'&gt;
+# <module 'os' from '/spam/eggs/'>
 print(os.__name__)
 # os
 
@@ -93,9 +93,6 @@ print(g.__name__)
 # f - even though the variable is named g, the function is still named f
 
 ```
-
----
-
 
 This can be used, among others, for debugging:
 

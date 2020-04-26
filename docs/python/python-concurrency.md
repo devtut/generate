@@ -11,12 +11,12 @@ import multiprocessing
 
 
 def countdown(count):
-    while count &gt; 0:
-        print("Count value", count)
+    while count > 0:
+        print(&quot;Count value&quot;, count)
         count -= 1
     return
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     p1 = multiprocessing.Process(target=countdown, args=(10,))
     p1.start()
 
@@ -35,15 +35,15 @@ The `Process.start` method launches this new process and run the function passed
 The new processes are launched differently depending on the version of python and the plateform on which the code is running **e.g.**:
 
 - Windows uses `spawn` to create the new process.
-<li>With unix systems and version earlier than 3.3, the processes are created using a `fork`.<br/>
+<li>With unix systems and version earlier than 3.3, the processes are created using a `fork`.<br />
 Note that this method does not respect the POSIX usage of fork and thus leads to unexpected behaviors, especially when interacting with other multiprocessing libraries.</li>
 - With unix system and version 3.4+, you can choose to start the new processes with either `fork`, `forkserver` or `spawn` using `multiprocessing.set_start_method` at the beginning of your program. `forkserver` and `spawn` methods are slower than forking but avoid some unexpected behaviors.
 
 **POSIX fork usage**:
 
 > 
-<p>After a fork in a multithreaded program, the child can safely call only async-signal-safe functions until such time as it calls execve.<br/>
-([see](http://web.archive.org/web/20170816201312/http://man7.org/linux/man-pages/man2/fork.2.html))</p>
+<p>After a fork in a multithreaded program, the child can safely call only async-signal-safe functions until such time as it calls execve.<br />
+([see](http://man7.org/linux/man-pages/man2/fork.2.html))</p>
 
 
 Using fork, a new process will be launched with the exact same state for all the current mutex but only the `MainThread` will be launched.
@@ -62,8 +62,8 @@ Actually, this kind of behavior should not occured in pure python as `multiproce
 from __future__ import print_function
 import threading
 def counter(count):
-    while count &gt; 0:
-        print("Count value", count)
+    while count > 0:
+        print(&quot;Count value&quot;, count)
         count -= 1
     return
 
@@ -78,7 +78,7 @@ In certain implementations of Python such as CPython, true parallelism is not ac
 
 Here is an excellent overview of Python concurrency:
 
-[Python concurrency by David Beazley (YouTube)](http://web.archive.org/web/20170816201312/https://www.youtube.com/watch?v=MCs5OvhV9S4)
+[Python concurrency by David Beazley (YouTube)](https://www.youtube.com/watch?v=MCs5OvhV9S4)
 
 
 

@@ -5,7 +5,7 @@
 ## Destructuring assignment
 
 
-In assignments, you can split an Iterable into values using the "unpacking" syntax:
+In assignments, you can split an Iterable into values using the &quot;unpacking&quot; syntax:
 
 ### Destructuring as values
 
@@ -273,7 +273,7 @@ fun3(*[1,2], **{'arg2':42, 'arg3':3})
 ## Unpacking function arguments
 
 
-When you want to create a function that can accept any number of arguments, and not enforce the position or the name of the argument at "compile" time, it's possible and here's how:
+When you want to create a function that can accept any number of arguments, and not enforce the position or the name of the argument at &quot;compile&quot; time, it's possible and here's how:
 
 ```
 def fun1(*args, **kwargs):
@@ -281,7 +281,7 @@ def fun1(*args, **kwargs):
 
 ```
 
-The `*args` and `**kwargs` parameters are special parameters that are set to a [`tuple`](http://web.archive.org/web/20170515014020/http://stackoverflow.com/documentation/python/927/tuple#t=201608011622176668638) and a [`dict`](http://web.archive.org/web/20170515014020/http://stackoverflow.com/documentation/python/396/dictionary#t=201608011622571856793), respectively:
+The `*args` and `**kwargs` parameters are special parameters that are set to a [`tuple`](http://stackoverflow.com/documentation/python/927/tuple#t=201608011622176668638) and a [`dict`](http://stackoverflow.com/documentation/python/396/dictionary#t=201608011622571856793), respectively:
 
 ```
 fun1(1,2,3)

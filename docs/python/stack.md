@@ -10,7 +10,7 @@ it consists  of a top and the rest which is a Stack.
 ## Creating a Stack class with a List Object
 
 
-Using a [`list`](http://web.archive.org/web/20170816201828/https://docs.python.org/3/tutorial/datastructures.html) object you can create a fully functional generic Stack with helper methods such as peeking and checking if the stack is Empty. Check out the official python docs for using `list` as `Stack` [here](http://web.archive.org/web/20170816201828/https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks).
+Using a [`list`](https://docs.python.org/3/tutorial/datastructures.html) object you can create a fully functional generic Stack with helper methods such as peeking and checking if the stack is Empty. Check out the official python docs for using `list` as `Stack` [here](https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks).
 
 ```
 #define a stack class
@@ -52,7 +52,7 @@ print('Current stack:', stack.fullStack())
 print('Stack empty?:', stack.isEmpty())
 print('Pushing integer 1')
 stack.push(1)
-print('Pushing string "Told you, I am generic stack!"')
+print('Pushing string &quot;Told you, I am generic stack!&quot;')
 stack.push('Told you, I am generic stack!')
 print('Pushing integer 3')
 stack.push(3)
@@ -69,7 +69,7 @@ Output:
 Current stack: []
 Stack empty?: True
 Pushing integer 1
-Pushing string "Told you, I am generic stack!"
+Pushing string &quot;Told you, I am generic stack!&quot;
 Pushing integer 3
 Current stack: [1, 'Told you, I am generic stack!', 3]
 Popped item: 3
@@ -85,12 +85,12 @@ Stack empty?: False
 
 Stacks are often used for parsing. A simple parsing task is to check whether a string of parentheses are matching.
 
-For example, the string `([])` is matching, because the outer and inner brackets form pairs. `()&lt;&gt;)` is not matching, because the last `)` has no partner. `([)]` is also not matching, because pairs must be either entirely inside or outside other pairs.
+For example, the string `([])` is matching, because the outer and inner brackets form pairs. `()<>)` is not matching, because the last `)` has no partner. `([)]` is also not matching, because pairs must be either entirely inside or outside other pairs.
 
 ```
 def checkParenth(str):
     stack = Stack()
-    pushChars, popChars = "&lt;({[", "&gt;)}]"
+    pushChars, popChars = &quot;<({[&quot;, &quot;>)}]&quot;
     for c in str:
         if c in pushChars:
             stack.push(c)
@@ -117,15 +117,15 @@ def checkParenth(str):
 
 - stack = []  # Create the stack
 - stack.append(object)  # Add object to the top of the stack
-- stack.pop() -&gt; object  # Return the top most object from the stack and also remove it
-- list[-1] -&gt; object  # Peek the top most object without removing it
+- stack.pop() -> object  # Return the top most object from the stack and also remove it
+- list[-1] -> object  # Peek the top most object without removing it
 
 
 
 #### Remarks
 
 
-From [Wikipedia](http://web.archive.org/web/20170816201828/https://en.wikipedia.org/wiki/Stack_(abstract_data_type)):
+From [Wikipedia](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)):
 
 > 
 <p>In computer science, a **stack** is an abstract data type that serves as a

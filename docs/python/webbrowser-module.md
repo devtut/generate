@@ -12,7 +12,7 @@ To simply open a URL, use the `webbrowser.open()` method:
 
 ```
 import webbrowser
-webbrowser.open("http://stackoverflow.com")
+webbrowser.open(&quot;http://stackoverflow.com&quot;)
 
 ```
 
@@ -28,7 +28,7 @@ Webbrowser can also try to open URLs in new windows with the `open_new` method:
 
 ```
 import webbrowser
-webbrowser.open_new("http://stackoverflow.com")
+webbrowser.open_new(&quot;http://stackoverflow.com&quot;)
 
 ```
 
@@ -37,7 +37,7 @@ Opening a new tab can be tried by the module using the `open_new_tab` method:
 
 ```
 import webbrowser
-webbrowser.open_new_tab("http://stackoverflow.com")
+webbrowser.open_new_tab(&quot;http://stackoverflow.com&quot;)
 
 ```
 
@@ -50,9 +50,9 @@ The webbrowser module also supports different browsers using the `register()` an
 
 ```
 import webbrowser
-ff_path = webbrowser.get("C:/Program Files/Mozilla Firefox/firefox.exe")
+ff_path = webbrowser.get(&quot;C:/Program Files/Mozilla Firefox/firefox.exe&quot;)
 ff = webbrowser.get(ff_path)
-ff.open("http://stackoverflow.com/")
+ff.open(&quot;http://stackoverflow.com/&quot;)
 
 ```
 
@@ -60,11 +60,11 @@ Registering a browser type:
 
 ```
 import webbrowser
-ff_path = webbrowser.get("C:/Program Files/Mozilla Firefox/firefox.exe")
+ff_path = webbrowser.get(&quot;C:/Program Files/Mozilla Firefox/firefox.exe&quot;)
 ff = webbrowser.get(ff_path)
 webbrowser.register('firefox', None, ff)
 # Now to refer to use Firefox in the future you can use this
-webbrowser.get('firefox').open("https://stackoverflow.com/")
+webbrowser.get('firefox').open(&quot;https://stackoverflow.com/&quot;)
 
 ```
 
@@ -98,7 +98,7 @@ webbrowser.get('firefox').open("https://stackoverflow.com/")
 |using|the browser to use
 |`webbrowser.register()`| 
 |url|browser name
-|constructor|path to the executable browser ([help](http://web.archive.org/web/20170424224650/http://stackoverflow.com/questions/24873302/python-generic-webbrowser-get-open-for-chrome-exe-does-not-work))
+|constructor|path to the executable browser ([help](http://stackoverflow.com/questions/24873302/python-generic-webbrowser-get-open-for-chrome-exe-does-not-work))
 |instance|An instance of a web browser returned from the `webbrowser.get()` method
 
 

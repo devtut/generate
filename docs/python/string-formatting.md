@@ -19,7 +19,7 @@ You can use `str.format` to format output. Bracket pairs are replaced with argum
 
 ```
 print('{}, {} and {}'.format(foo, bar, baz))
-# Out: "1, bar and 3.14"
+# Out: &quot;1, bar and 3.14&quot;
 
 ```
 
@@ -27,7 +27,7 @@ Indexes can also be specified inside the brackets. The numbers correspond to ind
 
 ```
 print('{0}, {1}, {2}, and {1}'.format(foo, bar, baz))
-# Out: "1, bar, 3.14, and bar"
+# Out: &quot;1, bar, 3.14, and bar&quot;
 print('{0}, {1}, {2}, and {3}'.format(foo, bar, baz))
 # Out: index out of range error
 
@@ -36,8 +36,8 @@ print('{0}, {1}, {2}, and {3}'.format(foo, bar, baz))
 Named arguments can be also used:
 
 ```
-print("X value is: {x_val}. Y value is: {y_val}.".format(x_val=2, y_val=3))
-# Out: "X value is: 2. Y value is: 3."
+print(&quot;X value is: {x_val}. Y value is: {y_val}.&quot;.format(x_val=2, y_val=3))
+# Out: &quot;X value is: 2. Y value is: 3.&quot;
 
 ```
 
@@ -48,8 +48,8 @@ class AssignValue(object):
     def __init__(self, value):
         self.value = value
 my_value = AssignValue(6)
-print('My value is: {0.value}'.format(my_value))  # "0" is optional
-# Out: "My value is: 6"
+print('My value is: {0.value}'.format(my_value))  # &quot;0&quot; is optional
+# Out: &quot;My value is: 6&quot;
 
 ```
 
@@ -57,8 +57,8 @@ Dictionary keys can be used as well:
 
 ```
 my_dict = {'key': 6, 'other_key': 7}
-print("My other key is: {0[other_key]}".format(my_dict))  # "0" is optional
-# Out: "My other key is: 7"
+print(&quot;My other key is: {0[other_key]}&quot;.format(my_dict))  # &quot;0&quot; is optional
+# Out: &quot;My other key is: 7&quot;
 
 ```
 
@@ -66,20 +66,53 @@ Same applies to list and tuple indices:
 
 ```
 my_list = ['zero', 'one', 'two']
-print("2nd element is: {0[2]}".format(my_list))  # "0" is optional
-# Out: "2nd element is: two"
+print(&quot;2nd element is: {0[2]}&quot;.format(my_list))  # &quot;0&quot; is optional
+# Out: &quot;2nd element is: two&quot;
 
 ```
 
 > 
-Note: In addition to `str.format`, Python also provides the modulo operator `%`--also known as the **string formatting** or **interpolation operator** (see [PEP 3101](http://web.archive.org/web/20170405100249/https://www.python.org/dev/peps/pep-3101/))--for formatting strings. `str.format` is a successor of `%` and it offers greater flexibility, for instance by making it easier to carry out multiple substitutions.
+Note: In addition to `str.format`, Python also provides the modulo operator `%`--also known as the **string formatting** or **interpolation operator** (see [PEP 3101](https://www.python.org/dev/peps/pep-3101/))--for formatting strings. `str.format` is a successor of `%` and it offers greater flexibility, for instance by making it easier to carry out multiple substitutions.
 
 
-In addition to argument indexes, you can also include a **format specification** inside the curly brackets. This is an expression that follows special rules and must be preceded by a colon (`:`). An example of format specification is the alignment directive `:~^20` (`^` stands for center alignment, total width 20, fill with ~ character):
+In addition to argument indexes, you can also include a **format specification** inside the curly brackets. This is an expression that follows special rules and must be preceded by a colon (`:`). See the [docs](https://docs.python.org/2/library/string.html#format-specification-mini-language) for a full description of format specification. An example of format specification is the alignment directive `:~^20` (`^` stands for center alignment, total width 20, fill with ~ character):
 
 ```
 '{:~^20}'.format('centered')
 # Out: '~~~~~~centered~~~~~~'
+
+```
+
+`format` allows behaviour not possible with `%`, for example repetition of arguments:
+
+```
+t = (12, 45, 22222, 103, 6)
+print '{0} {2} {1} {2} {3} {2} {4} {2}'.format(*t)    
+# Out: 12 22222 45 22222 103 22222 6 22222
+
+```
+
+As `format` is a function, it can be used as an argument in other functions:
+
+```
+number_list = [12,45,78]
+print map('the number is {}'.format, number_list)
+# Out: ['the number is 12', 'the number is 45', 'the number is 78']   
+    
+
+from datetime import datetime,timedelta
+    
+once_upon_a_time = datetime(2010, 7, 1, 12, 0, 0)
+delta = timedelta(days=13, hours=8,  minutes=20)
+    
+gen = (once_upon_a_time + x * delta for x in xrange(5))
+    
+print '\n'.join(map('{:%Y-%m-%d %H:%M:%S}'.format, gen))
+#Out: 2010-07-01 12:00:00
+#     2010-07-14 20:20:00
+#     2010-07-28 04:40:00
+#     2010-08-10 13:00:00
+#     2010-08-23 21:20:00
 
 ```
 
@@ -90,25 +123,25 @@ In addition to argument indexes, you can also include a **format specification**
 
 The `format()` method can be used to change the alignment of the string. You have to do it with a format expression of the form `:[fill_char][align_operator][width]` where `align_operator` is one of:
 
-- `&lt;` forces the field to be left-aligned within `width`.
-- `&gt;` forces the field to be right-aligned within `width`.
+- `<` forces the field to be left-aligned within `width`.
+- `>` forces the field to be right-aligned within `width`.
 - `^` forces the field to be centered within `width`.
 - `=` forces the padding to be placed after the sign (numeric types only).
 
 `fill_char` (if omitted default is whitespace) is the character used for the padding.
 
 ```
-'{:~&lt;9s}, World'.format('Hello')
+'{:~<9s}, World'.format('Hello')
 # 'Hello~~~~, World'
 
-'{:~&gt;9s}, World'.format('Hello')
+'{:~>9s}, World'.format('Hello')
 # '~~~~Hello, World'
 
 '{:~^9s}'.format('Hello')
 # '~~Hello~~'
 
 '{:0=6d}'.format(-123)
-# Out: '-00123'
+# '-00123'
 
 ```
 
@@ -119,11 +152,11 @@ Note: you could achieve the same results using the string functions `ljust()`, `
 ## Format literals (f-string)
 
 
-Literal format strings were introduced in [PEP 498](http://web.archive.org/web/20170405100249/https://www.python.org/dev/peps/pep-0498/) (Python3.6 and upwards), allowing you to prepend `f` to the beginning of a string literal to effectively apply `.format` to it with all variables in the current scope.
+Literal format strings were introduced in [PEP 498](https://www.python.org/dev/peps/pep-0498/) (Python3.6 and upwards), allowing you to prepend `f` to the beginning of a string literal to effectively apply `.format` to it with all variables in the current scope.
 
 ```
-&gt;&gt;&gt; foo = 'bar'
-&gt;&gt;&gt; f'Foo is {foo}'
+>>> foo = 'bar'
+>>> f'Foo is {foo}'
 'Foo is bar'
 
 ```
@@ -131,7 +164,7 @@ Literal format strings were introduced in [PEP 498](http://web.archive.org/web/2
 This works with more advanced format strings too, including alignment and dot notation.
 
 ```
-&gt;&gt;&gt; f'{foo:^7s}'
+>>> f'{foo:^7s}'
 '  bar  '
 
 ```
@@ -141,8 +174,8 @@ This works with more advanced format strings too, including alignment and dot no
 The format strings can also be **nested**:
 
 ```
-&gt;&gt;&gt; price = 478.23
-&gt;&gt;&gt; f"{f'${price:0.2f}':*&gt;20s}"
+>>> price = 478.23
+>>> f&quot;{f'${price:0.2f}':*>20s}&quot;
 '*************$478.23'
 
 ```
@@ -150,18 +183,75 @@ The format strings can also be **nested**:
 The expressions in an f-string are evaluated in left-to-right order. This is detectable only if the expressions have side effects:
 
 ```
-&gt;&gt;&gt; def fn(l, incr):
+>>> def fn(l, incr):
 ...    result = l[0]
 ...    l[0] += incr
 ...    return result
 ...
-&gt;&gt;&gt; lst = [0]
-&gt;&gt;&gt; f'{fn(lst,2)} {fn(lst,3)}'
+>>> lst = [0]
+>>> f'{fn(lst,2)} {fn(lst,3)}'
 '0 2'
-&gt;&gt;&gt; f'{fn(lst,2)} {fn(lst,3)}'
+>>> f'{fn(lst,2)} {fn(lst,3)}'
 '5 7'
-&gt;&gt;&gt; lst
+>>> lst
 [10]
+
+```
+
+
+
+## Float formatting
+
+
+```
+>>> '{0:.0f}'.format(42.12345)
+'42'
+
+>>> '{0:.1f}'.format(42.12345)
+'42.1'
+
+>>> '{0:.3f}'.format(42.12345)
+'42.123'
+
+>>> '{0:.5f}'.format(42.12345)
+'42.12345'
+
+>>> '{0:.7f}'.format(42.12345)
+'42.1234500'
+
+```
+
+Same hold for other way of referencing:
+
+```
+>>> '{:.3f}'.format(42.12345)
+'42.123'
+
+>>> '{answer:.3f}'.format(answer=42.12345)
+'42.123'
+
+```
+
+Floating point numbers can also be formatted in [scientific notation](https://en.wikipedia.org/wiki/Scientific_notation) or as percentages:
+
+```
+>>> '{0:.3e}'.format(42.12345)
+'4.212e+01'
+
+>>> '{0:.0%}'.format(42.12345)
+'4212%'
+
+```
+
+You can also combine the `{0}` and `{name}` notations. This is especially useful when you want to round all variables to a pre-specified number of decimals **with 1 declaration**:
+
+```
+>>> s = 'Hello'
+>>> a, b, c = 1.12345, 2.34567, 34.5678
+>>> digits = 2
+
+>>> '{0}! {1:.{n}f}, {2:.{n}f}, {3:.{n}f}'.format(s, a, b, c, n=digits)
+'Hello! 1.12, 2.35, 34.57'
 
 ```
 
@@ -173,68 +263,45 @@ The expressions in an f-string are evaluated in left-to-right order. This is det
 Any class can configure its own string formatting syntax through the `__format__` method. A type in the standard Python library that makes handy use of this is the `datetime` type, where one can use `strftime`-like formatting codes directly within `str.format`:
 
 ```
-&gt;&gt;&gt; from datetime import datetime
-&gt;&gt;&gt; 'North America: {dt:%m/%d/%Y}.  ISO: {dt:%Y-%m-%d}.'.format(dt=datetime.now())
+>>> from datetime import datetime
+>>> 'North America: {dt:%m/%d/%Y}.  ISO: {dt:%Y-%m-%d}.'.format(dt=datetime.now())
 'North America: 07/21/2016.  ISO: 2016-07-21.'
 
 ```
 
-A full list of list of datetime formatters can be found in the [official documenttion](http://web.archive.org/web/20170405100249/https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
+A full list of list of datetime formatters can be found in the [official documenttion](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
 
 
 
-## Float formatting
+## Named placeholders
 
+
+Format strings may contain named placeholders that are interpolated using keyword arguments to `format`.
+
+### Using a dictionary (Python 2.x)
 
 ```
-&gt;&gt;&gt; '{0:.0f}'.format(42.12345)
-'42'
-
-&gt;&gt;&gt; '{0:.1f}'.format(42.12345)
-'42.1'
-
-&gt;&gt;&gt; '{0:.3f}'.format(42.12345)
-'42.123'
-
-&gt;&gt;&gt; '{0:.5f}'.format(42.12345)
-'42.12345'
-
-&gt;&gt;&gt; '{0:.7f}'.format(42.12345)
-'42.1234500'
+>>> data = {'first': 'Hodor', 'last': 'Hodor!'}
+>>> '{first} {last}'.format(**data)
+'Hodor Hodor!'
 
 ```
 
-Same hold for other way of referencing:
+### Using a dictionary (Python 3.2+)
 
 ```
-&gt;&gt;&gt; '{:.3f}'.format(42.12345)
-'42.123'
-
-&gt;&gt;&gt; '{answer:.3f}'.format(answer=42.12345)
-'42.123'
+>>> '{first} {last}'.format_map(data)
+'Hodor Hodor!'
 
 ```
 
-Floating point numbers can also be formatted in [scientific notation](http://web.archive.org/web/20170405100249/https://en.wikipedia.org/wiki/Scientific_notation) or as percentages:
+[`str.format_map`](https://docs.python.org/3/library/stdtypes.html?highlight=format_map#str.format_map) allows to use dictionaries without having to unpack them first. Also the class of `data` (which might be a custom type) is used instead of a newly filled `dict`.
+
+### Without a dictionary:
 
 ```
-&gt;&gt;&gt; '{0:.3e}'.format(42.12345)
-'4.212e+01'
-
-&gt;&gt;&gt; '{0:.0%}'.format(42.12345)
-'4212%'
-
-```
-
-You can also combine the `{0}` and `{name}` notations. This is especially useful when you want to round all variables to a pre-specified number of decimals **with 1 declaration**:
-
-```
-&gt;&gt;&gt; s = 'Hello'
-&gt;&gt;&gt; a, b, c = 1.12345, 2.34567, 34.5678
-&gt;&gt;&gt; digits = 2
-
-&gt;&gt;&gt; '{0}! {1:.{n}f}, {2:.{n}f}, {3:.{n}f}'.format(s, a, b, c, n=digits)
-'Hello! 1.12, 2.35, 34.57'
+>>> '{first} {last}'.format(first='Hodor', last='Hodor!')
+'Hodor Hodor!'
 
 ```
 
@@ -266,35 +333,62 @@ class Person(object):
 
 
 
-## Named placeholders
+## Formatting Numerical Values
 
 
-Format strings may contain named placeholders that are interpolated using keyword arguments to `format`.
-
-### Using a dictionary:
+The `.format()` method can interpret a number in different formats, such as:
 
 ```
-&gt;&gt;&gt; data = {'first': 'Hodor', 'last': 'Hodor!'}
-&gt;&gt;&gt; '{first} {last}'.format(**data)
-'Hodor Hodor!'
+>>> '{:c}'.format(65)    # Unicode character
+'A'
 
-```
+>>> '{:d}'.format(0x0a)  # base 10
+'10'
 
-### Python 3.2+
-
-```
-&gt;&gt;&gt; '{first} {last}'.format_map(data)
-'Hodor Hodor!'
+>>> '{:n}'.format(0x0a)  # base 10 using current locale for separators
+'10'
 
 ```
 
-[`str.format_map`](http://web.archive.org/web/20170405100249/https://docs.python.org/3/library/stdtypes.html?highlight=format_map#str.format_map) allows to use dictionaries without having to unpack them first. Also the class of `data` (which might be a custom type) is used instead of a newly filled `dict`.
-
-### Without a dictionary:
+**Format integers to different bases (hex, oct, binary)**
 
 ```
-&gt;&gt;&gt; '{first} {last}'.format(first='Hodor', last='Hodor!')
-'Hodor Hodor!'
+>>> '{0:x}'.format(10) # base 16, lowercase - Hexadecimal
+'a'
+
+>>> '{0:X}'.format(10) # base 16, uppercase - Hexadecimal
+'A'
+
+>>> '{:o}'.format(10) # base 8 - Octal
+'12'
+
+>>> '{:b}'.format(10) # base 2 - Binary
+'1010'
+
+>>> '{0:#b}, {0:#o}, {0:#x}'.format(42) # With prefix
+'0b101010, 0o52, 0x2a'
+
+>>> '8 bit: {0:08b}; Three bytes: {0:06x}'.format(42) # Add zero padding
+'8 bit: 00101010; Three bytes: 00002a'
+
+```
+
+Use formatting to convert an RGB float tuple to a color hex string:
+
+```
+>>> r, g, b = (1.0, 0.4, 0.0)
+>>> '#{:02X}{:02X}{:02X}'.format(int(255 * r), int(255 * g), int(255 * b))
+'#FF6600'
+
+```
+
+Only integers can be converted:
+
+```
+>>> '{:x}'.format(42.0)
+Traceback (most recent call last):
+  File &quot;<stdin>&quot;, line 1, in <module>
+ValueError: Unknown format code 'x' for object of type 'float'
 
 ```
 
@@ -306,7 +400,7 @@ Format strings may contain named placeholders that are interpolated using keywor
 Some formats can take additional parameters, such as the width of the formatted string, or the alignment:
 
 ```
-&gt;&gt;&gt; '{:.&gt;10}'.format('foo')
+>>> '{:.>10}'.format('foo')
 '.......foo'
 
 ```
@@ -314,25 +408,71 @@ Some formats can take additional parameters, such as the width of the formatted 
 Those can also be provided as parameters to `format` by nesting more `{}` inside the `{}`:
 
 ```
-&gt;&gt;&gt; '{:.&gt;{}}'.format('foo', 10)
+>>> '{:.>{}}'.format('foo', 10)
 '.......foo'
 '{:{}{}{}}'.format('foo', '*', '^', 15)
 '******foo******'
 
 ```
 
-In the latter example, the format string `'{:{}{}{}}'` is modified to `'{:*^15}'` (i.e. "center and pad with * to total length of 15") before applying it to the actual string `'foo'` to be formatted that way.
+In the latter example, the format string `'{:{}{}{}}'` is modified to `'{:*^15}'` (i.e. &quot;center and pad with * to total length of 15&quot;) before applying it to the actual string `'foo'` to be formatted that way.
 
 This can be useful in cases when parameters are not known beforehand, for instances when aligning tabular data:
 
 ```
-&gt;&gt;&gt; data = ["a", "bbbbbbb", "ccc"]
-&gt;&gt;&gt; m = max(map(len, data))
-&gt;&gt;&gt; for d in data:
-...     print('{:&gt;{}}'.format(d, m))
+>>> data = [&quot;a&quot;, &quot;bbbbbbb&quot;, &quot;ccc&quot;]
+>>> m = max(map(len, data))
+>>> for d in data:
+...     print('{:>{}}'.format(d, m))
       a
 bbbbbbb
     ccc
+
+```
+
+
+
+## Padding and truncating strings, combined
+
+
+Say you want to print variables in a 3 character column.
+
+Note:  doubling `{` and `}` escapes them.
+
+```
+s = &quot;&quot;&quot;
+
+pad
+{{:3}}             :{a:3}:
+
+truncate
+{{:.3}}            :{e:.3}:
+
+combined
+{{:>3.3}}          :{a:>3.3}:
+{{:3.3}}           :{a:3.3}:
+{{:3.3}}           :{c:3.3}:
+{{:3.3}}           :{e:3.3}:
+&quot;&quot;&quot;
+
+print (s.format(a=&quot;1&quot;*1, c=&quot;3&quot;*3, e=&quot;5&quot;*5))
+
+```
+
+Output:
+
+```
+pad
+{:3}             :1  :
+
+truncate
+{:.3}            :555:
+
+combined
+{:>3.3}          :  1:
+{:3.3}           :1  :
+{:3.3}           :333:
+{:3.3}           :555:
 
 ```
 
@@ -350,7 +490,7 @@ Note:
 
 For every value which is passed to the `format` function, Python looks for a `__format__` method for that argument. Your own custom class can therefore have their own `__format__` method to determine how the `format` function will display and format your class and it's attributes.
 
-This is different than the `__str__` method, as in the `__format__` method you can take into account the formatting language, including alignment, field width etc, and even (if you wish) implement your own format specifiers, and your own formatting language extensions.[1](http://web.archive.org/web/20170405100249/https://docs.python.org/2.7/library/string.html#formatspec)
+This is different than the `__str__` method, as in the `__format__` method you can take into account the formatting language, including alignment, field width etc, and even (if you wish) implement your own format specifiers, and your own formatting language extensions.[1](https://docs.python.org/2.7/library/string.html#formatspec)
 
 ```
 object.__format__(self, format_spec)
@@ -367,21 +507,21 @@ class Example(object):
         self.a, self.b, self.c = a,b,c
 
     def __format__(self, format_spec):
-        """ Implement special semantics for the 's' format specifier """
+        &quot;&quot;&quot; Implement special semantics for the 's' format specifier &quot;&quot;&quot;
         # Reject anything that isn't an s
         if format_spec[-1] != 's':
             raise ValueError('{} format specifier not understood for this object', format_spec[:-1])
 
-        # Output in this example will be (&lt;a&gt;,&lt;b&gt;,&lt;c&gt;)
-        raw = "(" + ",".join([str(self.a), str(self.b), str(self.c)]) + ")"
+        # Output in this example will be (<a>,<b>,<c>)
+        raw = &quot;(&quot; + &quot;,&quot;.join([str(self.a), str(self.b), str(self.c)]) + &quot;)&quot;
         # Honor the format language by using the inbuilt string format
         # Since we know the original format_spec ends in an 's' 
         # we can take advantage of the str.format method with a 
         # string argument we constructed above
-        return "{r:{f}}".format( r=raw, f=format_spec )
+        return &quot;{r:{f}}&quot;.format( r=raw, f=format_spec )
 
 inst = Example(1,2,3)
-print "{0:&gt;20s}".format( inst )
+print &quot;{0:>20s}&quot;.format( inst )
 # out :              (1,2,3)
 # Note how the right align and field width of 20 has been honored.
 
@@ -402,137 +542,24 @@ your custom class.</p>
 
 
 
-## Format integers to differens bases (hex, oct, binary)
-
-
-```
-&gt;&gt;&gt; '{0:x} or {0:X}'.format(42) # Hexadecimal
-'2a or 2A'
-
-&gt;&gt;&gt; '{:o}'.format(42) # Octal
-'52'
-
-&gt;&gt;&gt; '{:b}'.format(42) # Binary
-'101010'
-
-&gt;&gt;&gt; '{0:#b}, {0:#o}, {0:#x}'.format(42) # With prefix
-'0b101010, 0o52, 0x2a'
-
-&gt;&gt;&gt; '8 bit: {0:08b}; Three bytes: {0:06x}'.format(42) # Add zero padding
-'8 bit: 00101010; Three bytes: 00002a'
-
-```
-
-Use formatting to convert an RGB float tuple to a color hex string:
-
-```
-&gt;&gt;&gt; r, g, b = (1.0, 0.4, 0.0)
-&gt;&gt;&gt; '#{:02X}{:02X}{:02X}'.format(int(255 * r), int(255 * g), int(255 * b))
-'#FF6600'
-
-```
-
-Only integers can be converted:
-
-```
-&gt;&gt;&gt; '{:x}'.format(42.0)
-Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-ValueError: Unknown format code 'x' for object of type 'float'
-
-```
-
-
-
-## Formatting Numerical Values
-
-
-The `.format()` method can interpret a number in different formats, such as:
-
-```
-&gt;&gt;&gt; '{:b}'.format(10)    # base 2
-'1010'
-&gt;&gt;&gt; '{:c}'.format(65)    # Unicode character
-'A'
-&gt;&gt;&gt; '{:d}'.format(0x0a)  # base 10
-'10'
-&gt;&gt;&gt; '{:o}'.format(10)    # base 8
-'12'
-&gt;&gt;&gt; '{:x}'.format(10)    # base 16, lowercase
-'a'
-&gt;&gt;&gt; '{:X}'.format(10)    # base 16, uppercase
-'A'
-&gt;&gt;&gt; '{:n}'.format(0x0a)  # base 10 using current locale for separators
-'10'
-
-```
-
-
-
-## Padding and truncating strings, combined
-
-
-Say you want to print variables in a 3 character column.
-
-Note:  doubling `{` and `}` escapes them.
-
-```
-s = """
-
-pad
-{{:3}}             :{a:3}:
-
-truncate
-{{:.3}}            :{e:.3}:
-
-combined
-{{:&gt;3.3}}          :{a:&gt;3.3}:
-{{:3.3}}           :{a:3.3}:
-{{:3.3}}           :{c:3.3}:
-{{:3.3}}           :{e:3.3}:
-"""
-
-print (s.format(a="1"*1, c="3"*3, e="5"*5))
-
-```
-
-Output:
-
-```
-pad
-{:3}             :1  :
-
-truncate
-{:.3}            :555:
-
-combined
-{:&gt;3.3}          :  1:
-{:3.3}           :1  :
-{:3.3}           :333:
-{:3.3}           :555:
-
-```
-
-
-
 #### Syntax
 
 
-- "{}".format(42) ==&gt; "42"
-- "{0}".format(42) ==&gt; "42"
-- "{0:.2f}".format(42) ==&gt; "42.00"
-- "{0:.0f}".format(42.1234) ==&gt; "42"
-- "{answer}".format(no_answer=41, answer=42) ==&gt; "42"
-- "{answer:.2f}".format(no_answer=41, answer=42) ==&gt; "42.00"
-- "{[key]}".format({'key': 'value'}) ==&gt; "value"
-- "{[1]}".format(['zero', 'one', 'two']) ==&gt; "one"
-- "{answer} = {answer}".format(answer=42) ==&gt; "42 = 42"
-- ' '.join(['stack', 'overflow']) ==&gt; "stack overflow"
+- &quot;{}&quot;.format(42) ==> &quot;42&quot;
+- &quot;{0}&quot;.format(42) ==> &quot;42&quot;
+- &quot;{0:.2f}&quot;.format(42) ==> &quot;42.00&quot;
+- &quot;{0:.0f}&quot;.format(42.1234) ==> &quot;42&quot;
+- &quot;{answer}&quot;.format(no_answer=41, answer=42) ==> &quot;42&quot;
+- &quot;{answer:.2f}&quot;.format(no_answer=41, answer=42) ==> &quot;42.00&quot;
+- &quot;{[key]}&quot;.format({'key': 'value'}) ==> &quot;value&quot;
+- &quot;{[1]}&quot;.format(['zero', 'one', 'two']) ==> &quot;one&quot;
+- &quot;{answer} = {answer}&quot;.format(answer=42) ==> &quot;42 = 42&quot;
+- ' '.join(['stack', 'overflow']) ==> &quot;stack overflow&quot;
 
 
 
 #### Remarks
 
 
-- Should check out [PyFormat.info](http://web.archive.org/web/20170405100249/https://pyformat.info/) for a very thorough and gentle introduction/explanation of how it works.
+- Should check out [PyFormat.info](https://pyformat.info/) for a very thorough and gentle introduction/explanation of how it works.
 

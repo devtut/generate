@@ -2,63 +2,6 @@
 
 
 
-## Exponentiation using builtins: ** and pow()
-
-
-[Exponentiation](http://web.archive.org/web/20170405113720/https://en.wikipedia.org/wiki/Exponentiation) can be used by using the builtin `pow`-function or the `**` operator:
-
-```
-2 ** 3    # 8
-pow(2, 3) # 8
-
-```
-
-For most (all in Python 2.x) arithmetic operations the result's type will be that of the wider operand. This is not true for `**`; the following cases are exceptions from this rule:
-
-<li>
-Base: `int`, exponent: `int &lt; 0`:
-<pre><code>2 ** -3
-# Out: 0.125 (result is a float)
-</code></pre>
-</li>
-<li>
-This is also valid for Python 3.x.
-</li>
-<li>
-Before Python 2.2.0, this raised a `ValueError`.
-</li>
-<li>
-Base: `int &lt; 0` or `float &lt; 0`, exponent: `float != int`
-<pre><code>(-2) ** (0.5)  # also (-2.) ** (0.5)    
-# Out: (8.659560562354934e-17+1.4142135623730951j) (result is complex)
-</code></pre>
-</li>
-<li>
-Before python 3.0.0, this raised a `ValueError`.
-</li>
-
-The `operator` module contains two functions that are equivalent to the `**`-operator:
-
-```
-import operator
-operator.pow(4, 2)      # 16
-operator.__pow__(4, 3)  # 64
-
-```
-
-or one could directly call the `__pow__` method:
-
-```
-val1, val2 = 4, 2
-val1.__pow__(val2)      # 16
-val2.__rpow__(val1)     # 16
-# in-place power operation isn't supported by immutable classes like int, float, complex:
-# val1.__ipow__(val2)   
-
-```
-
-
-
 ## Square root: math.sqrt() and cmath.sqrt
 
 
@@ -98,10 +41,67 @@ What's with the `j`? `j` is the equivalent to the square root of -1. All numbers
 
 
 
+## Exponentiation using builtins: ** and pow()
+
+
+[Exponentiation](https://en.wikipedia.org/wiki/Exponentiation) can be used by using the builtin `pow`-function or the `**` operator:
+
+```
+2 ** 3    # 8
+pow(2, 3) # 8
+
+```
+
+For most (all in Python 2.x) arithmetic operations the result's type will be that of the wider operand. This is not true for `**`; the following cases are exceptions from this rule:
+
+<li>
+Base: `int`, exponent: `int < 0`:
+<pre><code>2 ** -3
+# Out: 0.125 (result is a float)
+</code></pre>
+</li>
+<li>
+This is also valid for Python 3.x.
+</li>
+<li>
+Before Python 2.2.0, this raised a `ValueError`.
+</li>
+<li>
+Base: `int < 0` or `float < 0`, exponent: `float != int`
+<pre><code>(-2) ** (0.5)  # also (-2.) ** (0.5)    
+# Out: (8.659560562354934e-17+1.4142135623730951j) (result is complex)
+</code></pre>
+</li>
+<li>
+Before python 3.0.0, this raised a `ValueError`.
+</li>
+
+The `operator` module contains two functions that are equivalent to the `**`-operator:
+
+```
+import operator
+operator.pow(4, 2)      # 16
+operator.__pow__(4, 3)  # 64
+
+```
+
+or one could directly call the `__pow__` method:
+
+```
+val1, val2 = 4, 2
+val1.__pow__(val2)      # 16
+val2.__rpow__(val1)     # 16
+# in-place power operation isn't supported by immutable classes like int, float, complex:
+# val1.__ipow__(val2)   
+
+```
+
+
+
 ## Modular exponentiation: pow() with 3 arguments
 
 
-Supplying `pow()` with 3 arguments `pow(a, b, c)` evaluates the [modular exponentiation](http://web.archive.org/web/20170405113720/https://en.wikipedia.org/wiki/Modular_exponentiation) **a<sup>b</sup> mod c**:
+Supplying `pow()` with 3 arguments `pow(a, b, c)` evaluates the [modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation) **a<sup>b</sup> mod c**:
 
 ```
 pow(3, 4, 17)   # 13
@@ -118,145 +118,20 @@ pow(3, 4, 17)   # 13
 For built-in types using modular exponentiation is only possible if:
 
 - First argument is an `int`
-- Second argument is an `int &gt;= 0`
+- Second argument is an `int >= 0`
 - Third argument is an `int != 0`
 
 These restrictions are also present in python 3.x
 
-For example one can use the 3-argument form of `pow` to define a [modular inverse](http://web.archive.org/web/20170405113720/https://en.wikipedia.org/wiki/Modular_multiplicative_inverse) function:
+For example one can use the 3-argument form of `pow` to define a [modular inverse](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse) function:
 
 ```
 def modular_inverse(x, p):
-    """Find a such as  a·x ≡ 1 (mod p), assuming p is prime."""
+    &quot;&quot;&quot;Find a such as  a·x ≡ 1 (mod p), assuming p is prime.&quot;&quot;&quot;
     return pow(x, p-2, p)
 
 [modular_inverse(x, 13) for x in range(1,13)]
 # Out: [1, 7, 9, 10, 8, 11, 2, 5, 3, 4, 6, 12]
-
-```
-
-
-
-## Computing large integer roots
-
-
-Even though Python natively supports big integers, taking the nth root of very large numbers can fail in Python.
-
-```
-x = 2 ** 100
-cube = x ** 3
-root = cube ** (1.0 / 3)
-
-```
-
-> 
-OverflowError: long int too large to convert to float
-
-
-When dealing with such large integers, you will need to use a custom function to compute the nth root of a number.
-
-```
-def nth_root(x, n):
-    # Start with some reasonable bounds around the nth root.
-    upper_bound = 1
-    while upper_bound ** n &lt;= x:
-        upper_bound *= 2
-    lower_bound = upper_bound // 2
-    # Keep searching for a better result as long as the bounds make sense.
-    while lower_bound &lt; upper_bound:
-        mid = (lower_bound + upper_bound) // 2
-        mid_nth = mid ** n
-        if lower_bound &lt; mid and mid_nth &lt; x:
-            lower_bound = mid
-        elif upper_bound &gt; mid and mid_nth &gt; x:
-            upper_bound = mid
-        else:
-            # Found perfect nth root.
-            return mid
-    return mid + 1
-
-x = 2 ** 100
-cube = x ** 3
-root = nth_root(cube, 3)
-x == root
-# True
-
-```
-
-
-
-## Exponential function minus 1: math.expm1()
-
-
-The `math` module contains the `expm1()`-function that can compute the expression `math.e ** x - 1` for very small `x` with higher precision than `math.exp(x)` or `cmath.exp(x)` would allow:
-
-```
-import math
-
-print(math.e ** 1e-3 - 1)  # 0.0010005001667083846
-print(math.exp(1e-3) - 1)  # 0.0010005001667083846
-print(math.expm1(1e-3))    # 0.0010005001667083417
-#                            ------------------^
-
-```
-
-For very small x the difference gets bigger:
-
-```
-print(math.e ** 1e-15 - 1) # 1.1102230246251565e-15
-print(math.exp(1e-15) - 1) # 1.1102230246251565e-15
-print(math.expm1(1e-15))   # 1.0000000000000007e-15
-#                              ^-------------------
-
-```
-
-The improvement is significant in scientic computing. For example the [Planck's law](http://web.archive.org/web/20170405113720/https://en.wikipedia.org/wiki/Planck%27s_law) contains an exponential function minus 1:
-
-```
-def planks_law(lambda_, T):
-    from scipy.constants import h, k, c  # If no scipy installed hardcode these!
-    return 2 * h * c ** 2 / (lambda_ ** 5 * math.expm1(h * c / (lambda_ * k * T)))
-
-def planks_law_naive(lambda_, T):
-    from scipy.constants import h, k, c  # If no scipy installed hardcode these!
-    return 2 * h * c ** 2 / (lambda_ ** 5 * (math.e ** (h * c / (lambda_ * k * T)) - 1))
-
-planks_law(100, 5000)        # 4.139080074896474e-19
-planks_law_naive(100, 5000)  # 4.139080073488451e-19
-#                                        ^---------- 
-
-planks_law(1000, 5000)       # 4.139080128493406e-23
-planks_law_naive(1000, 5000) # 4.139080233183142e-23
-#                                      ^------------
-
-```
-
-
-
-## Exponential function: math.exp() and cmath.exp()
-
-
-Both the `math` and `cmath`-module contain the [Euler number: e](http://web.archive.org/web/20170405113720/https://en.wikipedia.org/wiki/E_%28mathematical_constant%29) and using it with the builtin `pow()`-function or `**`-operator works mostly like `math.exp()`:
-
-```
-import math
-
-math.e ** 2  # 7.3890560989306495
-math.exp(2)  # 7.38905609893065
-
-import cmath
-cmath.e ** 2 # 7.3890560989306495
-cmath.exp(2) # (7.38905609893065+0j)
-
-```
-
-However the result is different and using the exponential function directly is more reliable than builtin exponentiation with base `math.e`:
-
-```
-print(math.e ** 10)       # 22026.465794806703
-print(math.exp(10))       # 22026.465794806718
-print(cmath.exp(10).real) # 22026.465794806718
-#     difference starts here ---------------^
 
 ```
 
@@ -295,6 +170,83 @@ math.pow(-2, 0.5)
 > 
 ValueError: math domain error
 
+
+
+
+## Exponential function: math.exp() and cmath.exp()
+
+
+Both the `math` and `cmath`-module contain the [Euler number: e](https://en.wikipedia.org/wiki/E_%28mathematical_constant%29) and using it with the builtin `pow()`-function or `**`-operator works mostly like `math.exp()`:
+
+```
+import math
+
+math.e ** 2  # 7.3890560989306495
+math.exp(2)  # 7.38905609893065
+
+import cmath
+cmath.e ** 2 # 7.3890560989306495
+cmath.exp(2) # (7.38905609893065+0j)
+
+```
+
+However the result is different and using the exponential function directly is more reliable than builtin exponentiation with base `math.e`:
+
+```
+print(math.e ** 10)       # 22026.465794806703
+print(math.exp(10))       # 22026.465794806718
+print(cmath.exp(10).real) # 22026.465794806718
+#     difference starts here ---------------^
+
+```
+
+
+
+## Exponential function minus 1: math.expm1()
+
+
+The `math` module contains the `expm1()`-function that can compute the expression `math.e ** x - 1` for very small `x` with higher precision than `math.exp(x)` or `cmath.exp(x)` would allow:
+
+```
+import math
+
+print(math.e ** 1e-3 - 1)  # 0.0010005001667083846
+print(math.exp(1e-3) - 1)  # 0.0010005001667083846
+print(math.expm1(1e-3))    # 0.0010005001667083417
+#                            ------------------^
+
+```
+
+For very small x the difference gets bigger:
+
+```
+print(math.e ** 1e-15 - 1) # 1.1102230246251565e-15
+print(math.exp(1e-15) - 1) # 1.1102230246251565e-15
+print(math.expm1(1e-15))   # 1.0000000000000007e-15
+#                              ^-------------------
+
+```
+
+The improvement is significant in scientic computing. For example the [Planck's law](https://en.wikipedia.org/wiki/Planck%27s_law) contains an exponential function minus 1:
+
+```
+def planks_law(lambda_, T):
+    from scipy.constants import h, k, c  # If no scipy installed hardcode these!
+    return 2 * h * c ** 2 / (lambda_ ** 5 * math.expm1(h * c / (lambda_ * k * T)))
+
+def planks_law_naive(lambda_, T):
+    from scipy.constants import h, k, c  # If no scipy installed hardcode these!
+    return 2 * h * c ** 2 / (lambda_ ** 5 * (math.e ** (h * c / (lambda_ * k * T)) - 1))
+
+planks_law(100, 5000)        # 4.139080074896474e-19
+planks_law_naive(100, 5000)  # 4.139080073488451e-19
+#                                        ^---------- 
+
+planks_law(1000, 5000)       # 4.139080128493406e-23
+planks_law_naive(1000, 5000) # 4.139080233183142e-23
+#                                      ^------------
+
+```
 
 
 
@@ -404,15 +356,63 @@ While the `math.sqrt` function is provided for the specific case of square roots
 The inverse of an exponentiation is exponentiation by the exponent's reciprocal. So, if you can cube a number by putting it to the exponent of 3, you can find the cube root of a number by putting it to the exponent of 1/3.
 
 ```
-&gt;&gt;&gt; x = 3
-&gt;&gt;&gt; y = x ** 3
-&gt;&gt;&gt; y
+>>> x = 3
+>>> y = x ** 3
+>>> y
 27
-&gt;&gt;&gt; z = y ** (1.0 / 3)
-&gt;&gt;&gt; z
+>>> z = y ** (1.0 / 3)
+>>> z
 3.0
-&gt;&gt;&gt; z == x
+>>> z == x
 True
+
+```
+
+
+
+## Computing large integer roots
+
+
+Even though Python natively supports big integers, taking the nth root of very large numbers can fail in Python.
+
+```
+x = 2 ** 100
+cube = x ** 3
+root = cube ** (1.0 / 3)
+
+```
+
+> 
+OverflowError: long int too large to convert to float
+
+
+When dealing with such large integers, you will need to use a custom function to compute the nth root of a number.
+
+```
+def nth_root(x, n):
+    # Start with some reasonable bounds around the nth root.
+    upper_bound = 1
+    while upper_bound ** n <= x:
+        upper_bound *= 2
+    lower_bound = upper_bound // 2
+    # Keep searching for a better result as long as the bounds make sense.
+    while lower_bound < upper_bound:
+        mid = (lower_bound + upper_bound) // 2
+        mid_nth = mid ** n
+        if lower_bound < mid and mid_nth < x:
+            lower_bound = mid
+        elif upper_bound > mid and mid_nth > x:
+            upper_bound = mid
+        else:
+            # Found perfect nth root.
+            return mid
+    return mid + 1
+
+x = 2 ** 100
+cube = x ** 3
+root = nth_root(cube, 3)
+x == root
+# True
 
 ```
 

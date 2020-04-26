@@ -13,14 +13,14 @@ class Book:
         self.title = title
         self.author = author
 
-book1 = Book(title="Right Ho, Jeeves", author="P.G. Wodehouse")
+book1 = Book(title=&quot;Right Ho, Jeeves&quot;, author=&quot;P.G. Wodehouse&quot;)
 
 ```
 
 In Python you can access the attribute **title** of the class using the dot notation.
 
 ```
-&gt;&gt;&gt; book1.title 
+>>> book1.title 
 'P.G. Wodehouse'
 
 ```
@@ -28,9 +28,9 @@ In Python you can access the attribute **title** of the class using the dot nota
 If an attribute doesn't exist, Python throws an error:
 
 ```
-&gt;&gt;&gt; book1.series
+>>> book1.series
 Traceback  (most recent call last):
-File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+File &quot;<stdin>&quot;, line 1, in <module>
 AttributeError: 'Book' object has no attribute 'series'
 
 ```
@@ -50,7 +50,7 @@ class Book:
 
 ```
 
-In the example above, it's easy to see what happens if we create a new Book that contains a title and a author. If all books we're to add to our Library have authors and titles, then we can skip the getters and setters and use the dot notation. However, suppose we have some books that do not have an author and we want to set the author to "Unknown". Or if they have multiple authors and we plan to return a list of authors.
+In the example above, it's easy to see what happens if we create a new Book that contains a title and a author. If all books we're to add to our Library have authors and titles, then we can skip the getters and setters and use the dot notation. However, suppose we have some books that do not have an author and we want to set the author to &quot;Unknown&quot;. Or if they have multiple authors and we plan to return a list of authors.
 
 In this case we can create a getter and a setter for the **author** attribute.
 
@@ -65,7 +65,7 @@ class P:
 
     def set_author(self, author):
         if not author: 
-            self.author = "Unknown"
+            self.author = &quot;Unknown&quot;
         else:
             self.author = author
 
@@ -76,8 +76,8 @@ This scheme is not recommended.
 One reason is that there is a catch: Let's assume we have designed our class with the public attribute and no methods. People have already used it a lot and they have written code like this:
 
 ```
-&gt;&gt;&gt; book = Book(title="Ancient Manuscript", author="Some Guy")
-&gt;&gt;&gt; book.author = ""  #Cos Some Guy didn't write this one!
+>>> book = Book(title=&quot;Ancient Manuscript&quot;, author=&quot;Some Guy&quot;)
+>>> book.author = &quot;&quot;  #Cos Some Guy didn't write this one!
 
 ```
 
@@ -98,7 +98,7 @@ class Book:
     @author.setter
     def author(self, author):
         if not author: 
-            self.author = "Unknown"
+            self.author = &quot;Unknown&quot;
         else:
             self.author = author
 
@@ -109,9 +109,9 @@ Note, normally Python doesn't allow you to have multiple methods with the same n
 If we test the code:
 
 ```
-&gt;&gt;&gt; book = Book(title="Ancient Manuscript", author="Some Guy")
-&gt;&gt;&gt; book.author = ""  #Cos Some Guy didn't write this one!
-&gt;&gt;&gt; book.author 
+>>> book = Book(title=&quot;Ancient Manuscript&quot;, author=&quot;Some Guy&quot;)
+>>> book.author = &quot;&quot;  #Cos Some Guy didn't write this one!
+>>> book.author 
 Unknown 
 
 ```
@@ -122,7 +122,7 @@ Unknown
 
 
 - `x.title # Accesses the title attribute using the dot notation`
-- `x.title = "Hello World" # Sets the property of the title attribute using the dot notation`
+- `x.title = &quot;Hello World&quot; # Sets the property of the title attribute using the dot notation`
 - `@property # Used as a decorator before the getter method for properties`
 - `@title.setter # Used as a decorator before the setter method for properties`
 

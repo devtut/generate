@@ -2,16 +2,57 @@
 
 
 
+
+## The __all__ special variable
+
+
+Modules can have a special variable named `__all__` to restrict what variables are imported when using `from mymodule import *`.
+
+Given the following module:
+
+```
+# mymodule.py
+
+__all__ = ['imported_by_star']
+
+imported_by_star = 42
+not_imported_by_star = 21
+
+```
+
+Only `imported_by_star` is imported when using `from mymodule import *`:
+
+```
+>>> from mymodule import *
+>>> imported_by_star
+42
+>>> not_imported_by_star
+Traceback (most recent call last):
+  File &quot;<stdin>&quot;, line 1, in <module>
+NameError: name 'not_imported_by_star' is not defined
+
+```
+
+However, `not_imported_by_star` can be imported explicitly:
+
+```
+>>> from mymodule import not_imported_by_star
+>>> not_imported_by_star
+21
+
+```
+
+
+
 ## Importing a module
 
 
 Use the `import` statement:
 
 ```
-import random
-
-print(random.randint(1, 10))
-&gt;&gt;&gt; 4
+>>> import random
+>>> print(random.randint(1, 10))
+4
 
 ```
 
@@ -20,9 +61,9 @@ print(random.randint(1, 10))
 You can import a module and assign it to a different name:
 
 ```
-import random as rn
-print(rn.randint(1, 10))
-&gt;&gt;&gt; 4
+>>> import random as rn
+>>> print(rn.randint(1, 10))
+4
 
 ```
 
@@ -36,9 +77,9 @@ import custom
 It is also possible to import a function from a module:
 
 ```
-from math import sin
-sin(1)
-&gt;&gt;&gt; 0.8414709848078965
+>>> from math import sin
+>>> sin(1)
+0.8414709848078965
 
 ```
 
@@ -75,77 +116,36 @@ But if you are sure enough, in your whole project there is no way having same fu
 Multiple imports can be made on the same line:
 
 ```
-# Multiple modules
-import time, sockets, random
-# Multiple functions
-from math import sin, cos, tan
-# Multiple constants
-from math import pi, e
+>>> # Multiple modules
+>>> import time, sockets, random
+>>> # Multiple functions
+>>> from math import sin, cos, tan
+>>> # Multiple constants
+>>> from math import pi, e
 
-print(pi)
-&gt;&gt;&gt; 3.141592653589793
-print(cos(45))
-&gt;&gt;&gt; 0.5253219888177297
-print(time.time())
-&gt;&gt;&gt; 1482807222.7240417
+>>> print(pi)
+3.141592653589793
+>>> print(cos(45))
+0.5253219888177297
+>>> print(time.time())
+1482807222.7240417
 
 ```
 
 The keywords and syntax shown above can also be used in combinations:
 
 ```
-from urllib.request import urlopen as geturl, pathname2url as path2url, getproxies
-from math import factorial as fact, gamma, atan as arctan
-import random.randint, time, sys
+>>> from urllib.request import urlopen as geturl, pathname2url as path2url, getproxies
+>>> from math import factorial as fact, gamma, atan as arctan
+>>> import random.randint, time, sys
 
-print(time.time())
-&gt;&gt;&gt; 1482807222.7240417
-print(arctan(60))
-&gt;&gt;&gt; 1.554131203080956
-filepath = "/dogs/jumping poodle (december).png"
-print(path2url(filepath))
-&gt;&gt;&gt; /dogs/jumping%20poodle%20%28december%29.png
-
-```
-
-
-
-## The __all__ special variable
-
-
-Modules can have a special variable named `__all__` to restrict what variables are imported when using `from mymodule import *`.
-
-Given the following module:
-
-```
-# mymodule.py
-
-__all__ = ['imported_by_star']
-
-imported_by_star = 42
-not_imported_by_star = 21
-
-```
-
-Only `imported_by_star` is imported when using `from mymodule import *`:
-
-```
-&gt;&gt;&gt; from mymodule import *
-&gt;&gt;&gt; imported_by_star
-42
-&gt;&gt;&gt; not_imported_by_star
-Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-NameError: name 'not_imported_by_star' is not defined
-
-```
-
-However, `not_imported_by_star` can be imported explicitly:
-
-```
-&gt;&gt;&gt; from mymodule import not_imported_by_star
-&gt;&gt;&gt; not_imported_by_star
-21
+>>> print(time.time())
+1482807222.7240417
+>>> print(arctan(60))
+1.554131203080956
+>>> filepath = &quot;/dogs/jumping poodle (december).png&quot;
+>>> print(path2url(filepath))
+/dogs/jumping%20poodle%20%28december%29.png
 
 ```
 
@@ -154,11 +154,11 @@ However, `not_imported_by_star` can be imported explicitly:
 ## Import modules from an arbitrary filesystem location
 
 
-If you want to import a module that doesn't already exist as a built-in module in the [Python Standard Library](http://web.archive.org/web/20170405184527/https://docs.python.org/3/library/) nor as a side-package, you can do this by adding the path to the directory where your module is found to [`sys.path`](http://web.archive.org/web/20170405184527/https://docs.python.org/3/library/sys.html#sys.path).  This may be useful where multiple python environments exist on a host.
+If you want to import a module that doesn't already exist as a built-in module in the [Python Standard Library](https://docs.python.org/3/library/) nor as a side-package, you can do this by adding the path to the directory where your module is found to [`sys.path`](https://docs.python.org/3/library/sys.html#sys.path).  This may be useful where multiple python environments exist on a host.
 
 ```
 import sys
-sys.path.append("/path/to/directory/containing/your/module")
+sys.path.append(&quot;/path/to/directory/containing/your/module&quot;)
 import mymodule
 
 ```
@@ -190,7 +190,7 @@ This will import all names defined in the `math` module into the global namespac
 
 ```
 def sqrt(num):
-    print("I don't know what's the square root of {}.".format(num))
+    print(&quot;I don't know what's the square root of {}.&quot;.format(num))
 
 sqrt(4)
 # Output: I don't know what's the square root of 4.
@@ -226,61 +226,53 @@ SyntaxError: import * only allowed at module level
 
 
 
-## Importing specific names from a module
+## Programmatic importing
 
 
-Instead of importing the complete module you can import only specified names:
-
-```
-from random import randint # Syntax "from MODULENAME import NAME1[, NAME2[, ...]]"
-print(randint(1, 10))      # Out: 5
+To import a module through a function call, use the `importlib` module (included in Python starting in version 2.7):
 
 ```
-
-`from random` is needed, because the python interpreter has to know from which resource it should import a function or class and `import randint` specifies the function or class itself.
-
-Another example below (similar to the one above):
-
-```
-from math import pi
-print(pi)                  # Out: 3.14159265359
+import importlib
+random = importlib.import_module(&quot;random&quot;)
 
 ```
 
----
-
-
-The following example will raise an error, because we haven't imported a module:
+The `importlib.import_module()` function will also import the submodule of a package directly:
 
 ```
-random.randrange(1, 10)    # works only if "import random" has been run before
+collections_abc = importlib.import_module(&quot;collections.abc&quot;)
 
 ```
 
-Outputs:
+For older versions of Python, use the `imp` module.
+
+Use the functions `imp.find_module` and `imp.load_module` to perform a programmatic import.
+
+Taken from [standard library documentation](https://docs.python.org/2/library/imp.html#examples)
 
 ```
-NameError: name 'random' is not defined
+import imp, sys
+def import_module(name):
+    fp, pathname, description = imp.find_module(name)
+    try:
+        return imp.load_module(name, fp, pathname, description)
+    finally:
+        if fp:
+            fp.close()
 
 ```
 
-The python interpreter does not understand what you mean with `random`. It needs to be declared by adding `import random` to the example:
-
-```
-import random
-random.randrange(1, 10)
-
-```
+Do **NOT** use `__import__()` to programmatically import modules! There are subtle details involving `sys.modules`, the `fromlist` argument, etc. that are easy to overlook which `importlib.import_module()` handles for you.
 
 
 
 ## PEP8 rules for Imports
 
 
-Some recommended [PEP8](http://web.archive.org/web/20170405184527/https://www.python.org/dev/peps/pep-0008/#imports) style guidelines for imports:
+Some recommended [PEP8](https://www.python.org/dev/peps/pep-0008/#imports) style guidelines for imports:
 
 <li>
-Imports should on separate lines:
+Imports should be on separate lines:
 <pre><code> from math import sqrt, ceil      # Not recommended
  from math import sqrt            # Recommended
  from math import ceil
@@ -306,63 +298,46 @@ Avoid using relative imports; use explicit imports instead.
 
 
 
-## Programmatic importing
+## Importing specific names from a module
 
 
-To import a module through a function call, use the `importlib` module (included in Python starting in version 2.7):
-
-```
-import importlib
-random = importlib.import_module("random")
+Instead of importing the complete module you can import only specified names:
 
 ```
-
-The `importlib.import_module()` function will also import the submodule of a package directly:
-
-```
-collections_abc = importlib.import_module("collections.abc")
+from random import randint # Syntax &quot;from MODULENAME import NAME1[, NAME2[, ...]]&quot;
+print(randint(1, 10))      # Out: 5
 
 ```
 
-For older versions of Python, use the `imp` module.
+`from random` is needed, because the python interpreter has to know from which resource it should import a function or class and `import randint` specifies the function or class itself.
 
-Use the functions `imp.find_module` and `imp.load_module` to perform a programmatic import.
-
-Taken from [standard library documentation](http://web.archive.org/web/20170405184527/https://docs.python.org/2/library/imp.html#examples)
+Another example below (similar to the one above):
 
 ```
-import imp, sys
-def import_module(name):
-    fp, pathname, description = imp.find_module(name)
-    try:
-        return imp.load_module(name, fp, pathname, description)
-    finally:
-        if fp:
-            fp.close()
+from math import pi
+print(pi)                  # Out: 3.14159265359
 
 ```
 
-Do **NOT** use `__import__()` to programmatically import modules! There are subtle details involving `sys.modules`, the `fromlist` argument, etc. that are easy to overlook which `importlib.import_module()` handles for you.
-
-
-
-## __import__() function
-
-
-The `__import__()` function can be used to import modules where the name is only known at runtime
+The following example will raise an error, because we haven't imported a module:
 
 ```
-if user_input == "os":
-    os = __import__("os")
-
-# equivalent to import os
+random.randrange(1, 10)    # works only if &quot;import random&quot; has been run before
 
 ```
 
-This function can also be used to specify the file path to a module
+Outputs:
 
 ```
-mod = __import__(r"C:/path/to/file/anywhere/on/computer/module.py")
+NameError: name 'random' is not defined
+
+```
+
+The python interpreter does not understand what you mean with `random`. It needs to be declared by adding `import random` to the example:
+
+```
+import random
+random.randrange(1, 10)
 
 ```
 
@@ -377,6 +352,28 @@ from module.submodule import function
 ```
 
 This imports `function` from `module.submodule`.
+
+
+
+## __import__() function
+
+
+The `__import__()` function can be used to import modules where the name is only known at runtime
+
+```
+if user_input == &quot;os&quot;:
+    os = __import__(&quot;os&quot;)
+
+# equivalent to import os
+
+```
+
+This function can also be used to specify the file path to a module
+
+```
+mod = __import__(r&quot;C:/path/to/file/anywhere/on/computer/module.py&quot;)
+
+```
 
 
 
@@ -396,10 +393,21 @@ print(math.pi)    # 3
 
 ```
 
+This is because the interpreter registers every module you import. And when you try to reimport a module, the interpreter sees it in the register and does nothing. So the hard way to reimport is to use `import` after removing the corresponding item from the register:
+
+```
+print(math.pi)    # 3
+import sys
+if 'math' in sys.modules:  # Is the ``math`` module in the register?
+    del sys.modules['math']  # If so, remove it.
+import math
+print(math.pi)    # 3.141592653589793
+
+```
+
+But there is more a straightforward and simple way.
+
 ### Python 2
-
----
-
 
 Use the `reload` function:
 
@@ -413,9 +421,6 @@ print(math.pi)    # 3.141592653589793
 ```
 
 ### Python 3
-
----
-
 
 The `reload` function has moved to `importlib`:
 

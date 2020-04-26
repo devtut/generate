@@ -5,7 +5,7 @@
 ## Nonlocal Variables
 
 
-Python 3 added a new keyword called **nonlocal**. The nonlocal keyword adds a scope override to the inner scope. You can read all about it in [PEP 3104](http://web.archive.org/web/20170816193806/https://www.python.org/dev/peps/pep-3104/). This is best illustrated with a couple of code examples. One of the most common examples is to create function that can increment:
+Python 3 added a new keyword called **nonlocal**. The nonlocal keyword adds a scope override to the inner scope. You can read all about it in [PEP 3104](https://www.python.org/dev/peps/pep-3104/). This is best illustrated with a couple of code examples. One of the most common examples is to create function that can increment:
 
 ```
 def counter():
@@ -158,7 +158,7 @@ for x in iterable: pass
 
 ```
 
-Each of the above statements is a **binding occurrence** - `x` become bound to the object denoted by `5`. If this statement appears inside a function, then `x` will be function-local by default. See the "Syntax" section for a list of binding statements.
+Each of the above statements is a **binding occurrence** - `x` become bound to the object denoted by `5`. If this statement appears inside a function, then `x` will be function-local by default. See the &quot;Syntax&quot; section for a list of binding statements.
 
 
 
@@ -194,16 +194,13 @@ print(Fred.g()) # global
 
 Users unfamiliar with how this scope works might expect `b`, `c`, and `e` to print `class`.
 
----
-
-
-From [PEP 227](http://web.archive.org/web/20170816193806/http://www.python.org/dev/peps/pep-0227/):
+From [PEP 227](http://www.python.org/dev/peps/pep-0227/):
 
 > 
 Names in class scope are not accessible. Names are resolved in the innermost enclosing function scope. If a class definition occurs in a chain of nested scopes, the resolution process skips class definitions.
 
 
-From Python's documentation on [naming and binding](http://web.archive.org/web/20170816193806/http://docs.python.org/3/reference/executionmodel.html#naming):
+From Python's documentation on [naming and binding](http://docs.python.org/3/reference/executionmodel.html#naming):
 
 > 
 The scope of names defined in a class block is limited to the class block; it does not extend to the code blocks of methods – this includes comprehensions and generator expressions since they are implemented using a function scope. This means that the following will fail:
@@ -213,10 +210,79 @@ The scope of names defined in a class block is limited to the class block; it do
 </code></pre>
 
 
----
+This example uses references from [this answer](http://stackoverflow.com/questions/13905741/accessing-class-variables-from-a-list-comprehension-in-the-class-definition/13913933#13913933) by Martijn Pieters, which contains more in depth analysis of this behavior.
 
 
-This example uses references from [this answer](http://web.archive.org/web/20170816193806/http://stackoverflow.com/questions/13905741/accessing-class-variables-from-a-list-comprehension-in-the-class-definition/13913933#13913933) by Martijn Pieters, which contains more in depth analysis of this behavior.
+
+## The del command
+
+
+This command has several related yet distinct forms.
+
+### `del v`
+
+If `v` is a variable, the command `del v` removes the variable from its scope. For example:
+
+```
+x = 5
+print(x) # out: 5
+del x
+print(x) # NameError: name 'f' is not defined
+
+```
+
+> 
+Note that `del` is a **binding occurence**, which means that unless explicitly stated otherwise (using `nonlocal` or `global`), `del v` will make `v` local to the current scope. If you intend to delete `v` in an outer scope, use `nonlocal v` or `global v` in the same scope of the `del v` statement.
+
+
+In all the following, the intention of a command is a default behavior but is not enforced by the language. A class might be written in a way that invalidates this intention.
+
+### `del v.name`
+
+This command triggers a call to `v.__delattr__(name)`.
+
+The intention is to make the attribute `name` unavailable. For example:
+
+```
+class A:
+    pass
+
+a = A()
+a.x = 7
+print(a.x) # out: 7
+del a.x
+print(a.x) # error: AttributeError: 'A' object has no attribute 'x'
+
+```
+
+### `del v[item]`
+
+This command triggers a call to `v.__delitem__(item)`.
+
+The intention is that `item` will not belong in the mapping implemented by the object `v`. For example:
+
+```
+x = {'a': 1, 'b': 2}
+del x['a']
+print(x) #  out: {'b': 2}
+print(x['a']) # error: KeyError: 'a'
+
+```
+
+### `del v[a:b]`
+
+This actually calls `v.__delslice__(a, b)`.
+
+The intention is similar to the one described above, but with slices - ranges of items instead of a single item. For example:
+
+```
+x = [0, 1, 2, 3, 4]
+del x[1:3]
+print(x) #  out: [0, 3, 4]
+
+```
+
+See also [Garbage Collection#The del command](http://stackoverflow.com/documentation/python/2532/garbage-collection/5722/del#t=201608101857074619986).
 
 
 
@@ -375,9 +441,9 @@ def f1():
 
 ```
 
-On the other hand, `nonlocal` (see [Nonlocal Variables](http://web.archive.org/web/20170816193806/http://stackoverflow.com/documentation/python/263/variable-scope-and-binding/5712/nonlocal-variables#t=201609030858342242664) ), available in Python 3, takes a **local** variable from an enclosing scope into the local scope of current function.
+On the other hand, `nonlocal` (see [Nonlocal Variables](http://stackoverflow.com/documentation/python/263/variable-scope-and-binding/5712/nonlocal-variables#t=201609030858342242664) ), available in Python 3, takes a **local** variable from an enclosing scope into the local scope of current function.
 
-From the [Python documentation on `nonlocal`](http://web.archive.org/web/20170816193806/https://docs.python.org/3/reference/simple_stmts.html#nonlocal):
+From the [Python documentation on `nonlocal`](https://docs.python.org/3/reference/simple_stmts.html#nonlocal):
 
 > 
 <p>The nonlocal statement causes the listed identifiers to refer to
@@ -400,78 +466,6 @@ def f1():
 
 
 
-## The del command
-
-
-This command has several related yet distinct forms.
-
-### `del v`
-
-If `v` is a variable, the command `del v` removes the variable from its scope. For example:
-
-```
-x = 5
-print(x) # out: 5
-del x
-print(x) # NameError: name 'f' is not defined
-
-```
-
-> 
-Note that `del` is a **binding occurence**, which means that unless explicitly stated otherwise (using `nonlocal` or `global`), `del v` will make `v` local to the current scope. If you intend to delete `v` in an outer scope, use `nonlocal v` or `global v` in the same scope of the `del v` statement.
-
-
-In all the following, the intention of a command is a default behavior but is not enforced by the language. A class might be written in a way that invalidates this intention.
-
-### `del v.name`
-
-This command triggers a call to `v.__delattr__(name)`.
-
-The intention is to make the attribute `name` unavailable. For example:
-
-```
-class A:
-    pass
-
-a = A()
-a.x = 7
-print(a.x) # out: 7
-del a.x
-print(a.x) # error: AttributeError: 'A' object has no attribute 'x'
-
-```
-
-### `del v[item]`
-
-This command triggers a call to `v.__delitem__(item)`.
-
-The intention is that `item` will not belong in the mapping implemented by the object `v`. For example:
-
-```
-x = {'a': 1, 'b': 2}
-del x['a']
-print(x) #  out: {'b': 2}
-print(x['a']) # error: KeyError: 'a'
-
-```
-
-### `del v[a:b]`
-
-This actually calls `v.__delslice__(a, b)`.
-
-The intention is similar to the one described above, but with slices - ranges of items instead of a single item. For example:
-
-```
-x = [0, 1, 2, 3, 4]
-del x[1:3]
-print(x) #  out: [0, 3, 4]
-
-```
-
-See also [Garbage Collection#The del command](http://web.archive.org/web/20170816193806/http://stackoverflow.com/documentation/python/2532/garbage-collection/5722/del#t=201608101857074619986).
-
-
-
 #### Syntax
 
 
@@ -479,7 +473,7 @@ See also [Garbage Collection#The del command](http://web.archive.org/web/2017081
 - nonlocal a, b
 - x = something  # binds x
 - (x, y) = something  # binds x and y
-- x += something  # binds x. Similarly for all other "op="
+- x += something  # binds x. Similarly for all other &quot;op=&quot;
 - del x  # binds x
 - for x in something:  # binds x
 - with something as x:  # binds x

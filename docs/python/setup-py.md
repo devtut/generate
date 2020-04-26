@@ -2,6 +2,27 @@
 
 
 
+## Using source control metadata in setup.py
+
+
+[`setuptools_scm`](https://pypi.python.org/pypi/setuptools_scm) is an officially-blessed package that can use Git or Mercurial metadata to determine the version number of your package, and find Python packages and package data to include in it.
+
+```
+from setuptools import setup, find_packages
+
+setup(
+    setup_requires=['setuptools_scm'],
+    use_scm_version=True,
+    packages=find_packages(),
+    include_package_data=True,
+)
+
+```
+
+This example uses both features; to only use SCM metadata for the version, replace the call to `find_packages()` with your manual package list, or to only use the package finder, remove `use_scm_version=True`.
+
+
+
 ## Purpose of setup.py
 
 
@@ -34,27 +55,6 @@ If an end-user wishes to install your foo module, all she has to do is download 
 python setup.py install
 
 ```
-
-
-
-## Using source control metadata in setup.py
-
-
-[`setuptools_scm`](http://web.archive.org/web/20170816195035/https://pypi.python.org/pypi/setuptools_scm) is an officially-blessed package that can use Git or Mercurial metadata to determine the version number of your package, and find Python packages and package data to include in it.
-
-```
-from setuptools import setup, find_packages
-
-setup(
-    setup_requires=['setuptools_scm'],
-    use_scm_version=True,
-    packages=find_packages(),
-    include_package_data=True,
-)
-
-```
-
-This example uses both features; to only use SCM metadata for the version, replace the call to `find_packages()` with your manual package list, or to only use the package finder, remove `use_scm_version=True`.
 
 
 
@@ -140,7 +140,7 @@ cmdclasses = dict()
 
 class BuildSphinx(Command):
 
-    """Build Sphinx documentation."""
+    &quot;&quot;&quot;Build Sphinx documentation.&quot;&quot;&quot;
 
     description = 'Build Sphinx documentation'
     user_options = []
@@ -193,7 +193,7 @@ python setup.py build_sphinx
 
 For further information on python packaging see:
 
-[Introduction](http://web.archive.org/web/20170816195035/http://stackoverflow.com/documentation/python/1381/creating-python-packages/4500/introduction#t=201607281303534267585)
+[Introduction](http://stackoverflow.com/documentation/python/1381/creating-python-packages/4500/introduction#t=201607281303534267585)
 
-For writing official packages there is a [packaging user guide](http://web.archive.org/web/20170816195035/https://packaging.python.org/).
+For writing official packages there is a [packaging user guide](https://packaging.python.org/).
 

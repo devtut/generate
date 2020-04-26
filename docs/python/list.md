@@ -1,6 +1,9 @@
 # List
 
 
+The Python **List** is a general data structure widely used in Python programs. They are found in other languages, often referred to as **dynamic arrays**. They are both **mutable** and a **sequence** data type that allows them to be **indexed** and **sliced**. The list can contain different types of objects, including other list objects.
+
+
 
 ## List methods and supported operators
 
@@ -26,9 +29,9 @@ a.append(b)
 # a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9]]
 
 # Append an element of a different type, as list elements do not need to have the same type
-my_string = "hello world"
+my_string = &quot;hello world&quot;
 a.append(my_string)
-# a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9], "hello world"]
+# a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9], &quot;hello world&quot;]
 </code></pre>
 **Note that** the `append()` method only appends one new element to the end of the list. If you append a list to another list, the list that you append becomes a single element at the end of the first list.
 <pre><code># Appending a list to another list
@@ -109,7 +112,7 @@ a.remove(10)
 <pre><code>a.reverse()
 # a: [8, 7, 6, 5, 4, 3, 2, 1]
 </code></pre>
-There are also [other ways of reversing a list](http://web.archive.org/web/20170405041938/http://stackoverflow.com/documentation/python/3553/common-pitfalls/12259/list-multiplication-and-common-references#t=201607282214343131018).
+There are also [other ways of reversing a list](http://stackoverflow.com/documentation/python/3553/common-pitfalls/12259/list-multiplication-and-common-references#t=201607282214343131018).
 </li>
 <li>
 `count(value)` – counts the number of occurrences of some value in the list.
@@ -139,9 +142,9 @@ class Person(object):
     def __repr__(self):
         return self.name
 
-l = [Person("John Cena", datetime.date(1992, 9, 12), 175),
-     Person("Chuck Norris", datetime.date(1990, 8, 28), 180),
-     Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
+l = [Person(&quot;John Cena&quot;, datetime.date(1992, 9, 12), 175),
+     Person(&quot;Chuck Norris&quot;, datetime.date(1990, 8, 28), 180),
+     Person(&quot;Jon Skeet&quot;, datetime.date(1991, 7, 6), 185)]
 
 l.sort(key=lambda item: item.name)
 # l: [Chuck Norris, John Cena, Jon Skeet]
@@ -210,9 +213,9 @@ print(list_of_tuples) #[(5, 0), (1, 2), (3, 4)]
 Use the `attrgetter` if you want to sort by attributes of an object,
 
 ```
-persons = [Person("John Cena", datetime.date(1992, 9, 12), 175),
-           Person("Chuck Norris", datetime.date(1990, 8, 28), 180),
-           Person("Jon Skeet", datetime.date(1991, 7, 6), 185)] #reusing Person class from above example
+persons = [Person(&quot;John Cena&quot;, datetime.date(1992, 9, 12), 175),
+           Person(&quot;Chuck Norris&quot;, datetime.date(1990, 8, 28), 180),
+           Person(&quot;Jon Skeet&quot;, datetime.date(1991, 7, 6), 185)] #reusing Person class from above example
 
 person.sort(key=attrgetter('name')) #sort by name
 by_birthday = attrgetter('birthday')
@@ -228,12 +231,12 @@ person.sort(key=by_birthday) #sort by birthday
 </li>
 <li>
 **Replication** – multiplying an existing list by an integer will produce a larger list consisting of that many copies of the original. This can be useful for example for list initialization:
-<pre><code>b = ["blah"] * 3
-# b = ["blah", "blah", "blah"]
+<pre><code>b = [&quot;blah&quot;] * 3
+# b = [&quot;blah&quot;, &quot;blah&quot;, &quot;blah&quot;]
 b = [1, 3, 5] * 5
 # [1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5]
 </code></pre>
-Take care doing this if your list contains references to objects (eg a list of lists), see [Common Pitfalls - List multiplication and common references](http://web.archive.org/web/20170405041938/http://stackoverflow.com/documentation/python/3553/common-pitfalls/12259/list-multiplication-and-common-references#t=201607282214343131018).
+Take care doing this if your list contains references to objects (eg a list of lists), see [Common Pitfalls - List multiplication and common references](http://stackoverflow.com/documentation/python/3553/common-pitfalls/12259/list-multiplication-and-common-references#t=201607282214343131018).
 </li>
 <li>
 **Element deletion** – it is possible to delete multiple elements in the list using the `del` keyword and slice notation:
@@ -248,7 +251,7 @@ del a[:]
 </li>
 <li>
 **Copying**
-The default assignment "=" assigns a reference of the original list to the new name.  That is, the original name and new name are both pointing to the same list object. Changes made through any of them will be reflected in another. This is often not what you intended.
+The default assignment &quot;=&quot; assigns a reference of the original list to the new name.  That is, the original name and new name are both pointing to the same list object. Changes made through any of them will be reflected in another. This is often not what you intended.
 <pre><code>b = a
 a.append(6)
 # b: [1, 2, 3, 4, 5, 6]
@@ -375,46 +378,6 @@ This can be of great use by providing slicing functionality to our objects by ov
 
 
 
-## Any and All
-
-
-You can use `all()` to determine if all the values in an iterable evaluate to True
-
-```
-nums = [1, 1, 0, 1]
-all(nums)
-# False
-chars = ['a', 'b', 'c', 'd']
-all(chars)
-# True
-
-```
-
-Likewise, `any()` determines if one or more values in an iterable evaluate to True
-
-```
-nums = [1, 1, 0, 1]
-any(nums)
-# True
-vals = [None, None, None, False]
-any(vals)
-# False
-
-```
-
-While this example uses a list, it is important to note these built-ins work with any iterable, including generators.
-
-```
-vals = [1, 2, 3, 4]
-any(val &gt; 12 for val in vals)
-# False
-any((val * 2) &gt; 6 for val in vals)
-# True
-
-```
-
-
-
 ## Checking if list is empty
 
 
@@ -423,38 +386,9 @@ The emptiness of a list is associated to the boolean `False`, so you don't have 
 ```
 lst = []
 if not lst:
-    print("list is empty")
+    print(&quot;list is empty&quot;)
 
 # Output: list is empty
-
-```
-
-
-
-## Checking whether an item is in a list
-
-
-Python makes it very simple to check whether an item is in a list. Simply  use the `in` operator.
-
-```
-lst = ['test', 'twest', 'tweast', 'treast']
-
-'test' in lst
-# Out: True
-
-'toast' in lst
-# Out: False
-
-```
-
-> 
-Note: the `in` operator on sets is asymptotically faster than on lists. If you need to use it many times on potentially large lists, you may want to convert your `list` to a `set`, and test the presence of elements on the `set`.
-
-
-```
-slst = set(lst)
-'test' in slst
-# Out: True
 
 ```
 
@@ -494,7 +428,7 @@ The other way of iterating a list based on the index value:
 for i in range(0,len(my_list)):
     print(my_list[i])
 #output:
-&gt;&gt;&gt;
+>>>
 foo
 bar
 baz
@@ -515,6 +449,124 @@ for item in my_list:
 ```
 
 In this last example, we deleted the first item at the first iteration, but that caused `bar` to be skipped.
+
+
+
+## Checking whether an item is in a list
+
+
+Python makes it very simple to check whether an item is in a list. Simply  use the `in` operator.
+
+```
+lst = ['test', 'twest', 'tweast', 'treast']
+
+'test' in lst
+# Out: True
+
+'toast' in lst
+# Out: False
+
+```
+
+> 
+Note: the `in` operator on sets is asymptotically faster than on lists. If you need to use it many times on potentially large lists, you may want to convert your `list` to a `set`, and test the presence of elements on the `set`.
+
+
+```
+slst = set(lst)
+'test' in slst
+# Out: True
+
+```
+
+
+
+## Any and All
+
+
+You can use `all()` to determine if all the values in an iterable evaluate to True
+
+```
+nums = [1, 1, 0, 1]
+all(nums)
+# False
+chars = ['a', 'b', 'c', 'd']
+all(chars)
+# True
+
+```
+
+Likewise, `any()` determines if one or more values in an iterable evaluate to True
+
+```
+nums = [1, 1, 0, 1]
+any(nums)
+# True
+vals = [None, None, None, False]
+any(vals)
+# False
+
+```
+
+While this example uses a list, it is important to note these built-ins work with any iterable, including generators.
+
+```
+vals = [1, 2, 3, 4]
+any(val > 12 for val in vals)
+# False
+any((val * 2) > 6 for val in vals)
+# True
+
+```
+
+
+
+## Length of a list
+
+
+Use `len()` to get the one-dimensional length of a list.
+
+```
+len(['one', 'two'])  # returns 2
+
+len(['one', [2, 3], 'four'])  # returns 3, not 4
+
+```
+
+`len()` also works on strings, dictionaries, and other data structures similar to lists.
+
+Note that `len()` is a built-in function, not a method of a list object.
+
+Also note that the cost of `len()` is `O(1)`, meaning it will take the same amount of time to get the length of a list regardless of its length.
+
+
+
+## Reversing list elements
+
+
+You can use the `reversed` function which returns an iterator to the reversed list:
+
+```
+In [3]: rev = reversed(numbers)
+
+In [4]: rev
+Out[4]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+```
+
+Note that the list &quot;numbers&quot; remains unchanged by this operation, and remains in the same order it was originally.
+
+To reverse in place, you can also use [the `reverse` method](http://stackoverflow.com/documentation/python/209/list/2035/list-support-operations#t=201607230923043603753).
+
+You can also reverse a list (actually obtaining a copy, the original list is unaffected) by using the slicing syntax, setting the third argument (the step) as -1:
+
+```
+In [1]: numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+In [2]: numbers[::-1]
+Out[2]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+```
 
 
 
@@ -576,32 +628,12 @@ for a,b,c in itertools.zip_longest(alist, blist, clist):
 **Insert to a specific index values:**
 <pre><code> alist = [123, 'xyz', 'zara', 'abc']
  alist.insert(3, [2009])
- print("Final List :", alist)
+ print(&quot;Final List :&quot;, alist)
 </code></pre>
 Output:
 <pre><code> Final List : [123, 'xyz', 'zara', 2009, 'abc']
 </code></pre>
 </li>
-
-
-
-## Length of a list
-
-
-Use `len()` to get the one-dimensional length of a list.
-
-```
-len(['one', 'two'])  # returns 2
-
-len(['one', [2, 3], 'four'])  # returns 3, not 4
-
-```
-
-`len()` also works on strings, dictionaries, and other data structures similar to lists.
-
-Note that `len()` is a built-in function, not a method of a list object.
-
-Also note that the cost of `len()` is `O(1)`, meaning it will take the same amount of time to get the length of a list regardless of its length.
 
 
 
@@ -611,7 +643,7 @@ Also note that the cost of `len()` is `O(1)`, meaning it will take the same amou
 Removing duplicate values in a list can be done by converting the list to a `set` (that is an unordered collection of distinct objects). If a `list` data structure is needed, then the set can be converted back to a list using the function `list()`:
 
 ```
-names = ["aixk", "duke", "edik", "tofp", "duke"]
+names = [&quot;aixk&quot;, &quot;duke&quot;, &quot;edik&quot;, &quot;tofp&quot;, &quot;duke&quot;]
 list(set(names))
 # Out: ['duke', 'tofp', 'aixk', 'edik']
 
@@ -623,37 +655,8 @@ To preserve the order of the list one can use an `OrderedDict`
 
 ```
 import collections
-&gt;&gt;&gt; collections.OrderedDict.fromkeys(names).keys()
+>>> collections.OrderedDict.fromkeys(names).keys()
 # Out: ['aixk', 'duke', 'edik', 'tofp']
-
-```
-
-
-
-## Reversing list elements
-
-
-You can use the `reversed` function which returns an iterator to the reversed list:
-
-```
-In [3]: rev = reversed(numbers)
-
-In [4]: rev
-Out[4]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
-
-```
-
-Note that the list "numbers" remains unchanged by this operation, and remains in the same order it was originally.
-
-To reverse in place, you can also use [the `reverse` method](http://web.archive.org/web/20170405041938/http://stackoverflow.com/documentation/python/209/list/2035/list-support-operations#t=201607230923043603753).
-
-You can also reverse a list (actually obtaining a copy, the original list is unaffected) by using the slicing syntax, setting the third argument (the step) as -1:
-
-```
-In [1]: numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-In [2]: numbers[::-1]
-Out[2]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 ```
 
@@ -665,23 +668,23 @@ Out[2]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
 It's possible to compare lists and other sequences lexicographically using comparison operators. Both operands must be of the same type.
 
 ```
-[1, 10, 100] &lt; [2, 10, 100]
-# True, because 1 &lt; 2
-[1, 10, 100] &lt; [1, 10, 100]
+[1, 10, 100] < [2, 10, 100]
+# True, because 1 < 2
+[1, 10, 100] < [1, 10, 100]
 # False, because the lists are equal
-[1, 10, 100] &lt;= [1, 10, 100]
+[1, 10, 100] <= [1, 10, 100]
 # True, because the lists are equal
-[1, 10, 100] &lt; [1, 10, 101]
-# True, because 100 &lt; 101
-[1, 10, 100] &lt; [0, 10, 100]
-# False, because 0 &lt; 1
+[1, 10, 100] < [1, 10, 101]
+# True, because 100 < 101
+[1, 10, 100] < [0, 10, 100]
+# False, because 0 < 1
 
 ```
 
 If one of the lists is contained at the start of the other, the shortest list wins.
 
 ```
-[1, 10] &lt; [1, 10, 100]
+[1, 10] < [1, 10, 100]
 # True
 
 ```
@@ -800,11 +803,11 @@ my_list = ['test'] * 10
 For **mutable** elements, the same construct will result in all elements of the list referring to the same object, for example, for a set:
 
 ```
-&gt;&gt;&gt; my_list=[{1}] * 10
-&gt;&gt;&gt; print(my_list)
+>>> my_list=[{1}] * 10
+>>> print(my_list)
 [{1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}]
-&gt;&gt;&gt; my_list[0].add(2)
-&gt;&gt;&gt; print(my_list)
+>>> my_list[0].add(2)
+>>> print(my_list)
 [{1, 2}, {1, 2}, {1, 2}, {1, 2}, {1, 2}, {1, 2}, {1, 2}, {1, 2}, {1, 2}, {1, 2}]
 
 ```
@@ -829,11 +832,11 @@ my_list=[{1} for _ in range(10)]
 #### Remarks
 
 
-`list` is a particular type of iterable, but it is not the only one that exists in Python. Sometimes it will be better to use [`set`](http://web.archive.org/web/20170405041938/http://stackoverflow.com/documentation/python/497/sets#t=201607211317316532895), [`tuple`](http://web.archive.org/web/20170405041938/http://stackoverflow.com/documentation/python/927/tuples#t=201607211317041618066), or [`dictionary`](http://web.archive.org/web/20170405041938/http://stackoverflow.com/documentation/python/396/dictionary#t=201607211316251118713)
+`list` is a particular type of iterable, but it is not the only one that exists in Python. Sometimes it will be better to use [`set`](http://stackoverflow.com/documentation/python/497/sets#t=201607211317316532895), [`tuple`](http://stackoverflow.com/documentation/python/927/tuples#t=201607211317041618066), or [`dictionary`](http://stackoverflow.com/documentation/python/396/dictionary#t=201607211316251118713)
 
-`list` is the name given in Python to dynamic arrays (similar to `vector&lt;void*&gt;` from C++ or Java's `ArrayList&lt;Object&gt;`). It is not a linked-list.
+`list` is the name given in Python to dynamic arrays (similar to `vector<void*>` from C++ or Java's `ArrayList<Object>`). It is not a linked-list.
 
 Accessing elements is done in constant time and is very fast. Appending elements to the end of the list is amortized constant time, but once in a while it might involve allocation and copying of the whole `list`.
 
-[List comprehensions](http://web.archive.org/web/20170405041938/https://stackoverflow.com/documentation/python/5265/list-comprehensions#t=201608171354111236074) are related to lists.
+[List comprehensions](https://stackoverflow.com/documentation/python/5265/list-comprehensions#t=201608171354111236074) are related to lists.
 

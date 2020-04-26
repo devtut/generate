@@ -2,63 +2,6 @@
 
 
 
-## Setting up py.test
-
-
-`py.test` is one of several [third party testing libraries](http://web.archive.org/web/20170816205450/http://docs.pytest.org/en/latest/) that are available for Python. It can be installed using [`pip`](http://web.archive.org/web/20170816205450/http://stackoverflow.com/documentation/python/1781/pip-pypi-package-manager#t=201607221328338568674) with
-
-```
-pip install pytest
-
-```
-
-### The Code to Test
-
-Say we are testing an addition function in `projectroot/module/code.py`:
-
-```
-# projectroot/module/code.py
-def add(a, b):
-    return a + b
-
-```
-
-### The Testing Code
-
-We create a test file in `projectroot/tests/test_code.py`. The file **must begin with `test_`** to be recognized as a testing file.
-
-```
-# projectroot/tests/test_code.py
-from module import code
-
-
-def test_add():
-    assert code.add(1, 2) == 3
-
-```
-
-### Running The Test
-
-From `projectroot` we simply run `py.test`:
-
-```
-# ensure we have the modules
-$ touch tests/__init__.py
-$ touch module/__init__.py
-$ py.test
-================================================== test session starts ===================================================
-platform darwin -- Python 2.7.10, pytest-2.9.2, py-1.4.31, pluggy-0.3.1
-rootdir: /projectroot, inifile:
-collected 1 items
-
-tests/test_code.py .
-
-================================================ 1 passed in 0.01 seconds ================================================
-
-```
-
-
-
 ## Intro to Test Fixtures
 
 
@@ -232,7 +175,7 @@ def prepped_stuff():  # it doesn't need request now!
 
 And that concludes the Intro to Test Fixtures!
 
-For more information, see the [official py.test fixture documentation](http://web.archive.org/web/20170816205450/http://doc.pytest.org/en/latest/fixture.html) and the [official yield fixture documentation](http://web.archive.org/web/20170816205450/http://doc.pytest.org/en/latest/yieldfixture.html)
+For more information, see the [official py.test fixture documentation](http://doc.pytest.org/en/latest/fixture.html) and the [official yield fixture documentation](http://doc.pytest.org/en/latest/yieldfixture.html)
 
 
 
@@ -266,13 +209,70 @@ tests/test_code.py F
 ___________________________________________________ test_add__failing ____________________________________________________
 
     def test_add__failing():
-&gt;       assert code.add(10, 11) == 33
+>       assert code.add(10, 11) == 33
 E       assert 21 == 33
-E        +  where 21 = &lt;function add at 0x105d4d6e0&gt;(10, 11)
-E        +    where &lt;function add at 0x105d4d6e0&gt; = code.add
+E        +  where 21 = <function add at 0x105d4d6e0>(10, 11)
+E        +    where <function add at 0x105d4d6e0> = code.add
 
 tests/test_code.py:5: AssertionError
 ================================================ 1 failed in 0.01 seconds ================================================
+
+```
+
+
+
+## Setting up py.test
+
+
+`py.test` is one of several [third party testing libraries](http://docs.pytest.org/en/latest/) that are available for Python. It can be installed using [`pip`](http://stackoverflow.com/documentation/python/1781/pip-pypi-package-manager#t=201607221328338568674) with
+
+```
+pip install pytest
+
+```
+
+### The Code to Test
+
+Say we are testing an addition function in `projectroot/module/code.py`:
+
+```
+# projectroot/module/code.py
+def add(a, b):
+    return a + b
+
+```
+
+### The Testing Code
+
+We create a test file in `projectroot/tests/test_code.py`. The file **must begin with `test_`** to be recognized as a testing file.
+
+```
+# projectroot/tests/test_code.py
+from module import code
+
+
+def test_add():
+    assert code.add(1, 2) == 3
+
+```
+
+### Running The Test
+
+From `projectroot` we simply run `py.test`:
+
+```
+# ensure we have the modules
+$ touch tests/__init__.py
+$ touch module/__init__.py
+$ py.test
+================================================== test session starts ===================================================
+platform darwin -- Python 2.7.10, pytest-2.9.2, py-1.4.31, pluggy-0.3.1
+rootdir: /projectroot, inifile:
+collected 1 items
+
+tests/test_code.py .
+
+================================================ 1 passed in 0.01 seconds ================================================
 
 ```
 

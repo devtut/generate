@@ -10,7 +10,7 @@ Unlike most languages, Python supports two major versions. Since 2008 when Pytho
 
 The standard **division symbol** (`/`) operates differently in Python 3 and Python 2 when applied to integers.
 
-When dividing an integer by another integer in Python 3, the division operation `x / y` represents a [**true division**](http://web.archive.org/web/20170405224959/https://docs.python.org/2.2/whatsnew/node7.html) (uses [`__truediv__`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/operator.html#operator.__truediv__) method)  and produces a floating point result.  Meanwhile, the same operation in Python 2 represents a [**classic division**](http://web.archive.org/web/20170405224959/https://docs.python.org/2.2/whatsnew/node7.html) that rounds the result down toward negative infinity (also known as taking the **floor**).
+When dividing an integer by another integer in Python 3, the division operation `x / y` represents a [**true division**](https://docs.python.org/2.2/whatsnew/node7.html) (uses [`__truediv__`](https://docs.python.org/3/library/operator.html#operator.__truediv__) method)  and produces a floating point result.  Meanwhile, the same operation in Python 2 represents a [**classic division**](https://docs.python.org/2.2/whatsnew/node7.html) that rounds the result down toward negative infinity (also known as taking the **floor**).
 
 For example:
 
@@ -20,7 +20,7 @@ For example:
 |`2 / 3`|0|0.6666666666666666
 |`-3 / 2`|-2|-1.5
 
-The rounding-towards-zero behavior was deprecated in [Python 2.2](http://web.archive.org/web/20170405224959/https://www.python.org/download/releases/2.2/), but remains in Python 2.7 for the sake of backward compatibility and was removed in Python 3.
+The rounding-towards-zero behavior was deprecated in [Python 2.2](https://www.python.org/download/releases/2.2/), but remains in Python 2.7 for the sake of backward compatibility and was removed in Python 3.
 
 **Note:** To get a **float** result in Python 2 (without floor rounding) we can specify one of the operands with the decimal point. The above example of `2/3` which gives `0` in Python 2 shall be used as `2 / 3.0` or `2.0 / 3` or `2.0/3.0` to get `0.6666666666666666`
 
@@ -30,10 +30,7 @@ The rounding-towards-zero behavior was deprecated in [Python 2.2](http://web.arc
 |`2 / 3.0`|0.6666666666666666|0.6666666666666666
 |`-3.0 / 2`|-1.5|-1.5
 
----
-
-
-There is also the [**floor division operator**](http://web.archive.org/web/20170405224959/http://python-reference.readthedocs.io/en/latest/docs/operators/floor_division.html) (`//`), which works the same way in both versions: it rounds down to the nearest integer. (although a float is returned when used with floats)  In both versions the `//` operator maps to [`__floordiv__`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/operator.html#operator.__floordiv__).
+There is also the [**floor division operator**](http://python-reference.readthedocs.io/en/latest/docs/operators/floor_division.html) (`//`), which works the same way in both versions: it rounds down to the nearest integer. (although a float is returned when used with floats)  In both versions the `//` operator maps to [`__floordiv__`](https://docs.python.org/3/library/operator.html#operator.__floordiv__).
 
 |Code|Python 2 output|Python 3 output
 |------
@@ -44,7 +41,7 @@ There is also the [**floor division operator**](http://web.archive.org/web/20170
 |`2.0 // 3`|0.0|0.0
 |`-3 // 2.0`|-2.0|-2.0
 
-One can explicitly enforce true division or floor division using native functions in the [`operator`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/operator.html) module:
+One can explicitly enforce true division or floor division using native functions in the [`operator`](https://docs.python.org/3/library/operator.html) module:
 
 ```
 from operator import truediv, floordiv
@@ -71,17 +68,11 @@ from __future__ import division
 
 **Note**: Some other programming languages use **rounding toward zero** (truncation) rather than **rounding down toward negative infinity** as Python does (i.e. in those languages `-3 / 2 == -1`). This behavior may create confusion when porting or comparing code.
 
----
-
-
 **Note on float operands**: As an alternative to `from __future__ import division`, one could use the usual division symbol `/` and ensure that at least one of the operands is a float: `3 / 2.0 == 1.5`. However, this can be considered bad practice. It is just too easy to write `average = sum(items) / len(items)` and forget to cast one of the arguments to float. Moreover, such cases may frequently evade notice during testing, e.g., if you test on an array containing `float`s but receive an array of `int`s in production.  Additionally, if the same code is used in Python 3, programs that expect `3 / 2 == 1` to be True will not work correctly.
 
-See [PEP 238](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-0238/) for more detailed rationale why the division operator was changed in Python 3 and why old-style division should be avoided.
+See [PEP 238](https://www.python.org/dev/peps/pep-0238/) for more detailed rationale why the division operator was changed in Python 3 and why old-style division should be avoided.
 
----
-
-
-See the [**Simple Math** topic](http://web.archive.org/web/20170405224959/http://stackoverflow.com/documentation/python/298/simple-math/1065/division) for more about division.
+See the [**Simple Math** topic](http://stackoverflow.com/documentation/python/298/simple-math/1065/division) for more about division.
 
 
 
@@ -121,7 +112,7 @@ print(last)
 Similarly, unpacking a `str`:
 
 ```
-begin, *tail = "Hello"
+begin, *tail = &quot;Hello&quot;
 print(begin)
 # Out: 'H'
 print(tail)
@@ -139,7 +130,7 @@ print(year_of_birth)
 
 ```
 
-It is worth mentioning that, since `*` eats up a variable number of items in the given sequence, assignments do not allow two `*`s for the same expression — it wouldn't know how many elements went into the first unpacking, and how many in the second:
+It is worth mentioning that, since `*` eats up a variable number of items, you cannot have two `*`s **for the same iterable** in an assignment - it wouldn't know how many elements go into the first unpacking, and how many in the second:
 
 ```
 *head, *tail = [1, 2]
@@ -147,7 +138,7 @@ It is worth mentioning that, since `*` eats up a variable number of items in the
 
 ```
 
-So far we have discussed unpacking in assignments.  `*` and `**` were [extended in Python 3.5](http://web.archive.org/web/20170405224959/https://docs.python.org/3/whatsnew/3.5.html#pep-448-additional-unpacking-generalizations). It's now possible to have several unpacking operations in one expression:
+So far we have discussed unpacking in assignments.  `*` and `**` were [extended in Python 3.5](https://docs.python.org/3/whatsnew/3.5.html#pep-448-additional-unpacking-generalizations). It's now possible to have several unpacking operations in one expression:
 
 ```
 {*range(4), 4, *(5, 6, 7)}
@@ -166,7 +157,7 @@ print(*iterable)
 
 ```
 
-Unpacking a dictionary uses two adjacent stars `**` ([PEP 448](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-0448/)):
+Unpacking a dictionary uses two adjacent stars `**` ([PEP 448](https://www.python.org/dev/peps/pep-0448/)):
 
 ```
 tail = {'y': 2, 'z': 3}
@@ -203,14 +194,14 @@ def working_example(x_y):
 
 ```
 
-See PEP [3113](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-3113/) for detailed rationale.
+See PEP [3113](https://www.python.org/dev/peps/pep-3113/) for detailed rationale.
 
 
 
 ## Strings: Bytes versus Unicode
 
 
-In Python 2 there are two variants of string: those made of bytes with type ([`str`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#str)) and those made of text with type ([`unicode`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#unicode)).
+In Python 2 there are two variants of string: those made of bytes with type ([`str`](https://docs.python.org/2/library/functions.html#str)) and those made of text with type ([`unicode`](https://docs.python.org/2/library/functions.html#unicode)).
 
 In Python 2, an object of type `str` is always a byte sequence, but is commonly used for both text and binary data.
 
@@ -254,7 +245,7 @@ s = 'Café'           # type(s) == str (note the accented trailing e)
 
 ```
 
-Additionally, Python 3 added a [`bytes` object](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#func-bytes), suitable for binary "blobs" or writing to encoding-independent files.  To create a bytes object, you can prefix `b` to a string literal or call the string's `encode` method:
+Additionally, Python 3 added a [`bytes` object](https://docs.python.org/3/library/functions.html#func-bytes), suitable for binary &quot;blobs&quot; or writing to encoding-independent files.  To create a bytes object, you can prefix `b` to a string literal or call the string's `encode` method:
 
 ```
 # Or, if you really need a byte string:
@@ -280,20 +271,20 @@ u'Cafe' == 'Cafe'
 Python 2’s raw Unicode string prefix `ur` is not supported, however:
 
 ```
-&gt;&gt;&gt; ur'Café'
-  File "&lt;stdin&gt;", line 1
+>>> ur'Café'
+  File &quot;<stdin>&quot;, line 1
     ur'Café'
            ^
 SyntaxError: invalid syntax
 
 ```
 
-Note that you must [`encode`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/stdtypes.html#str.encode) a Python 3 text (`str`) object to convert it into a `bytes` representation of that text. The default encoding of this method is [UTF-8](http://web.archive.org/web/20170405224959/https://en.wikipedia.org/wiki/UTF-8).
+Note that you must [`encode`](https://docs.python.org/3/library/stdtypes.html#str.encode) a Python 3 text (`str`) object to convert it into a `bytes` representation of that text. The default encoding of this method is [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
 
-You can use [`decode`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/stdtypes.html#bytes.decode) to ask a `bytes` object for what Unicode text it represents:
+You can use [`decode`](https://docs.python.org/3/library/stdtypes.html#bytes.decode) to ask a `bytes` object for what Unicode text it represents:
 
 ```
-&gt;&gt;&gt; b.decode()
+>>> b.decode()
 'Café'
 
 ```
@@ -302,7 +293,7 @@ While the `bytes` type exists in both Python 2 and 3, the `unicode` type only ex
 
 ```
 from __future__ import unicode_literals
-print(repr("hi"))
+print(repr(&quot;hi&quot;))
 # u'hi'
 
 ```
@@ -310,24 +301,24 @@ print(repr("hi"))
 Another important difference is that indexing bytes in Python 3 results in an `int` output like so:
 
 ```
-b"abc"[0] == 97
+b&quot;abc&quot;[0] == 97
 
 ```
 
 Whilst slicing in a size of one results in a length 1 bytes object:
 
 ```
-b"abc"[0:1] == b"a"
+b&quot;abc&quot;[0:1] == b&quot;a&quot;
 
 ```
 
-In addition, Python 3 [fixes some unusual behavior](http://web.archive.org/web/20170405224959/https://eev.ee/blog/2016/11/23/a-rebuttal-for-python-3/) with unicode, i.e. reversing byte strings in Python 2.  For example, the [following issue](http://web.archive.org/web/20170405224959/https://stackoverflow.com/questions/34015615/python-reversing-an-utf-8-string) is resolved:
+In addition, Python 3 [fixes some unusual behavior](https://eev.ee/blog/2016/11/23/a-rebuttal-for-python-3/) with unicode, i.e. reversing byte strings in Python 2.  For example, the [following issue](https://stackoverflow.com/questions/34015615/python-reversing-an-utf-8-string) is resolved:
 
 ```
 # -*- coding: utf8 -*-
-print("Hi, my name is Łukasz Langa.")
-print(u"Hi, my name is Łukasz Langa."[::-1])
-print("Hi, my name is Łukasz Langa."[::-1])
+print(&quot;Hi, my name is Łukasz Langa.&quot;)
+print(u&quot;Hi, my name is Łukasz Langa.&quot;[::-1])
+print(&quot;Hi, my name is Łukasz Langa.&quot;[::-1])
 
 # Output in Python 2
 # Hi, my name is Łukasz Langa.
@@ -346,38 +337,35 @@ print("Hi, my name is Łukasz Langa."[::-1])
 ## Print statement vs. Print function
 
 
-In Python 2, [`print`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#print) is a statement:
+In Python 2, [`print`](https://docs.python.org/2/library/functions.html#print) is a statement:
 
 ```
-print "Hello World"
+print &quot;Hello World&quot;
 print                         # print a newline
-print "No newline",           # add trailing comma to remove newline 
-print &gt;&gt;sys.stderr, "Error"   # print to stderr
-print("hello")                # print "hello", since ("hello") == "hello"
-print()                       # print an empty tuple "()"
-print 1, 2, 3                 # print space-separated arguments: "1 2 3"
-print(1, 2, 3)                # print tuple "(1, 2, 3)"
+print &quot;No newline&quot;,           # add trailing comma to remove newline 
+print >>sys.stderr, &quot;Error&quot;   # print to stderr
+print(&quot;hello&quot;)                # print &quot;hello&quot;, since (&quot;hello&quot;) == &quot;hello&quot;
+print()                       # print an empty tuple &quot;()&quot;
+print 1, 2, 3                 # print space-separated arguments: &quot;1 2 3&quot;
+print(1, 2, 3)                # print tuple &quot;(1, 2, 3)&quot;
 
 ```
 
-In Python 3, [`print()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#print) is a function, with keyword arguments for common uses:
+In Python 3, [`print()`](https://docs.python.org/3/library/functions.html#print) is a function, with keyword arguments for common uses:
 
 ```
-print "Hello World"              # SyntaxError
-print("Hello World")
+print &quot;Hello World&quot;              # SyntaxError
+print(&quot;Hello World&quot;)
 print()                          # print a newline (must use parentheses)
-print("No newline", end="")      # end specifies what to append (defaults to newline)
-print("Error", file=sys.stderr)  # file specifies the output buffer
-print("Comma", "separated", "output", sep=",")  # sep specifies the separator
-print("A", "B", "C", sep="")     # null string for sep: prints as ABC
-print("Flush this", flush=True)  # flush the output buffer, added in Python 3.3
-print(1, 2, 3)                   # print space-separated arguments: "1 2 3"
-print((1, 2, 3))                 # print tuple "(1, 2, 3)"
+print(&quot;No newline&quot;, end=&quot;&quot;)      # end specifies what to append (defaults to newline)
+print(&quot;Error&quot;, file=sys.stderr)  # file specifies the output buffer
+print(&quot;Comma&quot;, &quot;separated&quot;, &quot;output&quot;, sep=&quot;,&quot;)  # sep specifies the separator
+print(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, sep=&quot;&quot;)     # null string for sep: prints as ABC
+print(&quot;Flush this&quot;, flush=True)  # flush the output buffer, added in Python 3.3
+print(1, 2, 3)                   # print space-separated arguments: &quot;1 2 3&quot;
+print((1, 2, 3))                 # print tuple &quot;(1, 2, 3)&quot;
 
 ```
-
----
-
 
 The print function has the following parameters:
 
@@ -410,7 +398,7 @@ print('bar')
 
 ```
 
-**Note :** For future compatibility, [`print`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#print) **function** is also available in Python 2.6 onwards; however it cannot be used unless parsing of the `print` **statement** is disabled with
+**Note :** For future compatibility, [`print`](https://docs.python.org/2/library/functions.html#print) **function** is also available in Python 2.6 onwards; however it cannot be used unless parsing of the `print` **statement** is disabled with
 
 ```
 from __future__ import print_function
@@ -419,14 +407,14 @@ from __future__ import print_function
 
 This function has exactly same format as Python 3's, except that it lacks the `flush` parameter.
 
-See PEP [3105](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-3105/) for rationale.
+See PEP [3105](https://www.python.org/dev/peps/pep-3105/) for rationale.
 
 
 
 ## Differences between range and xrange functions
 
 
-In Python 2, [`range`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#range) function returns a list while [`xrange`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#xrange) creates a special `xrange` object, which is an immutable sequence, which unlike other built-in sequence types, doesn't support slicing and has neither `index` nor `count` methods:
+In Python 2, [`range`](https://docs.python.org/2/library/functions.html#range) function returns a list while [`xrange`](https://docs.python.org/2/library/functions.html#xrange) creates a special `xrange` object, which is an immutable sequence, which unlike other built-in sequence types, doesn't support slicing and has neither `index` nor `count` methods:
 
 ```
 print(range(1, 10))
@@ -443,7 +431,7 @@ print(isinstance(xrange(1, 10), xrange))
 
 ```
 
-In Python 3, `xrange` was expanded to the [`range`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#func-range) sequence, which thus now creates a `range` object. There is no `xrange` type:
+In Python 3, `xrange` was expanded to the [`range`](https://docs.python.org/3/library/functions.html#func-range) sequence, which thus now creates a `range` object. There is no `xrange` type:
 
 ```
 print(range(1, 10))
@@ -455,7 +443,7 @@ print(isinstance(range(1, 10), range))
 # print(xrange(1, 10))
 # The output will be:
 #Traceback (most recent call last):
-#  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+#  File &quot;<stdin>&quot;, line 1, in <module>
 #NameError: name 'xrange' is not defined
 
 ```
@@ -472,16 +460,13 @@ print(range(1, 10).index(7))
 
 ```
 
----
-
-
 The advantage of using a special sequence type instead of a list is that the interpreter does not have to allocate memory for a list and populate it:
 
 ```
 # range(10000000000000000)
 # The output would be:
 # Traceback (most recent call last):
-#  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+#  File &quot;<stdin>&quot;, line 1, in <module>
 # MemoryError
 
 print(xrange(100000000000000000))
@@ -498,12 +483,9 @@ print(list(range(1, 10)))
 
 ```
 
----
-
-
 ### Compatibility
 
-In order to maintain compatibility between both Python 2.x and Python 3.x versions, you can use the [`builtins`](http://web.archive.org/web/20170405224959/http://python-future.org/compatible_idioms.html#xrange) module from the external package [`future`](http://web.archive.org/web/20170405224959/http://python-future.org/) to achieve both **forward-compatiblity** and **backward-compatiblity**:
+In order to maintain compatibility between both Python 2.x and Python 3.x versions, you can use the [`builtins`](http://python-future.org/compatible_idioms.html#xrange) module from the external package [`future`](http://python-future.org/) to achieve both **forward-compatiblity** and **backward-compatiblity**:
 
 ```
 #forward-compatible
@@ -534,7 +516,7 @@ This is the Python 2 syntax, note the commas `,` on the `raise` and `except` lin
 
 ```
 try:
-    raise IOError, "input/output error"
+    raise IOError, &quot;input/output error&quot;
 except IOError, exc:
     print exc
 
@@ -544,7 +526,7 @@ In Python 3, the `,` syntax is dropped and replaced by parenthesis and the `as` 
 
 ```
 try:
-    raise IOError("input/output error")
+    raise IOError(&quot;input/output error&quot;)
 except IOError as exc:
     print(exc)
 
@@ -552,10 +534,7 @@ except IOError as exc:
 
 For backwards compatibility, the Python 3 syntax is also available in Python 2.6 onwards, so it should be used for all new code that does not need to be compatible with previous versions.
 
----
-
-
-Python 3 also adds [exception chaining](http://web.archive.org/web/20170405224959/http://stackoverflow.com/documentation/python/1788/exceptions/5533/chain-exceptions-with-raise-from#t=201608030127064987456), wherein you can signal that some other exception was the **cause** for this exception. For example
+Python 3 also adds [exception chaining](http://stackoverflow.com/documentation/python/1788/exceptions/5533/chain-exceptions-with-raise-from#t=201608030127064987456), wherein you can signal that some other exception was the **cause** for this exception. For example
 
 ```
 try:
@@ -569,13 +548,13 @@ The exception raised in the `except` statement is of type `DatabaseError`, but t
 
 ```
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 2, in <module>
 FileNotFoundError
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 4, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 4, in <module>
 DatabaseError('Cannot open database.db')
 
 ```
@@ -594,13 +573,13 @@ The traceback is
 
 ```
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 2, in <module>
 FileNotFoundError
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 4, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 4, in <module>
 DatabaseError('Cannot open database.db')
 
 ```
@@ -616,13 +595,13 @@ try:
     funcWithError()
 except:
     sys_vers = getattr(sys, 'version_info', (0,))
-    if sys_vers &lt; (3, 0):
+    if sys_vers < (3, 0):
         traceback.print_exc()
-    raise Exception("new exception")
+    raise Exception(&quot;new exception&quot;)
 
 ```
 
-To "forget" the previously thrown exception, use `raise from None`
+To &quot;forget&quot; the previously thrown exception, use `raise from None`
 
 ```
 try:
@@ -636,12 +615,12 @@ Now the traceback would simply be
 
 ```
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 4, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 4, in <module>
 DatabaseError('Cannot open database.db')
 
 ```
 
-Or in order to make it compatible with both Python 2 and 3 you may use the [six](http://web.archive.org/web/20170405224959/https://pythonhosted.org/six) package like so:
+Or in order to make it compatible with both Python 2 and 3 you may use the [six](https://pythonhosted.org/six) package like so:
 
 ```
 import six
@@ -679,9 +658,9 @@ print(x)
 
 ```
 
-As can be seen from the example, for `Python2` the value of `x` was leaked: it masked `hello world!` and printed out `U`, since this was the last value of x when the loop ended.
+As can be seen from the example, in Python 2 the value of `x` was leaked: it masked `hello world!` and printed out `U`, since this was the last value of `x` when the loop ended.
 
-However, in `Python3` `x` prints the orignally defined `hello world!`, since the local variable from the list comprehension does not mask variables from the surrounding scope.
+However, in Python 3 `x` prints the originally defined `hello world!`, since the local variable from the list comprehension does not mask variables from the surrounding scope.
 
 Additionally, neither generator expressions (available in Python since 2.5) nor dictionary or set comprehensions (which were backported to Python 2.7 from Python 3) leak variables in Python 2.
 
@@ -729,60 +708,6 @@ None = None  # SyntaxError: can't assign to keyword
 
 
 
-## Comparison of different types
-
-
-Objects of different types can be compared. The results are arbitrary, but consistent. They are ordered such that `None` is less than anything else, numeric types are smaller than non-numeric types, and everything else is ordered lexicographically by type. Thus, an `int` is less than a `str` and a `tuple` is greater than a `list`:
-
-```
-[1, 2] &gt; 'foo'
-# Out: False
-(1, 2) &gt; 'foo'
-# Out: True
-[1, 2] &gt; (1, 2)
-# Out: False
-100 &lt; [1, 'x'] &lt; 'xyz' &lt; (1, 'x')
-# Out: True
-
-```
-
-This was originally done so a list of mixed types could be sorted and objects would be grouped together by type:
-
-```
-l = [7, 'x', (1, 2), [5, 6], 5, 8.0, 'y', 1.2, [7, 8], 'z']
-sorted(l)
-# Out: [1.2, 5, 7, 8.0, [5, 6], [7, 8], 'x', 'y', 'z', (1, 2)]
-
-```
-
-An exception is raised when comparing different (non-numeric) types:
-
-```
-1 &lt; 1.5
-# Out: True
-
-[1, 2] &gt; 'foo'
-# TypeError: unorderable types: list() &gt; str()
-(1, 2) &gt; 'foo'
-# TypeError: unorderable types: tuple() &gt; str()
-[1, 2] &gt; (1, 2)
-# TypeError: unorderable types: list() &gt; tuple()
-
-```
-
-To sort mixed lists in Python 3 by types and to achieve compatibility between versions, you have to provide a key to the sorted function:
-
-```
-&gt;&gt;&gt; list = [1, 'hello', [3, 4], {'python': 2}, 'stackoverflow', 8, {'python': 3}, [5, 6]]
-&gt;&gt;&gt; sorted(list, key=str)
-# Out: [1, 8, [3, 4], [5, 6], 'hello', 'stackoverflow', {'python': 2}, {'python': 3}]
-
-```
-
-Using `str` as the `key` function temporarily converts each item to a string only for the purposes of comparison. It then sees the string representation starting with either `[`, `'`, `{` or `0-9` and it's able to sort those (and all the following characters).
-
-
-
 ## User Input
 
 
@@ -814,37 +739,57 @@ except NameError:
 
 
 
-## Removed operators <> and ``, synonymous with != and repr()
+## Comparison of different types
 
 
-In Python 2, `&lt;&gt;` is a synonym for `!=`; likewise, ``foo`` is a synonym for `repr(foo)`.
-
-```
-&gt;&gt;&gt; 1 &lt;&gt; 2
-True
-&gt;&gt;&gt; 1 &lt;&gt; 1
-False
-&gt;&gt;&gt; foo = 'hello world'
-&gt;&gt;&gt; repr(foo)
-"'hello world'"
-&gt;&gt;&gt; `foo`
-"'hello world'"
+Objects of different types can be compared. The results are arbitrary, but consistent. They are ordered such that `None` is less than anything else, numeric types are smaller than non-numeric types, and everything else is ordered lexicographically by type. Thus, an `int` is less than a `str` and a `tuple` is greater than a `list`:
 
 ```
+[1, 2] > 'foo'
+# Out: False
+(1, 2) > 'foo'
+# Out: True
+[1, 2] > (1, 2)
+# Out: False
+100 < [1, 'x'] < 'xyz' < (1, 'x')
+# Out: True
 
 ```
-&gt;&gt;&gt; 1 &lt;&gt; 2
-  File "&lt;stdin&gt;", line 1
-    1 &lt;&gt; 2
-       ^
-SyntaxError: invalid syntax
-&gt;&gt;&gt; `foo`
-  File "&lt;stdin&gt;", line 1
-    `foo`
-    ^
-SyntaxError: invalid syntax
+
+This was originally done so a list of mixed types could be sorted and objects would be grouped together by type:
 
 ```
+l = [7, 'x', (1, 2), [5, 6], 5, 8.0, 'y', 1.2, [7, 8], 'z']
+sorted(l)
+# Out: [1.2, 5, 7, 8.0, [5, 6], [7, 8], 'x', 'y', 'z', (1, 2)]
+
+```
+
+An exception is raised when comparing different (non-numeric) types:
+
+```
+1 < 1.5
+# Out: True
+
+[1, 2] > 'foo'
+# TypeError: unorderable types: list() > str()
+(1, 2) > 'foo'
+# TypeError: unorderable types: tuple() > str()
+[1, 2] > (1, 2)
+# TypeError: unorderable types: list() > tuple()
+
+```
+
+To sort mixed lists in Python 3 by types and to achieve compatibility between versions, you have to provide a key to the sorted function:
+
+```
+>>> list = [1, 'hello', [3, 4], {'python': 2}, 'stackoverflow', 8, {'python': 3}, [5, 6]]
+>>> sorted(list, key=str)
+# Out: [1, 8, [3, 4], [5, 6], 'hello', 'stackoverflow', {'python': 2}, {'python': 3}]
+
+```
+
+Using `str` as the `key` function temporarily converts each item to a string only for the purposes of comparison. It then sees the string representation starting with either `[`, `'`, `{` or `0-9` and it's able to sort those (and all the following characters).
 
 
 
@@ -875,82 +820,6 @@ This code is portable across versions from 2.6 through to current releases.
 
 
 
-## filter(), map() and zip() return iterators instead of sequences
-
-
-In Python 2 [`filter`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#filter), [`map`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#map) and [`zip`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#zip) built-in functions return a sequence. `map` and `zip` always return a list while with `filter` the return type depends on the type of given parameter:
-
-```
-&gt;&gt;&gt; s = filter(lambda x: x.isalpha(), 'a1b2c3')
-&gt;&gt;&gt; s
-'abc'
-&gt;&gt;&gt; s = map(lambda x: x * x, [0, 1, 2])
-&gt;&gt;&gt; s
-[0, 1, 4]
-&gt;&gt;&gt; s = zip([0, 1, 2], [3, 4, 5])
-&gt;&gt;&gt; s
-[(0, 3), (1, 4), (2, 5)]
-
-```
-
-In Python 3 [`filter`](http://web.archive.org/web/20170405224959/https://docs.python.org/3.5/library/functions.html#filter), [`map`](http://web.archive.org/web/20170405224959/https://docs.python.org/3.5/library/functions.html#map) and [`zip`](http://web.archive.org/web/20170405224959/https://docs.python.org/3.5/library/functions.html#zip) return iterator instead:
-
-```
-&gt;&gt;&gt; it = filter(lambda x: x.isalpha(), 'a1b2c3')
-&gt;&gt;&gt; it
-&lt;filter object at 0x00000098A55C2518&gt;
-&gt;&gt;&gt; ''.join(it)
-'abc'
-&gt;&gt;&gt; it = map(lambda x: x * x, [0, 1, 2])
-&gt;&gt;&gt; it
-&lt;map object at 0x000000E0763C2D30&gt;
-&gt;&gt;&gt; list(it)
-[0, 1, 4]
-&gt;&gt;&gt; it = zip([0, 1, 2], [3, 4, 5])
-&gt;&gt;&gt; it
-&lt;zip object at 0x000000E0763C52C8&gt;
-&gt;&gt;&gt; list(it)
-[(0, 3), (1, 4), (2, 5)]
-
-```
-
-Since Python 2 [`itertools.izip`](http://web.archive.org/web/20170405224959/https://docs.python.org/2.7/library/itertools.html#itertools.izip) is equivalent of Python 3 `zip` `izip` has been removed on Python 3.
-
-
-
-## long vs. int
-
-
-In Python 2, any integer larger than a C `ssize_t` would be converted into the `long` data type, indicated by an `L` suffix on the literal. For example, on a 32 bit build of Python:
-
-```
-&gt;&gt;&gt; 2**31
-2147483648L
-&gt;&gt;&gt; type(2**31)
-&lt;type 'long'&gt;
-&gt;&gt;&gt; 2**30
-1073741824
-&gt;&gt;&gt; type(2**30)
-&lt;type 'int'&gt;
-&gt;&gt;&gt; 2**31 - 1  # 2**31 is long and long - int is long
-2147483647L
-
-```
-
-However, in Python 3, the `long` data type was removed; no matter how big the integer is, it will be an `int`.
-
-```
-2**1024
-# Output: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
-print(-(2**1024))
-# Output: -179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
-type(2**1024)
-# Output: &lt;class 'int'&gt;
-
-```
-
-
-
 ## Renamed modules
 
 
@@ -974,7 +843,117 @@ Some modules have even been converted from files to libraries. Take tkinter and 
 
 ### Compatibility
 
-When maintaining compatibility between both Python 2.x and 3.x versions, you can use the [`future` external package](http://web.archive.org/web/20170405224959/http://python-future.org/imports.html#standard-library-imports) to enable importing top-level standard library packages with Python 3.x names on Python 2.x versions.
+When maintaining compatibility between both Python 2.x and 3.x versions, you can use the [`future` external package](http://python-future.org/imports.html#standard-library-imports) to enable importing top-level standard library packages with Python 3.x names on Python 2.x versions.
+
+
+
+## filter(), map() and zip() return iterators instead of sequences
+
+
+In Python 2 [`filter`](https://docs.python.org/2/library/functions.html#filter), [`map`](https://docs.python.org/2/library/functions.html#map) and [`zip`](https://docs.python.org/2/library/functions.html#zip) built-in functions return a sequence. `map` and `zip` always return a list while with `filter` the return type depends on the type of given parameter:
+
+```
+>>> s = filter(lambda x: x.isalpha(), 'a1b2c3')
+>>> s
+'abc'
+>>> s = map(lambda x: x * x, [0, 1, 2])
+>>> s
+[0, 1, 4]
+>>> s = zip([0, 1, 2], [3, 4, 5])
+>>> s
+[(0, 3), (1, 4), (2, 5)]
+
+```
+
+In Python 3 [`filter`](https://docs.python.org/3.5/library/functions.html#filter), [`map`](https://docs.python.org/3.5/library/functions.html#map) and [`zip`](https://docs.python.org/3.5/library/functions.html#zip) return iterator instead:
+
+```
+>>> it = filter(lambda x: x.isalpha(), 'a1b2c3')
+>>> it
+<filter object at 0x00000098A55C2518>
+>>> ''.join(it)
+'abc'
+>>> it = map(lambda x: x * x, [0, 1, 2])
+>>> it
+<map object at 0x000000E0763C2D30>
+>>> list(it)
+[0, 1, 4]
+>>> it = zip([0, 1, 2], [3, 4, 5])
+>>> it
+<zip object at 0x000000E0763C52C8>
+>>> list(it)
+[(0, 3), (1, 4), (2, 5)]
+
+```
+
+Since Python 2 [`itertools.izip`](https://docs.python.org/2.7/library/itertools.html#itertools.izip) is equivalent of Python 3 `zip` `izip` has been removed on Python 3.
+
+
+
+## Removed operators <> and ``, synonymous with != and repr()
+
+
+In Python 2, `<>` is a synonym for `!=`; likewise, ``foo`` is a synonym for `repr(foo)`.
+
+```
+>>> 1 <> 2
+True
+>>> 1 <> 1
+False
+>>> foo = 'hello world'
+>>> repr(foo)
+&quot;'hello world'&quot;
+>>> `foo`
+&quot;'hello world'&quot;
+
+```
+
+```
+>>> 1 <> 2
+  File &quot;<stdin>&quot;, line 1
+    1 <> 2
+       ^
+SyntaxError: invalid syntax
+>>> `foo`
+  File &quot;<stdin>&quot;, line 1
+    `foo`
+    ^
+SyntaxError: invalid syntax
+
+```
+
+
+
+## long vs. int
+
+
+In Python 2, any integer larger than a C `ssize_t` would be converted into the `long` data type, indicated by an `L` suffix on the literal. For example, on a 32 bit build of Python:
+
+```
+>>> 2**31
+2147483648L
+>>> type(2**31)
+<type 'long'>
+>>> 2**30
+1073741824
+>>> type(2**30)
+<type 'int'>
+>>> 2**31 - 1  # 2**31 is long and long - int is long
+2147483647L
+
+```
+
+However, in Python 3, the `long` data type was removed; no matter how big the integer is, it will be an `int`.
+
+```
+2**1024
+# Output: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
+print(-(2**1024))
+# Output: -179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
+type(2**1024)
+# Output: <class 'int'>
+
+```
 
 
 
@@ -983,14 +962,14 @@ When maintaining compatibility between both Python 2.x and 3.x versions, you can
 
 In Python 2, `reduce` is available either as a built-in function or from the `functools` package (version 2.6 onwards), whereas in Python 3 `reduce` is available only from `functools`. However the syntax for `reduce` in both Python2 and Python3 is the same and is `reduce(function_to_reduce, list_to_reduce)`.
 
-As an example, let us consider reducing a list to a single value by dividing each of the adjacent numbers. Here we use [`truediv`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/operator.html#operator.truediv) function from the `operator` library.
+As an example, let us consider reducing a list to a single value by dividing each of the adjacent numbers. Here we use [`truediv`](https://docs.python.org/2/library/operator.html#operator.truediv) function from the `operator` library.
 
 In Python 2.x it is as simple as:
 
 ```
-&gt;&gt;&gt; my_list = [1, 2, 3, 4, 5]
-&gt;&gt;&gt; import operator
-&gt;&gt;&gt; reduce(operator.truediv, my_list)
+>>> my_list = [1, 2, 3, 4, 5]
+>>> import operator
+>>> reduce(operator.truediv, my_list)
 0.008333333333333333
 
 ```
@@ -998,9 +977,9 @@ In Python 2.x it is as simple as:
 In Python 3.x the example becomes a bit more complicated:
 
 ```
-&gt;&gt;&gt; my_list = [1, 2, 3, 4, 5]
-&gt;&gt;&gt; import operator, functools
-&gt;&gt;&gt; functools.reduce(operator.truediv, my_list)
+>>> my_list = [1, 2, 3, 4, 5]
+>>> import operator, functools
+>>> functools.reduce(operator.truediv, my_list)
 0.008333333333333333
 
 ```
@@ -1023,10 +1002,10 @@ class Y(object): pass
 Both of these classes now contain `object` in their `mro` (method resolution order):
 
 ```
-&gt;&gt;&gt; X.__mro__
+>>> X.__mro__
 (__main__.X, object)
 
-&gt;&gt;&gt; Y.__mro__
+>>> Y.__mro__
 (__main__.Y, object)
 
 ```
@@ -1042,8 +1021,8 @@ class Y(object): pass
 In this case, if we try to print the `__mro__` of `Y`, similar output as that in the Python `3.x` case will appear:
 
 ```
-&gt;&gt;&gt; Y.__mro__
-(&lt;class '__main__.Y'&gt;, &lt;type 'object'&gt;)
+>>> Y.__mro__
+(<class '__main__.Y'>, <type 'object'>)
 
 ```
 
@@ -1053,7 +1032,7 @@ In order to **ensure compatibility** between both versions of Python, classes ca
 
 ```
 class mycls(object):
-    """I am fully compatible with Python 2/3"""
+    &quot;&quot;&quot;I am fully compatible with Python 2/3&quot;&quot;&quot;
 
 ```
 
@@ -1063,81 +1042,7 @@ Alternatively, if the `__metaclass__` variable is set to `type` at global scope,
 __metaclass__ = type
 
 class mycls:
-    """I am also fully compatible with Python 2/3"""
-
-```
-
-
-
-## map()
-
-
-`map()` is a builtin that is useful for applying a function to elements of an iterable.  In Python 2, `map` returns a list. In Python 3, `map` returns a **map object**, which is a generator.
-
-```
-# Python 2.X
-&gt;&gt;&gt; map(str, [1, 2, 3, 4, 5])
-['1', '2', '3', '4', '5']
-&gt;&gt;&gt; type(_)
-&gt;&gt;&gt; &lt;class 'list'&gt;
-
-# Python 3.X
-&gt;&gt;&gt; map(str, [1, 2, 3, 4, 5])
-&lt;map object at 0x*&gt;
-&gt;&gt;&gt; type(_)
-&lt;class 'map'&gt;
-
-# We need to apply map again because we "consumed" the previous map....
-&gt;&gt;&gt; map(str, [1, 2, 3, 4, 5])
-&gt;&gt;&gt; list(_)
-['1', '2', '3', '4', '5']
-
-```
-
-In Python 2, you can pass `None` to serve as an identity function. This no longer works in Python 3.
-
-```
-&gt;&gt;&gt; map(None, [0, 1, 2, 3, 0, 4])
-[0, 1, 2, 3, 0, 4]
-
-```
-
-```
-&gt;&gt;&gt; list(map(None, [0, 1, 2, 3, 0, 5]))
-Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-TypeError: 'NoneType' object is not callable
-
-```
-
-Moreover, when passing more than one iterable as argument in Python 2, `map` pads the shorter iterables with `None` (similar to `itertools.izip_longest`).  In Python 3, iteration stops after the shortest iterable.
-
-In Python 2:
-
-```
-&gt;&gt;&gt; map(None, [1, 2, 3], [1, 2], [1, 2, 3, 4, 5])
-[(1, 1, 1), (2, 2, 2), (3, None, 3), (None, None, 4), (None, None, 5)]
-
-```
-
-In Python 3:
-
-```
-&gt;&gt;&gt; list(map(lambda x, y, z: (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4, 5]))
-[(1, 1, 1), (2, 2, 2)]
-
-# to obtain the same padding as in Python 2 use zip_longest from itertools
-&gt;&gt;&gt; import itertools
-&gt;&gt;&gt; list(itertools.zip_longest([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]))
-[(1, 1, 1), (2, 2, 2), (3, None, 3), (None, None, 4), (None, None, 5)]
-
-```
-
-**Note**: instead of `map` consider using list comprehensions, which are Python 2/3 compatible. Replacing `map(str, [1, 2, 3, 4, 5])`:
-
-```
-&gt;&gt;&gt; [str(i) for i in [1, 2, 3, 4, 5]]
-['1', '2', '3', '4', '5']
+    &quot;&quot;&quot;I am also fully compatible with Python 2/3&quot;&quot;&quot;
 
 ```
 
@@ -1146,15 +1051,12 @@ In Python 3:
 ## Absolute/Relative Imports
 
 
-In Python 3, [PEP 404](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-0404/#id18) changes the way imports work from Python 2. **Implicit relative** imports are no longer allowed in packages and `from ... import *` imports are only allowed in module level code.
+In Python 3, [PEP 404](https://www.python.org/dev/peps/pep-0404/#id18) changes the way imports work from Python 2. **Implicit relative** imports are no longer allowed in packages and `from ... import *` imports are only allowed in module level code.
 
 To achieve Python 3 behavior in Python 2:
 
-- the [absolute imports](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-0328/) feature can be enabled with `from __future__ import absolute_import`
+- the [absolute imports](https://www.python.org/dev/peps/pep-0328/) feature can be enabled with `from __future__ import absolute_import`
 - **explicit relative** imports are encouraged in place of **implicit relative** imports
-
----
-
 
 For clarification, in Python 2, a module can import the contents of another module located in the same directory as follows:
 
@@ -1163,7 +1065,7 @@ import foo
 
 ```
 
-Notice the location of `foo` is ambiguous from the import statement alone.  This type of implicit relative import is thus discouraged in favor of [explicit relative imports](http://web.archive.org/web/20170405224959/https://www.python.org/dev/peps/pep-0328/#guido-s-decision), which look like the following:
+Notice the location of `foo` is ambiguous from the import statement alone.  This type of implicit relative import is thus discouraged in favor of [explicit relative imports](https://www.python.org/dev/peps/pep-0328/#guido-s-decision), which look like the following:
 
 ```
 from .moduleY import spam
@@ -1179,59 +1081,149 @@ from ...sys import path
 
 The dot `.` allows an explicit declaration of the module location within the directory tree.
 
+### More on Relative Imports
 
-
-## Branching based on Python version
-
-
-If you need to execute different code for different Python versions, then do consider that in time be a Python 4 with which your code could be compatible. Thus, for version tests, test whether the current version is Python 2, or greater than Python 2. It is common to define two variables `PY2` and `PY3` where `PY2` is true for Pythons 2 (and 1 and 0.x), and `PY3` for versions 3.0 and up:
+Consider some user defined package called `shapes`. The directory structure is as follows:
 
 ```
-import sys
-PY2 = sys.version_info &lt; (3,)
-PY3 = not PY2
-
-```
-
-Some guides advocate the way <s>`PY3 = sys.version_info[0] == 3`</s>, but it will break whenever Python 4 is released.
-
-Then you can use for example
-
-```
-if PY2:
-    text_type = unicode
-else:
-    text_type = str
+shapes
+├── __init__.py
+|
+├── circle.py
+|
+├── square.py
+|
+└── triangle.py
 
 ```
 
----
-
-
-You shouldn't branch everywhere but instead refactor your code so that a whole function definition is changed based on whether 2 or 3 is in use. Thus do not write
+`circle.py`, `square.py` and `triangle.py` all import `util.py` as a module. How will they refer to a module in the same level?
 
 ```
-def my_func():
-    if PY2:
-        # Python 2 way
-    else:
-        # Python 3 way
+ from . import util # use util.PI, util.sq(x), etc
 
 ```
 
-but rather
+OR
 
 ```
-if PY2:
-    def my_func():
-        # Python 2 way
-else:
-    def my_func():
-        # Python 3 way
+ from .util import * #use PI, sq(x), etc to call functions
 
 ```
 
-Meanwhile, defining an exact function according to the version instead of judging the version in the function itself will increase the modularity and the readability of the code.
+The `.` is used for same-level relative imports.
+
+Now, consider an alternate layout of the `shapes` module:
+
+```
+shapes
+├── __init__.py
+|
+├── circle
+│   ├── __init__.py
+│   └── circle.py
+|
+├── square
+│   ├── __init__.py
+│   └── square.py
+|
+├── triangle
+│   ├── __init__.py
+│   ├── triangle.py
+|
+└── util.py
+
+```
+
+Now, how will these 3 classes refer to util.py?
+
+```
+ from .. import util # use util.PI, util.sq(x), etc
+
+```
+
+OR
+
+```
+ from ..util import * # use PI, sq(x), etc to call functions
+
+```
+
+The `..` is used for parent-level relative imports. Add more `.`s with number of levels between the parent and child.
+
+
+
+## map()
+
+
+`map()` is a builtin that is useful for applying a function to elements of an iterable.  In Python 2, `map` returns a list. In Python 3, `map` returns a **map object**, which is a generator.
+
+```
+# Python 2.X
+>>> map(str, [1, 2, 3, 4, 5])
+['1', '2', '3', '4', '5']
+>>> type(_)
+>>> <class 'list'>
+
+# Python 3.X
+>>> map(str, [1, 2, 3, 4, 5])
+<map object at 0x*>
+>>> type(_)
+<class 'map'>
+
+# We need to apply map again because we &quot;consumed&quot; the previous map....
+>>> map(str, [1, 2, 3, 4, 5])
+>>> list(_)
+['1', '2', '3', '4', '5']
+
+```
+
+In Python 2, you can pass `None` to serve as an identity function. This no longer works in Python 3.
+
+```
+>>> map(None, [0, 1, 2, 3, 0, 4])
+[0, 1, 2, 3, 0, 4]
+
+```
+
+```
+>>> list(map(None, [0, 1, 2, 3, 0, 5]))
+Traceback (most recent call last):
+  File &quot;<stdin>&quot;, line 1, in <module>
+TypeError: 'NoneType' object is not callable
+
+```
+
+Moreover, when passing more than one iterable as argument in Python 2, `map` pads the shorter iterables with `None` (similar to `itertools.izip_longest`).  In Python 3, iteration stops after the shortest iterable.
+
+In Python 2:
+
+```
+>>> map(None, [1, 2, 3], [1, 2], [1, 2, 3, 4, 5])
+[(1, 1, 1), (2, 2, 2), (3, None, 3), (None, None, 4), (None, None, 5)]
+
+```
+
+In Python 3:
+
+```
+>>> list(map(lambda x, y, z: (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4, 5]))
+[(1, 1, 1), (2, 2, 2)]
+
+# to obtain the same padding as in Python 2 use zip_longest from itertools
+>>> import itertools
+>>> list(itertools.zip_longest([1, 2, 3], [1, 2], [1, 2, 3, 4, 5]))
+[(1, 1, 1), (2, 2, 2), (3, None, 3), (None, None, 4), (None, None, 5)]
+
+```
+
+**Note**: instead of `map` consider using list comprehensions, which are Python 2/3 compatible. Replacing `map(str, [1, 2, 3, 4, 5])`:
+
+```
+>>> [str(i) for i in [1, 2, 3, 4, 5]]
+['1', '2', '3', '4', '5']
+
+```
 
 
 
@@ -1240,7 +1232,7 @@ Meanwhile, defining an exact function according to the version instead of judgin
 
 ### round() tie breaking
 
-In Python 2, using [`round()`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#round) on a number equally close to two integers will return the one furthest from 0. For example:
+In Python 2, using [`round()`](https://docs.python.org/2/library/functions.html#round) on a number equally close to two integers will return the one furthest from 0. For example:
 
 ```
 round(1.5)  # Out: 2.0
@@ -1250,7 +1242,7 @@ round(-1.5)  # Out: -2.0
 
 ```
 
-In Python 3 however, [`round()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#round) will return the even integer (aka **bankers' rounding**). For example:
+In Python 3 however, [`round()`](https://docs.python.org/3/library/functions.html#round) will return the even integer (aka **bankers' rounding**). For example:
 
 ```
 round(1.5)  # Out: 2
@@ -1260,16 +1252,13 @@ round(-1.5)  # Out: -2
 
 ```
 
-The round() function follows the [**half to even rounding**](http://web.archive.org/web/20170405224959/https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) strategy that will round half-way numbers to the nearest even integer  (for example, `round(2.5)` now returns 2 rather than 3.0).
+The round() function follows the [**half to even rounding**](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) strategy that will round half-way numbers to the nearest even integer  (for example, `round(2.5)` now returns 2 rather than 3.0).
 
-As per [reference in Wikipedia](http://web.archive.org/web/20170405224959/https://en.wikipedia.org/wiki/Rounding#Round_half_to_even), this is also known as **unbiased rounding**, **convergent rounding**, **statistician's rounding**, **Dutch rounding**, **Gaussian rounding**, or **odd-even rounding**.
+As per [reference in Wikipedia](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even), this is also known as **unbiased rounding**, **convergent rounding**, **statistician's rounding**, **Dutch rounding**, **Gaussian rounding**, or **odd-even rounding**.
 
-Half to even rounding is part of the [IEEE 754](http://web.archive.org/web/20170405224959/https://en.wikipedia.org/wiki/IEEE_floating_point#Roundings_to_nearest) standard and it's also the default rounding mode in Microsoft's .NET.
+Half to even rounding is part of the [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point#Roundings_to_nearest) standard and it's also the default rounding mode in Microsoft's .NET.
 
 This rounding strategy tends to reduce the total rounding error. Since on average the amount of numbers that are rounded up is the same as the amount of numbers that are rounded down, rounding errors cancel out. Other rounding methods instead tend to have an upwards or downwards bias in the average error.
-
----
-
 
 ### round() return type
 
@@ -1294,21 +1283,21 @@ round(4.8)
 ## cmp function removed in Python 3
 
 
-In Python 3 the [`cmp`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#cmp) built-in function was removed, together with the [`__cmp__`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/reference/datamodel.html#object.__cmp__) special method.
+In Python 3 the [`cmp`](https://docs.python.org/2/library/functions.html#cmp) built-in function was removed, together with the [`__cmp__`](https://docs.python.org/2/reference/datamodel.html#object.__cmp__) special method.
 
 From the documentation:
 
 > 
-The [`cmp()`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#cmp) function should be treated as gone, and the [`__cmp__()`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/reference/datamodel.html#object.__cmp__) special method is no longer supported. Use [`__lt__()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/reference/datamodel.html#object.__lt__) for sorting, [`__eq__()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/reference/datamodel.html#object.__eq__) with [`__hash__()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/reference/datamodel.html#object.__hash__), and other rich comparisons as needed. (If you really need the [`cmp()`](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/functions.html#cmp) functionality, you could use the expression `(a &gt; b) - (a &lt; b)` as the equivalent for `cmp(a, b)`.)
+The [`cmp()`](https://docs.python.org/2/library/functions.html#cmp) function should be treated as gone, and the [`__cmp__()`](https://docs.python.org/2/reference/datamodel.html#object.__cmp__) special method is no longer supported. Use [`__lt__()`](https://docs.python.org/3/reference/datamodel.html#object.__lt__) for sorting, [`__eq__()`](https://docs.python.org/3/reference/datamodel.html#object.__eq__) with [`__hash__()`](https://docs.python.org/3/reference/datamodel.html#object.__hash__), and other rich comparisons as needed. (If you really need the [`cmp()`](https://docs.python.org/2/library/functions.html#cmp) functionality, you could use the expression `(a > b) - (a < b)` as the equivalent for `cmp(a, b)`.)
 
 
 Moreover all built-in functions that accepted the `cmp` parameter now only accept the `key` keyword only parameter.
 
-In the [`functools`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functools.html) module there is also useful function [`cmp_to_key(func)`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functools.html#functools.cmp_to_key)
+In the [`functools`](https://docs.python.org/3/library/functools.html) module there is also useful function [`cmp_to_key(func)`](https://docs.python.org/3/library/functools.html#functools.cmp_to_key)
 that allows you to convert from a `cmp`-style function to a `key`-style function:
 
 > 
-Transform an old-style comparison function to a key function. Used with tools that accept key functions (such as [`sorted()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#sorted), [`min()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#min), [`max()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/functions.html#max), [`heapq.nlargest()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/heapq.html#heapq.nlargest), [`heapq.nsmallest()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/heapq.html#heapq.nsmallest), [`itertools.groupby()`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/itertools.html#itertools.groupby)). This function is primarily used as a transition tool for programs being converted from Python 2 which supported the use of comparison functions.
+Transform an old-style comparison function to a key function. Used with tools that accept key functions (such as [`sorted()`](https://docs.python.org/3/library/functions.html#sorted), [`min()`](https://docs.python.org/3/library/functions.html#min), [`max()`](https://docs.python.org/3/library/functions.html#max), [`heapq.nlargest()`](https://docs.python.org/3/library/heapq.html#heapq.nlargest), [`heapq.nsmallest()`](https://docs.python.org/3/library/heapq.html#heapq.nsmallest), [`itertools.groupby()`](https://docs.python.org/3/library/itertools.html#itertools.groupby)). This function is primarily used as a transition tool for programs being converted from Python 2 which supported the use of comparison functions.
 
 
 
@@ -1370,7 +1359,7 @@ In Python 2, writing directly to a file handle returns `None`:
 hi = sys.stdout.write('hello world\n')
 # Out: hello world
 type(hi)
-# Out: &lt;type 'NoneType'&gt;
+# Out: <type 'NoneType'>
 
 ```
 
@@ -1420,6 +1409,95 @@ and the latter forms are guaranteed to work identically in both Python 2 and Pyt
 
 
 
+## encode/decode to hex no longer available
+
+
+```
+&quot;1deadbeef3&quot;.decode('hex')
+# Out: '\x1d\xea\xdb\xee\xf3'
+'\x1d\xea\xdb\xee\xf3'.encode('hex')
+# Out: 1deadbeef3
+
+```
+
+```
+&quot;1deadbeef3&quot;.decode('hex')
+# Traceback (most recent call last):
+#   File &quot;<stdin>&quot;, line 1, in <module>
+# AttributeError: 'str' object has no attribute 'decode'
+
+b&quot;1deadbeef3&quot;.decode('hex')
+# Traceback (most recent call last):
+#   File &quot;<stdin>&quot;, line 1, in <module>
+# LookupError: 'hex' is not a text encoding; use codecs.decode() to handle arbitrary codecs
+
+'\x1d\xea\xdb\xee\xf3'.encode('hex')
+# Traceback (most recent call last):
+#   File &quot;<stdin>&quot;, line 1, in <module>
+# LookupError: 'hex' is not a text encoding; use codecs.encode() to handle arbitrary codecs
+
+b'\x1d\xea\xdb\xee\xf3'.encode('hex')
+# Traceback (most recent call last):
+#  File &quot;<stdin>&quot;, line 1, in <module>
+# AttributeError: 'bytes' object has no attribute 'encode'
+
+```
+
+However, as suggested by the error message, you can use the [`codecs`](https://docs.python.org/3/library/codecs.html) module to achieve the same result:
+
+```
+import codecs
+codecs.decode('1deadbeef4', 'hex')
+# Out: b'\x1d\xea\xdb\xee\xf4'
+codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex')
+# Out: b'1deadbeef4'
+
+```
+
+Note that [`codecs.encode`](https://docs.python.org/3/library/codecs.html#codecs.encode) returns a `bytes` object. To obtain a `str` object just `decode` to ASCII:
+
+```
+codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii')
+# Out: '1deadbeeff'
+
+```
+
+
+
+## Dictionary method changes
+
+
+In Python 3, many of the dictionary methods are quite different in behaviour from Python 2, and many were removed as well: `has_key`, `iter*` and `view*` are gone. Instead of `d.has_key(key)`, which had been long deprecated, one must now use `key in d`.
+
+In Python 2, dictionary methods `keys`, `values` and `items` return lists. In Python 3 they return **view** objects instead; the view objects are not iterators, and they differ from them in two ways, namely:
+
+- they have size (one can use the `len` function on them)
+- they can be iterated over many times
+
+Additionally, like with iterators, the changes in the dictionary are reflected in the view objects.
+
+Python 2.7 has backported these methods from Python 3; they're available as `viewkeys`, `viewvalues` and `viewitems`. To transform Python 2 code to Python 3 code, the corresponding forms are:
+
+- `d.keys()`, `d.values()` and `d.items()` of Python 2 should be changed to `list(d.keys())`, `list(d.values())` and `list(d.items())`
+- `d.iterkeys()`, `d.itervalues()` and `d.iteritems()` should be changed to `iter(d.keys())`, or even better, `iter(d)`; `iter(d.values())` and `iter(d.items())` respectively
+- and finally Python 2.7 method calls `d.viewkeys()`, `d.viewvalues()` and `d.viewitems()` can be replaced with `d.keys()`, `d.values()` and `d.items()`.
+
+Porting Python 2 code that **iterates** over dictionary keys, values or items while mutating it is sometimes tricky. Consider:
+
+```
+d = {'a': 0, 'b': 1, 'c': 2, '!': 3}
+for key in d.keys():
+    if key.isalpha():
+        del d[key]
+
+```
+
+The code looks as if it would work similarly in Python 3, but there the `keys` method returns a view object, not a list, and if the dictionary changes size while being iterated over, the Python 3 code will crash with `RuntimeError: dictionary changed size during iteration`. The solution is of course to properly write `for key in list(d)`.
+
+Similarly, view objects behave differently from iterators: one cannot use `next()` on them, and one cannot **resume** iteration; it would instead restart; if Python 2 code passes the return value of `d.iterkeys()`, `d.itervalues()` or `d.iteritems()` to a method that expects an iterator instead of an **iterable**, then that should be `iter(d)`, `iter(d.values())` or `iter(d.items())` in Python 3.
+
+
+
 ## Class Boolean Value
 
 
@@ -1446,98 +1524,6 @@ class MyClass:
 my_instance = MyClass()
 print(bool(MyClass))       # True
 print(bool(my_instance))   # False
-
-```
-
-
-
-## Dictionary method changes
-
-
-In Python 3, many of the dictionary methods are quite different in behaviour from Python 2, and many were removed as well: `has_key`, `iter*` and `view*` are gone. Instead of `d.has_key(key)`, which had been long deprecated, one must now use `key in d`.
-
-In Python 2, dictionary methods `keys`, `values` and `items` return lists. In Python 3 they return **view** objects instead; the view objects are not iterators, and they differ from them in two ways, namely:
-
-- they have size (one can use the `len` function on them)
-- they can be iterated over many times
-
-Additionally, like with iterators, the changes in the dictionary are reflected in the view objects.
-
-Python 2.7 has backported these methods from Python 3; they're available as `viewkeys`, `viewvalues` and `viewitems`. To transform Python 2 code to Python 3 code, the corresponding forms are:
-
-- `d.keys()`, `d.values()` and `d.items()` of Python 2 should be changed to `list(d.keys())`, `list(d.values())` and `list(d.items())`
-- `d.iterkeys()`, `d.itervalues()` and `d.iteritems()` should be changed to `iter(d.keys())`, or even better, `iter(d)`; `iter(d.values())` and `iter(d.items())` respectively
-- and finally Python 2.7 method calls `d.viewkeys()`, `d.viewvalues()` and `d.viewitems()` can be replaced with `d.keys()`, `d.values()` and `d.items()`.
-
----
-
-
-Porting Python 2 code that **iterates** over dictionary keys, values or items while mutating it is sometimes tricky. Consider:
-
-```
-d = {'a': 0, 'b': 1, 'c': 2, '!': 3}
-for key in d.keys():
-    if key.isalpha():
-        del d[key]
-
-```
-
-The code looks as if it would work similarly in Python 3, but there the `keys` method returns a view object, not a list, and if the dictionary changes size while being iterated over, the Python 3 code will crash with `RuntimeError: dictionary changed size during iteration`. The solution is of course to properly write `for key in list(d)`.
-
-Similarly, view objects behave differently from iterators: one cannot use `next()` on them, and one cannot **resume** iteration; it would instead restart; if Python 2 code passes the return value of `d.iterkeys()`, `d.itervalues()` or `d.iteritems()` to a method that expects an iterator instead of an **iterable**, then that should be `iter(d)`, `iter(d.values())` or `iter(d.items())` in Python 3.
-
-
-
-## encode/decode to hex no longer available
-
-
-```
-"1deadbeef3".decode('hex')
-# Out: '\x1d\xea\xdb\xee\xf3'
-'\x1d\xea\xdb\xee\xf3'.encode('hex')
-# Out: 1deadbeef3
-
-```
-
-```
-"1deadbeef3".decode('hex')
-# Traceback (most recent call last):
-#   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-# AttributeError: 'str' object has no attribute 'decode'
-
-b"1deadbeef3".decode('hex')
-# Traceback (most recent call last):
-#   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-# LookupError: 'hex' is not a text encoding; use codecs.decode() to handle arbitrary codecs
-
-'\x1d\xea\xdb\xee\xf3'.encode('hex')
-# Traceback (most recent call last):
-#   File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-# LookupError: 'hex' is not a text encoding; use codecs.encode() to handle arbitrary codecs
-
-b'\x1d\xea\xdb\xee\xf3'.encode('hex')
-# Traceback (most recent call last):
-#  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-# AttributeError: 'bytes' object has no attribute 'encode'
-
-```
-
-However, as suggested by the error message, you can use the [`codecs`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/codecs.html) module to achieve the same result:
-
-```
-import codecs
-codecs.decode('1deadbeef4', 'hex')
-# Out: b'\x1d\xea\xdb\xee\xf4'
-codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex')
-# Out: b'1deadbeef4'
-
-```
-
-Note that [`codecs.encode`](http://web.archive.org/web/20170405224959/https://docs.python.org/3/library/codecs.html#codecs.encode) returns a `bytes` object. To obtain a `str` object just `decode` to ASCII:
-
-```
-codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii')
-# Out: '1deadbeeff'
 
 ```
 
@@ -1576,18 +1562,18 @@ This bug is fixed in Python3. So if you use Python 2, use
 try:
     a.get
 except AttributeError:
-    print("no get property!")
+    print(&quot;no get property!&quot;)
 
 ```
 
 or use `getattr` instead
 
 ```
-p = getattr(a, "get", None)
+p = getattr(a, &quot;get&quot;, None)
 if p is not None:
     print(p)
 else:
-    print("no get property!")
+    print(&quot;no get property!&quot;)
 
 ```
 
@@ -1598,9 +1584,9 @@ else:
 
 There are currently two supported versions of Python: 2.7 (Python 2) and 3.6 (Python 3). Additionally versions 3.3 and 3.4 receive security updates in source format.
 
-Python 2.7 is backwards-compatible with most earlier versions of Python, and can run Python code from most 1.x and 2.x versions of Python unchanged.  It is broadly available, with an extensive collection of packages. It is also considered deprecated by the CPython developers, and receives only security and bug-fix development. The CPython developers intend to abandon this version of the language [in 2020](http://web.archive.org/web/20170405224959/https://docs.python.org/devguide/#status-of-python-branches).
+Python 2.7 is backwards-compatible with most earlier versions of Python, and can run Python code from most 1.x and 2.x versions of Python unchanged.  It is broadly available, with an extensive collection of packages. It is also considered deprecated by the CPython developers, and receives only security and bug-fix development. The CPython developers intend to abandon this version of the language [in 2020](https://docs.python.org/devguide/#status-of-python-branches).
 
-According to [Python Enhancement Proposal 373](http://web.archive.org/web/20170405224959/http://legacy.python.org/dev/peps/pep-0373/) there are no planned future releases of Python 2 after 25 June 2016, but bug fixes and security updates will be supported until 2020.  (It doesn't specify what exact date in 2020 will be the sunset date of Python 2.)
+According to [Python Enhancement Proposal 373](http://legacy.python.org/dev/peps/pep-0373/) there are no planned future releases of Python 2 after 25 June 2016, but bug fixes and security updates will be supported until 2020.  (It doesn't specify what exact date in 2020 will be the sunset date of Python 2.)
 
 Python 3 intentionally broke backwards-compatibility, to address concerns the language developers had with the core of the language.  Python 3 receives new development and new features.  It is the version of the language that the language developers intend to move forward with.
 
@@ -1615,15 +1601,15 @@ print('Hello world')
 
 ```
 
-For further information on the `__future__` module, see the [relevant page in the Python documentation](http://web.archive.org/web/20170405224959/https://docs.python.org/2/library/__future__.html).
+For further information on the `__future__` module, see the [relevant page in the Python documentation](https://docs.python.org/2/library/__future__.html).
 
-The [2to3 tool](http://web.archive.org/web/20170405224959/https://stackoverflow.com/documentation/python/5320/2to3-tool) is a Python program that converts Python 2.x code to Python 3.x code, see also the [Python documentation](http://web.archive.org/web/20170405224959/https://docs.python.org/3.5/library/2to3.html).
+The [2to3 tool](https://stackoverflow.com/documentation/python/5320/2to3-tool) is a Python program that converts Python 2.x code to Python 3.x code, see also the [Python documentation](https://docs.python.org/3.5/library/2to3.html).
 
-The package [six](http://web.archive.org/web/20170405224959/http://six.readthedocs.io/) provides utilities for Python 2/3 compatibility:
+The package [six](http://six.readthedocs.io) provides utilities for Python 2/3 compatibility:
 
 - unified access to renamed libraries
 - variables for string/unicode types
 - functions for method that got removed or has been renamed
 
-A reference for differences between Python 2 and Python 3 can be found [here](http://web.archive.org/web/20170405224959/https://wiki.python.org/moin/Python2orPython3).
+A reference for differences between Python 2 and Python 3 can be found [here](https://wiki.python.org/moin/Python2orPython3).
 

@@ -40,7 +40,7 @@ file=open('filename','rb')  #file object in binary read mode
 data=pickle.load(file)      #load the data back
 file.close()
 
-&gt;&gt;&gt;data
+>>>data
 {'b': [9, 4, 7], 'a': 'some_value', 'd': {'key': 'nested_dictionary'},
  'c': ['some_str', 'another_str', 'spam', 'ham']}
 
@@ -78,10 +78,10 @@ def load(filename):
     return object
 
 
-&gt;&gt;&gt;list_object=[1,1,2,3,5,8,'a','e','i','o','u']
-&gt;&gt;&gt;save(list_file,list_object)
-&gt;&gt;&gt;new_list=load(list_file)
-&gt;&gt;&gt;new_list
+>>>list_object=[1,1,2,3,5,8,'a','e','i','o','u']
+>>>save(list_file,list_object)
+>>>new_list=load(list_file)
+>>>new_list
 [1, 1, 2, 3, 5, 8, 'a', 'e', 'i', 'o', 'u'
 
 ```
@@ -95,7 +95,7 @@ def load(filename):
 pickle.dump(obj, file, protocol=None, *, fix_imports=True)
 </li>
 <li>
-pickle.load(file, *, fix_imports=True, encoding="ASCII", errors="strict")
+pickle.load(file, *, fix_imports=True, encoding=&quot;ASCII&quot;, errors=&quot;strict&quot;)
 </li>
 
 

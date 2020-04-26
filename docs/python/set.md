@@ -26,11 +26,11 @@
 
 # Superset check
 {1, 2}.issuperset({1, 2, 3})  # False
-{1, 2} &gt;= {1, 2, 3}           # False
+{1, 2} >= {1, 2, 3}           # False
 
 # Subset check
 {1, 2}.issubset({1, 2, 3})  # True
-{1, 2} &lt;= {1, 2, 3}         # True
+{1, 2} <= {1, 2, 3}         # True
 
 # Disjoint check
 {1, 2}.isdisjoint({3, 4})  # True
@@ -58,9 +58,6 @@ s.remove(2)     # KeyError!
 
 ```
 
----
-
-
 Set operations return new sets, but     have the corresponding in-place versions:
 
 |method|in-place operation|in-place method
@@ -86,10 +83,10 @@ s.update({3, 4})   # s == {1, 2, 3, 4}
 Let's say you've got a list of restaurants -- maybe you read it from a file.  You care about the **unique** restaurants in the list.  The best way to get the unique elements from a list is to turn it into a set:
 
 ```
-restaurants = ["McDonald's", "Burger King", "McDonald's", "Chicken Chicken"]
+restaurants = [&quot;McDonald's&quot;, &quot;Burger King&quot;, &quot;McDonald's&quot;, &quot;Chicken Chicken&quot;]
 unique_restaurants = set(restaurants)
 print(unique_restaurants)
-# prints {'Chicken Chicken', "McDonald's", 'Burger King'}
+# prints {'Chicken Chicken', &quot;McDonald's&quot;, 'Burger King'}
 
 ```
 
@@ -99,7 +96,7 @@ This can easily be transformed back into a `List` with Python's built in `list` 
 
 ```
 list(unique_restaurants)
-# ['Chicken Chicken', "McDonald's", 'Burger King']
+# ['Chicken Chicken', &quot;McDonald's&quot;, 'Burger King']
 
 ```
 
@@ -145,8 +142,8 @@ Instead, use `frozenset`:
 We define two sets `a` and `b`
 
 ```
-&gt;&gt;&gt; a = {1, 2, 2, 3, 4}
-&gt;&gt;&gt; b = {3, 3, 4, 4, 5}
+>>> a = {1, 2, 2, 3, 4}
+>>> b = {3, 3, 4, 4, 5}
 
 ```
 
@@ -159,7 +156,7 @@ NOTE: `{1}` creates a set of one element, but `{}` creates an empty `dict`. The 
 `a.intersection(b)` returns a new set with elements present in both `a` and `b`
 
 ```
-&gt;&gt;&gt; a.intersection(b)
+>>> a.intersection(b)
 {3, 4}
 
 ```
@@ -169,7 +166,7 @@ NOTE: `{1}` creates a set of one element, but `{}` creates an empty `dict`. The 
 `a.union(b)` returns a new set with elements present in either `a` and `b`
 
 ```
-&gt;&gt;&gt; a.union(b)
+>>> a.union(b)
 {1, 2, 3, 4, 5}
 
 ```
@@ -179,9 +176,9 @@ NOTE: `{1}` creates a set of one element, but `{}` creates an empty `dict`. The 
 `a.difference(b)` returns a new set with elements present in `a` but not in `b`
 
 ```
-&gt;&gt;&gt; a.difference(b)
+>>> a.difference(b)
 {1, 2}
-&gt;&gt;&gt; b.difference(a)
+>>> b.difference(a)
 {5}
 
 ```
@@ -191,9 +188,9 @@ NOTE: `{1}` creates a set of one element, but `{}` creates an empty `dict`. The 
 `a.symmetric_difference(b)` returns a new set with elements present in either `a` or `b` but not in both
 
 ```
-&gt;&gt;&gt; a.symmetric_difference(b)
+>>> a.symmetric_difference(b)
 {1, 2, 5}
-&gt;&gt;&gt; b.symmetric_difference(a)
+>>> b.symmetric_difference(a)
 {1, 2, 5}
 
 ```
@@ -207,10 +204,10 @@ NOTE: `{1}` creates a set of one element, but `{}` creates an empty `dict`. The 
 `a.issuperset(c)` tests whether each element of `c` is in `a`.
 
 ```
-&gt;&gt;&gt; c = {1, 2}
-&gt;&gt;&gt; c.issubset(a)
+>>> c = {1, 2}
+>>> c.issubset(a)
 True
-&gt;&gt;&gt; a.issuperset(c)
+>>> a.issuperset(c)
 True
 
 ```
@@ -223,29 +220,26 @@ The latter operations have equivalent operators as shown below:
 |`a.union(b)`|`a`|`b`
 |`a.difference(b)`|`a - b`
 |`a.symmetric_difference(b)`|`a ^ b`
-|`a.issubset(b)`|`a &lt;= b`
-|`a.issuperset(b)`|`a &gt;= b`
-
----
-
+|`a.issubset(b)`|`a <= b`
+|`a.issuperset(b)`|`a >= b`
 
 ### Disjoint sets
 
 Sets `a` and `d` are disjoint if no element in `a` is also in `d` and vice versa.
 
 ```
-&gt;&gt;&gt; d = {5, 6}
-&gt;&gt;&gt; a.isdisjoint(b) # {2, 3, 4} are in both sets
+>>> d = {5, 6}
+>>> a.isdisjoint(b) # {2, 3, 4} are in both sets
 False
-&gt;&gt;&gt; a.isdisjoint(d)
+>>> a.isdisjoint(d)
 True
 
 # This is an equivalent check, but less efficient
-&gt;&gt;&gt; len(a &amp; d) == 0
+>>> len(a &amp; d) == 0
 True
 
 # This is even less efficient
-&gt;&gt;&gt; a &amp; d == set()
+>>> a &amp; d == set()
 True
 
 ```
@@ -255,9 +249,9 @@ True
 The builtin `in` keyword searches for occurances
 
 ```
-&gt;&gt;&gt; 1 in a
+>>> 1 in a
 True
-&gt;&gt;&gt; 6 in a
+>>> 6 in a
 False
 
 ```
@@ -267,9 +261,9 @@ False
 The builtin `len()` function returns the number of elements in the set
 
 ```
-&gt;&gt;&gt; len(a)
+>>> len(a)
 4
-&gt;&gt;&gt; len(b)
+>>> len(b)
 3
 
 ```
@@ -284,8 +278,8 @@ Sets are unordered collections of distinct elements. But sometimes we want to wo
 Consider this example:
 
 ```
-&gt;&gt;&gt; setA = {'a','b','b','c'}
-&gt;&gt;&gt; setA
+>>> setA = {'a','b','b','c'}
+>>> setA
 set(['a', 'c', 'b'])
 
 ```
@@ -293,8 +287,8 @@ set(['a', 'c', 'b'])
 By saving the strings `'a'`, `'b'`, `'b'`, `'c'` into a set data structure we've lost the information on the fact that `'b'` occurs twice. Of course saving the elements to a list would retain this information
 
 ```
-&gt;&gt;&gt; listA = ['a','b','b','c']
-&gt;&gt;&gt; listA
+>>> listA = ['a','b','b','c']
+>>> listA
 ['a', 'b', 'b', 'c']
 
 ```
@@ -304,9 +298,9 @@ but a list data structure introduces an extra unneeded ordering that will slow d
 For implementing multisets Python provides the `Counter` class from the `collections` module (starting from version 2.7):
 
 ```
-&gt;&gt;&gt; from collections import Counter
-&gt;&gt;&gt; counterA = Counter(['a','b','b','c'])
-&gt;&gt;&gt; counterA
+>>> from collections import Counter
+>>> counterA = Counter(['a','b','b','c'])
+>>> counterA
 Counter({'b': 2, 'a': 1, 'c': 1})
 
 ```
@@ -331,7 +325,7 @@ Counter({'b': 2, 'a': 1, 'c': 1})
 
 Sets are **unordered** and have **very fast lookup time** (amortized O(1) if you want to get technical).  It is great to use when you have a collection of things, the order doesn't matter, and you'll be looking up items by name a lot.  If it makes more sense to look up items by an index number, consider using a list instead.  If order matters, consider a list as well.
 
-Sets are **mutable** and thus cannot be hashed, so you cannot use them as dictionary keys or put them in other sets, or anywhere else that requires hashable types. In such cases, you can use an immutable [`frozenset`](http://web.archive.org/web/20170816194031/https://docs.python.org/3/library/stdtypes.html#frozenset).
+Sets are **mutable** and thus cannot be hashed, so you cannot use them as dictionary keys or put them in other sets, or anywhere else that requires hashable types. In such cases, you can use an immutable [`frozenset`](https://docs.python.org/3/library/stdtypes.html#frozenset).
 
 The elements of a set must be **hashable**. This means that they have a correct `__hash__` method, that is consistent with `__eq__`. In general, mutable types such as `list` or `set` are not hashable and cannot be put in a set. If you encounter this problem, consider using `dict` and immutable keys.
 

@@ -5,10 +5,37 @@ Optical Character Recognition is converting images of text into actual text. In 
 
 
 
+## PyTesseract
+
+
+PyTesseract is an in-development python package for OCR.
+
+Using PyTesseract is pretty easy:
+
+```
+try:
+    import Image
+except ImportError:
+    from PIL import Image
+
+import pytesseract
+
+    #Basic OCR
+    print(pytesseract.image_to_string(Image.open('test.png')))
+
+    #In French
+    print(pytesseract.image_to_string(Image.open('test-european.jpg'), lang='fra’))
+
+```
+
+PyTesseract is open source and can be found [here](https://github.com/madmaze/pytesseract).
+
+
+
 ## PyOCR
 
 
-Another module of some use is `PyOCR`, source code of which is [here](http://web.archive.org/web/20170424064657/https://github.com/jflesch/pyocr).
+Another module of some use is `PyOCR`, source code of which is [here](https://github.com/jflesch/pyocr).
 
 Also simple to use and has more features than `PyTesseract`.
 
@@ -45,7 +72,7 @@ txt = tool.image_to_string(
 
 word_boxes = tool.image_to_string(
     Image.open('test.png'),
-    lang="eng",
+    lang=&quot;eng&quot;,
     builder=pyocr.builders.WordBoxBuilder()
 )
 # list of box objects. For each box object:
@@ -56,7 +83,7 @@ word_boxes = tool.image_to_string(
 # may return empty boxes
 
 line_and_word_boxes = tool.image_to_string(
-    Image.open('test.png'), lang="fra",
+    Image.open('test.png'), lang=&quot;fra&quot;,
     builder=pyocr.builders.LineBoxBuilder()
 )
 # list of line objects. For each line object:
@@ -76,31 +103,4 @@ digits = tool.image_to_string(
 # digits is a python string
 
 ```
-
-
-
-## PyTesseract
-
-
-PyTesseract is an in-development python package for OCR.
-
-Using PyTesseract is pretty easy:
-
-```
-try:
-    import Image
-except ImportError:
-    from PIL import Image
-
-import pytesseract
-
-    #Basic OCR
-    print(pytesseract.image_to_string(Image.open('test.png')))
-
-    #In French
-    print(pytesseract.image_to_string(Image.open('test-european.jpg'), lang='fra’))
-
-```
-
-PyTesseract is open source and can be found [here](http://web.archive.org/web/20170424064657/https://github.com/madmaze/pytesseract).
 

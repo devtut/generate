@@ -5,7 +5,7 @@
 ## Basic use of map, itertools.imap and future_builtins.map
 
 
-The map function is the simplest one among Python built-ins used for functional programming. [`map()`](http://web.archive.org/web/20170405183440/https://docs.python.org/3/library/functions.html#map) applies a specified function to each element in an iterable:
+The map function is the simplest one among Python built-ins used for functional programming. [`map()`](https://docs.python.org/3/library/functions.html#map) applies a specified function to each element in an iterable:
 
 ```
 names = ['Fred', 'Wilma', 'Barney']
@@ -14,7 +14,7 @@ names = ['Fred', 'Wilma', 'Barney']
 
 ```
 map(len, names)  # map in Python 3.x is a class; its instances are iterable
-# Out: &lt;map object at 0x00000198B32E2CF8&gt;
+# Out: <map object at 0x00000198B32E2CF8>
 
 ```
 
@@ -23,7 +23,7 @@ A Python 3-compatible `map` is included in the `future_builtins` module:
 ```
 from future_builtins import map  # contains a Python 3.x compatible map()
 map(len, names)                  # see below
-# Out: &lt;itertools.imap instance at 0x3eb0a20&gt;
+# Out: <itertools.imap instance at 0x3eb0a20>
 
 ```
 
@@ -35,7 +35,7 @@ map(len, names)   # map() returns a list
 
 from itertools import imap
 imap(len, names)  # itertools.imap() returns a generator
-# Out: &lt;itertools.imap at 0x405ea20&gt;
+# Out: <itertools.imap at 0x405ea20>
 
 ```
 
@@ -47,14 +47,14 @@ list(map(len, names))
 
 ```
 
-`map()` can be replaced by an equivalent **[list comprehension](http://web.archive.org/web/20170405183440/http://stackoverflow.com/documentation/python/196/comprehensions/737/list-comprehensions#t=201607232231197828967)** or **[generator expression](http://web.archive.org/web/20170405183440/http://stackoverflow.com/documentation/python/196/comprehensions/739/generator-expressions#t=201607231130336574039)**:
+`map()` can be replaced by an equivalent **[list comprehension](http://stackoverflow.com/documentation/python/196/comprehensions/737/list-comprehensions#t=201607232231197828967)** or **[generator expression](http://stackoverflow.com/documentation/python/196/comprehensions/739/generator-expressions#t=201607231130336574039)**:
 
 ```
 [len(item) for item in names] # equivalent to Python 2.x map()
 # Out: [4, 5, 6]
 
 (len(item) for item in names) # equivalent to Python 3.x map()
-# Out: &lt;generator object &lt;genexpr&gt; at 0x00000195888D5FC0&gt;
+# Out: <generator object <genexpr> at 0x00000195888D5FC0>
 
 ```
 
@@ -382,7 +382,7 @@ results in
 #### Remarks
 
 
-Everything that can be done with `map` can also be done with [`comprehensions`](http://web.archive.org/web/20170405183440/http://stackoverflow.com/documentation/python/196/comprehensions#t=201604012021414879334):
+Everything that can be done with `map` can also be done with [`comprehensions`](http://stackoverflow.com/documentation/python/196/comprehensions#t=201604012021414879334):
 
 ```
 list(map(abs, [-1,-2,-3]))    # [1, 2, 3]

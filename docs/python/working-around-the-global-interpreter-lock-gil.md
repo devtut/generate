@@ -5,9 +5,9 @@
 ## Multiprocessing.Pool
 
 
-The simple answer, when asking how to use threads in Python is: "Don't.  Use processes, instead."  The multiprocessing module lets you create processes with similar syntax to creating threads, but I prefer using their convenient Pool object.
+The simple answer, when asking how to use threads in Python is: &quot;Don't.  Use processes, instead.&quot;  The multiprocessing module lets you create processes with similar syntax to creating threads, but I prefer using their convenient Pool object.
 
-Using [the code that David Beazley first used to show the dangers of threads against the GIL](http://web.archive.org/web/20170305201024/http://www.dabeaz.com/GIL/gilvis/measure2.py), we'll rewrite it using [multiprocessing.Pool](http://web.archive.org/web/20170305201024/https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers):
+Using [the code that David Beazley first used to show the dangers of threads against the GIL](http://www.dabeaz.com/GIL/gilvis/measure2.py), we'll rewrite it using [multiprocessing.Pool](https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers):
 
 ### David Beazley's code that showed GIL threading problems
 
@@ -15,7 +15,7 @@ Using [the code that David Beazley first used to show the dangers of threads aga
 from threading import Thread
 import time
 def countdown(n):
-    while n &gt; 0:
+    while n > 0:
         n -= 1
 
 COUNT = 10000000
@@ -34,7 +34,7 @@ print end-start
 import multiprocessing
 import time
 def countdown(n):
-    while n &gt; 0:
+    while n > 0:
         n -= 1
 
 COUNT = 10000000
@@ -60,9 +60,9 @@ I've found that, even using the `with` statement, if you don't close and join th
 ## Cython nogil:
 
 
-Cython is an alternative python interpreter.  It uses the GIL, but lets you disable it.  See [their documentation](http://web.archive.org/web/20170305201024/http://docs.cython.org/en/latest/src/userguide/external_C_code.html?highlight=nogil.html#acquiring-and-releasing-the-gil)
+Cython is an alternative python interpreter.  It uses the GIL, but lets you disable it.  See [their documentation](http://docs.cython.org/en/latest/src/userguide/external_C_code.html?highlight=nogil.html#acquiring-and-releasing-the-gil)
 
-As an example, using [the code that David Beazley first used to show the dangers of threads against the GIL](http://web.archive.org/web/20170305201024/http://www.dabeaz.com/GIL/gilvis/measure2.py), we'll rewrite it using nogil:
+As an example, using [the code that David Beazley first used to show the dangers of threads against the GIL](http://www.dabeaz.com/GIL/gilvis/measure2.py), we'll rewrite it using nogil:
 
 ### David Beazley's code that showed GIL threading problems
 
@@ -70,7 +70,7 @@ As an example, using [the code that David Beazley first used to show the dangers
 from threading import Thread
 import time
 def countdown(n):
-    while n &gt; 0:
+    while n > 0:
         n -= 1
 
 COUNT = 10000000
@@ -91,7 +91,7 @@ print end-start
 from threading import Thread
 import time
 def countdown(n):
-    while n &gt; 0:
+    while n > 0:
         n -= 1
 
 COUNT = 10000000
@@ -137,9 +137,7 @@ Note that a GIL is not a requirment of the Python language.  Consequently, you c
 ### Details on how the GIL operates:
 
 
-
-
-CPython automatically releases the GIL when a thread performs an I/O operation.  Image processing libraries and numpy number crunching operations release the GIL before doing their processing.
+<p>CPython automatically releases the GIL when a thread performs an I/O operation.  Image processing libraries and numpy number crunching operations release the GIL before doing their processing.
 
 ### Benefits of the GIL
 
@@ -151,19 +149,16 @@ CPython automatically releases the GIL when a thread performs an I/O operation. 
 
 
 <a class="remarks-subsection-anchor" name="remarks-references:-4"></a>
+<h3>References:</h3>
+<p>[https://wiki.python.org/moin/GlobalInterpreterLock](https://wiki.python.org/moin/GlobalInterpreterLock) - quick summary of what it does, fine details on all the benefits
 
+[http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil](http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil) - clearly written summary
 
-### References:
+[http://www.dabeaz.com/python/UnderstandingGIL.pdf](http://www.dabeaz.com/python/UnderstandingGIL.pdf) - how the GIL works and why it slows down on multiple cores
 
-[https://wiki.python.org/moin/GlobalInterpreterLock](http://web.archive.org/web/20170305201024/https://wiki.python.org/moin/GlobalInterpreterLock) - quick summary of what it does, fine details on all the benefits
+[http://www.dabeaz.com/GIL/gilvis/index.html](http://www.dabeaz.com/GIL/gilvis/index.html) - visualization of the data showing how the GIL locks up threads
 
-[http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil](http://web.archive.org/web/20170305201024/http://programmers.stackexchange.com/questions/186889/why-was-python-written-with-the-gil) - clearly written summary
+[http://jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/](http://jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/) - simple to understand history of the  GIL problem
 
-[http://www.dabeaz.com/python/UnderstandingGIL.pdf](http://web.archive.org/web/20170305201024/http://www.dabeaz.com/python/UnderstandingGIL.pdf) - how the GIL works and why it slows down on multiple cores
-
-[http://www.dabeaz.com/GIL/gilvis/index.html](http://web.archive.org/web/20170305201024/http://www.dabeaz.com/GIL/gilvis/index.html) - visualization of the data showing how the GIL locks up threads
-
-[http://jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/](http://web.archive.org/web/20170305201024/http://jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/) - simple to understand history of the  GIL problem
-
-[https://jeffknupp.com/blog/2013/06/30/pythons-hardest-problem-revisited/](http://web.archive.org/web/20170305201024/https://jeffknupp.com/blog/2013/06/30/pythons-hardest-problem-revisited/) - details on ways to work around the GIL's limitations
+[https://jeffknupp.com/blog/2013/06/30/pythons-hardest-problem-revisited/](https://jeffknupp.com/blog/2013/06/30/pythons-hardest-problem-revisited/) - details on ways to work around the GIL's limitations
 

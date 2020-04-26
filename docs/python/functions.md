@@ -1,107 +1,9 @@
 # Functions
 
 
-Functions in Python provide organized, reusable code to preform a set of actions. Functions simplify the coding process, prevent redundant logic, and make code easier to follow. This topic describes the declaration and utilization of functions in Python.
+Functions in Python provide organized, reusable and modular code to perform a set of specific actions. Functions simplify the coding process, prevent redundant logic, and make the code easier to follow. This topic describes the declaration and utilization of functions in Python.
 
-
-
-## Defining and calling simple functions
-
-
-Using the `def` statement is the most common way to define a function in python. This statement is a so called **single clause compound statement** with the following syntax:
-
-```
-def function_name(parameters):
-    statement(s)
-
-```
-
-**`function_name`** is known as the **identifier** of the function. Since a function definition is an executable statement its execution **binds** the function name to the function object which can be called later on using the identifier.
-
-**`parameters`** is an optional list of identifiers that get bound to the values supplied as arguments when the function is called. A function may have an arbitrary number of arguments which are separated by commas.
-
-**`statement(s)`** – also known as the **function body** – are a nonempty sequence of statements executed each time the function is called. This means a function body cannot be empty, just like any [**indented block**](http://web.archive.org/web/20170405083258/http://stackoverflow.com/documentation/python/193/introduction-to-python/3952/block-indentation#t=201608020013139864421).
-
-Here’s an example of a simple function definition which purpose is to print `Hello` each time it’s called:
-
-```
-def greet():
-    print("Hello")
-
-```
-
-Now let’s call the defined `greet()` function:
-
-```
-greet()
-# Out: Hello
-
-```
-
-That’s an other example of a function definition which takes one single argument and displays the passed in value each time the function is called:
-
-```
-def greet_two(greeting):
-    print(greeting)
-
-```
-
-After that the `greet_two()` function must be called with an argument:
-
-```
-greet_two("Howdy")
-# Out: Howdy
-
-```
-
-Also you can give a default value to that function argument:
-
-```
-def greet_two(greeting="Howdy"):
-    print(greeting)
-
-```
-
-Now you can call the function without giving a value:
-
-```
-greet_two()
-# Out: Howdy 
-
-```
-
-You'll notice that unlike many other languages, you do not need to explicitly declare a return type of the function. Python functions can return values of any type via the `return` keyword. One function can return any number of different types!
-
-```
-def many_types(x):
-    if x &lt; 0:
-        return "Hello!"
-    else:
-        return 0
-
-print many_types(1)
-print many_types(-1)
-
-# Output:
-0
-Hello!
-
-```
-
-As long as this is handled correctly by the caller, this is perfectly valid Python code.
-
-A function that reaches the end of execution without a return statement will always return `None`:
-
-```
-def do_nothing():
-    pass
-
-print(do_nothing())
-# Out: None
-
-```
-
-As mentioned previously a function definition must have a function body, a nonempty sequence of statements. Therefore the `pass` statement is used as function body, which is a null operation – when it is executed, nothing happens. It does what it means, it skips. It is useful as a placeholder when a statement is required syntactically, but no code needs to be executed.
+Python has many **built-in functions** like `print()`, `input()`, `len()`. Besides built-ins you can also create your own functions to do more specific jobs—these are called **user-defined functions**.
 
 
 
@@ -110,7 +12,7 @@ As mentioned previously a function definition must have a function body, a nonem
 
 ### Arbitrary number of positional arguments:
 
-Defining a function capable of taking an arbitrary number of arguments can be done by prefixing one of the argument with `*`
+Defining a function capable of taking an arbitrary number of arguments can be done by prefixing one of the arguments with a `*`
 
 ```
 def func(*args):
@@ -153,8 +55,8 @@ def func(**kwargs):
         print(name, value)
 
 func(value1=1, value2=2, value3=3)   # Calling it with 3 arguments
-# Out: value2 2
-#      value1 1
+# Out: value1 1
+#      value2 2
 #      value3 3
 
 func()                               # Calling it without arguments
@@ -175,9 +77,9 @@ You **can't** provide these **without** names, for example `func(1, 2, 3)` will 
 
 You can mix these with other optional and required arguments but the order inside the definition matters.
 
-The **positional/keyword** arguments come first. (Required arguments).<br/>
-Then comes the **arbitrary** `*arg` arguments. (Optional).<br/>
-Then **keyword-only** arguments come next. (Required).<br/>
+The **positional/keyword** arguments come first. (Required arguments).<br />
+Then comes the **arbitrary** `*arg` arguments. (Optional).<br />
+Then **keyword-only** arguments come next. (Required).<br />
 Finally the **arbitrary keyword** `**kwargs` come. (Optional).
 
 ```
@@ -199,11 +101,11 @@ Python 2.x doesn't support keyword-only parameters. This behavior can be emulate
 ```
 def func(arg1, arg2=10, **kwargs):
     try:
-        kwarg1 = kwargs.pop("kwarg1")
+        kwarg1 = kwargs.pop(&quot;kwarg1&quot;)
     except KeyError:
-        raise TypeError("missing required keyword-only argument: 'kwarg1'")
+        raise TypeError(&quot;missing required keyword-only argument: 'kwarg1'&quot;)
 
-    kwarg2 = kwargs.pop("kwarg2", 2)
+    kwarg2 = kwargs.pop(&quot;kwarg2&quot;, 2)
     # function body ...
 
 ```
@@ -222,7 +124,7 @@ It is possible to nest such functions and the usual convention is to remove the 
 
 ```
 def fn(**kwargs):
-    print (kwargs)
+    print(kwargs)
     f1(**kwargs)
 
 def f1(**kwargs):
@@ -237,6 +139,106 @@ fn(a=1, b=2)
 
 
 
+## Defining and calling simple functions
+
+
+Using the `def` statement is the most common way to define a function in python. This statement is a so called **single clause compound statement** with the following syntax:
+
+```
+def function_name(parameters):
+    statement(s)
+
+```
+
+**`function_name`** is known as the **identifier** of the function. Since a function definition is an executable statement its execution **binds** the function name to the function object which can be called later on using the identifier.
+
+**`parameters`** is an optional list of identifiers that get bound to the values supplied as arguments when the function is called. A function may have an arbitrary number of arguments which are separated by commas.
+
+**`statement(s)`** – also known as the **function body** – are a nonempty sequence of statements executed each time the function is called. This means a function body cannot be empty, just like any [**indented block**](http://stackoverflow.com/documentation/python/193/introduction-to-python/3952/block-indentation#t=201608020013139864421).
+
+Here’s an example of a simple function definition which purpose is to print `Hello` each time it’s called:
+
+```
+def greet():
+    print(&quot;Hello&quot;)
+
+```
+
+Now let’s call the defined `greet()` function:
+
+```
+greet()
+# Out: Hello
+
+```
+
+That’s an other example of a function definition which takes one single argument and displays the passed in value each time the function is called:
+
+```
+def greet_two(greeting):
+    print(greeting)
+
+```
+
+After that the `greet_two()` function must be called with an argument:
+
+```
+greet_two(&quot;Howdy&quot;)
+# Out: Howdy
+
+```
+
+Also you can give a default value to that function argument:
+
+```
+def greet_two(greeting=&quot;Howdy&quot;):
+    print(greeting)
+
+```
+
+Now you can call the function without giving a value:
+
+```
+greet_two()
+# Out: Howdy 
+
+```
+
+You'll notice that unlike many other languages, you do not need to explicitly declare a return type of the function. Python functions can return values of any type via the `return` keyword. One function can return any number of different types!
+
+```
+def many_types(x):
+    if x < 0:
+        return &quot;Hello!&quot;
+    else:
+        return 0
+
+print(many_types(1))
+print(many_types(-1))
+
+# Output:
+0
+Hello!
+
+```
+
+As long as this is handled correctly by the caller, this is perfectly valid Python code.
+
+A function that reaches the end of execution without a return statement will always return `None`:
+
+```
+def do_nothing():
+    pass
+
+print(do_nothing())
+# Out: None
+
+```
+
+As mentioned previously a function definition must have a function body, a nonempty sequence of statements. Therefore the `pass` statement is used as function body, which is a null operation – when it is executed, nothing happens. It does what it means, it skips. It is useful as a placeholder when a statement is required syntactically, but no code needs to be executed.
+
+
+
 ## Lambda (Inline/Anonymous) Functions
 
 
@@ -246,7 +248,7 @@ Consider the function:
 
 ```
 def greeting():
-    return "Hello"
+    return &quot;Hello&quot;
 
 ```
 
@@ -267,7 +269,7 @@ Hello
 This can be written as a lambda function as follows:
 
 ```
-greet_me = lambda: "Hello"
+greet_me = lambda: &quot;Hello&quot;
 
 ```
 
@@ -296,7 +298,7 @@ Hello
 ```
 strip_and_upper_case = lambda s: s.strip().upper()
 
-strip_and_upper_case("  Hello   ")
+strip_and_upper_case(&quot;  Hello   &quot;)
 
 ```
 
@@ -327,7 +329,7 @@ hello ('world',) {'world': 'world'}
 For example, this line sorts a list of strings ignoring their case and ignoring whitespace at the beginning and at the end:
 
 ```
-sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip().upper())
+sorted( [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;], key=lambda s: s.strip().upper())
 # Out:
 # ['    bAR', 'BaZ    ', ' foo ']
 
@@ -336,7 +338,7 @@ sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip().upper())
 Sort list just ignoring whitespaces:
 
 ```
-sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip())
+sorted( [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;], key=lambda s: s.strip())
 # Out:
 # ['BaZ    ', '    bAR', ' foo ']
 
@@ -345,11 +347,11 @@ sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip())
 Examples with `map`:
 
 ```
-sorted( map( lambda s: s.strip().upper(), [" foo ", "    bAR", "BaZ    "]))
+sorted( map( lambda s: s.strip().upper(), [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;]))
 # Out:
 # ['BAR', 'BAZ', 'FOO']
 
-sorted( map( lambda s: s.strip(), [" foo ", "    bAR", "BaZ    "]))
+sorted( map( lambda s: s.strip(), [&quot; foo &quot;, &quot;    bAR&quot;, &quot;BaZ    &quot;]))
 # Out:
 # ['BaZ', 'bAR', 'foo']
 
@@ -363,7 +365,7 @@ sorted( my_list, key=lambda x: abs(x))
 # Out:
 # [1, -2, 3, -4, 5, 7]
 
-list( filter( lambda x: x&gt;0, my_list))
+list( filter( lambda x: x>0, my_list))
 # Out:
 # [3, 5, 1, 7]
 
@@ -373,16 +375,13 @@ list( map( lambda x: abs(x), my_list))
 
 ```
 
----
-
-
 One can call other functions (with/without arguments) from inside a lambda function.
 
 ```
 def foo(msg):
     print(msg)
 
-greet = lambda x = "hello world": foo(x)
+greet = lambda x = &quot;hello world&quot;: foo(x)
 greet()
 
 ```
@@ -396,12 +395,9 @@ hello world
 
 This is useful because `lambda` may contain only one expression and by using a subsidiary function one can run multiple statements.
 
----
-
-
 **NOTE**
 
-Bear in mind that [PEP-8](http://web.archive.org/web/20170405083258/https://www.python.org/dev/peps/pep-0008/#programming-recommendations) (the official Python style guide) does not recommend assigning lambdas to variables (as we did in the first two examples):
+Bear in mind that [PEP-8](https://www.python.org/dev/peps/pep-0008/#programming-recommendations) (the official Python style guide) does not recommend assigning lambdas to variables (as we did in the first two examples):
 
 > 
 Always use a def statement instead of an assignment statement that binds a lambda expression directly to an identifier.
@@ -411,7 +407,7 @@ Yes:
 No:
 <pre><code>f = lambda x: 2*x
 </code></pre>
-The first form means that the name of the resulting function object is specifically `f` instead of the generic `&lt;lambda&gt;`. This is more useful for tracebacks and string representations in general. The use of the assignment statement eliminates the sole benefit a lambda expression can offer over an explicit `def` statement (i.e. that it can be embedded inside a larger expression).
+The first form means that the name of the resulting function object is specifically `f` instead of the generic `<lambda>`. This is more useful for tracebacks and string representations in general. The use of the assignment statement eliminates the sole benefit a lambda expression can offer over an explicit `def` statement (i.e. that it can be embedded inside a larger expression).
 
 
 
@@ -430,10 +426,10 @@ def make(action='nothing'):
 Calling this function is possible in 3 different ways:
 
 ```
-make("fun")
+make(&quot;fun&quot;)
 # Out: fun
 
-make(action="sleep")
+make(action=&quot;sleep&quot;)
 # Out: sleep
 
 # The argument is optional so the function will use the default value if the argument is 
@@ -445,68 +441,15 @@ make()
 
 > 
 <h3>Warning</h3>
-Mutable types (`list`, `dict`, `set`, etc.) should be treated with care when given as **default** attribute. Any mutation of the default argument will change it permanently. See [Defining a function with optional mutable arguments](http://web.archive.org/web/20170405083258/http://stackoverflow.com/documentation/python/228/functions/972/defining-a-function-with-optional-mutable-arguments).
+Mutable types (`list`, `dict`, `set`, etc.) should be treated with care when given as **default** attribute. Any mutation of the default argument will change it permanently. See [Defining a function with optional mutable arguments](http://stackoverflow.com/documentation/python/228/functions/972/defining-a-function-with-optional-mutable-arguments).
 
-
-
-
-## Argument passing and mutability
-
-
-First, some terminology:
-
-- **Argument (Actual Parameter):** The actual variable being passed to a function.
-- **Parameter (Formal Parameter):** The receiving variable that is used in a function.
-
-In Python, arguments are passed by **assignment** (as opposed to other languages, where arguments could be passed by value/reference/pointer).
-
-- Mutating a parameter will mutate the argument (if the argument's type is mutable).
-- Reassigning the parameter won’t reassign the argument.
-
-In Python, we don’t really assign values to variables.
-
-- Instead, we think of variables as **names** (identifiers, labels, tags) which are **bound** (assigned, attached) to objects.
-
-```
-def foo(x):        # The argument (y) is assigned to the parameter (x).
-    x[0] = 9       # This mutates the list labelled by both x and y.
-    x = [1, 2, 3]  # x is now labelling a different list (y is unaffected).
-    x[2] = 8       # This mutates x's list, not y's list.
-    
-y = [4, 5, 6]      # y is the argument, x is the parameter.
-foo(y)             # Pretend that we wrote "x = y", then go to line 1.
-y
-# Out: [9, 5, 6]
-
-```
-
-- **Immutable:** Integers, strings, tuples, and so on. All operations make copies.
-- **Mutable:** Lists, dictionaries, sets, and so on. Operations may or may not mutate.
-
-```
-x = [3, 1, 9]
-y = x
-x.append(5)    # Mutates the list labelled by both x and y.
-x.sort()       # Mutates the list labelled by both x and y (in-place sorting).
-x = x + [4]    # Does not mutate the list (makes a copy for x only, not y).
-z = x
-x += [6]       # Mutates the list labelled by both x and z (uses the extend function).
-x = sorted(x)  # Does not mutate the list (makes a copy for x only).
-x
-# Out: [1, 3, 4, 5, 6, 9]
-y
-# Out: [1, 3, 5, 9]
-z
-# Out: [1, 3, 5, 9, 4, 6]
-
-```
 
 
 
 ## Defining a function with optional mutable arguments
 
 
-There is a problem when using **optional arguments** with a **mutable default type** (described in [Defining a function with optional arguments](http://web.archive.org/web/20170405083258/https://stackoverflow.com/documentation/python/228/functions/930/defining-a-function-with-optional-arguments)), which can potentially lead to unexpected behaviour.
+There is a problem when using **optional arguments** with a **mutable default type** (described in [Defining a function with optional arguments](https://stackoverflow.com/documentation/python/228/functions/930/defining-a-function-with-optional-arguments)), which can potentially lead to unexpected behaviour.
 
 ### Explanation
 
@@ -521,11 +464,11 @@ print(f.__defaults__)
 
 ```
 
-For **immutable** types (see [Argument passing and mutability](http://web.archive.org/web/20170405083258/https://stackoverflow.com/documentation/python/228/functions/2920/argument-passing-and-mutability)) this is not a problem because there is no way to mutate the variable; it can only ever be reassigned, leaving the original value unchanged. Hence, subsequent are guaranteed to have the same default value. However, for a **mutable** type, the original value can mutate, by making calls to its various member functions. Therefore, successive calls to the function are not guaranteed to have the initial default value.
+For **immutable** types (see [Argument passing and mutability](https://stackoverflow.com/documentation/python/228/functions/2920/argument-passing-and-mutability)) this is not a problem because there is no way to mutate the variable; it can only ever be reassigned, leaving the original value unchanged. Hence, subsequent are guaranteed to have the same default value. However, for a **mutable** type, the original value can mutate, by making calls to its various member functions. Therefore, successive calls to the function are not guaranteed to have the initial default value.
 
 ```
 def append(elem, to=[]):
-    to.append(elem)      # This call to append() mutates the default variable "to"
+    to.append(elem)      # This call to append() mutates the default variable &quot;to&quot;
     return to
 
 append(1)
@@ -565,57 +508,63 @@ def append(elem, to=None):
 
 
 
-## Closure
+## Argument passing and mutability
 
 
-Closures in Python are created by function calls. Here, the call to `makeInc` creates a binding for `x` that is referenced inside the function `inc`. Each call to `makeInc` creates a new instance of this function, but each instance has a link to a different binding of `x`.
+First, some terminology:
+
+- **argument (**actual** parameter):** the actual variable being passed to a function;
+- **parameter (**formal** parameter):** the receiving variable that is used in a function.
+
+**In Python, arguments are passed by **assignment**** (as opposed to other languages, where arguments can be passed by value/reference/pointer).
+
+<li>
+Mutating a parameter will mutate the argument (if the argument's type is mutable).
+<pre><code>def foo(x):        # here x is the parameter
+    x[0] = 9       # This mutates the list labelled by both x and y
+    print(x)
+
+y = [4, 5, 6]
+foo(y)             # call foo with y as argument
+# Out: [9, 5, 6]   # list labelled by x has been mutated
+print(y)           
+# Out: [9, 5, 6]   # list labelled by y has been mutated too
+</code></pre>
+</li>
+<li>
+Reassigning the parameter won’t reassign the argument.
+<pre><code>def foo(x):        # here x is the parameter, when we call foo(y) we assign y to x
+    x[0] = 9       # This mutates the list labelled by both x and y
+    x = [1, 2, 3]  # x is now labeling a different list (y is unaffected)
+    x[2] = 8       # This mutates x's list, not y's list
+  
+y = [4, 5, 6]      # y is the argument, x is the parameter
+foo(y)             # Pretend that we wrote &quot;x = y&quot;, then go to line 1
+y
+# Out: [9, 5, 6]
+</code></pre>
+</li>
+
+**In Python, we don’t really assign values to variables, instead we **bind** (i.e. assign, attach) variables (considered as **names**) to objects.**
+
+- **Immutable:** Integers, strings, tuples, and so on. All operations make copies.
+- **Mutable:** Lists, dictionaries, sets, and so on. Operations may or may not mutate.
 
 ```
-def makeInc(x):
-  def inc(y):
-     # x is "attached" in the definition of inc
-     return y + x
-
-  return inc
-
-incOne = makeInc(1)
-incFive = makeInc(5)
-
-incOne (5) # returns 6
-incFive(5) # returns 10
-
-```
-
-Notice that while in a regular closure the enclosed function fully inherits all variables from its enclosing environment, in this construct the enclosed function has only read access to the inherited variables but cannot make assignments to them
-
-```
-def makeInc(x):
-  def inc(y):
-     # incrementing x is not allowed
-     x += y  
-     return x
-
-  return inc
-
-incOne = makeInc(1)
-incOne(5) # UnboundLocalError: local variable 'x' referenced before assignment
-
-```
-
-Python 3 offers the `nonlocal` statement ([Nonlocal Variables](http://web.archive.org/web/20170405083258/http://stackoverflow.com/documentation/python/263/variable-scope-and-binding/5712/nonlocal-variables#t=201608272008282346874) ) for realizing a full closure with nested functions.
-
-```
-def makeInc(x):
-  def inc(y):
-     nonlocal x
-     # now assigning a value to x is allowed
-     x += y  
-     return x
-
-  return inc
-
-incOne = makeInc(1)
-incOne(5) # returns 6
+x = [3, 1, 9]
+y = x
+x.append(5)    # Mutates the list labelled by x and y, both x and y are bound to [3, 1, 9]
+x.sort()       # Mutates the list labelled by x and y (in-place sorting)
+x = x + [4]    # Does not mutate the list (makes a copy for x only, not y)
+z = x          # z is x ([1, 3, 9, 4])
+x += [6]       # Mutates the list labelled by both x and z (uses the extend function).
+x = sorted(x)  # Does not mutate the list (makes a copy for x only).
+x
+# Out: [1, 3, 4, 5, 6, 9]
+y
+# Out: [1, 3, 5, 9]
+z
+# Out: [1, 3, 5, 9, 4, 6]
 
 ```
 
@@ -682,6 +631,91 @@ A function with **no** `return` statement implicitly returns `None`. Similarly a
 
 
 
+## Closure
+
+
+Closures in Python are created by function calls. Here, the call to `makeInc` creates a binding for `x` that is referenced inside the function `inc`. Each call to `makeInc` creates a new instance of this function, but each instance has a link to a different binding of `x`.
+
+```
+def makeInc(x):
+  def inc(y):
+     # x is &quot;attached&quot; in the definition of inc
+     return y + x
+
+  return inc
+
+incOne = makeInc(1)
+incFive = makeInc(5)
+
+incOne(5) # returns 6
+incFive(5) # returns 10
+
+```
+
+Notice that while in a regular closure the enclosed function fully inherits all variables from its enclosing environment, in this construct the enclosed function has only read access to the inherited variables but cannot make assignments to them
+
+```
+def makeInc(x):
+  def inc(y):
+     # incrementing x is not allowed
+     x += y  
+     return x
+
+  return inc
+
+incOne = makeInc(1)
+incOne(5) # UnboundLocalError: local variable 'x' referenced before assignment
+
+```
+
+Python 3 offers the `nonlocal` statement ([Nonlocal Variables](http://stackoverflow.com/documentation/python/263/variable-scope-and-binding/5712/nonlocal-variables#t=201608272008282346874) ) for realizing a full closure with nested functions.
+
+```
+def makeInc(x):
+  def inc(y):
+     nonlocal x
+     # now assigning a value to x is allowed
+     x += y  
+     return x
+
+  return inc
+
+incOne = makeInc(1)
+incOne(5) # returns 6
+
+```
+
+
+
+## Forcing the use of named parameters
+
+
+All parameters specified after the first asterisk in the function signature are keyword-only.
+
+```
+def f(*a, b):
+    pass
+
+f(1, 2, 3)
+# TypeError: f() missing 1 required keyword-only argument: 'b'
+
+```
+
+In Python 3 it's possible to put a single asterisk in the function signature to ensure that the remaining arguments may only be passed using keyword arguments.
+
+```
+def f(a, b, *, c):
+    pass
+
+f(1, 2, 3)
+# TypeError: f() takes 2 positional arguments but 3 were given
+f(1, 2, c=3)
+# No error
+
+```
+
+
+
 ## Defining a function with arguments
 
 
@@ -714,32 +748,76 @@ divide(divisor=2, dividend=10)
 
 
 
-## Forcing the use of named parameters
+## Recursive functions
 
 
-All parameters specified after the first asterisk in the function signature are keyword-only.
-
-```
-def f(*a, b):
-    pass
-
-f(1, 2, 3)
-# TypeError: f() missing 1 required keyword-only argument: 'b'
+A recursive function is a function that calls itself in its definition.
+For example the mathematical function, factorial, defined by `factorial(n) = n*(n-1)*(n-2)*...*3*2*1`. can be programmed as
 
 ```
-
-In Python 3 it's possible to put a single asterisk in the function signature to ensure that the remaining arguments may only be passed using keyword arguments.
-
-```
-def f(a, b, *, c):
-    pass
-
-f(1, 2, 3)
-# TypeError: f() takes 2 positional arguments but 3 were given
-f(1, 2, c=3)
-# No error
+def factorial(n):
+    #n here should be an integer
+    if n == 0:
+        return 1
+    else:
+        return n*factorial(n-1)
 
 ```
+
+the outputs here are:
+
+```
+factorial(0)
+#out 1
+factorial(1)
+#out 1
+factorial(2)
+#out 2
+factorial(3)
+#out 6
+
+```
+
+as expected. Notice that this function is recursive because the second `return factorial(n-1)`, where the function calls itself in its definition.
+
+Some recursive functions can be implemented using [lambda](http://stackoverflow.com/documentation/python/228/functions/2172/lambda-inline-anonymous-functions#t=201607221619590814188), the factorial function using lambda would be something like this:
+
+```
+factorial = lambda n: 1 if n == 0 else n*factorial(n-1)
+
+```
+
+The function outputs the same as above.
+
+
+
+## Recursion limit
+
+
+There is a limit to the depth of possible recursion, which depends on the Python implementation. When the limit is reached, a RuntimeError exception is raised:
+
+```
+def cursing(depth):
+  try:
+    cursing(depth + 1) # actually, re-cursing
+  except RuntimeError as RE:
+    print('I recursed {} times!'.format(depth))
+
+cursing(0)
+# Out: I recursed 1083 times!
+
+```
+
+It is possible to change the recursion depth limit by using `sys.setrecursionlimit(limit)` and check this limit by `sys.getrecursionlimit()`.
+
+```
+sys.setrecursionlimit(2000)
+cursing(0)
+# Out: I recursed 1997 times!
+
+```
+
+From Python 3.5, the exception is a `RecursionError`, which is derived from `RuntimeError`.
 
 
 
@@ -785,79 +863,6 @@ repeatedly_apply(add5, 5, 1)
 
 
 
-## Recursion limit
-
-
-There is a limit to the depth of possible recursion, which depends on the Python implementation. When the limit is reached, a RuntimeError exception is raised:
-
-```
-def cursing(depth):
-  try:
-    cursing(depth + 1) # actually, re-cursing
-  except RuntimeError as RE:
-    print('I recursed {} times!'.format(depth))
-
-cursing(0)
-# Out: I recursed 1083 times!
-
-```
-
-It is possible to change the recursion depth limit by using `sys.setrecursionlimit(limit)` and check this limit by `sys.getrecursionlimit()`.
-
-```
-sys.setrecursionlimit(2000)
-cursing(0)
-# Out: I recursed 1997 times!
-
-```
-
-From Python 3.5, the exception is a `RecursionError`, which is derived from `RuntimeError`.
-
-
-
-## Recursive functions
-
-
-A recursive function is a function that calls itself in its definition.
-For example the mathematical function, factorial, defined by `factorial(n) = n*(n-1)*(n-2)*...*3*2*1`. can be programmed as
-
-```
-def factorial(n):
-    #n here should be an integer
-    if n == 0:
-        return 1
-    else:
-        return n*factorial(n-1)
-
-```
-
-the outputs here are:
-
-```
-factorial(0)
-#out 1
-factorial(1)
-#out 1
-factorial(2)
-#out 2
-factorial(3)
-#out 6
-
-```
-
-as expected. Notice that this function is recursive because the second `return factorial(n-1)`, where the function calls itself in its definition.
-
-Some recursive functions can be implemented using [lambda](http://web.archive.org/web/20170405083258/http://stackoverflow.com/documentation/python/228/functions/2172/lambda-inline-anonymous-functions#t=201607221619590814188), the factorial function using lambda would be something like this:
-
-```
-factorial = lambda n: 1 if n == 0 else n*factorial(n-1)
-
-```
-
-The function outputs the same as above.
-
-
-
 ## Recursive Lambda using assigned variable
 
 
@@ -873,7 +878,7 @@ print(lambda_factorial(4)) # 4 * 3 * 2 * 1 = 12 * 2 = 24
 
 The lambda function, through its variable assignment, is passed a value (4) which it evaluates and returns 1 if it is 0 or else it returns the current value (`i`) * another calculation by the lambda function of the value - 1 (`i-1`). This continues until the passed value is decremented to 0 (`return 1`). A process which can be visualized as:
 
-[<img alt="recursive_lambda_path" src="http://web.archive.org/web/20170405083258im_/http://i.stack.imgur.com/uitTM.jpg"/>](http://web.archive.org/web/20170405083258/http://i.stack.imgur.com/uitTM.jpg)
+[<img src="http://i.stack.imgur.com/uitTM.jpg" alt="recursive_lambda_path" />](http://i.stack.imgur.com/uitTM.jpg)
 
 
 
@@ -918,102 +923,102 @@ Functions allow you to specify these types of parameters: positional, named, var
 def unpacking(a, b, c=45, d=60, *args, **kwargs):
     print(a, b, c, d, args, kwargs)
 
-&gt;&gt;&gt; unpacking(1, 2)
+>>> unpacking(1, 2)
 1 2 45 60 () {}
-&gt;&gt;&gt; unpacking(1, 2, 3, 4)
+>>> unpacking(1, 2, 3, 4)
 1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, c=3, d=4)
+>>> unpacking(1, 2, c=3, d=4)
 1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, d=4, c=3)
+>>> unpacking(1, 2, d=4, c=3)
 1 2 3 4 () {}
 
 
-&gt;&gt;&gt; pair = (3,)
-&gt;&gt;&gt; unpacking(1, 2, *pair, d=4)
+>>> pair = (3,)
+>>> unpacking(1, 2, *pair, d=4)
 1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, d=4, *pair)
+>>> unpacking(1, 2, d=4, *pair)
 1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, *pair, c=3)
+>>> unpacking(1, 2, *pair, c=3)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
-&gt;&gt;&gt; unpacking(1, 2, c=3, *pair)
+>>> unpacking(1, 2, c=3, *pair)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-TypeError: unpacking() got multiple values for argument 'c'
-
-&gt;&gt;&gt; args_list = [3]
-&gt;&gt;&gt; unpacking(1, 2, *args_list, d=4)
-1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, d=4, *args_list)
-1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, c=3, *args_list)
-Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-TypeError: unpacking() got multiple values for argument 'c'
-&gt;&gt;&gt; unpacking(1, 2, *args_list, c=3)
-Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 
-
-&gt;&gt;&gt; pair = (3, 4)
-&gt;&gt;&gt; unpacking(1, 2, *pair)
+>>> args_list = [3]
+>>> unpacking(1, 2, *args_list, d=4)
 1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, 3, 4, *pair)
+>>> unpacking(1, 2, d=4, *args_list)
+1 2 3 4 () {}
+>>> unpacking(1, 2, c=3, *args_list)
+Traceback (most recent call last):
+  File &quot;<stdin>&quot;, line 1, in <module>
+TypeError: unpacking() got multiple values for argument 'c'
+>>> unpacking(1, 2, *args_list, c=3)
+Traceback (most recent call last):
+  File &quot;<stdin>&quot;, line 1, in <module>
+TypeError: unpacking() got multiple values for argument 'c'
+
+
+>>> pair = (3, 4)
+>>> unpacking(1, 2, *pair)
+1 2 3 4 () {}
+>>> unpacking(1, 2, 3, 4, *pair)
 1 2 3 4 (3, 4) {}
-&gt;&gt;&gt; unpacking(1, 2, d=4, *pair)
+>>> unpacking(1, 2, d=4, *pair)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
-&gt;&gt;&gt; unpacking(1, 2, *pair, d=4)
+>>> unpacking(1, 2, *pair, d=4)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 
 
 
-&gt;&gt;&gt; args_list = [3, 4]
-&gt;&gt;&gt; unpacking(1, 2, *args_list)
+>>> args_list = [3, 4]
+>>> unpacking(1, 2, *args_list)
 1 2 3 4 () {}
-&gt;&gt;&gt; unpacking(1, 2, 3, 4, *args_list)
+>>> unpacking(1, 2, 3, 4, *args_list)
 1 2 3 4 (3, 4) {}
-&gt;&gt;&gt; unpacking(1, 2, d=4, *args_list)
+>>> unpacking(1, 2, d=4, *args_list)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
-&gt;&gt;&gt; unpacking(1, 2, *args_list, d=4)
+>>> unpacking(1, 2, *args_list, d=4)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 
 
-&gt;&gt;&gt; arg_dict = {'c':3, 'd':4}
-&gt;&gt;&gt; unpacking(1, 2, **arg_dict)
+>>> arg_dict = {'c':3, 'd':4}
+>>> unpacking(1, 2, **arg_dict)
 1 2 3 4 () {}
-&gt;&gt;&gt; arg_dict = {'d':4, 'c':3}
-&gt;&gt;&gt; unpacking(1, 2, **arg_dict)
+>>> arg_dict = {'d':4, 'c':3}
+>>> unpacking(1, 2, **arg_dict)
 1 2 3 4 () {}
-&gt;&gt;&gt; arg_dict = {'c':3, 'd':4, 'not_a_parameter': 75}
-&gt;&gt;&gt; unpacking(1, 2, **arg_dict)
+>>> arg_dict = {'c':3, 'd':4, 'not_a_parameter': 75}
+>>> unpacking(1, 2, **arg_dict)
 1 2 3 4 () {'not_a_parameter': 75}
 
 
-&gt;&gt;&gt; unpacking(1, 2, *pair, **arg_dict)
+>>> unpacking(1, 2, *pair, **arg_dict)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
-&gt;&gt;&gt; unpacking(1, 2, 3, 4, **arg_dict)
+>>> unpacking(1, 2, 3, 4, **arg_dict)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'd'
 
 # Positional arguments take priority over any other form of argument passing
-&gt;&gt;&gt; unpacking(1, 2, **arg_dict, c=3)
+>>> unpacking(1, 2, **arg_dict, c=3)
 1 2 3 4 () {'not_a_parameter': 75}
-&gt;&gt;&gt; unpacking(1, 2, 3, **arg_dict, c=3)
+>>> unpacking(1, 2, 3, **arg_dict, c=3)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unpacking() got multiple values for argument 'c'
 
 ```
@@ -1043,25 +1048,59 @@ TypeError: unpacking() got multiple values for argument 'c'
 #### Remarks
 
 
-5 key things you can do with functions are elegantly summarized (with examples) in this [blog post](http://web.archive.org/web/20170405083258/http://thecodeship.com/patterns/guide-to-python-function-decorators/), which later introduces concepts of closures and decorators:
+5 basic things you can do with functions:
 
-> 
+<li>
 Assign functions to variables
-
-
-> 
-Define functions inside other functions
-
-
-> 
-Functions can be passed as parameters to other functions
-
-
-> 
+<pre><code>def f():
+  print(20)
+y = f
+y()
+# Output: 20
+</code></pre>
+</li>
+<li>
+Define functions within other functions ([Nested functions](https://stackoverflow.com/documentation/python/228/functions/8717/nested-functions) )
+<pre><code>def f(a, b, y):
+    def inner_add(a, b):      # inner_add is hidden from outer code
+        return a + b
+    return inner_add(a, b)**y
+</code></pre>
+</li>
+<li>
 Functions can return other functions
+<pre><code>def f(y):
+    def nth_power(x):
+        return x ** y
+    return nth_power    # returns a function
 
+squareOf = f(2)         # function that returns the square of a number           
+cubeOf = f(3)           # function that returns the cube of a number
+squareOf(3)             # Output: 9
+cubeOf(2)               # Output: 8
+</code></pre>
+</li>
+<li>
+Functions can be passed as parameters to other functions
+<pre><code>def a(x, y):
+    print(x, y)
+def b(fun, str):        # b has two arguments: a function and a string 
+    fun('Hello', str)
+b(a, 'Sophia')           # Output: Hello Sophia
+</code></pre>
+</li>
+<li>
+Inner functions have access to the enclosing scope ([Closure](https://stackoverflow.com/documentation/python/228/functions/3885/closure) )
+<pre><code>def outer_fun(name):
+    def inner_fun():     # the variable name is available to the inner function
+        return &quot;Hello &quot;+ name + &quot;!&quot;
+    return inner_fun
+greet = outer_fun(&quot;Sophia&quot;)
+print(greet())            # Output: Hello Sophia!
+</code></pre>
+</li>
 
-> 
-Inner functions have access to the enclosing scope
+### Additional resources
 
+- More on functions and decorators: [https://www.thecodeship.com/patterns/guide-to-python-function-decorators/](https://www.thecodeship.com/patterns/guide-to-python-function-decorators/)
 

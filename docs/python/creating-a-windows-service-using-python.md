@@ -8,7 +8,7 @@ Headless processes (with no UI) in Windows are called Services. They can be cont
 ## A Python script that can be run as a service
 
 
-The modules used in this example are part of [pywin32](http://web.archive.org/web/20170816211654/https://sourceforge.net/projects/pywin32/) (Python for Windows extensions). Depending on how you installed Python, you might need to install this separately.
+The modules used in this example are part of [pywin32](https://sourceforge.net/projects/pywin32/) (Python for Windows extensions). Depending on how you installed Python, you might need to install this separately.
 
 ```
 import win32serviceutil
@@ -19,8 +19,8 @@ import socket
 
 
 class AppServerSvc (win32serviceutil.ServiceFramework):
-    _svc_name_ = "TestService"
-    _svc_display_name_ = "Test Service"
+    _svc_name_ = &quot;TestService&quot;
+    _svc_display_name_ = &quot;Test Service&quot;
 
     def __init__(self,args):
         win32serviceutil.ServiceFramework.__init__(self,args)
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
 This is just boilerplate. Your application code, probably invoking a separate script, would go in the main() function.
 
-You will also need to install this as a service. The best solution for this at the moment appears to be to use [Non-sucking Service Manager](http://web.archive.org/web/20170816211654/http://nssm.cc/). This allows you to install a service and provides a GUI for configuring the command line the service executes. For Python you can do this, which creates the service in one go:
+You will also need to install this as a service. The best solution for this at the moment appears to be to use [Non-sucking Service Manager](http://nssm.cc/). This allows you to install a service and provides a GUI for configuring the command line the service executes. For Python you can do this, which creates the service in one go:
 
 ```
 nssm install MyServiceName c:\python27\python.exe c:\temp\myscript.py
@@ -76,9 +76,9 @@ from app import app
 
 
 class Service(win32serviceutil.ServiceFramework):
-    _svc_name_ = "TestService"
-    _svc_display_name_ = "Test Service"
-    _svc_description_ = "Tests Python service framework by receiving and echoing messages over a named pipe"
+    _svc_name_ = &quot;TestService&quot;
+    _svc_display_name_ = &quot;Test Service&quot;
+    _svc_description_ = &quot;Tests Python service framework by receiving and echoing messages over a named pipe&quot;
 
     def __init__(self, *args):
         super().__init__(*args)
@@ -102,5 +102,5 @@ if __name__ == '__main__':
 
 ```
 
-Adapted from [http://stackoverflow.com/a/25130524/318488](http://web.archive.org/web/20170816211654/http://stackoverflow.com/a/25130524/318488)
+Adapted from [http://stackoverflow.com/a/25130524/318488](http://stackoverflow.com/a/25130524/318488)
 

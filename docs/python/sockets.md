@@ -5,6 +5,86 @@ Many programming languages use sockets to communicate across processes or betwee
 
 
 
+## Sending data via UDP
+
+
+UDP is a connectionless protocol. Messages to other processes or computers are sent without establishing any sort of connection. There is no automatic confirmation if your message has been received. UDP is usually used in latency sensitive applications or in applications sending network wide broadcasts.
+
+The following code sends a message to a process listening on localhost port 6667 using UDP
+
+**Note that there is no need to &quot;close&quot; the socket after the send, because UDP is [connectionless](https://en.wikipedia.org/wiki/Connectionless_communication).**
+
+```
+from socket import socket, AF_INET, SOCK_DGRAM
+s = socket(AF_INET, SOCK_DGRAM)
+msg = (&quot;Hello you there!&quot;).encode('utf-8')  # socket.sendto() takes bytes as input, hence we must encode the string first.
+s.sendto(msg, ('localhost', 6667)) 
+
+```
+
+
+
+## Receiving data via UDP
+
+
+UDP is a connectionless protocol. This means that peers sending messages do not require establishing a connection before sending messages. `socket.recvfrom`thus returns a tuple (`msg` [the message the socket received], `addr` [the address of the sender])
+
+A UDP server using solely the `socket` module:
+
+```
+from socket import socket, AF_INET, SOCK_DGRAM
+sock = socket(AF_INET, SOCK_DGRAM)
+sock.bind(('localhost', 6667))
+
+while True:
+    msg, addr = sock.recvfrom(8192)  # This is the amount of bytes to read at maximum
+    print(&quot;Got message from %s: %s&quot; % (addr, msg))
+
+```
+
+Below is an alternative implementation using `socketserver.UDPServer`:
+
+```
+from socketserver import BaseRequestHandler, UDPServer
+
+class MyHandler(BaseRequestHandler):
+    def handle(self):
+        print(&quot;Got connection from: %s&quot; % self.client_address)
+        msg, sock = self.request
+        print(&quot;It said: %s&quot; % msg)
+        sock.sendto(&quot;Got your message!&quot;.encode(), self.client_address) # Send reply
+
+serv = UDPServer(('localhost', 6667), MyHandler)
+serv.serve_forever()
+
+```
+
+By default, `sockets` block.  This means that execution of the script will wait until the socket receives data.
+
+
+
+## Sending data via TCP
+
+
+Sending data over the internet is made possible using multiple modules. The sockets module provides low-level access to the underlying Operating System operations responsible for sending or receiving data from other computers or processes.
+
+The following code sends the byte string `b'Hello'` to a TCP server listening on port 6667 on the host localhost and closes the connection when finished:
+
+```
+from socket import socket, AF_INET, SOCK_STREAM
+s = socket(AF_INET, SOCK_STREAM)
+s.connect(('localhost', 6667))  # The address of the TCP server listening
+s.send(b'Hello')
+s.close()
+
+```
+
+Socket output is blocking by default, that means that the program will wait in the connect and send calls until the action is 'completed'. For connect that means the server actually accepting the connection. For send it only means that the operating system has enough buffer space to queue the data to be send later.
+
+Sockets should always be closed after use.
+
+
+
 ## Multi-threaded TCP Socket Server
 
 
@@ -29,7 +109,7 @@ def handle_client(client_list, conn, address):
     conn.close()
 
 def server(client_list):
-    print "Starting server..."
+    print &quot;Starting server...&quot;
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     s.bind(('127.0.0.1', 5000))
@@ -64,7 +144,7 @@ def main():
         try:
             server(client_list)
         except KeyboardInterrupt:
-            print "Keyboard interrupt"
+            print &quot;Keyboard interrupt&quot;
 
 if __name__ == '__main__':
     main()
@@ -84,10 +164,10 @@ Starting server...
 ```
 $ python client_list.py -c -n name1
 {
-    "name1": {
-        "address": "127.0.0.1", 
-        "port": 62210, 
-        "name": "name1"
+    &quot;name1&quot;: {
+        &quot;address&quot;: &quot;127.0.0.1&quot;, 
+        &quot;port&quot;: 62210, 
+        &quot;name&quot;: &quot;name1&quot;
     }
 }
 
@@ -118,100 +198,20 @@ Then send your packet, using a SOCK_RAW socket:
 #!/usr/bin/env python
 from socket import socket, AF_PACKET, SOCK_RAW
 s = socket(AF_PACKET, SOCK_RAW)
-s.bind(("eth1", 0))
+s.bind((&quot;eth1&quot;, 0))
 
 # We're putting together an ethernet frame here, 
 # but you could have anything you want instead
 # Have a look at the 'struct' module for more 
 # flexible packing/unpacking of binary data
 # and 'binascii' for 32 bit CRC
-src_addr = "\x01\x02\x03\x04\x05\x06"
-dst_addr = "\x01\x02\x03\x04\x05\x06"
-payload = ("["*30)+"PAYLOAD"+("]"*30)
-checksum = "\x1a\x2b\x3c\x4d"
-ethertype = "\x08\x01"
+src_addr = &quot;\x01\x02\x03\x04\x05\x06&quot;
+dst_addr = &quot;\x01\x02\x03\x04\x05\x06&quot;
+payload = (&quot;[&quot;*30)+&quot;PAYLOAD&quot;+(&quot;]&quot;*30)
+checksum = &quot;\x1a\x2b\x3c\x4d&quot;
+ethertype = &quot;\x08\x01&quot;
 
 s.send(dst_addr+src_addr+ethertype+payload+checksum)
-
-```
-
-
-
-## Receiving data via UDP
-
-
-UDP is a connectionless protocol. This means that peers sending messages do not require establishing a connection before sending messages. `socket.recvfrom`thus returns a tuple (`msg` [the message the socket received], `addr` [the address of the sender])
-
-A UDP server using solely the `socket` module:
-
-```
-from socket import socket, AF_INET, SOCK_DGRAM
-sock = socket(AF_INET, SOCK_DGRAM)
-sock.bind(('localhost', 6667))
-
-while True:
-    msg, addr = sock.recvfrom(8192)  # This is the amount of bytes to read at maximum
-    print("Got message from %s: %s" % (addr, msg))
-
-```
-
-Below is an alternative implementation using `socketserver.UDPServer`:
-
-```
-from socketserver import BaseRequestHandler, UDPServer
-
-class MyHandler(BaseRequestHandler):
-    def handle(self):
-        print("Got connection from: %s" % self.client_address)
-        msg, sock = self.request
-        print("It said: %s" % msg)
-        sock.sendto("Got your message!".encode(), self.client_address) # Send reply
-
-serv = UDPServer(('localhost', 6667), MyHandler)
-serv.serve_forever()
-
-```
-
-By default, `sockets` block.  This means that execution of the script will wait until the socket receives data.
-
-
-
-## Sending data via TCP
-
-
-Sending data over the internet is made possible using multiple modules. The sockets module provides low-level access to the underlying Operating System operations responsible for sending or receiving data from other computers or processes.
-
-The following code sends the byte string `b'Hello'` to a TCP server listening on port 6667 on the host localhost and closes the connection when finished:
-
-```
-from socket import socket, AF_INET, SOCK_STREAM
-s = socket(AF_INET, SOCK_STREAM)
-s.connect(('localhost', 6667))  # The address of the TCP server listening
-s.send(b'Hello')
-s.close()
-
-```
-
-Socket output is blocking by default, that means that the program will wait in the connect and send calls until the action is 'completed'. For connect that means the server actually accepting the connection. For send it only means that the operating system has enough buffer space to queue the data to be send later.
-
-Sockets should always be closed after use.
-
-
-
-## Sending data via UDP
-
-
-UDP is a connectionless protocol. Messages to other processes or computers are sent without establishing any sort of connection. There is no automatic confirmation if your message has been received. UDP is usually used in latency sensitive applications or in applications sending network wide broadcasts.
-
-The following code sends a message to a process listening on localhost port 6667 using UDP
-
-**Note that there is no need to "close" the socket after the send, because UDP is [connectionless](http://web.archive.org/web/20170305124328/https://en.wikipedia.org/wiki/Connectionless_communication).**
-
-```
-from socket import socket, AF_INET, SOCK_DGRAM
-s = socket(AF_INET, SOCK_DGRAM)
-msg = ("Hello you there!").encode('utf-8')  # socket.sendto() takes bytes as input, hence we must encode the string first.
-s.sendto(msg, ('localhost', 6667)) 
 
 ```
 

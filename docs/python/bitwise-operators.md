@@ -8,7 +8,7 @@ Bitwise operations alter binary strings at the bit level. These operations are i
 ## Bitwise NOT
 
 
-The `~` operator will flip all of the bits in the number. Since computers use [signed number representations](http://web.archive.org/web/20170405083201/https://en.wikipedia.org/wiki/Signed_number_representations) — most notably, the [two's complement notation](http://web.archive.org/web/20170405083201/https://en.wikipedia.org/wiki/Two%27s_complement) to encode negative binary numbers where negative numbers are written with a leading one (1) instead of a leading zero (0).
+The `~` operator will flip all of the bits in the number. Since computers use [signed number representations](https://en.wikipedia.org/wiki/Signed_number_representations) — most notably, the [two's complement notation](https://en.wikipedia.org/wiki/Two%27s_complement) to encode negative binary numbers where negative numbers are written with a leading one (1) instead of a leading zero (0).
 
 This means that if you were using 8 bits to represent your two's-complement numbers, you would treat patterns from `0000 0000` to `0111 1111` to represent numbers from 0 to 127 and reserve `1xxx xxxx` to represent negative numbers.
 
@@ -59,13 +59,13 @@ In general, though, this means `~n = -n - 1`.
 **Note**, the overall effect of this operation when applied to positive numbers can be summarized:
 
 > 
-`~n -&gt; -|n+1|`
+`~n -> -|n+1|`
 
 
 And then, when applied to negative numbers, the corresponding effect is:
 
 > 
-`~-n -&gt; |n-1|`
+`~-n -> |n-1|`
 
 
 The following examples illustrate this last rule...
@@ -144,44 +144,10 @@ bin(60 &amp; 30)
 
 
 
-## Bitwise Left Shift
-
-
-The `&lt;&lt;` operator will perform a bitwise "left shift," where the left operand's value is moved left by the number of bits given by the right operand.
-
-```
-# 2 = 0b10
-2 &lt;&lt; 2
-# Out: 8
-# 8 = 0b1000
-
-bin(2 &lt;&lt; 2)
-# Out: 0b1000
-
-```
-
-Performing a left bit shift of `1` is equivalent to multiplication by `2`:
-
-```
-7 &lt;&lt; 1
-# Out: 14
-
-```
-
-Performing a left bit shift of `n` is equivalent to multiplication by `2**n`:
-
-```
-3 &lt;&lt; 4
-# Out: 48
-
-```
-
-
-
 ## Bitwise OR
 
 
-The `|` operator will perform a binary "or," where a bit is copied if it exists in either operand. That means:
+The `|` operator will perform a binary &quot;or,&quot; where a bit is copied if it exists in either operand. That means:
 
 ```
 # 0 | 0 = 0
@@ -202,18 +168,52 @@ bin(60 | 30)
 
 
 
+## Bitwise Left Shift
+
+
+The `<<` operator will perform a bitwise &quot;left shift,&quot; where the left operand's value is moved left by the number of bits given by the right operand.
+
+```
+# 2 = 0b10
+2 << 2
+# Out: 8
+# 8 = 0b1000
+
+bin(2 << 2)
+# Out: 0b1000
+
+```
+
+Performing a left bit shift of `1` is equivalent to multiplication by `2`:
+
+```
+7 << 1
+# Out: 14
+
+```
+
+Performing a left bit shift of `n` is equivalent to multiplication by `2**n`:
+
+```
+3 << 4
+# Out: 48
+
+```
+
+
+
 ## Bitwise Right Shift
 
 
-The `&gt;&gt;` operator will perform a bitwise "right shift," where the left operand's value is moved right by the number of bits given by the right operand.
+The `>>` operator will perform a bitwise &quot;right shift,&quot; where the left operand's value is moved right by the number of bits given by the right operand.
 
 ```
 # 8 = 0b1000
-8 &gt;&gt; 2
+8 >> 2
 # Out: 2
 # 2 = 0b10
 
-bin(8 &gt;&gt; 2)
+bin(8 >> 2)
 # Out: 0b10
 
 ```
@@ -221,10 +221,10 @@ bin(8 &gt;&gt; 2)
 Performing a right bit shift of `1` is equivalent to integer division by `2`:
 
 ```
-36 &gt;&gt; 1
+36 >> 1
 # Out: 18
 
-15 &gt;&gt; 1
+15 >> 1
 # Out: 7
 
 ```
@@ -232,10 +232,10 @@ Performing a right bit shift of `1` is equivalent to integer division by `2`:
 Performing a right bit shift of `n` is equivalent to integer division by `2**n`:
 
 ```
-48 &gt;&gt; 4
+48 >> 4
 # Out: 3
 
-59 &gt;&gt; 3
+59 >> 3
 # Out: 7
 
 ```
@@ -257,11 +257,11 @@ a |= 0b010
 # a = 0b011
 
 a = 0b001
-a &lt;&lt;= 2 
+a <<= 2 
 # a = 0b100
 
 a = 0b100
-a &gt;&gt;= 2 
+a >>= 2 
 # a = 0b001
 
 a = 0b101
@@ -276,10 +276,10 @@ a ^= 0b011
 
 
 <li>
-x &lt;&lt; y  # Bitwise Left Shift
+x << y  # Bitwise Left Shift
 </li>
 <li>
-x &gt;&gt; y # Bitwise Right Shift
+x >> y # Bitwise Right Shift
 </li>
 <li>
 x &amp; y  # Bitwise AND

@@ -30,8 +30,8 @@ pip install https://github.com/carlos-jenkins/pydotplus/archive/master.zip
 
 > 
 <p>digraph demo1{
-a -&gt; b -&gt; c;
-c -&gt;a;
+a -> b -> c;
+c ->a;
 }</p>
 
 
@@ -44,14 +44,14 @@ graph_a.write_svg('test.svg') # generate graph in svg.
 
 You will get a svg(Scalable Vector Graphics) like this:
 
-[<img alt="enter image description here" src="http://web.archive.org/web/20170816212200im_/https://i.stack.imgur.com/Wz3LU.png"/>](http://web.archive.org/web/20170816212200/https://i.stack.imgur.com/Wz3LU.png)
+[<img src="https://i.stack.imgur.com/Wz3LU.png" alt="enter image description here" />](https://i.stack.imgur.com/Wz3LU.png)
 
 
 
 ## PyGraphviz
 
 
-Get PyGraphviz from the Python Package Index at [http://pypi.python.org/pypi/pygraphviz](http://web.archive.org/web/20170816212200/http://pypi.python.org/pypi/pygraphviz)
+Get PyGraphviz from the Python Package Index at [http://pypi.python.org/pypi/pygraphviz](http://pypi.python.org/pypi/pygraphviz)
 
 or install it with:
 
@@ -63,7 +63,7 @@ You can install the development version (at github.com) with:
 
 `pip install git://github.com/pygraphviz/pygraphviz.git#egg=pygraphviz`
 
-Get PyGraphviz from the Python Package Index at [http://pypi.python.org/pypi/pygraphviz](http://web.archive.org/web/20170816212200/http://pypi.python.org/pypi/pygraphviz)
+Get PyGraphviz from the Python Package Index at [http://pypi.python.org/pypi/pygraphviz](http://pypi.python.org/pypi/pygraphviz)
 
 or install it with:
 
@@ -75,8 +75,8 @@ and an attempt will be made to find and install an appropriate version that matc
 
 > 
 <p>digraph demo1{
-a -&gt; b -&gt; c;
-c -&gt;a;
+a -> b -> c;
+c ->a;
 }</p>
 
 
@@ -84,12 +84,12 @@ c -&gt;a;
 
 ```
 import pygraphviz as pgv
-G = pgv.AGraph("demo.dot")
+G = pgv.AGraph(&quot;demo.dot&quot;)
 G.draw('test', format='svg', prog='dot')
 
 ```
 
 You will get a svg(Scalable Vector Graphics) like this:
 
-[<img alt="enter image description here" src="http://web.archive.org/web/20170816212200im_/https://i.stack.imgur.com/Wz3LU.png"/>](http://web.archive.org/web/20170816212200/https://i.stack.imgur.com/Wz3LU.png)
+[<img src="https://i.stack.imgur.com/Wz3LU.png" alt="enter image description here" />](https://i.stack.imgur.com/Wz3LU.png)
 

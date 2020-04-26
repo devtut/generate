@@ -1,0 +1,49 @@
+# Checking Path Existence and Permissions
+
+
+
+## Perform checks using os.access
+
+
+`os.access` is much better solution to check whether directory exists and it's accesable for reading and writing.
+
+```
+import os
+path = &quot;/home/myFiles/directory1&quot;
+
+## Check if path exists
+os.access(path, os.F_OK)
+
+## Check if path is Readable
+os.access(path, os.R_OK)
+
+## Check if path is Wriable
+os.access(path, os.W_OK)
+
+## Check if path is Execuatble
+os.access(path, os.E_OK)
+
+```
+
+also it's possible to perfrom all checks together
+
+```
+os.access(path, os.F_OK &amp; os.R_OK &amp; os.W_OK &amp; os.E_OK)
+
+```
+
+All the above returns `True` if access is allowed and `False` if not allowed.
+These are available on unix and windows.
+
+
+
+#### Parameters
+
+
+|Parameter|Details
+|------
+|os.F_OK|Value to pass as the mode parameter of access() to test the existence of path.
+|os.R_OK|Value to include in the mode parameter of access() to test the readability of path.
+|os.W_OK|Value to include in the mode parameter of access() to test the writability of path.
+|os.X_OK|Value to include in the mode parameter of access() to determine if path can be executed.
+

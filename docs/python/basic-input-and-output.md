@@ -2,16 +2,17 @@
 
 
 
+
 ## Using the print function
 
 
 In Python 3, print functionality is in the form of a function:
 
 ```
-print("This string will be displayed in the output")
+print(&quot;This string will be displayed in the output&quot;)
 # This string will be displayed in the output
 
-print("You can print \n escape characters too.")
+print(&quot;You can print \n escape characters too.&quot;)
 # You can print escape characters too.
 
 ```
@@ -19,15 +20,38 @@ print("You can print \n escape characters too.")
 In Python 2, print was originally a statement, as shown below.
 
 ```
-print "This string will be displayed in the output"
+print &quot;This string will be displayed in the output&quot;
 # This string will be displayed in the output
 
-print "You can print \n escape characters too."
+print &quot;You can print \n escape characters too.&quot;
 # You can print escape characters too.
 
 ```
 
 Note: using `from __future__ import print_function` in Python 2 will allow users to use the `print()` function the same as Python 3 code. This is only available in Python 2.6 and above.
+
+
+
+## Using input() and raw_input()
+
+
+`raw_input` will wait for the user to enter text and then return the result as a string.
+
+```
+foo = raw_input(&quot;Put a message here that asks the user for input&quot;)
+
+```
+
+In the above example `foo` will store whatever input the user provides.
+
+`input` will wait for the user to enter text and then return the result as a string.
+
+```
+foo = input(&quot;Put a message here that asks the user for input&quot;)
+
+```
+
+In the above example `foo` will store whatever input the user provides.
 
 
 
@@ -57,14 +81,101 @@ def input_number(msg, err_msg=None):
 And to use it:
 
 ```
-user_number = input_number("input a number: ", "that's not a number!")
+user_number = input_number(&quot;input a number: &quot;, &quot;that's not a number!&quot;)
 
 ```
 
-Or, if you do not want an "error message":
+Or, if you do not want an &quot;error message&quot;:
 
 ```
-user_number = input_number("input a number: ")
+user_number = input_number(&quot;input a number: &quot;)
+
+```
+
+
+
+## Printing a string without a newline at the end
+
+
+In Python 2.x, to continue a line with `print`, end the `print` statement with a comma. It will automatically add a space.
+
+```
+print &quot;Hello,&quot;,
+print &quot;World!&quot;
+# Hello, World!
+
+```
+
+In Python 3.x, the `print` function has an optional `end` parameter that is what it prints at the end of the given string. By default it's a newline character, so equivalent to this:
+
+```
+print(&quot;Hello, &quot;, end=&quot;\n&quot;)
+print(&quot;World!&quot;)
+# Hello, 
+# World!
+
+```
+
+But you could pass in other strings
+
+```
+print(&quot;Hello, &quot;, end=&quot;&quot;)
+print(&quot;World!&quot;)
+# Hello, World!
+
+print(&quot;Hello, &quot;, end=&quot;<br>&quot;)
+print(&quot;World!&quot;)
+# Hello, <br>World!
+
+print(&quot;Hello, &quot;, end=&quot;BREAK&quot;)
+print(&quot;World!&quot;)
+# Hello, BREAKWorld!
+
+```
+
+If you want more control over the output, you can use `sys.stdout.write`:
+
+```
+import sys
+
+sys.stdout.write(&quot;Hello, &quot;)
+sys.stdout.write(&quot;World!&quot;)
+# Hello, World!
+
+```
+
+
+
+## Read from stdin
+
+
+Python programs can read from [unix pipelines](https://en.wikipedia.org/wiki/Pipeline_(Unix)). Here is a simple example how to read from [`stdin`](https://docs.python.org/2/library/sys.html#sys.stdin):
+
+```
+import sys
+
+for line in sys.stdin:
+    print(line)
+
+```
+
+Be aware that `sys.stdin` is a stream. It means that the for-loop will only terminate when the stream has ended.
+
+You can now pipe the output of another program into your python program as follows:
+
+```
+$ cat myfile | python myprogram.py
+
+```
+
+In this example `cat myfile` can be any unix command that outputs to `stdout`.
+
+Alternatively, using the [fileinput module](https://docs.python.org/2/library/fileinput.html) can come in handy:
+
+```
+import fileinput
+for line in fileinput.input():
+    process(line)
 
 ```
 
@@ -73,7 +184,7 @@ user_number = input_number("input a number: ")
 ## Input from a File
 
 
-Input can also be read from files. Files can be opened using the built-in function `open`. Using a [`with &lt;command&gt; as &lt;name&gt;`](http://web.archive.org/web/20170816193810/http://stackoverflow.com/documentation/python/928/context-managers-with-statement#t=201612062300080479662) syntax (called a 'Context Manager') makes using `open` and getting a handle for the file super easy:
+Input can also be read from files. Files can be opened using the built-in function `open`. Using a [`with <command> as <name>`](http://stackoverflow.com/documentation/python/928/context-managers-with-statement#t=201612062300080479662) syntax (called a 'Context Manager') makes using `open` and getting a handle for the file super easy:
 
 ```
 with open('somefile.txt', 'r') as fileobj:
@@ -172,120 +283,10 @@ To demonstrate the difference between characters and bytes:
 
 ```
 with open('shoppinglist.txt', 'r') as fileobj:
-    print(type(fileobj.read())) # &lt;class 'str'&gt;
+    print(type(fileobj.read())) # <class 'str'>
 
 with open('shoppinglist.txt', 'rb') as fileobj:
-    print(type(fileobj.read())) # &lt;class 'bytes'&gt;
+    print(type(fileobj.read())) # <class 'bytes'>
 
 ```
-
-
-
-## Printing a string without a newline at the end
-
-
-In Python 2.x, to continue a line with `print`, end the `print` statement with a comma. It will automatically add a space.
-
-```
-print "Hello,",
-print "World!"
-# Hello, World!
-
-```
-
-In Python 3.x, the `print` function has an optional `end` parameter that is what it prints at the end of the given string. By default it's a newline character, so equivalent to this:
-
-```
-print("Hello, ", end="\n")
-print("World!")
-# Hello, 
-# World!
-
-```
-
-But you could pass in other strings
-
-```
-print("Hello, ", end="")
-print("World!")
-# Hello, World!
-
-print("Hello, ", end="&lt;br&gt;")
-print("World!")
-# Hello, &lt;br&gt;World!
-
-print("Hello, ", end="BREAK")
-print("World!")
-# Hello, BREAKWorld!
-
-```
-
-If you want more control over the output, you can use `sys.stdout.write`:
-
-```
-import sys
-
-sys.stdout.write("Hello, ")
-sys.stdout.write("World!")
-# Hello, World!
-
-```
-
-
-
-## Read from stdin
-
-
-Python programs can read from [unix pipelines](http://web.archive.org/web/20170816193810/https://en.wikipedia.org/wiki/Pipeline_(Unix)). Here is a simple example how to read from [`stdin`](http://web.archive.org/web/20170816193810/https://docs.python.org/2/library/sys.html#sys.stdin):
-
-```
-import sys
-
-for line in sys.stdin:
-    print(line)
-
-```
-
-Be aware that `sys.stdin` is a stream. It means that the for-loop will only terminate when the stream has ended.
-
-You can now pipe the output of another program into your python program as follows:
-
-```
-$ cat myfile | python myprogram.py
-
-```
-
-In this example `cat myfile` can be any unix command that outputs to `stdout`.
-
-Alternatively, using the [fileinput module](http://web.archive.org/web/20170816193810/https://docs.python.org/2/library/fileinput.html) can come in handy:
-
-```
-import fileinput
-for line in fileinput.input():
-    process(line)
-
-```
-
-
-
-## Using input() and raw_input()
-
-
-`raw_input` will wait for the user to enter text and then return the result as a string.
-
-```
-foo = raw_input("Put a message here that asks the user for input")
-
-```
-
-In the above example `foo` will store whatever input the user provides.
-
-`input` will wait for the user to enter text and then return the result as a string.
-
-```
-foo = input("Put a message here that asks the user for input")
-
-```
-
-In the above example `foo` will store whatever input the user provides.
 

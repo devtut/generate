@@ -14,7 +14,7 @@ Using the `threading` module, a new thread of execution may be started by creati
 import threading
 
 def foo():
-  print "Hello threading!"
+  print &quot;Hello threading!&quot;
 
 my_thread = threading.Thread(target=foo)
 
@@ -22,12 +22,55 @@ my_thread = threading.Thread(target=foo)
 
 The `target` parameter references the function (or callable object) to be run.  The thread will not begin execution until `start` is called on the `Thread` object.
 
+****Starting a Thread****
+
 ```
 my_thread.start() # prints 'Hello threading!'
 
 ```
 
-Now that `my_thread` has run and terminated, calling `start` again will produce a `RuntimeError`.
+Now that `my_thread` has run and terminated, calling `start` again will produce a `RuntimeError`. If you'd like to run your thread as a daemon, passing the `daemon=True` kwarg, or setting `my_thread.daemon` to `True` before calling `start()`, causes your `Thread` to run silently in the background as a daemon.
+
+****Joining a Thread****
+
+In cases where you split up one big job into several small ones and want to run them concurrently, but need to wait for all of them to finish before continuing, `Thread.join()` is the method you're looking for.
+
+For example, let's say you want to download several pages of a website and compile them into a single page. You'd do this:
+
+```
+import requests
+from threading import Thread
+from queue import Queue
+
+q = Queue(maxsize=20)
+def put_page_to_q(page_num):
+    q.put(requests.get('http://some-website.com/page_%s.html' % page_num)
+
+def compile(q):
+    # magic function that needs all pages before being able to be executed
+    if not q.full():
+        raise ValueError
+    else:
+        print(&quot;Done compiling!&quot;)
+
+threads = []
+for page_num in range(20):
+     t = Thread(target=requests.get, args=(page_num,))
+     t.start()
+     threads.append(t)
+
+# Next, join all threads to make sure all threads are done running before
+# we continue. join() is a blocking call (unless specified otherwise using 
+# the kwarg blocking=False when calling join)
+for t in threads:
+    t.join()
+
+# Call compile() now, since all threads have completed
+compile(q)
+
+```
+
+A closer look at how `join()` works can be found [here](https://stackoverflow.com/a/15086113/5413116).
 
 ****Create a Custom Thread Class****
 
@@ -38,18 +81,18 @@ we must override `run` method in a subclass.
 from threading import Thread
 import time
 
-class Sleepy(threading.Thread):
+class Sleepy(Thread):
 
     def run(self):
         time.sleep(5)
-        print("Hello form Thread")
+        print(&quot;Hello form Thread&quot;)
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     t = Sleepy()
     t.start()      # start method automatic call Thread class run method.
     # print 'The main program continues to run in foreground.'
     t.join()
-    print("The main program continues to run in the foreground.")
+    print(&quot;The main program continues to run in the foreground.&quot;)
 
 ```
 
@@ -94,48 +137,6 @@ t1 = Thread(target=consumer, args=(q,))
 t2 = Thread(target=producer, args=(q,))
 t1.start()
 t2.start()
-
-```
-
-
-
-## A very basic example on threading
-
-
-```
-import time
-from threading import Thread
-
-def worker(i):
-    print("sleeping 10 sec from thread {}".format(i))
-    time.sleep(10)
-    print("finished sleeping from thread {}".format(i))
-
-for i in range(5):
-    t = Thread(target=worker, args=(i,))
-    t.start()
-
-```
-
-Initially prints:
-
-```
-sleeping 10 sec from thread 0
-sleeping 10 sec from thread 1
-sleeping 10 sec from thread 2
-sleeping 10 sec from thread 3
-sleeping 10 sec from thread 4
-
-```
-
-and then 10 seconds later:
-
-```
-finished sleeping from thread 0
-finished sleeping from thread 1
-finished sleeping from thread 2
-finished sleeping from thread 3
-finished sleeping from thread 4
 
 ```
 
@@ -196,43 +197,121 @@ echo_server(('',15000))
 
 
 
-## Daemon threads
+## Advanced use of multithreads
 
 
-If you want a thread to run during execution, but not to keep Python alive once the other threads have terminated, you can set the `Thread`'s `daemon` attribute to `True`.
+This section will contain some of the most advanced examples realized using Multithreading.
 
-```
-my_thread = threading.Thread(target=foo)
-my_thread.setDaemon(True)
+### Advanced printer (logger)
 
-```
-
-Once set to Daemon, this thread will cease execution once **all non-daemon threads** have terminated.  The default value is `False`, so there's no need to `setDaemon(False)` in most cases.
-
-
-
-## Waiting for threads to finish before continuing
-
-
-In order to pause execution while child threads complete, you can call the `Thread.join` method.  For example:
+A thread that prints everything is received and modifies the output according to the terminal width. The nice part is that also the &quot;already written&quot; output is modified when the width of the terminal changes.
 
 ```
-# prepare threads
-foo_thread = threading.Thread(target=foo)
-bar_thread = threading.Thread(target=bar)
-threads = [foo_thread, bar_thread]
+#!/usr/bin/env python2
 
-# start threads
-for t in threads:
-  t.start()
+import threading
+import Queue
+import time
+import sys
+import subprocess
+from backports.shutil_get_terminal_size import get_terminal_size
 
-# continue main execution...
+printq = Queue.Queue()
+interrupt = False
+lines = []
 
-# wait for each thread to finish
-for t in threads:
-  t.join()
+def main():
+
+    ptt = threading.Thread(target=printer) # Turn the printer on
+    ptt.daemon = True
+    ptt.start()
+
+    # Stupid example of stuff to print
+    for i in xrange(1,100):
+        printq.put(' '.join([str(x) for x in range(1,i)]))           # The actual way to send stuff to the printer
+        time.sleep(.5)
+
+def split_line(line, cols):
+    if len(line) > cols:
+        new_line = ''
+        ww = line.split()
+        i = 0
+        while len(new_line) <= (cols - len(ww[i]) - 1):
+            new_line += ww[i] + ' '
+            i += 1
+            print len(new_line)
+        if new_line == '':
+            return (line, '')
+
+        return (new_line, ' '.join(ww[i:]))
+    else:
+        return (line, '')
+
+
+def printer():
+
+    while True:
+        cols, rows = get_terminal_size() # Get the terminal dimensions
+        msg = '#' + '-' * (cols - 2) + '#\n' # Create the
+        try:
+            new_line = str(printq.get_nowait())
+            if new_line != '!@#EXIT#@!': # A nice way to turn the printer
+                                         # thread out gracefully
+                lines.append(new_line)
+                printq.task_done()
+            else:
+                printq.task_done()
+                sys.exit()
+        except Queue.Empty:
+            pass
+
+        # Build the new message to show and split too long lines
+        for line in lines:
+            res = line          # The following is to split lines which are
+                                # longer than cols.
+            while len(res) !=0:
+                toprint, res = split_line(res, cols)
+                msg += '\n' + toprint
+
+        # Clear the shell and print the new output
+        subprocess.check_call('clear') # Keep the shell clean
+        sys.stdout.write(msg)
+        sys.stdout.flush()
+        time.sleep(.5)
 
 ```
 
-Notice that this will `join` the threads in sequence.  If the order of `join`s matters, you must ensure the threads are ordered properly in the list.
+
+
+## Stoppable Thread with a while Loop
+
+
+```
+import threading
+import time
+
+class StoppableThread(threading.Thread):
+    &quot;&quot;&quot;Thread class with a stop() method. The thread itself has to check
+    regularly for the stopped() condition.&quot;&quot;&quot;
+
+    def __init__(self):
+        super(StoppableThread, self).__init__()
+        self._stop_event = threading.Event()
+
+    def stop(self):
+        self._stop_event.set()
+
+    def join(self, *args, **kwargs):
+        self.stop()
+        super(StoppableThread,self).join(*args, **kwargs)
+
+    def run()
+        while not self._stop_event.is_set():
+            print(&quot;Still running!&quot;)
+            time.sleep(2)
+        print(&quot;stopped!&quot;
+
+```
+
+Based on [this Question](https://stackoverflow.com/questions/323972/is-there-any-way-to-kill-a-thread-in-python).
 

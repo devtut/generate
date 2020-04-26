@@ -34,10 +34,8 @@ The reason is that `[[]] * 3` doesn't create a `list` of 3 different `list`s. Ra
 
 ```
 li = []
-element = []
-li.append(element)
-li.append(element)
-li.append(element)
+element = [[]]
+li = element + element + element
 print(li)
 # Out: [[], [], []]
 element.append(1)
@@ -62,7 +60,7 @@ li = [[] for _ in range(3)]
 
 ```
 
-Instead of creating a single `list` and then making 3 references to it, we now create `3` different distinct lists. This, again, can be verified by using the `id` function:
+Instead of creating a single `list` and then making 3 references to it, we now create 3 different distinct lists. This, again, can be verified by using the `id` function:
 
 ```
 print([id(inner_list) for inner_list in li])
@@ -74,11 +72,11 @@ You can also do this.  It causes a new empty list to be created in each
 `append` call.
 
 ```
-&gt;&gt;&gt; li = []
-&gt;&gt;&gt; li.append([])
-&gt;&gt;&gt; li.append([])
-&gt;&gt;&gt; li.append([])
-&gt;&gt;&gt; for k in li: print(id(k))
+>>> li = []
+>>> li.append([])
+>>> li.append([])
+>>> li.append([])
+>>> for k in li: print(id(k))
 ... 
 4315469256
 4315564552
@@ -86,159 +84,168 @@ You can also do this.  It causes a new empty list to be created in each
 
 ```
 
-Don't use index to loop over a sequence
-**Don't :**
+Don't use index to loop over a sequence.
+
+**Don't:**
 
 ```
-for i in range(len(tab)) :
-    print tab[i]
-
-```
-
-**Do** :
-
-```
-for elem in tab :
-    print elem
+for i in range(len(tab)):
+    print(tab[i])
 
 ```
 
-For will automate most iteration operations for you.
+**Do**:
+
+```
+for elem in tab:
+    print(elem)
+
+```
+
+`for` will automate most iteration operations for you.
+
 **Use enumerate if you really need both the index and the element**.
 
 ```
 for i, elem in enumerate(tab):
-     print i, elem
+     print((i, elem))
 
 ```
 
-**Be careful when using "==" to check against True or False**
+**Be careful when using &quot;==&quot; to check against True or False**
 
 ```
-if (var == True) :
+if (var == True):
     # this will execute if var is True or 1, 1.0, 1L
 
-if (var != True) :
+if (var != True):
     # this will execute if var is neither True nor 1
 
-if (var == False) :
+if (var == False):
     # this will execute if var is False or 0 (or 0.0, 0L, 0j)
 
-if (var == None) :
+if (var == None):
     # only execute if var is None
 
-if var :
+if var:
     # execute if var is a non-empty string/list/dictionary/tuple, non-0, etc
 
-if not var :
-    # execute if var is "", {}, [], (), 0, None, etc.
+if not var:
+    # execute if var is &quot;&quot;, {}, [], (), 0, None, etc.
 
-if var is True :
+if var is True:
     # only execute if var is boolean True, not 1
 
-if var is False :
+if var is False:
     # only execute if var is boolean False, not 0
 
-if var is None :
+if var is None:
     # same as var == None
 
 ```
 
 **Do not check if you can, just do it and handle the error**
 
-Pythonistas usually say "It's easier to ask for forgiveness than permission".
-Don't :
+Pythonistas usually say &quot;It's easier to ask for forgiveness than permission&quot;.
+
+**Don't:**
 
 ```
-if os.path.isfile(file_path) :
+if os.path.isfile(file_path):
     file = open(file_path)
-else :
+else:
     # do something
 
 ```
 
-Do :
+**Do:**
 
 ```
-try :
-    file =  open(file_path)
+try:
+    file = open(file_path)
 except OSError as e:
-
-# do something
-
-```
-
-Or even better with python 2.6 / 3:
-
-```
-with open(file_path) as file :
+    # do something
 
 ```
 
-It is much better because it's much more generical. You can apply "try / except" to almost anything. You don't need to care about what to do to prevent it, just about the error you are risking.
+Or even better with `Python 2.6+`:
+
+```
+with open(file_path) as file:
+
+```
+
+It is much better because it is much more generic. You can apply `try/except` to almost anything. You don't need to care about what to do to prevent it, just care about the error you are risking.
+
 **Do not check against type**
-Python is dynamically typed, therefore checking for type makes you lose flexibility. Instead, use duck typing by checking behavior. E.G, you expect a string in a function, then use str() to convert any object in a string. You expect a list, use list() to convert any iterable in a list.
-Don't :
+
+Python is dynamically typed, therefore checking for type makes you lose flexibility. Instead, use [duck typing](https://stackoverflow.com/questions/4205130/what-is-duck-typing) by checking behavior. If you expect a string in a function, then use `str()` to convert any object to a string. If you expect a list, use `list()` to convert any iterable to a list.
+
+**Don't:**
 
 ```
-def foo(name) :
-    if isinstance(name, str) :
-        print name.lower()
+def foo(name):
+    if isinstance(name, str):
+        print(name.lower())
 
-def bar(listing) :
-    if isinstance(listing, list) :
+def bar(listing):
+    if isinstance(listing, list):
         listing.extend((1, 2, 3))
-        return ", ".join(listing)
+        return &quot;, &quot;.join(listing)
 
 ```
 
-Do :
+**Do:**
 
 ```
 def foo(name) :
-    print str(name).lower()
+    print(str(name).lower())
 
 def bar(listing) :
     l = list(listing)
     l.extend((1, 2, 3))
-    return ", ".join(l)
+    return &quot;, &quot;.join(l)
 
 ```
 
-Using the last way, foo will accept any object. Bar will accept strings, tuples, sets, lists and much more. Cheap DRY :-)
-**Don't mix spaces and tabs  Just don't. You would cry.**
-**Use object as first parent**
-This is tricky, but it will bite you as your program grows. There are old and new classes in Python 2.x. The old ones are, well, old. They lack some features, and can have awkward behavior with inheritance. To be usable, any of your class must be of the "new style". To do so, make it inherit from "object" :
-Don't :
+Using the last way, `foo` will accept any object. `bar` will accept strings, tuples, sets, lists and much more. Cheap DRY.
+
+**Don't mix spaces and tabs**
+
+**Use **object** as first parent**
+
+This is tricky, but it will bite you as your program grows. There are old and new classes in `Python 2.x`. The old ones are, well, old. They lack some features, and can have awkward behavior with inheritance. To be usable, any of your class must be of the &quot;new style&quot;. To do so, make it inherit from `object`.
+
+**Don't:**
 
 ```
-class Father :
+class Father:
     pass
 
-class Child(Father) :
-    pass
-
-```
-
-Do :
-
-```
-class Father(object) :
-    pass
-
-
-class Child(Father) :
+class Child(Father):
     pass
 
 ```
 
-In Python 3.x all classes are new style so you don't need to do that.
+**Do:**
+
+```
+class Father(object):
+    pass
+
+
+class Child(Father):
+    pass
+
+```
+
+In `Python 3.x` all classes are new style so you don't need to do that.
 
 **Don't initialize class attributes outside the <strong>init** method</strong>
 
-People coming from other languages find it tempting because that what you do the job in Java or PHP. You write the class name, then list your attributs and give them a default value. It seems to work in Python, however, this doesn't work the way you think.
+People coming from other languages find it tempting because that is what you do in Java or PHP. You write the class name, then list your attributes and give them a default value. It seems to work in Python, however, this doesn't work the way you think.
 Doing that will setup class attributes (static attributes), then when you will try to get the object attribute, it will gives you its value unless it's empty. In that case it will return the class attributes.
-It implies two big hazards :
+It implies two big hazards:
 
 <li>
 If the class attribute is changed, then the initial value is changed.
@@ -248,12 +255,12 @@ If the class attribute is changed, then the initial value is changed.
 object shared across instances.</p>
 </li>
 
-**Don't (unless you want static) :**
+**Don't (unless you want static):**
 
 ```
 class Car(object):
-    color = "red"
-    wheels = [wheel(), Wheel(), Wheel(), Wheel()]
+    color = &quot;red&quot;
+    wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
 
 ```
 
@@ -262,8 +269,8 @@ class Car(object):
 ```
 class Car(object):
     def __init__(self):
-        self.color = "red"
-        self.wheels = [wheel(), Wheel(), Wheel(), Wheel()]
+        self.color = &quot;red&quot;
+        self.wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
 
 ```
 
@@ -321,7 +328,7 @@ x = []
 foo(li=x)
 # Out: [1]
 
-foo(li="")
+foo(li=&quot;&quot;)
 # Out: [1]
 
 foo(li=0) 
@@ -394,9 +401,6 @@ print(alist)
 
 By iterating through the loop starting at the end, as items are removed (or added), it does not affect the indices of items earlier in the list. So this example will properly remove all items that are even from `alist`.
 
----
-
-
 A similar problem arises when **inserting or appending elements to a list that you are iterating over**, which can result in an infinite loop:
 
 ```
@@ -412,9 +416,6 @@ print(alist)
 ```
 
 Without the `break` condition the loop would insert `'a'` as long as the computer does not run out of memory and the program is allowed to continue. In a situation like this, it is usually preferred to create a new list, and add items to the new list as you loop through the original list.
-
----
-
 
 When using a `for` loop, **you cannot modify the list elements with the placeholder variable**:
 
@@ -439,9 +440,6 @@ print(alist)
 # Out: [1, 'even', 3, 'even']
 
 ```
-
----
-
 
 A **`while` loop** might be a better choice in some cases:
 
@@ -473,7 +471,7 @@ The above example can also be combined with `len()` to stop after a certain poin
 ```
 zlist = [0, 1, 2]
 x = 1
-while len(zlist) &gt; x:
+while len(zlist) > x:
     print(zlist[0])
     zlist.pop(0)
 print('After: zlist =', zlist)
@@ -489,7 +487,7 @@ Or to **loop through a list while deleting elements that meet a certain conditio
 ```
 zlist = [1,2,3,4,5]
 i = 0
-while i &lt; len(zlist):
+while i < len(zlist):
     if zlist[i] % 2 == 0:
         zlist.pop(i)
     else:
@@ -500,9 +498,6 @@ print(zlist)
 ```
 
 Notice that you don't increment `i` after deleting an element. By deleting the element at `zlist[i]`, the index of the next item has decreased by one, so by checking `zlist[i]` with the same value for `i` on the next iteration, you will be correctly checking the next item in the list.
-
----
-
 
 A contrary way to think about removing unwanted items from a list, is to **add wanted items to a new list**.  The following example is an alternative to the latter `while` loop example:
 
@@ -540,9 +535,9 @@ Python uses internal caching for a range of integers to reduce unnecessary overh
 In effect, this can lead to confusing behavior when comparing integer identities:
 
 ```
-&gt;&gt;&gt; -8 is (-7 - 1)
+>>> -8 is (-7 - 1)
 False
-&gt;&gt;&gt; -3 is (-2 - 1)
+>>> -3 is (-2 - 1)
 True
 
 ```
@@ -550,9 +545,9 @@ True
 and, using another example:
 
 ```
-&gt;&gt;&gt; (255 + 1) is (255 + 1)
+>>> (255 + 1) is (255 + 1)
 True
-&gt;&gt;&gt; (256 + 1) is (256 + 1)
+>>> (256 + 1) is (256 + 1)
 False
 
 ```
@@ -567,13 +562,10 @@ This is a common pitfall since this is a common range for testing, but often eno
 
 The solution is to **always compare values using the equality** (`==`) operator and **not** the identity (`is`) operator.
 
----
-
-
 Python also keeps references to commonly used strings and can result in similarly confusing behavior when comparing identities (i.e. using `is`) of strings.
 
 ```
-&gt;&gt;&gt; 'python' is 'py' + 'thon'
+>>> 'python' is 'py' + 'thon'
 True
 
 ```
@@ -583,9 +575,9 @@ The string `'python'` is commonly used, so Python has one object that all refere
 For uncommon strings, comparing identity fails even when the strings are equal.
 
 ```
-&gt;&gt;&gt; 'this is not a common string' is 'this is not' + ' a common string'
+>>> 'this is not a common string' is 'this is not' + ' a common string'
 False
-&gt;&gt;&gt; 'this is not a common string' == 'this is not' + ' a common string'
+>>> 'this is not a common string' == 'this is not' + ' a common string'
 True
 
 ```
@@ -625,7 +617,7 @@ print([k for k in oDict])
 
 Keep in mind that initializing an `OrderedDict` with a standard dictionary won't sort in any way the dictionary for you. All that this structure does is to **preserve** the order of key insertion.
 
-The implementation of dictionaries was [changed in Python 3.6](http://web.archive.org/web/20170405225007/https://docs.python.org/3.6/whatsnew/3.6.html#new-dict-implementation) to improve their memory consumption. A side effect of this new implementation is that it also preserves the order of keyword arguments passed to a function:
+The implementation of dictionaries was [changed in Python 3.6](https://docs.python.org/3.6/whatsnew/3.6.html#new-dict-implementation) to improve their memory consumption. A side effect of this new implementation is that it also preserves the order of keyword arguments passed to a function:
 
 ```
 def func(**kw): print(kw.keys())
@@ -636,7 +628,7 @@ dict_keys(['a', 'b', 'c', 'd', 'e']) # expected order
 ```
 
 > 
-**Caveat**: beware that [“**the order-preserving aspect of this new implementation is considered an implementation detail and should not be relied upon**”](http://web.archive.org/web/20170405225007/https://docs.python.org/3.6/whatsnew/3.6.html#new-dict-implementation), as it may change in the future.
+**Caveat**: beware that [“**the order-preserving aspect of this new implementation is considered an implementation detail and should not be relied upon**”](https://docs.python.org/3.6/whatsnew/3.6.html#new-dict-implementation), as it may change in the future.
 
 
 
@@ -653,7 +645,7 @@ print(i) # Outputs 2
 
 ```
 
-This occurs only in Python 2 due to the fact that the list comprehension “leaks” the loop control variable into the surrounding scope ([source](http://web.archive.org/web/20170405225007/http://python-history.blogspot.com/2010/06/from-list-comprehensions-to-generator.html)). This behavior can lead to hard-to-find bugs and ****it has been fixed in Python 3****.
+This occurs only in Python 2 due to the fact that the list comprehension “leaks” the loop control variable into the surrounding scope ([source](http://python-history.blogspot.com/2010/06/from-list-comprehensions-to-generator.html)). This behavior can lead to hard-to-find bugs and ****it has been fixed in Python 3****.
 
 ```
 i = 0
@@ -678,44 +670,6 @@ To avoid issues with leaking variables, use new variables in list comprehensions
 
 
 
-## Accessing int literals' attributes
-
-
-You might have heard that everything in Python is an object, even literals.
-This means, for example, `7` is an object as well, which means it has attributes.
-For example, one of these attributes is the `bit_length`. It returns the amount of bits needed to represent the value it is called upon.
-
-```
-x = 7
-x.bit_length()
-# Out: 3
-
-```
-
-Seeing the above code works, you might intuitively think that `7.bit_length()` would work as well, only to find out it raises a `SyntaxError`. Why? because the interpreter needs to differentiate between an attribute access and a floating number (for example `7.2` or `7.bit_length()`). It can't, and that's why an exception is raised.
-
-There are a few ways to access an `int` literals' attributes:
-
-```
-# parenthesis
-(7).bit_length()
-# a space
-7 .bit_length()
-
-```
-
-Using two dots (like this `7..bit_length()`) doesn't work in this case, because that creates a `float` literal and floats don't have the `bit_length()` method.
-
-This problem doesn't exist when accessing `float` literals' attributes since the interperter is "smart" enough to know that a `float` literal can't contain two `.`, for example:
-
-```
-7.2.as_integer_ratio()
-# Out: (8106479329266893, 1125899906842624)
-
-```
-
-
-
 ## Chaining of or operator
 
 
@@ -733,7 +687,7 @@ if a or b or c == 3: # Wrong
 
 ```
 
-This is wrong; the `or` operator has [lower precedence](http://web.archive.org/web/20170405225007/https://docs.python.org/3/reference/expressions.html#operator-precedence) than `==`, so the expression will be evaluated as `if (a) or (b) or (c == 3):`. The correct way is explicitly checking all the conditions:
+This is wrong; the `or` operator has [lower precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence) than `==`, so the expression will be evaluated as `if (a) or (b) or (c == 3):`. The correct way is explicitly checking all the conditions:
 
 ```
 if a == 3 or b == 3 or c == 3:  # Right Way
@@ -779,6 +733,44 @@ if a in (1, 2, 3):
 
 
 
+## Accessing int literals' attributes
+
+
+You might have heard that everything in Python is an object, even literals.
+This means, for example, `7` is an object as well, which means it has attributes.
+For example, one of these attributes is the `bit_length`. It returns the amount of bits needed to represent the value it is called upon.
+
+```
+x = 7
+x.bit_length()
+# Out: 3
+
+```
+
+Seeing the above code works, you might intuitively think that `7.bit_length()` would work as well, only to find out it raises a `SyntaxError`. Why? because the interpreter needs to differentiate between an attribute access and a floating number (for example `7.2` or `7.bit_length()`). It can't, and that's why an exception is raised.
+
+There are a few ways to access an `int` literals' attributes:
+
+```
+# parenthesis
+(7).bit_length()
+# a space
+7 .bit_length()
+
+```
+
+Using two dots (like this `7..bit_length()`) doesn't work in this case, because that creates a `float` literal and floats don't have the `bit_length()` method.
+
+This problem doesn't exist when accessing `float` literals' attributes since the interperter is &quot;smart&quot; enough to know that a `float` literal can't contain two `.`, for example:
+
+```
+7.2.as_integer_ratio()
+# Out: (8106479329266893, 1125899906842624)
+
+```
+
+
+
 ## sys.argv[0] is the name of the file being executed
 
 
@@ -797,16 +789,16 @@ print(sys.argv)
 
 ```
 $ python script.py
-=&gt; script.py
-=&gt; ['script.py']
+=> script.py
+=> ['script.py']
 
 $ python script.py fizz
-=&gt; script.py
-=&gt; ['script.py', 'fizz']
+=> script.py
+=> ['script.py', 'fizz']
 
 $ python script.py fizz buzz
-=&gt; script.py
-=&gt; ['script.py', 'fizz', 'buzz']
+=> script.py
+=> ['script.py', 'fizz', 'buzz']
 
 ```
 
@@ -815,7 +807,7 @@ $ python script.py fizz buzz
 ## Global Interpreter Lock (GIL) and blocking threads
 
 
-Plenty has been [written](http://web.archive.org/web/20170405225007/https://en.wikipedia.org/wiki/Global_interpreter_lock) [about](http://web.archive.org/web/20170405225007/https://wiki.python.org/moin/GlobalInterpreterLock) [Python's](http://web.archive.org/web/20170405225007/https://docs.python.org/3/glossary.html#term-global-interpreter-lock) [GIL](http://web.archive.org/web/20170405225007/http://python-notes.curiousefficiency.org/en/latest/python3/multicore_python.html). It can sometimes cause confusion when dealing with multi-threaded (not to be confused with multiprocess) applications.
+Plenty has been [written](https://en.wikipedia.org/wiki/Global_interpreter_lock) [about](https://wiki.python.org/moin/GlobalInterpreterLock) [Python's](https://docs.python.org/3/glossary.html#term-global-interpreter-lock) [GIL](http://python-notes.curiousefficiency.org/en/latest/python3/multicore_python.html). It can sometimes cause confusion when dealing with multi-threaded (not to be confused with multiprocess) applications.
 
 Here's an example:
 
@@ -828,11 +820,11 @@ def calc_fact(num):
 
 num = 600000
 t = Thread(target=calc_fact, daemon=True, args=[num])
-print("About to calculate: {}!".format(num))
+print(&quot;About to calculate: {}!&quot;.format(num))
 t.start()
-print("Calculating...")
+print(&quot;Calculating...&quot;)
 t.join()
-print("Calculated")
+print(&quot;Calculated&quot;)
 
 ```
 
@@ -842,9 +834,9 @@ There are a couple ways around this. The first is to implement your factorial fu
 
 ```
 def calc_fact(num):
-    """ A slow version of factorial in native Python """
+    &quot;&quot;&quot; A slow version of factorial in native Python &quot;&quot;&quot;
     res = 1
-    while num &gt;= 1:
+    while num >= 1:
         res = res * num
         num -= 1
     return res
@@ -859,4 +851,74 @@ def calc_fact(num):
     math.factorial(num)
 
 ```
+
+
+
+## Multiple return
+
+
+Function xyz returns two values a and b:
+
+```
+def xyz():
+  return a, b
+
+```
+
+Code calling xyz stores result into one variable assuming xyz returns only one value:
+
+```
+t = xyz()
+
+```
+
+Value of `t` is actually a tuple (a, b) so any action on `t` assuming it is not a tuple may fail **deep** in the code with a an unexpected **error** about tuples.
+
+> 
+TypeError: type tuple doesn't define ... method
+
+
+The fix would be to do:
+
+```
+a, b = xyz()
+
+```
+
+Beginners will have trouble finding the reason of this message by only reading the tuple error message !
+
+
+
+## Pythonic JSON keys
+
+
+```
+my_var = 'bla';
+api_key = 'key';
+...lots of code here...
+params = {&quot;language&quot;: &quot;en&quot;, my_var: api_key}
+
+```
+
+If you are used to JavaScript, variable evaluation in Python dictionaries won't be what you expect it to be. This statement in JavaScript would result in the `params` object as follows:
+
+```
+{
+    &quot;language&quot;: &quot;en&quot;,
+    &quot;my_var&quot;: &quot;key&quot;
+}
+
+```
+
+In Python, however, it would result in the following dictionary:
+
+```
+{
+    &quot;language&quot;: &quot;en&quot;,
+    &quot;bla&quot;: &quot;key&quot;
+}
+
+```
+
+`my_var` is evaluated and its value is used as the key.
 

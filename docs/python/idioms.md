@@ -46,45 +46,6 @@ y
 
 
 
-## Test for "__main__" to avoid unexpected code execution
-
-
-It is good practice to test the calling program's `__name__` variable before executing your code.
-
-```
-import sys
-
-def main():
-    # Your code starts here
-
-    # Don't forget to provide a return code
-    return 0
-
-if __name__ == "__main__":
-    sys.exit(main())
-
-```
-
-Using this pattern ensures that your code is only executed when you expect it to be; for example, when you run your file explicitly:
-
-```
-python my_program.py
-
-```
-
-The benefit, however, comes if you decide to `import` your file in another program (for example if you are writing it as part of a library). You can then `import` your file, and the `__main__` trap will ensure that no code is executed unexpectedly:
-
-```
-# A new program file
-import my_program        # main() is not run
-
-# But you can run main() explicitly if you really want it to run:
-my_program.main()
-
-```
-
-
-
 ## Use truth value testing
 
 
@@ -116,5 +77,44 @@ if attr is None:
 
 This generally produces more readable code, and is usually much safer when dealing with unexpected types.
 
-[Click here](http://web.archive.org/web/20170816200958/https://docs.python.org/3/library/stdtypes.html#truth-value-testing) for a list of what will be evaluated to `False`.
+[Click here](https://docs.python.org/3/library/stdtypes.html#truth-value-testing) for a list of what will be evaluated to `False`.
+
+
+
+## Test for "__main__" to avoid unexpected code execution
+
+
+It is good practice to test the calling program's `__name__` variable before executing your code.
+
+```
+import sys
+
+def main():
+    # Your code starts here
+
+    # Don't forget to provide a return code
+    return 0
+
+if __name__ == &quot;__main__&quot;:
+    sys.exit(main())
+
+```
+
+Using this pattern ensures that your code is only executed when you expect it to be; for example, when you run your file explicitly:
+
+```
+python my_program.py
+
+```
+
+The benefit, however, comes if you decide to `import` your file in another program (for example if you are writing it as part of a library). You can then `import` your file, and the `__main__` trap will ensure that no code is executed unexpectedly:
+
+```
+# A new program file
+import my_program        # main() is not run
+
+# But you can run main() explicitly if you really want it to run:
+my_program.main()
+
+```
 

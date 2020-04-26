@@ -2,6 +2,7 @@
 
 
 
+
 ## More flexibility with Popen
 
 
@@ -62,7 +63,7 @@ you should use `communicate()` rather than directly accessing `stdin` and `stdou
 In case you want to see the output of a subprocess line by line, you can use the following snippet:
 
 ```
-process = subprocess.Popen(&lt;your_command&gt;, stdout=subprocess.PIPE)
+process = subprocess.Popen(<your_command>, stdout=subprocess.PIPE)
 while process.poll() is None:
     output_line = process.stdout.readline()
 
@@ -71,13 +72,13 @@ while process.poll() is None:
 in the case the subcommand output do not have EOL character, the above snippet does not work. You can then read the output character by character as follows:
 
 ```
-process = subprocess.Popen(&lt;your_command&gt;, stdout=subprocess.PIPE)
+process = subprocess.Popen(<your_command>, stdout=subprocess.PIPE)
 while process.poll() is None:
     output_line = process.stdout.read(1)
 
 ```
 
-The `1` specified as argument to the `read` method tells read to read 1 character at time. You can specify to read as many characters you want using a different number. Negative number or 0 tells to `read` to read as a single string until the EOF is encountered ([see here](http://web.archive.org/web/20170816195009/https://docs.python.org/2/library/io.html)).
+The `1` specified as argument to the `read` method tells read to read 1 character at time. You can specify to read as many characters you want using a different number. Negative number or 0 tells to `read` to read as a single string until the EOF is encountered ([see here](https://docs.python.org/2/library/io.html)).
 
 In both the above snippets, the `process.poll()` is `None` until the subprocess finishes. This is used to exit the loop once there is no more output to read.
 
@@ -98,13 +99,13 @@ subprocess.call([r'C:\path\to\app.exe', 'arg1', '--flag', 'arg'])
 For shell commands, set `shell=True` and provide the command as a string instead of a list.
 
 ```
-subprocess.call('echo "Hello, world"', shell=True)
+subprocess.call('echo &quot;Hello, world&quot;', shell=True)
 
 ```
 
-Note that the two command above return only the `exit status` of the subprocess. Moreover, pay attention when using `shell=True` since it provides security issues (see [here](http://web.archive.org/web/20170816195009/https://docs.python.org/2/library/subprocess.html#frequently-used-arguments)).
+Note that the two command above return only the `exit status` of the subprocess. Moreover, pay attention when using `shell=True` since it provides security issues (see [here](https://docs.python.org/2/library/subprocess.html#frequently-used-arguments)).
 
-If you want to be able to get the standard output of the subprocess, then substitute the `subprocess.call` with `subprocess.check_output`. For more advanced use, refer to [this](http://web.archive.org/web/20170816195009/http://stackoverflow.com/documentation/python/1393/subprocess-library/5714/more-flexibility-with-popen).
+If you want to be able to get the standard output of the subprocess, then substitute the `subprocess.call` with `subprocess.check_output`. For more advanced use, refer to [this](http://stackoverflow.com/documentation/python/1393/subprocess-library/5714/more-flexibility-with-popen).
 
 
 

@@ -2,6 +2,7 @@
 
 
 
+
 ## Coroutine and Delegation Syntax
 
 
@@ -17,9 +18,9 @@ async def main():
 
 async def func():
     # Do time intensive stuff...
-    return "Hello, world!"
+    return &quot;Hello, world!&quot;
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 
@@ -37,9 +38,9 @@ def main():
 @asyncio.coroutine
 def func():
     # Do time intensive stuff..
-    return "Hello, world!"
+    return &quot;Hello, world!&quot;
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
 
@@ -51,16 +52,16 @@ Here is an example that shows how two functions can be run asynchronously:
 import asyncio
 
 async def cor1():
-    print("cor1 start")
+    print(&quot;cor1 start&quot;)
     for i in range(10):
         await asyncio.sleep(1.5)
-        print("cor1", i)
+        print(&quot;cor1&quot;, i)
 
 async def cor2():
-    print("cor2 start")
+    print(&quot;cor2 start&quot;)
     for i in range(15):
         await asyncio.sleep(1)
-        print("cor2", i)
+        print(&quot;cor2&quot;, i)
 
 loop = asyncio.get_event_loop()
 cors = asyncio.wait([cor1(), cor2()])
@@ -89,17 +90,17 @@ def func(a, b):
 
 async def main(loop):
     executor = ThreadPoolExecutor()
-    result = await loop.run_in_executor(executor, func, "Hello,", " world!")
+    result = await loop.run_in_executor(executor, func, &quot;Hello,&quot;, &quot; world!&quot;)
     print(result)
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main(loop))
 
 
 ```
 
-Each event loop also has a "default" `Executor` slot that can be assigned to an `Executor`. To assign an `Executor` and schedule tasks from the loop you use the `set_default_executor()` method.
+Each event loop also has a &quot;default&quot; `Executor` slot that can be assigned to an `Executor`. To assign an `Executor` and schedule tasks from the loop you use the `set_default_executor()` method.
 
 ```
 import asyncio
@@ -111,10 +112,10 @@ def func(a, b):
 
 async def main(loop):
     # NOTE: Using `None` as the first parameter designates the `default` Executor.
-    result = await loop.run_in_executor(None, func, "Hello,", " world!")
+    result = await loop.run_in_executor(None, func, &quot;Hello,&quot;, &quot; world!&quot;)
     print(result)
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     loop = asyncio.get_event_loop()
     loop.set_default_executor(ThreadPoolExecutor())
     loop.run_until_complete(main(loop))
@@ -137,7 +138,7 @@ Contrast that to the `ProcessPoolExecutor` which spawns a new process for each t
 import asyncio
 import uvloop
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     asyncio.set_event_loop(uvloop.new_event_loop())
     # Do your stuff here ...
 
@@ -149,67 +150,11 @@ One can also change the event loop factory by setting the `EventLoopPolicy` to t
 import asyncio
 import uvloop
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
     loop = asyncio.new_event_loop()
 
 ```
-
-
-
-## A Simple Websocket
-
-
-Here we make a simple echo websocket using `asyncio`.  We define coroutines for connecting to a server and sending/receiving messages.  The communcations of the websocket are run in a `main` coroutine, which is run by an event loop.  This example is modified from a [prior post](http://web.archive.org/web/20170816194920/https://stackoverflow.com/questions/37369849/how-can-i-implement-asyncio-websockets-in-a-class).
-
-```
-import asyncio
-import aiohttp
-
-session = aiohttp.ClientSession()                          # handles the context manager
-class EchoWebsocket:
-    
-    async def connect(self):
-        self.websocket = await session.ws_connect("wss://echo.websocket.org")
-        
-    async def send(self, message):
-        self.websocket.send_str(message)
-
-    async def receive(self):
-        result = (await self.websocket.receive())
-        return result.data
-
-async def main():
-    echo = EchoWebsocket()
-    await echo.connect()
-    await echo.send("Hello World!")
-    print(await echo.receive())                            # "Hello World!"
-
-
-if __name__ == '__main__':
-    # The main loop
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
-
-```
-
-
-
-## Common Misconception about asyncio
-
-
-probably **the** most common misconception about `asnycio` is that it lets you run any task in parallel - sidestepping the GIL (global interpreter lock) and therefore execute blocking jobs in parallel (on separate threads). it does **not**!
-
-`asyncio` (and libraries that are built to collaborate with `asyncio`) build on coroutines: functions that (collaboratively) yield the control flow back to the calling function. note `asyncio.sleep` in the examples above. this is an example of a non-blocking coroutine that waits 'in the background' and gives the control flow back to the calling function (when called with `await`). `time.sleep` is an example of a blocking function. the execution flow of the program will just stop there and only return after `time.sleep` has finished.
-
-a real-live example is the [`requests`](http://web.archive.org/web/20170816194920/http://docs.python-requests.org/en/master/) library which consists (for the time being) on blocking functions only. there is no concurrency if you call any of its functions within `asyncio`. [`aiohttp`](http://web.archive.org/web/20170816194920/https://aiohttp.readthedocs.io/en/stable/) on the other hand was built with `asyncio` in mind. its coroutines will run concurrently.
-
-<li>
-if you have long-running CPU-bound tasks you would like to run in parallel `asyncio` is **not** for you. for that you need [`threads`](http://web.archive.org/web/20170816194920/https://docs.python.org/3/library/threading.html?highlight=threading#module-threading) or [`multiprocessing`](http://web.archive.org/web/20170816194920/https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing).
-</li>
-<li>
-if you have IO-bound jobs running, you **may** run them concurrently using `asyncio`.
-</li>
 
 
 
@@ -264,10 +209,66 @@ done, pending = event_loop.run_until_complete(main_future)
 Output:
 
 > 
-<p>Consumer B waiting<br/>
-Consumer A waiting<br/>
-EVENT SET<br/>
-Consumer B triggered<br/>
+<p>Consumer B waiting<br />
+Consumer A waiting<br />
+EVENT SET<br />
+Consumer B triggered<br />
 Consumer A triggered</p>
 
+
+
+
+## A Simple Websocket
+
+
+Here we make a simple echo websocket using `asyncio`.  We define coroutines for connecting to a server and sending/receiving messages.  The communcations of the websocket are run in a `main` coroutine, which is run by an event loop.  This example is modified from a [prior post](https://stackoverflow.com/questions/37369849/how-can-i-implement-asyncio-websockets-in-a-class).
+
+```
+import asyncio
+import aiohttp
+
+session = aiohttp.ClientSession()                          # handles the context manager
+class EchoWebsocket:
+    
+    async def connect(self):
+        self.websocket = await session.ws_connect(&quot;wss://echo.websocket.org&quot;)
+        
+    async def send(self, message):
+        self.websocket.send_str(message)
+
+    async def receive(self):
+        result = (await self.websocket.receive())
+        return result.data
+
+async def main():
+    echo = EchoWebsocket()
+    await echo.connect()
+    await echo.send(&quot;Hello World!&quot;)
+    print(await echo.receive())                            # &quot;Hello World!&quot;
+
+
+if __name__ == '__main__':
+    # The main loop
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
+
+```
+
+
+
+## Common Misconception about asyncio
+
+
+probably **the** most common misconception about `asnycio` is that it lets you run any task in parallel - sidestepping the GIL (global interpreter lock) and therefore execute blocking jobs in parallel (on separate threads). it does **not**!
+
+`asyncio` (and libraries that are built to collaborate with `asyncio`) build on coroutines: functions that (collaboratively) yield the control flow back to the calling function. note `asyncio.sleep` in the examples above. this is an example of a non-blocking coroutine that waits 'in the background' and gives the control flow back to the calling function (when called with `await`). `time.sleep` is an example of a blocking function. the execution flow of the program will just stop there and only return after `time.sleep` has finished.
+
+a real-live example is the [`requests`](http://docs.python-requests.org/en/master/) library which consists (for the time being) on blocking functions only. there is no concurrency if you call any of its functions within `asyncio`. [`aiohttp`](https://aiohttp.readthedocs.io/en/stable/) on the other hand was built with `asyncio` in mind. its coroutines will run concurrently.
+
+<li>
+if you have long-running CPU-bound tasks you would like to run in parallel `asyncio` is **not** for you. for that you need [`threads`](https://docs.python.org/3/library/threading.html?highlight=threading#module-threading) or [`multiprocessing`](https://docs.python.org/3/library/multiprocessing.html?#module-multiprocessing).
+</li>
+<li>
+if you have IO-bound jobs running, you **may** run them concurrently using `asyncio`.
+</li>
 

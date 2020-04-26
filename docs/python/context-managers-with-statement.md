@@ -44,12 +44,12 @@ A context manager is any object that implements two magic methods `__enter__()` 
 class AContextManager():
 
     def __enter__(self):
-        print("Entered")
+        print(&quot;Entered&quot;)
         # optionally return an object
-        return "A-instance"
+        return &quot;A-instance&quot;
 
     def __exit__(self, exc_type, exc_value, traceback):
-        print("Exited" + (" (with an exception)" if exc_type else ""))
+        print(&quot;Exited&quot; + (&quot; (with an exception)&quot; if exc_type else &quot;&quot;))
         # return True if you want to suppress the exception
 
 ```
@@ -60,17 +60,17 @@ If an exception occurs and is passed to the `__exit__` method, the method can re
 
 ```
 with AContextManager() as a:
-    print("a is %r" % a)
+    print(&quot;a is %r&quot; % a)
 # Entered
 # a is 'A-instance'
 # Exited
 
 with AContextManager() as a:
-    print("a is %d" % a)
+    print(&quot;a is %d&quot; % a)
 # Entered
 # Exited (with an exception)
 # Traceback (most recent call last):
-#   File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+#   File &quot;<stdin>&quot;, line 2, in <module>
 # TypeError: %d format: a number is required, not str
 
 ```
@@ -94,7 +94,7 @@ class MyContextManager:
 ## Writing your own contextmanager using generator syntax
 
 
-It is also possible to write a context manager using generator syntax thanks to the [`contextlib.contextmanager`](http://web.archive.org/web/20170405083133/https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) decorator:
+It is also possible to write a context manager using generator syntax thanks to the [`contextlib.contextmanager`](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) decorator:
 
 ```
 import contextlib
@@ -129,17 +129,17 @@ If an exception needs to be handled by the context manager, a `try..except..fina
 ```
 @contextlib.contextmanager
 def error_handling_context_manager(num):
-    print("Enter")
+    print(&quot;Enter&quot;)
     try:
         yield num + 1
     except ZeroDivisionError:
-        print("Caught error")
+        print(&quot;Caught error&quot;)
     finally:
-        print("Cleaning up")
-    print("Exit")
+        print(&quot;Cleaning up&quot;)
+    print(&quot;Exit&quot;)
 
 with error_handling_context_manager(-1) as cm:
-    print("Dividing by cm = {}".format(cm))
+    print(&quot;Dividing by cm = {}&quot;.format(cm))
     print(2 / cm)
 
 ```
@@ -244,14 +244,14 @@ for _ in range(10000):
 #### Syntax
 
 
-- with "context_manager"( as "alias")(, "context_manager"( as "alias")?)*:
+- with &quot;context_manager&quot;( as &quot;alias&quot;)(, &quot;context_manager&quot;( as &quot;alias&quot;)?)*:
 
 
 
 #### Remarks
 
 
-Context managers are defined in [PEP 343](http://web.archive.org/web/20170405083133/https://www.python.org/dev/peps/pep-0343).  They are intended to be used as more succinct mechanism for resource management than `try ... finally` constructs.  The formal definition is as follows.
+Context managers are defined in [PEP 343](https://www.python.org/dev/peps/pep-0343).  They are intended to be used as more succinct mechanism for resource management than `try ... finally` constructs.  The formal definition is as follows.
 
 > 
 In this PEP, context managers provide `__enter__()` and `__exit__()` methods that are invoked on entry to and exit from the body of the with statement.
@@ -270,7 +270,7 @@ The translation of the above statement is:
    exc = True
    try:
        try:
-           VAR = value  # Only if "as VAR" is present
+           VAR = value  # Only if &quot;as VAR&quot; is present
            BLOCK
        except:
            # The exceptional case is handled here

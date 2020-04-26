@@ -2,64 +2,6 @@
 
 
 
-## Mutable and Immutable as Arguments
-
-
-One of the major use case when a developer needs to take mutability into account is when passing arguments to a function. This is very important, because this will determine the ability for the function to modify objects that doesn't belong to its scope, or in other words if the function has side effects. This is also important to understand where the result of a function has to be made available.
-
-```
-&gt;&gt;&gt; def list_add3(lin):
-    lin += [3]
-    return lin
-
-&gt;&gt;&gt; a = [1, 2, 3]
-&gt;&gt;&gt; b = list_add3(a)
-&gt;&gt;&gt; b
-[1, 2, 3, 3]
-&gt;&gt;&gt; a
-[1, 2, 3, 3]
-
-```
-
-Here, the mistake is to think that `lin`, as a parameter to the function, can be modified locally. Instead, `lin` and `a` reference the same object. As this object is mutable, the modification is done in-place, which means that the object referenced by both `lin` and `a` is modified. `lin` doesn't really need to be returned, because we already have a reference to this object in the form of `a`. `a` and `b` end referencing the same object.
-
-This doesn't go the same for tuples.
-
-```
-&gt;&gt;&gt; def tuple_add3(tin):
-    tin += (3,)
-    return tin
-
-&gt;&gt;&gt; a = (1, 2, 3)
-&gt;&gt;&gt; b = tuple_add3(a)
-&gt;&gt;&gt; b
-(1, 2, 3, 3)
-&gt;&gt;&gt; a
-(1, 2, 3)
-
-```
-
-At the beginning of the function, `tin` and `a` reference the same object. But this is an immutable object. So when the function tries to modify it, `tin` receive a new object with the modification, while `a` keeps a reference to the original object. In this case, returning `tin` is mandatory, or the new object would be lost.
-
-### Exercise
-
-```
-&gt;&gt;&gt; def yoda(prologue, sentence):
-    sentence.reverse()
-    prologue += " ".join(sentence)
-    return prologue
-
-&gt;&gt;&gt; focused = ["You must", "stay focused"]
-&gt;&gt;&gt; saying = "Yoda said: "
-&gt;&gt;&gt; yoda_sentence = yoda(saying, focused)
-
-```
-
-**Note: `reverse` operates in-place.**
-
-What do you think of this function? Does it have side effects? Is the return necessary? After the call, what is the value of `saying`? Of `focused`? What happens if the function is called again with the same parameters?
-
-
 
 ## Mutable vs Immutable
 
@@ -75,13 +17,13 @@ This category includes: integers, floats, complex, strings, bytes, tuples, range
 To highlight this property, let's play with the `id` builtin. This function returns the unique identifier of the object passed as parameter. If the id is the same, this is the same object. If it changes, then this is another object. **(Some say that this is actually the memory address of the object, but beware of them, they are from the dark side of the force...)**
 
 ```
-&gt;&gt;&gt; a = 1
-&gt;&gt;&gt; id(a)
+>>> a = 1
+>>> id(a)
 140128142243264
-&gt;&gt;&gt; a += 2
-&gt;&gt;&gt; a
+>>> a += 2
+>>> a
 3
-&gt;&gt;&gt; id(a)
+>>> id(a)
 140128142243328
 
 ```
@@ -89,13 +31,13 @@ To highlight this property, let's play with the `id` builtin. This function retu
 Okay, 1 is not 3... Breaking news... Maybe not. However, this behaviour is often forgotten when it comes to more complex types, especially strings.
 
 ```
-&gt;&gt;&gt; stack = "Overflow"
-&gt;&gt;&gt; stack
+>>> stack = &quot;Overflow&quot;
+>>> stack
 'Overflow'
-&gt;&gt;&gt; id(stack)
+>>> id(stack)
 140128123955504
-&gt;&gt;&gt; stack += " rocks!"
-&gt;&gt;&gt; stack
+>>> stack += &quot; rocks!&quot;
+>>> stack
 'Overflow rocks!'
 
 ```
@@ -103,7 +45,7 @@ Okay, 1 is not 3... Breaking news... Maybe not. However, this behaviour is often
 Aha! See? We can modify it!
 
 ```
-&gt;&gt;&gt; id(stack)
+>>> id(stack)
 140128123911472
 
 ```
@@ -111,11 +53,11 @@ Aha! See? We can modify it!
 No. While it seems we can change the string named by the variable `stack`, what we actually do, is creating a new object to contain the result of the concatenation. We are fooled because in the process, the old object goes nowhere, so it is destroyed. In another situation, that would have been more obvious:
 
 ```
-&gt;&gt;&gt; stack = "Stack"
-&gt;&gt;&gt; stackoverflow = stack + "Overflow"
-&gt;&gt;&gt; id(stack)
+>>> stack = &quot;Stack&quot;
+>>> stackoverflow = stack + &quot;Overflow&quot;
+>>> id(stack)
 140128069348184
-&gt;&gt;&gt; id(stackoverflow)
+>>> id(stackoverflow)
 140128123911480
 
 ```
@@ -127,10 +69,10 @@ In this case it is clear that if we want to retain the first string, we need a c
 Now, knowing how a immutable types work, what would you say with the below piece of code? Is it wise?
 
 ```
-s = ""
+s = &quot;&quot;
 for i in range(1, 1000):
     s += str(i)
-    s += ","
+    s += &quot;,&quot;
 
 ```
 
@@ -143,16 +85,16 @@ This category includes: lists, dictionaries, bytearrays and sets.
 Let's continue to play with our little `id` function.
 
 ```
-&gt;&gt;&gt; b = bytearray(b'Stack')
-&gt;&gt;&gt; b
+>>> b = bytearray(b'Stack')
+>>> b
 bytearray(b'Stack')
-&gt;&gt;&gt; b = bytearray(b'Stack')
-&gt;&gt;&gt; id(b)
+>>> b = bytearray(b'Stack')
+>>> id(b)
 140128030688288
-&gt;&gt;&gt; b += b'Overflow'
-&gt;&gt;&gt; b
+>>> b += b'Overflow'
+>>> b
 bytearray(b'StackOverflow')
-&gt;&gt;&gt; id(b)
+>>> id(b)
 140128030688288
 
 ```
@@ -164,9 +106,9 @@ What do we have? We create a bytearray, modify it and using the `id`, we can ens
 Of course, if an object is going to be modified often, a mutable type does a much better job than an immutable type. Unfortunately, the reality of this property is often forgotten when it hurts the most.
 
 ```
-&gt;&gt;&gt; c = b
-&gt;&gt;&gt; c += b' rocks!'
-&gt;&gt;&gt; c
+>>> c = b
+>>> c += b' rocks!'
+>>> c
 bytearray(b'StackOverflow rocks!')
 
 ```
@@ -174,7 +116,7 @@ bytearray(b'StackOverflow rocks!')
 Okay...
 
 ```
-&gt;&gt;&gt; b
+>>> b
 bytearray(b'StackOverflow rocks!')
 
 ```
@@ -182,7 +124,7 @@ bytearray(b'StackOverflow rocks!')
 Waiiit a second...
 
 ```
-&gt;&gt;&gt; id(c) == id(b)
+>>> id(c) == id(b)
 True
 
 ```
@@ -194,13 +136,72 @@ Indeed. `c` is not a copy of `b`. `c` is `b`.
 Now you better understand what side effect is implied by a mutable type, can you explain what is going wrong in this example?
 
 ```
-&gt;&gt;&gt; ll = [ [] ]*4 # Create a list of 4 lists to contain our results
-&gt;&gt;&gt; ll
+>>> ll = [ [] ]*4 # Create a list of 4 lists to contain our results
+>>> ll
 [[], [], [], []]
-&gt;&gt;&gt; ll[0].append(23) # Add result 23 to first list
-&gt;&gt;&gt; ll
+>>> ll[0].append(23) # Add result 23 to first list
+>>> ll
 [[23], [23], [23], [23]]
-&gt;&gt;&gt; # Oops...
+>>> # Oops...
 
 ```
+
+
+
+## Mutable and Immutable as Arguments
+
+
+One of the major use case when a developer needs to take mutability into account is when passing arguments to a function. This is very important, because this will determine the ability for the function to modify objects that doesn't belong to its scope, or in other words if the function has side effects. This is also important to understand where the result of a function has to be made available.
+
+```
+>>> def list_add3(lin):
+    lin += [3]
+    return lin
+
+>>> a = [1, 2, 3]
+>>> b = list_add3(a)
+>>> b
+[1, 2, 3, 3]
+>>> a
+[1, 2, 3, 3]
+
+```
+
+Here, the mistake is to think that `lin`, as a parameter to the function, can be modified locally. Instead, `lin` and `a` reference the same object. As this object is mutable, the modification is done in-place, which means that the object referenced by both `lin` and `a` is modified. `lin` doesn't really need to be returned, because we already have a reference to this object in the form of `a`. `a` and `b` end referencing the same object.
+
+This doesn't go the same for tuples.
+
+```
+>>> def tuple_add3(tin):
+    tin += (3,)
+    return tin
+
+>>> a = (1, 2, 3)
+>>> b = tuple_add3(a)
+>>> b
+(1, 2, 3, 3)
+>>> a
+(1, 2, 3)
+
+```
+
+At the beginning of the function, `tin` and `a` reference the same object. But this is an immutable object. So when the function tries to modify it, `tin` receive a new object with the modification, while `a` keeps a reference to the original object. In this case, returning `tin` is mandatory, or the new object would be lost.
+
+### Exercise
+
+```
+>>> def yoda(prologue, sentence):
+    sentence.reverse()
+    prologue += &quot; &quot;.join(sentence)
+    return prologue
+
+>>> focused = [&quot;You must&quot;, &quot;stay focused&quot;]
+>>> saying = &quot;Yoda said: &quot;
+>>> yoda_sentence = yoda(saying, focused)
+
+```
+
+**Note: `reverse` operates in-place.**
+
+What do you think of this function? Does it have side effects? Is the return necessary? After the call, what is the value of `saying`? Of `focused`? What happens if the function is called again with the same parameters?
 

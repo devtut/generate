@@ -20,30 +20,27 @@ Below are the operators that can be overloaded in classes, along with the method
 |`//` Floor Division|`__floordiv__(self, other)`|`a1 // a2`
 |`%` Modulo/Remainder|`__mod__(self, other)`|`a1 % a2`
 |`**` Power|`__pow__(self, other[, modulo])`|`a1 ** a2`
-|`&lt;&lt;` Bitwise Left Shift|`__lshift__(self, other)`|`a1 &lt;&lt; a2`
-|`&gt;&gt;` Bitwise Right Shift|`__rshift__(self, other)`|`a1 &gt;&gt; a2`
+|`<<` Bitwise Left Shift|`__lshift__(self, other)`|`a1 << a2`
+|`>>` Bitwise Right Shift|`__rshift__(self, other)`|`a1 >> a2`
 |`&amp;` Bitwise AND|`__and__(self, other)`|`a1 &amp; a2`
 |`^` Bitwise XOR|`__xor__(self, other)`|`a1 ^ a2`
 |`|` (Bitwise OR)|`__or__(self, other)`|`a1 | a2`
 |`-` Negation (Arithmetic)|`__neg__(self)`|`-a1`
 |`+` Positive|`__pos__(self)`|`+a1`
 |`~` Bitwise NOT|`__invert__(self)`|`~a1`
-|`&lt;` Less than|`__lt__(self, other)`|`a1 &lt; a2`
-|`&lt;=` Less than or Equal to|`__le__(self, other)`|`a1 &lt;= a2`
+|`<` Less than|`__lt__(self, other)`|`a1 < a2`
+|`<=` Less than or Equal to|`__le__(self, other)`|`a1 <= a2`
 |`==` Equal to|`__eq__(self, other)`|`a1 == a2`
 |`!=` Not Equal to|`__ne__(self, other)`|`a1 != a2`
-|`&gt;` Greater than|`__gt__(self, other)`|`a1 &gt; a2`
-|`&gt;=` Greater than or Equal to|`__ge__(self, other)`|`a1 &gt;= a2`
+|`>` Greater than|`__gt__(self, other)`|`a1 > a2`
+|`>=` Greater than or Equal to|`__ge__(self, other)`|`a1 >= a2`
 |`[index]` Index operator|`__getitem__(self, index)`|`a1[index]`
 |`in` In operator|`__contains__(self, other)`|`a2 in a1`
 |`(*args, ...)` Calling|`__call__(self, *args, **kwargs)`|`a1(*args, **kwargs)`
 
 **The optional parameter `modulo` for `__pow__` is only used by the `pow` built-in function.**
 
----
-
-
-Each of the methods corresponding to a **binary** operator has a corresponding "right" method which start with `__r`, for example `__radd__`:
+Each of the methods corresponding to a **binary** operator has a corresponding &quot;right&quot; method which start with `__r`, for example `__radd__`:
 
 ```
 class A:
@@ -52,7 +49,7 @@ class A:
     def __add__(self, other):
         return self.a + other
     def __radd__(self, other):
-        print("radd")
+        print(&quot;radd&quot;)
         return other + self.a
 
 A(1) + 2  # Out:  3
@@ -68,7 +65,7 @@ class B:
         self.b = b
     def __iadd__(self, other):
         self.b += other
-        print("iadd")
+        print(&quot;iadd&quot;)
         return self
 
 b = B(2)
@@ -89,7 +86,7 @@ Some of these uses are listed below.
 |Casting to `unicode`|`__unicode__(self)`|`unicode(a1)` (Python 2 only)
 |String representation|`__repr__(self)`|`repr(a1)`
 |Casting to `bool`|`__nonzero__(self)`|`bool(a1)`
-|String formatting|`__format__(self, formatstr)`|`"Hi {:abc}".format(a1)`
+|String formatting|`__format__(self, formatstr)`|`&quot;Hi {:abc}&quot;.format(a1)`
 |Hashing|`__hash__(self)`|`hash(a1)`
 |Length|`__len__(self)`|`len(a1)`
 |Reversed|`__reversed__(self)`|`reversed(a1)`
@@ -138,7 +135,7 @@ class Vector(object):
 
     # str(v)
     def __str__(self):
-        return '&lt;{0.x}, {0.y}&gt;'.format(self)
+        return '<{0.x}, {0.y}>'.format(self)
 
     # repr(v)
     def __repr__(self):
@@ -153,7 +150,7 @@ v = Vector(1, 4)
 u = Vector(2, 0)
 
 u + v           # Vector(3, 4)
-print(u + v)    # "&lt;3, 4&gt;" (implicit string conversion)
+print(u + v)    # &quot;<3, 4>&quot; (implicit string conversion)
 u - v           # Vector(1, -4)
 u == v          # False
 u + v == v + u  # True
@@ -178,9 +175,9 @@ class sparselist(object):
     
     # l[index]
     def __getitem__(self, index):
-        if index &lt; 0:
+        if index < 0:
             index += self.size
-        if index &gt;= self.size:
+        if index >= self.size:
             raise IndexError(index)
         try:
             return self.data[index]
@@ -251,7 +248,7 @@ add2(2)  # 4
 ## Handling unimplemented behaviour
 
 
-If your class doesn't implement a specific overloaded operator for the argument types provided, it should `return NotImplemented` (**note** that this is a [special constant](http://web.archive.org/web/20170417024711/https://docs.python.org/3/library/constants.html#NotImplemented), not the same as `NotImplementedError`). This will allow Python to fall back to trying other methods to make the operation work:
+If your class doesn't implement a specific overloaded operator for the argument types provided, it should `return NotImplemented` (**note** that this is a [special constant](https://docs.python.org/3/library/constants.html#NotImplemented), not the same as `NotImplementedError`). This will allow Python to fall back to trying other methods to make the operation work:
 
 > 
 <p>When `NotImplemented` is returned, the interpreter will then try the
@@ -286,18 +283,18 @@ As this is the **reflected** method we have to implement `__add__` **and** `__ra
 In use:
 
 ```
-&gt;&gt;&gt; x = NotAddable(1)
-&gt;&gt;&gt; y = Addable(2)
-&gt;&gt;&gt; x + x
+>>> x = NotAddable(1)
+>>> y = Addable(2)
+>>> x + x
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 TypeError: unsupported operand type(s) for +: 'NotAddable' and 'NotAddable'
-&gt;&gt;&gt; y + y
-&lt;so.Addable object at 0x1095974d0&gt;
-&gt;&gt;&gt; z = x + y
-&gt;&gt;&gt; z
-&lt;so.Addable object at 0x109597510&gt;
-&gt;&gt;&gt; z.value
+>>> y + y
+<so.Addable object at 0x1095974d0>
+>>> z = x + y
+>>> z
+<so.Addable object at 0x109597510>
+>>> z.value
 3
 
 ```

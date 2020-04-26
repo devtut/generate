@@ -44,13 +44,13 @@ Example:
 
 ```
 import collections
-&gt;&gt;&gt; collections.Iterator()
-&gt;&gt;&gt; TypeError: Cant instantiate abstract class Iterator with abstract methods next
+>>> collections.Iterator()
+>>> TypeError: Cant instantiate abstract class Iterator with abstract methods next
 
 ```
 
 ```
-&gt;&gt;&gt; TypeError: Cant instantiate abstract class Iterator with abstract methods __next__
+>>> TypeError: Cant instantiate abstract class Iterator with abstract methods __next__
 
 ```
 
@@ -116,7 +116,7 @@ for a in s:
 l1 = list(s)  # l1 = [1, 2, 3]
 
 # use list comprehension
-l2 = [a * 2 for a in s if a &gt; 2]  # l2 = [6]
+l2 = [a * 2 for a in s if a > 2]  # l2 = [6]
 
 ```
 
@@ -142,25 +142,6 @@ a, = nums  # ValueError: too many values to unpack
 
 
 
-## Iterator isn't reentrant!
-
-
-```
-def gen():
-    yield 1
-
-iterable = gen()
-for a in iterable:
-    print a
-
-# What was the first item of iterable? No way to get it now.
-# Only to get a new iterator
-gen()
-
-```
-
-
-
 ## What can be iterable
 
 
@@ -181,6 +162,25 @@ def foo():  # foo isn't iterable yet...
     yield 1
 
 res = foo()  # ...but res already is
+
+```
+
+
+
+## Iterator isn't reentrant!
+
+
+```
+def gen():
+    yield 1
+
+iterable = gen()
+for a in iterable:
+    print a
+
+# What was the first item of iterable? No way to get it now.
+# Only to get a new iterator
+gen()
 
 ```
 

@@ -2,6 +2,7 @@
 
 
 
+
 ## Adding types to a function
 
 
@@ -23,7 +24,7 @@ print(two_sum(2, 1))  # result: 3
 and with strings:
 
 ```
-print(two_sum("a", "b"))  # result: "ab"
+print(two_sum(&quot;a&quot;, &quot;b&quot;))  # result: &quot;ab&quot;
 
 ```
 
@@ -51,30 +52,38 @@ def two_sum(a: str, b: str):
 
 ```
 
-Apart from specifying the type of the arguments, one could also indicate the return value of a function call. This is done by adding the `-&gt;` character followed by the type after the closing parenthesis in the argument list **but** before the `:` at the end of the function declaration:
+Apart from specifying the type of the arguments, one could also indicate the return value of a function call. This is done by adding the `->` character followed by the type after the closing parenthesis in the argument list **but** before the `:` at the end of the function declaration:
 
 ```
-def two_sum(a: int, b: int) -&gt; int: 
+def two_sum(a: int, b: int) -> int: 
     return a + b
 
 ```
 
 Now we've indicated that the return value when calling `two_sum` should be of type `int`. Similarly we can define appropriate values for `str`, `float`, `list`, `set` and others.
 
+Although type hints are mostly used by type checkers and IDEs, sometimes you may need to retrieve them. This can be done using the `__annotations__` special attribute:
+
+```
+two_sum.__annotations__
+# {'a': <class 'int'>, 'b': <class 'int'>, 'return': <class 'int'>}
+
+```
+
 
 
 ## Generic Types
 
 
-The [`typing.TypeVar`](http://web.archive.org/web/20170204223244/https://docs.python.org/3/library/typing.html#typing.TypeVar) is a generic type factory. It's primary goal is to serve as a parameter/placeholder for generic function/class/method annotations:
+The [`typing.TypeVar`](https://docs.python.org/3/library/typing.html#typing.TypeVar) is a generic type factory. It's primary goal is to serve as a parameter/placeholder for generic function/class/method annotations:
 
 ```
 import typing
 
-T = typing.TypeVar("T")
+T = typing.TypeVar(&quot;T&quot;)
 
-def get_first_element(l: typing.Sequence[T]) -&gt; T:
-    """Gets the first element of a sequence."""
+def get_first_element(l: typing.Sequence[T]) -> T:
+    &quot;&quot;&quot;Gets the first element of a sequence.&quot;&quot;&quot;
     return l[0]
 
 ```
@@ -96,34 +105,7 @@ Note that the name of the resulting type is the first argument to the function, 
 
 
 
-## Class Members and Methods
-
-
-```
-class A:
-    x = None  # type: float
-    def __init__(self, x: float) -&gt; None:
-        """
-        self should not be annotated
-        init should be annotated to return None
-        """
-        self.x = x
-    
-    @classmethod
-    def from_int(cls, x: int) -&gt; 'A': 
-        """
-        cls should not be annotated
-        Use forward reference to refer to current class with string literal 'A'
-        """
-        return cls(float(x))
-
-```
-
-Forward reference of the current class is needed since annotations are evaluated when the function is defined. Forward references can also be used when referring to a class that would cause a circular import if imported.
-
-
-
-## Variables
+## Variables and Attributes
 
 
 Variables are annotated using comments:
@@ -135,7 +117,7 @@ x = 'a type-checker might catch this error'
 
 ```
 
-Starting from Python 3.6, there is also [new syntax for variable annotations](http://web.archive.org/web/20170204223244/https://www.python.org/dev/peps/pep-0526/). The code above might use the form
+Starting from Python 3.6, there is also [new syntax for variable annotations](https://www.python.org/dev/peps/pep-0526/). The code above might use the form
 
 ```
 x: int = 3
@@ -156,10 +138,51 @@ class Foo:
     x: int
     y: str = 'abc'
 
-typing.get_type_hints(Foo)
-# returns ChainMap({'x': &lt;class 'int'&gt;, 'y': &lt;class 'str'&gt;}, {})
+print(typing.get_type_hints(Foo))
+# ChainMap({'x': <class 'int'>, 'y': <class 'str'>}, {})
 
 ```
+
+Alternatively, they can be accessed by using the `__annotations__` special variable or attribute:
+
+```
+x: int
+print(__annotations__)
+# {'x': <class 'int'>}
+
+class C:
+    s: str
+print(C.__annotations__)
+# {'s': <class 'str'>}
+
+```
+
+
+
+## Class Members and Methods
+
+
+```
+class A:
+    x = None  # type: float
+    def __init__(self, x: float) -> None:
+        &quot;&quot;&quot;
+        self should not be annotated
+        init should be annotated to return None
+        &quot;&quot;&quot;
+        self.x = x
+    
+    @classmethod
+    def from_int(cls, x: int) -> 'A': 
+        &quot;&quot;&quot;
+        cls should not be annotated
+        Use forward reference to refer to current class with string literal 'A'
+        &quot;&quot;&quot;
+        return cls(float(x))
+
+```
+
+Forward reference of the current class is needed since annotations are evaluated when the function is defined. Forward references can also be used when referring to a class that would cause a circular import if imported.
 
 
 
@@ -179,20 +202,20 @@ Note the spaces around the equal sign as opposed to how keyword arguments are us
 #### Syntax
 
 
-- typing.Callable[[int, str], None] -&gt; def func(a: int, b: str) -&gt; None
-- typing.Mapping[str, int] -&gt; {"a": 1, "b": 2, "c": 3}
-- typing.List[int] -&gt; [1, 2, 3]
-- typing.Set[int] -&gt; {1, 2, 3}
-- typing.Optional[int] -&gt; None or int
-- typing.Sequence[int] -&gt; [1, 2, 3] or (1, 2, 3)
-- typing.Any -&gt; Any type
-- typing.Union[int, str] -&gt; 1 or "1"
-- T = typing.TypeVar('T') -&gt; Generic type
+- typing.Callable[[int, str], None] -> def func(a: int, b: str) -> None
+- typing.Mapping[str, int] -> {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
+- typing.List[int] -> [1, 2, 3]
+- typing.Set[int] -> {1, 2, 3}
+- typing.Optional[int] -> None or int
+- typing.Sequence[int] -> [1, 2, 3] or (1, 2, 3)
+- typing.Any -> Any type
+- typing.Union[int, str] -> 1 or &quot;1&quot;
+- T = typing.TypeVar('T') -> Generic type
 
 
 
 #### Remarks
 
 
-Type Hinting, as specified in [`PEP 484`](http://web.archive.org/web/20170204223244/https://www.python.org/dev/peps/pep-0484), is a formalized solution to statically indicate the type of a value for Python Code. By appearing alongside the `typing` module, type-hints offer Python users the capability to annotate their code thereby assisting type checkers while, indirectly, documenting their code with more information.
+Type Hinting, as specified in [`PEP 484`](https://www.python.org/dev/peps/pep-0484), is a formalized solution to statically indicate the type of a value for Python Code. By appearing alongside the `typing` module, type-hints offer Python users the capability to annotate their code thereby assisting type checkers while, indirectly, documenting their code with more information.
 

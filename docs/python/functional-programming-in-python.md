@@ -12,20 +12,7 @@ An anonymous, inlined function defined with lambda. The parameters of the lambda
 
 ```
 s=lambda x:x*x
-s(2)    =&gt;4
-
-```
-
-
-
-## Filter Function
-
-
-Filter takes a function and a collection. It returns a collection of every item for which the function returned True.
-
-```
-arr=[1,2,3,4,5,6]
-[i for i in filter(lambda x:x&gt;4,arr)]    # outputs[5,6]
+s(2)    =>4
 
 ```
 
@@ -39,8 +26,8 @@ Map takes a function and a collection of items. It makes a new, empty collection
 This is a simple map that takes a list of names and returns a list of the lengths of those names:
 
 ```
-name_lengths = map(len, ["Mary", "Isla", "Sam"])
-print(name_lengths)    =&gt;[4, 4, 3]
+name_lengths = map(len, [&quot;Mary&quot;, &quot;Isla&quot;, &quot;Sam&quot;])
+print(name_lengths)    =>[4, 4, 3]
 
 ```
 
@@ -55,7 +42,20 @@ This is a simple reduce. It returns the sum of all the items in the collection.
 
 ```
 total = reduce(lambda a, x: a + x, [0, 1, 2, 3, 4])
-print(total)    =&gt;10
+print(total)    =>10
+
+```
+
+
+
+## Filter Function
+
+
+Filter takes a function and a collection. It returns a collection of every item for which the function returned True.
+
+```
+arr=[1,2,3,4,5,6]
+[i for i in filter(lambda x:x>4,arr)]    # outputs[5,6]
 
 ```
 

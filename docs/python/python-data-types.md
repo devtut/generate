@@ -21,17 +21,16 @@ print(a_str[0:5])    #output will be first five characters. Hello
 
 
 
-## Dictionary Data Type
+## Numbers data type
 
 
-Dictionary consists of key-value pairs.It is enclosed by curly braces {} and values can be assigned and accessed using square brackets[].
+Numbers have four types in Python. Int, float, complex, and long.
 
 ```
-dic={'name':'red','age':10}
-print(dic)    #will output all the key-value pairs. {'name':'red','age':10}
-print(dic['name'])    #will output only value with 'name' key. 'red'
-print(dic.values())    #will output list of values in dic. ['red',10]
-print(dic.keys())    #will output list of keys. ['name','age']
+int_num = 10    #int value
+float_num = 10.2    #float value
+complex_num = 3.14j    #complex value
+long_num = 1234567L    #long value
 
 ```
 
@@ -54,16 +53,17 @@ print(list + list1)    #will gave concatenation of both the lists. [123,'abcd',1
 
 
 
-## Numbers data type
+## Dictionary Data Type
 
 
-Numbers have four types in Python. Int, float, complex, and long.
+Dictionary consists of key-value pairs.It is enclosed by curly braces {} and values can be assigned and accessed using square brackets[].
 
 ```
-int_num = 10    #int value
-float_num = 10.2    #float value
-complex_num = 3.14j    #complex value
-long_num = 1234567L    #long value
+dic={'name':'red','age':10}
+print(dic)    #will output all the key-value pairs. {'name':'red','age':10}
+print(dic['name'])    #will output only value with 'name' key. 'red'
+print(dic.values())    #will output list of values in dic. ['red',10]
+print(dic.keys())    #will output list of keys. ['name','age']
 
 ```
 
@@ -78,23 +78,23 @@ Sets are unordered collections of unique objects, there are two types of set :
 Sets - They are mutable and new elements can be added once sets are defined
 <pre>basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'} 
 print(basket)            # duplicates will be removed
-&gt; {'orange', 'banana', 'pear', 'apple'}
+> {'orange', 'banana', 'pear', 'apple'}
 a = set('abracadabra')
 print(a)                 # unique letters in a
-&gt; {'a', 'r', 'b', 'c', 'd'}
+> {'a', 'r', 'b', 'c', 'd'}
 a.add('z')
 print(a)
-&gt; {'a', 'c', 'r', 'b', 'z', 'd'}
+> {'a', 'c', 'r', 'b', 'z', 'd'}
 </pre>
 </li>
 <li>
 Frozen Sets - They are immutable and new elements cannot added after its defined.
 <pre>b = frozenset('asdfagsa')
 print(b)
-&gt; frozenset({'f', 'g', 'd', 'a', 's'})
-cities = frozenset(["Frankfurt", "Basel","Freiburg"])
+> frozenset({'f', 'g', 'd', 'a', 's'})
+cities = frozenset([&quot;Frankfurt&quot;, &quot;Basel&quot;,&quot;Freiburg&quot;])
 print(cities)
-&gt; frozenset({'Frankfurt', 'Basel', 'Freiburg'})
+> frozenset({'Frankfurt', 'Basel', 'Freiburg'})
 </pre>
 </li>
 

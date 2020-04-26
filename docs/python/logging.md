@@ -2,6 +2,7 @@
 
 
 
+
 ## Introduction to Python Logging
 
 
@@ -37,7 +38,7 @@ Output example:
 
 **Example Configuration via an INI File**
 
-Assuming the file is named logging_config.ini. More details for the file format are in the [logging configuration](http://web.archive.org/web/20170816202113/https://docs.python.org/3/howto/logging.html#configuring-logging) section of the [logging tutorial](http://web.archive.org/web/20170816202113/https://docs.python.org/3/howto/logging.html).
+Assuming the file is named logging_config.ini. More details for the file format are in the [logging configuration](https://docs.python.org/3/howto/logging.html#configuring-logging) section of the [logging tutorial](https://docs.python.org/3/howto/logging.html).
 
 ```
 [loggers]
@@ -78,7 +79,7 @@ logger.debug('often makes a very good meal of %s', 'visiting tourists')
 
 **Example Configuration via a Dictionary**
 
-As of Python 2.7, you can use a dictionary with configuration details. [PEP 391](http://web.archive.org/web/20170816202113/https://www.python.org/dev/peps/pep-0391/) contains a list of the mandatory and optional elements in the configuration dictionary.
+As of Python 2.7, you can use a dictionary with configuration details. [PEP 391](https://www.python.org/dev/peps/pep-0391/) contains a list of the mandatory and optional elements in the configuration dictionary.
 
 ```
 import logging
@@ -116,16 +117,16 @@ logger.debug('often makes a very good meal of %s', 'visiting tourists')
 If you want to log exceptions you can and should make use of the `logging.exception(msg)` method:
 
 ```
-&gt;&gt;&gt; import logging
-&gt;&gt;&gt; logging.basicConfig()
-&gt;&gt;&gt; try:
+>>> import logging
+>>> logging.basicConfig()
+>>> try:
 ...     raise Exception('foo')
 ... except:
 ...     logging.exception('bar')
 ...
 ERROR:root:bar
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 2, in <module>
 Exception: foo
 
 ```
@@ -135,14 +136,14 @@ Exception: foo
 As `logging.exception(msg)` expects a `msg` arg, it is a common pitfall to pass the exception into the logging call like this:
 
 ```
-&gt;&gt;&gt; try:
+>>> try:
 ...     raise Exception('foo')
 ... except Exception as e:
 ...     logging.exception(e)
 ...
 ERROR:root:foo
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 2, in <module>
 Exception: foo
 
 ```
@@ -150,24 +151,24 @@ Exception: foo
 While it might look as if this is the right thing to do at first, it is actually problematic due to the reason how exceptions and various encoding work together in the logging module:
 
 ```
-&gt;&gt;&gt; try:
+>>> try:
 ...     raise Exception(u'föö')
 ... except Exception as e:
 ...     logging.exception(e)
 ...
 Traceback (most recent call last):
-  File "/.../python2.7/logging/__init__.py", line 861, in emit
+  File &quot;/.../python2.7/logging/__init__.py&quot;, line 861, in emit
     msg = self.format(record)
-  File "/.../python2.7/logging/__init__.py", line 734, in format
+  File &quot;/.../python2.7/logging/__init__.py&quot;, line 734, in format
     return fmt.format(record)
-  File "/.../python2.7/logging/__init__.py", line 469, in format
+  File &quot;/.../python2.7/logging/__init__.py&quot;, line 469, in format
     s = self._fmt % record.__dict__
 UnicodeEncodeError: 'ascii' codec can't encode characters in position 1-2: ordinal not in range(128)
-Logged from file &lt;stdin&gt;, line 4
+Logged from file <stdin>, line 4
 
 ```
 
-Trying to log an exception that contains unicode chars, this way will [fail miserably](http://web.archive.org/web/20170816202113/http://stackoverflow.com/questions/31137568/properly-logging-unicode-utf-8-exceptions-in-python-2). It will hide the stacktrace of the original exception by overriding it with a new one that is raised during formatting of your `logging.exception(e)` call.
+Trying to log an exception that contains unicode chars, this way will [fail miserably](http://stackoverflow.com/questions/31137568/properly-logging-unicode-utf-8-exceptions-in-python-2). It will hide the stacktrace of the original exception by overriding it with a new one that is raised during formatting of your `logging.exception(e)` call.
 
 Obviously, in your own code, you might be aware of the encoding in exceptions. However, 3rd party libs might handle this in a different way.
 
@@ -176,14 +177,14 @@ Obviously, in your own code, you might be aware of the encoding in exceptions. H
 If instead of the exception you just pass a message and let python do its magic, it will work:
 
 ```
-&gt;&gt;&gt; try:
+>>> try:
 ...     raise Exception(u'föö')
 ... except Exception as e:
 ...     logging.exception('bar')
 ...
 ERROR:root:bar
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 2, in <module>
 Exception: f\xf6\xf6
 
 ```
@@ -206,14 +207,14 @@ logging.warning('exception occurred', exc_info=1)
 Be aware that libraries out there might throw exceptions with messages as any of unicode or (utf-8 if you're lucky) byte-strings. If you really need to access an exception's text, the only reliable way, that will always work, is to use `repr(e)` or the `%r` string formatting:
 
 ```
-&gt;&gt;&gt; try:
+>>> try:
 ...     raise Exception(u'föö')
 ... except Exception as e:
 ...     logging.exception('received this exception: %r' % e)
 ...
 ERROR:root:received this exception: Exception(u'f\xf6\xf6',)
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 2, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 2, in <module>
 Exception: f\xf6\xf6
 
 ```

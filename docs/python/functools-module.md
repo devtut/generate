@@ -2,65 +2,6 @@
 
 
 
-## cmp_to_key
-
-
-Python changed it's sorting methods to accept a key function. Those functions take a value and return a key which is used to sort the arrays.
-
-Old comparison functions used to take two values and return -1, 0 or +1 if the first argument is small, equal or greater than the second argument respectively. This is incompatible to the new key-function.
-
-That's where `functools.cmp_to_key` comes in:
-
-```
-&gt;&gt;&gt; import functools
-&gt;&gt;&gt; import locale
-&gt;&gt;&gt; sorted(["A", "S", "F", "D"], key=functools.cmp_to_key(locale.strcoll))
-['A', 'D', 'F', 'S']
-
-```
-
-Example taken and adapted from the [Python Standard Library Documentation](http://web.archive.org/web/20170221213435/https://docs.python.org/3/library/functools.html#functools.cmp_to_key).
-
-
-
-## lru_cache
-
-
-The `@lru_cache` decorator can be used wrap an expensive, computationally-intensive function with a [Least Recently Used](http://web.archive.org/web/20170221213435/https://en.wikipedia.org/wiki/Cache_algorithms#Examples) cache. This allows function calls to be memoized, so that future calls with the same parameters can return instantly instead of having to be recomputed.
-
-```
-@lru_cache(maxsize=None)  # Boundless cache
-def fibonacci(n):
-    if n &lt; 2:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
-
-&gt;&gt;&gt; fibonacci(15)
-
-```
-
-In the example above, the value of `fibonacci(3)` is only calculated once, whereas if `fibonacci` didn't have an LRU cache, `fibonacci(3)` would have been computed upwards of 230 times. Hence, `@lru_cache` is especially great for recursive functions or dynamic programming, where an expensive function could be called multiple times with the same exact parameters.
-
-`@lru_cache` has two arguments
-
-- `maxsize`: Number of calls to save. When the number of unique calls exceeds `maxsize`, the LRU cache will remove the least recently used calls.
-<li>`typed` (added in 3.3): Flag for determining if equivalent arguments of different
-types belong to different cache records (i.e. if `3.0` and
-`3` count as different arguments)</li>
-
-We can see cache stats too:
-
-```
-&gt;&gt;&gt; fib.cache_info()
-CacheInfo(hits=13, misses=16, maxsize=None, currsize=16)
-
-```
-
-**NOTE**: Since `@lru_cache` uses dictionaries to cache results, all parameters for the function must be hashable for the cache to work.
-
-[Official Python docs for `@lru_cache`](http://web.archive.org/web/20170221213435/https://docs.python.org/3/library/functools.html#functools.lru_cache). `@lru_cache` was added in 3.2.
-
-
 
 ## partial
 
@@ -68,10 +9,10 @@ CacheInfo(hits=13, misses=16, maxsize=None, currsize=16)
 The `partial` function creates partial function application from another function. It is used to **bind** values to some of the function's arguments (or keyword arguments) and produce a **callable** without the already defined arguments.
 
 ```
-&gt;&gt;&gt; from functools import partial
-&gt;&gt;&gt; unhex = partial(int, base=16)
-&gt;&gt;&gt; unhex.__doc__ = 'Convert base16 string to int'
-&gt;&gt;&gt; unhex('ca11ab1e')
+>>> from functools import partial
+>>> unhex = partial(int, base=16)
+>>> unhex.__doc__ = 'Convert base16 string to int'
+>>> unhex('ca11ab1e')
 3390155550
 
 ```
@@ -100,17 +41,63 @@ One way to think of `partial` is a shift register; pushing in one argument at th
 
 
 
-## reduce
+## lru_cache
 
 
-In Python 3.x, the `reduce` function already explained [here](http://web.archive.org/web/20170221213435/http://stackoverflow.com/documentation/python/328/reduce#t=201607220949173843207) has been removed from the built-ins and must now be imported from `functools`.
-
-```
-from functools import reduce
-def factorial(n):
-    return reduce(lambda a, b: (a*b), range(1, n+1))
+The `@lru_cache` decorator can be used wrap an expensive, computationally-intensive function with a [Least Recently Used](https://en.wikipedia.org/wiki/Cache_algorithms#Examples) cache. This allows function calls to be memoized, so that future calls with the same parameters can return instantly instead of having to be recomputed.
 
 ```
+@lru_cache(maxsize=None)  # Boundless cache
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+>>> fibonacci(15)
+
+```
+
+In the example above, the value of `fibonacci(3)` is only calculated once, whereas if `fibonacci` didn't have an LRU cache, `fibonacci(3)` would have been computed upwards of 230 times. Hence, `@lru_cache` is especially great for recursive functions or dynamic programming, where an expensive function could be called multiple times with the same exact parameters.
+
+`@lru_cache` has two arguments
+
+- `maxsize`: Number of calls to save. When the number of unique calls exceeds `maxsize`, the LRU cache will remove the least recently used calls.
+<li>`typed` (added in 3.3): Flag for determining if equivalent arguments of different
+types belong to different cache records (i.e. if `3.0` and
+`3` count as different arguments)</li>
+
+We can see cache stats too:
+
+```
+>>> fib.cache_info()
+CacheInfo(hits=13, misses=16, maxsize=None, currsize=16)
+
+```
+
+**NOTE**: Since `@lru_cache` uses dictionaries to cache results, all parameters for the function must be hashable for the cache to work.
+
+[Official Python docs for `@lru_cache`](https://docs.python.org/3/library/functools.html#functools.lru_cache). `@lru_cache` was added in 3.2.
+
+
+
+## cmp_to_key
+
+
+Python changed it's sorting methods to accept a key function. Those functions take a value and return a key which is used to sort the arrays.
+
+Old comparison functions used to take two values and return -1, 0 or +1 if the first argument is small, equal or greater than the second argument respectively. This is incompatible to the new key-function.
+
+That's where `functools.cmp_to_key` comes in:
+
+```
+>>> import functools
+>>> import locale
+>>> sorted([&quot;A&quot;, &quot;S&quot;, &quot;F&quot;, &quot;D&quot;], key=functools.cmp_to_key(locale.strcoll))
+['A', 'D', 'F', 'S']
+
+```
+
+Example taken and adapted from the [Python Standard Library Documentation](https://docs.python.org/3/library/functools.html#functools.cmp_to_key).
 
 
 
@@ -131,11 +118,25 @@ class Employee:
         return ((self.surname, self.name) == (other.surname, other.name))
 
     def __lt__(self, other):
-        return ((self.surname, self.name) &lt; (other.surname, other.name))
+        return ((self.surname, self.name) < (other.surname, other.name))
 
 ```
 
 The decorator uses a composition of the provided methods and algebraic operations to derive the other comparison methods. For example if we defined `__lt__()` and `__eq()__` and we want to derive `__gt__()`, we can simply check `not __lt__() and not __eq()__`.
 
 **Note**: The `total_ordering` function is only available since Python 2.7.
+
+
+
+## reduce
+
+
+In Python 3.x, the `reduce` function already explained [here](http://stackoverflow.com/documentation/python/328/reduce#t=201607220949173843207) has been removed from the built-ins and must now be imported from `functools`.
+
+```
+from functools import reduce
+def factorial(n):
+    return reduce(lambda a, b: (a*b), range(1, n+1))
+
+```
 

@@ -1,7 +1,7 @@
 # Web scraping with Python
 
 
-[Web scraping](http://web.archive.org/web/20170305085121/https://en.wikipedia.org/wiki/Web_scraping) is an automated, programmatic process through which data can be constantly 'scraped' off webpages. Also known as screen scraping or web harvesting, web scraping can provide instant data from any publicly accessible webpage. On some websites, web scraping may be illegal.
+[Web scraping](https://en.wikipedia.org/wiki/Web_scraping) is an automated, programmatic process through which data can be constantly 'scraped' off webpages. Also known as screen scraping or web harvesting, web scraping can provide instant data from any publicly accessible webpage. On some websites, web scraping may be illegal.
 
 
 
@@ -15,7 +15,7 @@ scrapy startproject projectName
 
 ```
 
-To scrape we need a spider. Spiders define how a certain site will be scraped. Here’s the code for a spider that follows the links to the top voted questions on StackOverflow and scrapes some data from each page ([source](http://web.archive.org/web/20170305085121/http://doc.scrapy.org/en/latest/intro/overview.html)):
+To scrape we need a spider. Spiders define how a certain site will be scraped. Here’s the code for a spider that follows the links to the top voted questions on StackOverflow and scrapes some data from each page ([source](http://doc.scrapy.org/en/latest/intro/overview.html)):
 
 ```
 import scrapy
@@ -63,7 +63,7 @@ import requests
 
 
 def main():
-    r = requests.get("https://httpbin.org")
+    r = requests.get(&quot;https://httpbin.org&quot;)
     html_source = r.text
     root_element = lxml.html.fromstring(html_source)
     # Note root_element.xpath() gives a *list* of results.
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 ## Maintaining web-scraping session with requests
 
 
-It is a good idea to maintain a [web-scraping session](http://web.archive.org/web/20170305085121/http://docs.python-requests.org/en/master/user/advanced/#session-objects) to persist the cookies and other parameters. Additionally, it can result into a **performance improvement** because `requests.Session` reuses the underlying TCP connection to a host:
+It is a good idea to maintain a [web-scraping session](http://docs.python-requests.org/en/master/user/advanced/#session-objects) to persist the cookies and other parameters. Additionally, it can result into a **performance improvement** because `requests.Session` reuses the underlying TCP connection to a host:
 
 ```
 import requests
@@ -96,54 +96,6 @@ with requests.Session() as session:
     # get cookies
     response = session.get('http://httpbin.org/cookies')
     print(response.text)
-
-```
-
-
-
-## Modify Scrapy user agent
-
-
-Sometimes the default Scrapy user agent (`"Scrapy/VERSION (+http://scrapy.org)"`) is blocked by the host. To change the default user agent open **settings.py**, uncomment and edit the following line to what ever you want.
-
-```
-#USER_AGENT = 'projectName (+http://www.yourdomain.com)'
-
-```
-
-For example
-
-```
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
-
-```
-
-
-
-## Scraping using BeautifulSoup4
-
-
-```
-from bs4 import BeautifulSoup
-import requests
-
-# Use the requests module to obtain a page
-res = requests.get('https://www.codechef.com/problems/easy')
-
-# Create a BeautifulSoup object
-page = BeautifulSoup(res.text, 'lxml')   # the text field contains the source of the page
-
-# Now use a CSS selector in order to get the table containing the list of problems
-datatable_tags = page.select('table.dataTable')  # The problems are in the &lt;table&gt; tag,
-                                                 # with class "dataTable"
-# We extract the first tag from the list, since that's what we desire
-datatable = datatable_tags[0]
-# Now since we want problem names, they are contained in &lt;b&gt; tags, which are
-# directly nested under &lt;a&gt; tags
-prob_tags = datatable.select('a &gt; b')
-prob_names = [tag.getText().strip() for tag in prob_tags]
-
-print prob_names
 
 ```
 
@@ -170,11 +122,59 @@ for question in questions:  # iterate over questions
     question_excerpt = question.find_element_by_css_selector('.summary .excerpt').text
     question_vote = question.find_element_by_css_selector('.stats .vote .votes .vote-count-post').text
     
-    print "%s\n%s\n%s votes\n-----------\n" % (question_title, question_excerpt, question_vote) 
+    print &quot;%s\n%s\n%s votes\n-----------\n&quot; % (question_title, question_excerpt, question_vote) 
 
 ```
 
 Selenium can do much more. It can modify browser’s cookies, fill in forms, simulate mouse clicks, take screenshots of web pages, and run custom JavaScript.
+
+
+
+## Scraping using BeautifulSoup4
+
+
+```
+from bs4 import BeautifulSoup
+import requests
+
+# Use the requests module to obtain a page
+res = requests.get('https://www.codechef.com/problems/easy')
+
+# Create a BeautifulSoup object
+page = BeautifulSoup(res.text, 'lxml')   # the text field contains the source of the page
+
+# Now use a CSS selector in order to get the table containing the list of problems
+datatable_tags = page.select('table.dataTable')  # The problems are in the <table> tag,
+                                                 # with class &quot;dataTable&quot;
+# We extract the first tag from the list, since that's what we desire
+datatable = datatable_tags[0]
+# Now since we want problem names, they are contained in <b> tags, which are
+# directly nested under <a> tags
+prob_tags = datatable.select('a > b')
+prob_names = [tag.getText().strip() for tag in prob_tags]
+
+print prob_names
+
+```
+
+
+
+## Modify Scrapy user agent
+
+
+Sometimes the default Scrapy user agent (`&quot;Scrapy/VERSION (+http://scrapy.org)&quot;`) is blocked by the host. To change the default user agent open **settings.py**, uncomment and edit the following line to what ever you want.
+
+```
+#USER_AGENT = 'projectName (+http://www.yourdomain.com)'
+
+```
+
+For example
+
+```
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+
+```
 
 
 
@@ -195,7 +195,7 @@ html = data.decode(encoding)
 
 ```
 
-A similar module is also available [in Python 2](http://web.archive.org/web/20170305085121/http://stackoverflow.com/documentation/python/809/compatibility-between-python-3-and-python-2/2526/get-web-page-content#t=201608112347571091072).
+A similar module is also available [in Python 2](http://stackoverflow.com/documentation/python/809/compatibility-between-python-3-and-python-2/2526/get-web-page-content#t=201608112347571091072).
 
 
 
@@ -242,29 +242,29 @@ divs = tree.xpath('//div')
 
 ### Making requests and collecting data
 
-### [`requests`](http://web.archive.org/web/20170305085121/http://docs.python-requests.org/)
+### [`requests`](http://docs.python-requests.org)
 
 A simple, but powerful package for making HTTP requests.
 
-### [`requests-cache`](http://web.archive.org/web/20170305085121/https://pypi.python.org/pypi/requests-cache)
+### [`requests-cache`](https://pypi.python.org/pypi/requests-cache)
 
 Caching for `requests`; caching data is very useful. In development, it means you can avoid hitting a site unnecessarily. While running a real collection, it means that if your scraper crashes for some reason (maybe you didn't handle some unusual content on the site...? maybe the site went down...?) you can repeat the collection very quickly from where you left off.
 
-### [`scrapy`](http://web.archive.org/web/20170305085121/http://scrapy.org/)
+### [`scrapy`](http://scrapy.org/)
 
 Useful for building web crawlers, where you need something more powerful than using `requests` and iterating through pages.
 
-### [`selenium`](http://web.archive.org/web/20170305085121/https://pypi.python.org/pypi/selenium)
+### [`selenium`](https://pypi.python.org/pypi/selenium)
 
 Python bindings for Selenium WebDriver, for browser automation. Using `requests` to make HTTP requests directly is often simpler for retrieving webpages. However, this remains a useful tool when it is not possible to replicate the desired behaviour of a site using `requests` alone, particularly when JavaScript is required to render elements on a page.
 
 ### HTML parsing
 
-### [`BeautifulSoup`](http://web.archive.org/web/20170305085121/https://www.crummy.com/software/BeautifulSoup/)
+### [`BeautifulSoup`](https://www.crummy.com/software/BeautifulSoup/)
 
 Query HTML and XML documents, using a number of different parsers (Python's built-in HTML Parser,`html5lib`, `lxml` or `lxml.html`)
 
-### [`lxml`](http://web.archive.org/web/20170305085121/http://lxml.de/)
+### [`lxml`](http://lxml.de/)
 
 Processes HTML and XML. Can be used to query and select content from HTML documents via CSS selectors and XPath.
 

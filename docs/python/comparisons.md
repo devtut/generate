@@ -8,14 +8,14 @@
 You can compare multiple items with multiple comparison operators with chain comparison. For example
 
 ```
-x &gt; y &gt; z
+x > y > z
 
 ```
 
 is just a short form of:
 
 ```
-x &gt; y and y &gt; z
+x > y and y > z
 
 ```
 
@@ -39,32 +39,29 @@ Note that `0 != 1 != 0` evaluates to `True`, even though `0 != 0` is `False`. Un
 There is no theoretical limit on how many items and comparison operations you use as long you have proper syntax:
 
 ```
-1 &gt; -1 &lt; 2 &gt; 0.5 &lt; 100 != 24
+1 > -1 < 2 > 0.5 < 100 != 24
 
 ```
 
-The above returns `True` if each comparison returns `True`. However, using convoluted chaining is not a good style. A good chaining will be "directional", not more complicated than
+The above returns `True` if each comparison returns `True`. However, using convoluted chaining is not a good style. A good chaining will be &quot;directional&quot;, not more complicated than
 
 ```
-1 &gt; x &gt; -4 &gt; y != 8
+1 > x > -4 > y != 8
 
 ```
-
----
-
 
 ### Side effects
 
 As soon as one comparison returns `False`, the expression evaluates immediately to `False`, skipping all remaining comparisons.
 
-Note that the expression `exp` in `a &gt; exp &gt; b` will be evaluated only once, whereas in the case of
+Note that the expression `exp` in `a > exp > b` will be evaluated only once, whereas in the case of
 
 ```
-a &gt; exp and exp &gt; b
+a > exp and exp > b
 
 ```
 
-`exp` will be computed twice if `a &gt; exp` is true.
+`exp` will be computed twice if `a > exp` is true.
 
 
 
@@ -149,10 +146,107 @@ def myfunc(var=sentinel):
 
 
 
+## Greater than or less than
+
+
+```
+x > y
+x < y
+
+```
+
+These operators compare two types of values, they're the less than and greater than operators. For numbers this simply compares the numerical values to see which is larger:
+
+```
+12 > 4
+# True
+12 < 4
+# False
+1 < 4
+# True
+
+```
+
+For strings they will compare lexicographically, which is similar to alphabetical order but not quite the same.
+
+```
+&quot;alpha&quot; < &quot;beta&quot;
+# True
+&quot;gamma&quot; > &quot;beta&quot;
+# True
+&quot;gamma&quot; < &quot;OMEGA&quot;
+# False
+
+```
+
+In these comparisons, lowercase letters are considered 'greater than' uppercase, which is why `&quot;gamma&quot; < &quot;OMEGA&quot;` is false. If they were all uppercase it would return the expected alphabetical ordering result:
+
+```
+&quot;GAMMA&quot; < &quot;OMEGA&quot;
+# True
+
+```
+
+Each type defines it's calculation with the `<` and `>` operators differently, so you should investigate what the operators mean with a given type before using it.
+
+
+
+## Not equal to
+
+
+```
+x != y  
+
+```
+
+This returns `True` if `x` and `y` are not equal and otherwise returns `False`.
+
+```
+12 != 1
+# True
+12 != '12'
+# True
+'12' != '12'
+# False
+
+```
+
+
+
+## Equal To
+
+
+```
+x == y 
+
+```
+
+This expression evaluates if `x` and `y` are the same value and returns the result as a boolean value. Generally both type and value need to match, so the int `12` is not the same as the string `'12'`.
+
+```
+12 == 12
+# True
+12 == 1
+# False
+'12' == '12'
+# True
+'spam' == 'spam'
+# True
+'spam' == 'spam '
+# False
+'12' == 12
+# False
+
+```
+
+Note that each type has to define a function that will be used to evaluate if two values are the same. For builtin types these functions behave as you'd expect, and just evaluate things based on being the same value. However custom types could define equality testing as whatever they'd like, including always returning `True` or always returning `False`.
+
+
+
 ## Comparing Objects
 
 
-In order to compare the equality of custom classes, you can override `==` and `!=` by defining `__eq__` and `__ne__` methods. You can also override `__lt__` (`&lt;`), `__le__` (`&lt;=`), `__gt__` (`&gt;`), and `__ge__` (`&gt;`). Note that you only need to override two comparison methods, and Python can handle the rest (`==` is the same as `not &lt;` and `not &gt;`, etc.)
+In order to compare the equality of custom classes, you can override `==` and `!=` by defining `__eq__` and `__ne__` methods. You can also override `__lt__` (`<`), `__le__` (`<=`), `__gt__` (`>`), and `__ge__` (`>`). Note that you only need to override two comparison methods, and Python can handle the rest (`==` is the same as `not <` and `not >`, etc.)
 
 ```
 class Foo(object):
@@ -189,103 +283,6 @@ Checking `isinstance()` or similar will help prevent this (if desired).
 
 
 
-## Equal To
-
-
-```
-x == y 
-
-```
-
-This expression evaluates if `x` and `y` are the same value and returns the result as a boolean value. Generally both type and value need to match, so the int `12` is not the same as the string `'12'`.
-
-```
-12 == 12
-# True
-12 == 1
-# False
-'12' == '12'
-# True
-'spam' == 'spam'
-# True
-'spam' == 'spam '
-# False
-'12' == 12
-# False
-
-```
-
-Note that each type has to define a function that will be used to evaluate if two values are the same. For builtin types these functions behave as you'd expect, and just evaluate things based on being the same value. However custom types could define equality testing as whatever they'd like, including always returning `True` or always returning `False`.
-
-
-
-## Greater than or less than
-
-
-```
-x &gt; y
-x &lt; y
-
-```
-
-These operators compare two types of values, they're the less than and greater than operators. For numbers this simply compares the numerical values to see which is larger:
-
-```
-12 &gt; 4
-# True
-12 &lt; 4
-# False
-1 &lt; 4
-# True
-
-```
-
-For strings they will compare lexicographically, which is similar to alphabetical order but not quite the same.
-
-```
-"alpha" &lt; "beta"
-# True
-"gamma" &gt; "beta"
-# True
-"gamma" &lt; "OMEGA"
-# False
-
-```
-
-In these comparisons, lowercase letters are considered 'greater than' uppercase, which is why `"gamma" &lt; "OMEGA"` is false. If they were all uppercase it would return the expected alphabetical ordering result:
-
-```
-"GAMMA" &lt; "OMEGA"
-# True
-
-```
-
-Each type defines it's calculation with the `&lt;` and `&gt;` operators differently, so you should investigate what the operators mean with a given type before using it.
-
-
-
-## Not equal to
-
-
-```
-x != y  
-
-```
-
-This returns `True` if `x` and `y` are not equal and otherwise returns `False`.
-
-```
-12 != 1
-# True
-12 != '12'
-# True
-'12' != '12'
-# False
-
-```
-
-
-
 ## Common Gotcha: Python does not enforce typing
 
 
@@ -293,7 +290,7 @@ In many other languages, if you run the following
 (Java example)
 
 ```
-if("asgdsrf" == 0) {
+if(&quot;asgdsrf&quot; == 0) {
     //do stuff
 }
 
@@ -305,7 +302,7 @@ You can't just go comparing strings to integers like that. In Python, this is a 
 A common gotcha is the following
 
 ```
-myVariable = "1"
+myVariable = &quot;1&quot;
 if 1 == myVariable:
     #do stuff
 
@@ -325,16 +322,16 @@ This comparison will evaluate to `False` without an error, every time, potential
 == - Is equal to
 </li>
 <li>
-`&gt;` - greater than
+`>` - greater than
 </li>
 <li>
-`&lt;` - less than
+`<` - less than
 </li>
 <li>
-`&gt;=` - greater than or equal to
+`>=` - greater than or equal to
 </li>
 <li>
-`&lt;=` - less than or equal to
+`<=` - less than or equal to
 </li>
 <li>
 `is` - test if objects are the exact same object

@@ -23,54 +23,54 @@ where,
 Examples:
 
 ```
-a = "abcdef"
-a            # "abcdef" 
+a = &quot;abcdef&quot;
+a            # &quot;abcdef&quot; 
              # Same as a[:] or a[::] since it uses the defaults for all three indices
-a[-1]        # "f"
-a[:]         # "abcdef" 
-a[::]        # "abcdef" 
-a[3:]        # "def" (from index 3, to end(defaults to size of iterable)) 
-a[:4]        # "abcd" (from beginning(default 0) to position 4 (excluded)) 
-a[2:4]       # "cd" (from position 2, to position 4 (excluded)) 
+a[-1]        # &quot;f&quot;
+a[:]         # &quot;abcdef&quot; 
+a[::]        # &quot;abcdef&quot; 
+a[3:]        # &quot;def&quot; (from index 3, to end(defaults to size of iterable)) 
+a[:4]        # &quot;abcd&quot; (from beginning(default 0) to position 4 (excluded)) 
+a[2:4]       # &quot;cd&quot; (from position 2, to position 4 (excluded)) 
 
 ```
 
 In addition, any of the above can be used with the step size defined:
 
 ```
-a[::2]       # "ace" (every 2nd element)
-a[1:4:2]     # "bd" (from index 1, to index 4 (excluded), every 2nd element)
+a[::2]       # &quot;ace&quot; (every 2nd element)
+a[1:4:2]     # &quot;bd&quot; (from index 1, to index 4 (excluded), every 2nd element)
 
 ```
 
 Indices can be negative, in which case they're computed from the end of the sequence
 
 ```
-a[:-1]     # "abcde" (from index 0 (default), to the second last element (last element - 1))
-a[:-2]     # "abcd" (from index 0 (default), to the third last element (last element -2))
-a[-1:]     # "f" (from the last element to the end (default len()) 
+a[:-1]     # &quot;abcde&quot; (from index 0 (default), to the second last element (last element - 1))
+a[:-2]     # &quot;abcd&quot; (from index 0 (default), to the third last element (last element -2))
+a[-1:]     # &quot;f&quot; (from the last element to the end (default len()) 
 
 ```
 
 Step sizes can also be negative, in which case slice will iterate through the list in reverse order:
 
 ```
-a[3:1:-1]   # "dc" (from index 2 to None (default), in reverse order)
+a[3:1:-1]   # &quot;dc&quot; (from index 2 to None (default), in reverse order)
 
 ```
 
 This construct is useful for reversing an iterable
 
 ```
-a[::-1]     # "fedcba" (from last element (default len()-1), to first, in reverse order(-1))
+a[::-1]     # &quot;fedcba&quot; (from last element (default len()-1), to first, in reverse order(-1))
 
 ```
 
-Notice that for negative steps the default `end_index` is `None` (see [http://stackoverflow.com/a/12521981](http://web.archive.org/web/20170816193822/http://stackoverflow.com/a/12521981) )
+Notice that for negative steps the default `end_index` is `None` (see [http://stackoverflow.com/a/12521981](http://stackoverflow.com/a/12521981) )
 
 ```
-a[5:None:-1] # "fedcba" (this is equivalent to a[::-1])
-a[5:0:-1]    # "fedcb" (from the last element (index 5) to second element (index 1)
+a[5:None:-1] # &quot;fedcba&quot; (this is equivalent to a[::-1])
+a[5:0:-1]    # &quot;fedcb&quot; (from the last element (index 5) to second element (index 1)
 
 ```
 
@@ -134,6 +134,35 @@ print(lst) # Out: [1, 4, 5, 6]
 
 
 
+## Making a shallow copy of an array
+
+
+A quick way to make a copy of an array (as opposed to assigning a variable with another reference to the original array) is:
+
+```
+arr[:]
+
+```
+
+Let's examine the syntax. `[:]` means that `start`, `end`, and `slice` are all omitted. They default to `0`, `len(arr)`, and `1`, respectively, meaning that subarray that we are requesting will have all of the elements of `arr` from the beginning until the very end.
+
+In practice, this looks something like:
+
+```
+arr = ['a', 'b', 'c']
+copy = arr[:]
+arr.append('d')
+print(arr)    # ['a', 'b', 'c', 'd']
+print(copy)   # ['a', 'b', 'c']
+
+```
+
+As you can see, `arr.append('d')` added `d` to `arr`, but `copy` remained unchanged!
+
+Note that this makes a **shallow** copy, and is identical to `arr.copy()`.
+
+
+
 ## Indexing custom classes: __getitem__, __setitem__ and __delitem__
 
 
@@ -185,7 +214,7 @@ a[1,5,2,6,1]
 # Out: [2, 6, 3, 7, 2]
 a[4, 1, 5:, 2, ::2]
 # Out: [5, 2, [6, 7, 8], 3, [1, 3, 5, 7]]
-#       4|1-|----50:---|2-|-----::2-----   &lt;-- indicated which element came from which index
+#       4|1-|----50:---|2-|-----::2-----   <-- indicated which element came from which index
 
 ```
 
@@ -209,35 +238,6 @@ a
 
 
 
-## Making a shallow copy of an array
-
-
-A quick way to make a copy of an array (as opposed to assigning a variable with another reference to the original array) is:
-
-```
-arr[:]
-
-```
-
-Let's examine the syntax. `[:]` means that `start`, `end`, and `slice` are all omitted. They default to `0`, `len(arr)`, and `1`, respectively, meaning that subarray that we are requesting will have all of the elements of `arr` from the beginning until the very end.
-
-In practice, this looks something like:
-
-```
-arr = ['a', 'b', 'c']
-copy = arr[:]
-arr.append('d')
-print(arr)    # ['a', 'b', 'c', 'd']
-print(copy)   # ['a', 'b', 'c']
-
-```
-
-As you can see, `arr.append('d')` added `d` to `arr`, but `copy` remained unchanged!
-
-Note that this makes a **shallow** copy, and is identical to `arr.copy()`.
-
-
-
 ## Basic Indexing
 
 
@@ -246,7 +246,7 @@ Python lists are 0-based **i.e.** the first element in the list can be accessed 
 ```
 arr = ['a', 'b', 'c', 'd']
 print(arr[0])
-&gt;&gt; 'a'
+>> 'a'
 
 ```
 
@@ -254,9 +254,9 @@ You can access the second element in the list by index `1`, third element by ind
 
 ```
 print(arr[1])
-&gt;&gt; 'b'
+>> 'b'
 print(arr[2])
-&gt;&gt; 'c'
+>> 'c'
 
 ```
 
@@ -265,9 +265,9 @@ eg. index `-1` will give you the last element of the list and index `-2` will gi
 
 ```
 print(arr[-1])
-&gt;&gt; 'd'
+>> 'd'
 print(arr[-2])
-&gt;&gt; 'c'
+>> 'c'
 
 ```
 
@@ -276,7 +276,7 @@ If you try to access an index which is not present in the list, an `IndexError` 
 ```
 print arr[6]
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 IndexError: list index out of range
 
 ```
@@ -289,12 +289,12 @@ IndexError: list index out of range
 Slices are objects in themselves and can be stored in variables with the built-in `slice()` function. Slice variables can be used to make your code more readable and to promote reuse.
 
 ```
-&gt;&gt;&gt; programmer_1 = [ 1956, 'Guido', 'van Rossum', 'Python', 'Netherlands']
-&gt;&gt;&gt; programmer_2 = [ 1815, 'Ada', 'Lovelace', 'Analytical Engine', 'England']
-&gt;&gt;&gt; name_columns = slice(1, 3)
-&gt;&gt;&gt; programmer_1[name_columns]
+>>> programmer_1 = [ 1956, 'Guido', 'van Rossum', 'Python', 'Netherlands']
+>>> programmer_2 = [ 1815, 'Ada', 'Lovelace', 'Analytical Engine', 'England']
+>>> name_columns = slice(1, 3)
+>>> programmer_1[name_columns]
 ['Guido', 'van Rossum']
-&gt;&gt;&gt; programmer_2[name_columns]
+>>> programmer_2[name_columns]
 ['Ada', 'Lovelace']
 
 ```
@@ -315,7 +315,7 @@ Slices are objects in themselves and can be stored in variables with the built-i
 
 |Paramer|Description
 |------
-|`obj`|The object that you want to extract a "sub-object" from
+|`obj`|The object that you want to extract a &quot;sub-object&quot; from
 |`start`|The index of `obj` that you want the sub-object to start from (keep in mind that Python is zero-indexed, meaning that the first item of `obj` has an index of `0`). If omitted, defaults to `0`.
 |`stop`|The (non-inclusive) index of `obj` that you want the sub-object to end at. If omitted, defaults to `len(obj)`.
 |`step`|Allows you to select only every `step` item. If omitted, defaults to `1`.
@@ -327,5 +327,5 @@ Slices are objects in themselves and can be stored in variables with the built-i
 
 You can unify the concept of slicing strings with that of slicing other sequences by viewing strings as an immutable collection of characters, with the caveat that a unicode character is represented by a string of length 1.
 
-In mathematical notation you can consider slicing to use a half-open interval of `[start, end)`, that is to say that the start is included but the end is not. The half-open nature of the interval has the advantage that `len(x[:n])` = `n` where `len(x)` &gt; =`n`, while the interval being closed at the start has the advantage that `x[n:n+1]` = `[x[n]]` where `x` is a list with `len(x) &gt;= n`, thus keeping consistency between indexing and slicing notation.
+In mathematical notation you can consider slicing to use a half-open interval of `[start, end)`, that is to say that the start is included but the end is not. The half-open nature of the interval has the advantage that `len(x[:n])` = `n` where `len(x)` > =`n`, while the interval being closed at the start has the advantage that `x[n:n+1]` = `[x[n]]` where `x` is a list with `len(x) >= n`, thus keeping consistency between indexing and slicing notation.
 

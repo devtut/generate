@@ -2,6 +2,7 @@
 
 
 
+
 ## Using the @property decorator for read-write properties
 
 
@@ -23,15 +24,15 @@ class Cash(object):
 To use this:
 
 ```
-&gt;&gt;&gt; wallet = Cash(2.50)
-&gt;&gt;&gt; print(wallet.formatted)
+>>> wallet = Cash(2.50)
+>>> print(wallet.formatted)
 $2.50
-&gt;&gt;&gt; print(wallet.value)
+>>> print(wallet.value)
 2.5
-&gt;&gt;&gt; wallet.formatted = '$123.45'
-&gt;&gt;&gt; print(wallet.formatted)
+>>> wallet.formatted = '$123.45'
+>>> print(wallet.formatted)
 $123.45
-&gt;&gt;&gt; print(wallet.value)
+>>> print(wallet.value)
 123.45
 
 ```

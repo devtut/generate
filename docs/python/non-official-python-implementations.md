@@ -18,7 +18,7 @@ Differences with CPython:
 ### Hello World
 
 ```
-print "Hello World!"
+print &quot;Hello World!&quot;
 
 ```
 
@@ -27,14 +27,14 @@ You can also use .NET functions:
 ```
 import clr
 from System import Console
-Console.WriteLine("Hello World!")
+Console.WriteLine(&quot;Hello World!&quot;)
 
 ```
 
 ### External links
 
-- [Official website](http://web.archive.org/web/20170816203237/http://ironpython.net/)
-- [GitHub repository](http://web.archive.org/web/20170816203237/https://github.com/IronLanguages/main)
+- [Official website](http://ironpython.net/)
+- [GitHub repository](https://github.com/IronLanguages/main)
 
 
 
@@ -54,7 +54,7 @@ Differences with CPython:
 ### Hello World
 
 ```
-print "Hello World!"
+print &quot;Hello World!&quot;
 
 ```
 
@@ -62,14 +62,14 @@ You can also use Java functions:
 
 ```
 from java.lang import System
-System.out.println("Hello World!")
+System.out.println(&quot;Hello World!&quot;)
 
 ```
 
 ### External links
 
-- [Official website](http://web.archive.org/web/20170816203237/http://www.jython.org/)
-- [Mercurial repository](http://web.archive.org/web/20170816203237/https://hg.python.org/jython)
+- [Official website](http://www.jython.org/)
+- [Mercurial repository](https://hg.python.org/jython)
 
 
 
@@ -94,16 +94,16 @@ Experience has shown that 650 kB of Python sourcecode roughly translates in the 
 ### Integration with HTML
 
 ```
-&lt;script src="__javascript__/hello.js"&gt;&lt;/script&gt;
-&lt;h2&gt;Hello demo&lt;/h2&gt;
+<script src=&quot;__javascript__/hello.js&quot;></script>
+<h2>Hello demo</h2>
 
-&lt;p&gt;
-&lt;div id = "greet"&gt;...&lt;/div&gt;
-&lt;button onclick="hello.solarSystem.greet ()"&gt;Click me repeatedly!&lt;/button&gt;
+<p>
+<div id = &quot;greet&quot;>...</div>
+<button onclick=&quot;hello.solarSystem.greet ()&quot;>Click me repeatedly!</button>
 
-&lt;p&gt;
-&lt;div id = "explain"&gt;...&lt;/div&gt;
-&lt;button onclick="hello.solarSystem.explain ()"&gt;And click me repeatedly too!&lt;/button&gt;
+<p>
+<div id = &quot;explain&quot;>...</div>
+<button onclick=&quot;hello.solarSystem.explain ()&quot;>And click me repeatedly too!</button>
 
 ```
 
@@ -241,6 +241,6 @@ show2 ('copy');
 
 ### External links
 
-- Official website: [http://www.transcrypt.org/](http://web.archive.org/web/20170816203237/http://www.transcrypt.org/)
-- Repository: [https://github.com/JdeH/Transcrypt](http://web.archive.org/web/20170816203237/https://github.com/JdeH/Transcrypt)
+- Official website: [http://www.transcrypt.org/](http://www.transcrypt.org/)
+- Repository: [https://github.com/JdeH/Transcrypt](https://github.com/JdeH/Transcrypt)
 

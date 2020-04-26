@@ -8,31 +8,31 @@
 The following C source file (which we will call `hello.c` for demonstration purposes) produces an extension module named `hello` that contains a single function `greet()`:
 
 ```
-#include &lt;Python.h&gt;
-#include &lt;stdio.h&gt;
+#include <Python.h>
+#include <stdio.h>
 
-#if PY_MAJOR_VERSION &gt;= 3
+#if PY_MAJOR_VERSION >= 3
 #define IS_PY3K
 #endif
 
 static PyObject *hello_greet(PyObject *self, PyObject *args)
 {
     const char *input;
-    if (!PyArg_ParseTuple(args, "s", &amp;input)) {
+    if (!PyArg_ParseTuple(args, &quot;s&quot;, &amp;input)) {
         return NULL;
     }
-    printf("%s", input);
+    printf(&quot;%s&quot;, input);
     Py_RETURN_NONE;
 }
 
 static PyMethodDef HelloMethods[] = {
-    { "greet", hello_greet, METH_VARARGS, "Greet the user" },
+    { &quot;greet&quot;, hello_greet, METH_VARARGS, &quot;Greet the user&quot; },
     { NULL, NULL, 0, NULL }
 };
 
 #ifdef IS_PY3K
 static struct PyModuleDef hellomodule = {
-    PyModuleDef_HEAD_INIT, "hello", NULL, -1, HelloMethods
+    PyModuleDef_HEAD_INIT, &quot;hello&quot;, NULL, -1, HelloMethods
 };
 
 PyMODINIT_FUNC PyInit_hello(void)
@@ -42,7 +42,7 @@ PyMODINIT_FUNC PyInit_hello(void)
 #else
 PyMODINIT_FUNC inithello(void)
 {
-    (void) Py_InitModule("hello", HelloMethods);
+    (void) Py_InitModule(&quot;hello&quot;, HelloMethods);
 }
 #endif
 
@@ -56,7 +56,7 @@ To execute the `greet()` function that we wrote earlier, create a file in the sa
 
 ```
 import hello          # imports the compiled library
-hello.greet("Hello!") # runs the greet() function with "Hello!" as an argument
+hello.greet(&quot;Hello!&quot;) # runs the greet() function with &quot;Hello!&quot; as an argument
 
 ```
 
@@ -65,22 +65,22 @@ hello.greet("Hello!") # runs the greet() function with "Hello!" as an argument
 ## C Extension Using c++ and Boost
 
 
-This is a basic example of a **C Extension** using C++ and [Boost](http://web.archive.org/web/20170816194112/http://www.boost.org/).
+This is a basic example of a **C Extension** using C++ and [Boost](http://www.boost.org/).
 
 ### C++ Code
 
 C++ code put in hello.cpp:
 
 ```
-#include &lt;boost/python/module.hpp&gt;
-#include &lt;boost/python/list.hpp&gt;
-#include &lt;boost/python/class.hpp&gt;
-#include &lt;boost/python/def.hpp&gt;
+#include <boost/python/module.hpp>
+#include <boost/python/list.hpp>
+#include <boost/python/class.hpp>
+#include <boost/python/def.hpp>
 
 // Return a hello world string.
 std::string get_hello_function()
 {
-   return "Hello world!";
+   return &quot;Hello world!&quot;;
 }
 
 // hello class that can return a list of count hello world strings.
@@ -95,7 +95,7 @@ public:
    boost::python::list as_list(int count)
    {
       boost::python::list res;
-      for (int i = 0; i &lt; count; ++i) {
+      for (int i = 0; i < count; ++i) {
          res.append(_message);
       }
       return res;
@@ -106,17 +106,17 @@ private:
 };
 
 
-// Defining a python module naming it to "hello".
+// Defining a python module naming it to &quot;hello&quot;.
 BOOST_PYTHON_MODULE(hello)
 {
    // Here you declare what functions and classes that should be exposed on the module.
 
    // The get_hello_function exposed to python as a function.
-   boost::python::def("get_hello", get_hello_function);
+   boost::python::def(&quot;get_hello&quot;, get_hello_function);
 
    // The hello_class exposed to python as a class.
-   boost::python::class_&lt;hello_class&gt;("Hello", boost::python::init&lt;std::string&gt;())
-      .def("as_list", &amp;hello_class::as_list)
+   boost::python::class_<hello_class>(&quot;Hello&quot;, boost::python::init<std::string>())
+      .def(&quot;as_list&quot;, &amp;hello_class::as_list)
       ;   
 }
 
@@ -146,7 +146,7 @@ import hello
 
 print(hello.get_hello())
 
-h = hello.Hello("World hello!")
+h = hello.Hello(&quot;World hello!&quot;)
 print(h.as_list(3))
 
 ```
@@ -171,7 +171,7 @@ You can convert the file to an integer file descriptor using `PyObject_AsFileDes
 ```
 PyObject *fobj;
 int fd = PyObject_AsFileDescriptor(fobj);
-if (fd &lt; 0){
+if (fd < 0){
     return NULL;
 }
 
@@ -182,7 +182,7 @@ To convert an integer file descriptor back into a python object, use
 
 ```
 int fd; /* Existing file descriptor */
-PyObject *fobj = PyFile_FromFd(fd, "filename","r",-1,NULL,NULL,NULL,1);
+PyObject *fobj = PyFile_FromFd(fd, &quot;filename&quot;,&quot;r&quot;,-1,NULL,NULL,NULL,1);
 
 ```
 

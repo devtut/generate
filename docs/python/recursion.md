@@ -44,7 +44,7 @@ def factorial(n):
 
 You may also have multiple recursion cases, but we won't get into that since it's relatively uncommon and is often difficult to mentally process.
 
-You can also have “parallel” recursive function calls. For example, consider the [Fibonacci sequence](http://web.archive.org/web/20170816195324/https://en.wikipedia.org/wiki/Fibonacci_number) which is defined as follows:
+You can also have “parallel” recursive function calls. For example, consider the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number) which is defined as follows:
 
 - If the number is 0, then the answer is 0.
 - If the number is 1, then the answer is 1.
@@ -98,28 +98,28 @@ This becomes `(1 + (0 + 1)) + ((0 + 1) + (1 + (0 + 1)))` which of course evaluat
 
 Now, let's cover a few more vocabulary terms:
 
-- A [**tail call**](http://web.archive.org/web/20170816195324/https://en.wikipedia.org/wiki/Tail_call) is simply a recursive function call which is the last operation to be performed before returning a value. To be clear, `return foo(n - 1)` is a tail call, but `return foo(n - 1) + 1` is not (since the addition is the last operation).
+- A [**tail call**](https://en.wikipedia.org/wiki/Tail_call) is simply a recursive function call which is the last operation to be performed before returning a value. To be clear, `return foo(n - 1)` is a tail call, but `return foo(n - 1) + 1` is not (since the addition is the last operation).
 - **Tail call optimization** (TCO) is a way to automatically reduce recursion in recursive functions.
 - **Tail call elimination** (TCE) is the reduction of a tail call to an expression that can be evaluated without recursion. TCE is a type of TCO.
 
 Tail call optimization is helpful for a number of reasons:
 
-- The interpreter can minimize the amount of memory occupied by environments. Since no computer has unlimited memory, excessive recursive function calls would lead to a [**stack overflow**](http://web.archive.org/web/20170816195324/https://en.wikipedia.org/wiki/Stack_overflow).
-- The interpreter can reduce the number of [**stack frame**](http://web.archive.org/web/20170816195324/https://en.wikipedia.org/wiki/Call_stack) switches.
+- The interpreter can minimize the amount of memory occupied by environments. Since no computer has unlimited memory, excessive recursive function calls would lead to a [**stack overflow**](https://en.wikipedia.org/wiki/Stack_overflow).
+- The interpreter can reduce the number of [**stack frame**](https://en.wikipedia.org/wiki/Call_stack) switches.
 
-Python has no form of TCO implemented for [a number of a reasons](http://web.archive.org/web/20170816195324/http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html). Therefore, other techniques are required to skirt this limitation. The method of choice depends on the use case. With some intuition, the definitions of `factorial` and `fib` can relatively easily be converted to iterative code as follows:
+Python has no form of TCO implemented for [a number of a reasons](http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html). Therefore, other techniques are required to skirt this limitation. The method of choice depends on the use case. With some intuition, the definitions of `factorial` and `fib` can relatively easily be converted to iterative code as follows:
 
 ```
 def factorial(n):
     product = 1
-    while n &gt; 1:
+    while n > 1:
         product *= n
         n -= 1
     return product
 
 def fib(n):
     a, b = 0, 1
-    while n &gt; 0:
+    while n > 0:
         a, b = b, a + b
         n -= 1
     return a
@@ -128,18 +128,18 @@ def fib(n):
 
 This is usually the most efficient way to manually eliminate recursion, but it can become rather difficult for more complex functions.
 
-Another useful tool is Python's [lru_cache](http://web.archive.org/web/20170816195324/http://stackoverflow.com/documentation/python/2492/functools/19930/lru-cache#t=201608251554325693435) decorator which can be used to reduce the number of redundant calculations.
+Another useful tool is Python's [lru_cache](http://stackoverflow.com/documentation/python/2492/functools/19930/lru-cache#t=201608251554325693435) decorator which can be used to reduce the number of redundant calculations.
 
 You now have an idea as to how to avoid recursion in Python, but when **should** you use recursion? The answer is “not often”. All recursive functions can be implemented iteratively. It's simply a matter of figuring out how to do so. However, there are rare cases in which recursion is okay. Recursion is common in Python when the expected inputs wouldn't cause a significant number of a recursive function calls.
 
 If recursion is a topic that interests you, I implore you to study functional languages such as Scheme or Haskell. In such languages, recursion is much more useful.
 
-Please note that the above example for the Fibonacci sequence, although good at showing how to apply the definition in python and later use of the lru cache, has an inefficient running time since it makes 2 recursive calls for each non base case. The number of calls to the function grows exponentially to `n`.<br/>
+Please note that the above example for the Fibonacci sequence, although good at showing how to apply the definition in python and later use of the lru cache, has an inefficient running time since it makes 2 recursive calls for each non base case. The number of calls to the function grows exponentially to `n`.<br />
 Rather non-intuitively a more efficient implementation would use linear recursion:
 
 ```
 def fib(n):
-    if n &lt;= 1:
+    if n <= 1:
         return (n,0)
     else:
         (a, b) = fib(n - 1)
@@ -148,56 +148,6 @@ def fib(n):
 ```
 
 But that one has the issue of returning a **pair** of numbers. This emphasizes that some functions really do not gain much from recursion.
-
-
-
-## Increasing the Maximum Recursion Depth
-
-
-There is a limit to the depth of possible recursion, which depends on the Python implementation. When the limit is reached, a RuntimeError exception is raised:
-
-```
-RuntimeError: Maximum Recursion Depth Exceeded
-
-```
-
-Here's a sample of a program that would cause this error:
-
-```
-def cursing(depth):
-  try:
-    cursing(depth + 1) # actually, re-cursing
-  except RuntimeError as RE:
-    print('I recursed {} times!'.format(depth))
-cursing(0)
-# Out: I recursed 1083 times!
-
-```
-
-It is possible to change the recursion depth limit by using
-
-```
-sys.setrecursionlimit(limit) 
-
-```
-
-You can check what the current parameters of the limit are by running:
-
-```
-sys.getrecursionlimit()
-
-```
-
-Running the same method above with our new limit we get
-
-```
-sys.setrecursionlimit(2000)
-cursing(0)
-# Out: I recursed 1997 times!
-
-```
-
-From Python 3.5, the exception is a RecursionError, which is derived from RuntimeError.
 
 
 
@@ -226,55 +176,21 @@ def recursion(n):
 Recursion has advantages over the above two methods. Recursion takes less time than writing out `1 + 2 + 3` for a sum from 1 to 3. For `recursion(4)`, recursion can be used to work backwards:
 
 Function calls: (
-4 -&gt;
-4 + 3 -&gt;
-4 + 3 + 2 -&gt;
-4 + 3 + 2 + 1 -&gt;
+4 ->
+4 + 3 ->
+4 + 3 + 2 ->
+4 + 3 + 2 + 1 ->
 10
 )
 
 Whereas the `for` loop is working strictly forwards:
 (
-1 -&gt;
-1 + 2 -&gt;
-1 + 2 + 3 -&gt;
-1 + 2 + 3 + 4 -&gt;
+1 ->
+1 + 2 ->
+1 + 2 + 3 ->
+1 + 2 + 3 + 4 ->
 10
 ). Sometimes the recursive solution is simpler than the iterative solution. This is evident when implementing a reversal of a linked list.
-
-
-
-## Tail Recursion - Bad Practice
-
-
-When the only thing returned from a function is a recursive call, it is refered to as tail recursion.
-
-Here's an example countdown written using tail recursion:
-
-```
-def countdown(n):
-    if n == 0:
-        print "Blastoff!"
-    else:
-        print n
-        countdown(n-1)
-
-```
-
-Any computation that can be made using iteration can also be made using recursion. Here is a version of find_max written using tail recursion:
-
-```
-def find_max(seq, max_so_far):
-    if not seq:
-        return max_so_far
-    if max_so_far &lt; seq[0]:
-        return find_max(seq[1:], seq[0])
-    else:
-        return find_max(seq[1:], max_so_far)
-
-```
-
-Tail recursion is considered a bad practice in Python, since the Python compiler does not handle optimization for tail recursive calls. The recursive solution in cases like this use more system resources than the equivalent iterative solution.
 
 
 
@@ -338,6 +254,90 @@ list_tree_names(node=get_root(tree))
 
 
 
+## Increasing the Maximum Recursion Depth
+
+
+There is a limit to the depth of possible recursion, which depends on the Python implementation. When the limit is reached, a RuntimeError exception is raised:
+
+```
+RuntimeError: Maximum Recursion Depth Exceeded
+
+```
+
+Here's a sample of a program that would cause this error:
+
+```
+def cursing(depth):
+  try:
+    cursing(depth + 1) # actually, re-cursing
+  except RuntimeError as RE:
+    print('I recursed {} times!'.format(depth))
+cursing(0)
+# Out: I recursed 1083 times!
+
+```
+
+It is possible to change the recursion depth limit by using
+
+```
+sys.setrecursionlimit(limit) 
+
+```
+
+You can check what the current parameters of the limit are by running:
+
+```
+sys.getrecursionlimit()
+
+```
+
+Running the same method above with our new limit we get
+
+```
+sys.setrecursionlimit(2000)
+cursing(0)
+# Out: I recursed 1997 times!
+
+```
+
+From Python 3.5, the exception is a RecursionError, which is derived from RuntimeError.
+
+
+
+## Tail Recursion - Bad Practice
+
+
+When the only thing returned from a function is a recursive call, it is refered to as tail recursion.
+
+Here's an example countdown written using tail recursion:
+
+```
+def countdown(n):
+    if n == 0:
+        print &quot;Blastoff!&quot;
+    else:
+        print n
+        countdown(n-1)
+
+```
+
+Any computation that can be made using iteration can also be made using recursion. Here is a version of find_max written using tail recursion:
+
+```
+def find_max(seq, max_so_far):
+    if not seq:
+        return max_so_far
+    if max_so_far < seq[0]:
+        return find_max(seq[1:], seq[0])
+    else:
+        return find_max(seq[1:], max_so_far)
+
+```
+
+Tail recursion is considered a bad practice in Python, since the Python compiler does not handle optimization for tail recursive calls. The recursive solution in cases like this use more system resources than the equivalent iterative solution.
+
+
+
 ## Tail Recursion Optimization Through Stack Introspection
 
 
@@ -357,7 +357,7 @@ class TailRecurseException:
         self.kwargs = kwargs
 
 def tail_call_optimized(g):
-"""
+&quot;&quot;&quot;
 This function decorates a function with tail call
 optimization. It does this by throwing an exception
 if it is it's own grandparent, and catching such
@@ -365,7 +365,7 @@ exceptions to fake the tail call optimization.
   
 This function fails if the decorated
 function recurses in a non-tail context.
-"""
+&quot;&quot;&quot;
       
     def func(*args, **kwargs):
         f = sys._getframe()
@@ -390,7 +390,7 @@ Factorial Example:
 ```
 @tail_call_optimized
 def factorial(n, acc=1):
-  "calculate a factorial"
+  &quot;calculate a factorial&quot;
   if n == 0:
     return acc
   return factorial(n-1, n*acc)

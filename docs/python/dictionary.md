@@ -2,6 +2,7 @@
 
 
 
+
 ## Introduction to Dictionary
 
 
@@ -36,7 +37,7 @@ d = {k:v for k,v in [('key', 'value',)]}
 
 ```
 
-see also: [Comprehensions](http://web.archive.org/web/20170208202345/http://stackoverflow.com/documentation/python/196/comprehensions#t=201604151707279475687)
+see also: [Comprehensions](http://stackoverflow.com/documentation/python/196/comprehensions#t=201604151707279475687)
 
 ### built-in class: `dict()`
 
@@ -88,7 +89,7 @@ mydict['not there']
 
 ```
 Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File &quot;<stdin>&quot;, line 1, in <module>
 KeyError: 'not there'
 
 ```
@@ -106,11 +107,11 @@ Which returns `mydict[key]` if it exists, but otherwise returns `default_value`.
 mydict = {}
 print(mydict)
 # {}
-print(mydict.get("foo", "bar"))
+print(mydict.get(&quot;foo&quot;, &quot;bar&quot;))
 # bar
 print(mydict)
 # {}
-print(mydict.setdefault("foo", "bar"))
+print(mydict.setdefault(&quot;foo&quot;, &quot;bar&quot;))
 # bar
 print(mydict)
 # {'foo': 'bar'}
@@ -192,64 +193,122 @@ Here, the methods `keys()`, `values()` and `items()` return lists, and there are
 
 
 
+## Dictionary with default values
+
+
+Available in the standard library as [`defaultdict`](https://docs.python.org/3/library/collections.html#collections.defaultdict)
+
+```
+from collections import defaultdict
+
+d = defaultdict(int)
+d['key']                         # 0
+d['key'] = 5
+d['key']                         # 5
+
+d = defaultdict(lambda: 'empty')
+d['key']                         # 'empty'
+d['key'] = 'full'
+d['key']                         # 'full'
+
+```
+
+[*] Alternatively, if you must use the built-in `dict` class, `using dict.setdefault()` will allow you to create a default whenever you access a key that did not exist before:
+
+```
+>>> d = {}
+{}
+>>> d.setdefault('Another_key', []).append(&quot;This worked!&quot;)
+>>> d
+{'Another_key': ['This worked!']}
+
+```
+
+Keep in mind that if you have many values to add, `dict.setdefault()` will create a new instance of the initial value (in this example a `[]`) every time it's called - which may create unnecessary workloads.
+
+[*] **Python Cookbook, 3rd edition, by David Beazley and Brian K. Jones (O’Reilly). Copyright 2013 David Beazley and Brian Jones, 978-1-449-34037-7.**
+
+
+
 ## Merging dictionaries
 
 
 Consider the following dictionaries:
 
 ```
-&gt;&gt;&gt; fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
-&gt;&gt;&gt; dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
+>>> fish = {'name': &quot;Nemo&quot;, 'hands': &quot;fins&quot;, 'special': &quot;gills&quot;}
+>>> dog = {'name': &quot;Clifford&quot;, 'hands': &quot;paws&quot;, 'color': &quot;red&quot;}
 
 ```
 
 ### Python 3.5+
 
 ```
-&gt;&gt;&gt; fishdog = {**fish, **dog}
-&gt;&gt;&gt; fishdog
+>>> fishdog = {**fish, **dog}
+>>> fishdog
 {'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
 
 ```
 
-As this example demonstrates, duplicate keys map to their lattermost value (for example "Clifford" overrides "Nemo").
-
----
-
+As this example demonstrates, duplicate keys map to their lattermost value (for example &quot;Clifford&quot; overrides &quot;Nemo&quot;).
 
 ### Python 3.3+
 
 ```
-&gt;&gt;&gt; from collections import ChainMap
-&gt;&gt;&gt; dict(ChainMap(fish, dog))
+>>> from collections import ChainMap
+>>> dict(ChainMap(fish, dog))
 {'hands': 'fins', 'color': 'red', 'special': 'gills', 'name': 'Nemo'}
 
 ```
 
-With this technique the foremost value takes precedence for a given key rather than the last ("Clifford" is thrown out in favor of "Nemo").
-
----
-
+With this technique the foremost value takes precedence for a given key rather than the last (&quot;Clifford&quot; is thrown out in favor of &quot;Nemo&quot;).
 
 ### Python 2.x, 3.x
 
 ```
-&gt;&gt;&gt; from itertools import chain
-&gt;&gt;&gt; dict(chain(fish.items(), dog.items()))
+>>> from itertools import chain
+>>> dict(chain(fish.items(), dog.items()))
 {'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
 
 ```
 
-This uses the lattermost value, as with the `**`-based technique for merging ("Clifford" overrides "Nemo").
+This uses the lattermost value, as with the `**`-based technique for merging (&quot;Clifford&quot; overrides &quot;Nemo&quot;).
 
 ```
-&gt;&gt;&gt; fish.update(dog)
-&gt;&gt;&gt; fish
+>>> fish.update(dog)
+>>> fish
 {'color': 'red', 'hands': 'paws', 'name': 'Clifford', 'special': 'gills'}
 
 ```
 
 `dict.update` uses the latter dict to overwrite the previous one.
+
+
+
+## Accessing values of a dictionary
+
+
+```
+dictionary = {&quot;Hello&quot;: 1234, &quot;World&quot;: 5678}
+print(dictionary[&quot;Hello&quot;])
+
+```
+
+The above code will print `1234`.
+
+The string `&quot;Hello&quot;` in this example is called a **key**. It is used to lookup a value in the `dict` by placing the key in square brackets.
+
+The number `1234` is seen after the respective colon in the `dict` definition. This is called the **value** that `&quot;Hello&quot;` **maps to** in this `dict`.
+
+Looking up a value like this with a key that does not exist will raise a `KeyError` exception, halting execution if uncaught. If we want to access a value without risking a `KeyError`, we can use the `dictionary.get` method. By default if the key does not exist, the method will return `None`. We can pass it a second value to return instead of `None` in the event of a failed lookup.
+
+```
+w = dictionary.get(&quot;whatever&quot;)
+x = dictionary.get(&quot;whatever&quot;, &quot;nuh-uh&quot;)
+
+```
+
+In this example `w` will get the value `None` and `x` will get the value `&quot;nuh-uh&quot;`.
 
 
 
@@ -297,34 +356,67 @@ print(mydict.items())
 
 **NOTE:** Because a `dict` is unsorted, `keys()`, `values()`, and `items()` have no sort order. Use `sort()`, `sorted()`, or an `OrderedDict` if you care about the order that these methods return.
 
-**Python 2/3 Difference:** In Python 3, these methods return special iterable objects, not lists, and are the equivalent of the Python 2 `iterkeys()`, `itervalues()`, and `iteritems()` methods. These objects can be used like lists for the most part, though there are some differences. See [PEP 3106](http://web.archive.org/web/20170208202345/https://www.python.org/dev/peps/pep-3106/) for more details.
+**Python 2/3 Difference:** In Python 3, these methods return special iterable objects, not lists, and are the equivalent of the Python 2 `iterkeys()`, `itervalues()`, and `iteritems()` methods. These objects can be used like lists for the most part, though there are some differences. See [PEP 3106](https://www.python.org/dev/peps/pep-3106/) for more details.
 
 
 
-## Accessing values of a dictionary
+## Creating  an ordered dictionary
 
 
-```
-dictionary = {"Hello": 1234, "World": 5678}
-print(dictionary["Hello"])
+You can create an ordered dictionary which will follow a determined order when iterating over the keys in the dictionary.
 
-```
-
-The above code will print `1234`.
-
-The string `"Hello"` in this example is called a **key**. It is used to lookup a value in the `dict` by placing the key in square brackets.
-
-The number `1234` is seen after the respective colon in the `dict` definition. This is called the **value** that `"Hello"` **maps to** in this `dict`.
-
-Looking up a value like this with a key that does not exist will raise a `KeyError` exception, halting execution if uncaught. If we want to access a value without risking a `KeyError`, we can use the `dictionary.get` method. By default if the key does not exist, the method will return `None`. We can pass it a second value to return instead of `None` in the event of a failed lookup.
+Use `OrderedDict` from the
+`collections` module. This will always return the dictionary elements in the original insertion order when iterated over.
 
 ```
-w = dictionary.get("whatever")
-x = dictionary.get("whatever", "nuh-uh")
+from collections import OrderedDict
+
+d = OrderedDict()
+d['first'] = 1
+d['second'] = 2
+d['third'] = 3
+d['last'] = 4
+
+# Outputs &quot;first 1&quot;, &quot;second 2&quot;, &quot;third 3&quot;, &quot;last 4&quot;
+for key in d:
+    print(key, d[key])
 
 ```
 
-In this example `w` will get the value `None` and `x` will get the value `"nuh-uh"`.
+
+
+## Unpacking dictionaries using the ** operator
+
+
+You can use the `**` keyword argument unpacking operator to deliver the key-value pairs in a dictionary into a function's arguments. A simplified example from the [official documentation](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists):
+
+```
+>>>
+>>> def parrot(voltage, state, action):
+...     print(&quot;This parrot wouldn't&quot;, action, end=' ')
+...     print(&quot;if you put&quot;, voltage, &quot;volts through it.&quot;, end=' ')
+...     print(&quot;E's&quot;, state, &quot;!&quot;)
+...
+>>> d = {&quot;voltage&quot;: &quot;four million&quot;, &quot;state&quot;: &quot;bleedin' demised&quot;, &quot;action&quot;: &quot;VOOM&quot;}
+>>> parrot(**d)
+
+This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+
+```
+
+As of Python 3.5 you can also use this syntax to merge an arbitrary number of `dict` objects.
+
+```
+>>> fish = {'name': &quot;Nemo&quot;, 'hands': &quot;fins&quot;, 'special': &quot;gills&quot;}
+>>> dog = {'name': &quot;Clifford&quot;, 'hands': &quot;paws&quot;, 'color': &quot;red&quot;}
+>>> fishdog = {**fish, **dog}
+>>> fishdog
+
+{'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
+
+```
+
+As this example demonstrates, duplicate keys map to their lattermost value (for example &quot;Clifford&quot; overrides &quot;Nemo&quot;).
 
 
 
@@ -352,8 +444,8 @@ dictionary['milk'] = 2
 mydict = {'a': [1, 2, 3], 'b': ['one', 'two', 'three']}
 
 # Use list.append() method to add new elements to the values list
-mydict['a'].append(4)   # =&gt; {'a': [1, 2, 3, 4], 'b': ['one', 'two', 'three']}
-mydict['b'].append('four')  # =&gt; {'a': [1, 2, 3, 4], 'b': ['one', 'two', 'three', 'four']}
+mydict['a'].append(4)   # => {'a': [1, 2, 3, 4], 'b': ['one', 'two', 'three']}
+mydict['b'].append('four')  # => {'a': [1, 2, 3, 4], 'b': ['one', 'two', 'three', 'four']}
 
 # We can also create a dictionary using a list of two-items tuples
 iterable = [('eggs', 5), ('milk', 2)]
@@ -363,193 +455,8 @@ dictionary = dict(iterables)
 dictionary = dict(eggs=5, milk=2)
 
 # Another way will be to use the dict.fromkeys:
-dictionary = dict.fromkeys((milk, eggs))  # =&gt; {'milk': None, 'eggs': None}
-dictionary = dict.fromkeys((milk, eggs), (2, 5))  # =&gt; {'milk': 2, 'eggs': 5}
-
-```
-
-
-
-## Dictionary with default values
-
-
-Available in the standard library as [`defaultdict`](http://web.archive.org/web/20170208202345/https://docs.python.org/3/library/collections.html#collections.defaultdict)
-
-```
-from collections import defaultdict
-
-d = defaultdict(int)
-d['key']                         # 0
-d['key'] = 5
-d['key']                         # 5
-
-d = defaultdict(lambda: 'empty')
-d['key']                         # 'empty'
-d['key'] = 'full'
-d['key']                         # 'full'
-
-```
-
-[*] Alternatively, if you must use the built-in `dict` class, `using dict.setdefault()` will allow you to create a default whenever you access a key that did not exist before:
-
-```
-&gt;&gt;&gt; d = {}
-{}
-&gt;&gt;&gt; d.setdefault('Another_key', []).append("This worked!")
-&gt;&gt;&gt; d
-{'Another_key': ['This worked!']}
-
-```
-
-Keep in mind that if you have many values to add, `dict.setdefault()` will create a new instance of the initial value (in this example a `[]`) every time it's called - which may create unnecessary workloads.
-
-[*] **Python Cookbook, 3rd edition, by David Beazley and Brian K. Jones (O’Reilly). Copyright 2013 David Beazley and Brian Jones, 978-1-449-34037-7.**
-
-
-
-## Unpacking dictionaries using the ** operator
-
-
-You can use the `**` keyword argument unpacking operator to deliver the key-value pairs in a dictionary into a function's arguments. A simplified example from the [official documentation](http://web.archive.org/web/20170208202345/https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists):
-
-```
-&gt;&gt;&gt;
-&gt;&gt;&gt; def parrot(voltage, state, action):
-...     print("This parrot wouldn't", action, end=' ')
-...     print("if you put", voltage, "volts through it.", end=' ')
-...     print("E's", state, "!")
-...
-&gt;&gt;&gt; d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
-&gt;&gt;&gt; parrot(**d)
-
-This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
-
-```
-
-As of Python 3.5 you can also use this syntax to merge an arbitrary number of `dict` objects.
-
-```
-&gt;&gt;&gt; fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
-&gt;&gt;&gt; dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
-&gt;&gt;&gt; fishdog = {**fish, **dog}
-&gt;&gt;&gt; fishdog
-
-{'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
-
-```
-
-As this example demonstrates, duplicate keys map to their lattermost value (for example "Clifford" overrides "Nemo").
-
-
-
-## All combinations of dictionary values
-
-
-```
-options = {
-    "x": ["a", "b"],
-    "y": [10, 20, 30]
-}
-
-```
-
-Given a dictionary such as the one shown above, where there is a list
-representing  a set of values to explore for the corresponding key. Suppose
-you want to explore `"x"="a"` with `"y"=10`, then `"x"="a"` with`"y"=10`, and so
-on until you have explored all possible combinations.
-
-You can create a list that returns all such combinations of values using the  following code.
-
-```
-import itertools
-
-options = {
-    "x": ["a", "b"],
-    "y": [10, 20, 30]}
-
-keys = options.keys()
-values = (options[key] for key in keys)
-combinations = [dict(zip(keys, combination)) for combination in itertools.product(*values)]
-print combinations
-
-```
-
-This gives us the following list stored in the variable `combinations`:
-
-```
-[{'x': 'a', 'y': 10},
- {'x': 'b', 'y': 10},
- {'x': 'a', 'y': 20},
- {'x': 'b', 'y': 20},
- {'x': 'a', 'y': 30},
- {'x': 'b', 'y': 30}]
-
-```
-
-
-
-## Creating  an ordered dictionary
-
-
-You can create an ordered dictionary which will follow a determined order when iterating over the keys in the dictionary.
-
-Use `OrderedDict` from the
-`collections` module. This will always return the dictionary elements in the original insertion order when iterated over.
-
-```
-from collections import OrderedDict
-
-d = OrderedDict()
-d['first'] = 1
-d['second'] = 2
-d['third'] = 3
-d['last'] = 4
-
-# Outputs "first 1", "second 2", "third 3", "last 4"
-for key in d:
-    print(key, d[key])
-
-```
-
-
-
-## Dictionaries Example
-
-
-Dictionaries map keys to values.
-
-```
-car = {}
-car["wheels"] = 4
-car["color"] = "Red"
-car["model"] = "Corvette"
-
-```
-
-Dictionary values can be accessed by their keys.
-
-```
-print "Little " + car["color"] + " " + car["model"] + "!"
-# This would print out "Little Red Corvette!"    
-
-```
-
-Dictionaries can also be created in a JSON style:
-
-```
-car = {"wheels": 4, "color": "Red", "model": "Corvette"}
-
-```
-
-Dictionary values can be iterated over:
-
-```
-for key in car:
-  print key + ": " + car[key]
-
-# wheels: 4
-# color: Red
-# model: Corvette
+dictionary = dict.fromkeys((milk, eggs))  # => {'milk': None, 'eggs': None}
+dictionary = dict.fromkeys((milk, eggs), (2, 5))  # => {'milk': 2, 'eggs': 5}
 
 ```
 
@@ -576,12 +483,100 @@ dict({'a' : 1, 'b' : 2}, c=3)         # {'a': 1, 'b': 2, 'c': 3}
 Like lists and tuples, you can include a trailing comma in your dictionary.
 
 ```
-role = {"By day": "A typical programmer",
-        "By night": "Still a typical programmer", }
+role = {&quot;By day&quot;: &quot;A typical programmer&quot;,
+        &quot;By night&quot;: &quot;Still a typical programmer&quot;, }
 
 ```
 
 PEP 8 dictates that you should leave a space between the trailing comma and the closing brace.
+
+
+
+## All combinations of dictionary values
+
+
+```
+options = {
+    &quot;x&quot;: [&quot;a&quot;, &quot;b&quot;],
+    &quot;y&quot;: [10, 20, 30]
+}
+
+```
+
+Given a dictionary such as the one shown above, where there is a list
+representing  a set of values to explore for the corresponding key. Suppose
+you want to explore `&quot;x&quot;=&quot;a&quot;` with `&quot;y&quot;=10`, then `&quot;x&quot;=&quot;a&quot;` with`&quot;y&quot;=10`, and so
+on until you have explored all possible combinations.
+
+You can create a list that returns all such combinations of values using the  following code.
+
+```
+import itertools
+
+options = {
+    &quot;x&quot;: [&quot;a&quot;, &quot;b&quot;],
+    &quot;y&quot;: [10, 20, 30]}
+
+keys = options.keys()
+values = (options[key] for key in keys)
+combinations = [dict(zip(keys, combination)) for combination in itertools.product(*values)]
+print combinations
+
+```
+
+This gives us the following list stored in the variable `combinations`:
+
+```
+[{'x': 'a', 'y': 10},
+ {'x': 'b', 'y': 10},
+ {'x': 'a', 'y': 20},
+ {'x': 'b', 'y': 20},
+ {'x': 'a', 'y': 30},
+ {'x': 'b', 'y': 30}]
+
+```
+
+
+
+## Dictionaries Example
+
+
+Dictionaries map keys to values.
+
+```
+car = {}
+car[&quot;wheels&quot;] = 4
+car[&quot;color&quot;] = &quot;Red&quot;
+car[&quot;model&quot;] = &quot;Corvette&quot;
+
+```
+
+Dictionary values can be accessed by their keys.
+
+```
+print &quot;Little &quot; + car[&quot;color&quot;] + &quot; &quot; + car[&quot;model&quot;] + &quot;!&quot;
+# This would print out &quot;Little Red Corvette!&quot;    
+
+```
+
+Dictionaries can also be created in a JSON style:
+
+```
+car = {&quot;wheels&quot;: 4, &quot;color&quot;: &quot;Red&quot;, &quot;model&quot;: &quot;Corvette&quot;}
+
+```
+
+Dictionary values can be iterated over:
+
+```
+for key in car:
+  print key + &quot;: &quot; + car[key]
+
+# wheels: 4
+# color: Red
+# model: Corvette
+
+```
 
 
 
@@ -592,7 +587,7 @@ PEP 8 dictates that you should leave a space between the trailing comma and the 
 - mydict[k] = value
 - value = mydict[k]
 - value = mydict.get(k)
-- value = mydict.get(k, "default_value")
+- value = mydict.get(k, &quot;default_value&quot;)
 
 
 
@@ -601,7 +596,7 @@ PEP 8 dictates that you should leave a space between the trailing comma and the 
 
 |Parameter|Details
 |------
-|k|The desired key to lookup
+|key|The desired key to lookup
 |value|The value to set or return
 
 

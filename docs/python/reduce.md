@@ -49,18 +49,6 @@ reduce(add, asequence, 10)
 
 
 
-## Cumulative product
-
-
-```
-import operator
-reduce(operator.mul, [10, 5, -3])
-# Out: -150
-
-```
-
-
-
 ## Using reduce
 
 
@@ -100,6 +88,18 @@ print(cumprod)
 
 
 
+## Cumulative product
+
+
+```
+import operator
+reduce(operator.mul, [10, 5, -3])
+# Out: -150
+
+```
+
+
+
 ## Non short-circuit variant of any/all
 
 
@@ -107,10 +107,10 @@ print(cumprod)
 
 ```
 import operator
-# non short-circuit "all"
+# non short-circuit &quot;all&quot;
 reduce(operator.and_, [False, True, True, True]) # = False
 
-# non short-circuit "any"
+# non short-circuit &quot;any&quot;
 reduce(operator.or_, [True, False, False, False]) # = True
 
 ```

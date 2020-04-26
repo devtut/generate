@@ -2,22 +2,6 @@
 
 
 
-## Outputting datetime object to string
-
-
-Uses C standard [format codes](http://web.archive.org/web/20170816205725/https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
-
-```
-from datetime import datetime
-datetime_for_string = datetime(2016,10,1,0,0)
-datetime_string_format = '%b %d %Y, %H:%M:%S'
-datetime.strftime(datetime_for_string,datetime_string_format)
-# Oct 01 2016, 00:00:00
-
-```
-
-
-
 ## Time between two date-times
 
 
@@ -39,10 +23,26 @@ a-b
 
 
 
+## Outputting datetime object to string
+
+
+Uses C standard [format codes](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
+
+```
+from datetime import datetime
+datetime_for_string = datetime(2016,10,1,0,0)
+datetime_string_format = '%b %d %Y, %H:%M:%S'
+datetime.strftime(datetime_for_string,datetime_string_format)
+# Oct 01 2016, 00:00:00
+
+```
+
+
+
 ## Parsing string to datetime object
 
 
-Uses C standard [format codes](http://web.archive.org/web/20170816205725/https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
+Uses C standard [format codes](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
 
 ```
 from datetime import datetime

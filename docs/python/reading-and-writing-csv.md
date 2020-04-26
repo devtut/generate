@@ -2,30 +2,6 @@
 
 
 
-## Using pandas
-
-
-Write a CSV file from a `dict` or a `DataFrame`.
-
-```
-import pandas as pd
-
-d = {'a': (1, 101), 'b': (2, 202), 'c': (3, 303)}
-pd.DataFrame.from_dict(d, orient="index")
-df.to_csv("data.csv")
-
-```
-
-Read a CSV file as a `DataFrame` and convert it to a `dict`:
-
-```
-df = pd.read_csv("data.csv")
-d = df.to_dict()
-
-```
-
-
-
 ## Writing a TSV file
 
 
@@ -52,6 +28,30 @@ name    field
 Dijkstra    Computer Science
 Shelah    Math
 Aumann    Economic Sciences
+
+```
+
+
+
+## Using pandas
+
+
+Write a CSV file from a `dict` or a `DataFrame`.
+
+```
+import pandas as pd
+
+d = {'a': (1, 101), 'b': (2, 202), 'c': (3, 303)}
+pd.DataFrame.from_dict(d, orient=&quot;index&quot;)
+df.to_csv(&quot;data.csv&quot;)
+
+```
+
+Read a CSV file as a `DataFrame` and convert it to a `dict`:
+
+```
+df = pd.read_csv(&quot;data.csv&quot;)
+d = df.to_dict()
 
 ```
 

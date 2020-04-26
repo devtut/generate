@@ -5,12 +5,12 @@
 ## The Python Debugger: Step-through Debugging with _pdb_
 
 
-The [Python Standard Library](http://web.archive.org/web/20170816195707/https://docs.python.org/2/library/) includes an interactive debugging library called [**pdb**](http://web.archive.org/web/20170816195707/https://docs.python.org/2/library/pdb.html). **pdb** has extensive capabilities, the most commonly used being the ability to 'step-through' a program.
+The [Python Standard Library](https://docs.python.org/2/library/) includes an interactive debugging library called [**pdb**](https://docs.python.org/2/library/pdb.html). **pdb** has extensive capabilities, the most commonly used being the ability to 'step-through' a program.
 
 To immediately enter into step-through debugging use:
 
 ```
-python -m pdb &lt;my_file.py&gt;
+python -m pdb <my_file.py>
 
 ```
 
@@ -34,8 +34,8 @@ Running this program will launch the interactive debugger.
 
 ```
 python foo.py 
-&gt; ~/scratch/foo.py(5)divide()
--&gt; return a/b
+> ~/scratch/foo.py(5)divide()
+-> return a/b
 (Pdb) 
 
 ```
@@ -69,7 +69,7 @@ build-in function
 These are good debugger commands to know:
 
 ```
-b &lt;n&gt; | &lt;f&gt;: set breakpoint at line *n* or function named *f*.
+b <n> | <f>: set breakpoint at line *n* or function named *f*.
 # b 3
 # b divide
 b: show all breakpoints.
@@ -78,7 +78,7 @@ s: step through this line (will enter a function).
 n: step over this line (jumps over a function).
 r: continue until the current function returns.
 l: list a window of code around this line.
-p &lt;var&gt;: print variable named *var*.
+p <var>: print variable named *var*.
 # p x
 q: quit debugger.
 bt: print the traceback of the current execution call stack
@@ -94,7 +94,7 @@ continue: continue running the program until the next breakpoint (or set_trace s
 The debugger can also evaluate python interactively:
 
 ```
--&gt; return a/b
+-> return a/b
 (Pdb) p a+b
 3
 (Pdb) [ str(m) for m in [a,b]] 
@@ -119,7 +119,7 @@ If any of your variable names coincide with the debugger commands, use an exclam
 ## Via IPython and ipdb
 
 
-If [IPython](http://web.archive.org/web/20170816195707/http://ipython.org/) (or [Jupyter](http://web.archive.org/web/20170816195707/http://jupyter.org/)) are installed, the debugger can be invoked using:
+If [IPython](http://ipython.org/) (or [Jupyter](http://jupyter.org/)) are installed, the debugger can be invoked using:
 
 ```
 import ipdb
@@ -130,12 +130,12 @@ ipdb.set_trace()
 When reached, the code will exit and print:
 
 ```
- /home/usr/ook.py(3)&lt;module&gt;()
+ /home/usr/ook.py(3)<module>()
       1 import ipdb
       2 ipdb.set_trace()
-----&gt; 3 print("Hello world!")
+----> 3 print(&quot;Hello world!&quot;)
 
-ipdb&gt;
+ipdb>
 
 ```
 
@@ -156,7 +156,7 @@ This will cause the debugger to be called if there is an uncaught exception rais
 ## Remote debugger
 
 
-Some times you need to debug python code which is executed by another process and and in this cases [`rpdb`](http://web.archive.org/web/20170816195707/https://github.com/tamentis/rpdb/) comes in handy.
+Some times you need to debug python code which is executed by another process and and in this cases [`rpdb`](https://github.com/tamentis/rpdb/) comes in handy.
 
 > 
 rpdb is a wrapper around pdb that re-routes stdin and stdout to a socket handler. By default it opens the debugger on port 4444
@@ -182,8 +182,8 @@ $ nc 127.0.0.1 4444
 And you will get pdb promt
 
 ```
-&gt; /home/usr/ook.py(3)&lt;module&gt;()
--&gt; print("Hello world!")
+> /home/usr/ook.py(3)<module>()
+-> print(&quot;Hello world!&quot;)
 (Pdb)
 
 ```

@@ -2,6 +2,123 @@
 
 
 
+## Put list data into a Excel's file.
+
+
+```
+import os, sys
+from openpyxl import Workbook
+from datetime import datetime
+
+dt = datetime.now()
+list_values = [[&quot;01/01/2016&quot;, &quot;05:00:00&quot;, 3], \
+               [&quot;01/02/2016&quot;, &quot;06:00:00&quot;, 4], \
+               [&quot;01/03/2016&quot;, &quot;07:00:00&quot;, 5], \
+               [&quot;01/04/2016&quot;, &quot;08:00:00&quot;, 6], \
+               [&quot;01/05/2016&quot;, &quot;09:00:00&quot;, 7]]
+
+# Create a Workbook on Excel:
+wb = Workbook()
+sheet = wb.active
+sheet.title = 'data'
+
+# Print the titles into Excel Workbook:
+row = 1
+sheet['A'+str(row)] = 'Date'
+sheet['B'+str(row)] = 'Hour'
+sheet['C'+str(row)] = 'Value'
+
+# Populate with data
+for item in list_values:
+    row += 1
+    sheet['A'+str(row)] = item[0]
+    sheet['B'+str(row)] = item[1]
+    sheet['C'+str(row)] = item[2]
+
+# Save a file by date:
+filename = 'data_' + dt.strftime(&quot;%Y%m%d_%I%M%S&quot;) + '.xlsx'
+wb.save(filename)
+
+# Open the file for the user:
+os.chdir(sys.path[0])
+os.system('start excel.exe &quot;%s\\%s&quot;' % (sys.path[0], filename, ))
+
+```
+
+
+
+## OpenPyXL
+
+
+[OpenPyXL](http://openpyxl.readthedocs.io/en/default/) is a module for manipulating and creating `xlsx/xlsm/xltx/xltm` workbooks in memory.
+
+**Manipulating and reading an existing workbook:**
+
+```
+import openpyxl as opx
+#To change an existing wookbook we located it by referencing its path
+workbook = opx.load_workbook(workbook_path)
+
+```
+
+`load_workbook()` contains the parameter `read_only`, setting this to `True` will load the workbook as read_only, this is helpful when reading larger `xlsx` files:
+
+```
+workbook = opx.load_workbook(workbook_path, read_only=True)
+
+```
+
+Once you have loaded the workbook into memory, you can access the individual sheets using `workbook.sheets`
+
+```
+first_sheet = workbook.worksheets[0]
+
+```
+
+If you want to specify the name of an available sheets, you can use `workbook.get_sheet_names()`.
+
+```
+sheet = workbook.get_sheet_by_name('Sheet Name')
+
+```
+
+Finally, the rows of the sheet can be accessed using `sheet.rows`.  To iterate over the rows in a sheet, use:
+
+```
+for row in sheet.rows:
+    print row[0].value
+
+```
+
+Since each `row` in `rows` is a list of `Cell`s, use `Cell.value` to get the contents of the Cell.
+
+**Creating a new Workbook in memory:**
+
+```
+#Calling the Workbook() function creates a new book in memory
+wb = opx.Workbook()
+
+#We can then create a new sheet in the wb
+ws = wb.create_sheet('Sheet Name', 0) #0 refers to the index of the sheet order in the wb
+
+```
+
+Several tab properties may be changed through openpyxl, for example the `tabColor`:
+
+```
+ws.sheet_properties.tabColor = 'FFC0CB'
+
+```
+
+To save our created workbook we finish with:
+
+```
+wb.save('filename.xlsx')
+
+```
+
+
+
 ## Create excel charts with xlsxwriter
 
 
@@ -75,158 +192,7 @@ workbook.close()
 
 **Result:**
 
-[<img alt="enter image description here" src="http://web.archive.org/web/20170816200855im_/http://i.stack.imgur.com/D3sta.png"/>](http://web.archive.org/web/20170816200855/http://i.stack.imgur.com/D3sta.png)
-
-
-
-## Format Excel files with xlsxwriter
-
-
-```
-import xlsxwriter
-
-# create a new file 
-workbook = xlsxwriter.Workbook('your_file.xlsx')
-
-# add some new formats to be used by the workbook 
-percent_format = workbook.add_format({'num_format': '0%'})
-percent_with_decimal = workbook.add_format({'num_format': '0.0%'})
-bold = workbook.add_format({'bold': True})
-red_font = workbook.add_format({'font_color': 'red'})
-remove_format = workbook.add_format()
-
-# add a new sheet 
-worksheet = workbook.add_worksheet() 
-
-# set the width of column A 
-worksheet.set_column('A:A', 30, )
-
-# set column B to 20 and include the percent format we created earlier 
-worksheet.set_column('B:B', 20, percent_format)
-
-# remove formatting from the first row (change in height=None) 
-worksheet.set_row('0:0', None, remove_format)
-
-workbook.close()
-
-```
-
-
-
-## OpenPyXL
-
-
-[OpenPyXL](http://web.archive.org/web/20170816200855/http://openpyxl.readthedocs.io/en/default/) is a module for manipulating and creating `xlsx/xlsm/xltx/xltm` workbooks in memory.
-
-**Manipulating and reading an existing workbook:**
-
-```
-import openpyxl as opx
-#To change an existing wookbook we located it by referencing its path
-workbook = opx.load_workbook(workbook_path)
-
-```
-
-`load_workbook()` contains the parameter `read_only`, setting this to `True` will load the workbook as read_only, this is helpful when reading larger `xlsx` files:
-
-```
-workbook = opx.load_workbook(workbook_path, read_only=True)
-
-```
-
-Once you have loaded the workbook into memory, you can access the individual sheets using `workbook.sheets`
-
-```
-first_sheet = workbook.worksheets[0]
-
-```
-
-If you want to specify the name of an available sheets, you can use `workbook.get_sheet_names()`.
-
-```
-sheet = workbook.get_sheet_by_name('Sheet Name')
-
-```
-
-Finally, the rows of the sheet can be accessed using `sheet.rows`.  To iterate over the rows in a sheet, use:
-
-```
-for row in sheet.rows:
-    print row[0].value
-
-```
-
-Since each `row` in `rows` is a list of `Cell`s, use `Cell.value` to get the contents of the Cell.
-
-**Creating a new Workbook in memory:**
-
-```
-#Calling the Workbook() function creates a new book in memory
-wb = opx.Workbook()
-
-#We can then create a new sheet in the wb
-ws = wb.create_sheet('Sheet Name', 0) #0 refers to the index of the sheet order in the wb
-
-```
-
-Several tab properties may be changed through openpyxl, for example the `tabColor`:
-
-```
-ws.sheet_properties.tabColor = 'FFC0CB'
-
-```
-
-To save our created workbook we finish with:
-
-```
-wb.save('filename.xlsx')
-
-```
-
-
-
-## Put list data into a Excel's file.
-
-
-```
-import os, sys
-from openpyxl import Workbook
-from datetime import datetime
-
-dt = datetime.now()
-list_values = [["01/01/2016", "05:00:00", 3], \
-               ["01/02/2016", "06:00:00", 4], \
-               ["01/03/2016", "07:00:00", 5], \
-               ["01/04/2016", "08:00:00", 6], \
-               ["01/05/2016", "09:00:00", 7]]
-
-# Create a Workbook on Excel:
-wb = Workbook()
-sheet = wb.active
-sheet.title = 'data'
-
-# Print the titles into Excel Workbook:
-row = 1
-sheet['A'+str(row)] = 'Date'
-sheet['B'+str(row)] = 'Hour'
-sheet['C'+str(row)] = 'Value'
-
-# Populate with data
-for item in list_values:
-    row += 1
-    sheet['A'+str(row)] = item[0]
-    sheet['B'+str(row)] = item[1]
-    sheet['C'+str(row)] = item[2]
-
-# Save a file by date:
-filename = 'data_' + dt.strftime("%Y%m%d_%I%M%S") + '.xlsx'
-wb.save(filename)
-
-# Open the file for the user:
-os.chdir(sys.path[0])
-os.system('start excel.exe "%s\\%s"' % (sys.path[0], filename, ))
-
-```
+[<img src="http://i.stack.imgur.com/D3sta.png" alt="enter image description here" />](http://i.stack.imgur.com/D3sta.png)
 
 
 
@@ -244,7 +210,7 @@ pip install xlrd
 
 Or you can use setup.py file from pypi
 
-[https://pypi.python.org/pypi/xlrd](http://web.archive.org/web/20170816200855/https://pypi.python.org/pypi/xlrd)
+[https://pypi.python.org/pypi/xlrd](https://pypi.python.org/pypi/xlrd)
 
 **Reading an excel sheet:-**
 Import xlrd module and open excel file using open_workbook() method.
@@ -297,6 +263,40 @@ Get excel sheet by name
 ```
 sheets = book.sheet_names()
 cur_sheet = book.sheet_by_name(sheets[0])
+
+```
+
+
+
+## Format Excel files with xlsxwriter
+
+
+```
+import xlsxwriter
+
+# create a new file 
+workbook = xlsxwriter.Workbook('your_file.xlsx')
+
+# add some new formats to be used by the workbook 
+percent_format = workbook.add_format({'num_format': '0%'})
+percent_with_decimal = workbook.add_format({'num_format': '0.0%'})
+bold = workbook.add_format({'bold': True})
+red_font = workbook.add_format({'font_color': 'red'})
+remove_format = workbook.add_format()
+
+# add a new sheet 
+worksheet = workbook.add_worksheet() 
+
+# set the width of column A 
+worksheet.set_column('A:A', 30, )
+
+# set column B to 20 and include the percent format we created earlier 
+worksheet.set_column('B:B', 20, percent_format)
+
+# remove formatting from the first row (change in height=None) 
+worksheet.set_row('0:0', None, remove_format)
+
+workbook.close()
 
 ```
 

@@ -5,23 +5,6 @@ hashlib implements a common interface to many different secure hash and message 
 
 
 
-## algorithm provided by OpenSSL
-
-
-A generic `new()` constructor that takes the string name of the desired algorithm as its first parameter also exists to allow access to the above listed hashes as well as any other algorithms that your OpenSSL library may offer. The named constructors are much faster than `new()` and should be preferred.
-
-Using `new()` with an algorithm provided by OpenSSL:
-
-```
-&gt;&gt;&gt; h = hashlib.new('ripemd160')
-&gt;&gt;&gt; h.update("Nobody inspects the spammish repetition")
-&gt;&gt;&gt; h.hexdigest()
-'cc4a5ce1b3df48aec5d22d1f16b894a0b894eccc'
-
-```
-
-
-
 ## MD5 hash of a string
 
 
@@ -74,17 +57,17 @@ exchange the value safely in email or other non-binary environments.</p>
 Here is an example:
 
 ```
-&gt;&gt;&gt; import hashlib
-&gt;&gt;&gt; m = hashlib.md5()
-&gt;&gt;&gt; m.update("Nobody inspects")
-&gt;&gt;&gt; m.update(" the spammish repetition")
-&gt;&gt;&gt; m.digest()
+>>> import hashlib
+>>> m = hashlib.md5()
+>>> m.update(&quot;Nobody inspects&quot;)
+>>> m.update(&quot; the spammish repetition&quot;)
+>>> m.digest()
 '\xbbd\x9c\x83\xdd\x1e\xa5\xc9\xd9\xde\xc9\xa1\x8d\xf0\xff\xe9'
-&gt;&gt;&gt; m.hexdigest()
+>>> m.hexdigest()
 'bb649c83dd1ea5c9d9dec9a18df0ffe9'
-&gt;&gt;&gt; m.digest_size
+>>> m.digest_size
 16
-&gt;&gt;&gt; m.block_size
+>>> m.block_size
 64
 
 ```
@@ -92,8 +75,25 @@ Here is an example:
 or:
 
 ```
-hashlib.md5("Nobody inspects the spammish repetition").hexdigest()
+hashlib.md5(&quot;Nobody inspects the spammish repetition&quot;).hexdigest()
     'bb649c83dd1ea5c9d9dec9a18df0ffe9'
+
+```
+
+
+
+## algorithm provided by OpenSSL
+
+
+A generic `new()` constructor that takes the string name of the desired algorithm as its first parameter also exists to allow access to the above listed hashes as well as any other algorithms that your OpenSSL library may offer. The named constructors are much faster than `new()` and should be preferred.
+
+Using `new()` with an algorithm provided by OpenSSL:
+
+```
+>>> h = hashlib.new('ripemd160')
+>>> h.update(&quot;Nobody inspects the spammish repetition&quot;)
+>>> h.hexdigest()
+'cc4a5ce1b3df48aec5d22d1f16b894a0b894eccc'
 
 ```
 

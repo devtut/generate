@@ -72,7 +72,7 @@ Hyperbolic functions and their inverses:
 ## Basic complex arithmetic
 
 
-Python has built-in support for complex arithmetic. The imaginary unit is denoted by [`j`](http://web.archive.org/web/20170816194727/http://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i#24812657):
+Python has built-in support for complex arithmetic. The imaginary unit is denoted by [`j`](http://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i#24812657):
 
 ```
 z = 2+3j # A complex number

@@ -5,7 +5,7 @@
 ## Creating an enum (Python 2.4 through 3.3)
 
 
-Enums have been backported from Python 3.4 to Python 2.4 through Python 3.3. You can get this the [enum34](http://web.archive.org/web/20170816194512/https://pypi.python.org/pypi/enum34) backport from PyPI.
+Enums have been backported from Python 3.4 to Python 2.4 through Python 3.3. You can get this the [enum34](https://pypi.python.org/pypi/enum34) backport from PyPI.
 
 ```
 pip install enum34
@@ -41,7 +41,7 @@ class Color(Enum):
     green = 2
     blue = 3
 
-[c for c in Color]  # [&lt;Color.red: 1&gt;, &lt;Color.green: 2&gt;, &lt;Color.blue: 3&gt;]
+[c for c in Color]  # [<Color.red: 1>, <Color.green: 2>, <Color.blue: 3>]
 
 ```
 
@@ -50,5 +50,5 @@ class Color(Enum):
 #### Remarks
 
 
-Enums were added to Python in version 3.4 by [PEP 435](http://web.archive.org/web/20170816194512/https://www.python.org/dev/peps/pep-0435/).
+Enums were added to Python in version 3.4 by [PEP 435](https://www.python.org/dev/peps/pep-0435/).
 

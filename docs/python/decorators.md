@@ -18,7 +18,7 @@ def super_secret_function(f):
 
 @super_secret_function
 def my_function():
-    print("This is my secret function.")
+    print(&quot;This is my secret function.&quot;)
 
 ```
 
@@ -29,80 +29,45 @@ my_function = super_secret_function(my_function)
 
 ```
 
-It is important to bear this in mind in order to understand how the decorators work. This "unsugared" syntax makes it clear why the decorator function takes a function as an argument, and why it should return another function. It also demonstrates what would happen if you **don't** return a function:
+It is important to bear this in mind in order to understand how the decorators work. This &quot;unsugared&quot; syntax makes it clear why the decorator function takes a function as an argument, and why it should return another function. It also demonstrates what would happen if you **don't** return a function:
 
 ```
 def disabled(f):
-    """
+    &quot;&quot;&quot;
     This function returns nothing, and hence removes the decorated function
     from the local scope.
-    """
+    &quot;&quot;&quot;
     pass
 
 @disabled
 def my_function():
-    print("This function can no longer be called...")
+    print(&quot;This function can no longer be called...&quot;)
 
 my_function()
 # TypeError: 'NoneType' object is not callable
 
 ```
 
-Thus, we usually define a **new function** inside the decorator and return it. This new function would first do something that it needs to do, then call the original function, and finally process the return value. Consider the following example of a simple logger decorator:
+Thus, we usually define a **new function** inside the decorator and return it. This new function would first do something that it needs to do, then call the original function, and finally process the return value. Consider this simple decorator function that prints the arguments that the original function receives, then calls it.
 
 ```
-def log_function_calls(func):
-    """
-    Augment the target function, so that whenever someone calls it we will
-    log a message to the stdout.
-    """
-    def wrapped_func(*args, **kwargs):
-        # Print a log message before the function is called.
-        str_args = ", ".join(repr(a) for a in args)
-        str_kwargs = ", ".join("%s=%r" % (k, v) for k, v in kwargs.items())
-        str_all = ", ".join([str_args, str_kwargs])
-        print("Calling %s(%s)..." % (func.__name__, str_all))
-        try:
-            # Call the original function.
-            res = func(*args, **kwargs)
-            # Log the returned result.
-            print("%s(...) returned: %r" % (func.__name__, res))
-            # Return the original result.
-            return res
-        except Exception as e:
-            # Log the fact that the function threw an exception.
-            print("Raised an exception %s" % e)
-            # Re-raise the original exception.
-            raise
-    # Return the wrapped_func, which will replace the function being decorated.
-    return wrapped_func
+#This is the decorator
+def print_args(func):
+    def inner_func(*args, **kwargs):
+        print(args)
+        print(kwargs)
+        return func(*args, **kwargs) #Call the original function with its arguments.
+    return inner_func
 
-@log_function_calls
-def testfunc(*args, **kwargs):
-    print("  This is my function I'd like to debug")
-    print("  Got %d *args and %d **kwargs" % (len(args), len(kwargs)))
-    return "".join(args) * kwargs.get("count", 1)
-
-# Try it out:
-hoho = testfunc("h", "o", count=10)
-print()
-apples = testfunc("apple", count="orange")
-
-```
-
-Output:
-
-```
-Calling testfunc('h', 'o', count=10)
-  This is my function I'd like to debug
-  Got 2 *args and 1 **kwargs
-testfunc(...) returned: 'hohohohohohohohohoho'
-
-Calling testfunc('apple', count='orange')
-  This is my function I'd like to debug
-  Got 1 *args and 1 **kwargs
-Raised an exception can't multiply sequence by non-int of type 'str'
-TypeError: can't multiply sequence by non-int of type 'str'
+@print_args
+def multiply(num_a, num_b):
+    return num_a * num_b
+  
+print(multiply(3, 5))
+#Output:
+# (3,5) - This is actually the 'args' that the function receives.
+# {} - This is the 'kwargs', empty because we didn't specify keyword arguments.
+# 15 - The result of the function.
 
 ```
 
@@ -115,7 +80,7 @@ As mentioned in the introduction, a decorator is a function that can be applied 
 
 ```
 class Decorator(object):
-    """Simple decorator class."""
+    &quot;&quot;&quot;Simple decorator class.&quot;&quot;&quot;
 
     def __init__(self, func):
         self.func = func
@@ -137,14 +102,14 @@ testfunc()
 
 ```
 
-Note that a function decorated with a class decorator will no longer be considered a "function" from type-checking perspective:
+Note that a function decorated with a class decorator will no longer be considered a &quot;function&quot; from type-checking perspective:
 
 ```
 import types
 isinstance(testfunc, types.FunctionType)
 # False
 type(testfunc)
-# &lt;class '__main__.Decorator'&gt;
+# <class '__main__.Decorator'>
 
 ```
 
@@ -298,7 +263,7 @@ Inside the decorator with arguments (10,)
 
 
 Decorators normally strip function metadata as they aren't the same. This can cause problems when using meta-programming to dynamically access function metadata. Metadata also includes function's docstrings and its name.
-[`functools.wraps`](http://web.archive.org/web/20170405120308/https://docs.python.org/3.5/library/functools.html#functools.wraps) makes the decorated function look like the original function by copying several attributes to the wrapper function.
+[`functools.wraps`](https://docs.python.org/3.5/library/functools.html#functools.wraps) makes the decorated function look like the original function by copying several attributes to the wrapper function.
 
 ```
 from functools import wraps
@@ -342,7 +307,7 @@ class Decorator(object):
 
 @Decorator
 def test():
-    """Docstring of test."""
+    &quot;&quot;&quot;Docstring of test.&quot;&quot;&quot;
     pass
 
 test.__doc__
@@ -373,6 +338,9 @@ def timer(func):
 def example_function():
     #do stuff
 
+
+example_function()
+
 ```
 
 
@@ -401,7 +369,7 @@ This decorator can be added to any class declaration and will make sure that at 
 class SomeSingletonClass:
     x = 2
     def __init__(self):
-        print("Created!")
+        print(&quot;Created!&quot;)
 
 instance = SomeSingletonClass()  # prints: Created!
 instance = SomeSingletonClass()  # doesn't print anything
@@ -412,7 +380,7 @@ print(SomeSingletonClass().x)    # 3
 
 ```
 
-So it doesn't matter whether you refer to the class instance via your local variable or whether you create another "instance", you always get the same object.
+So it doesn't matter whether you refer to the class instance via your local variable or whether you create another &quot;instance&quot;, you always get the same object.
 
 
 
@@ -423,7 +391,7 @@ So it doesn't matter whether you refer to the class instance via your local vari
 def decorator_function(f): pass # defines a decorator named decorator_function
 </li>
 <li>
-<p>@decorator_function<br/>
+<p>@decorator_function<br />
 def decorated_function(): pass # the function is now wrapped (decorated by) decorator_function</p>
 </li>
 <li>

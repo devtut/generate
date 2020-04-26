@@ -18,12 +18,12 @@ Besides processing the data from the incoming message, we will also have to Ackn
 
 ```
 def on_message(message):
-    """This function is called on message received.
+    &quot;&quot;&quot;This function is called on message received.
 
     :param message: Delivered message.
     :return:
-    """
-    print("Message:", message.body)
+    &quot;&quot;&quot;
+    print(&quot;Message:&quot;, message.body)
 
     # Acknowledge that we handled the message without any issues.
     message.ack()
@@ -119,7 +119,7 @@ message.publish(routing_key='simple_queue')
 ## How to create a delayed queue in RabbitMQ
 
 
-First we need to set up two basic channels, one for the main queue, and one for the delay queue. In my example at the end, I include a couple of additional flags that are not required, but makes the code more reliable; such as `confirm delivery`, `delivery_mode` and `durable`. You can find more information on these in the RabbitMQ [manual](http://web.archive.org/web/20170816201321/http://www.rabbitmq.com/tutorials/amqp-concepts.html).
+First we need to set up two basic channels, one for the main queue, and one for the delay queue. In my example at the end, I include a couple of additional flags that are not required, but makes the code more reliable; such as `confirm delivery`, `delivery_mode` and `durable`. You can find more information on these in the RabbitMQ [manual](http://www.rabbitmq.com/tutorials/amqp-concepts.html).
 
 After we have set up the channels we add a binding to the main channel that we can use to send messages from the delay channel to our main queue.
 
@@ -140,20 +140,20 @@ delay_channel.queue.declare(queue='hello_delay', durable=True, arguments={
 ```
 
 <li>
-[x-message-ttl](http://web.archive.org/web/20170816201321/https://www.rabbitmq.com/ttl.html) **(Message - Time To Live)**
+[x-message-ttl](https://www.rabbitmq.com/ttl.html) **(Message - Time To Live)**
 <p>This is normally used to automatically remove old messages in the
 queue after a specific duration, but by adding two optional arguments we
 can change this behaviour, and instead have this parameter determine
 in milliseconds how long messages will stay in the delay queue.</p>
 </li>
 <li>
-[x-dead-letter-routing-key](http://web.archive.org/web/20170816201321/http://www.rabbitmq.com/dlx.html)
+[x-dead-letter-routing-key](http://www.rabbitmq.com/dlx.html)
 <p>This variable allows us to transfer the message to a different queue
 once they have expired, instead of the default behaviour of removing
 it completely.</p>
 </li>
 <li>
-[x-dead-letter-exchange](http://web.archive.org/web/20170816201321/http://www.rabbitmq.com/dlx.html)
+[x-dead-letter-exchange](http://www.rabbitmq.com/dlx.html)
 This variable determines which Exchange used to transfer the message from hello_delay to hello queue.
 </li>
 
@@ -170,7 +170,7 @@ delay_channel.basic.publish(exchange='',
 ```
 
 Once you have executed the script you should see the following queues created in your RabbitMQ management module.
-<img alt="enter image description here" src="http://web.archive.org/web/20170816201321im_/http://i.stack.imgur.com/jWEDR.png"/>
+<img src="http://i.stack.imgur.com/jWEDR.png" alt="enter image description here" />
 
 **Example.**
 
@@ -204,7 +204,7 @@ delay_channel.basic.publish(exchange='',
                             body='test',
                             properties={'delivery_mode': 2})
 
-print("[x] Sent")
+print(&quot;[x] Sent&quot;)
 
 ```
 
@@ -213,7 +213,7 @@ print("[x] Sent")
 #### Remarks
 
 
-The latest version of [AMQPStorm](http://web.archive.org/web/20170816201321/https://github.com/eandersson/amqpstorm) is available at [pypi](http://web.archive.org/web/20170816201321/https://pypi.python.org/pypi/AMQPStorm) or you can install it using [pip](http://web.archive.org/web/20170816201321/https://pip.pypa.io/en/stable/)
+The latest version of [AMQPStorm](https://github.com/eandersson/amqpstorm) is available at [pypi](https://pypi.python.org/pypi/AMQPStorm) or you can install it using [pip](https://pip.pypa.io/en/stable/)
 
 ```
 pip install amqpstorm

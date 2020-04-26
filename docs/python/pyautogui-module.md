@@ -5,21 +5,6 @@ pyautogui is a module used to control mouse and keyboard. This module is basical
 
 
 
-## Keyboard Functions
-
-
-These are some of useful keyboard functions to automate the key pressing.
-
-```
-typewrite('')    #this will type the string on the screen where current window has focused.
-typewrite(['a','b','left','left','X','Y'])
-pyautogui.KEYBOARD_KEYS    #get the list of all the keyboard_keys.
-pyautogui.hotkey('ctrl','o')    #for the combination of keys to enter.
-
-```
-
-
-
 ## Mouse Functions
 
 
@@ -33,6 +18,21 @@ moveRel()          #move the cursor relative to your current position.
 click(337,46)           #it will click on the position mention there
 dragRel()              #it will drag the mouse relative to position
 pyautogui.displayMousePosition()     #gave you the current mouse position but should be done on terminal.
+
+```
+
+
+
+## Keyboard Functions
+
+
+These are some of useful keyboard functions to automate the key pressing.
+
+```
+typewrite('')    #this will type the string on the screen where current window has focused.
+typewrite(['a','b','left','left','X','Y'])
+pyautogui.KEYBOARD_KEYS    #get the list of all the keyboard_keys.
+pyautogui.hotkey('ctrl','o')    #for the combination of keys to enter.
 
 ```
 

@@ -10,14 +10,14 @@ As one of the most basic functions in programming, loops are an important piece 
 
 ### `break` statement
 
-When a `break` statement executes inside a loop, control flow "breaks" out of the loop immediately:
+When a `break` statement executes inside a loop, control flow &quot;breaks&quot; out of the loop immediately:
 
 ```
 i = 0
-while i &lt; 7:
+while i < 7:
     print(i)
     if i == 4:
-        print("Breaking from loop")
+        print(&quot;Breaking from loop&quot;)
         break
     i += 1
 
@@ -58,7 +58,7 @@ Executing this loop now prints:
 
 Note that 3 and 4 are not printed since the loop has ended.
 
-If a loop has [an `else` clause](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/237/loops/3040/else-statement), it does not execute when the loop is terminated through a `break` statement.
+If a loop has [an `else` clause](http://stackoverflow.com/documentation/python/237/loops/3040/else-statement), it does not execute when the loop is terminated through a `break` statement.
 
 ### `continue` statement
 
@@ -95,7 +95,7 @@ Python doesn't have the ability to break out of multiple levels of loop at once 
 
 ### Use `return` from within a function as a `break`
 
-The [`return` statement ](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/228/functions/835/returning-values-from-functions) exits from a function, without executing the code that comes after it.
+The [`return` statement ](http://stackoverflow.com/documentation/python/228/functions/835/returning-values-from-functions) exits from a function, without executing the code that comes after it.
 
 If you have a loop inside a function, using `return` from inside that loop is equivalent to having a `break` as the rest of the code of the loop is not executed (**note that any code after the loop is not executed either**):
 
@@ -170,7 +170,7 @@ for i in range(5):
 
 gives the exact same result as the first `for` loop. Note that `5` is not printed as the range here is the first five numbers counting from `0`.
 
-### [Iterable objects and iterators](http://web.archive.org/web/20170405122304/http://stackoverflow.com/questions/9884132/what-exactly-are-pythons-iterator-iterable-and-iteration-protocols)
+### [Iterable objects and iterators](http://stackoverflow.com/questions/9884132/what-exactly-are-pythons-iterator-iterable-and-iteration-protocols)
 
 `for` loop can iterate on any iterable object which is an object which defines a `__getitem__` or a `__iter__` function.
 The `__iter__` function returns an iterator, which is an object with a `next` function that is used to access the next element of the iterable.
@@ -198,15 +198,15 @@ four
 
 ```
 
-Generated numbers using `range` is also gives a list as an output.
+The `range` function generates numbers which are also often used in a for loop.
 
 ```
-for x in xrange(1, 6):
+for x in range(1, 6):
     print(x)
 
 ```
 
-Result will not be in a list.
+The result will be a special [range sequence type](https://docs.python.org/3/library/stdtypes.html#ranges) in python >=3 and a list in python <=2. Both can be looped through using the for loop.
 
 ```
 1
@@ -250,7 +250,7 @@ Output:
 
 ```
 
-NB: in Python 3.x `map` returns an iterator instead of a list so you in case you need a list you have to cast the result `print(list(x))` (see [http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3/8186/map)](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3/8186/map)) in [http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3) ).
+NB: in Python 3.x `map` returns an iterator instead of a list so you in case you need a list you have to cast the result `print(list(x))` (see [http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3/8186/map)](http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3/8186/map)) in [http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3](http://stackoverflow.com/documentation/python/809/incompatibilities-between-python-2-and-python-3) ).
 
 
 
@@ -268,7 +268,7 @@ else:
     print('done')
 
 i = 0
-while i &lt; 3:
+while i < 3:
     print(i)
     i += 1
 else:
@@ -326,15 +326,15 @@ is equivalent to:
 ```
 # pseudocode
 
-&lt;&lt;start&gt;&gt;:
+<<start>>:
 if loop_condition():
     ...
     if break_condition():
-        goto &lt;&lt;end&gt;&gt;
+        goto <<end>>
     ...
-    goto &lt;&lt;start&gt;&gt;
+    goto <<start>>
 
-&lt;&lt;end&gt;&gt;:
+<<end>>:
 
 ```
 
@@ -358,21 +358,41 @@ is equivalent to:
 ```
 # pseudocode
 
-&lt;&lt;start&gt;&gt;:
+<<start>>:
 if loop_condition():
     ...
     if break_condition():
-        goto &lt;&lt;end&gt;&gt;
+        goto <<end>>
     ...
-    goto &lt;&lt;start&gt;&gt;
+    goto <<start>>
 else:
     print('done')
 
-&lt;&lt;end&gt;&gt;:
+<<end>>:
 
 ```
 
 A `for` loop with an `else` clause can be understood the same way. Conceptually, there is a loop condition that remains True as long as the iterable object or sequence still has some remaining elements.
+
+### Why would one use this strange construct?
+
+The main use case for the `for...else` construct is a concise implementation of search as for instance:
+
+```
+a = [1, 2, 3, 4]
+for i in a:
+    if type(i) is not int:
+        print(i)
+        break
+else:
+    print(&quot;no exception&quot;) 
+
+```
+
+To make the `else` in this construct less confusing one can think of it as &quot;**if not break**&quot; or &quot;**if not found**&quot;.
+
+Some discussions on this can be found in [[Python-ideas] Summary of for...else threads](https://mail.python.org/pipermail/python-ideas/2009-October/006155.html), <a href="https://stackoverflow.com/questions/9979970/why-does-python-use-else-after-for-and-while-loops">Why does python use 'else' after for and while loops?
+</a>, and [Else Clauses on Loop Statements](http://python-notes.curiousefficiency.org/en/latest/python_concepts/break_else.html)
 
 
 
@@ -382,12 +402,9 @@ A `for` loop with an `else` clause can be understood the same way. Conceptually,
 Considering the following dictionary:
 
 ```
- d = {"a": 1, "b": 2, "c": 3}
+ d = {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
 
 ```
-
----
-
 
 To iterate through its keys, you can use:
 
@@ -400,9 +417,9 @@ for key in d:
 Output:
 
 ```
-"a"
-"b"
-"c"
+&quot;a&quot;
+&quot;b&quot;
+&quot;c&quot;
 
 ```
 
@@ -422,9 +439,6 @@ for key in d.iterkeys():
 
 ```
 
----
-
-
 To iterate through its values, use:
 
 ```
@@ -442,14 +456,11 @@ Output:
 
 ```
 
----
-
-
 To iterate through its keys and values, use:
 
 ```
 for key, value in d.items():
-    print(key, "::", value)
+    print(key, &quot;::&quot;, value)
 
 ```
 
@@ -462,9 +473,6 @@ c :: 3
 
 ```
 
----
-
-
 Note that in Python 2, `.keys()`, `.values()` and `.items()` return a `list` object. If you simply need to iterate trough the result, you can use the equivalent `.iterkeys()`, `.itervalues()` and `.iteritems()`.
 
 The difference between `.keys()` and `.iterkeys()`, `.values()` and `.itervalues()`, `.items()` and `.iteritems()` is that the `iter*` methods are generators. Thus, the elements within the dictionary are yielded one by one as they are evaluated. When a `list` object is returned, all of the elements are packed into a list and then returned for further evaluation.
@@ -472,6 +480,76 @@ The difference between `.keys()` and `.iterkeys()`, `.values()` and `.itervalues
 > 
 Note also that in Python 3, Order of items printed in the above manner does not follow any order.
 
+
+
+
+## The Pass Statement
+
+
+`pass` is a null statement for when a statement is required by Python syntax (such as within the body of a `for` or `while` loop), but no action is required or desired by the programmer. This can be useful as a placeholder for code that is yet to be written.
+
+```
+for x in range(10):
+    pass #we don't want to do anything, or are not ready to do anything here, so we'll pass
+
+```
+
+In this example, nothing will happen. The `for` loop will complete without error, but no commands or code will be actioned. `pass` allows us to run our code successfully without having all commands and action fully implemented.
+
+Similarly, `pass` can be used in `while` loops, as well as in selections and function definitions etc.
+
+```
+while x == y:
+    pass
+
+```
+
+
+
+## While Loop
+
+
+A `while` loop will cause the loop statements to be executed until the loop condition is [falsey](http://stackoverflow.com/documentation/python/1111/conditionals/8719/truth-values#t=201607241816416765906). The following code will execute the loop statements a total of 4 times.
+
+```
+i = 0 
+while i < 4:
+    #loop statements
+    i = i + 1
+
+```
+
+While the above loop can easily be translated into a more elegant `for` loop, `while` loops are useful for checking if some condition has been met. The following loop will continue to execute until `myObject` is ready.
+
+```
+myObject = anObject()
+while myObject.isNotReady():
+    myObject.tryToGetReady()
+
+```
+
+`while` loops can also run without a condition by using numbers (complex or real) or `True`:
+
+```
+import cmath
+
+complex_num = cmath.sqrt(-1)
+while complex_num:      # You can also replace complex_num with any number, True or a value of any type
+    print(complex_num)   # Prints 1j forever
+
+```
+
+If the condition is always true the while loop will run forever (infinite loop) if it is not terminated by a break or return statement or an exception.
+
+```
+while True:
+    print &quot;Infinite loop&quot;
+# Infinite loop
+# Infinite loop
+# Infinite loop
+# ...
+
+```
 
 
 
@@ -486,9 +564,6 @@ Here's a simple list that will be used throughout the examples:
 lst = ['alpha', 'bravo', 'charlie', 'delta', 'echo']
 
 ```
-
----
-
 
 ### Iteration over the whole list
 
@@ -515,7 +590,7 @@ Often you need both the element and the index of that element. The `enumerate` k
 
 ```
 for idx, s in enumerate(lst):
-    print("%s has an index of %d" % (s, idx))
+    print(&quot;%s has an index of %d&quot; % (s, idx))
 
 ```
 
@@ -530,16 +605,13 @@ echo has an index of 4
 
 ```
 
----
-
-
 ### **Iterate over sub-list**
 
 If we want to iterate over a range (remembering that Python uses zero-based indexing), use the `range` keyword.
 
 ```
 for i in range(2,4):
-    print("lst at %d contains %s" % (i, lst[i]))
+    print(&quot;lst at %d contains %s&quot; % (i, lst[i]))
 
 ```
 
@@ -570,21 +642,21 @@ delta
 
 ```
 
-[Indexing and slicing](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/289/indexing-and-slicing/1042/basic-slicing#t=201702161416494073707) is a topic of its own.
+[Indexing and slicing](http://stackoverflow.com/documentation/python/289/indexing-and-slicing/1042/basic-slicing#t=201702161416494073707) is a topic of its own.
 
 
 
 ## The "half loop" do-while
 
 
-Unlike other languages, Python doesn't have a do-until or a do-while construct (this will allow code to be executed once before the condition is tested). However, you can combine a `while True` with a [`break`](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/237/loops/875/break-and-continue-in-loops) to achieve the same purpose.
+Unlike other languages, Python doesn't have a do-until or a do-while construct (this will allow code to be executed once before the condition is tested). However, you can combine a `while True` with a [`break`](http://stackoverflow.com/documentation/python/237/loops/875/break-and-continue-in-loops) to achieve the same purpose.
 
 ```
 a = 10
 while True:
     a = a-1
     print(a)
-    if a&lt;7:
+    if a<7:
         break
 print('Done.')
 
@@ -598,76 +670,6 @@ This will print:
 7
 6
 Done.
-
-```
-
-
-
-## The Pass Statement
-
-
-`pass` is a null statement for when a statement is required by Python syntax (such as within the body of a `for` or `while` loop), but no action is required or desired by the programmer. This can be useful as a placeholder for code that is yet to be written.
-
-```
-for x in range(10):
-    pass #we don't want to do anything, or are not ready to do anything here, so we'll pass
-
-```
-
-In this example, nothing will happen. The `for` loop will complete without error, but no commands or code will be actioned. `pass` allows us to run our code successfully without having all commands and action fully implemented.
-
-Similarly, `pass` can be used in `while` loops, as well as in selections and function definitions etc.
-
-```
-while x == y:
-    pass
-
-```
-
-
-
-## While Loop
-
-
-A `while` loop will cause the loop statements to be executed until the loop condition is [falsey](http://web.archive.org/web/20170405122304/http://stackoverflow.com/documentation/python/1111/conditionals/8719/truth-values#t=201607241816416765906). The following code will execute the loop statements a total of 4 times.
-
-```
-i = 0 
-while i &lt; 4:
-    #loop statements
-    i = i + 1
-
-```
-
-While the above loop can easily be translated into a more elegant `for` loop, `while` loops are useful for checking if some condition has been met. The following loop will continue to execute until `myObject` is ready.
-
-```
-myObject = anObject()
-while myObject.isNotReady():
-    myObject.tryToGetReady()
-
-```
-
-`while` loops can also run without a condition by using numbers (complex or real) or `True`:
-
-```
-import cmath
-
-complex_num = cmath.sqrt(-1)
-while complex_num:      # You can also replace complex_num with any number, True or a value of any type
-    print(complex_num)   # Prints 1j forever
-
-```
-
-If the condition is always true the while loop will run forever (infinite loop) if it is not terminated by a break or return statement or an exception.
-
-```
-while True:
-    print "Infinite loop"
-# Infinite loop
-# Infinite loop
-# Infinite loop
-# ...
 
 ```
 
@@ -718,12 +720,13 @@ This will also work for **most** types of iterables, not just tuples.
 #### Syntax
 
 
-- while &lt;boolean expression&gt;:
-- for &lt;variable&gt; in &lt;iterable&gt;:
-- for &lt;variable&gt; in range(&lt;number&gt;):
-- for &lt;variable&gt; in range(&lt;start_number&gt;, &lt;end_number&gt;):
-- for i, &lt;variable&gt; in enumerate(&lt;iterable&gt;):  # with index i
-- for &lt;variable1&gt;, &lt;variable2&gt; in zip(&lt;iterable1&gt;, &lt;iterable2&gt;):
+- while <boolean expression>:
+- for <variable> in <iterable>:
+- for <variable> in range(<number>):
+- for <variable> in range(<start_number>, <end_number>):
+- for <variable> in range(<start_number>, <end_number>, <step_size>):
+- for i, <variable> in enumerate(<iterable>):  # with index i
+- for <variable1>, <variable2> in zip(<iterable1>, <iterable2>):
 
 
 
@@ -732,7 +735,7 @@ This will also work for **most** types of iterables, not just tuples.
 
 |Parameter|Details
 |------
-|boolean expression|expression that can be evaluated in a boolean context, e.g. `x &lt; 10`
+|boolean expression|expression that can be evaluated in a boolean context, e.g. `x < 10`
 |variable|variable name for the current element from the `iterable`
 |iterable|anything that implements iterations
 

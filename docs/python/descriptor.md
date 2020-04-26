@@ -2,6 +2,7 @@
 
 
 
+
 ## Simple descriptor
 
 
@@ -10,9 +11,9 @@ There are two different types of descriptors. Data descriptors are defined as ob
 To make a read-only data descriptor, define both **get**() and **set**() with the **set**() raising an AttributeError when called. Defining the **set**() method with an exception raising placeholder is enough to make it a data descriptor.
 
 ```
-descr.__get__(self, obj, type=None) --&gt; value
-descr.__set__(self, obj, value) --&gt; None
-descr.__delete__(self, obj) --&gt; None
+descr.__get__(self, obj, type=None) --> value
+descr.__set__(self, obj, value) --> None
+descr.__delete__(self, obj) --> None
 
 ```
 
@@ -20,7 +21,7 @@ An implemented example:
 
 ```
 class DescPrinter(object):
-    """A data descriptor that logs activity."""
+    &quot;&quot;&quot;A data descriptor that logs activity.&quot;&quot;&quot;
     _val = 7
     
     def __get__(self, obj, objtype=None):
@@ -68,19 +69,19 @@ Descriptor objects can allow related object attributes to react to changes autom
 Suppose we want to model an oscillator with a given frequency (in Hertz) and period (in seconds). When we update the frequency we want the period to update, and when we update the period we want the frequency to update:
 
 ```
- &gt;&gt;&gt; oscillator = Oscillator(freq=100.0)  # Set frequency to 100.0 Hz
-&gt;&gt;&gt; oscillator.period  # Period is 1 / frequency, i.e. 0.01 seconds
+ >>> oscillator = Oscillator(freq=100.0)  # Set frequency to 100.0 Hz
+>>> oscillator.period  # Period is 1 / frequency, i.e. 0.01 seconds
 0.01
-&gt;&gt;&gt; oscillator.period = 0.02  # Set period to 0.02 seconds
-&gt;&gt;&gt; oscillator.freq # The frequency is automatically adjusted
+>>> oscillator.period = 0.02  # Set period to 0.02 seconds
+>>> oscillator.freq # The frequency is automatically adjusted
 50.0
-&gt;&gt;&gt; oscillator.freq = 200.0  # Set the frequency to 200.0 Hz
-&gt;&gt;&gt; oscillator.period  # The period is automatically adjusted
+>>> oscillator.freq = 200.0  # Set the frequency to 200.0 Hz
+>>> oscillator.period  # The period is automatically adjusted
 0.005
 
 ```
 
-We pick one of the values (frequency, in Hertz) as the "anchor," i.e. the one that can be set with no conversion, and write a descriptor class for it:
+We pick one of the values (frequency, in Hertz) as the &quot;anchor,&quot; i.e. the one that can be set with no conversion, and write a descriptor class for it:
 
 ```
 class Hertz(object):
@@ -92,7 +93,7 @@ class Hertz(object):
 
 ```
 
-The "other" value (period, in seconds) is defined in terms of the anchor. We write a descriptor class that does our conversions:
+The &quot;other&quot; value (period, in seconds) is defined in terms of the anchor. We write a descriptor class that does our conversions:
 
 ```
 class Second(object):

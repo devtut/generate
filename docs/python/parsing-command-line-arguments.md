@@ -26,7 +26,7 @@ parser.add_argument('-g', '--greeting',
 
 args = parser.parse_args()
 
-print("{greeting}, {name}!".format(
+print(&quot;{greeting}, {name}!&quot;.format(
        greeting=args.greeting,
        name=args.name)
 )
@@ -55,14 +55,14 @@ Howdy, John!
 
 ```
 
-For more details please read the [argparse documentation](http://web.archive.org/web/20170221161121/https://docs.python.org/3/library/argparse.html).
+For more details please read the [argparse documentation](https://docs.python.org/3/library/argparse.html).
 
 
 
 ## Using command line arguments with argv
 
 
-Whenever a Python script is invoked from the command line, the user may supply additional **command line arguments** which will be passed on to the script. These arguments will be available to the programmer from the system variable `sys.argv` ("argv" is a traditional name used in most programming languages, and it means "**arg**ument **v**ector").
+Whenever a Python script is invoked from the command line, the user may supply additional **command line arguments** which will be passed on to the script. These arguments will be available to the programmer from the system variable `sys.argv` (&quot;argv&quot; is a traditional name used in most programming languages, and it means &quot;**arg**ument **v**ector&quot;).
 
 By convention, the first element in the `sys.argv` list is the name of the Python script itself, while the rest of the elements are the tokens passed by the user when invoking the script.
 
@@ -72,13 +72,13 @@ import sys
 print(sys.argv)
 
 $ python cli.py
-=&gt; ['cli.py']
+=> ['cli.py']
 
 $ python cli.py fizz
-=&gt; ['cli.py', 'fizz']
+=> ['cli.py', 'fizz']
 
 $ python cli.py fizz buzz
-=&gt; ['cli.py', 'fizz', 'buzz']
+=> ['cli.py', 'fizz', 'buzz']
 
 ```
 
@@ -89,12 +89,12 @@ import getpass
 import sys
 
 words = sys.argv[1:]
-sentence = " ".join(words)
-print("[%s] %s" % (getpass.getuser(), sentence))
+sentence = &quot; &quot;.join(words)
+print(&quot;[%s] %s&quot; % (getpass.getuser(), sentence))
 
 ```
 
-The algorithm commonly used when "manually" parsing a number of non-positional arguments is to iterate over the `sys.argv` list. One way is to go over the list and pop each element of it:
+The algorithm commonly used when &quot;manually&quot; parsing a number of non-positional arguments is to iterate over the `sys.argv` list. One way is to go over the list and pop each element of it:
 
 ```
 # reverse and copy sys.argv
@@ -102,7 +102,7 @@ argv = reversed(sys.argv)
 # extract the first element
 arg = argv.pop()
 # stop iterating when there's no more args to pop()
-while len(argv) &gt; 0:
+while len(argv) > 0:
     if arg in ('-f', '--foo'):
         print('seen foo!')
     elif arg in ('-b', '--bar'):
@@ -127,11 +127,11 @@ import argparse
 
 parser = argparse.ArgumentParser()
 group = parser.add_mutually_exclusive_group()
-group.add_argument("-f", "--foo")
-group.add_argument("-b", "--bar")
+group.add_argument(&quot;-f&quot;, &quot;--foo&quot;)
+group.add_argument(&quot;-b&quot;, &quot;--bar&quot;)
 args = parser.parse_args()
-print "foo = ", args.foo
-print "bar = ", args.bar
+print &quot;foo = &quot;, args.foo
+print &quot;bar = &quot;, args.bar
 
 ```
 
@@ -144,21 +144,21 @@ If you try to run the script specifying both `--foo` and `--bar` arguments, the 
 ## Basic example with docopt
 
 
-[docopt](http://web.archive.org/web/20170221161121/http://docopt.org/) turns command-line argument parsing on its head. Instead of parsing the arguments, you just **write the usage string** for your program, and docopt **parses the usage string** and uses it to extract the command line arguments.
+[docopt](http://docopt.org/) turns command-line argument parsing on its head. Instead of parsing the arguments, you just **write the usage string** for your program, and docopt **parses the usage string** and uses it to extract the command line arguments.
 
 ```
-"""
+&quot;&quot;&quot;
 Usage:
-    script_name.py [-a] [-b] &lt;path&gt;
+    script_name.py [-a] [-b] <path>
 
 Options:
     -a            Print all the things.
     -b            Get more bees into the path.
-"""
+&quot;&quot;&quot;
 from docopt import docopt
 
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
     args = docopt(__doc__)
     import pprint; pprint.pprint(args)
 
@@ -169,19 +169,19 @@ Sample runs:
 ```
 $ python script_name.py
 Usage:
-    script_name.py [-a] [-b] &lt;path&gt;
+    script_name.py [-a] [-b] <path>
 $ python script_name.py something
 {'-a': False,
  '-b': False,
- '&lt;path&gt;': 'something'}
+ '<path>': 'something'}
 $ python script_name.py something -a
 {'-a': True,
  '-b': False,
- '&lt;path&gt;': 'something'}
+ '<path>': 'something'}
 $ python script_name.py -b something -a
 {'-a': True,
  '-b': True,
- '&lt;path&gt;': 'something'}
+ '<path>': 'something'}
 
 ```
 
@@ -196,14 +196,14 @@ You can create parser error messages according to your script needs. This is thr
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--foo")
-parser.add_argument("-b", "--bar")
+parser.add_argument(&quot;-f&quot;, &quot;--foo&quot;)
+parser.add_argument(&quot;-b&quot;, &quot;--bar&quot;)
 args = parser.parse_args()
 if args.foo and args.bar is None:
-    parser.error("--foo requires --bar. You did not specify bar.")
+    parser.error(&quot;--foo requires --bar. You did not specify bar.&quot;)
 
-print "foo =", args.foo
-print "bar =", args.bar
+print &quot;foo =&quot;, args.foo
+print &quot;bar =&quot;, args.bar
 
 ```
 
@@ -214,49 +214,6 @@ The script will complain with the following:
 ```
 usage: sample.py [-h] [-f FOO] [-b BAR]
 sample.py: error: --foo requires --bar. You did not specify bar.
-
-```
-
-
-
-## Advanced example with docopt and docopt_dispatch
-
-
-As with docopt, with [docopt_dispatch] you craft your `--help` in the `__doc__` variable of your entry-point module. There, you call `dispatch` with the doc string as argument, so it can run the parser over it.
-
-That being done, instead of handling manually the arguments (which usually ends up in a high cyclomatic if/else structure), you leave it to dispatch giving only how you want to handle the set of arguments.
-
-This is what the `dispatch.on` decorator is for: you give it the argument or sequence of arguments that should trigger the function, and that function will be executed with the matching values as parameters.
-
-```
-"""Run something in development or production mode.
-
-Usage: run.py --development &lt;host&gt; &lt;port&gt;
-       run.py --production &lt;host&gt; &lt;port&gt;
-       run.py items add &lt;item&gt;
-       run.py items delete &lt;item&gt;
-
-"""
-from docopt_dispatch import dispatch
-
-@dispatch.on('--development')
-def development(host, port, **kwargs):
-    print('in *development* mode')
-
-@dispatch.on('--production')
-def development(host, port, **kwargs):
-    print('in *production* mode')
-
-@dispatch.on('items', 'add')
-def items_add(item, **kwargs):
-    print('adding item...')
-
-@dispatch.on('items', 'delete')
-def items_delete(item, **kwargs):
-    print('deleting item...')
-
-if __name__ == '__main__':
-    dispatch(__doc__)
 
 ```
 
@@ -340,6 +297,49 @@ Foo options:
 Bar options:
   --foo_this FOO_THIS
   --foo_that FOO_THAT
+
+```
+
+
+
+## Advanced example with docopt and docopt_dispatch
+
+
+As with docopt, with [docopt_dispatch] you craft your `--help` in the `__doc__` variable of your entry-point module. There, you call `dispatch` with the doc string as argument, so it can run the parser over it.
+
+That being done, instead of handling manually the arguments (which usually ends up in a high cyclomatic if/else structure), you leave it to dispatch giving only how you want to handle the set of arguments.
+
+This is what the `dispatch.on` decorator is for: you give it the argument or sequence of arguments that should trigger the function, and that function will be executed with the matching values as parameters.
+
+```
+&quot;&quot;&quot;Run something in development or production mode.
+
+Usage: run.py --development <host> <port>
+       run.py --production <host> <port>
+       run.py items add <item>
+       run.py items delete <item>
+
+&quot;&quot;&quot;
+from docopt_dispatch import dispatch
+
+@dispatch.on('--development')
+def development(host, port, **kwargs):
+    print('in *development* mode')
+
+@dispatch.on('--production')
+def development(host, port, **kwargs):
+    print('in *production* mode')
+
+@dispatch.on('items', 'add')
+def items_add(item, **kwargs):
+    print('adding item...')
+
+@dispatch.on('items', 'delete')
+def items_delete(item, **kwargs):
+    print('deleting item...')
+
+if __name__ == '__main__':
+    dispatch(__doc__)
 
 ```
 

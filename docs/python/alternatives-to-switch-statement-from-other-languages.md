@@ -2,6 +2,40 @@
 
 
 
+## Use what the language offers: the if/else construct.
+
+
+Well, if you want a `switch`/`case` construct, the most straightforward way to go is to use the good old `if`/`else` construct:
+
+```
+def switch(value):
+    if value == 1:
+        return &quot;one&quot;
+    if value == 2:
+        return &quot;two&quot;
+    if value == 42:
+        return &quot;the answer to the question about life, the universe and everything&quot;
+    raise Exception(&quot;No case found!&quot;)
+
+```
+
+it might look redundant, and not always pretty, but that's by far the most efficient way to go, and it does the job:
+
+```
+>>> switch(1)
+one
+>>> switch(2)
+two
+>>> switch(3)
+…
+Exception: No case found!
+>>> switch(42)
+the answer to the question about life the universe and everything
+
+```
+
+
+
 ## Use a dict of functions
 
 
@@ -27,14 +61,14 @@ def default_case():
 and you use the dictionary's get method to get the function given the value to check and run it. If value does not exists in dictionary, then `default_case` is run.
 
 ```
-&gt;&gt;&gt; switch.get(1, default_case)()
+>>> switch.get(1, default_case)()
 one
-&gt;&gt;&gt; switch.get(2, default_case)()
+>>> switch.get(2, default_case)()
 two
-&gt;&gt;&gt; switch.get(3, default_case)()
+>>> switch.get(3, default_case)()
 …
 Exception: No case found!
-&gt;&gt;&gt; switch.get(42, default_case)()
+>>> switch.get(42, default_case)()
 the answer of life the universe and everything
 
 ```
@@ -45,7 +79,7 @@ you can also make some syntactic sugar so the switch looks nicer:
 def run_switch(value):
     return switch.get(value, default_case)()
 
-&gt;&gt;&gt; run_switch(1)
+>>> run_switch(1)
 one
 
 ```
@@ -55,7 +89,7 @@ one
 ## Use class introspection
 
 
-You can use a class to mimic the switch/case structure. The following is using introspection of a class (using the `getattr()` function that resolves a string into a bound method on an instance) to resolve the "case" part.
+You can use a class to mimic the switch/case structure. The following is using introspection of a class (using the `getattr()` function that resolves a string into a bound method on an instance) to resolve the &quot;case&quot; part.
 
 Then that introspecting method is aliased to the `__call__` method to overload the `()` operator.
 
@@ -92,50 +126,16 @@ class CustomSwitcher:
 so then we can finally use it:
 
 ```
-&gt;&gt;&gt; switch = CustomSwitcher()
-&gt;&gt;&gt; print(switch(1))
+>>> switch = CustomSwitcher()
+>>> print(switch(1))
 one
-&gt;&gt;&gt; print(switch(2))
+>>> print(switch(2))
 two
-&gt;&gt;&gt; print(switch(3))
+>>> print(switch(3))
 …
 Exception: Not a case!
-&gt;&gt;&gt; print(switch(42))
+>>> print(switch(42))
 the answer of life, the universe and everything!
-
-```
-
-
-
-## Use what the language offers: the if/else construct.
-
-
-Well, if you want a `switch`/`case` construct, the most straightforward way to go is to use the good old `if`/`else` construct:
-
-```
-def switch(value):
-    if value == 1:
-        return "one"
-    if value == 2:
-        return "two"
-    if value == 42:
-        return "the answer to the question about life, the universe and everything"
-    raise Exception("No case found!")
-
-```
-
-it might look redundant, and not always pretty, but that's by far the most efficient way to go, and it does the job:
-
-```
-&gt;&gt;&gt; switch(1)
-one
-&gt;&gt;&gt; switch(2)
-two
-&gt;&gt;&gt; switch(3)
-…
-Exception: No case found!
-&gt;&gt;&gt; switch(42)
-the answer to the question about life the universe and everything
 
 ```
 
@@ -178,33 +178,33 @@ def run_switch(value):
 So the execution would be:
 
 ```
-&gt;&gt;&gt; run_switch(1)
+>>> run_switch(1)
 one
-&gt;&gt;&gt; run_switch(2)
+>>> run_switch(2)
 two
-&gt;&gt;&gt; run_switch(3)
+>>> run_switch(3)
 …
 Exception: Not a case!
-&gt;&gt;&gt; run_switch(42)
+>>> run_switch(42)
 the answer to the question about life, the universe and everything
 
 ```
 
 **Nota Bene**:
 
-- This solution is being offered as the [**switch** module available on pypi](http://web.archive.org/web/20170816202306/https://pypi.python.org/pypi/switch/1.0.3).
+- This solution is being offered as the [**switch** module available on pypi](https://pypi.python.org/pypi/switch/1.0.3).
 
 
 
 #### Remarks
 
 
-There is **NO** switch statement in python as a language design choice. There has been a PEP ([PEP-3103](http://web.archive.org/web/20170816202306/https://www.python.org/dev/peps/pep-3103/)) covering the topic that has been rejected.
+There is **NO** switch statement in python as a language design choice. There has been a PEP ([PEP-3103](https://www.python.org/dev/peps/pep-3103/)) covering the topic that has been rejected.
 
 You can find many list of recipes on how to do your own switch statements in python, and here I'm trying to suggest the most sensible options. Here are a few places to check:
 
-- [http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python](http://web.archive.org/web/20170816202306/http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python)
-- [http://code.activestate.com/recipes/269708-some-python-style-switches/](http://web.archive.org/web/20170816202306/http://code.activestate.com/recipes/269708-some-python-style-switches/)
-- [http://code.activestate.com/recipes/410692-readable-switch-construction-without-lambdas-or-di/](http://web.archive.org/web/20170816202306/http://code.activestate.com/recipes/410692-readable-switch-construction-without-lambdas-or-di/)
+- [http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python](http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python)
+- [http://code.activestate.com/recipes/269708-some-python-style-switches/](http://code.activestate.com/recipes/269708-some-python-style-switches/)
+- [http://code.activestate.com/recipes/410692-readable-switch-construction-without-lambdas-or-di/](http://code.activestate.com/recipes/410692-readable-switch-construction-without-lambdas-or-di/)
 - …
 

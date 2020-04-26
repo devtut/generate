@@ -2,6 +2,7 @@
 
 
 
+
 ## Overzealous except clause
 
 
@@ -9,11 +10,11 @@ Exceptions are powerful, but a single overzealous except clause can take it all 
 
 This example demonstrates 3 symptoms of the antipattern:
 
-1. The `except` with no exception type (line 5) will catch even healthy exceptions, including [`KeyboardInterrupt`](http://web.archive.org/web/20170405113730/https://docs.python.org/2/library/exceptions.html#exceptions.KeyboardInterrupt). That will prevent the program from exiting in some cases.
+1. The `except` with no exception type (line 5) will catch even healthy exceptions, including [`KeyboardInterrupt`](https://docs.python.org/2/library/exceptions.html#exceptions.KeyboardInterrupt). That will prevent the program from exiting in some cases.
 1. The except block does not reraise the error, meaning that we won't be able to tell if the exception came from within `get_result` or because `res` was an empty list.
-1. Worst of all, if we were worried about result being empty, we've caused something much worse. If `get_result` fails, `res` will stay completely unset, and the reference to `res` in the except block, will raise [`NameError`](http://web.archive.org/web/20170405113730/https://docs.python.org/2/library/exceptions.html#exceptions.NameError), completely masking the original error.
+1. Worst of all, if we were worried about result being empty, we've caused something much worse. If `get_result` fails, `res` will stay completely unset, and the reference to `res` in the except block, will raise [`NameError`](https://docs.python.org/2/library/exceptions.html#exceptions.NameError), completely masking the original error.
 
-Always think about the type of exception you're trying to handle. Give [the exceptions page a read](http://web.archive.org/web/20170405113730/https://docs.python.org/2/library/exceptions.html) and get a feel for what basic exceptions exist.
+Always think about the type of exception you're trying to handle. Give [the exceptions page a read](https://docs.python.org/2/library/exceptions.html) and get a feel for what basic exceptions exist.
 
 Here is a fixed version of the example above:
 
@@ -29,7 +30,7 @@ A program can easily waste time by calling a processor-intensive function multip
 For example, take a function which looks like this: it returns an integer if the input `value` can produce one, else `None`:
 
 ```
-def intensive_f(value): # int -&gt; Optional[int]
+def intensive_f(value): # int -> Optional[int]
    # complex, and time-consuming code
    if process_has_failed:
        return None
@@ -44,7 +45,7 @@ x = 5
 if intensive_f(x) is not None:
     print(intensive_f(x) / 2)
 else:
-    print(x, "could not be processed")
+    print(x, &quot;could not be processed&quot;)
 
 print(x)
 
@@ -58,18 +59,18 @@ result = intensive_f(x)
 if result is not None:
     print(result / 2)
 else:
-    print(x, "could not be processed")
+    print(x, &quot;could not be processed&quot;)
 
 ```
 
-However, a clearer and [possibly more pythonic way](http://web.archive.org/web/20170405113730/https://docs.python.org/3/glossary.html#term-eafp) is to use exceptions, for example:
+However, a clearer and [possibly more pythonic way](https://docs.python.org/3/glossary.html#term-eafp) is to use exceptions, for example:
 
 ```
 x = 5
 try:
     print(intensive_f(x) / 2)
 except TypeError: # The exception raised if None + 1 is attempted
-    print(x, "could not be processed")
+    print(x, &quot;could not be processed&quot;)
 
 ```
 
@@ -82,10 +83,10 @@ A common example of where this may be found is accessing dictionary keys. For ex
 ```
 bird_speeds = get_very_long_dictionary()
 
-if "european swallow" in bird_speeds:
-    speed = bird_speeds["european swallow"]
+if &quot;european swallow&quot; in bird_speeds:
+    speed = bird_speeds[&quot;european swallow&quot;]
 else:
-    speed = input("What is the air-speed velocity of an unladen swallow?")
+    speed = input(&quot;What is the air-speed velocity of an unladen swallow?&quot;)
 
 print(speed)
 
@@ -97,9 +98,9 @@ with:
 bird_speeds = get_very_long_dictionary()
 
 try:
-    speed = bird_speeds["european swallow"]
+    speed = bird_speeds[&quot;european swallow&quot;]
 except KeyError:
-    speed = input("What is the air-speed velocity of an unladen swallow?")
+    speed = input(&quot;What is the air-speed velocity of an unladen swallow?&quot;)
 
 print(speed)
 

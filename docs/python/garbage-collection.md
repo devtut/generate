@@ -2,18 +2,19 @@
 
 
 
+
 ## Reuse of primitive objects
 
 
 An interesting thing to note which may help optimize your applications is that primitives are actually also refcounted under the hood. Let's take a look at numbers; for all integers between -5 and 256, Python always reuses the same object:
 
 ```
-&gt;&gt;&gt; import sys
-&gt;&gt;&gt; sys.getrefcount(1)
+>>> import sys
+>>> sys.getrefcount(1)
 797
-&gt;&gt;&gt; a = 1
-&gt;&gt;&gt; b = 1
-&gt;&gt;&gt; sys.getrefcount(1)
+>>> a = 1
+>>> b = 1
+>>> sys.getrefcount(1)
 799
 
 ```
@@ -21,11 +22,11 @@ An interesting thing to note which may help optimize your applications is that p
 Note that the refcount increases, meaning that `a` and `b` reference the same underlying object when they refer to the `1` primitive. However, for larger numbers, Python actually doesn't reuse the underlying object:
 
 ```
-&gt;&gt;&gt; a = 999999999
-&gt;&gt;&gt; sys.getrefcount(999999999)
+>>> a = 999999999
+>>> sys.getrefcount(999999999)
 3
-&gt;&gt;&gt; b = 999999999
-&gt;&gt;&gt; sys.getrefcount(999999999)
+>>> b = 999999999
+>>> sys.getrefcount(999999999)
 3
 
 ```
@@ -40,22 +41,74 @@ Because the refcount for `999999999` does not change when assigning it to `a` an
 Removing a variable name from the scope using `del v`, or removing an object from a collection using `del v[item]` or `del[i:j]`, or removing an attribute using `del v.name`, or any other way of removing references to an object, **does not** trigger any destructor calls or any memory being freed in and of itself. Objects are only destructed when their reference count reaches zero.
 
 ```
-&gt;&gt;&gt; import gc
-&gt;&gt;&gt; gc.disable()  # disable garbage collector
-&gt;&gt;&gt; class Track:
+>>> import gc
+>>> gc.disable()  # disable garbage collector
+>>> class Track:
         def __init__(self):
-            print("Initialized")
+            print(&quot;Initialized&quot;)
         def __del__(self):
-            print("Destructed")
-&gt;&gt;&gt; def bar():
+            print(&quot;Destructed&quot;)
+>>> def bar():
     return Track()
-&gt;&gt;&gt; t = bar()
+>>> t = bar()
 Initialized
-&gt;&gt;&gt; another_t = t  # assign another reference
-&gt;&gt;&gt; print("...")
+>>> another_t = t  # assign another reference
+>>> print(&quot;...&quot;)
 ...
-&gt;&gt;&gt; del t          # not destructed yet - another_t still refers to it
-&gt;&gt;&gt; del another_t  # final reference gone, object is destructed
+>>> del t          # not destructed yet - another_t still refers to it
+>>> del another_t  # final reference gone, object is destructed
+Destructed
+
+```
+
+
+
+## Reference Counting
+
+
+The vast majority of Python memory management is handled with reference counting.
+
+Every time an object is referenced (e.g. assigned to a variable), its reference count is automatically increased. When it is dereferenced (e.g. variable goes out of scope), its reference count is automatically decreased.
+
+When the reference count reaches zero, the object is **immediately destroyed** and the memory is immediately freed. Thus for the majority of cases, the garbage collector is not even needed.
+
+```
+>>> import gc; gc.disable()  # disable garbage collector
+>>> class Track:
+        def __init__(self):
+            print(&quot;Initialized&quot;)
+        def __del__(self):
+            print(&quot;Destructed&quot;)
+>>> def foo():
+        Track()
+        # destructed immediately since no longer has any references
+        print(&quot;---&quot;)
+        t = Track()
+        # variable is referenced, so it's not destructed yet
+        print(&quot;---&quot;)
+        # variable is destructed when function exits
+>>> foo()
+Initialized
+Destructed
+---
+Initialized
+---
+Destructed
+
+```
+
+To demonstrate further the concept of references:
+
+```
+>>> def bar():
+        return Track()
+>>> t = bar()
+Initialized
+>>> another_t = t  # assign another reference
+>>> print(&quot;...&quot;)
+...
+>>> t = None          # not destructed yet - another_t still refers to it
+>>> another_t = None  # final reference gone, object is destructed
 Destructed
 
 ```
@@ -68,20 +121,20 @@ Destructed
 The only time the garbage collector is needed is if you have a **reference cycle**. The simples example of a reference cycle is one in which A refers to B and B refers to A, while nothing else refers to either A or B. Neither A or B are accessible from anywhere in the program, so they can safely be destructed, yet their reference counts are 1 and so they cannot be freed by the reference counting algorithm alone.
 
 ```
-&gt;&gt;&gt; import gc; gc.disable()  # disable garbage collector
-&gt;&gt;&gt; class Track:
+>>> import gc; gc.disable()  # disable garbage collector
+>>> class Track:
         def __init__(self):
-            print("Initialized")
+            print(&quot;Initialized&quot;)
         def __del__(self):
-            print("Destructed")
-&gt;&gt;&gt; A = Track()
+            print(&quot;Destructed&quot;)
+>>> A = Track()
 Initialized
-&gt;&gt;&gt; B = Track()
+>>> B = Track()
 Initialized
-&gt;&gt;&gt; A.other = B
-&gt;&gt;&gt; B.other = A
-&gt;&gt;&gt; del A; del B  # objects are not destructed due to reference cycle
-&gt;&gt;&gt; gc.collect()  # trigger collection
+>>> A.other = B
+>>> B.other = A
+>>> del A; del B  # objects are not destructed due to reference cycle
+>>> gc.collect()  # trigger collection
 Destructed
 Destructed
 4
@@ -91,7 +144,7 @@ Destructed
 A reference cycle can be arbitrary long. If A points to B points to C points to ... points to Z which points to A, then neither A through Z will be collected, until the garbage collection phase:
 
 ```
-&gt;&gt;&gt; objs = [Track() for _ in range(10)]
+>>> objs = [Track() for _ in range(10)]
 Initialized
 Initialized
 Initialized
@@ -102,12 +155,12 @@ Initialized
 Initialized
 Initialized
 Initialized
-&gt;&gt;&gt; for i in range(len(objs)-1):
+>>> for i in range(len(objs)-1):
 ...     objs[i].other = objs[i + 1]
 ...
-&gt;&gt;&gt; objs[-1].other = objs[0]  # complete the cycle
-&gt;&gt;&gt; del objs                  # no one can refer to objs now - still not destructed
-&gt;&gt;&gt; gc.collect()
+>>> objs[-1].other = objs[0]  # complete the cycle
+>>> del objs                  # no one can refer to objs now - still not destructed
+>>> gc.collect()
 Destructed
 Destructed
 Destructed
@@ -124,53 +177,20 @@ Destructed
 
 
 
-## Reference Counting
+## Viewing the refcount of an object
 
-
-The vast majority of Python memory management is handled with reference counting.
-
-Every time an object is referenced (e.g. assigned to a variable), its reference count is automatically increased. When it is dereferenced (e.g. variable goes out of scope), its reference count is automatically decreased.
-
-When the reference count reaches zero, the object is **immediately destroyed** and the memory is immediately freed. Thus for the majority of cases, the garbage collector is not even needed.
 
 ```
-&gt;&gt;&gt; import gc; gc.disable()  # disable garbage collector
-&gt;&gt;&gt; class Track:
-        def __init__(self):
-            print("Initialized")
-        def __del__(self):
-            print("Destructed")
-&gt;&gt;&gt; def foo():
-        Track()
-        # destructed immediately since no longer has any references
-        print("---")
-        t = Track()
-        # variable is referenced, so it's not destructed yet
-        print("---")
-        # variable is destructed when function exits
-&gt;&gt;&gt; foo()
-Initialized
-Destructed
----
-Initialized
----
-Destructed
-
-```
-
-To demonstrate further the concept of references:
-
-```
-&gt;&gt;&gt; def bar():
-        return Track()
-&gt;&gt;&gt; t = bar()
-Initialized
-&gt;&gt;&gt; another_t = t  # assign another reference
-&gt;&gt;&gt; print("...")
-...
-&gt;&gt;&gt; t = None          # not destructed yet - another_t still refers to it
-&gt;&gt;&gt; another_t = None  # final reference gone, object is destructed
-Destructed
+>>> import sys
+>>> a = object()
+>>> sys.getrefcount(a)
+2
+>>> b = a
+>>> sys.getrefcount(a)
+3
+>>> del b
+>>> sys.getrefcount(a)
+2
 
 ```
 
@@ -202,57 +222,6 @@ deallocated = 12345
 After running, any reference to the now deallocated object will cause Python to either produce undefined behavior or crash - without a traceback. There was probably a reason why the garbage collector didn't remove that object...
 
 If you deallocate `None`, you get a special message - `Fatal Python error: deallocating None` before crashing.
-
-
-
-## Viewing the refcount of an object
-
-
-```
-&gt;&gt;&gt; import sys
-&gt;&gt;&gt; a = object()
-&gt;&gt;&gt; sys.getrefcount(a)
-2
-&gt;&gt;&gt; b = a
-&gt;&gt;&gt; sys.getrefcount(a)
-3
-&gt;&gt;&gt; del b
-&gt;&gt;&gt; sys.getrefcount(a)
-2
-
-```
-
-
-
-## Do not wait for the garbage collection to clean up
-
-
-The fact that the garbage collection will clean up does not mean that you should wait for the garbage collection cycle to clean up.
-
-In particular you should not wait for garbage collection to close file handles, database connections and open network connections.
-
-for example:
-
-In the following code, you assume that the file will be closed on the next garbage collection cycle, if f was the last reference to the file.
-
-```
-&gt;&gt;&gt; f = open("test.txt")
-&gt;&gt;&gt; del f
-
-```
-
-A more explicit way to clean up is to call `f.close()`. You can do it even more elegant, that is by using the `with` statement, also known as the <a href="http://web.archive.org/web/20170816200401/http://stackoverflow.com/documentation/python/928/context-managers-with-statement">context manager
-</a>:
-
-```
-&gt;&gt;&gt; with open("test.txt") as f:
-...     pass
-...     # do something with f
-&gt;&gt;&gt; #now the f object still exists, but it is closed
-
-```
-
-The `with` statement allows you to indent your code under the open file. This makes it explicit and easier to see how long a file is kept open. It also always closes a file, even if an exception is raised in the `while` block.
 
 
 
@@ -294,6 +263,38 @@ For long-running programs, the garbage collection can be triggered on a time bas
 
 
 
+## Do not wait for the garbage collection to clean up
+
+
+The fact that the garbage collection will clean up does not mean that you should wait for the garbage collection cycle to clean up.
+
+In particular you should not wait for garbage collection to close file handles, database connections and open network connections.
+
+for example:
+
+In the following code, you assume that the file will be closed on the next garbage collection cycle, if f was the last reference to the file.
+
+```
+>>> f = open(&quot;test.txt&quot;)
+>>> del f
+
+```
+
+A more explicit way to clean up is to call `f.close()`. You can do it even more elegant, that is by using the `with` statement, also known as the <a href="http://stackoverflow.com/documentation/python/928/context-managers-with-statement">context manager
+</a>:
+
+```
+>>> with open(&quot;test.txt&quot;) as f:
+...     pass
+...     # do something with f
+>>> #now the f object still exists, but it is closed
+
+```
+
+The `with` statement allows you to indent your code under the open file. This makes it explicit and easier to see how long a file is kept open. It also always closes a file, even if an exception is raised in the `while` block.
+
+
+
 #### Remarks
 
 
@@ -307,11 +308,11 @@ Python aggresively creates or cleans up objects the first time it needs them If 
 
 In the 1960's John McCarthy discovered a fatal flaw in refcounting garbage collection when he implemented the refcounting algorithm used by Lisp: What happens if two objects refer to each other in a cyclic reference? How can you ever garbage collect those two objects even if there are no external references to them if they will always refer to eachother? This problem also extends to any cyclic data structure, such as a ring buffers or any two consecutive entries in a doubly linked list. Python attempts to fix this problem using a slightly interesting twist on another garbage collection algorithm called **Generational Garbage Collection**.
 
-In essence, any time you create an object in Python it adds it to the end of a doubly linked list. On occasion Python loops through this list, checks what objects the objects in the list refer too, and if they're also in the list (we'll see why they might not be in a moment), further decrements their refcounts. At this point (actually, there are some heuristics that determine when things get moved, but let's assume it's after a single collection to keep things simple) anything that still has a refcount greater than 0 gets promoted to another linked list called "Generation 1" (this is why all objects aren't always in the generation 0 list) which has this loop applied to it less often. This is where the generational garbage collection comes in. There are 3 generations by default in Python (three linked lists of objects): The first list (generation 0) contains all new objects; if a GC cycle happens and the objects are not collected, they get moved to the second list (generation 1), and if a GC cycle happens on the second list and they are still not collected they get moved to the third list (generation 2). The third generation list (called "generation 2", since we're zero indexing) is garbage collected much less often than the first two, the idea being that if your object is long lived it's not as likely to be GCed, and may never be GCed during the lifetime of your application so there's no point in wasting time checking it on every single GC run. Furthermore, it's observed that most objects are garbage collected relatively quickly. From now on, we'll call these "good objects" since they die young. This is called the "weak generational hypothesis" and was also first observed in the 60s.
+In essence, any time you create an object in Python it adds it to the end of a doubly linked list. On occasion Python loops through this list, checks what objects the objects in the list refer too, and if they're also in the list (we'll see why they might not be in a moment), further decrements their refcounts. At this point (actually, there are some heuristics that determine when things get moved, but let's assume it's after a single collection to keep things simple) anything that still has a refcount greater than 0 gets promoted to another linked list called &quot;Generation 1&quot; (this is why all objects aren't always in the generation 0 list) which has this loop applied to it less often. This is where the generational garbage collection comes in. There are 3 generations by default in Python (three linked lists of objects): The first list (generation 0) contains all new objects; if a GC cycle happens and the objects are not collected, they get moved to the second list (generation 1), and if a GC cycle happens on the second list and they are still not collected they get moved to the third list (generation 2). The third generation list (called &quot;generation 2&quot;, since we're zero indexing) is garbage collected much less often than the first two, the idea being that if your object is long lived it's not as likely to be GCed, and may never be GCed during the lifetime of your application so there's no point in wasting time checking it on every single GC run. Furthermore, it's observed that most objects are garbage collected relatively quickly. From now on, we'll call these &quot;good objects&quot; since they die young. This is called the &quot;weak generational hypothesis&quot; and was also first observed in the 60s.
 
-A quick aside: unlike the first two generations, the long lived third generation list is not garbage collected on a regular schedule. It is checked when the ratio of long lived pending objects (those that are in the third generation list, but haven't actually had a GC cycle yet) to the total long lived objects in the list is greater than 25%. This is because the third list is unbounded (things are never moved off of it to another list, so they only go away when they're actually garbage collected), meaning that for applications where you are creating lots of long lived objects, GC cycles on the third list can get quite long. By using a ratio we achieve "amortized linear performance in the total number of objects"; aka, the longer the list, the longer GC takes, but the less often we perform GC (here's the [original 2008 proposal](http://web.archive.org/web/20170816200401/https://mail.python.org/pipermail/python-dev/2008-June/080579.html) for this heuristic by Martin von Löwis for futher reading). The act of performing a garbage collection on the third generation or "mature" list is called "full garbage collection".
+A quick aside: unlike the first two generations, the long lived third generation list is not garbage collected on a regular schedule. It is checked when the ratio of long lived pending objects (those that are in the third generation list, but haven't actually had a GC cycle yet) to the total long lived objects in the list is greater than 25%. This is because the third list is unbounded (things are never moved off of it to another list, so they only go away when they're actually garbage collected), meaning that for applications where you are creating lots of long lived objects, GC cycles on the third list can get quite long. By using a ratio we achieve &quot;amortized linear performance in the total number of objects&quot;; aka, the longer the list, the longer GC takes, but the less often we perform GC (here's the [original 2008 proposal](https://mail.python.org/pipermail/python-dev/2008-June/080579.html) for this heuristic by Martin von Löwis for futher reading). The act of performing a garbage collection on the third generation or &quot;mature&quot; list is called &quot;full garbage collection&quot;.
 
-So the generational garbage collection speeds things up tremdously by not requiring that we scan over objects that aren't likely to need GC all the time, but how does it help us break cyclic references? Probably not very well, it turns out. The function for actually breaking these reference cycles starts out [like this](http://web.archive.org/web/20170816200401/https://github.com/python/cpython/blob/8f33d77/Modules/gcmodule.c#L847):
+So the generational garbage collection speeds things up tremdously by not requiring that we scan over objects that aren't likely to need GC all the time, but how does it help us break cyclic references? Probably not very well, it turns out. The function for actually breaking these reference cycles starts out [like this](https://github.com/python/cpython/blob/8f33d77/Modules/gcmodule.c#L847):
 
 ```
 /* Break reference cycles by clearing the containers involved.  This is
@@ -331,14 +332,14 @@ class A(object):
         self.b = b
  
     def __del__(self):
-        print("We're deleting an instance of A containing:", self.b)
+        print(&quot;We're deleting an instance of A containing:&quot;, self.b)
      
 class B(object):
     def __init__(self, a=None):
         self.a = a
  
     def __del__(self):
-        print("We're deleting an instance of B containing:", self.a)
+        print(&quot;We're deleting an instance of B containing:&quot;, self.a)
 
 ```
 

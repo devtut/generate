@@ -24,5 +24,5 @@ Out[4]: '$762,559,748.49'
 #### Remarks
 
 
-Python 2 Docs: [[https://docs.python.org/2/library/locale.html#locale.currency][1]](http://web.archive.org/web/20170816195402/https://docs.python.org/2/library/locale.html#locale.currency%5D%5B1%5D)
+Python 2 Docs: [[https://docs.python.org/2/library/locale.html#locale.currency][1]](https://docs.python.org/2/library/locale.html#locale.currency%5D%5B1%5D)
 

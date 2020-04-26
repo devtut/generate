@@ -2,6 +2,7 @@
 
 
 
+
 ## Working with WAV files
 
 
@@ -11,7 +12,7 @@
 
 ```
 import winsound
-winsound.PlaySound("path_to_wav_file.wav", winsound.SND_FILENAME)
+winsound.PlaySound(&quot;path_to_wav_file.wav&quot;, winsound.SND_FILENAME)
 
 ```
 
@@ -22,13 +23,13 @@ winsound.PlaySound("path_to_wav_file.wav", winsound.SND_FILENAME)
 
 ```
 import wave
-with wave.open("path_to_wav_file.wav", "rb") as wav_file:    # Open WAV file in read-only mode.
+with wave.open(&quot;path_to_wav_file.wav&quot;, &quot;rb&quot;) as wav_file:    # Open WAV file in read-only mode.
     # Get basic information.
     n_channels = wav_file.getnchannels()      # Number of channels. (1=Mono, 2=Stereo).
     sample_width = wav_file.getsampwidth()    # Sample width in bytes.
     framerate = wav_file.getframerate()       # Frame rate.
     n_frames = wav_file.getnframes()          # Number of frames.
-    comp_type = wav_file.getcomptype()        # Compression type (only supports "NONE").
+    comp_type = wav_file.getcomptype()        # Compression type (only supports &quot;NONE&quot;).
     comp_name = wav_file.getcompname()        # Compression name.
 
     # Read audio data.
@@ -36,7 +37,7 @@ with wave.open("path_to_wav_file.wav", "rb") as wav_file:    # Open WAV file in 
     assert len(frames) == sample_width * n_frames
 
 # Duplicate to a new WAV file.
-with wave.open("path_to_new_wav_file.wav", "wb") as wav_file:    # Open WAV file in write-only mode.
+with wave.open(&quot;path_to_new_wav_file.wav&quot;, &quot;wb&quot;) as wav_file:    # Open WAV file in write-only mode.
     # Write audio data.
     params = (n_channels, sample_width, framerate, n_frames, comp_type, comp_name)
     wav_file.setparams(params)
@@ -61,8 +62,8 @@ if ok:
 
 note:
 
-- [http://superuser.com/questions/507386/why-would-i-choose-libav-over-ffmpeg-or-is-there-even-a-difference](http://web.archive.org/web/20170816210625/http://superuser.com/questions/507386/why-would-i-choose-libav-over-ffmpeg-or-is-there-even-a-difference)
-- [What are the differences and similarities between ffmpeg, libav, and avconv?](http://web.archive.org/web/20170816210625/http://stackoverflow.com/questions/9477115/what-are-the-differences-and-similarities-between-ffmpeg-libav-and-avconv)
+- [http://superuser.com/questions/507386/why-would-i-choose-libav-over-ffmpeg-or-is-there-even-a-difference](http://superuser.com/questions/507386/why-would-i-choose-libav-over-ffmpeg-or-is-there-even-a-difference)
+- [What are the differences and similarities between ffmpeg, libav, and avconv?](http://stackoverflow.com/questions/9477115/what-are-the-differences-and-similarities-between-ffmpeg-libav-and-avconv)
 
 
 
@@ -86,10 +87,10 @@ winsound.Beep(freq, dur)
 
 ```
 import pyglet
-audio = pyglet.media.load("audio.wav")
+audio = pyglet.media.load(&quot;audio.wav&quot;)
 audio.play()
 
 ```
 
-For further information, see [pyglet](http://web.archive.org/web/20170816210625/https://pyglet.readthedocs.io/en/pyglet-1.2-maintenance/programming_guide/media.html)
+For further information, see [pyglet](https://pyglet.readthedocs.io/en/pyglet-1.2-maintenance/programming_guide/media.html)
 

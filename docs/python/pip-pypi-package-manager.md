@@ -25,14 +25,11 @@ $ pip install SomePackage==1.0.4
 To specify a minimum version to install for a package:
 
 ```
-$ pip install SomePackage&gt;=1.0.4
+$ pip install SomePackage>=1.0.4
 
 ```
 
 If commands shows permission denied error on Linux/Unix then use `sudo` with the commands
-
----
-
 
 ### Install from requirements files
 
@@ -41,7 +38,7 @@ $ pip install -r requirements.txt
 
 ```
 
-Each line of the requirements file indicates something to be installed, and like arguments to pip install, Details on the format of the files are here: [Requirements File Format](http://web.archive.org/web/20170816195401/https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
+Each line of the requirements file indicates something to be installed, and like arguments to pip install, Details on the format of the files are here: [Requirements File Format](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
 After install the package you can check it using `freeze` command:
 
@@ -109,20 +106,6 @@ on Windows machines.
 
 
 
-## Create a requirements.txt file of all packages on the system
-
-
-`pip` assists in creating `requirements.txt` files by providing the [`freeze`](http://web.archive.org/web/20170816195401/https://pip.pypa.io/en/stable/reference/pip_freeze/) option.
-
-```
-pip freeze &gt; requirements.txt
-
-```
-
-This will save a list of all packages and their version installed on the system to a file named `requirements.txt` in the current folder.
-
-
-
 ## Uninstall Packages
 
 
@@ -155,7 +138,7 @@ This command takes all packages in the local virtualenv and checks if they are o
 `pip` doesn't current contain a flag to allow a user to update all outdated packages in one shot. However, this can be accomplished by piping commands together in a Windows environment:
 
 ```
-for /F "delims= " %i in ('pip list --outdated --local') do pip install -U %i
+for /F &quot;delims= &quot; %i in ('pip list --outdated --local') do pip install -U %i
 
 ```
 
@@ -163,17 +146,31 @@ This command takes all packages in the local virtualenv and checks if they are o
 
 
 
+## Create a requirements.txt file of all packages on the system
+
+
+`pip` assists in creating `requirements.txt` files by providing the [`freeze`](https://pip.pypa.io/en/stable/reference/pip_freeze/) option.
+
+```
+pip freeze > requirements.txt
+
+```
+
+This will save a list of all packages and their version installed on the system to a file named `requirements.txt` in the current folder.
+
+
+
 ## Create a requirements.txt file of packages only in the current virtualenv
 
 
-`pip` assists in creating `requirements.txt` files by providing the [`freeze`](http://web.archive.org/web/20170816195401/https://pip.pypa.io/en/stable/reference/pip_freeze/#cmdoption-l) option.
+`pip` assists in creating `requirements.txt` files by providing the [`freeze`](https://pip.pypa.io/en/stable/reference/pip_freeze/#cmdoption-l) option.
 
 ```
-pip freeze --local &gt; requirements.txt
+pip freeze --local > requirements.txt
 
 ```
 
-The [`--local`](http://web.archive.org/web/20170816195401/https://pip.pypa.io/en/stable/reference/pip_freeze/#cmdoption-l) parameter will only output a list of packages and versions that are installed locally to a virtualenv. Global packages will not be listed.
+The [`--local`](https://pip.pypa.io/en/stable/reference/pip_freeze/#cmdoption-l) parameter will only output a list of packages and versions that are installed locally to a virtualenv. Global packages will not be listed.
 
 
 
@@ -213,7 +210,7 @@ You can also invoke installation of a package to a specific python installation 
 
 On OS-X/Linux/Unix platforms it is important to be aware of the distinction between the system version of python, (which upgrading make render your system inoperable), and the user version(s) of python.  You **may**, **depending on which you are trying to upgrade**, need to prefix these commands with `sudo` and input a password.
 
-Likewise on Windows some python installations, especially those that are a part of another package, can end up installed in system directories - those you will have to upgrade from a command window running in Admin mode - if you find that it looks like you need to do this it is a **very** good idea to check which python installation you are trying to upgrade with a command such as `python -c"import sys;print(sys.path);"` or `py -3.5 -c"import sys;print(sys.path);"` you can also check which pip you are trying to run with `pip --version`
+Likewise on Windows some python installations, especially those that are a part of another package, can end up installed in system directories - those you will have to upgrade from a command window running in Admin mode - if you find that it looks like you need to do this it is a **very** good idea to check which python installation you are trying to upgrade with a command such as `python -c&quot;import sys;print(sys.path);&quot;` or `py -3.5 -c&quot;import sys;print(sys.path);&quot;` you can also check which pip you are trying to run with `pip --version`
 
 On Windows, if you have both python 2 and python 3 installed, and on your path and your python 3 is greater than 3.4 then you will probably also have the python launcher `py` on your system path. You can then do tricks like:
 
@@ -225,7 +222,7 @@ py -2.7-32 -m pip install -U some_package # Install/Upgrade some_package to pyth
 
 ```
 
-If you are running &amp; maintaining multiple versions of python I would strongly recommend reading up about the python `virtualenv` or `venv` [virtual enviroments](http://web.archive.org/web/20170816195401/https://virtualenv.pypa.io/en/stable/) which allow you to isolate both the version of python and which packages are present.
+If you are running &amp; maintaining multiple versions of python I would strongly recommend reading up about the python `virtualenv` or `venv` [virtual enviroments](https://virtualenv.pypa.io/en/stable/) which allow you to isolate both the version of python and which packages are present.
 
 
 
@@ -236,27 +233,27 @@ Many, pure python, packages are not yet available on the Python Package Index as
 
 The problem is that the package that you are trying to install contains a C or C++ extension and is not **currently** available as a pre-built wheel from the python package index, **pypi**, and on windows you do not have the tool chain needed to build such items.
 
-The simplest answer is to go to [Christoph Gohlke's](http://web.archive.org/web/20170816195401/http://www.lfd.uci.edu/%7Egohlke/pythonlibs/) excellent site and locate the **appropriate** version of the libraries that you need. By appropriate in the package name a **-cp******NN******-** has to match your version of python, i.e. if you are using windows 32 bit python **even on win64** the name must include **-win32-** and if using the 64 bit python it must include **-win_amd64-** and then the python version must match, i.e. for Python 34 the filename **must** include **-cp******34-****, etc. this is basically the magic that pip does for you on the pypi site.
+The simplest answer is to go to [Christoph Gohlke's](http://www.lfd.uci.edu/%7Egohlke/pythonlibs/) excellent site and locate the **appropriate** version of the libraries that you need. By appropriate in the package name a **-cp******NN******-** has to match your version of python, i.e. if you are using windows 32 bit python **even on win64** the name must include **-win32-** and if using the 64 bit python it must include **-win_amd64-** and then the python version must match, i.e. for Python 34 the filename **must** include **-cp******34-****, etc. this is basically the magic that pip does for you on the pypi site.
 
 Alternatively, you need to get the appropriate windows development kit for the version of python that you are using, the headers for any library that the package you are trying to build interfaces to, possibly the python headers for the version of python, etc.
 
 Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010, and Python 3.5+ uses Visual Studio 2015.
 
-- Install “[Visual C++ Compiler Package for Python 2.7](http://web.archive.org/web/20170816195401/https://www.microsoft.com/en-gb/download/details.aspx?id=44266)”, which is available from Microsoft’s website **or**
-- Install “[Windows SDK for Windows 7 and .NET Framework 4](http://web.archive.org/web/20170816195401/https://www.microsoft.com/en-gb/download/details.aspx?id=8279)” (v7.1), which is available from Microsoft’s website **or**
-- Install [Visual Studio 2015 Community Edition](http://web.archive.org/web/20170816195401/https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx), **(or any later version, when these are released)**, **ensuring you select the options to install C &amp; C++ support** **no longer the default** -**I am told that this can take up to** ****8 hours**** to download and install so make **sure** that those options are set on the first try.
+- Install “[Visual C++ Compiler Package for Python 2.7](https://www.microsoft.com/en-gb/download/details.aspx?id=44266)”, which is available from Microsoft’s website **or**
+- Install “[Windows SDK for Windows 7 and .NET Framework 4](https://www.microsoft.com/en-gb/download/details.aspx?id=8279)” (v7.1), which is available from Microsoft’s website **or**
+- Install [Visual Studio 2015 Community Edition](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx), **(or any later version, when these are released)**, **ensuring you select the options to install C &amp; C++ support** **no longer the default** -**I am told that this can take up to** ****8 hours**** to download and install so make **sure** that those options are set on the first try.
 
 **Then** you **may need** to locate the header files, **at the matching revision** for any libraries that your desired package links to and download those to an appropriate locations.
 
 **Finally** you can let pip do your build - of course if the package has dependencies that you don't yet have you may also need to find the header files for them as well.
 
-**Alternatives:** It is also worth looking out, **both on pypi or Christop's site**, for any slightly earlier version of the package that you are looking for that is either pure python or pre-built for your platform and python version and possibly using those, if found, until your package does become available.  Likewise if you are using the very latest version of python you may find that it takes the package maintainers a little time to catch up so for projects that really **need** a specific package you may have to use a slightly older python for the moment.  You can also check the packages source site to see if there is a forked version that is available pre-built or as pure python and searching for alternative packages that provide the functionality that you require but are available - one example that springs to mind is the [Pillow](http://web.archive.org/web/20170816195401/https://pypi.python.org/pypi/Pillow/3.4.2), **actively maintained**, drop in replacement for [PIL](http://web.archive.org/web/20170816195401/https://pypi.python.org/pypi/PIL/1.1.6) **currently not updated in 6 years and not available for python 3**.
+**Alternatives:** It is also worth looking out, **both on pypi or Christop's site**, for any slightly earlier version of the package that you are looking for that is either pure python or pre-built for your platform and python version and possibly using those, if found, until your package does become available.  Likewise if you are using the very latest version of python you may find that it takes the package maintainers a little time to catch up so for projects that really **need** a specific package you may have to use a slightly older python for the moment.  You can also check the packages source site to see if there is a forked version that is available pre-built or as pure python and searching for alternative packages that provide the functionality that you require but are available - one example that springs to mind is the [Pillow](https://pypi.python.org/pypi/Pillow/3.4.2), **actively maintained**, drop in replacement for [PIL](https://pypi.python.org/pypi/PIL/1.1.6) **currently not updated in 6 years and not available for python 3**.
 
 **Afterword**, I would encourage anybody who is having this problem to go to the bug tracker for the package and add to, or raise if there isn't one already, a ticket **politely** requesting that the package maintainers provide a wheel on pypi for your specific combination of platform and python, if this is done then normally things will get better with time, some package maintainers don't realise that they have missed a given combination that people may be using.
 
 ### Note on Installing Pre-Releases
 
-Pip follows the rules of [Semantic Versioning](http://web.archive.org/web/20170816195401/http://semver.org/) and by default prefers released packages over pre-releases. So if a given package has been released as `V0.98` and there is also a release candidate `V1.0-rc1` the default behaviour of `pip install` will be to install `V0.98` - if you wish to install the release candidate, **you are advised to test in a virtual environment first**, you can enable do so with `--pip install --pre` **package-name** or `--pip install --pre --upgrade` **package-name**. In many cases pre-releases or release candidates may not have wheels built for all platform &amp; version combinations so you are more likely to encounter the issues above.
+Pip follows the rules of [Semantic Versioning](http://semver.org/) and by default prefers released packages over pre-releases. So if a given package has been released as `V0.98` and there is also a release candidate `V1.0-rc1` the default behaviour of `pip install` will be to install `V0.98` - if you wish to install the release candidate, **you are advised to test in a virtual environment first**, you can enable do so with `--pip install --pre` **package-name** or `--pip install --pre --upgrade` **package-name**. In many cases pre-releases or release candidates may not have wheels built for all platform &amp; version combinations so you are more likely to encounter the issues above.
 
 ### Note on Installing Development Versions
 
@@ -268,9 +265,9 @@ Three options exist for such installations:
 1. Let pip handle the download &amp; install for you with: `pip install` **URL/of/package/repository** - you may also need to use the `--trusted-host`, `--client-cert` and/or `--proxy` flags for this to work correctly, especially in a corporate environment. e.g:
 
 ```
-    &gt; py -3.5-32 -m venv demo-pip
-    &gt; demo-pip\Scripts\activate.bat
-    &gt; python -m pip install -U pip
+    > py -3.5-32 -m venv demo-pip
+    > demo-pip\Scripts\activate.bat
+    > python -m pip install -U pip
     Collecting pip
       Using cached pip-9.0.1-py2.py3-none-any.whl
     Installing collected packages: pip
@@ -278,42 +275,42 @@ Three options exist for such installations:
         Uninstalling pip-8.1.1:
           Successfully uninstalled pip-8.1.1
     Successfully installed pip-9.0.1
-    &gt; pip install git+https://github.com/sphinx-doc/sphinx/
+    > pip install git+https://github.com/sphinx-doc/sphinx/
     Collecting git+https://github.com/sphinx-doc/sphinx/
       Cloning https://github.com/sphinx-doc/sphinx/ to c:\users\steve-~1\appdata\local\temp\pip-04yn9hpp-build
-    Collecting six&gt;=1.5 (from Sphinx==1.7.dev20170506)
+    Collecting six>=1.5 (from Sphinx==1.7.dev20170506)
       Using cached six-1.10.0-py2.py3-none-any.whl
-    Collecting Jinja2&gt;=2.3 (from Sphinx==1.7.dev20170506)
+    Collecting Jinja2>=2.3 (from Sphinx==1.7.dev20170506)
       Using cached Jinja2-2.9.6-py2.py3-none-any.whl
-    Collecting Pygments&gt;=2.0 (from Sphinx==1.7.dev20170506)
+    Collecting Pygments>=2.0 (from Sphinx==1.7.dev20170506)
       Using cached Pygments-2.2.0-py2.py3-none-any.whl
-    Collecting docutils&gt;=0.11 (from Sphinx==1.7.dev20170506)
+    Collecting docutils>=0.11 (from Sphinx==1.7.dev20170506)
       Using cached docutils-0.13.1-py3-none-any.whl
-    Collecting snowballstemmer&gt;=1.1 (from Sphinx==1.7.dev20170506)
+    Collecting snowballstemmer>=1.1 (from Sphinx==1.7.dev20170506)
       Using cached snowballstemmer-1.2.1-py2.py3-none-any.whl
-    Collecting babel!=2.0,&gt;=1.3 (from Sphinx==1.7.dev20170506)
+    Collecting babel!=2.0,>=1.3 (from Sphinx==1.7.dev20170506)
       Using cached Babel-2.4.0-py2.py3-none-any.whl
-    Collecting alabaster&lt;0.8,&gt;=0.7 (from Sphinx==1.7.dev20170506)
+    Collecting alabaster<0.8,>=0.7 (from Sphinx==1.7.dev20170506)
       Using cached alabaster-0.7.10-py2.py3-none-any.whl
     Collecting imagesize (from Sphinx==1.7.dev20170506)
       Using cached imagesize-0.7.1-py2.py3-none-any.whl
-    Collecting requests&gt;=2.0.0 (from Sphinx==1.7.dev20170506)
+    Collecting requests>=2.0.0 (from Sphinx==1.7.dev20170506)
       Using cached requests-2.13.0-py2.py3-none-any.whl
     Collecting typing (from Sphinx==1.7.dev20170506)
       Using cached typing-3.6.1.tar.gz
     Requirement already satisfied: setuptools in f:\toolbuild\temp\demo-pip\lib\site-packages (from Sphinx==1.7.dev20170506)
     Collecting sphinxcontrib-websupport (from Sphinx==1.7.dev20170506)
       Downloading sphinxcontrib_websupport-1.0.0-py2.py3-none-any.whl
-    Collecting colorama&gt;=0.3.5 (from Sphinx==1.7.dev20170506)
+    Collecting colorama>=0.3.5 (from Sphinx==1.7.dev20170506)
       Using cached colorama-0.3.9-py2.py3-none-any.whl
-    Collecting MarkupSafe&gt;=0.23 (from Jinja2&gt;=2.3-&gt;Sphinx==1.7.dev20170506)
+    Collecting MarkupSafe>=0.23 (from Jinja2>=2.3->Sphinx==1.7.dev20170506)
       Using cached MarkupSafe-1.0.tar.gz
-    Collecting pytz&gt;=0a (from babel!=2.0,&gt;=1.3-&gt;Sphinx==1.7.dev20170506)
+    Collecting pytz>=0a (from babel!=2.0,>=1.3->Sphinx==1.7.dev20170506)
       Using cached pytz-2017.2-py2.py3-none-any.whl
-    Collecting sqlalchemy&gt;=0.9 (from sphinxcontrib-websupport-&gt;Sphinx==1.7.dev20170506)
+    Collecting sqlalchemy>=0.9 (from sphinxcontrib-websupport->Sphinx==1.7.dev20170506)
       Downloading SQLAlchemy-1.1.9.tar.gz (5.2MB)
         100% |################################| 5.2MB 220kB/s
-    Collecting whoosh&gt;=2.0 (from sphinxcontrib-websupport-&gt;Sphinx==1.7.dev20170506)
+    Collecting whoosh>=2.0 (from sphinxcontrib-websupport->Sphinx==1.7.dev20170506)
       Downloading Whoosh-2.7.4-py2.py3-none-any.whl (468kB)
         100% |################################| 471kB 1.1MB/s
     Installing collected packages: six, MarkupSafe, Jinja2, Pygments, docutils, snowballstemmer, pytz, babel, alabaster, imagesize, requests, typing, sqlalchemy, whoosh, sphinxcontrib-websupport, colorama, Sphinx
@@ -334,7 +331,7 @@ Three options exist for such installations:
 #### Syntax
 
 
-<li>pip &lt;command&gt; [options] where &lt;command&gt; is one of:
+<li>pip <command> [options] where <command> is one of:
 <ul>
 <li>install
 <ul>
@@ -369,9 +366,9 @@ Sometimes, `pip` will perfom a manual compilation of native code. On Linux pytho
 
 |Python Version|Visual Studio Version|Visual C++ Version
 |------
-|2.6 - 3.2|Visual Studio 2008|[Visual C++ 9.0](http://web.archive.org/web/20170816195401/https://www.microsoft.com/en-us/download/details.aspx?id=44266)
+|2.6 - 3.2|Visual Studio 2008|[Visual C++ 9.0](https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 |3.3 - 3.4|Visual Studio 2010|Visual C++ 10.0
 |3.5|Visual Studio 2015|Visual C++ 14.0
 
-[Source: wiki.python.org](http://web.archive.org/web/20170816195401/https://wiki.python.org/moin/WindowsCompilers)
+[Source: wiki.python.org](https://wiki.python.org/moin/WindowsCompilers)
 

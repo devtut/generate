@@ -17,7 +17,7 @@ import pickle
 # An arbitrary collection of objects supported by pickle.
 data = {
     'a': [1, 2.0, 3, 4+6j],
-    'b': ("character string", b"byte string"),
+    'b': (&quot;character string&quot;, b&quot;byte string&quot;),
     'c': {None, True, False}
 }
 
@@ -26,9 +26,6 @@ with open('data.pickle', 'wb') as f:
     pickle.dump(data, f, pickle.HIGHEST_PROTOCOL)
 
 ```
-
----
-
 
 ### To deserialize the object
 
@@ -41,9 +38,6 @@ with open('data.pickle', 'rb') as f:
     data = pickle.load(f)
 
 ```
-
----
-
 
 ### Using pickle and byte objects
 
@@ -96,16 +90,16 @@ class A(object):
 Now, this can be done:
 
 ```
-&gt;&gt;&gt; a1 = A('very important')
-&gt;&gt;&gt;
-&gt;&gt;&gt; s = pickle.dumps(a1)  # calls a1.__getstate__()
-&gt;&gt;&gt;
-&gt;&gt;&gt; a2 = pickle.loads(s)  # calls a1.__setstate__(['very important'])
-&gt;&gt;&gt; a2
-&lt;__main__.A object at 0x0000000002742470&gt;
-&gt;&gt;&gt; a2.important_data
+>>> a1 = A('very important')
+>>>
+>>> s = pickle.dumps(a1)  # calls a1.__getstate__()
+>>>
+>>> a2 = pickle.loads(s)  # calls a1.__setstate__(['very important'])
+>>> a2
+<__main__.A object at 0x0000000002742470>
+>>> a2.important_data
 'very important'
-&gt;&gt;&gt; a2.func()
+>>> a2.func()
 7
 
 ```
@@ -162,9 +156,9 @@ The following objects are picklable.
 - built-in functions
 <li>classes that are defined at the top level of a module
 <ul>
-- instances of such classes whose `__dict__` or the result of calling `__getstate__()` is picklable (see [the official docs](http://web.archive.org/web/20170816200446/https://docs.python.org/3/library/pickle.html#pickling-class-instances) for details).
+- instances of such classes whose `__dict__` or the result of calling `__getstate__()` is picklable (see [the official docs](https://docs.python.org/3/library/pickle.html#pickling-class-instances) for details).
 
-Based on the [official Python documentation](http://web.archive.org/web/20170816200446/https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled).
+Based on the [official Python documentation](https://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled).
 
 ### `pickle` and security
 
