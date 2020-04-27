@@ -1,6 +1,6 @@
 module.exports = {
   title: "DevTut",
-  description: "Lost Docs of Stackoverflow",
+  description: "Example based programming tutorials for solids develops",
   head: [
     [
       "link",
