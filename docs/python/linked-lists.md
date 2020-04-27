@@ -1,6 +1,6 @@
 ---
-metaTitle: Linked lists
-description: Single linked list example
+metaTitle: "Linked lists"
+description: "Single linked list example"
 ---
 
 # Linked lists

@@ -1,6 +1,6 @@
 ---
-metaTitle: Basic Input and Output
-description: Using the print function, Using input() and raw_input(), Function to prompt user for a number, Printing a string without a newline at the end, Read from stdin, Input from a File
+metaTitle: "Basic Input and Output"
+description: "Using the print function, Using input() and raw_input(), Function to prompt user for a number, Printing a string without a newline at the end, Read from stdin, Input from a File"
 ---
 
 # Basic Input and Output

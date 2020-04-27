@@ -1,6 +1,6 @@
 ---
-metaTitle: Bitwise Operators
-description: Bitwise NOT, Bitwise XOR (Exclusive OR), Bitwise AND, Bitwise OR, Bitwise Left Shift, Bitwise Right Shift, Inplace Operations
+metaTitle: "Bitwise Operators"
+description: "Bitwise NOT, Bitwise XOR (Exclusive OR), Bitwise AND, Bitwise OR, Bitwise Left Shift, Bitwise Right Shift, Inplace Operations"
 ---
 
 # Bitwise Operators

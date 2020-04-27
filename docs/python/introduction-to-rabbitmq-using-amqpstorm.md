@@ -1,6 +1,6 @@
 ---
-metaTitle: Introduction to RabbitMQ using AMQPStorm
-description: How to consume messages from RabbitMQ, How to publish messages to RabbitMQ, How to create a delayed queue in RabbitMQ
+metaTitle: "Introduction to RabbitMQ using AMQPStorm"
+description: "How to consume messages from RabbitMQ, How to publish messages to RabbitMQ, How to create a delayed queue in RabbitMQ"
 ---
 
 # Introduction to RabbitMQ using AMQPStorm

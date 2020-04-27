@@ -1,6 +1,6 @@
 ---
-metaTitle: Abstract syntax tree
-description: Analyze functions in a python script
+metaTitle: "Abstract syntax tree"
+description: "Analyze functions in a python script"
 ---
 
 # Abstract syntax tree

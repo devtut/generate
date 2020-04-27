@@ -1,6 +1,6 @@
 ---
-metaTitle: Date Formatting
-description: Time between two date-times, Outputting datetime object to string, Parsing string to datetime object
+metaTitle: "Date Formatting"
+description: "Time between two date-times, Outputting datetime object to string, Parsing string to datetime object"
 ---
 
 # Date Formatting

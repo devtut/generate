@@ -1,6 +1,6 @@
 ---
-metaTitle: Getting started with Python Language
-description: Getting Started, Creating variables and assigning values, Block Indentation, Datatypes, Collection Types, IDLE - Python GUI, User Input, Built in Modules and Functions, Creating a module, Installation of Python 2.7.x and 3.x, String function - str() and repr(), Installing external modules using pip, Help Utility
+metaTitle: "Getting started with Python Language"
+description: "Getting Started, Creating variables and assigning values, Block Indentation, Datatypes, Collection Types, IDLE - Python GUI, User Input, Built in Modules and Functions, Creating a module, Installation of Python 2.7.x and 3.x, String function - str() and repr(), Installing external modules using pip, Help Utility"
 ---
 
 # Getting started with Python Language

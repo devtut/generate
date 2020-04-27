@@ -1,6 +1,6 @@
 ---
-metaTitle: Iterables and Iterators
-description: Iterator vs Iterable vs Generator, Extract values one by one, Iterating over entire iterable, Verify only one element in iterable, What can be iterable, Iterator isn't reentrant!
+metaTitle: "Iterables and Iterators"
+description: "Iterator vs Iterable vs Generator, Extract values one by one, Iterating over entire iterable, Verify only one element in iterable, What can be iterable, Iterator isn't reentrant!"
 ---
 
 # Iterables and Iterators

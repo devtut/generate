@@ -1,6 +1,6 @@
 ---
-metaTitle: The base64 Module
-description: Encoding and Decoding Base64, Encoding and Decoding Base32, Encoding and Decoding Base16, Encoding and Decoding ASCII85, Encoding and Decoding Base85
+metaTitle: "The base64 Module"
+description: "Encoding and Decoding Base64, Encoding and Decoding Base32, Encoding and Decoding Base16, Encoding and Decoding ASCII85, Encoding and Decoding Base85"
 ---
 
 # The base64 Module

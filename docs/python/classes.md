@@ -1,6 +1,6 @@
 ---
-metaTitle: Classes
-description: Introduction to classes, Bound, unbound, and static methods, Basic inheritance, Monkey Patching, New-style vs. old-style classes, Class methods alternate initializers, Multiple Inheritance, Properties, Class and instance variables, Default values for instance variables, Class composition, Listing All Class Members, Singleton class, Descriptors and Dotted Lookups
+metaTitle: "Classes"
+description: "Introduction to classes, Bound, unbound, and static methods, Basic inheritance, Monkey Patching, New-style vs. old-style classes, Class methods: alternate initializers, Multiple Inheritance, Properties, Class and instance variables, Default values for instance variables, Class composition, Listing All Class Members, Singleton class, Descriptors and Dotted Lookups"
 ---
 
 # Classes

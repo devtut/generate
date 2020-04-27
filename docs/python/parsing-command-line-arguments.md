@@ -1,6 +1,6 @@
 ---
-metaTitle: Parsing Command Line arguments
-description: Hello world in argparse, Using command line arguments with argv, Setting mutually exclusive arguments with argparse, Basic example with docopt, Custom parser error message with argparse, Conceptual grouping of arguments with argparse.add_argument_group(), Advanced example with docopt and docopt_dispatch
+metaTitle: "Parsing Command Line arguments"
+description: "Hello world in argparse, Using command line arguments with argv, Setting mutually exclusive arguments with argparse, Basic example with docopt, Custom parser error message with argparse, Conceptual grouping of arguments with argparse.add_argument_group(), Advanced example with docopt and docopt_dispatch"
 ---
 
 # Parsing Command Line arguments

@@ -1,6 +1,6 @@
 ---
-metaTitle: Design Patterns
-description: Introduction to design patterns and Singleton Pattern, Strategy Pattern, Proxy
+metaTitle: "Design Patterns"
+description: "Introduction to design patterns and Singleton Pattern, Strategy Pattern, Proxy"
 ---
 
 # Design Patterns

@@ -1,6 +1,6 @@
 ---
-metaTitle: Creating a Windows service using Python
-description: A Python script that can be run as a service, Running a Flask web application as a service
+metaTitle: "Creating a Windows service using Python"
+description: "A Python script that can be run as a service, Running a Flask web application as a service"
 ---
 
 # Creating a Windows service using Python

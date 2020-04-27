@@ -1,6 +1,6 @@
 ---
-metaTitle: Reading and Writing CSV
-description: Writing a TSV file, Using pandas
+metaTitle: "Reading and Writing CSV"
+description: "Writing a TSV file, Using pandas"
 ---
 
 # Reading and Writing CSV

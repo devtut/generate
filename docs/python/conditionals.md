@@ -1,6 +1,6 @@
 ---
-metaTitle: Conditionals
-description: Conditional Expression (or "The Ternary Operator"), if, elif, and else, Truth Values, Boolean Logic Expressions, Else statement, Using the cmp function to get the comparison result of two objects, If statement, Testing if an object is None and assigning it, Conditional Expression Evaluation Using List Comprehensions
+metaTitle: "Conditionals"
+description: "Conditional Expression (or The Ternary Operator), if, elif, and else, Truth Values, Boolean Logic Expressions, Else statement, Using the cmp function to get the comparison result of two objects, If statement, Testing if an object is None and assigning it, Conditional Expression Evaluation Using List Comprehensions"
 ---
 
 # Conditionals

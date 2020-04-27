@@ -1,6 +1,6 @@
 ---
-metaTitle: Python Data Types
-description: String Data Type, Numbers data type, List Data Type, Dictionary Data Type, Set Data Types, Tuple Data Type
+metaTitle: "Python Data Types"
+description: "String Data Type, Numbers data type, List Data Type, Dictionary Data Type, Set Data Types, Tuple Data Type"
 ---
 
 # Python Data Types

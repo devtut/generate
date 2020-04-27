@@ -1,6 +1,6 @@
 ---
-metaTitle: Functools Module
-description: partial, lru_cache, cmp_to_key, total_ordering, reduce
+metaTitle: "Functools Module"
+description: "partial, lru_cache, cmp_to_key, total_ordering, reduce"
 ---
 
 # Functools Module

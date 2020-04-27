@@ -1,6 +1,6 @@
 ---
-metaTitle: Webbrowser Module
-description: Opening a URL with Default Browser, Opening a URL with Different Browsers
+metaTitle: "Webbrowser Module"
+description: "Opening a URL with Default Browser, Opening a URL with Different Browsers"
 ---
 
 # Webbrowser Module

@@ -1,6 +1,6 @@
 ---
-metaTitle: Itertools Module
-description: itertools.dropwhile, Combinations method in Itertools Module, Grouping items from an iterable object using a function, Take a slice of a generator, Zipping two iterators until they are both exhausted, itertools.product, itertools.count, itertools.takewhile, itertools.repeat, Get an accumulated sum of numbers in an iterable, Cycle through elements in an iterator, itertools.permutations, Chaining multiple iterators together
+metaTitle: "Itertools Module"
+description: "itertools.dropwhile, Combinations method in Itertools Module, Grouping items from an iterable object using a function, Take a slice of a generator, Zipping two iterators until they are both exhausted, itertools.product, itertools.count, itertools.takewhile, itertools.repeat, Get an accumulated sum of numbers in an iterable, Cycle through elements in an iterator, itertools.permutations, Chaining multiple iterators together"
 ---
 
 # Itertools Module

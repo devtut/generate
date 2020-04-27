@@ -1,6 +1,6 @@
 ---
-metaTitle: Deployment
-description: Uploading a Conda Package
+metaTitle: "Deployment"
+description: "Uploading a Conda Package"
 ---
 
 # Deployment

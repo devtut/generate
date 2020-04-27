@@ -1,6 +1,6 @@
 ---
-metaTitle: Comparisons
-description: Chain Comparisons, Comparison by `is` vs `==`, Greater than or less than, Not equal to, Equal To, Comparing Objects, Common Gotcha Python does not enforce typing
+metaTitle: "Comparisons"
+description: "Chain Comparisons, Comparison by `is` vs `==`, Greater than or less than, Not equal to, Equal To, Comparing Objects, Common Gotcha: Python does not enforce typing"
 ---
 
 # Comparisons

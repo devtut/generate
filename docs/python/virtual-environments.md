@@ -1,6 +1,6 @@
 ---
-metaTitle: Virtual environments
-description: Creating and using a virtual environment, Specifying specific python version to use in script on Unix/Linux, Creating a virtual environment for a different version of python, Making virtual environments using Anaconda, Installing packages in a virtual environment, Managing multiple virtual enviroments with virtualenvwrapper, Discovering which virtual environment you are using, Using virtualenv with fish shell, Checking if running inside a virtual environment
+metaTitle: "Virtual environments"
+description: "Creating and using a virtual environment, Specifying specific python version to use in script on Unix/Linux, Creating a virtual environment for a different version of python, Making virtual environments using Anaconda, Installing packages in a virtual environment, Managing multiple virtual enviroments with virtualenvwrapper, Discovering which virtual environment you are using, Using virtualenv with fish shell, Checking if running inside a virtual environment"
 ---
 
 # Virtual environments

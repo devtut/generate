@@ -1,6 +1,6 @@
 ---
-metaTitle: Method Overriding
-description: Basic method overriding
+metaTitle: "Method Overriding"
+description: "Basic method overriding"
 ---
 
 # Method Overriding

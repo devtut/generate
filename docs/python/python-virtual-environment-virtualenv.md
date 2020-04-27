@@ -1,6 +1,6 @@
 ---
-metaTitle: Python Virtual Environment - virtualenv
-description: Installation, Usage, Install a package in your Virtualenv, Other useful virtualenv commands
+metaTitle: "Python Virtual Environment - virtualenv"
+description: "Installation, Usage, Install a package in your Virtualenv, Other useful virtualenv commands"
 ---
 
 # Python Virtual Environment - virtualenv

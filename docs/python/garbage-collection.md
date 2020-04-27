@@ -1,6 +1,6 @@
 ---
-metaTitle: Garbage Collection
-description: Reuse of primitive objects, Effects of the del command, Reference Counting, Garbage Collector for Reference Cycles, Viewing the refcount of an object, Forcefully deallocating objects, Managing garbage collection, Do not wait for the garbage collection to clean up
+metaTitle: "Garbage Collection"
+description: "Reuse of primitive objects, Effects of the del command, Reference Counting, Garbage Collector for Reference Cycles, Viewing the refcount of an object, Forcefully deallocating objects, Managing garbage collection, Do not wait for the garbage collection to clean up"
 ---
 
 # Garbage Collection

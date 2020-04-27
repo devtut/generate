@@ -1,6 +1,6 @@
 ---
-metaTitle: Audio
-description: Working with WAV files, Convert any soundfile with python and ffmpeg, Playing Windows' beeps, Audio With Pyglet
+metaTitle: "Audio"
+description: "Working with WAV files, Convert any soundfile with python and ffmpeg, Playing Windows' beeps, Audio With Pyglet"
 ---
 
 # Audio

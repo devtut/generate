@@ -1,6 +1,6 @@
 ---
-metaTitle: Asyncio Module
-description: Coroutine and Delegation Syntax, Asynchronous Executors, Using UVLoop, Synchronization Primitive Event, A Simple Websocket, Common Misconception about asyncio
+metaTitle: "Asyncio Module"
+description: "Coroutine and Delegation Syntax, Asynchronous Executors, Using UVLoop, Synchronization Primitive: Event, A Simple Websocket, Common Misconception about asyncio"
 ---
 
 # Asyncio Module

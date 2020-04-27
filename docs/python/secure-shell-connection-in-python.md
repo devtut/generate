@@ -1,6 +1,6 @@
 ---
-metaTitle: Secure Shell Connection in Python
-description: ssh connection
+metaTitle: "Secure Shell Connection in Python"
+description: "ssh connection"
 ---
 
 # Secure Shell Connection in Python

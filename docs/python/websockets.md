@@ -1,6 +1,6 @@
 ---
-metaTitle: Websockets
-description: Simple Echo with aiohttp, Wrapper Class with aiohttp, Using Autobahn as a Websocket Factory
+metaTitle: "Websockets"
+description: "Simple Echo with aiohttp, Wrapper Class with aiohttp, Using Autobahn as a Websocket Factory"
 ---
 
 # Websockets

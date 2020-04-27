@@ -1,6 +1,6 @@
 ---
-metaTitle: The Interpreter (Command Line Console)
-description: Getting general help, Referring to the last expression, Opening the Python console, The PYTHONSTARTUP variable, Command line arguments, Getting help about an object
+metaTitle: "The Interpreter (Command Line Console)"
+description: "Getting general help, Referring to the last expression, Opening the Python console, The PYTHONSTARTUP variable, Command line arguments, Getting help about an object"
 ---
 
 # The Interpreter (Command Line Console)

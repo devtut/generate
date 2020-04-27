@@ -1,6 +1,6 @@
 ---
-metaTitle: Regular Expressions (Regex)
-description: Matching the beginning of a string, Searching, Precompiled patterns, Flags, Replacing, Find All Non-Overlapping Matches, Checking for allowed characters, Splitting a string using regular expressions, Grouping, Escaping Special Characters, Iterating over matches using `re.finditer`, Match an expression only in specific locations
+metaTitle: "Regular Expressions (Regex)"
+description: "Matching the beginning of a string, Searching, Precompiled patterns, Flags, Replacing, Find All Non-Overlapping Matches, Checking for allowed characters, Splitting a string using regular expressions, Grouping, Escaping Special Characters, Iterating over matches using `re.finditer`, Match an expression only in specific locations"
 ---
 
 # Regular Expressions (Regex)

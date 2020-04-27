@@ -1,6 +1,6 @@
 ---
-metaTitle: Python Persistence
-description: Python Persistence, Function utility for save and load
+metaTitle: "Python Persistence"
+description: "Python Persistence, Function utility for save and load"
 ---
 
 # Python Persistence

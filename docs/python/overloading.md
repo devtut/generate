@@ -1,6 +1,6 @@
 ---
-metaTitle: Overloading
-description: Operator overloading, Magic/Dunder Methods, Container and sequence types, Callable types, Handling unimplemented behaviour
+metaTitle: "Overloading"
+description: "Operator overloading, Magic/Dunder Methods, Container and sequence types, Callable types, Handling unimplemented behaviour"
 ---
 
 # Overloading

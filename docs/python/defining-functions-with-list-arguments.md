@@ -1,6 +1,6 @@
 ---
-metaTitle: Defining functions with list arguments
-description: Function and Call
+metaTitle: "Defining functions with list arguments"
+description: "Function and Call"
 ---
 
 # Defining functions with list arguments

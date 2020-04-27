@@ -1,6 +1,6 @@
 ---
-metaTitle: Working with ZIP archives
-description: Opening Zip Files, Examining Zipfile Contents, Extracting zip file contents to a directory, Creating new archives
+metaTitle: "Working with ZIP archives"
+description: "Opening Zip Files, Examining Zipfile Contents, Extracting zip file contents to a directory, Creating new archives"
 ---
 
 # Working with ZIP archives
