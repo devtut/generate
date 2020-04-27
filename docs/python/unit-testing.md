@@ -1,6 +1,6 @@
 ---
-metaTitle: Unit Testing
-description: Test Setup and Teardown within a unittest.TestCase, Asserting on Exceptions, Testing Exceptions, Choosing  Assertions Within Unittests, Mocking functions with unittest.mock.create_autospec, Unit tests with pytest
+metaTitle Unit Testing
+description Test Setup and Teardown within a unittest.TestCase, Asserting on Exceptions, Testing Exceptions, Choosing  Assertions Within Unittests, Mocking functions with unittest.mock.create_autospec, Unit tests with pytest
 ---
 
 # Unit Testing

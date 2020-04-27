@@ -1,6 +1,6 @@
 ---
-metaTitle: kivy - Cross-platform Python Framework for NUI Development
-description: First App
+metaTitle kivy - Cross-platform Python Framework for NUI Development
+description First App
 ---
 
 # kivy - Cross-platform Python Framework for NUI Development

@@ -1,6 +1,6 @@
 ---
-metaTitle: Unicode and bytes
-description: Encoding/decoding error handling, File I/O, Basics
+metaTitle Unicode and bytes
+description Encoding/decoding error handling, File I/O, Basics
 ---
 
 # Unicode and bytes

@@ -1,6 +1,6 @@
 ---
-metaTitle: Plugin and Extension Classes
-description: Mixins, Plugins with Customized Classes
+metaTitle Plugin and Extension Classes
+description Mixins, Plugins with Customized Classes
 ---
 
 # Plugin and Extension Classes

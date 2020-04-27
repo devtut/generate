@@ -1,6 +1,6 @@
 ---
-metaTitle: Stack
-description: Creating a Stack class with a List Object, Parsing Parentheses
+metaTitle Stack
+description Creating a Stack class with a List Object, Parsing Parentheses
 ---
 
 # Stack

@@ -1,6 +1,6 @@
 ---
-metaTitle: Python concurrency
-description: The multiprocessing module, The threading module, Passing data between multiprocessing processes
+metaTitle Python concurrency
+description The multiprocessing module, The threading module, Passing data between multiprocessing processes
 ---
 
 # Python concurrency

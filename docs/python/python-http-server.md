@@ -1,6 +1,6 @@
 ---
-metaTitle: Python HTTP Server
-description: Running a simple HTTP server, Serving files, Programmatic API of SimpleHTTPServer, Basic handling of GET, POST, PUT using BaseHTTPRequestHandler
+metaTitle Python HTTP Server
+description Running a simple HTTP server, Serving files, Programmatic API of SimpleHTTPServer, Basic handling of GET, POST, PUT using BaseHTTPRequestHandler
 ---
 
 # Python HTTP Server

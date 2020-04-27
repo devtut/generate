@@ -1,6 +1,6 @@
 ---
-metaTitle: Python Serial Communication (pyserial)
-description: Initialize serial device, Read from serial port, Check what serial ports are available on your machine
+metaTitle Python Serial Communication (pyserial)
+description Initialize serial device, Read from serial port, Check what serial ports are available on your machine
 ---
 
 # Python Serial Communication (pyserial)

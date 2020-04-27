@@ -1,6 +1,6 @@
 ---
-metaTitle: Performance optimization
-description: Code profiling
+metaTitle Performance optimization
+description Code profiling
 ---
 
 # Performance optimization

@@ -1,6 +1,6 @@
 ---
-metaTitle: Filter
-description: Basic use of filter, Filter without function, Filter as short-circuit check, Complementary function: filterfalse, ifilterfalse
+metaTitle Filter
+description Basic use of filter, Filter without function, Filter as short-circuit check, Complementary function filterfalse, ifilterfalse
 ---
 
 # Filter

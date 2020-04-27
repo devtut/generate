@@ -1,6 +1,6 @@
 ---
-metaTitle: Unicode
-description: Encoding and decoding
+metaTitle Unicode
+description Encoding and decoding
 ---
 
 # Unicode

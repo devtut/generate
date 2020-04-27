@@ -1,6 +1,6 @@
 ---
-metaTitle: PostgreSQL
-description: Getting Started
+metaTitle PostgreSQL
+description Getting Started
 ---
 
 # PostgreSQL

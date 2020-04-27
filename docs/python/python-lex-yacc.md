@@ -1,6 +1,6 @@
 ---
-metaTitle: Python Lex-Yacc
-description: Getting Started with PLY, The "Hello, World!" of PLY - A Simple Calculator, Part 1: Tokenizing Input with Lex, Part 2: Parsing Tokenized Input with Yacc
+metaTitle Python Lex-Yacc
+description Getting Started with PLY, The "Hello, World!" of PLY - A Simple Calculator, Part 1 Tokenizing Input with Lex, Part 2 Parsing Tokenized Input with Yacc
 ---
 
 # Python Lex-Yacc

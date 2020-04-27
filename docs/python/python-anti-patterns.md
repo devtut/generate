@@ -1,6 +1,6 @@
 ---
-metaTitle: Python Anti-Patterns
-description: Overzealous except clause, Looking before you leap with processor-intensive function
+metaTitle Python Anti-Patterns
+description Overzealous except clause, Looking before you leap with processor-intensive function
 ---
 
 # Python Anti-Patterns

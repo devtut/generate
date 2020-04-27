@@ -1,6 +1,6 @@
 ---
-metaTitle: Non-official Python implementations
-description: IronPython, Jython, Transcrypt
+metaTitle Non-official Python implementations
+description IronPython, Jython, Transcrypt
 ---
 
 # Non-official Python implementations

@@ -1,6 +1,6 @@
 ---
-metaTitle: ijson
-description: Simple Example
+metaTitle ijson
+description Simple Example
 ---
 
 # ijson

@@ -1,6 +1,6 @@
 ---
-metaTitle: Data Visualization with Python
-description: Seaborn, Matplotlib, MayaVI, Plotly
+metaTitle Data Visualization with Python
+description Seaborn, Matplotlib, MayaVI, Plotly
 ---
 
 # Data Visualization with Python

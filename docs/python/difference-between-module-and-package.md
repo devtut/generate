@@ -1,6 +1,6 @@
 ---
-metaTitle: Difference between Module and Package
-description: Modules, Packages
+metaTitle Difference between Module and Package
+description Modules, Packages
 ---
 
 # Difference between Module and Package

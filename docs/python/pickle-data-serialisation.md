@@ -1,6 +1,6 @@
 ---
-metaTitle: Pickle data serialisation
-description: Using Pickle to serialize and deserialize an object, Customize Pickled Data
+metaTitle Pickle data serialisation
+description Using Pickle to serialize and deserialize an object, Customize Pickled Data
 ---
 
 # Pickle data serialisation

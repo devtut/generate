@@ -1,6 +1,6 @@
 ---
-metaTitle: Subprocess Library
-description: More flexibility with Popen, Calling External Commands, How to create the command list argument
+metaTitle Subprocess Library
+description More flexibility with Popen, Calling External Commands, How to create the command list argument
 ---
 
 # Subprocess Library

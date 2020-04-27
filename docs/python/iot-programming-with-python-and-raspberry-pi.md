@@ -1,6 +1,6 @@
 ---
-metaTitle: IoT Programming with Python and Raspberry PI
-description: Example - Temperature sensor
+metaTitle IoT Programming with Python and Raspberry PI
+description Example - Temperature sensor
 ---
 
 # IoT Programming with Python and Raspberry PI

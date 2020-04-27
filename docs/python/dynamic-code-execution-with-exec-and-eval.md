@@ -1,6 +1,6 @@
 ---
-metaTitle: Dynamic code execution with `exec` and `eval`
-description: Executing code provided by untrusted user using exec, eval, or ast.literal_eval, Evaluating statements with exec, Evaluating an expression with eval, Precompiling an expression to evaluate it multiple times, Evaluating an expression with eval using custom globals, Evaluating a string containing a Python literal with ast.literal_eval
+metaTitle Dynamic code execution with `exec` and `eval`
+description Executing code provided by untrusted user using exec, eval, or ast.literal_eval, Evaluating statements with exec, Evaluating an expression with eval, Precompiling an expression to evaluate it multiple times, Evaluating an expression with eval using custom globals, Evaluating a string containing a Python literal with ast.literal_eval
 ---
 
 # Dynamic code execution with `exec` and `eval`

@@ -1,6 +1,6 @@
 ---
-metaTitle: Property Objects
-description: Using the @property decorator for read-write properties, Using the @property decorator, Overriding just a getter, setter or a deleter of a property object, Using properties without decorators
+metaTitle Property Objects
+description Using the @property decorator for read-write properties, Using the @property decorator, Overriding just a getter, setter or a deleter of a property object, Using properties without decorators
 ---
 
 # Property Objects

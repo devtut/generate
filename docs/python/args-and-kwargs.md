@@ -1,6 +1,6 @@
 ---
-metaTitle: *args and **kwargs
-description: Using **kwargs when writing functions, Using *args when writing functions, Populating kwarg values with a dictionary, Using **kwargs when calling functions, Keyword-only and Keyword-required arguments, Using *args when calling functions, **kwargs and default values, Using *args when calling functions
+metaTitle *args and **kwargs
+description Using **kwargs when writing functions, Using *args when writing functions, Populating kwarg values with a dictionary, Using **kwargs when calling functions, Keyword-only and Keyword-required arguments, Using *args when calling functions, **kwargs and default values, Using *args when calling functions
 ---
 
 # *args and **kwargs

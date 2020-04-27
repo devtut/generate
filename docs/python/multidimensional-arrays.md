@@ -1,6 +1,6 @@
 ---
-metaTitle: Multidimensional arrays
-description: Lists in lists, Lists in lists in lists in...
+metaTitle Multidimensional arrays
+description Lists in lists, Lists in lists in lists in...
 ---
 
 # Multidimensional arrays

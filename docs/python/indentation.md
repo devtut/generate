@@ -1,6 +1,6 @@
 ---
-metaTitle: Indentation
-description: Simple example, How Indentation is Parsed, Indentation Errors
+metaTitle Indentation
+description Simple example, How Indentation is Parsed, Indentation Errors
 ---
 
 # Indentation

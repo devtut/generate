@@ -1,6 +1,6 @@
 ---
-metaTitle: String Methods
-description: Changing the capitalization of a string, str.translate: Translating characters in a string, str.format and f-strings: Format values into a string, String module's useful constants, Split a string based on a delimiter into a list of strings, Replace all occurrences of one substring with another substring, Testing what a string is composed of, Stripping unwanted leading/trailing characters from a string, Reversing a string, Join a list of strings into one string, String Contains, Counting number of times a substring appears in a string, Case insensitive string comparisons, Test the starting and ending characters of a string, Justify strings, Conversion between str or bytes data and unicode characters
+metaTitle String Methods
+description Changing the capitalization of a string, str.translate Translating characters in a string, str.format and f-strings Format values into a string, String module's useful constants, Split a string based on a delimiter into a list of strings, Replace all occurrences of one substring with another substring, Testing what a string is composed of, Stripping unwanted leading/trailing characters from a string, Reversing a string, Join a list of strings into one string, String Contains, Counting number of times a substring appears in a string, Case insensitive string comparisons, Test the starting and ending characters of a string, Justify strings, Conversion between str or bytes data and unicode characters
 ---
 
 # String Methods

@@ -1,6 +1,6 @@
 ---
-metaTitle: Security and Cryptography
-description: Secure Password Hashing, Calculating a Message Digest, Available Hashing Algorithms, File Hashing, Symmetric encryption using pycrypto, Generating RSA signatures using pycrypto, Asymmetric RSA encryption using pycrypto
+metaTitle Security and Cryptography
+description Secure Password Hashing, Calculating a Message Digest, Available Hashing Algorithms, File Hashing, Symmetric encryption using pycrypto, Generating RSA signatures using pycrypto, Asymmetric RSA encryption using pycrypto
 ---
 
 # Security and Cryptography

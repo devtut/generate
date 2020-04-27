@@ -1,6 +1,6 @@
 ---
-metaTitle: Simple Mathematical Operators
-description: Division, Addition, Exponentation, Trigonometric Functions, Inplace Operations, Subtraction, Multiplication, Logarithms, Modulus
+metaTitle Simple Mathematical Operators
+description Division, Addition, Exponentation, Trigonometric Functions, Inplace Operations, Subtraction, Multiplication, Logarithms, Modulus
 ---
 
 # Simple Mathematical Operators

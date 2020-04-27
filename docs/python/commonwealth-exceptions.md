@@ -1,6 +1,6 @@
 ---
-metaTitle: Commonwealth Exceptions
-description: TypeErrors, NameError: name '???' is not defined, IndentationErrors (or indentation SyntaxErrors), Other Errors, Syntax Error on good code
+metaTitle Commonwealth Exceptions
+description TypeErrors, NameError name '???' is not defined, IndentationErrors (or indentation SyntaxErrors), Other Errors, Syntax Error on good code
 ---
 
 # Commonwealth Exceptions

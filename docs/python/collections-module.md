@@ -1,6 +1,6 @@
 ---
-metaTitle: Collections module
-description: collections.Counter, collections.defaultdict, collections.OrderedDict, collections.namedtuple, collections.deque, collections.ChainMap
+metaTitle Collections module
+description collections.Counter, collections.defaultdict, collections.OrderedDict, collections.namedtuple, collections.deque, collections.ChainMap
 ---
 
 # Collections module

@@ -1,6 +1,6 @@
 ---
-metaTitle: The dis module
-description: Constants in the dis module, What is Python bytecode?, Disassembling modules
+metaTitle The dis module
+description Constants in the dis module, What is Python bytecode?, Disassembling modules
 ---
 
 # The dis module
