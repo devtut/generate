@@ -56,6 +56,10 @@ module.exports = {
     repo: "devtut/generate",
     editLinks: true,
     docsDir: "docs",
+    algolia: {
+      apiKey: "028db77cb984cc13fd130716ea60a98c",
+      indexName: "devtut",
+    },
     smoothScroll: true,
     editLinkText: "Edit this page on GitHub",
     lastUpdated: "Last Updated",
