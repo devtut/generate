@@ -1,3 +1,8 @@
+---
+metaTitle: Optical Character Recognition
+description: PyTesseract, PyOCR
+---
+
 # Optical Character Recognition
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Partial functions
+description: Raise the power
+---
+
 # Partial functions
 
 

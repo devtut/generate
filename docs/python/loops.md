@@ -1,3 +1,8 @@
+---
+metaTitle: Loops
+description: Break and Continue in Loops, For loops, Iterating over lists, Loops with an "else" clause, Iterating over dictionaries, The Pass Statement, While Loop, Iterating different portion of a list with different step size, The "half loop" do-while, Looping and Unpacking
+---
+
 # Loops
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Dictionary
+description: Introduction to Dictionary, Avoiding KeyError Exceptions, Iterating Over a  Dictionary, Dictionary with default values, Merging dictionaries, Accessing values of a dictionary, Accessing keys and values, Creating  an ordered dictionary, Unpacking dictionaries using the ** operator, Creating a dictionary, The dict() constructor, The trailing comma, All combinations of dictionary values, Dictionaries Example
+---
+
 # Dictionary
 
 

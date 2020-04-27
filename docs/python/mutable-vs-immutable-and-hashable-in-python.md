@@ -1,3 +1,8 @@
+---
+metaTitle: Mutable vs Immutable (and Hashable) in Python
+description: Mutable vs Immutable, Mutable and Immutable as Arguments
+---
+
 # Mutable vs Immutable (and Hashable) in Python
 
 

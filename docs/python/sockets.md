@@ -1,3 +1,8 @@
+---
+metaTitle: Sockets
+description: Sending data via UDP, Receiving data via UDP, Sending data via TCP, Multi-threaded TCP Socket Server, Raw Sockets on Linux
+---
+
 # Sockets
 
 

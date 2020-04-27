@@ -1,3 +1,8 @@
+---
+metaTitle: The locale Module
+description: Currency Formatting US Dollars Using the locale Module
+---
+
 # The locale Module
 
 

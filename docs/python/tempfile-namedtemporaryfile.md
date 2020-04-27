@@ -1,3 +1,8 @@
+---
+metaTitle: tempfile NamedTemporaryFile
+description: Create (and write to a) known, persistant temporary file
+---
+
 # tempfile NamedTemporaryFile
 
 

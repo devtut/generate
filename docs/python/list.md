@@ -1,3 +1,8 @@
+---
+metaTitle: List
+description: List methods and supported operators, Accessing list values, Checking if list is empty, Iterating over a list, Checking whether an item is in a list, Any and All, Length of a list, Reversing list elements, Concatenate and Merge lists, Remove duplicate values in list, Comparison of lists, Accessing values in nested list, Initializing a List to a Fixed Number of Elements
+---
+
 # List
 
 

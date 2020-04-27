@@ -1,3 +1,8 @@
+---
+metaTitle: Linked lists
+description: Single linked list example
+---
+
 # Linked lists
 
 

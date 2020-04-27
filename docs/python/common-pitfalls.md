@@ -1,3 +1,8 @@
+---
+metaTitle: Common Pitfalls
+description: List multiplication and common references, Mutable default argument, Changing the sequence you are iterating over, Integer and String identity, Dictionaries are unordered, Variable leaking in list comprehensions and for loops, Chaining of or operator, Accessing int literals' attributes, sys.argv[0] is the name of the file being executed, Global Interpreter Lock (GIL) and blocking threads, Multiple return, Pythonic JSON keys
+---
+
 # Common Pitfalls
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Queue Module
+description: Simple example
+---
+
 # Queue Module
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Templates in python
+description: Simple data output program using template, Changing delimiter
+---
+
 # Templates in python
 
 

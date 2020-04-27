@@ -1,3 +1,8 @@
+---
+metaTitle: Working around the Global Interpreter Lock (GIL)
+description: Multiprocessing.Pool, Cython nogil:
+---
+
 # Working around the Global Interpreter Lock (GIL)
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Linked List Node
+description: Write a simple Linked List Node in python
+---
+
 # Linked List Node
 
 

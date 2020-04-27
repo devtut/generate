@@ -1,3 +1,8 @@
+---
+metaTitle: Copying data
+description: Copy a dictionary, Performing a shallow copy, Performing a deep copy, Performing a shallow copy of a list, Copy a set
+---
+
 # Copying data
 
 

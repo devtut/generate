@@ -1,3 +1,8 @@
+---
+metaTitle: Set
+description: Operations on sets, Get the unique elements of a list, Set of Sets, Set Operations using Methods and Builtins, Sets versus multisets
+---
+
 # Set
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Unzipping Files
+description: Using Python ZipFile.extractall() to decompress a ZIP file, Using Python TarFile.extractall() to decompress a tarball
+---
+
 # Unzipping Files
 
 

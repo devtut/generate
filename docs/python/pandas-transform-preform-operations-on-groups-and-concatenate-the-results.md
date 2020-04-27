@@ -1,3 +1,8 @@
+---
+metaTitle: Pandas Transform: Preform operations on groups and concatenate the results
+description: Simple transform, Multiple results per group
+---
+
 # Pandas Transform: Preform operations on groups and concatenate the results
 
 

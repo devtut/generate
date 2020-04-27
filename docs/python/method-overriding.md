@@ -1,3 +1,8 @@
+---
+metaTitle: Method Overriding
+description: Basic method overriding
+---
+
 # Method Overriding
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: pyautogui module
+description: Mouse Functions, Keyboard Functions, ScreenShot And Image Recognition
+---
+
 # pyautogui module
 
 

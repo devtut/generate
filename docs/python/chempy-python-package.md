@@ -1,3 +1,8 @@
+---
+metaTitle: ChemPy - python package
+description: Parsing formulae, Balancing stoichiometry of a chemical reaction, Balancing reactions, Chemical equilibria, Ionic strength, Chemical kinetics (system of ordinary differential equations)
+---
+
 # ChemPy - python package
 
 

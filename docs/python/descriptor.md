@@ -1,3 +1,8 @@
+---
+metaTitle: Descriptor
+description: Simple descriptor, Two-way conversions
+---
+
 # Descriptor
 
 

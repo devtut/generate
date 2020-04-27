@@ -1,3 +1,8 @@
+---
+metaTitle: Polymorphism
+description: Duck Typing, Basic Polymorphism
+---
+
 # Polymorphism
 
 

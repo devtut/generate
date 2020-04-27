@@ -1,3 +1,8 @@
+---
+metaTitle: Counting
+description: Counting all occurence of all items in an iterable: collections.Counter, Getting the most common value(-s): collections.Counter.most_common(), Counting the occurrences of one item in a sequence: list.count() and tuple.count(), Counting the occurrences of a substring in a string: str.count(), Counting  occurences in numpy array
+---
+
 # Counting
 
 

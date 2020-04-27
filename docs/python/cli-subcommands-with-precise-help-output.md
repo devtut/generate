@@ -1,3 +1,8 @@
+---
+metaTitle: CLI subcommands with precise help output
+description: Native way (no libraries), argparse (default help formatter), argparse (custom help formatter)
+---
+
 # CLI subcommands with precise help output
 
 

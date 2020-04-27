@@ -1,3 +1,8 @@
+---
+metaTitle: urllib
+description: HTTP GET, HTTP POST, Decode received bytes according to content type encoding
+---
+
 # urllib
 
 

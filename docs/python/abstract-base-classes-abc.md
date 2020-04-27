@@ -1,3 +1,8 @@
+---
+metaTitle: Abstract Base Classes (abc)
+description: Setting the ABCMeta metaclass, Why/How to use ABCMeta and @abstractmethod
+---
+
 # Abstract Base Classes (abc)
 
 

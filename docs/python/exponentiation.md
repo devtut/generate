@@ -1,3 +1,8 @@
+---
+metaTitle: Exponentiation
+description: Square root: math.sqrt() and cmath.sqrt, Exponentiation using builtins: ** and pow(), Modular exponentiation: pow() with 3 arguments, Exponentiation using the math module: math.pow(), Exponential function: math.exp() and cmath.exp(), Exponential function minus 1: math.expm1(), Magic methods and exponentiation: builtin, math and cmath, Roots: nth-root with fractional exponents, Computing large integer roots
+---
+
 # Exponentiation
 
 

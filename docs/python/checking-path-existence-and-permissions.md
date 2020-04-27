@@ -1,3 +1,8 @@
+---
+metaTitle: Checking Path Existence and Permissions
+description: Perform checks using os.access
+---
+
 # Checking Path Existence and Permissions
 
 

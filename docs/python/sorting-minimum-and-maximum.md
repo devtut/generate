@@ -1,3 +1,8 @@
+---
+metaTitle: Sorting, Minimum and Maximum
+description: Make custom classes orderable, Special case: dictionaries, Using the key argument, Default Argument to max, min, Getting a sorted sequence, Extracting N largest or N smallest items from an iterable, Getting the minimum or maximum of several values, Minimum and Maximum of a sequence
+---
+
 # Sorting, Minimum and Maximum
 
 

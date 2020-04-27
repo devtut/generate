@@ -1,3 +1,8 @@
+---
+metaTitle: Binary Data
+description: Format a list of values into a byte object, Unpack a byte object according to a format string, Packing a structure
+---
+
 # Binary Data
 
 

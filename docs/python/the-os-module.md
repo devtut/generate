@@ -1,3 +1,8 @@
+---
+metaTitle: The os Module
+description: makedirs - recursive directory creation, Create a directory, Get current directory, Determine the name of the operating system, Remove a directory, Follow a symlink (POSIX), Change permissions on a file
+---
+
 # The os Module
 
 

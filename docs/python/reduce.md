@@ -1,3 +1,8 @@
+---
+metaTitle: Reduce
+description: Overview, Using reduce, Cumulative product, Non short-circuit variant of any/all, First truthy/falsy element of a sequence (or last element if there is none)
+---
+
 # Reduce
 
 

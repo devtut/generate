@@ -1,3 +1,8 @@
+---
+metaTitle: String Formatting
+description: Basics of String Formatting, Alignment and padding, Format literals (f-string), Float formatting, String formatting with datetime, Named placeholders, Format using Getitem and Getattr, Formatting Numerical Values, Nested formatting, Padding and truncating strings, combined, Custom formatting for a class
+---
+
 # String Formatting
 
 

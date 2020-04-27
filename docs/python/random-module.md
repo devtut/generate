@@ -1,3 +1,8 @@
+---
+metaTitle: Random module
+description: Creating a random user password, Random and sequences: shuffle, choice and sample, Creating random integers and floats: randint, randrange, random, and uniform, Create cryptographically secure random numbers, Reproducible random numbers: Seed and State, Random Binary Decision
+---
+
 # Random module
 
 

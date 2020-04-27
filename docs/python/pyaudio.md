@@ -1,3 +1,8 @@
+---
+metaTitle: pyaudio
+description: Callback Mode Audio I/O, Blocking Mode Audio I/O
+---
+
 # pyaudio
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Metaclasses
+description: Basic Metaclasses, Singletons using metaclasses, Using a metaclass, Introduction to Metaclasses, Custom functionality with metaclasses, The default metaclass
+---
+
 # Metaclasses
 
 

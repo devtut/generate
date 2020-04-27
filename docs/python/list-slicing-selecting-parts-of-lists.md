@@ -1,3 +1,8 @@
+---
+metaTitle: List slicing (selecting parts of lists)
+description: Using the third "step" argument, Selecting a sublist from a list, Reversing a list with slicing, Shifting a list using slicing
+---
+
 # List slicing (selecting parts of lists)
 
 

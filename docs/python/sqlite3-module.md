@@ -1,3 +1,8 @@
+---
+metaTitle: Sqlite3 Module
+description: Sqlite3 - Not require separate server process., Getting the values from the database and Error handling
+---
+
 # Sqlite3 Module
 
 

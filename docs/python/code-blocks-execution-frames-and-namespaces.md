@@ -1,3 +1,8 @@
+---
+metaTitle: Code blocks, execution frames, and namespaces
+description: Code block namespaces
+---
+
 # Code blocks, execution frames, and namespaces
 
 

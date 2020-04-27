@@ -1,3 +1,8 @@
+---
+metaTitle: Performance optimization
+description: Code profiling
+---
+
 # Performance optimization
 
 

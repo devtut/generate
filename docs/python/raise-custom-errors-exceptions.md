@@ -1,3 +1,8 @@
+---
+metaTitle: Raise Custom Errors / Exceptions
+description: Custom Exception, Catch custom Exception
+---
+
 # Raise Custom Errors / Exceptions
 
 

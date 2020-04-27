@@ -1,3 +1,8 @@
+---
+metaTitle: sys
+description: Command line arguments, Script name, Standard error stream, Ending the process prematurely and returning an exit code
+---
+
 # sys
 
 

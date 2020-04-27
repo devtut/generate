@@ -1,3 +1,8 @@
+---
+metaTitle: tkinter
+description: Geometry Managers, A minimal tkinter Application
+---
+
 # tkinter
 
 

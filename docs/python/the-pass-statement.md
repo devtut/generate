@@ -1,3 +1,8 @@
+---
+metaTitle: The pass statement
+description: Ignore an exception, Create a new Exception that can be caught
+---
+
 # The pass statement
 
 

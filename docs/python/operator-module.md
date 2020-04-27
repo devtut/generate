@@ -1,3 +1,8 @@
+---
+metaTitle: Operator module
+description: Itemgetter, Operators as alternative to an infix operator, Methodcaller
+---
+
 # Operator module
 
 

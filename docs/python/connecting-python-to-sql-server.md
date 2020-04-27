@@ -1,3 +1,8 @@
+---
+metaTitle: Connecting Python to SQL Server
+description: Connect to Server, Create Table, Query Data
+---
+
 # Connecting Python to SQL Server
 
 

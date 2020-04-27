@@ -1,3 +1,8 @@
+---
+metaTitle: Incompatibilities moving from Python 2 to Python 3
+description: Integer Division, Unpacking Iterables, Strings: Bytes versus Unicode, Print statement vs. Print function, Differences between range and xrange functions, Raising and handling Exceptions, Leaked variables in list comprehension, True, False and None, User Input, Comparison of different types, .next() method on iterators renamed, Renamed modules, filter(), map() and zip() return iterators instead of sequences, Removed operators <> and ``, synonymous with != and repr(), long vs. int, Reduce is no longer a built-in, All classes are "new-style classes" in Python 3., Absolute/Relative Imports, map(), The round() function tie-breaking and return type, cmp function removed in Python 3, File I/O, Octal Constants, Return value when writing to a file object, exec statement is a function in Python 3, encode/decode to hex no longer available, Dictionary method changes, Class Boolean Value, hasattr function bug in Python 2
+---
+
 # Incompatibilities moving from Python 2 to Python 3
 
 

@@ -1,3 +1,8 @@
+---
+metaTitle: Usage of "pip" module: PyPI Package Manager
+description: Example use of commands, Handling ImportError Exception, Force install
+---
+
 # Usage of "pip" module: PyPI Package Manager
 
 
