@@ -15,7 +15,7 @@ For creating separate python virtual environment need to follow below steps:
 Install pip with this command: `python -m pip install -U pip`
 
 **Step 2:**
-Then install =virtualenvwrapper-win= package by using command (command can be executed windows power shell):
+Then install "virtualenvwrapper-win" package by using command (command can be executed windows power shell):
 
 `pip install virtualenvwrapper-win`
 

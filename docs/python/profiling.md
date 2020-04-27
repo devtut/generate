@@ -10,14 +10,14 @@ Profiling string concatanation:
 ```
 In [1]: import string
 
-In [2]: %%timeit s===; long_list=list(string.ascii_letters)*50
+In [2]: %%timeit s=""; long_list=list(string.ascii_letters)*50
   ....: for substring in long_list:
   ....:   s+=substring
   ....:
 1000 loops, best of 3: 570 us per loop
 
 In [3]: %%timeit long_list=list(string.ascii_letters)*50
-  ....: s===.join(long_list)
+  ....: s="".join(long_list)
   ....:
 100000 loops, best of 3: 16.1 us per loop
 
@@ -43,9 +43,9 @@ Profiling repetition of elements in an array
 
 ```
 >>> import timeit
->>> timeit.timeit('list(itertools.repeat(=a=, 100))', 'import itertools', number = 10000000)
+>>> timeit.timeit('list(itertools.repeat("a", 100))', 'import itertools', number = 10000000)
 10.997665435877963
->>> timeit.timeit('[=a=]*100', number = 10000000)
+>>> timeit.timeit('["a"]*100', number = 10000000)
 7.118789926862576
 
 ```
@@ -58,10 +58,10 @@ Profiling repetition of elements in an array
 Profiling concatanation of numbers
 
 ```
-python -m timeit ='-'.join(str(n) for n in range(100))=
+python -m timeit "'-'.join(str(n) for n in range(100))"
 10000 loops, best of 3: 29.2 usec per loop
 
-python -m timeit ='-'.join(map(str,range(100)))=
+python -m timeit "'-'.join(map(str,range(100)))"
 100000 loops, best of 3: 19.4 usec per loop
 
 ```
@@ -79,7 +79,7 @@ import requests
 @profile
 def slow_func():
     s = requests.session()
-    html=s.get(=https://en.wikipedia.org/=).text
+    html=s.get("https://en.wikipedia.org/").text
     sum([pow(ord(x),3.1) for x in list(html)])
         
 for i in range(50):
@@ -104,7 +104,7 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
      4                                           @profile
      5                                           def slow_func():
      6        50        20729    414.6      0.0      s = requests.session()
-     7        50     47618627 952372.5     89.9      html=s.get(=https://en.wikipedia.org/=).text
+     7        50     47618627 952372.5     89.9      html=s.get("https://en.wikipedia.org/").text
      8        50      5306958 106139.2     10.0      sum([pow(ord(x),3.1) for x in list(html)])
 
 ```

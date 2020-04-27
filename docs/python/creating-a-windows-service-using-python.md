@@ -19,8 +19,8 @@ import socket
 
 
 class AppServerSvc (win32serviceutil.ServiceFramework):
-    _svc_name_ = =TestService=
-    _svc_display_name_ = =Test Service=
+    _svc_name_ = "TestService"
+    _svc_display_name_ = "Test Service"
 
     def __init__(self,args):
         win32serviceutil.ServiceFramework.__init__(self,args)
@@ -76,9 +76,9 @@ from app import app
 
 
 class Service(win32serviceutil.ServiceFramework):
-    _svc_name_ = =TestService=
-    _svc_display_name_ = =Test Service=
-    _svc_description_ = =Tests Python service framework by receiving and echoing messages over a named pipe=
+    _svc_name_ = "TestService"
+    _svc_display_name_ = "Test Service"
+    _svc_description_ = "Tests Python service framework by receiving and echoing messages over a named pipe"
 
     def __init__(self, *args):
         super().__init__(*args)

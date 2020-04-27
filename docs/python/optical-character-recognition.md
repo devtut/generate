@@ -72,7 +72,7 @@ txt = tool.image_to_string(
 
 word_boxes = tool.image_to_string(
     Image.open('test.png'),
-    lang==eng=,
+    lang="eng",
     builder=pyocr.builders.WordBoxBuilder()
 )
 # list of box objects. For each box object:
@@ -83,7 +83,7 @@ word_boxes = tool.image_to_string(
 # may return empty boxes
 
 line_and_word_boxes = tool.image_to_string(
-    Image.open('test.png'), lang==fra=,
+    Image.open('test.png'), lang="fra",
     builder=pyocr.builders.LineBoxBuilder()
 )
 # list of line objects. For each line object:

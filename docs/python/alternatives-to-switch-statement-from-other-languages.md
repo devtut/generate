@@ -10,12 +10,12 @@ Well, if you want a `switch`/`case` construct, the most straightforward way to g
 ```
 def switch(value):
     if value == 1:
-        return =one=
+        return "one"
     if value == 2:
-        return =two=
+        return "two"
     if value == 42:
-        return =the answer to the question about life, the universe and everything=
-    raise Exception(=No case found!=)
+        return "the answer to the question about life, the universe and everything"
+    raise Exception("No case found!")
 
 ```
 
@@ -89,7 +89,7 @@ one
 ## Use class introspection
 
 
-You can use a class to mimic the switch/case structure. The following is using introspection of a class (using the `getattr()` function that resolves a string into a bound method on an instance) to resolve the =case= part.
+You can use a class to mimic the switch/case structure. The following is using introspection of a class (using the `getattr()` function that resolves a string into a bound method on an instance) to resolve the "case" part.
 
 Then that introspecting method is aliased to the `__call__` method to overload the `()` operator.
 

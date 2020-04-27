@@ -14,7 +14,7 @@ Using the `threading` module, a new thread of execution may be started by creati
 import threading
 
 def foo():
-  print =Hello threading!=
+  print "Hello threading!"
 
 my_thread = threading.Thread(target=foo)
 
@@ -51,7 +51,7 @@ def compile(q):
     if not q.full():
         raise ValueError
     else:
-        print(=Done compiling!=)
+        print("Done compiling!")
 
 threads = []
 for page_num in range(20):
@@ -85,14 +85,14 @@ class Sleepy(Thread):
 
     def run(self):
         time.sleep(5)
-        print(=Hello form Thread=)
+        print("Hello form Thread")
 
-if __name__ == =__main__=:
+if __name__ == "__main__":
     t = Sleepy()
     t.start()      # start method automatic call Thread class run method.
     # print 'The main program continues to run in foreground.'
     t.join()
-    print(=The main program continues to run in the foreground.=)
+    print("The main program continues to run in the foreground.")
 
 ```
 
@@ -204,7 +204,7 @@ This section will contain some of the most advanced examples realized using Mult
 
 ### Advanced printer (logger)
 
-A thread that prints everything is received and modifies the output according to the terminal width. The nice part is that also the =already written= output is modified when the width of the terminal changes.
+A thread that prints everything is received and modifies the output according to the terminal width. The nice part is that also the "already written" output is modified when the width of the terminal changes.
 
 ```
 #!/usr/bin/env python2
@@ -291,8 +291,8 @@ import threading
 import time
 
 class StoppableThread(threading.Thread):
-    ===Thread class with a stop() method. The thread itself has to check
-    regularly for the stopped() condition.===
+    """Thread class with a stop() method. The thread itself has to check
+    regularly for the stopped() condition."""
 
     def __init__(self):
         super(StoppableThread, self).__init__()
@@ -307,9 +307,9 @@ class StoppableThread(threading.Thread):
 
     def run()
         while not self._stop_event.is_set():
-            print(=Still running!=)
+            print("Still running!")
             time.sleep(2)
-        print(=stopped!=
+        print("stopped!"
 
 ```
 

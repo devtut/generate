@@ -82,7 +82,7 @@ Allow one to write your file open code in a more pythonic manner:
 
 ```
 try:
-    with open(=fname=, =r=) as fout:
+    with open("fname", "r") as fout:
         # Work with your open file
 except FileExistsError:
     # Your error handling goes here
@@ -94,7 +94,7 @@ In Python 2 you would have done something like
 ```
 import os.path
 if os.path.isfile(fname):
-    with open(=fname=, =w=) as fout:
+    with open("fname", "w") as fout:
         # Work with your open file
 else:
     # Your error handling goes here
@@ -134,10 +134,10 @@ Using the for loop iterator and readline() together is considered bad practice.
 More commonly, the `readlines()` method is used to store an iterable collection of the file's lines:
 
 ```
-with open(=myfile.txt=, =r=) as fp:
+with open("myfile.txt", "r") as fp:
     lines = fp.readlines()
 for i in range(len(lines)):
-    print(=Line = + str(i) + =: = + line)
+    print("Line " + str(i) + ": " + line)
 
 ```
 
@@ -163,7 +163,7 @@ for root, folders, files in os.walk(root_dir):
 
 ```
 
-root_dir can be =.= to start from current directory, or any other path to start from.
+root_dir can be "." to start from current directory, or any other path to start from.
 
 If you also wish to get information about the file, you may use the more efficient method [os.scandir](https://docs.python.org/3/library/os.html#os.scandir) like so:
 
@@ -203,7 +203,7 @@ Keep in mind that without using a `with` statement, you might accidentally keep 
 
 ```
 in_file = open('myfile.txt', 'r')
-raise Exception(=oops=)
+raise Exception("oops")
 in_file.close()  # This will never be called
 
 ```
@@ -215,10 +215,10 @@ in_file.close()  # This will never be called
 
 ```
 with open('myfile.txt', 'w') as f:
-    f.write(=Line 1=)
-    f.write(=Line 2=)
-    f.write(=Line 3=)
-    f.write(=Line 4=)
+    f.write("Line 1")
+    f.write("Line 2")
+    f.write("Line 3")
+    f.write("Line 4")
 
 ```
 
@@ -232,10 +232,10 @@ Python doesn't automatically add line breaks, you need to do that manually:
 
 ```
 with open('myfile.txt', 'w') as f:
-    f.write(=Line 1\n=)
-    f.write(=Line 2\n=)
-    f.write(=Line 3\n=)
-    f.write(=Line 4\n=)
+    f.write("Line 1\n")
+    f.write("Line 2\n")
+    f.write("Line 3\n")
+    f.write("Line 4\n")
 
 ```
 
@@ -260,7 +260,7 @@ It is also possible to use the print statement to write to a file.  The mechanic
 
 ```
 with open('fred.txt', 'w') as outfile:
-    s = =I'm Not Dead Yet!=
+    s = "I'm Not Dead Yet!"
     print(s) # writes to stdout
     print(s, file = outfile) # writes to outfile
 
@@ -276,7 +276,7 @@ In Python 2 you would have done something like
 
 ```
 outfile = open('fred.txt', 'w')
-s = =I'm Not Dead Yet!=
+s = "I'm Not Dead Yet!"
 print s   # writes to stdout
 print >> outfile, s   # writes to outfile
 
@@ -327,7 +327,7 @@ To check whether a given path exists or not, you can follow the above EAFP proce
 
 ```
 import os
-path = =/home/myFiles/directory1=
+path = "/home/myFiles/directory1"
 
 if os.path.exists(path):
     ## Do stuff

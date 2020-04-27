@@ -90,7 +90,7 @@ class MyTestCase(unittest.TestCase):
 
 ```
 def division_function(dividend, divisor):
-    ===
+    """
     Dividing two numbers.
 
     :type dividend: int
@@ -98,7 +98,7 @@ def division_function(dividend, divisor):
 
     :raises: ZeroDivisionError if divisor is zero (0).
     :rtype: int
-    ===
+    """
     return dividend / divisor
 
 
@@ -130,7 +130,7 @@ def convert2number(random_input):
     try:
         my_input = int(random_input)
     except ValueError:
-        raise WrongInputException(=Expected an integer!=)
+        raise WrongInputException("Expected an integer!")
     return my_input
 
 ```
@@ -140,7 +140,7 @@ To check whether an exception has been raised, we use `assertRaises` to check fo
 1. Using the regular function call. The first argument takes the exception type, second a callable (usually a function) and the rest of arguments are passed to this callable.
 <li>Using a `with` clause, giving only the exception type to the function. This has as advantage that more code can be executed, but should be used with care since multiple functions can use the same exception which can be problematic. An example:
 with self.assertRaises(WrongInputException):
-convert2number(=not a number=)</li>
+convert2number("not a number")</li>
 
 This first has been implemented in the following test case:
 
@@ -150,11 +150,11 @@ import unittest
 class ExceptionTestCase(unittest.TestCase):
 
     def test_wrong_input_string(self):
-        self.assertRaises(WrongInputException, convert2number, =not a number=)
+        self.assertRaises(WrongInputException, convert2number, "not a number")
 
     def test_correct_input(self):
         try:
-            result = convert2number(=56=)
+            result = convert2number("56")
             self.assertIsInstance(result, int)
         except WrongInputException:
             self.fail()
@@ -208,7 +208,7 @@ FAIL: test (__main__.TruthTest)
 
 Traceback (most recent call last):
 
-  File =stuff.py=, line 6, in test
+  File "stuff.py", line 6, in test
 
     self.assertTrue(1 + 1 == 3)
 
@@ -227,7 +227,7 @@ FAIL: test (__main__.TruthTest)
 
 Traceback (most recent call last):
 
-  File =stuff.py=, line 6, in test
+  File "stuff.py", line 6, in test
 
     self.assertEqual(1 + 1, 3)
 AssertionError: 2 != 3
@@ -262,18 +262,18 @@ from custom_math import multiply
 
 
 def multiples_of(integer, *args, num_multiples=0, **kwargs):
-    ===
+    """
     :rtype: list
-    ===
+    """
     multiples = []
     
     for x in range(1, num_multiples + 1):
-        ===
+        """
         Passing in args and kwargs here will only raise TypeError if values were 
         passed to multiples_of function, otherwise they are ignored. This way we can 
         test that multiples_of is used correctly. This is here for an illustration
         of how create_autospec works. Not recommended for production code.
-        ===
+        """
         multiple = multiply(integer,x, *args, **kwargs)
         multiples.append(multiple)
     
@@ -300,7 +300,7 @@ class TestCustomMath(unittest.TestCase):
     
     def test_multiples_of_with_bad_inputs(self):
         with self.assertRaises(TypeError) as e:
-            multiples_of(1, =extra arg=,  num_multiples=1) # this should raise a TypeError
+            multiples_of(1, "extra arg",  num_multiples=1) # this should raise a TypeError
 
 ```
 
@@ -341,7 +341,7 @@ def copy_file_to_docker(src, dest):
     return result
 
 def docker_exec_something(something_file_string):
-    fl = Popen([=docker=, =exec=, =-i=, =something_cont=, =something=], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    fl = Popen(["docker", "exec", "-i", "something_cont", "something"], stdin=PIPE, stdout=PIPE, stderr=PIPE)
     fl.stdin.write(something_file_string)
     fl.stdin.close()
     err = fl.stderr.read()

@@ -36,12 +36,12 @@ print(foo, bar, baz)
 Another way to `print` multiple parameters is by using a `+`
 
 ```
-print(str(foo) + = = + bar + = = + str(baz))
+print(str(foo) + " " + bar + " " + str(baz))
 # out: 1 bar 3.14
 
 ```
 
-What you should be careful about when using `+` to print multiple parameters, though, is that the type of the parameters should be the same. Trying to print the above example without the cast to `string` first would result in an error, because it would try to add the number `1` to the string `=bar=` and add that to the number `3.14`.
+What you should be careful about when using `+` to print multiple parameters, though, is that the type of the parameters should be the same. Trying to print the above example without the cast to `string` first would result in an error, because it would try to add the number `1` to the string `"bar"` and add that to the number `3.14`.
 
 ```
 # Wrong:
@@ -56,7 +56,7 @@ This is because the content of `print` will be evaluated first:
 ```
 print(4 + 5)
 # out: 9
-print(=4= + =5=)
+print("4" + "5")
 # out: 45
 print([4] + [5])
 # out: [4, 5]
@@ -73,15 +73,15 @@ import random
 #telling python to include a function to create random numbers
 randnum = random.randint(0, 12) 
 #make a random number between 0 and 12 and assign it to a variable
-print(=The randomly generated number was - = + str(randnum))
+print("The randomly generated number was - " + str(randnum))
 
 ```
 
 You can prevent the `print` function from automatically printing a newline by using the `end` parameter:
 
 ```
-print(=this has no newline at the end of it... =, end===)
-print(=see?=)
+print("this has no newline at the end of it... ", end="")
+print("see?")
 # out: this has no newline at the end of it... see?
 
 ```
@@ -90,7 +90,7 @@ If you want to write to a file, you can pass it as the parameter `file`:
 
 ```
 with open('my_file.txt', 'w+') as my_file:
-    print(=this goes to the file!=, file=my_file)
+    print("this goes to the file!", file=my_file)
 
 ```
 
@@ -123,9 +123,9 @@ Argument `end`: use something other than a newline at the end
 Without the `end` argument, all `print()` functions write a line and then go to the beginning of the next line.  You can change it to do nothing (use an empty string of ''), or double spacing between paragraphs by using two newlines.
 
 ```
->>> print(=<a=, end=''); print(= class='jidn'= if 1 else ==, end=''); print(=/>=)
+>>> print("<a", end=''); print(" class='jidn'" if 1 else "", end=''); print("/>")
 <a class='jidn'/>
->>> print(=paragraph1=, end==\n\n=); print(=paragraph2=)
+>>> print("paragraph1", end="\n\n"); print("paragraph2")
 paragraph1
 
 paragraph2
@@ -143,10 +143,10 @@ Now you can send your text to either stdout, a file, or StringIO and not care wh
 ... 
 >>> sendit(sys.stdout, 'apples', 'bannas', 'cherries', sep='\t')
 apples    bannas    cherries
->>> with open(=delete-me.txt=, =w+=) as f:
+>>> with open("delete-me.txt", "w+") as f:
 ...    sendit(f, 'apples', 'bannas', 'cherries', sep=' ', end='\n')
 ... 
->>> with open(=delete-me.txt=, =rt=) as f:
+>>> with open("delete-me.txt", "rt") as f:
 ...     print(f.read())
 ... 
 apples bannas cherries

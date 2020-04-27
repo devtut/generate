@@ -44,12 +44,12 @@ A context manager is any object that implements two magic methods `__enter__()` 
 class AContextManager():
 
     def __enter__(self):
-        print(=Entered=)
+        print("Entered")
         # optionally return an object
-        return =A-instance=
+        return "A-instance"
 
     def __exit__(self, exc_type, exc_value, traceback):
-        print(=Exited= + (= (with an exception)= if exc_type else ==))
+        print("Exited" + (" (with an exception)" if exc_type else ""))
         # return True if you want to suppress the exception
 
 ```
@@ -60,17 +60,17 @@ If an exception occurs and is passed to the `__exit__` method, the method can re
 
 ```
 with AContextManager() as a:
-    print(=a is %r= % a)
+    print("a is %r" % a)
 # Entered
 # a is 'A-instance'
 # Exited
 
 with AContextManager() as a:
-    print(=a is %d= % a)
+    print("a is %d" % a)
 # Entered
 # Exited (with an exception)
 # Traceback (most recent call last):
-#   File =<stdin>=, line 2, in <module>
+#   File "<stdin>", line 2, in <module>
 # TypeError: %d format: a number is required, not str
 
 ```
@@ -129,17 +129,17 @@ If an exception needs to be handled by the context manager, a `try..except..fina
 ```
 @contextlib.contextmanager
 def error_handling_context_manager(num):
-    print(=Enter=)
+    print("Enter")
     try:
         yield num + 1
     except ZeroDivisionError:
-        print(=Caught error=)
+        print("Caught error")
     finally:
-        print(=Cleaning up=)
-    print(=Exit=)
+        print("Cleaning up")
+    print("Exit")
 
 with error_handling_context_manager(-1) as cm:
-    print(=Dividing by cm = {}=.format(cm))
+    print("Dividing by cm = {}".format(cm))
     print(2 / cm)
 
 ```
@@ -244,7 +244,7 @@ for _ in range(10000):
 #### Syntax
 
 
-- with =context_manager=( as =alias=)(, =context_manager=( as =alias=)?)*:
+- with "context_manager"( as "alias")(, "context_manager"( as "alias")?)*:
 
 
 
@@ -270,7 +270,7 @@ The translation of the above statement is:
    exc = True
    try:
        try:
-           VAR = value  # Only if =as VAR= is present
+           VAR = value  # Only if "as VAR" is present
            BLOCK
        except:
            # The exceptional case is handled here

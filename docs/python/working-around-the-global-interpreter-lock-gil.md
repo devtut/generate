@@ -5,7 +5,7 @@
 ## Multiprocessing.Pool
 
 
-The simple answer, when asking how to use threads in Python is: =Don't.  Use processes, instead.=  The multiprocessing module lets you create processes with similar syntax to creating threads, but I prefer using their convenient Pool object.
+The simple answer, when asking how to use threads in Python is: "Don't.  Use processes, instead."  The multiprocessing module lets you create processes with similar syntax to creating threads, but I prefer using their convenient Pool object.
 
 Using [the code that David Beazley first used to show the dangers of threads against the GIL](http://www.dabeaz.com/GIL/gilvis/measure2.py), we'll rewrite it using [multiprocessing.Pool](https://docs.python.org/3/library/multiprocessing.html#using-a-pool-of-workers):
 

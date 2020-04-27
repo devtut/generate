@@ -8,9 +8,9 @@
 First and foremost you should be able to find the bottleneck of your script and note that no optimization can compensate for a poor choice in data structure or a flaw in your algorithm design. Secondly do not try to optimize too early in your coding process at the expense of readability/design/quality. Donald Knuth made the following statement on optimization:
 
 > 
-<p>=We should forget about small efficiencies, say about 97% of the time:
+<p>"We should forget about small efficiencies, say about 97% of the time:
 premature optimization is the root of all evil. Yet we should not pass
-up our opportunities in that critical 3%=</p>
+up our opportunities in that critical 3%"</p>
 
 
 To profile your code you have several tools: `cProfile` (or the slower `profile`) from the standard library, `line_profiler` and `timeit`. Each of them serve a different purpose.
@@ -20,7 +20,7 @@ To profile your code you have several tools: `cProfile` (or the slower `profile`
 ```
 import cProfile
 def f(x):
-    return =42!=
+    return "42!"
 cProfile.run('f(12)')
 
 ```
@@ -81,7 +81,7 @@ Finally `timeit` provides a simple way to test one liners or small expression bo
 
 ```
 >>> import timeit
->>> timeit.timeit('=-=.join(str(n) for n in range(100))', number=10000)
+>>> timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
 0.8187260627746582
 
 ```
@@ -89,7 +89,7 @@ Finally `timeit` provides a simple way to test one liners or small expression bo
 from a terminal
 
 ```
-$ python -m timeit '=-=.join(str(n) for n in range(100))'
+$ python -m timeit '"-".join(str(n) for n in range(100))'
 10000 loops, best of 3: 40.3 usec per loop
 
 ```

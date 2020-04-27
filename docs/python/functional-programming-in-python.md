@@ -26,7 +26,7 @@ Map takes a function and a collection of items. It makes a new, empty collection
 This is a simple map that takes a list of names and returns a list of the lengths of those names:
 
 ```
-name_lengths = map(len, [=Mary=, =Isla=, =Sam=])
+name_lengths = map(len, ["Mary", "Isla", "Sam"])
 print(name_lengths)    =>[4, 4, 3]
 
 ```

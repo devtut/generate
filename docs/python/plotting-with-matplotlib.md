@@ -51,9 +51,9 @@ xnumbers = np.linspace(0, 7, 15)
 ynumbers = np.linspace(-1, 1, 11)
 
 plt.plot(x, y, color='r', label='sin') # r - red colour
-plt.xlabel(=Angle in Radians=)
-plt.ylabel(=Magnitude=)
-plt.title(=Plot of some trigonometric functions=)
+plt.xlabel("Angle in Radians")
+plt.ylabel("Magnitude")
+plt.title("Plot of some trigonometric functions")
 plt.xticks(xnumbers)
 plt.yticks(ynumbers)
 plt.legend()
@@ -90,9 +90,9 @@ xnumbers = np.linspace(0, 7, 15)
 ynumbers = np.linspace(-1, 1, 11)
 
 plt.plot(x, y, 'r', x, z, 'g') # r, g - red, green colour
-plt.xlabel(=Angle in Radians=)
-plt.ylabel(=Magnitude=)
-plt.title(=Plot of some trigonometric functions=)
+plt.xlabel("Angle in Radians")
+plt.ylabel("Magnitude")
+plt.title("Plot of some trigonometric functions")
 plt.xticks(xnumbers)
 plt.yticks(ynumbers)
 plt.legend(['sine', 'cosine'])
@@ -131,9 +131,9 @@ ynumbers = np.linspace(-1, 1, 11)
 
 plt.plot(x, y, color='r', label='sin') # r - red colour
 plt.plot(x, z, color='g', label='cos') # g - green colour
-plt.xlabel(=Angle in Radians=)
-plt.ylabel(=Magnitude=)
-plt.title(=Plot of some trigonometric functions=)
+plt.xlabel("Angle in Radians")
+plt.ylabel("Magnitude")
+plt.title("Plot of some trigonometric functions")
 plt.xticks(xnumbers)
 plt.yticks(ynumbers)
 plt.legend()
@@ -179,8 +179,8 @@ fig, ax1 = plt.subplots()
 ax2 = ax1.twinx() # ax2 and ax1 will have common x axis and different y axis
 
 # plot the curves on axes 1, and 2, and get the curve handles
-curve1, = ax1.plot(x, y, label==sin=, color='r')
-curve2, = ax2.plot(x, z, label==sinh=, color='b')
+curve1, = ax1.plot(x, y, label="sin", color='r')
+curve2, = ax2.plot(x, z, label="sinh", color='b')
 
 # Make a curves list to access the parameters in the curves
 curves = [curve1, curve2]
@@ -193,7 +193,7 @@ ax1.legend(curves, [curve.get_label() for curve in curves])
 # ax2.legend(curves, [curve.get_label() for curve in curves]) # also valid
 
 # Global figure properties
-plt.title(=Plot of sine and hyperbolic sine=)
+plt.title("Plot of sine and hyperbolic sine")
 plt.show()
 
 ```
@@ -236,8 +236,8 @@ fig, ax1 = plt.subplots()
 ax2 = ax1.twiny() # ax2 and ax1 will have common y axis and different x axis
 
 # plot the curves on axes 1, and 2, and get the axes handles
-curve1, = ax1.plot(x1, y, label==sin=, color='r')
-curve2, = ax2.plot(x2, y, label==sinh=, color='b')
+curve1, = ax1.plot(x1, y, label="sin", color='r')
+curve2, = ax2.plot(x2, y, label="sinh", color='b')
 
 # Make a curves list to access the parameters in the curves
 curves = [curve1, curve2]
@@ -250,12 +250,12 @@ curves = [curve1, curve2]
 ax2.legend(curves, [curve.get_label() for curve in curves]) # also valid
 
 # x axis labels via the axes
-ax1.set_xlabel(=Magnitude=, color=curve1.get_color())
-ax2.set_xlabel(=Magnitude=, color=curve2.get_color())
+ax1.set_xlabel("Magnitude", color=curve1.get_color())
+ax2.set_xlabel("Magnitude", color=curve2.get_color())
 
 # y axis label via the axes
-ax1.set_ylabel(=Angle/Value=, color=curve1.get_color())
-# ax2.set_ylabel(=Magnitude=, color=curve2.get_color()) # does not work
+ax1.set_ylabel("Angle/Value", color=curve1.get_color())
+# ax2.set_ylabel("Magnitude", color=curve2.get_color()) # does not work
 # ax2 has no property control over y axis
 
 # y ticks - make them coloured as well
@@ -285,7 +285,7 @@ ax2.grid(color=curve2.get_color())
 ax1.xaxis.grid(False)
 
 # Global figure properties
-plt.title(=Plot of sine and hyperbolic sine=)
+plt.title("Plot of sine and hyperbolic sine")
 plt.show()
 
 ```

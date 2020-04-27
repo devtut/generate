@@ -10,7 +10,7 @@ Import the ElementTree object, open the relevant .xml file and get the root tag:
 
 ```
 import xml.etree.ElementTree as ET
-tree = ET.parse(=yourXMLfile.xml=)
+tree = ET.parse("yourXMLfile.xml")
 root = tree.getroot()
 
 ```
@@ -33,8 +33,8 @@ print(root[0][1].text)
 To search for specific tags by name, use the `.find` or `.findall`:
 
 ```
-print(root.findall(=myTag=))
-print(root[0].find(=myOtherTag=))
+print(root.findall("myTag"))
+print(root[0].find("myOtherTag"))
 
 ```
 
@@ -57,7 +57,7 @@ Element object can be manipulated by changing its fields, adding and modifying a
 
 ```
 element.set('attribute_name', 'attribute_value') #set the attribute to xml element
-element.text==string_text=
+element.text="string_text"
 
 ```
 
@@ -114,7 +114,7 @@ If you want to save to a file create a xml tree with ElementTree() function and 
 
 ```
 tree = ET.ElementTree(p)
-tree.write(=output.xml=)
+tree.write("output.xml")
 
 ```
 
@@ -143,17 +143,17 @@ import xml.etree.ElementTree as ET
 Open the .xml file and iterate over all the elements:
 
 ```
-for event, elem in ET.iterparse(=yourXMLfile.xml=):
+for event, elem in ET.iterparse("yourXMLfile.xml"):
     ... do something ...
 
 ```
 
 Alternatively, we can only look for specific events, such as start/end tags or namespaces.
-If this option is omitted (as above), only =end= events are returned:
+If this option is omitted (as above), only "end" events are returned:
 
 ```
-events=(=start=, =end=, =start-ns=, =end-ns=)
-for event, elem in ET.iterparse(=yourXMLfile.xml=, events=events):
+events=("start", "end", "start-ns", "end-ns")
+for event, elem in ET.iterparse("yourXMLfile.xml", events=events):
     ... do something ...
 
 ```
@@ -161,8 +161,8 @@ for event, elem in ET.iterparse(=yourXMLfile.xml=, events=events):
 Here is the complete example showing how to clear elements from the in-memory tree when we are finished with them:
 
 ```
-for event, elem in ET.iterparse(=yourXMLfile.xml=, events=(=start=,=end=)):        
-    if elem.tag == =record_tag= and event == =end=:
+for event, elem in ET.iterparse("yourXMLfile.xml", events=("start","end")):        
+    if elem.tag == "record_tag" and event == "end":
         print elem.text
         elem.clear()
     ... do something else ...
@@ -179,15 +179,15 @@ Starting with version 2.7 `ElementTree` has a better support for XPath queries. 
 ```
  <Catalog>
     <Books>
-        <Book id==1= price==7.95=>
+        <Book id="1" price="7.95">
             <Title>Do Androids Dream of Electric Sheep?</Title>
             <Author>Philip K. Dick</Author>
         </Book>
-        <Book id==5= price==5.95=>
+        <Book id="5" price="5.95">
             <Title>The Colour of Magic</Title>
             <Author>Terry Pratchett</Author>
         </Book>
-        <Book id==7= price==6.95=>
+        <Book id="7" price="6.95">
             <Title>The Eye of The World</Title>
             <Author>Robert Jordan</Author>
         </Book>
@@ -208,7 +208,7 @@ tree.findall('Books/Book')
 Searching for the book with title = 'The Colour of Magic':
 
 ```
-tree.find(=Books/Book[Title='The Colour of Magic']=) 
+tree.find("Books/Book[Title='The Colour of Magic']") 
 # always use '' in the right side of the comparison
 
 ```
@@ -216,7 +216,7 @@ tree.find(=Books/Book[Title='The Colour of Magic']=)
 Searching for the book with id = 5:
 
 ```
-tree.find(=Books/Book[@id='5']=)
+tree.find("Books/Book[@id='5']")
 # searches with xml attributes must have '@' before the name
 
 ```
@@ -224,7 +224,7 @@ tree.find(=Books/Book[@id='5']=)
 Search for the second book:
 
 ```
-tree.find(=Books/Book[2]=)
+tree.find("Books/Book[2]")
 # indexes starts at 1, not 0
 
 ```
@@ -232,7 +232,7 @@ tree.find(=Books/Book[2]=)
 Search for the last book:
 
 ```
-tree.find(=Books/Book[last()]=)
+tree.find("Books/Book[last()]")
 # 'last' is the only xpath function allowed in ElementTree
 
 ```
@@ -240,7 +240,7 @@ tree.find(=Books/Book[last()]=)
 Search for all authors:
 
 ```
-tree.findall(=.//Author=)
+tree.findall(".//Author")
 #searches with // must use a relative path
 
 ```

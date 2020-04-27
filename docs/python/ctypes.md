@@ -93,7 +93,7 @@ Function prototypes have on more usage: They can wrap `ctypes` function (like `l
 >>> libc.ntohl() # garbage in - garbage out
 >>> CFUNCTYPE(c_int, c_int)(libc.ntohl)()
 Traceback (most recent call last):
-    File =<stdin>=, line 1, in <module>
+    File "<stdin>", line 1, in <module>
 TypeError: this function takes at least 1 argument (0 given)
 
 ```
@@ -148,12 +148,12 @@ The first possible error is failing to load the library. In that case an OSError
 This is either because the file doesn't exists (or can't be found by the OS):
 
 ```
->>> cdll.LoadLibrary(=foobar.so=)
+>>> cdll.LoadLibrary("foobar.so")
 Traceback (most recent call last):
-File =<stdin>=, line 1, in <module>
-File =/usr/lib/python3.5/ctypes/__init__.py=, line 425, in LoadLibrary
+File "<stdin>", line 1, in <module>
+File "/usr/lib/python3.5/ctypes/__init__.py", line 425, in LoadLibrary
     return self._dlltype(name)
-File =/usr/lib/python3.5/ctypes/__init__.py=, line 347, in __init__
+File "/usr/lib/python3.5/ctypes/__init__.py", line 347, in __init__
     self._handle = _dlopen(self._name, mode)
 OSError: foobar.so: cannot open shared object file: No such file or directory
 
@@ -164,12 +164,12 @@ As you can see, the error is clear and pretty indicative.
 The second reason is that the file is found, but is not of the correct format.
 
 ```
->>> cdll.LoadLibrary(=libc.so=)
+>>> cdll.LoadLibrary("libc.so")
 Traceback (most recent call last):
-File =<stdin>=, line 1, in <module>
-File =/usr/lib/python3.5/ctypes/__init__.py=, line 425, in LoadLibrary
+File "<stdin>", line 1, in <module>
+File "/usr/lib/python3.5/ctypes/__init__.py", line 425, in LoadLibrary
     return self._dlltype(name)
-File =/usr/lib/python3.5/ctypes/__init__.py=, line 347, in __init__
+File "/usr/lib/python3.5/ctypes/__init__.py", line 347, in __init__
     self._handle = _dlopen(self._name, mode)
 OSError: /usr/lib/i386-linux-gnu/libc.so: invalid ELF header
 
@@ -186,10 +186,10 @@ When a non-existing function is used, an `AttributeError` is raised:
 ```
 >>> libc.foo
 Traceback (most recent call last):
-File =<stdin>=, line 1, in <module>
-File =/usr/lib/python3.5/ctypes/__init__.py=, line 360, in __getattr__
+File "<stdin>", line 1, in <module>
+File "/usr/lib/python3.5/ctypes/__init__.py", line 360, in __getattr__
     func = self.__getitem__(name)
-File =/usr/lib/python3.5/ctypes/__init__.py=, line 365, in __getitem__
+File "/usr/lib/python3.5/ctypes/__init__.py", line 365, in __getitem__
     func = self._FuncPtr((name_or_ordinal, self))
 AttributeError: /lib/i386-linux-gnu/libc.so.6: undefined symbol: foo
 

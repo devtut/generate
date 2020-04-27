@@ -107,10 +107,10 @@ reduce(operator.mul, [10, 5, -3])
 
 ```
 import operator
-# non short-circuit =all=
+# non short-circuit "all"
 reduce(operator.and_, [False, True, True, True]) # = False
 
-# non short-circuit =any=
+# non short-circuit "any"
 reduce(operator.or_, [True, False, False, False]) # = True
 
 ```

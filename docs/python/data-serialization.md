@@ -18,7 +18,7 @@ families = (['John'], ['Mark', 'David', {'name': 'Avraham'}])
 
 # Dumping it into string
 json_families = json.dumps(families)
-# [[=John=], [=Mark=, =David=, {=name=: =Avraham=}]]
+# [["John"], ["Mark", "David", {"name": "Avraham"}]]
 
 # Dumping it to file
 with open('families.json', 'w') as json_file:

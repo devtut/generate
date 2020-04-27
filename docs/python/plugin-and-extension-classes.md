@@ -15,11 +15,11 @@ When we use more than one mixins, Order of mixins are important. here is a simpl
 ```
 class Mixin1(object):
     def test(self):
-        print =Mixin1=
+        print "Mixin1"
 
 class Mixin2(object):
     def test(self):
-        print =Mixin2=
+        print "Mixin2"
 
 class MyClass(Mixin1, Mixin2):
     pass
@@ -57,17 +57,17 @@ Mixins can be used to define custom plugins.
 ```
 class Base(object):
     def test(self):
-        print(=Base.=)
+        print("Base.")
 
 class PluginA(object):
     def test(self):
         super().test()
-        print(=Plugin A.=)
+        print("Plugin A.")
 
 class PluginB(object):
     def test(self):
         super().test()
-        print(=Plugin B.=)
+        print("Plugin B.")
 
 plugins = PluginA, PluginB
 
@@ -103,18 +103,18 @@ class Base:
         cls.plugins.append(cls)
     
     def test(self):
-        print(=Base.=)
+        print("Base.")
 
 class PluginA(Base):
     def test(self):
         super().test()
-        print(=Plugin A.=)
+        print("Plugin A.")
     
 
 class PluginB(Base):
     def test(self):
         super().test()
-        print(=Plugin B.=)
+        print("Plugin B.")
 
 ```
 

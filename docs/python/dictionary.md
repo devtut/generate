@@ -89,7 +89,7 @@ mydict['not there']
 
 ```
 Traceback (most recent call last):
-  File =<stdin>=, line 1, in <module>
+  File "<stdin>", line 1, in <module>
 KeyError: 'not there'
 
 ```
@@ -107,11 +107,11 @@ Which returns `mydict[key]` if it exists, but otherwise returns `default_value`.
 mydict = {}
 print(mydict)
 # {}
-print(mydict.get(=foo=, =bar=))
+print(mydict.get("foo", "bar"))
 # bar
 print(mydict)
 # {}
-print(mydict.setdefault(=foo=, =bar=))
+print(mydict.setdefault("foo", "bar"))
 # bar
 print(mydict)
 # {'foo': 'bar'}
@@ -218,7 +218,7 @@ d['key']                         # 'full'
 ```
 >>> d = {}
 {}
->>> d.setdefault('Another_key', []).append(=This worked!=)
+>>> d.setdefault('Another_key', []).append("This worked!")
 >>> d
 {'Another_key': ['This worked!']}
 
@@ -236,8 +236,8 @@ Keep in mind that if you have many values to add, `dict.setdefault()` will creat
 Consider the following dictionaries:
 
 ```
->>> fish = {'name': =Nemo=, 'hands': =fins=, 'special': =gills=}
->>> dog = {'name': =Clifford=, 'hands': =paws=, 'color': =red=}
+>>> fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
+>>> dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
 
 ```
 
@@ -250,7 +250,7 @@ Consider the following dictionaries:
 
 ```
 
-As this example demonstrates, duplicate keys map to their lattermost value (for example =Clifford= overrides =Nemo=).
+As this example demonstrates, duplicate keys map to their lattermost value (for example "Clifford" overrides "Nemo").
 
 ### Python 3.3+
 
@@ -261,7 +261,7 @@ As this example demonstrates, duplicate keys map to their lattermost value (for 
 
 ```
 
-With this technique the foremost value takes precedence for a given key rather than the last (=Clifford= is thrown out in favor of =Nemo=).
+With this technique the foremost value takes precedence for a given key rather than the last ("Clifford" is thrown out in favor of "Nemo").
 
 ### Python 2.x, 3.x
 
@@ -272,7 +272,7 @@ With this technique the foremost value takes precedence for a given key rather t
 
 ```
 
-This uses the lattermost value, as with the `**`-based technique for merging (=Clifford= overrides =Nemo=).
+This uses the lattermost value, as with the `**`-based technique for merging ("Clifford" overrides "Nemo").
 
 ```
 >>> fish.update(dog)
@@ -289,26 +289,26 @@ This uses the lattermost value, as with the `**`-based technique for merging (=C
 
 
 ```
-dictionary = {=Hello=: 1234, =World=: 5678}
-print(dictionary[=Hello=])
+dictionary = {"Hello": 1234, "World": 5678}
+print(dictionary["Hello"])
 
 ```
 
 The above code will print `1234`.
 
-The string `=Hello=` in this example is called a **key**. It is used to lookup a value in the `dict` by placing the key in square brackets.
+The string `"Hello"` in this example is called a **key**. It is used to lookup a value in the `dict` by placing the key in square brackets.
 
-The number `1234` is seen after the respective colon in the `dict` definition. This is called the **value** that `=Hello=` **maps to** in this `dict`.
+The number `1234` is seen after the respective colon in the `dict` definition. This is called the **value** that `"Hello"` **maps to** in this `dict`.
 
 Looking up a value like this with a key that does not exist will raise a `KeyError` exception, halting execution if uncaught. If we want to access a value without risking a `KeyError`, we can use the `dictionary.get` method. By default if the key does not exist, the method will return `None`. We can pass it a second value to return instead of `None` in the event of a failed lookup.
 
 ```
-w = dictionary.get(=whatever=)
-x = dictionary.get(=whatever=, =nuh-uh=)
+w = dictionary.get("whatever")
+x = dictionary.get("whatever", "nuh-uh")
 
 ```
 
-In this example `w` will get the value `None` and `x` will get the value `=nuh-uh=`.
+In this example `w` will get the value `None` and `x` will get the value `"nuh-uh"`.
 
 
 
@@ -377,7 +377,7 @@ d['second'] = 2
 d['third'] = 3
 d['last'] = 4
 
-# Outputs =first 1=, =second 2=, =third 3=, =last 4=
+# Outputs "first 1", "second 2", "third 3", "last 4"
 for key in d:
     print(key, d[key])
 
@@ -393,11 +393,11 @@ You can use the `**` keyword argument unpacking operator to deliver the key-valu
 ```
 >>>
 >>> def parrot(voltage, state, action):
-...     print(=This parrot wouldn't=, action, end=' ')
-...     print(=if you put=, voltage, =volts through it.=, end=' ')
-...     print(=E's=, state, =!=)
+...     print("This parrot wouldn't", action, end=' ')
+...     print("if you put", voltage, "volts through it.", end=' ')
+...     print("E's", state, "!")
 ...
->>> d = {=voltage=: =four million=, =state=: =bleedin' demised=, =action=: =VOOM=}
+>>> d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
 >>> parrot(**d)
 
 This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
@@ -407,8 +407,8 @@ This parrot wouldn't VOOM if you put four million volts through it. E's bleedin'
 As of Python 3.5 you can also use this syntax to merge an arbitrary number of `dict` objects.
 
 ```
->>> fish = {'name': =Nemo=, 'hands': =fins=, 'special': =gills=}
->>> dog = {'name': =Clifford=, 'hands': =paws=, 'color': =red=}
+>>> fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
+>>> dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
 >>> fishdog = {**fish, **dog}
 >>> fishdog
 
@@ -416,7 +416,7 @@ As of Python 3.5 you can also use this syntax to merge an arbitrary number of `d
 
 ```
 
-As this example demonstrates, duplicate keys map to their lattermost value (for example =Clifford= overrides =Nemo=).
+As this example demonstrates, duplicate keys map to their lattermost value (for example "Clifford" overrides "Nemo").
 
 
 
@@ -483,8 +483,8 @@ dict({'a' : 1, 'b' : 2}, c=3)         # {'a': 1, 'b': 2, 'c': 3}
 Like lists and tuples, you can include a trailing comma in your dictionary.
 
 ```
-role = {=By day=: =A typical programmer=,
-        =By night=: =Still a typical programmer=, }
+role = {"By day": "A typical programmer",
+        "By night": "Still a typical programmer", }
 
 ```
 
@@ -497,15 +497,15 @@ PEP 8 dictates that you should leave a space between the trailing comma and the 
 
 ```
 options = {
-    =x=: [=a=, =b=],
-    =y=: [10, 20, 30]
+    "x": ["a", "b"],
+    "y": [10, 20, 30]
 }
 
 ```
 
 Given a dictionary such as the one shown above, where there is a list
 representing  a set of values to explore for the corresponding key. Suppose
-you want to explore `=x===a=` with `=y==10`, then `=x===a=` with`=y==10`, and so
+you want to explore `"x"="a"` with `"y"=10`, then `"x"="a"` with`"y"=10`, and so
 on until you have explored all possible combinations.
 
 You can create a list that returns all such combinations of values using the  following code.
@@ -514,8 +514,8 @@ You can create a list that returns all such combinations of values using the  fo
 import itertools
 
 options = {
-    =x=: [=a=, =b=],
-    =y=: [10, 20, 30]}
+    "x": ["a", "b"],
+    "y": [10, 20, 30]}
 
 keys = options.keys()
 values = (options[key] for key in keys)
@@ -545,24 +545,24 @@ Dictionaries map keys to values.
 
 ```
 car = {}
-car[=wheels=] = 4
-car[=color=] = =Red=
-car[=model=] = =Corvette=
+car["wheels"] = 4
+car["color"] = "Red"
+car["model"] = "Corvette"
 
 ```
 
 Dictionary values can be accessed by their keys.
 
 ```
-print =Little = + car[=color=] + = = + car[=model=] + =!=
-# This would print out =Little Red Corvette!=    
+print "Little " + car["color"] + " " + car["model"] + "!"
+# This would print out "Little Red Corvette!"    
 
 ```
 
 Dictionaries can also be created in a JSON style:
 
 ```
-car = {=wheels=: 4, =color=: =Red=, =model=: =Corvette=}
+car = {"wheels": 4, "color": "Red", "model": "Corvette"}
 
 ```
 
@@ -570,7 +570,7 @@ Dictionary values can be iterated over:
 
 ```
 for key in car:
-  print key + =: = + car[key]
+  print key + ": " + car[key]
 
 # wheels: 4
 # color: Red
@@ -587,7 +587,7 @@ for key in car:
 - mydict[k] = value
 - value = mydict[k]
 - value = mydict.get(k)
-- value = mydict.get(k, =default_value=)
+- value = mydict.get(k, "default_value")
 
 
 

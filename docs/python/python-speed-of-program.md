@@ -65,7 +65,7 @@ Write your program without regard to possible optimizations, concentrating inste
 **Remember the 80/20 rule**:
 In many fields you can get 80% of the result with 20% of the effort (also called the 90/10 rule - it depends on who you talk to). Whenever you're about to optimize code, use profiling to find out where that 80% of execution time is going, so you know where to concentrate your effort.
 
-**Always run =before= and =after= benchmarks**:
+**Always run "before" and "after" benchmarks**:
 How else will you know that your optimizations actually made a difference? If your optimized code turns out to be only slightly faster or smaller than the original version, undo your changes and go back to the original, clear code.
 
 Use the right algorithms and data structures:
@@ -126,7 +126,7 @@ def list_check(to_check, the_list):
 
 ```
 
-This is a simple function to check if an item is in a list. To describe the complexity of this function, you will say O(n). This means =Order of n= as the O function is known as the Order function.
+This is a simple function to check if an item is in a list. To describe the complexity of this function, you will say O(n). This means "Order of n" as the O function is known as the Order function.
 
 O(n) - generally n is the number of items in container
 

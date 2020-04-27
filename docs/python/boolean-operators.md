@@ -113,11 +113,11 @@ Python [minimally evaluates](https://en.wikipedia.org/wiki/Short-circuit_evaluat
 
 ```
 >>> def true_func():
-...     print(=true_func()=)
+...     print("true_func()")
 ...     return True
 ... 
 >>> def false_func():
-...     print(=false_func()=)
+...     print("false_func()")
 ...     return False
 ... 
 >>> true_func() or false_func()
@@ -173,7 +173,7 @@ In Python you can compare a single element using two binary operators--one on ei
 
 ```
 if 3.14 < x < 3.142:
-    print(=x is near pi=)
+    print("x is near pi")
 
 ```
 

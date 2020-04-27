@@ -24,7 +24,7 @@ def load_json(filename):
 
         return ret
 
-if __name__ == =__main__=:
+if __name__ == "__main__":
     load_json('allthethings.json')
 
 ```

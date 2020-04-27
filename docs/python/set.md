@@ -83,10 +83,10 @@ s.update({3, 4})   # s == {1, 2, 3, 4}
 Let's say you've got a list of restaurants -- maybe you read it from a file.  You care about the **unique** restaurants in the list.  The best way to get the unique elements from a list is to turn it into a set:
 
 ```
-restaurants = [=McDonald's=, =Burger King=, =McDonald's=, =Chicken Chicken=]
+restaurants = ["McDonald's", "Burger King", "McDonald's", "Chicken Chicken"]
 unique_restaurants = set(restaurants)
 print(unique_restaurants)
-# prints {'Chicken Chicken', =McDonald's=, 'Burger King'}
+# prints {'Chicken Chicken', "McDonald's", 'Burger King'}
 
 ```
 
@@ -96,7 +96,7 @@ This can easily be transformed back into a `List` with Python's built in `list` 
 
 ```
 list(unique_restaurants)
-# ['Chicken Chicken', =McDonald's=, 'Burger King']
+# ['Chicken Chicken', "McDonald's", 'Burger King']
 
 ```
 

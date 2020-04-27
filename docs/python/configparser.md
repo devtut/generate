@@ -63,14 +63,14 @@ from ConfigParser import ConfigParser
 config = ConfigParser()
 
 #Load configuration file
-config.read(=config.ini=)
+config.read("config.ini")
 
-# Access the key =debug= in =DEFAULT= section
-config.get(=DEFAULT=, =debug=)
+# Access the key "debug" in "DEFAULT" section
+config.get("DEFAULT", "debug")
 # Return 'True'
 
-# Access the key =path= in =FILES= destion
-config.get(=FILES=, =path=)
+# Access the key "path" in "FILES" destion
+config.get("FILES", "path")
 # Return '/path/to/file'
 
 ```

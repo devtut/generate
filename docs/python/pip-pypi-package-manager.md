@@ -138,7 +138,7 @@ This command takes all packages in the local virtualenv and checks if they are o
 `pip` doesn't current contain a flag to allow a user to update all outdated packages in one shot. However, this can be accomplished by piping commands together in a Windows environment:
 
 ```
-for /F =delims= = %i in ('pip list --outdated --local') do pip install -U %i
+for /F "delims= " %i in ('pip list --outdated --local') do pip install -U %i
 
 ```
 
@@ -210,7 +210,7 @@ You can also invoke installation of a package to a specific python installation 
 
 On OS-X/Linux/Unix platforms it is important to be aware of the distinction between the system version of python, (which upgrading make render your system inoperable), and the user version(s) of python.  You **may**, **depending on which you are trying to upgrade**, need to prefix these commands with `sudo` and input a password.
 
-Likewise on Windows some python installations, especially those that are a part of another package, can end up installed in system directories - those you will have to upgrade from a command window running in Admin mode - if you find that it looks like you need to do this it is a **very** good idea to check which python installation you are trying to upgrade with a command such as `python -c=import sys;print(sys.path);=` or `py -3.5 -c=import sys;print(sys.path);=` you can also check which pip you are trying to run with `pip --version`
+Likewise on Windows some python installations, especially those that are a part of another package, can end up installed in system directories - those you will have to upgrade from a command window running in Admin mode - if you find that it looks like you need to do this it is a **very** good idea to check which python installation you are trying to upgrade with a command such as `python -c"import sys;print(sys.path);"` or `py -3.5 -c"import sys;print(sys.path);"` you can also check which pip you are trying to run with `pip --version`
 
 On Windows, if you have both python 2 and python 3 installed, and on your path and your python 3 is greater than 3.4 then you will probably also have the python launcher `py` on your system path. You can then do tricks like:
 

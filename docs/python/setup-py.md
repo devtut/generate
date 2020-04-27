@@ -140,7 +140,7 @@ cmdclasses = dict()
 
 class BuildSphinx(Command):
 
-    ===Build Sphinx documentation.===
+    """Build Sphinx documentation."""
 
     description = 'Build Sphinx documentation'
     user_options = []

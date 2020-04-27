@@ -23,8 +23,8 @@ from Crypto.PublicKey import RSA
 from CryptoPlus.Cipher import IDEA
 
 #server address and port number input from admin
-host= raw_input(=Server Address - > =)
-port = int(input(=Port - > =))
+host= raw_input("Server Address - > ")
+port = int(input("Port - > "))
 #boolean for checking server and port
 check = False
 done = False
@@ -44,13 +44,13 @@ try:
     server.listen(5)
     check = True
 except BaseException:
-    print =-----Check Server Address or Port-----=
+    print "-----Check Server Address or Port-----"
     check = False
 
 if check is True:
     # server Quit
     shutdown = False
-# printing =Server Started Message=
+# printing "Server Started Message"
 thread_load = threading.Thread(target=animate)
 thread_load.start()
 
@@ -58,8 +58,8 @@ time.sleep(4)
 done = True
 #binding client and address
 client,address = server.accept()
-print (=CLIENT IS CONNECTED. CLIENT'S ADDRESS ->=,address)
-print (=\n-----WAITING FOR PUBLIC KEY & PUBLIC KEY HASH-----\n=)
+print ("CLIENT IS CONNECTED. CLIENT'S ADDRESS ->",address)
+print ("\n-----WAITING FOR PUBLIC KEY & PUBLIC KEY HASH-----\n")
 
 #client's message(Public Key)
 getpbk = client.recv(2048)
@@ -71,11 +71,11 @@ server_public_key = RSA.importKey(getpbk)
 hash_object = hashlib.sha1(getpbk)
 hex_digest = hash_object.hexdigest()
 
-if getpbk != ==:
+if getpbk != "":
     print (getpbk)
-    client.send(=YES=)
+    client.send("YES")
     gethash = client.recv(1024)
-    print (=\n-----HASH OF PUBLIC KEY----- \n=+gethash)
+    print ("\n-----HASH OF PUBLIC KEY----- \n"+gethash)
 if hex_digest == gethash:
     # creating session key
     key_128 = os.urandom(16)
@@ -86,36 +86,36 @@ if hex_digest == gethash:
     en_object = hashlib.sha1(encrypto)
     en_digest = en_object.hexdigest()
 
-    print (=\n-----SESSION KEY-----\n=+en_digest)
+    print ("\n-----SESSION KEY-----\n"+en_digest)
 
     #encrypting session key and public key
     E = server_public_key.encrypt(encrypto,16)
-    print (=\n-----ENCRYPTED PUBLIC KEY AND SESSION KEY-----\n=+str(E))
-    print (=\n-----HANDSHAKE COMPLETE-----=)
+    print ("\n-----ENCRYPTED PUBLIC KEY AND SESSION KEY-----\n"+str(E))
+    print ("\n-----HANDSHAKE COMPLETE-----")
     client.send(str(E))
     while True:
         #message from client
         newmess = client.recv(1024)
         #decoding the message from HEXADECIMAL to decrypt the ecrypted version of the message only
-        decoded = newmess.decode(=hex=)
+        decoded = newmess.decode("hex")
         #making en_digest(session_key) as the key
         key = en_digest[:16]
-        print (=\nENCRYPTED MESSAGE FROM CLIENT -> =+newmess)
+        print ("\nENCRYPTED MESSAGE FROM CLIENT -> "+newmess)
         #decrypting message from the client
         ideaDecrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda: key)
         dMsg = ideaDecrypt.decrypt(decoded)
-        print (=\n**New Message**  =+time.ctime(time.time()) += > =+dMsg+=\n=)
-        mess = raw_input(=\nMessage To Client -> =)
-        if mess != ==:
+        print ("\n**New Message**  "+time.ctime(time.time()) +" > "+dMsg+"\n")
+        mess = raw_input("\nMessage To Client -> ")
+        if mess != "":
             ideaEncrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda : key)
             eMsg = ideaEncrypt.encrypt(mess)
-            eMsg = eMsg.encode(=hex=).upper()
-            if eMsg != ==:
-                print (=ENCRYPTED MESSAGE TO CLIENT-> = + eMsg)
+            eMsg = eMsg.encode("hex").upper()
+            if eMsg != "":
+                print ("ENCRYPTED MESSAGE TO CLIENT-> " + eMsg)
             client.send(eMsg)
     client.close()
 else:
-    print (=\n-----PUBLIC KEY HASH DOESNOT MATCH-----\n=)
+    print ("\n-----PUBLIC KEY HASH DOESNOT MATCH-----\n")
 
 ```
 
@@ -159,11 +159,11 @@ hex_digest = hash_object.hexdigest()
 server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
 #host and port input user
-host = raw_input(=Server Address To Be Connected -> =)
-port = int(input(=Port of The Server -> =))
+host = raw_input("Server Address To Be Connected -> ")
+port = int(input("Port of The Server -> "))
 #binding the address and port
 server.connect((host, port))
-# printing =Server Started Message=
+# printing "Server Started Message"
 thread_load = threading.Thread(target=animate)
 thread_load.start()
 
@@ -171,30 +171,30 @@ time.sleep(4)
 done = True
 
 def send(t,name,key):
-    mess = raw_input(name + = : =)
+    mess = raw_input(name + " : ")
     key = key[:16]
     #merging the message and the name
-    whole = name+= : =+mess
+    whole = name+" : "+mess
     ideaEncrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda : key)
     eMsg = ideaEncrypt.encrypt(whole)
     #converting the encrypted message to HEXADECIMAL to readable
-    eMsg = eMsg.encode(=hex=).upper()
-    if eMsg != ==:
-        print (=ENCRYPTED MESSAGE TO SERVER-> =+eMsg)
+    eMsg = eMsg.encode("hex").upper()
+    if eMsg != "":
+        print ("ENCRYPTED MESSAGE TO SERVER-> "+eMsg)
     server.send(eMsg)
 def recv(t,key):
     newmess = server.recv(1024)
-    print (=\nENCRYPTED MESSAGE FROM SERVER-> = + newmess)
+    print ("\nENCRYPTED MESSAGE FROM SERVER-> " + newmess)
     key = key[:16]
-    decoded = newmess.decode(=hex=)
+    decoded = newmess.decode("hex")
     ideaDecrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda: key)
     dMsg = ideaDecrypt.decrypt(decoded)
-    print (=\n**New Message From Server**  = + time.ctime(time.time()) + = : = + dMsg + =\n=)
+    print ("\n**New Message From Server**  " + time.ctime(time.time()) + " : " + dMsg + "\n")
 
 while True:
     server.send(public)
     confirm = server.recv(1024)
-    if confirm == =YES=:
+    if confirm == "YES":
         server.send(hex_digest)
 
     #connected msg
@@ -205,16 +205,16 @@ while True:
     en_object = hashlib.sha1(decrypt)
     en_digest = en_object.hexdigest()
 
-    print (=\n-----ENCRYPTED PUBLIC KEY AND SESSION KEY FROM SERVER-----=)
+    print ("\n-----ENCRYPTED PUBLIC KEY AND SESSION KEY FROM SERVER-----")
     print (msg)
-    print (=\n-----DECRYPTED SESSION KEY-----=)
+    print ("\n-----DECRYPTED SESSION KEY-----")
     print (en_digest)
-    print (=\n-----HANDSHAKE COMPLETE-----\n=)
-    alais = raw_input(=\nYour Name -> =)
+    print ("\n-----HANDSHAKE COMPLETE-----\n")
+    alais = raw_input("\nYour Name -> ")
 
     while True:
-        thread_send = threading.Thread(target=send,args=(=------Sending Message------=,alais,en_digest))
-        thread_recv = threading.Thread(target=recv,args=(=------Recieving Message------=,en_digest))
+        thread_send = threading.Thread(target=send,args=("------Sending Message------",alais,en_digest))
+        thread_recv = threading.Thread(target=recv,args=("------Recieving Message------",en_digest))
         thread_send.start()
         thread_recv.start()
 
@@ -255,8 +255,8 @@ Socket Setup:
 to setup the socket now. For setting up the socket, we need to import another module with “import socket” and connect(for client) or bind(for server) the IP address and the port with the socket getting from the user.</p>
 **----------Client Side----------**
 <pre><code>  server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-  host = raw_input(=Server Address To Be Connected -> =)
-  port = int(input(=Port of The Server -> =))
+  host = raw_input("Server Address To Be Connected -> ")
+  port = int(input("Port of The Server -> "))
   server.connect((host, port))
 </code></pre>
 **----------Server Side---------**
@@ -265,7 +265,7 @@ to setup the socket now. For setting up the socket, we need to import another mo
   server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)     
   server.bind((host,port))
   server.listen(5)
-  except BaseException: print =-----Check Server Address or Port-----=
+  except BaseException: print "-----Check Server Address or Port-----"
 </code></pre>
 **“ socket.AF_INET,socket.SOCK_STREAM” will allow us to use accept() function and messaging fundamentals. Instead of it, we can use “ socket.AF_INET,socket.SOCK_DGRAM” also but that time we will have to use setblocking(value) .**
 </li>
@@ -348,7 +348,7 @@ Once defining the “ideaEncrypt” as our IDEA encryption variable, we can use 
 ```
 eMsg = ideaEncrypt.encrypt(whole)
 #converting the encrypted message to HEXADECIMAL to readable eMsg =         
-eMsg.encode(=hex=).upper()
+eMsg.encode("hex").upper()
 
 ```
 
@@ -359,7 +359,7 @@ In this code segment, whole is the message to be encrypted and eMsg is the encry
 To decrypt the encrypted messages, we will need to create another encryption variable by using the same arguments and same key but this time the variable will decrypt the encrypted messages. The code for this same as the last time. However, before decrypting the messages, we need to decode the message from hexadecimal because in our encryption part, we encoded the encrypted message in hexadecimal to make readable. Hence, the whole code will be:
 
 ```
-decoded = newmess.decode(=hex=)
+decoded = newmess.decode("hex")
 ideaDecrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda: key) 
 dMsg = ideaDecrypt.decrypt(decoded)
 

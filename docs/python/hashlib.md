@@ -59,8 +59,8 @@ Here is an example:
 ```
 >>> import hashlib
 >>> m = hashlib.md5()
->>> m.update(=Nobody inspects=)
->>> m.update(= the spammish repetition=)
+>>> m.update("Nobody inspects")
+>>> m.update(" the spammish repetition")
 >>> m.digest()
 '\xbbd\x9c\x83\xdd\x1e\xa5\xc9\xd9\xde\xc9\xa1\x8d\xf0\xff\xe9'
 >>> m.hexdigest()
@@ -75,7 +75,7 @@ Here is an example:
 or:
 
 ```
-hashlib.md5(=Nobody inspects the spammish repetition=).hexdigest()
+hashlib.md5("Nobody inspects the spammish repetition").hexdigest()
     'bb649c83dd1ea5c9d9dec9a18df0ffe9'
 
 ```
@@ -91,7 +91,7 @@ Using `new()` with an algorithm provided by OpenSSL:
 
 ```
 >>> h = hashlib.new('ripemd160')
->>> h.update(=Nobody inspects the spammish repetition=)
+>>> h.update("Nobody inspects the spammish repetition")
 >>> h.hexdigest()
 'cc4a5ce1b3df48aec5d22d1f16b894a0b894eccc'
 

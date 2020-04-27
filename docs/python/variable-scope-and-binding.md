@@ -158,7 +158,7 @@ for x in iterable: pass
 
 ```
 
-Each of the above statements is a **binding occurrence** - `x` become bound to the object denoted by `5`. If this statement appears inside a function, then `x` will be function-local by default. See the =Syntax= section for a list of binding statements.
+Each of the above statements is a **binding occurrence** - `x` become bound to the object denoted by `5`. If this statement appears inside a function, then `x` will be function-local by default. See the "Syntax" section for a list of binding statements.
 
 
 
@@ -473,7 +473,7 @@ def f1():
 - nonlocal a, b
 - x = something  # binds x
 - (x, y) = something  # binds x and y
-- x += something  # binds x. Similarly for all other =op==
+- x += something  # binds x. Similarly for all other "op="
 - del x  # binds x
 - for x in something:  # binds x
 - with something as x:  # binds x

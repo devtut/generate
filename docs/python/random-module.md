@@ -25,7 +25,7 @@ After this, we can use `random.SystemRandom` to generate a password. For a 10 le
 
 ```
 secure_random = random.SystemRandom()
-password = ==.join(secure_random.choice(symbols) for i in range(10))
+password = "".join(secure_random.choice(symbols) for i in range(10))
 print(password)  # '^@g;J?]M6e'
 
 ```
@@ -36,7 +36,7 @@ Behind the curtains, these routines use the [Mersenne Twister PRNG](https://en.w
 
 Starting from Python 3.6, the `secrets` module is available, which exposes cryptographically safe functionality.
 
-Quoting the [official documentation](https://docs.python.org/3.6/library/secrets.html), to generate **=a ten-character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits,=** you could:
+Quoting the [official documentation](https://docs.python.org/3.6/library/secrets.html), to generate **"a ten-character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits,"** you could:
 
 ```
 import string
@@ -65,12 +65,12 @@ import random
 You can use `random.shuffle()` to mix up/randomize the items in a **mutable and indexable** sequence. For example a `list`:
 
 ```
-laughs = [=Hi=, =Ho=, =He=]
+laughs = ["Hi", "Ho", "He"]
 
 random.shuffle(laughs)     # Shuffles in-place! Don't do: laughs = random.shuffle(laughs)
 
 print(laughs)
-# Out: [=He=, =Hi=, =Ho=]  # Output may vary!
+# Out: ["He", "Hi", "Ho"]  # Output may vary!
 
 ```
 
@@ -219,7 +219,7 @@ print(random.randrange(0, 10))
 
 ```
 
-Resetting the seed will create the same =random= sequence again:
+Resetting the seed will create the same "random" sequence again:
 
 ```
 random.seed(5)                 # Reset the random module to the same fixed state.
@@ -272,9 +272,9 @@ import random
 probability = 0.3
 
 if random.random() < probability:
-    print(=Decision with probability 0.3=)
+    print("Decision with probability 0.3")
 else:
-    print(=Decision with probability 0.7=)
+    print("Decision with probability 0.7")
 
 ```
 

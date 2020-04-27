@@ -42,20 +42,20 @@ namespace python_csharp
         static void Main(string[] args)
         {
             // full path to .py file
-            string pyScriptPath = =...../sum.py=;
+            string pyScriptPath = "...../sum.py";
             // convert input arguments to JSON string
-            BsonDocument argsBson = BsonDocument.Parse(={ 'x' : '1', 'y' : '2' }=);
+            BsonDocument argsBson = BsonDocument.Parse("{ 'x' : '1', 'y' : '2' }");
 
             bool saveInputFile = false;
         
-            string argsFile = string.Format(={0}\\{1}.txt=, Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
+            string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
 
             string outputString = null;
             // create new process start info 
             ProcessStartInfo prcStartInfo = new ProcessStartInfo
             {
                 // full path of the Python interpreter 'python.exe'
-                FileName = =python.exe=, // string.Format(@==={0}===, =python.exe=),
+                FileName = "python.exe", // string.Format(@"""{0}""", "python.exe"),
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = false
@@ -67,7 +67,7 @@ namespace python_csharp
                 using (StreamWriter sw = new StreamWriter(argsFile))
                 {
                     sw.WriteLine(argsBson);
-                    prcStartInfo.Arguments = string.Format(={0} {1}=, string.Format(@==={0}===, pyScriptPath), string.Format(@==={0}===, argsFile));
+                    prcStartInfo.Arguments = string.Format("{0} {1}", string.Format(@"""{0}""", pyScriptPath), string.Format(@"""{0}""", argsFile));
                 }
                 // start process
                 using (Process process = Process.Start(prcStartInfo))
@@ -108,8 +108,8 @@ Below are inter-process communication implementation steps:
 
 <li>
 Input arguments are serialized into JSON string and saved in a temporary text file:
-<pre> BsonDocument argsBson = BsonDocument.Parse(={ 'x' : '1', 'y' : '2' }=); 
- string argsFile = string.Format(={0}\\{1}.txt=, Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
+<pre> BsonDocument argsBson = BsonDocument.Parse("{ 'x' : '1', 'y' : '2' }"); 
+ string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
 </pre>
 </li>
 <li>

@@ -23,7 +23,7 @@ print os.getcwd()
 import pandas as pd
 
 # read a csv data file named 'small_dataset.csv' containing 4 lines and 3 variables
-my_data = pd.read_csv(=small_dataset.csv=)
+my_data = pd.read_csv("small_dataset.csv")
 my_data
 #     x   y   z
 # 0   1   2   3

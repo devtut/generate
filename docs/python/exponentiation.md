@@ -127,7 +127,7 @@ For example one can use the 3-argument form of `pow` to define a [modular invers
 
 ```
 def modular_inverse(x, p):
-    ===Find a such as  a·x ≡ 1 (mod p), assuming p is prime.===
+    """Find a such as  a·x ≡ 1 (mod p), assuming p is prime."""
     return pow(x, p-2, p)
 
 [modular_inverse(x, 13) for x in range(1,13)]

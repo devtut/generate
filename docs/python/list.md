@@ -29,9 +29,9 @@ a.append(b)
 # a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9]]
 
 # Append an element of a different type, as list elements do not need to have the same type
-my_string = =hello world=
+my_string = "hello world"
 a.append(my_string)
-# a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9], =hello world=]
+# a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9], "hello world"]
 </code></pre>
 **Note that** the `append()` method only appends one new element to the end of the list. If you append a list to another list, the list that you append becomes a single element at the end of the first list.
 <pre><code># Appending a list to another list
@@ -142,9 +142,9 @@ class Person(object):
     def __repr__(self):
         return self.name
 
-l = [Person(=John Cena=, datetime.date(1992, 9, 12), 175),
-     Person(=Chuck Norris=, datetime.date(1990, 8, 28), 180),
-     Person(=Jon Skeet=, datetime.date(1991, 7, 6), 185)]
+l = [Person("John Cena", datetime.date(1992, 9, 12), 175),
+     Person("Chuck Norris", datetime.date(1990, 8, 28), 180),
+     Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
 
 l.sort(key=lambda item: item.name)
 # l: [Chuck Norris, John Cena, Jon Skeet]
@@ -213,9 +213,9 @@ print(list_of_tuples) #[(5, 0), (1, 2), (3, 4)]
 Use the `attrgetter` if you want to sort by attributes of an object,
 
 ```
-persons = [Person(=John Cena=, datetime.date(1992, 9, 12), 175),
-           Person(=Chuck Norris=, datetime.date(1990, 8, 28), 180),
-           Person(=Jon Skeet=, datetime.date(1991, 7, 6), 185)] #reusing Person class from above example
+persons = [Person("John Cena", datetime.date(1992, 9, 12), 175),
+           Person("Chuck Norris", datetime.date(1990, 8, 28), 180),
+           Person("Jon Skeet", datetime.date(1991, 7, 6), 185)] #reusing Person class from above example
 
 person.sort(key=attrgetter('name')) #sort by name
 by_birthday = attrgetter('birthday')
@@ -231,8 +231,8 @@ person.sort(key=by_birthday) #sort by birthday
 </li>
 <li>
 **Replication** – multiplying an existing list by an integer will produce a larger list consisting of that many copies of the original. This can be useful for example for list initialization:
-<pre><code>b = [=blah=] * 3
-# b = [=blah=, =blah=, =blah=]
+<pre><code>b = ["blah"] * 3
+# b = ["blah", "blah", "blah"]
 b = [1, 3, 5] * 5
 # [1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5]
 </code></pre>
@@ -251,7 +251,7 @@ del a[:]
 </li>
 <li>
 **Copying**
-The default assignment === assigns a reference of the original list to the new name.  That is, the original name and new name are both pointing to the same list object. Changes made through any of them will be reflected in another. This is often not what you intended.
+The default assignment "=" assigns a reference of the original list to the new name.  That is, the original name and new name are both pointing to the same list object. Changes made through any of them will be reflected in another. This is often not what you intended.
 <pre><code>b = a
 a.append(6)
 # b: [1, 2, 3, 4, 5, 6]
@@ -386,7 +386,7 @@ The emptiness of a list is associated to the boolean `False`, so you don't have 
 ```
 lst = []
 if not lst:
-    print(=list is empty=)
+    print("list is empty")
 
 # Output: list is empty
 
@@ -554,7 +554,7 @@ Out[4]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 ```
 
-Note that the list =numbers= remains unchanged by this operation, and remains in the same order it was originally.
+Note that the list "numbers" remains unchanged by this operation, and remains in the same order it was originally.
 
 To reverse in place, you can also use [the `reverse` method](http://stackoverflow.com/documentation/python/209/list/2035/list-support-operations#t=201607230923043603753).
 
@@ -628,7 +628,7 @@ for a,b,c in itertools.zip_longest(alist, blist, clist):
 **Insert to a specific index values:**
 <pre><code> alist = [123, 'xyz', 'zara', 'abc']
  alist.insert(3, [2009])
- print(=Final List :=, alist)
+ print("Final List :", alist)
 </code></pre>
 Output:
 <pre><code> Final List : [123, 'xyz', 'zara', 2009, 'abc']
@@ -643,7 +643,7 @@ Output:
 Removing duplicate values in a list can be done by converting the list to a `set` (that is an unordered collection of distinct objects). If a `list` data structure is needed, then the set can be converted back to a list using the function `list()`:
 
 ```
-names = [=aixk=, =duke=, =edik=, =tofp=, =duke=]
+names = ["aixk", "duke", "edik", "tofp", "duke"]
 list(set(names))
 # Out: ['duke', 'tofp', 'aixk', 'edik']
 

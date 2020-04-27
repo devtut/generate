@@ -12,11 +12,11 @@ import multiprocessing
 
 def countdown(count):
     while count > 0:
-        print(=Count value=, count)
+        print("Count value", count)
         count -= 1
     return
 
-if __name__ == =__main__=:
+if __name__ == "__main__":
     p1 = multiprocessing.Process(target=countdown, args=(10,))
     p1.start()
 
@@ -63,7 +63,7 @@ from __future__ import print_function
 import threading
 def counter(count):
     while count > 0:
-        print(=Count value=, count)
+        print("Count value", count)
         count -= 1
     return
 

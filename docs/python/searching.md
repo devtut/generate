@@ -210,7 +210,7 @@ Sorted sequences allow the use of faster searching algorithms: `bisect.bisect_le
 import bisect
 
 def index_sorted(sorted_seq, value):
-    ===Locate the leftmost value exactly equal to x or raise a ValueError===
+    """Locate the leftmost value exactly equal to x or raise a ValueError"""
     i = bisect.bisect_left(sorted_seq, value)
     if i != len(sorted_seq) and sorted_seq[i] == value:
         return i

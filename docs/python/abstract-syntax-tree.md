@@ -13,29 +13,29 @@ This analyzes a python script and, for each defined function, reports the line n
 import ast
 import sys
 
-=== The data we collect.  Each key is a function name; each value is a dict
+""" The data we collect.  Each key is a function name; each value is a dict
 with keys: firstline, sigend, docend, and lastline and values of line numbers
-where that happens. ===
+where that happens. """
 functions = {}
 
 def process(functions):
-    === Handle the function data stored in functions. ===
+    """ Handle the function data stored in functions. """
     for funcname,data in functions.items():
-        print(=function:=,funcname)
-        print(=\tstarts at line:=,data['firstline'])
-        print(=\tsignature ends at line:=,data['sigend'])
+        print("function:",funcname)
+        print("\tstarts at line:",data['firstline'])
+        print("\tsignature ends at line:",data['sigend'])
         if ( data['sigend'] < data['docend'] ):
-            print(=\tdocstring ends at line:=,data['docend'])
+            print("\tdocstring ends at line:",data['docend'])
         else:
-            print(=\tno docstring=)
-        print(=\tfunction ends at line:=,data['lastline'])
+            print("\tno docstring")
+        print("\tfunction ends at line:",data['lastline'])
         print()
 
 class FuncLister(ast.NodeVisitor):
     def visit_FunctionDef(self, node):
-        === Recursively visit all functions, determining where each function
+        """ Recursively visit all functions, determining where each function
         starts, where its signature ends, where the docstring ends, and where
-        the function ends. ===
+        the function ends. """
         functions[node.name] = {'firstline':node.lineno}
         sigend = max(node.lineno,lastline(node.args))
         functions[node.name]['sigend'] = sigend
@@ -46,18 +46,18 @@ class FuncLister(ast.NodeVisitor):
         self.generic_visit(node)
 
 def lastline(node):
-    === Recursively find the last line of a node ===
+    """ Recursively find the last line of a node """
     return max( [ node.lineno if hasattr(node,'lineno') else -1 , ]
                 +[lastline(child) for child in ast.iter_child_nodes(node)] )
 
 def readin(pythonfilename):
-    === Read the file name and store the function data into functions. ===
+    """ Read the file name and store the function data into functions. """
     with open(pythonfilename) as f:
         code = f.read()
     FuncLister().visit(ast.parse(code))
 
 def analyze(file,process):
-    === Read the file and process the function data. ===
+    """ Read the file and process the function data. """
     readin(file)
     process(functions)
 

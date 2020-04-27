@@ -9,10 +9,10 @@
 ```
 from string import Template
 
-data = dict(item = =candy=, price = 8, qty = 2)
+data = dict(item = "candy", price = 8, qty = 2)
 
 # define the template
-t = Template(=Simon bought $qty $item for $price dollar=)   
+t = Template("Simon bought $qty $item for $price dollar")   
 print(t.substitute(data))
 
 ```
@@ -33,17 +33,17 @@ Mapping is any dictionary-like object with keys that match with the template pla
 ## Changing delimiter
 
 
-You can change the =$= delimiter to any other. The following example:
+You can change the "$" delimiter to any other. The following example:
 
 ```
 from string import Template
 
 class MyOtherTemplate(Template):
-    delimiter = =#=
+    delimiter = "#"
 
 
-data = dict(id = 1, name = =Ricardo=)
-t = MyOtherTemplate(=My name is #name and I have the id: #id=)
+data = dict(id = 1, name = "Ricardo")
+t = MyOtherTemplate("My name is #name and I have the id: #id")
 print(t.substitute(data))
 
 ```

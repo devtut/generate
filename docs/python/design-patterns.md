@@ -53,10 +53,10 @@ class Singleton(object):
         return cls.instance
 
 s = Singleton()
-print (=Object created=, s)
+print ("Object created", s)
 
 s1 = Singleton()
-print (=Object2 created=, s1)
+print ("Object2 created", s1)
 
 ```
 
@@ -85,19 +85,19 @@ class Music():
 
 class Mp3(Music):
     def do_play(self):
-        print (=Playing .mp3 music!=)
+        print ("Playing .mp3 music!")
     
 class Ogg(Music):
     def do_play(self):
-        print (=Playing .ogg music!=)
+        print ("Playing .ogg music!")
     
 class MusicFactory(object):
     def play_sound(self, object_type):
         return eval(object_type)().do_play()
     
-if __name__ == =__main__=:
+if __name__ == "__main__":
     mf = MusicFactory()
-    music = input(=Which music you want to play Mp3 or Ogg=)
+    music = input("Which music you want to play Mp3 or Ogg")
     mf.play_sound(music)
 
 ```
@@ -105,7 +105,7 @@ if __name__ == =__main__=:
 **Output:**
 
 ```
-Which music you want to play Mp3 or Ogg=Ogg=
+Which music you want to play Mp3 or Ogg"Ogg"
 Playing .ogg music!
 
 ```
@@ -123,7 +123,7 @@ one, and make them interchangeable. Strategy
 design pattern lets an algorithm vary independently
 from clients that use it.
 
-For example, animals can =walk= in many different ways. Walking could be considered a strategy that is implemented by different types of animals:
+For example, animals can "walk" in many different ways. Walking could be considered a strategy that is implemented by different types of animals:
 
 ```
 from types import MethodType
@@ -137,12 +137,12 @@ class Animal(object):
             self.walk = MethodType(kwargs.pop('walk'), self)
 
     def walk(self):
-        ===
+        """
         Cause animal instance to walk
         
         Walking funcionallity is a strategy, and is intended to
         be implemented separately by different types of animals.
-        ===
+        """
         message = '{} should implement a walk method'.format(
             self.__class__.__name__)
         raise NotImplementedError(message)
@@ -183,9 +183,9 @@ generic_animal.walk()
     # I am using all four of my legs to walk because I am a(n) Elephant.
     # I am slithering side to side because I am a King Cobra.
     # Traceback (most recent call last):
-    #   File =./strategy.py=, line 56, in <module>
+    #   File "./strategy.py", line 56, in <module>
     #     generic_animal.walk()
-    #   File =./strategy.py=, line 30, in walk
+    #   File "./strategy.py", line 30, in walk
     #     raise NotImplementedError(message)
     # NotImplementedError: Animal should implement a walk method 
 
@@ -276,10 +276,10 @@ def test(user, year):
     reservations_service = Proxy(user, ReservationService())
     stats_service = StatsService(reservations_service)
     average_price = stats_service.year_top_100_reservations_average_total_price(year)
-    print(={0} will see: {1}=.format(user.name, average_price))
+    print("{0} will see: {1}".format(user.name, average_price))
 
-test(User(True, =John the Admin=), 2017)
-test(User(False, =Guest=),         2017)
+test(User(True, "John the Admin"), 2017)
+test(User(False, "Guest"),         2017)
 
 ```
 

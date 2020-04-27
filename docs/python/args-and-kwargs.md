@@ -16,8 +16,8 @@ def print_kwargs(**kwargs):
 When calling the method, Python will construct a dictionary of all keyword arguments and make it available in the function body:
 
 ```
-print_kwargs(a==two=, b=3)
-# prints: ={a: =two=, b=3}=
+print_kwargs(a="two", b=3)
+# prints: "{a: "two", b=3}"
 
 ```
 
@@ -36,15 +36,15 @@ Inside the function body, `kwargs` is manipulated in the same way as a dictionar
 ```
 def print_kwargs(**kwargs):
     for key in kwargs:
-        print(=key = {0}, value = {1}=.format(key, kwargs[key])) 
+        print("key = {0}, value = {1}".format(key, kwargs[key])) 
 
 ```
 
-Now, calling `print_kwargs(a==two=, b=1)` shows the following output:
+Now, calling `print_kwargs(a="two", b=1)` shows the following output:
 
 ```
-print_kwargs(a = =two=, b = 1)
-key = a, value = =two=
+print_kwargs(a = "two", b = 1)
+key = a, value = "two"
 key = b, value = 1
 
 ```
@@ -58,16 +58,16 @@ You can use the star * when writing a function to collect all positional (ie. un
 
 ```
 def print_args(farg, *args):
-   print(=formal arg: %s= % farg)
+   print("formal arg: %s" % farg)
    for arg in args:
-       print(=another positional arg: %s= % arg)
+       print("another positional arg: %s" % arg)
 
 ```
 
 Calling method:
 
 ```
-print_args(1, =two=, 3)
+print_args(1, "two", 3)
 
 ```
 
@@ -80,11 +80,11 @@ In that call, farg will be assigned as always, and the two others will be fed in
 
 ```
 def foobar(foo=None, bar=None):
-    return ={}{}=.format(foo, bar)
+    return "{}{}".format(foo, bar)
 
-values = {=foo=: =foo=, =bar=: =bar=}
+values = {"foo": "foo", "bar": "bar"}
 
-foobar(**values) # =foobar=
+foobar(**values) # "foobar"
 
 ```
 
@@ -97,12 +97,12 @@ You can use a dictionary to assign values to the function's parameters; using pa
 
 ```
 def test_func(arg1, arg2, arg3): # Usual function with three arguments
-   print(=arg1: %s= % arg1)
-   print(=arg2: %s= % arg2)
-   print(=arg3: %s= % arg3)
+   print("arg1: %s" % arg1)
+   print("arg2: %s" % arg2)
+   print("arg3: %s" % arg3)
 
 # Note that dictionaries are unordered, so we can switch arg2 and arg3. Only the names matter.
-kwargs = {=arg3=: 3, =arg2=: =two=}
+kwargs = {"arg3": 3, "arg2": "two"}
 
 # Bind the first argument (ie. arg1) to 1, and use the kwargs dictionary to bind the others
 test_var_args_call(1, **kwargs) 
@@ -118,11 +118,11 @@ Python 3 allows you to define function arguments which can only be assigned by k
 
 ```
 def print_args(arg1, *args, keyword_required, keyword_only=True):
-    print(=first positional arg: {}=.format(arg1))
+    print("first positional arg: {}".format(arg1))
     for arg in args:
-        print(=another positional arg: {}=.format(arg))
-    print(=keyword_required value: {}=.format(keyword_required))
-    print(=keyword_only value: {}=.format(keyword_only))
+        print("another positional arg: {}".format(arg))
+    print("keyword_required value: {}".format(keyword_required))
+    print("keyword_only value: {}".format(keyword_only))
     
 print(1, 2, 3, 4) # TypeError: print_args() missing 1 required keyword-only argument: 'keyword_required'
 print(1, 2, 3, keyword_required=4) 
@@ -225,7 +225,7 @@ What happens here is the class `B` `__init__` function sees the arguments `1, 2,
 
 Next, it sees that it needs to take an arbitrary number of positional arguments (`*args`) so it takes the rest of the positional arguments passed in (`1, 2`) and stuffs them into `*args`. Now (in the scope of the function) `args == [2, 3]`.
 
-Then, it calls class `A`'s `__init__` function with `*args`. Python sees the `*` in front of args and =unpacks= the list into arguments. In this example, when class `B`'s `__init__` function calls class `A`'s `__init__` function, it will be passed the arguments `2, 3` (i.e. `A(2, 3)`).
+Then, it calls class `A`'s `__init__` function with `*args`. Python sees the `*` in front of args and "unpacks" the list into arguments. In this example, when class `B`'s `__init__` function calls class `A`'s `__init__` function, it will be passed the arguments `2, 3` (i.e. `A(2, 3)`).
 
 Finally, it sets its own `x` property to the first positional argument `a`, which equals `1`.
 
@@ -251,14 +251,14 @@ The names `args` and `kwargs` are used by convention, they are not a part of the
 <li>
 You may not have more than one `args` or more than one `kwargs` parameters (however they are not required)
 <pre><code> def func(*args1, *args2):
- #   File =<stdin>=, line 1
+ #   File "<stdin>", line 1
  #     def test(*args1, *args2):
  #                      ^
  # SyntaxError: invalid syntax
 </code></pre>
 <h3></h3>
 <pre><code> def test(**kwargs1, **kwargs2):
- #   File =<stdin>=, line 1
+ #   File "<stdin>", line 1
  #     def test(**kwargs1, **kwargs2):
  #                       ^
  # SyntaxError: invalid syntax
@@ -283,7 +283,7 @@ If any positional argument follow `*args`, they are keyword-only arguments that 
 <li>
 `**kwargs` must come last in the parameter list.
 <pre><code> def test(**kwargs, *args):
- #   File =<stdin>=, line 1
+ #   File "<stdin>", line 1
  #     def test(**kwargs, *args):
  #                      ^
  # SyntaxError: invalid syntax

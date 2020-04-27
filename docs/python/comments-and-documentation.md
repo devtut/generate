@@ -12,7 +12,7 @@ Docstrings are - unlike regular comments - stored as an attribute of the functio
 
 ```
 def func():
-    ===This is a function that does nothing at all===
+    """This is a function that does nothing at all"""
     return
 
 ```
@@ -44,12 +44,12 @@ Help on function `func` in module `__main__`:
 `function.__doc__` is just the actual docstring as a string, while the `help` function provides general information about a function, including the docstring. Here's a more helpful example:
 
 ```
-def greet(name, greeting==Hello=):
-    ===Print a greeting to the user `name`
+def greet(name, greeting="Hello"):
+    """Print a greeting to the user `name`
 
-    Optional parameter `greeting` can change what they're greeted with.===
+    Optional parameter `greeting` can change what they're greeted with."""
     
-    print(={} {}=.format(greeting, name))
+    print("{} {}".format(greeting, name))
 
 ```
 
@@ -70,11 +70,11 @@ Help on function `greet` in module `__main__`:
 Just putting no docstring or a regular comment in a function makes it a lot less helpful.
 
 ```
-def greet(name, greeting==Hello=):
+def greet(name, greeting="Hello"):
     # Print a greeting to the user `name`
     # Optional parameter `greeting` can change what they're greeted with.
     
-    print(={} {}=.format(greeting, name))
+    print("{} {}".format(greeting, name))
 
 ```
 
@@ -119,17 +119,17 @@ the end of line.
 - Inline comment:
 
 ```
-print(=Hello World=)  # This line prints =Hello World=
+print("Hello World")  # This line prints "Hello World"
 
 ```
 
-- Comments spanning multiple lines have `===` or `'''` on either end. This is the same as a multiline string, but they can be used as comments:
+- Comments spanning multiple lines have `"""` or `'''` on either end. This is the same as a multiline string, but they can be used as comments:
 
 ```
-===
+"""
 This type of comment spans multiple lines.
 These are mostly used for documentation of functions, classes and modules.
-===
+"""
 
 ```
 
@@ -142,22 +142,22 @@ A [docstring](https://www.python.org/dev/peps/pep-0257/) is a [multi-line commen
 
 ```
 def hello(name):
-    ===Greet someone.
+    """Greet someone.
 
-    Print a greeting (=Hello=) for the person with the given name.
-    ===
+    Print a greeting ("Hello") for the person with the given name.
+    """
 
-    print(=Hello =+name)
+    print("Hello "+name)
 
 ```
 
 ```
 class Greeter:
-    ===An object used to greet people.
+    """An object used to greet people.
 
     It contains multiple greeting functions for several languages
     and times of the  day.
-    ===
+    """
 
 ```
 
@@ -175,8 +175,8 @@ According to PEP 257, they should be used with short and simple functions. Every
 
 ```
 def hello():
-    ===Say hello to your friends.===
-    print(=Hello my friends!=)
+    """Say hello to your friends."""
+    print("Hello my friends!")
 
 ```
 
@@ -187,15 +187,15 @@ The docstring shall end with a period, the verb should be in the imperative form
 Multi-line docstring should be used for longer, more complex functions, modules or classes.
 
 ```
-def hello(name, language==en=):
-    ===Say hello to a person.
+def hello(name, language="en"):
+    """Say hello to a person.
 
     Arguments:
     name: the name of the person
     language: the language in which the person should be greeted
-    ===
+    """
 
-    print(greeting[language]+= =+name)
+    print(greeting[language]+" "+name)
 
 ```
 
@@ -210,8 +210,8 @@ Note PEP 257 defines [what information should be given](https://www.python.org/d
 A function would be documented like this using the Sphinx/reStructuredText format:
 
 ```
-def hello(name, language==en=):
-    ===Say hello to a person.
+def hello(name, language="en"):
+    """Say hello to a person.
 
     :param name: the name of the person
     :type name: str
@@ -219,9 +219,9 @@ def hello(name, language==en=):
     :type language: str
     :return: a number
     :rtype: int
-    ===
+    """
 
-    print(greeting[language]+= =+name)
+    print(greeting[language]+" "+name)
     return 4
 
 ```
@@ -237,8 +237,8 @@ Using the [Napoleon](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/) p
 A function would be documented like this using the Google Style Guide format:
 
 ```
-def hello(name, language==en=):
-    ===Say hello to a person.
+def hello(name, language="en"):
+    """Say hello to a person.
 
     Args:
         name: the name of the person as string
@@ -246,9 +246,9 @@ def hello(name, language==en=):
 
     Returns:
         A number.
-    ===
+    """
 
-    print(greeting[language]+= =+name)
+    print(greeting[language]+" "+name)
     return 4
 
 ```
@@ -259,11 +259,11 @@ def hello(name, language==en=):
 
 
 - # This is a single line comment
-- print(==)  # This is an inline comment
-<li>===<br />
+- print("")  # This is an inline comment
+<li>"""<br />
 This is <br />
 a multi-line comment<br />
-===</li>
+"""</li>
 
 
 

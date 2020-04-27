@@ -46,7 +46,7 @@ Therefore, if nothing is supposed to happen in a code block, a `pass` is needed 
 <li>
 Ignoring (all or) a certain type of `Exception` (example from `xml`):
 <pre><code> try:
-     self.version = =Expat %d.%d.%d= % expat.version_info
+     self.version = "Expat %d.%d.%d" % expat.version_info
  except AttributeError:
      pass # unknown
 </code></pre>
@@ -80,7 +80,7 @@ Testing that code runs properly for a few test values, without caring about the 
 <li>
 In class or function definitions, often a docstring is already in place as the **obligatory statement** to be executed as the only thing in the block. In such cases, the block may contain `pass` **in addition** to the docstring in order to say “This is indeed intended to do nothing.”, for example in `pebl`:
 <pre><code> class ParsingError(Exception): 
-     ===Error encountered while parsing an ill-formed datafile.===
+     """Error encountered while parsing an ill-formed datafile."""
      pass
 </code></pre>
 </li>

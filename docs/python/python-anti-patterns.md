@@ -45,7 +45,7 @@ x = 5
 if intensive_f(x) is not None:
     print(intensive_f(x) / 2)
 else:
-    print(x, =could not be processed=)
+    print(x, "could not be processed")
 
 print(x)
 
@@ -59,7 +59,7 @@ result = intensive_f(x)
 if result is not None:
     print(result / 2)
 else:
-    print(x, =could not be processed=)
+    print(x, "could not be processed")
 
 ```
 
@@ -70,7 +70,7 @@ x = 5
 try:
     print(intensive_f(x) / 2)
 except TypeError: # The exception raised if None + 1 is attempted
-    print(x, =could not be processed=)
+    print(x, "could not be processed")
 
 ```
 
@@ -83,10 +83,10 @@ A common example of where this may be found is accessing dictionary keys. For ex
 ```
 bird_speeds = get_very_long_dictionary()
 
-if =european swallow= in bird_speeds:
-    speed = bird_speeds[=european swallow=]
+if "european swallow" in bird_speeds:
+    speed = bird_speeds["european swallow"]
 else:
-    speed = input(=What is the air-speed velocity of an unladen swallow?=)
+    speed = input("What is the air-speed velocity of an unladen swallow?")
 
 print(speed)
 
@@ -98,9 +98,9 @@ with:
 bird_speeds = get_very_long_dictionary()
 
 try:
-    speed = bird_speeds[=european swallow=]
+    speed = bird_speeds["european swallow"]
 except KeyError:
-    speed = input(=What is the air-speed velocity of an unladen swallow?=)
+    speed = input("What is the air-speed velocity of an unladen swallow?")
 
 print(speed)
 

@@ -425,13 +425,13 @@ Install virtualfish to the global space
 </li>
 <li>
 Load the python module virtualfish during the fish shell startup
-<pre><code> $ echo =eval (python -m virtualfish)= > ~/.config/fish/config.fish
+<pre><code> $ echo "eval (python -m virtualfish)" > ~/.config/fish/config.fish
 </code></pre>
 </li>
 <li>
 Edit this function `fish_prompt` by `$ funced fish_prompt --editor vim` and add the below lines and close the vim editor
 <pre><code> if set -q VIRTUAL_ENV
-     echo -n -s (set_color -b blue white) =(= (basename =$VIRTUAL_ENV=) =)= (set_color normal) = =
+     echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
  end
 </code></pre>
 Note: If you are unfamiliar with vim, simply supply your favorite editor like this `$ funced fish_prompt --editor nano` or `$ funced fish_prompt --editor gedit`

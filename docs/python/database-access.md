@@ -11,17 +11,17 @@ SQLite is a lightweight, disk-based database. Since it does not require a separa
 ```
 import sqlite3
 
-conn = sqlite3.connect(=users.db=)
+conn = sqlite3.connect("users.db")
 c = conn.cursor()
 
-c.execute(=CREATE TABLE user (name text, age integer)=)
+c.execute("CREATE TABLE user (name text, age integer)")
 
-c.execute(=INSERT INTO user VALUES ('User A', 42)=)
-c.execute(=INSERT INTO user VALUES ('User B', 43)=)
+c.execute("INSERT INTO user VALUES ('User A', 42)")
+c.execute("INSERT INTO user VALUES ('User B', 43)")
 
 conn.commit()
 
-c.execute(=SELECT * FROM user=)
+c.execute("SELECT * FROM user")
 print(c.fetchall())
 
 conn.close()
@@ -64,7 +64,7 @@ c.execute('''CREATE TABLE stocks
             (date text, trans text, symbol text, qty real, price real)''')
 
 # Insert a row of data
-c.execute(=INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)=)
+c.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)")
 
 # Save (commit) the changes
 conn.commit()
@@ -120,7 +120,7 @@ You can change this attribute to a callable that accepts the cursor and the orig
         d[col[0]] = row[i]
     return d
 
-conn = sqlite3.connect(=:memory:=)
+conn = sqlite3.connect(":memory:")
 conn.row_factory = dict_factory
 </code></pre>
 </li>
@@ -132,19 +132,19 @@ conn.row_factory = dict_factory
 <p>Executes a **single** SQL statement. The SQL statement may be parametrized (i. e. placeholders instead of SQL literals).
 The sqlite3 module supports two kinds of placeholders: question marks `?` (“qmark style”) and named placeholders `:name` (“named style”).</p>
 <pre><code>import sqlite3
-conn = sqlite3.connect(=:memory:=)
+conn = sqlite3.connect(":memory:")
 cur = conn.cursor()
-cur.execute(=create table people (name, age)=)
+cur.execute("create table people (name, age)")
 
-who = =Sophia=
+who = "Sophia"
 age = 37
 # This is the qmark style:
-cur.execute(=insert into people values (?, ?)=,
+cur.execute("insert into people values (?, ?)",
             (who, age))
 
 # And this is the named style:
-cur.execute(=select * from people where name=:who and age=:age=,
-            {=who=: who, =age=: age})  # the keys correspond to the placeholders in SQL
+cur.execute("select * from people where name=:who and age=:age",
+            {"who": who, "age": age})  # the keys correspond to the placeholders in SQL
 
 print(cur.fetchone())
 </code></pre>
@@ -163,11 +163,11 @@ Executes an SQL command against all parameter sequences or mappings found in the
      (2, 'cfgd', 'dyfj', 400),
      (3, 'sdd', 'dfjh', 300.50)]                           
 
-conn = sqlite3.connect(=test1.db=)
-conn.execute(=create table if not exists book (id int, name text, author text, price real)=)
-conn.executemany(=insert into book values (?, ?, ?, ?)=, L)
+conn = sqlite3.connect("test1.db")
+conn.execute("create table if not exists book (id int, name text, author text, price real)")
+conn.executemany("insert into book values (?, ?, ?, ?)", L)
 
-for row in conn.execute(=select * from book=):
+for row in conn.execute("select * from book"):
     print(row)
 </code></pre>
 You can also pass iterator objects as a parameter to executemany, and the function will iterate over the each tuple of values that the iterator returns. The iterator must return a tuple of values.
@@ -186,14 +186,14 @@ class IterChars:
         self.count += 1
         return (chr(self.count - 1),) 
 
-conn = sqlite3.connect(=abc.db=)
+conn = sqlite3.connect("abc.db")
 cur = conn.cursor()
-cur.execute(=create table characters(c)=)
+cur.execute("create table characters(c)")
 
 theIter = IterChars()
-cur.executemany(=insert into characters(c) values (?)=, theIter)
+cur.executemany("insert into characters(c) values (?)", theIter)
 
-rows = cur.execute(=select c from characters=)
+rows = cur.execute("select c from characters")
 for row in rows:
     print(row[0]),
 </code></pre>
@@ -203,9 +203,9 @@ for row in rows:
 This is a nonstandard convenience method for executing multiple SQL statements at once. It issues a `COMMIT` statement first, then executes the SQL script it gets as a parameter.
 `sql_script` can be an instance of `str` or `bytes`.
 <pre><code>import sqlite3
-conn = sqlite3.connect(=:memory:=)
+conn = sqlite3.connect(":memory:")
 cur = conn.cursor()
-cur.executescript(===
+cur.executescript("""
      create table person(
          firstname,
          lastname,
@@ -224,7 +224,7 @@ cur.executescript(===
          'Douglas Adams',
          1987
      );
-     ===)
+     """)
 </code></pre>
 The next set of functions are used in conjunction with `SELECT` statements in SQL. To retrieve data after executing a `SELECT` statement, you can either treat the cursor as an iterator, call the cursor’s `fetchone()` method to retrieve a single matching row, or call `fetchall()` to get a list of the matching rows.
 Example of the iterator form:
@@ -233,9 +233,9 @@ stocks = [('2006-01-05', 'BUY', 'RHAT', 100, 35.14),
           ('2006-03-28', 'BUY', 'IBM', 1000, 45.0),
           ('2006-04-06', 'SELL', 'IBM', 500, 53.0),
           ('2006-04-05', 'BUY', 'MSFT', 1000, 72.0)]
-conn = sqlite3.connect(=:memory:=)
-conn.execute(=create table stocks (date text, buysell text, symb text, amount int, price real)=)
-conn.executemany(=insert into stocks values (?, ?, ?, ?, ?)=, stocks)    
+conn = sqlite3.connect(":memory:")
+conn.execute("create table stocks (date text, buysell text, symb text, amount int, price real)")
+conn.executemany("insert into stocks values (?, ?, ?, ?, ?)", stocks)    
 cur = conn.cursor()
 
 for row in cur.execute('SELECT * FROM stocks ORDER BY price'):
@@ -456,22 +456,22 @@ import psycopg2
 
 # Establish a connection to the database.
 # Replace parameter values with database credentials.
-conn = psycopg2.connect(database==testpython=, 
-                        user==postgres=,
-                        host==localhost=,
-                        password==abc123=,
-                        port==5432=) 
+conn = psycopg2.connect(database="testpython", 
+                        user="postgres",
+                        host="localhost",
+                        password="abc123",
+                        port="5432") 
 
 # Create a cursor. The cursor allows you to execute database queries. 
 cur = conn.cursor()
 
 # Create a table. Initialise the table name, the column names and data type. 
-cur.execute(===CREATE TABLE FRUITS (
+cur.execute("""CREATE TABLE FRUITS (
                     id          INT ,
                     fruit_name  TEXT,
                     color       TEXT,
                     price       REAL
-            )===)
+            )""")
 conn.commit()
 conn.close()
 
@@ -481,11 +481,11 @@ conn.close()
 
 ```
 # After creating the table as shown above, insert values into it.
-cur.execute(===INSERT INTO FRUITS (id, fruit_name, color, price)
-               VALUES (1, 'Apples', 'green', 1.00)===)
+cur.execute("""INSERT INTO FRUITS (id, fruit_name, color, price)
+               VALUES (1, 'Apples', 'green', 1.00)""")
 
-cur.execute(===INSERT INTO FRUITS (id, fruit_name, color, price)
-               VALUES (1, 'Bananas', 'yellow', 0.80)===)
+cur.execute("""INSERT INTO FRUITS (id, fruit_name, color, price)
+               VALUES (1, 'Bananas', 'yellow', 0.80)""")
 
 ```
 
@@ -493,18 +493,18 @@ cur.execute(===INSERT INTO FRUITS (id, fruit_name, color, price)
 
 ```
 # Set up a query and execute it 
-cur.execute(===SELECT id, fruit_name, color, price 
-             FROM fruits===)
+cur.execute("""SELECT id, fruit_name, color, price 
+             FROM fruits""")
 
 # Fetch the data 
 rows = cur.fetchall()
 
 # Do stuff with the data
 for row in rows:
-    print =ID = {} =.format(row[0])
-    print =FRUIT NAME = {}=.format(row[1])
-    print(=COLOR = {}=.format(row[2]))
-    print(=PRICE = {}=.format(row[3]))
+    print "ID = {} ".format(row[0])
+    print "FRUIT NAME = {}".format(row[1])
+    print("COLOR = {}".format(row[2]))
+    print("PRICE = {}".format(row[3]))
 
 ```
 
@@ -572,7 +572,7 @@ class OraExec(object):
 **Get database version:**
 
 ```
-ver = con.version.split(=.=)
+ver = con.version.split(".")
 print ver
 
 ```
@@ -583,7 +583,7 @@ Sample Output:
 **Execute query: SELECT**
 
 ```
-_db_cur.execute(=select * from employees order by emp_id=)
+_db_cur.execute("select * from employees order by emp_id")
 for result in _db_cur:
     print result
 
@@ -598,7 +598,7 @@ Output will be in Python tuples:
 **Execute query: INSERT**
 
 ```
-_db_cur.execute(=insert into employees(emp_id, title, dept, grade) 
+_db_cur.execute("insert into employees(emp_id, title, dept, grade) 
                 values (31, 'MTS', 'ENGINEERING', 7)
 _db_connection.commit()
 
@@ -613,12 +613,12 @@ When you perform insert/update/delete operations in an Oracle Database, the chan
 Bind variables enable you to re-execute statements with new values, without the overhead of re-parsing the statement. Bind variables improve code re-usability, and can reduce the risk of SQL Injection attacks.
 
 ```
-rows = [ (1, =First= ),
-     (2, =Second= ),
-     (3, =Third= ) ]
+rows = [ (1, "First" ),
+     (2, "Second" ),
+     (3, "Third" ) ]
 _db_cur.bindarraysize = 3
 _db_cur.setinputsizes(int, 10)
-_db_cur.executemany(=insert into mytab(id, data) values (:1, :2)=, rows)
+_db_cur.executemany("insert into mytab(id, data) values (:1, :2)", rows)
 _db_connection.commit()
 
 ```

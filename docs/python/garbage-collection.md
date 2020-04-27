@@ -45,15 +45,15 @@ Removing a variable name from the scope using `del v`, or removing an object fro
 >>> gc.disable()  # disable garbage collector
 >>> class Track:
         def __init__(self):
-            print(=Initialized=)
+            print("Initialized")
         def __del__(self):
-            print(=Destructed=)
+            print("Destructed")
 >>> def bar():
     return Track()
 >>> t = bar()
 Initialized
 >>> another_t = t  # assign another reference
->>> print(=...=)
+>>> print("...")
 ...
 >>> del t          # not destructed yet - another_t still refers to it
 >>> del another_t  # final reference gone, object is destructed
@@ -76,16 +76,16 @@ When the reference count reaches zero, the object is **immediately destroyed** a
 >>> import gc; gc.disable()  # disable garbage collector
 >>> class Track:
         def __init__(self):
-            print(=Initialized=)
+            print("Initialized")
         def __del__(self):
-            print(=Destructed=)
+            print("Destructed")
 >>> def foo():
         Track()
         # destructed immediately since no longer has any references
-        print(=---=)
+        print("---")
         t = Track()
         # variable is referenced, so it's not destructed yet
-        print(=---=)
+        print("---")
         # variable is destructed when function exits
 >>> foo()
 Initialized
@@ -105,7 +105,7 @@ To demonstrate further the concept of references:
 >>> t = bar()
 Initialized
 >>> another_t = t  # assign another reference
->>> print(=...=)
+>>> print("...")
 ...
 >>> t = None          # not destructed yet - another_t still refers to it
 >>> another_t = None  # final reference gone, object is destructed
@@ -124,9 +124,9 @@ The only time the garbage collector is needed is if you have a **reference cycle
 >>> import gc; gc.disable()  # disable garbage collector
 >>> class Track:
         def __init__(self):
-            print(=Initialized=)
+            print("Initialized")
         def __del__(self):
-            print(=Destructed=)
+            print("Destructed")
 >>> A = Track()
 Initialized
 >>> B = Track()
@@ -275,7 +275,7 @@ for example:
 In the following code, you assume that the file will be closed on the next garbage collection cycle, if f was the last reference to the file.
 
 ```
->>> f = open(=test.txt=)
+>>> f = open("test.txt")
 >>> del f
 
 ```
@@ -284,7 +284,7 @@ A more explicit way to clean up is to call `f.close()`. You can do it even more 
 </a>:
 
 ```
->>> with open(=test.txt=) as f:
+>>> with open("test.txt") as f:
 ...     pass
 ...     # do something with f
 >>> #now the f object still exists, but it is closed
@@ -308,9 +308,9 @@ Python aggresively creates or cleans up objects the first time it needs them If 
 
 In the 1960's John McCarthy discovered a fatal flaw in refcounting garbage collection when he implemented the refcounting algorithm used by Lisp: What happens if two objects refer to each other in a cyclic reference? How can you ever garbage collect those two objects even if there are no external references to them if they will always refer to eachother? This problem also extends to any cyclic data structure, such as a ring buffers or any two consecutive entries in a doubly linked list. Python attempts to fix this problem using a slightly interesting twist on another garbage collection algorithm called **Generational Garbage Collection**.
 
-In essence, any time you create an object in Python it adds it to the end of a doubly linked list. On occasion Python loops through this list, checks what objects the objects in the list refer too, and if they're also in the list (we'll see why they might not be in a moment), further decrements their refcounts. At this point (actually, there are some heuristics that determine when things get moved, but let's assume it's after a single collection to keep things simple) anything that still has a refcount greater than 0 gets promoted to another linked list called =Generation 1= (this is why all objects aren't always in the generation 0 list) which has this loop applied to it less often. This is where the generational garbage collection comes in. There are 3 generations by default in Python (three linked lists of objects): The first list (generation 0) contains all new objects; if a GC cycle happens and the objects are not collected, they get moved to the second list (generation 1), and if a GC cycle happens on the second list and they are still not collected they get moved to the third list (generation 2). The third generation list (called =generation 2=, since we're zero indexing) is garbage collected much less often than the first two, the idea being that if your object is long lived it's not as likely to be GCed, and may never be GCed during the lifetime of your application so there's no point in wasting time checking it on every single GC run. Furthermore, it's observed that most objects are garbage collected relatively quickly. From now on, we'll call these =good objects= since they die young. This is called the =weak generational hypothesis= and was also first observed in the 60s.
+In essence, any time you create an object in Python it adds it to the end of a doubly linked list. On occasion Python loops through this list, checks what objects the objects in the list refer too, and if they're also in the list (we'll see why they might not be in a moment), further decrements their refcounts. At this point (actually, there are some heuristics that determine when things get moved, but let's assume it's after a single collection to keep things simple) anything that still has a refcount greater than 0 gets promoted to another linked list called "Generation 1" (this is why all objects aren't always in the generation 0 list) which has this loop applied to it less often. This is where the generational garbage collection comes in. There are 3 generations by default in Python (three linked lists of objects): The first list (generation 0) contains all new objects; if a GC cycle happens and the objects are not collected, they get moved to the second list (generation 1), and if a GC cycle happens on the second list and they are still not collected they get moved to the third list (generation 2). The third generation list (called "generation 2", since we're zero indexing) is garbage collected much less often than the first two, the idea being that if your object is long lived it's not as likely to be GCed, and may never be GCed during the lifetime of your application so there's no point in wasting time checking it on every single GC run. Furthermore, it's observed that most objects are garbage collected relatively quickly. From now on, we'll call these "good objects" since they die young. This is called the "weak generational hypothesis" and was also first observed in the 60s.
 
-A quick aside: unlike the first two generations, the long lived third generation list is not garbage collected on a regular schedule. It is checked when the ratio of long lived pending objects (those that are in the third generation list, but haven't actually had a GC cycle yet) to the total long lived objects in the list is greater than 25%. This is because the third list is unbounded (things are never moved off of it to another list, so they only go away when they're actually garbage collected), meaning that for applications where you are creating lots of long lived objects, GC cycles on the third list can get quite long. By using a ratio we achieve =amortized linear performance in the total number of objects=; aka, the longer the list, the longer GC takes, but the less often we perform GC (here's the [original 2008 proposal](https://mail.python.org/pipermail/python-dev/2008-June/080579.html) for this heuristic by Martin von Löwis for futher reading). The act of performing a garbage collection on the third generation or =mature= list is called =full garbage collection=.
+A quick aside: unlike the first two generations, the long lived third generation list is not garbage collected on a regular schedule. It is checked when the ratio of long lived pending objects (those that are in the third generation list, but haven't actually had a GC cycle yet) to the total long lived objects in the list is greater than 25%. This is because the third list is unbounded (things are never moved off of it to another list, so they only go away when they're actually garbage collected), meaning that for applications where you are creating lots of long lived objects, GC cycles on the third list can get quite long. By using a ratio we achieve "amortized linear performance in the total number of objects"; aka, the longer the list, the longer GC takes, but the less often we perform GC (here's the [original 2008 proposal](https://mail.python.org/pipermail/python-dev/2008-June/080579.html) for this heuristic by Martin von Löwis for futher reading). The act of performing a garbage collection on the third generation or "mature" list is called "full garbage collection".
 
 So the generational garbage collection speeds things up tremdously by not requiring that we scan over objects that aren't likely to need GC all the time, but how does it help us break cyclic references? Probably not very well, it turns out. The function for actually breaking these reference cycles starts out [like this](https://github.com/python/cpython/blob/8f33d77/Modules/gcmodule.c#L847):
 
@@ -332,14 +332,14 @@ class A(object):
         self.b = b
  
     def __del__(self):
-        print(=We're deleting an instance of A containing:=, self.b)
+        print("We're deleting an instance of A containing:", self.b)
      
 class B(object):
     def __init__(self, a=None):
         self.a = a
  
     def __del__(self):
-        print(=We're deleting an instance of B containing:=, self.a)
+        print("We're deleting an instance of B containing:", self.a)
 
 ```
 

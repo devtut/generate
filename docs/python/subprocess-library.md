@@ -99,7 +99,7 @@ subprocess.call([r'C:\path\to\app.exe', 'arg1', '--flag', 'arg'])
 For shell commands, set `shell=True` and provide the command as a string instead of a list.
 
 ```
-subprocess.call('echo =Hello, world=', shell=True)
+subprocess.call('echo "Hello, world"', shell=True)
 
 ```
 

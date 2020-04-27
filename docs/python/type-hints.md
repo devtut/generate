@@ -24,7 +24,7 @@ print(two_sum(2, 1))  # result: 3
 and with strings:
 
 ```
-print(two_sum(=a=, =b=))  # result: =ab=
+print(two_sum("a", "b"))  # result: "ab"
 
 ```
 
@@ -80,10 +80,10 @@ The [`typing.TypeVar`](https://docs.python.org/3/library/typing.html#typing.Type
 ```
 import typing
 
-T = typing.TypeVar(=T=)
+T = typing.TypeVar("T")
 
 def get_first_element(l: typing.Sequence[T]) -> T:
-    ===Gets the first element of a sequence.===
+    """Gets the first element of a sequence."""
     return l[0]
 
 ```
@@ -166,18 +166,18 @@ print(C.__annotations__)
 class A:
     x = None  # type: float
     def __init__(self, x: float) -> None:
-        ===
+        """
         self should not be annotated
         init should be annotated to return None
-        ===
+        """
         self.x = x
     
     @classmethod
     def from_int(cls, x: int) -> 'A': 
-        ===
+        """
         cls should not be annotated
         Use forward reference to refer to current class with string literal 'A'
-        ===
+        """
         return cls(float(x))
 
 ```
@@ -203,13 +203,13 @@ Note the spaces around the equal sign as opposed to how keyword arguments are us
 
 
 - typing.Callable[[int, str], None] -> def func(a: int, b: str) -> None
-- typing.Mapping[str, int] -> {=a=: 1, =b=: 2, =c=: 3}
+- typing.Mapping[str, int] -> {"a": 1, "b": 2, "c": 3}
 - typing.List[int] -> [1, 2, 3]
 - typing.Set[int] -> {1, 2, 3}
 - typing.Optional[int] -> None or int
 - typing.Sequence[int] -> [1, 2, 3] or (1, 2, 3)
 - typing.Any -> Any type
-- typing.Union[int, str] -> 1 or =1=
+- typing.Union[int, str] -> 1 or "1"
 - T = typing.TypeVar('T') -> Generic type
 
 

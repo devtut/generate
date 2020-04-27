@@ -27,19 +27,19 @@ import psycopg2
 
 # Establish a connection to the existing database 'my_database' using
 # the user 'my_user' with password 'my_password'
-con = psycopg2.connect(=host=localhost dbname=my_database user=my_user password=my_password=)
+con = psycopg2.connect("host=localhost dbname=my_database user=my_user password=my_password")
 
 # Create a cursor
 cur = con.cursor()
 
 # Insert a record into 'my_table'
-cur.execute(=INSERT INTO my_table(id, first_name, last_name) VALUES (2, 'Jane', 'Doe');=)
+cur.execute("INSERT INTO my_table(id, first_name, last_name) VALUES (2, 'Jane', 'Doe');")
 
 # Commit the current transaction
 con.commit()
 
 # Retrieve all records from 'my_table'
-cur.execute(=SELECT * FROM my_table;=)
+cur.execute("SELECT * FROM my_table;")
 results = cur.fetchall()
 
 # Close the database connection

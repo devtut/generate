@@ -1,7 +1,7 @@
 # Using loops within functions
 
 
-In Python function will be returned as soon as execution hits =return= statement.
+In Python function will be returned as soon as execution hits "return" statement.
 
 
 
@@ -17,12 +17,12 @@ def func(params):
 
         if value == 1:
             # Returns from function as soon as value is 1
-            print (=>>>> Got 1=)
+            print (">>>> Got 1")
             return
 
-        print (=Still looping=)
+        print ("Still looping")
 
-    return =Couldn't find 1=
+    return "Couldn't find 1"
 
 func([5, 3, 1, 2, 8, 9])
 

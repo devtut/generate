@@ -18,12 +18,12 @@ Besides processing the data from the incoming message, we will also have to Ackn
 
 ```
 def on_message(message):
-    ===This function is called on message received.
+    """This function is called on message received.
 
     :param message: Delivered message.
     :return:
-    ===
-    print(=Message:=, message.body)
+    """
+    print("Message:", message.body)
 
     # Acknowledge that we handled the message without any issues.
     message.ack()
@@ -204,7 +204,7 @@ delay_channel.basic.publish(exchange='',
                             body='test',
                             properties={'delivery_mode': 2})
 
-print(=[x] Sent=)
+print("[x] Sent")
 
 ```
 

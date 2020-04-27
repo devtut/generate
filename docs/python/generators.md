@@ -75,7 +75,7 @@ Typically a generator object is used in a loop, or in any function that requires
 
 ```
 for x in g1:
-    print(=Received=, x)
+    print("Received", x)
 
 # Output:
 # Received 0
@@ -177,7 +177,7 @@ first_five_multiples_of_four = list(islice(multiples_of_four, 5))
 
 ```
 
-Note that the original generator is updated too, just like all other generators coming from the same =root=:
+Note that the original generator is updated too, just like all other generators coming from the same "root":
 
 ```
 next(natural_numbers)    # yields 16
@@ -237,7 +237,7 @@ def accumulator():
 
 generator = accumulator()
 
-# advance until the first =yield=
+# advance until the first "yield"
 next(generator)      # 0
 
 # from this point on, the generator aggregates values
@@ -466,7 +466,7 @@ values = list(create_gen())
 
 ```
 
-If the logic is recursive, use `yield from` to include all the values from the recursive call in a =flattened= result:
+If the logic is recursive, use `yield from` to include all the values from the recursive call in a "flattened" result:
 
 ```
 def preorder_traversal(node):
@@ -511,7 +511,7 @@ A practical use case of a generator is to iterate through values of an infinite 
 
 ```
 def fib(a=0, b=1):
-    ===Generator that yields Fibonacci numbers. `a` and `b` are the seed values===
+    """Generator that yields Fibonacci numbers. `a` and `b` are the seed values"""
     while True:
         yield a
         a, b = b, a + b

@@ -15,7 +15,7 @@ ferricyanide.composition == {0: -3, 26: 1, 6: 6, 7: 6}
 True
 print(ferricyanide.unicode_name)
 Fe(CN)₆³⁻
- print(ferricyanide.latex_name + =, = + ferricyanide.html_name)
+ print(ferricyanide.latex_name + ", " + ferricyanide.html_name)
 Fe(CN)_{6}^{3-}, Fe(CN)<sub>6</sub><sup>3-</sup>
  print('%.3f' % ferricyanide.mass)
 211.955
@@ -81,19 +81,19 @@ from chempy import Equilibrium
 ```
  from chempy import Equilibrium
  from chempy.chemistry import Species
- water_autop = Equilibrium({'H2O'}, {'H+', 'OH-'}, 10**-14)  # unit =molar= assumed
+ water_autop = Equilibrium({'H2O'}, {'H+', 'OH-'}, 10**-14)  # unit "molar" assumed
  ammonia_prot = Equilibrium({'NH4+'}, {'NH3', 'H+'}, 10**-9.24)  # same here
  from chempy.equilibria import EqSystem
  substances = map(Species.from_formula, 'H2O OH- H+ NH3 NH4+'.split())
  eqsys = EqSystem([water_autop, ammonia_prot], substances)
- print('\n'.join(map(str, eqsys.rxns)))  # =rxns= short for =reactions=
+ print('\n'.join(map(str, eqsys.rxns)))  # "rxns" short for "reactions"
 H2O = H+ + OH-; 1e-14
 NH4+ = H+ + NH3; 5.75e-10
  from collections import defaultdict
  init_conc = defaultdict(float, {'H2O': 1, 'NH3': 0.1})
  x, sol, sane = eqsys.root(init_conc)
  assert sol['success'] and sane
- print(sorted(sol.keys()))  # see package =pyneqsys= for more info
+ print(sorted(sol.keys()))  # see package "pyneqsys" for more info
 ['fun', 'intermediate_info', 'internal_x_vecs', 'nfev', 'njev', 'success', 'x', 'x_vecs']
  print(', '.join('%.2g' % v for v in x))
 1, 0.0013, 7.6e-12, 0.099, 0.0013
@@ -119,12 +119,12 @@ NH4+ = H+ + NH3; 5.75e-10
 
 ```
 from chempy import ReactionSystem  # The rate constants below are arbitrary
- rsys = ReactionSystem.from_string(===2 Fe+2 + H2O2 -> 2 Fe+3 + 2 OH-; 42
+ rsys = ReactionSystem.from_string("""2 Fe+2 + H2O2 -> 2 Fe+3 + 2 OH-; 42
      2 Fe+3 + H2O2 -> 2 Fe+2 + O2 + 2 H+; 17
      H+ + OH- -> H2O; 1e10
      H2O -> H+ + OH-; 1e-4
      Fe+3 + 2 H2O -> FeOOH(s) + 3 H+; 1
-     FeOOH(s) + 3 H+ -> Fe+3 + 2 H2O; 2.5===)  # =[H2O]= = 1.0 (actually 55.4 at RT)
+     FeOOH(s) + 3 H+ -> Fe+3 + 2 H2O; 2.5""")  # "[H2O]" = 1.0 (actually 55.4 at RT)
  from chempy.kinetics.ode import get_odesys
  odesys, extra = get_odesys(rsys)
  from collections import defaultdict

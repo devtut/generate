@@ -12,17 +12,17 @@ Basic example:
 ```
 from bs4 import BeautifulSoup
 
-data = ===
+data = """
 <ul>
-    <li class==item=>item1</li>
-    <li class==item=>item2</li>
-    <li class==item=>item3</li>
+    <li class="item">item1</li>
+    <li class="item">item2</li>
+    <li class="item">item3</li>
 </ul>
-===
+"""
 
-soup = BeautifulSoup(data, =html.parser=)
+soup = BeautifulSoup(data, "html.parser")
 
-for item in soup.select(=li.item=):
+for item in soup.select("li.item"):
     print(item.get_text())
 
 ```
@@ -51,23 +51,23 @@ Imagine you have the following HTML:
 
 ```
 
-And you need to locate the text =John Smith= after the `label` element.
+And you need to locate the text "John Smith" after the `label` element.
 
 In this case, you can locate the `label` element by text and then use [`.next_sibling` property](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#next-sibling-and-previous-sibling):
 
 ```
 from bs4 import BeautifulSoup
 
-data = ===
+data = """
 <div>
     <label>Name:</label>
     John Smith
 </div>
-===
+"""
 
-soup = BeautifulSoup(data, =html.parser=)
+soup = BeautifulSoup(data, "html.parser")
 
-label = soup.find(=label=, text==Name:=)
+label = soup.find("label", text="Name:")
 print(label.next_sibling.strip())
 
 ```
@@ -84,9 +84,9 @@ pyquery is a jquery-like library for python. It has very well support for css se
 ```
 from pyquery import PyQuery
 
-html = ===
+html = """
 <h1>Sales</h1>
-<table id==table=>
+<table id="table">
 <tr>
     <td>Lorem</td>
     <td>46</td>
@@ -104,7 +104,7 @@ html = ===
     <td>90</td>
 </tr>
 </table>
-===
+"""
 
 doc = PyQuery(html)
 
@@ -119,7 +119,7 @@ for row in rows:
     name = PyQuery(row).find('td').eq(0).text()
     value = PyQuery(row).find('td').eq(1).text()
 
-    print =%s\t  %s= % (name, value) 
+    print "%s\t  %s" % (name, value) 
 
 ```
 

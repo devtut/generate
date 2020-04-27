@@ -23,7 +23,7 @@ def process():
 
 start = time.time()
 process()
-print(=One run took %.2fs= % (time.time() - start))
+print("One run took %.2fs" % (time.time() - start))
 
 
 start = time.time()
@@ -32,7 +32,7 @@ for t in threads:
     t.start()
 for t in threads:
     t.join()
-print(=Four runs took %.2fs= % (time.time() - start))
+print("Four runs took %.2fs" % (time.time() - start))
 
 # Out: One run took 2.00s
 # Out: Four runs took 2.00s
@@ -63,7 +63,7 @@ def process():
 
 start = time.time()
 process()
-print(=One run took %.2fs= % (time.time() - start))
+print("One run took %.2fs" % (time.time() - start))
 
 
 start = time.time()
@@ -72,7 +72,7 @@ for t in threads:
     t.start()
 for t in threads:
     t.join()
-print(=Four runs took %.2fs= % (time.time() - start))
+print("Four runs took %.2fs" % (time.time() - start))
 
 # Out: One run took 2.05s
 # Out: Four runs took 14.42s
@@ -101,7 +101,7 @@ def process():
 
 start = time.time()
 process()
-print(=One run took %.2fs= % (time.time() - start))
+print("One run took %.2fs" % (time.time() - start))
 
 
 start = time.time()
@@ -110,7 +110,7 @@ for p in processes:
     p.start()
 for p in processes:
     p.join()
-print(=Four runs took %.2fs= % (time.time() - start))
+print("Four runs took %.2fs" % (time.time() - start))
 
 # Out: One run took 2.07s
 # Out: Four runs took 2.30s
@@ -129,7 +129,7 @@ import threading
 import os
 
 def process():
-    print(=Pid is %s, thread id is %s= % (os.getpid(), threading.current_thread().name))
+    print("Pid is %s, thread id is %s" % (os.getpid(), threading.current_thread().name))
 
 threads = [threading.Thread(target=process) for _ in range(4)]
 for t in threads:
@@ -156,7 +156,7 @@ import multiprocessing
 import os
 
 def process():
-    print(=Pid is %s= % (os.getpid(),))
+    print("Pid is %s" % (os.getpid(),))
 
 processes = [multiprocessing.Process(target=process) for _ in range(4)]
 for p in processes:
@@ -187,17 +187,17 @@ obj = {}
 obj_lock = threading.Lock()
 
 def objify(key, val):
-    print(=Obj has %d values= % len(obj))
+    print("Obj has %d values" % len(obj))
     with obj_lock:
         obj[key] = val
-    print(=Obj now has %d values= % len(obj))
+    print("Obj now has %d values" % len(obj))
 
 ts = [threading.Thread(target=objify, args=(str(n), n)) for n in range(4)]
 for t in ts:
     t.start()
 for t in ts:
     t.join()
-print(=Obj final result:=)
+print("Obj final result:")
 import pprint; pprint.pprint(obj)
 
 # Out: Obj has 0 values
@@ -241,7 +241,7 @@ for p in ps:
 for p in ps:
     p.join()
 
-print(=plain_num is %d, shared_num is %d= % (plain_num, shared_num.value))
+print("plain_num is %d, shared_num is %d" % (plain_num, shared_num.value))
 
 # Out: plain_num is 0, shared_num is 4
 

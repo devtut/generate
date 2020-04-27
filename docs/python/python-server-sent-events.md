@@ -1,7 +1,7 @@
 # Python Server Sent Events
 
 
-Server Sent Events (SSE) is a unidirectional connection between a server and a client (usually a web browser) that allows the server to =push= information to the client. It is much like websockets and long polling. The main difference between SSE and websockets is that SSE is unidirectional, only the server can send info to the client, where as with websockets, both can send info to eachother. SSE is typically considered to be much simpler to use/implement than websockets.
+Server Sent Events (SSE) is a unidirectional connection between a server and a client (usually a web browser) that allows the server to "push" information to the client. It is much like websockets and long polling. The main difference between SSE and websockets is that SSE is unidirectional, only the server can send info to the client, where as with websockets, both can send info to eachother. SSE is typically considered to be much simpler to use/implement than websockets.
 
 
 
@@ -9,15 +9,15 @@ Server Sent Events (SSE) is a unidirectional connection between a server and a c
 
 
 ```
-@route(=/stream=)
+@route("/stream")
 def stream():
     def event_stream():
         while True:
             if message_to_send:
-                yield =data: 
-                    {}\n\n=.format(message_to_send)=
+                yield "data: 
+                    {}\n\n".format(message_to_send)"
     
-    return Response(event_stream(), mimetype==text/event-stream=)
+    return Response(event_stream(), mimetype="text/event-stream")
 
 ```
 

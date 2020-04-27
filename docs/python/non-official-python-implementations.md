@@ -18,7 +18,7 @@ Differences with CPython:
 ### Hello World
 
 ```
-print =Hello World!=
+print "Hello World!"
 
 ```
 
@@ -27,7 +27,7 @@ You can also use .NET functions:
 ```
 import clr
 from System import Console
-Console.WriteLine(=Hello World!=)
+Console.WriteLine("Hello World!")
 
 ```
 
@@ -54,7 +54,7 @@ Differences with CPython:
 ### Hello World
 
 ```
-print =Hello World!=
+print "Hello World!"
 
 ```
 
@@ -62,7 +62,7 @@ You can also use Java functions:
 
 ```
 from java.lang import System
-System.out.println(=Hello World!=)
+System.out.println("Hello World!")
 
 ```
 
@@ -94,16 +94,16 @@ Experience has shown that 650 kB of Python sourcecode roughly translates in the 
 ### Integration with HTML
 
 ```
-<script src==__javascript__/hello.js=></script>
+<script src="__javascript__/hello.js"></script>
 <h2>Hello demo</h2>
 
 <p>
-<div id = =greet=>...</div>
-<button onclick==hello.solarSystem.greet ()=>Click me repeatedly!</button>
+<div id = "greet">...</div>
+<button onclick="hello.solarSystem.greet ()">Click me repeatedly!</button>
 
 <p>
-<div id = =explain=>...</div>
-<button onclick==hello.solarSystem.explain ()=>And click me repeatedly too!</button>
+<div id = "explain">...</div>
+<button onclick="hello.solarSystem.explain ()">And click me repeatedly too!</button>
 
 ```
 

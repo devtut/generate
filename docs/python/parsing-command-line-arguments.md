@@ -26,7 +26,7 @@ parser.add_argument('-g', '--greeting',
 
 args = parser.parse_args()
 
-print(={greeting}, {name}!=.format(
+print("{greeting}, {name}!".format(
        greeting=args.greeting,
        name=args.name)
 )
@@ -62,7 +62,7 @@ For more details please read the [argparse documentation](https://docs.python.or
 ## Using command line arguments with argv
 
 
-Whenever a Python script is invoked from the command line, the user may supply additional **command line arguments** which will be passed on to the script. These arguments will be available to the programmer from the system variable `sys.argv` (=argv= is a traditional name used in most programming languages, and it means =**arg**ument **v**ector=).
+Whenever a Python script is invoked from the command line, the user may supply additional **command line arguments** which will be passed on to the script. These arguments will be available to the programmer from the system variable `sys.argv` ("argv" is a traditional name used in most programming languages, and it means "**arg**ument **v**ector").
 
 By convention, the first element in the `sys.argv` list is the name of the Python script itself, while the rest of the elements are the tokens passed by the user when invoking the script.
 
@@ -89,12 +89,12 @@ import getpass
 import sys
 
 words = sys.argv[1:]
-sentence = = =.join(words)
-print(=[%s] %s= % (getpass.getuser(), sentence))
+sentence = " ".join(words)
+print("[%s] %s" % (getpass.getuser(), sentence))
 
 ```
 
-The algorithm commonly used when =manually= parsing a number of non-positional arguments is to iterate over the `sys.argv` list. One way is to go over the list and pop each element of it:
+The algorithm commonly used when "manually" parsing a number of non-positional arguments is to iterate over the `sys.argv` list. One way is to go over the list and pop each element of it:
 
 ```
 # reverse and copy sys.argv
@@ -127,11 +127,11 @@ import argparse
 
 parser = argparse.ArgumentParser()
 group = parser.add_mutually_exclusive_group()
-group.add_argument(=-f=, =--foo=)
-group.add_argument(=-b=, =--bar=)
+group.add_argument("-f", "--foo")
+group.add_argument("-b", "--bar")
 args = parser.parse_args()
-print =foo = =, args.foo
-print =bar = =, args.bar
+print "foo = ", args.foo
+print "bar = ", args.bar
 
 ```
 
@@ -147,18 +147,18 @@ If you try to run the script specifying both `--foo` and `--bar` arguments, the 
 [docopt](http://docopt.org/) turns command-line argument parsing on its head. Instead of parsing the arguments, you just **write the usage string** for your program, and docopt **parses the usage string** and uses it to extract the command line arguments.
 
 ```
-===
+"""
 Usage:
     script_name.py [-a] [-b] <path>
 
 Options:
     -a            Print all the things.
     -b            Get more bees into the path.
-===
+"""
 from docopt import docopt
 
 
-if __name__ == =__main__=:
+if __name__ == "__main__":
     args = docopt(__doc__)
     import pprint; pprint.pprint(args)
 
@@ -196,14 +196,14 @@ You can create parser error messages according to your script needs. This is thr
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument(=-f=, =--foo=)
-parser.add_argument(=-b=, =--bar=)
+parser.add_argument("-f", "--foo")
+parser.add_argument("-b", "--bar")
 args = parser.parse_args()
 if args.foo and args.bar is None:
-    parser.error(=--foo requires --bar. You did not specify bar.=)
+    parser.error("--foo requires --bar. You did not specify bar.")
 
-print =foo ==, args.foo
-print =bar ==, args.bar
+print "foo =", args.foo
+print "bar =", args.bar
 
 ```
 
@@ -312,14 +312,14 @@ That being done, instead of handling manually the arguments (which usually ends 
 This is what the `dispatch.on` decorator is for: you give it the argument or sequence of arguments that should trigger the function, and that function will be executed with the matching values as parameters.
 
 ```
-===Run something in development or production mode.
+"""Run something in development or production mode.
 
 Usage: run.py --development <host> <port>
        run.py --production <host> <port>
        run.py items add <item>
        run.py items delete <item>
 
-===
+"""
 from docopt_dispatch import dispatch
 
 @dispatch.on('--development')

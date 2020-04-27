@@ -10,13 +10,13 @@ Conditional expressions, involving keywords such as if, elif, and else, provide 
 
 The ternary operator is used for inline conditional expressions. It is best used in simple, concise operations that are easily read.
 
-- The order of the arguments is different from many other languages (such as C, Ruby, Java, etc.), which may lead to bugs when people unfamiliar with Python's =surprising= behaviour use it (they may reverse the order).
-- Some find it =unwieldy=, since it goes contrary to the normal flow of thought (thinking of the condition first and then the effects).
+- The order of the arguments is different from many other languages (such as C, Ruby, Java, etc.), which may lead to bugs when people unfamiliar with Python's "surprising" behaviour use it (they may reverse the order).
+- Some find it "unwieldy", since it goes contrary to the normal flow of thought (thinking of the condition first and then the effects).
 
 ```
 n = 5
 
-=Greater than 2= if n > 2 else =Smaller than or equal to 2=
+"Greater than 2" if n > 2 else "Smaller than or equal to 2"
 # Out: 'Greater than 2'
 
 ```
@@ -27,7 +27,7 @@ Tenary operations can also be nested, as here:
 
 ```
 n = 5
-=Hello= if n > 10 else =Goodbye= if n > 5 else =Good day=
+"Hello" if n > 10 else "Goodbye" if n > 5 else "Good day"
 
 ```
 
@@ -44,11 +44,11 @@ In Python you can define a series of conditionals using `if` for the first one, 
 number = 5
 
 if number > 2:
-    print(=Number is bigger than 2.=)
+    print("Number is bigger than 2.")
 elif number < 2:  # Optional clause (you can have multiple elifs)
-    print(=Number is smaller than 2.=)
+    print("Number is smaller than 2.")
 else:  # Optional clause (you can only have one else)
-    print(=Number is 2.=)
+    print("Number is 2.")
 
 ```
 
@@ -66,7 +66,7 @@ The following values are considered falsey, in that they evaluate to `False` whe
 - None
 - False
 - `0`, or any numerical value equivalent to zero, for example `0L`, `0.0`, `0j`
-- Empty sequences: `''`, `==`, `()`, `[]`
+- Empty sequences: `''`, `""`, `()`, `[]`
 - Empty mappings: `{}`
 - User-defined types where the `__bool__` or `__len__` methods return 0 or `False`
 
@@ -92,11 +92,11 @@ The `and` operator evaluates all expressions and returns the last expression if 
 >>> 1 and 0
 0
 
->>> 1 and =Hello World=
-=Hello World=
+>>> 1 and "Hello World"
+"Hello World"
 
->>> == and =Pancakes=
-==
+>>> "" and "Pancakes"
+""
 
 ```
 
@@ -214,16 +214,16 @@ The else statement will execute it's body only if preceding conditional statemen
 
 ```
 if True:
-    print =It is true!=
+    print "It is true!"
 else:
-    print =This won't get printed..=
+    print "This won't get printed.."
 
 # Output: It is true!
 
 if False:
-    print =This won't get printed..=
+    print "This won't get printed.."
 else:
-    print =It is false!=
+    print "It is false!"
 
 # Output: It is false!
 
@@ -272,11 +272,11 @@ The `if` statements checks the condition. If it evaluates to `True`, it executes
 
 ```
 if True:
-    print =It is true!=
+    print "It is true!"
 >> It is true!
 
 if False:
-    print =This won't get printed..=
+    print "This won't get printed.."
 
 ```
 
@@ -284,7 +284,7 @@ The condition can be any valid expression:
 
 ```
 if 2 + 2 == 4:
-    print =I know math!=
+    print "I know math!"
 >> I know math!
 
 ```

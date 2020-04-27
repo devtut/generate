@@ -18,12 +18,12 @@ def run(application):
     headers_sent = []
 
     def write (data):
-        === 
+        """ 
         Writes header data from 'start_response()' as well as body data from 'response' 
         to system standard output. 
-        ===
+        """
         if not headers_set:
-            raise AssertionError(=write() before start_response()=)
+            raise AssertionError("write() before start_response()")
 
         elif not headers_sent:
             status, response_headers = headers_sent[:] = headers_set
@@ -36,9 +36,9 @@ def run(application):
         sys.stdout.flush()
 
     def start_response(status, response_headers):
-        === Sets headers for the response returned by this server.===
+        """ Sets headers for the response returned by this server."""
         if headers_set:
-            raise AssertionError(=Headers already set!=)
+            raise AssertionError("Headers already set!")
 
         headers_set[:] = [status, response_headers]
         return write

@@ -9,10 +9,10 @@
 In Python 3, print functionality is in the form of a function:
 
 ```
-print(=This string will be displayed in the output=)
+print("This string will be displayed in the output")
 # This string will be displayed in the output
 
-print(=You can print \n escape characters too.=)
+print("You can print \n escape characters too.")
 # You can print escape characters too.
 
 ```
@@ -20,10 +20,10 @@ print(=You can print \n escape characters too.=)
 In Python 2, print was originally a statement, as shown below.
 
 ```
-print =This string will be displayed in the output=
+print "This string will be displayed in the output"
 # This string will be displayed in the output
 
-print =You can print \n escape characters too.=
+print "You can print \n escape characters too."
 # You can print escape characters too.
 
 ```
@@ -38,7 +38,7 @@ Note: using `from __future__ import print_function` in Python 2 will allow users
 `raw_input` will wait for the user to enter text and then return the result as a string.
 
 ```
-foo = raw_input(=Put a message here that asks the user for input=)
+foo = raw_input("Put a message here that asks the user for input")
 
 ```
 
@@ -47,7 +47,7 @@ In the above example `foo` will store whatever input the user provides.
 `input` will wait for the user to enter text and then return the result as a string.
 
 ```
-foo = input(=Put a message here that asks the user for input=)
+foo = input("Put a message here that asks the user for input")
 
 ```
 
@@ -81,14 +81,14 @@ def input_number(msg, err_msg=None):
 And to use it:
 
 ```
-user_number = input_number(=input a number: =, =that's not a number!=)
+user_number = input_number("input a number: ", "that's not a number!")
 
 ```
 
-Or, if you do not want an =error message=:
+Or, if you do not want an "error message":
 
 ```
-user_number = input_number(=input a number: =)
+user_number = input_number("input a number: ")
 
 ```
 
@@ -100,8 +100,8 @@ user_number = input_number(=input a number: =)
 In Python 2.x, to continue a line with `print`, end the `print` statement with a comma. It will automatically add a space.
 
 ```
-print =Hello,=,
-print =World!=
+print "Hello,",
+print "World!"
 # Hello, World!
 
 ```
@@ -109,8 +109,8 @@ print =World!=
 In Python 3.x, the `print` function has an optional `end` parameter that is what it prints at the end of the given string. By default it's a newline character, so equivalent to this:
 
 ```
-print(=Hello, =, end==\n=)
-print(=World!=)
+print("Hello, ", end="\n")
+print("World!")
 # Hello, 
 # World!
 
@@ -119,16 +119,16 @@ print(=World!=)
 But you could pass in other strings
 
 ```
-print(=Hello, =, end===)
-print(=World!=)
+print("Hello, ", end="")
+print("World!")
 # Hello, World!
 
-print(=Hello, =, end==<br>=)
-print(=World!=)
+print("Hello, ", end="<br>")
+print("World!")
 # Hello, <br>World!
 
-print(=Hello, =, end==BREAK=)
-print(=World!=)
+print("Hello, ", end="BREAK")
+print("World!")
 # Hello, BREAKWorld!
 
 ```
@@ -138,8 +138,8 @@ If you want more control over the output, you can use `sys.stdout.write`:
 ```
 import sys
 
-sys.stdout.write(=Hello, =)
-sys.stdout.write(=World!=)
+sys.stdout.write("Hello, ")
+sys.stdout.write("World!")
 # Hello, World!
 
 ```

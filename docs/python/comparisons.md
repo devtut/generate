@@ -43,7 +43,7 @@ There is no theoretical limit on how many items and comparison operations you us
 
 ```
 
-The above returns `True` if each comparison returns `True`. However, using convoluted chaining is not a good style. A good chaining will be =directional=, not more complicated than
+The above returns `True` if each comparison returns `True`. However, using convoluted chaining is not a good style. A good chaining will be "directional", not more complicated than
 
 ```
 1 > x > -4 > y != 8
@@ -170,19 +170,19 @@ These operators compare two types of values, they're the less than and greater t
 For strings they will compare lexicographically, which is similar to alphabetical order but not quite the same.
 
 ```
-=alpha= < =beta=
+"alpha" < "beta"
 # True
-=gamma= > =beta=
+"gamma" > "beta"
 # True
-=gamma= < =OMEGA=
+"gamma" < "OMEGA"
 # False
 
 ```
 
-In these comparisons, lowercase letters are considered 'greater than' uppercase, which is why `=gamma= < =OMEGA=` is false. If they were all uppercase it would return the expected alphabetical ordering result:
+In these comparisons, lowercase letters are considered 'greater than' uppercase, which is why `"gamma" < "OMEGA"` is false. If they were all uppercase it would return the expected alphabetical ordering result:
 
 ```
-=GAMMA= < =OMEGA=
+"GAMMA" < "OMEGA"
 # True
 
 ```
@@ -290,7 +290,7 @@ In many other languages, if you run the following
 (Java example)
 
 ```
-if(=asgdsrf= == 0) {
+if("asgdsrf" == 0) {
     //do stuff
 }
 
@@ -302,7 +302,7 @@ You can't just go comparing strings to integers like that. In Python, this is a 
 A common gotcha is the following
 
 ```
-myVariable = =1=
+myVariable = "1"
 if 1 == myVariable:
     #do stuff
 

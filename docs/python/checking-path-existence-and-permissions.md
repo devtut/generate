@@ -9,7 +9,7 @@
 
 ```
 import os
-path = =/home/myFiles/directory1=
+path = "/home/myFiles/directory1"
 
 ## Check if path exists
 os.access(path, os.F_OK)

@@ -21,7 +21,7 @@ An implemented example:
 
 ```
 class DescPrinter(object):
-    ===A data descriptor that logs activity.===
+    """A data descriptor that logs activity."""
     _val = 7
     
     def __get__(self, obj, objtype=None):
@@ -81,7 +81,7 @@ Suppose we want to model an oscillator with a given frequency (in Hertz) and per
 
 ```
 
-We pick one of the values (frequency, in Hertz) as the =anchor,= i.e. the one that can be set with no conversion, and write a descriptor class for it:
+We pick one of the values (frequency, in Hertz) as the "anchor," i.e. the one that can be set with no conversion, and write a descriptor class for it:
 
 ```
 class Hertz(object):
@@ -93,7 +93,7 @@ class Hertz(object):
 
 ```
 
-The =other= value (period, in seconds) is defined in terms of the anchor. We write a descriptor class that does our conversions:
+The "other" value (period, in seconds) is defined in terms of the anchor. We write a descriptor class that does our conversions:
 
 ```
 class Second(object):
