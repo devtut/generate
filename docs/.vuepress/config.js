@@ -291,6 +291,19 @@ module.exports = {
         ga: "UA-145300963-3",
       },
     ],
-    "@vuepress/back-to-top",
+    ["@vuepress/back-to-top", true],
+    [
+      "@vuepress/pwa",
+      {
+        serviceWorker: true,
+        updatePopup: true,
+      },
+    ],
+    [
+      "sitemap",
+      {
+        hostname: "https://devtut.github.io",
+      },
+    ],
   ],
 };
