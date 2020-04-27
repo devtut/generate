@@ -1,6 +1,6 @@
 ---
-metaTitle Django
-description Hello World with Django
+metaTitle: Django
+description: Hello World with Django
 ---
 
 # Django

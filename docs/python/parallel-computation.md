@@ -1,6 +1,6 @@
 ---
-metaTitle Parallel computation
-description Using the multiprocessing module to parallelise tasks, Using a C-extension to parallelize tasks, Using Parent and Children scripts to execute code in parallel, Using PyPar module to parallelize
+metaTitle: Parallel computation
+description: Using the multiprocessing module to parallelise tasks, Using a C-extension to parallelize tasks, Using Parent and Children scripts to execute code in parallel, Using PyPar module to parallelize
 ---
 
 # Parallel computation

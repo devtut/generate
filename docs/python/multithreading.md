@@ -1,6 +1,6 @@
 ---
-metaTitle Multithreading
-description Basics of multithreading, Communicating between threads, Creating a worker pool, Advanced use of multithreads, Stoppable Thread with a while Loop
+metaTitle: Multithreading
+description: Basics of multithreading, Communicating between threads, Creating a worker pool, Advanced use of multithreads, Stoppable Thread with a while Loop
 ---
 
 # Multithreading

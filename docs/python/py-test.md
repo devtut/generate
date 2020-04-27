@@ -1,6 +1,6 @@
 ---
-metaTitle py.test
-description Intro to Test Fixtures, Failing Tests, Setting up py.test
+metaTitle: py.test
+description: Intro to Test Fixtures, Failing Tests, Setting up py.test
 ---
 
 # py.test

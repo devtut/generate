@@ -1,6 +1,6 @@
 ---
-metaTitle JSON Module
-description Storing data in a file, Retrieving data from a file, Formatting JSON output, Creating JSON from Python dict, Creating Python dict from JSON, `load` vs `loads`, `dump` vs `dumps`, Calling `json.tool` from the command line to pretty-print JSON output, JSON encoding custom objects
+metaTitle: JSON Module
+description: Storing data in a file, Retrieving data from a file, Formatting JSON output, Creating JSON from Python dict, Creating Python dict from JSON, `load` vs `loads`, `dump` vs `dumps`, Calling `json.tool` from the command line to pretty-print JSON output, JSON encoding custom objects
 ---
 
 # JSON Module

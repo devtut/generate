@@ -1,6 +1,6 @@
 ---
-metaTitle Pyglet
-description Hello World in Pyglet, Installation of Pyglet, Playing Sound in Pyglet, Using Pyglet for OpenGL, Drawing Points Using Pyglet and OpenGL
+metaTitle: Pyglet
+description: Hello World in Pyglet, Installation of Pyglet, Playing Sound in Pyglet, Using Pyglet for OpenGL, Drawing Points Using Pyglet and OpenGL
 ---
 
 # Pyglet

@@ -1,6 +1,6 @@
 ---
-metaTitle Flask
-description Files and Templates, The basics, Routing URLs, HTTP Methods, Jinja Templating, The Request Object
+metaTitle: Flask
+description: Files and Templates, The basics, Routing URLs, HTTP Methods, Jinja Templating, The Request Object
 ---
 
 # Flask

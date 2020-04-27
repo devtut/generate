@@ -1,6 +1,6 @@
 ---
-metaTitle Python Server Sent Events
-description Flask SSE, Asyncio SSE
+metaTitle: Python Server Sent Events
+description: Flask SSE, Asyncio SSE
 ---
 
 # Python Server Sent Events

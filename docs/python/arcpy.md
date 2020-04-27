@@ -1,6 +1,6 @@
 ---
-metaTitle ArcPy
-description Printing one field's value for all rows of feature class in file geodatabase using Search Cursor, createDissolvedGDB to create a file gdb on the workspace
+metaTitle: ArcPy
+description: Printing one field's value for all rows of feature class in file geodatabase using Search Cursor, createDissolvedGDB to create a file gdb on the workspace
 ---
 
 # ArcPy

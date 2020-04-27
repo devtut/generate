@@ -1,6 +1,6 @@
 ---
-metaTitle graph-tool
-description PyDotPlus, PyGraphviz
+metaTitle: graph-tool
+description: PyDotPlus, PyGraphviz
 ---
 
 # graph-tool

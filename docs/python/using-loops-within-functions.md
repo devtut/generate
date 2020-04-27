@@ -1,6 +1,6 @@
 ---
-metaTitle Using loops within functions
-description Return statement inside loop in a function
+metaTitle: Using loops within functions
+description: Return statement inside loop in a function
 ---
 
 # Using loops within functions

@@ -1,6 +1,6 @@
 ---
-metaTitle Similarities in syntax, Differences in meaning Python vs. JavaScript
-description `in` with lists
+metaTitle: Similarities in syntax, Differences in meaning Python vs. JavaScript
+description: `in` with lists
 ---
 
 # Similarities in syntax, Differences in meaning: Python vs. JavaScript

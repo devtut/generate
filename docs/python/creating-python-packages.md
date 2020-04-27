@@ -1,6 +1,6 @@
 ---
-metaTitle Creating Python packages
-description Introduction, Uploading to PyPI, Making package executable
+metaTitle: Creating Python packages
+description: Introduction, Uploading to PyPI, Making package executable
 ---
 
 # Creating Python packages

@@ -1,6 +1,6 @@
 ---
-metaTitle Mixins
-description Mixin, Overriding Methods in Mixins
+metaTitle: Mixins
+description: Mixin, Overriding Methods in Mixins
 ---
 
 # Mixins

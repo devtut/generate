@@ -1,6 +1,6 @@
 ---
-metaTitle Create virtual environment with virtualenvwrapper in windows
-description Virtual environment with virtualenvwrapper for windows
+metaTitle: Create virtual environment with virtualenvwrapper in windows
+description: Virtual environment with virtualenvwrapper for windows
 ---
 
 # Create virtual environment with virtualenvwrapper in windows

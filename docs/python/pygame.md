@@ -1,6 +1,6 @@
 ---
-metaTitle pygame
-description Pygame's mixer module, Installing pygame
+metaTitle: pygame
+description: Pygame's mixer module, Installing pygame
 ---
 
 # pygame

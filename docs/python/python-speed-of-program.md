@@ -1,6 +1,6 @@
 ---
-metaTitle Python speed of program
-description Deque operations, Algorithmic Notations..., Notation, List operations, Set operations
+metaTitle: Python speed of program
+description: Deque operations, Algorithmic Notations..., Notation, List operations, Set operations
 ---
 
 # Python speed of program

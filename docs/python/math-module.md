@@ -1,6 +1,6 @@
 ---
-metaTitle Math Module
-description Rounding round, floor, ceil, trunc, Trigonometry, Logarithms, Constants, Infinity and NaN ("not a number"), Pow for faster exponentiation, Copying signs, Imaginary Numbers, Complex numbers and the cmath module
+metaTitle: Math Module
+description: Rounding round, floor, ceil, trunc, Trigonometry, Logarithms, Constants, Infinity and NaN ("not a number"), Pow for faster exponentiation, Copying signs, Imaginary Numbers, Complex numbers and the cmath module
 ---
 
 # Math Module

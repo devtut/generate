@@ -1,6 +1,6 @@
 ---
-metaTitle Arrays
-description Access individual elements through indexes, Basic Introduction to Arrays, Append any value to the array using append() method, Insert value in an array using insert() method, Extend python array using extend() method, Add items from list into array using fromlist() method, Remove any array element using remove() method, Remove last array element using pop() method, Fetch any element through its index using index() method, Reverse a python array using reverse() method, Get array buffer information through buffer_info() method, Check for number of occurrences of an element using count() method, Convert array to string using tostring() method, Convert array to a python list with same elements using tolist() method, Append a string to char array using fromstring() method
+metaTitle: Arrays
+description: Access individual elements through indexes, Basic Introduction to Arrays, Append any value to the array using append() method, Insert value in an array using insert() method, Extend python array using extend() method, Add items from list into array using fromlist() method, Remove any array element using remove() method, Remove last array element using pop() method, Fetch any element through its index using index() method, Reverse a python array using reverse() method, Get array buffer information through buffer_info() method, Check for number of occurrences of an element using count() method, Convert array to string using tostring() method, Convert array to a python list with same elements using tolist() method, Append a string to char array using fromstring() method
 ---
 
 # Arrays

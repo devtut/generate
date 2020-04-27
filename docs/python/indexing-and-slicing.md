@@ -1,6 +1,6 @@
 ---
-metaTitle Indexing and Slicing
-description Basic Slicing, Reversing an object, Slice assignment, Making a shallow copy of an array, Indexing custom classes __getitem__, __setitem__ and __delitem__, Basic Indexing, Slice objects
+metaTitle: Indexing and Slicing
+description: Basic Slicing, Reversing an object, Slice assignment, Making a shallow copy of an array, Indexing custom classes __getitem__, __setitem__ and __delitem__, Basic Indexing, Slice objects
 ---
 
 # Indexing and Slicing

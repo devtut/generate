@@ -1,6 +1,6 @@
 ---
-metaTitle Deque Module
-description Basic deque using, Available methods in deque, limit deque size, Breadth First Search
+metaTitle: Deque Module
+description: Basic deque using, Available methods in deque, limit deque size, Breadth First Search
 ---
 
 # Deque Module

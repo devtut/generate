@@ -1,6 +1,6 @@
 ---
-metaTitle groupby()
-description Example 4, Example 2, Example 3, Example 1
+metaTitle: groupby()
+description: Example 4, Example 2, Example 3, Example 1
 ---
 
 # groupby()

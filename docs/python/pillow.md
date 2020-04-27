@@ -1,6 +1,6 @@
 ---
-metaTitle Pillow
-description Read Image File, Convert files to JPEG
+metaTitle: Pillow
+description: Read Image File, Convert files to JPEG
 ---
 
 # Pillow

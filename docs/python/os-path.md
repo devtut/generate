@@ -1,6 +1,6 @@
 ---
-metaTitle os.path
-description Join Paths, Path Component Manipulation, Absolute Path from Relative Path, Get the parent directory, If the given path exists., check if the given path is a directory, file, symbolic link, mount point etc.
+metaTitle: os.path
+description: Join Paths, Path Component Manipulation, Absolute Path from Relative Path, Get the parent directory, If the given path exists., check if the given path is a directory, file, symbolic link, mount point etc.
 ---
 
 # os.path

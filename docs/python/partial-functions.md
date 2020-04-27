@@ -1,6 +1,6 @@
 ---
-metaTitle Partial functions
-description Raise the power
+metaTitle: Partial functions
+description: Raise the power
 ---
 
 # Partial functions

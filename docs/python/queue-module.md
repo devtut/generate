@@ -1,6 +1,6 @@
 ---
-metaTitle Queue Module
-description Simple example
+metaTitle: Queue Module
+description: Simple example
 ---
 
 # Queue Module

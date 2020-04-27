@@ -1,6 +1,6 @@
 ---
-metaTitle configparser
-description Creating configuration file programatically, Basic usage
+metaTitle: configparser
+description: Creating configuration file programatically, Basic usage
 ---
 
 # configparser

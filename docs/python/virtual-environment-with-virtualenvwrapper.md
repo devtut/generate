@@ -1,6 +1,6 @@
 ---
-metaTitle virtual environment with virtualenvwrapper
-description Create virtual environment with virtualenvwrapper
+metaTitle: virtual environment with virtualenvwrapper
+description: Create virtual environment with virtualenvwrapper
 ---
 
 # virtual environment with virtualenvwrapper

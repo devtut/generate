@@ -1,6 +1,6 @@
 ---
-metaTitle Python Requests Post
-description Simple Post, Form Encoded Data, File Upload, Responses, Authentication, Proxies
+metaTitle: Python Requests Post
+description: Simple Post, Form Encoded Data, File Upload, Responses, Authentication, Proxies
 ---
 
 # Python Requests Post

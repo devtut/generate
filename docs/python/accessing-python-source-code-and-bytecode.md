@@ -1,6 +1,6 @@
 ---
-metaTitle Accessing Python source code and bytecode
-description Display the bytecode of a function, Display the source code of an object, Exploring the code object of a function
+metaTitle: Accessing Python source code and bytecode
+description: Display the bytecode of a function, Display the source code of an object, Exploring the code object of a function
 ---
 
 # Accessing Python source code and bytecode

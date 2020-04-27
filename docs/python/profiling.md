@@ -1,6 +1,6 @@
 ---
-metaTitle Profiling
-description %%timeit and %timeit in IPython, timeit() function, timeit command line, line_profiler in command line, Using cProfile (Preferred Profiler)
+metaTitle: Profiling
+description: %%timeit and %timeit in IPython, timeit() function, timeit command line, line_profiler in command line, Using cProfile (Preferred Profiler)
 ---
 
 # Profiling

@@ -1,6 +1,6 @@
 ---
-metaTitle Plotting with Matplotlib
-description A Simple Plot in Matplotlib, Adding more features to a simple plot  axis labels, title, axis ticks, grid, and legend, Making multiple plots in the same figure by superimposition similar to MATLAB, Making multiple Plots in the same figure using plot superimposition with separate plot commands, Plots with Common X-axis but different Y-axis  Using twinx(), Plots with common Y-axis and different X-axis using twiny()
+metaTitle: Plotting with Matplotlib
+description: A Simple Plot in Matplotlib, Adding more features to a simple plot  axis labels, title, axis ticks, grid, and legend, Making multiple plots in the same figure by superimposition similar to MATLAB, Making multiple Plots in the same figure using plot superimposition with separate plot commands, Plots with Common X-axis but different Y-axis  Using twinx(), Plots with common Y-axis and different X-axis using twiny()
 ---
 
 # Plotting with Matplotlib

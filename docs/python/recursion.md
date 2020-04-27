@@ -1,6 +1,6 @@
 ---
-metaTitle Recursion
-description The What, How, and When of Recursion, Sum of numbers from 1 to n, Tree exploration with recursion, Increasing the Maximum Recursion Depth, Tail Recursion - Bad Practice, Tail Recursion Optimization Through Stack Introspection
+metaTitle: Recursion
+description: The What, How, and When of Recursion, Sum of numbers from 1 to n, Tree exploration with recursion, Increasing the Maximum Recursion Depth, Tail Recursion - Bad Practice, Tail Recursion Optimization Through Stack Introspection
 ---
 
 # Recursion

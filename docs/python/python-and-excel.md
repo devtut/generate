@@ -1,6 +1,6 @@
 ---
-metaTitle Python and Excel
-description Put list data into a Excel's file., OpenPyXL, Create excel charts with xlsxwriter, Read the excel data using xlrd module, Format Excel files with xlsxwriter
+metaTitle: Python and Excel
+description: Put list data into a Excel's file., OpenPyXL, Create excel charts with xlsxwriter, Read the excel data using xlrd module, Format Excel files with xlsxwriter
 ---
 
 # Python and Excel

@@ -1,6 +1,6 @@
 ---
-metaTitle 2to3 tool
-description Basic Usage
+metaTitle: 2to3 tool
+description: Basic Usage
 ---
 
 # 2to3 tool

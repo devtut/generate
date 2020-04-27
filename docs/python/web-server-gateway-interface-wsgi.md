@@ -1,6 +1,6 @@
 ---
-metaTitle Web Server Gateway Interface (WSGI)
-description Server Object (Method)
+metaTitle: Web Server Gateway Interface (WSGI)
+description: Server Object (Method)
 ---
 
 # Web Server Gateway Interface (WSGI)

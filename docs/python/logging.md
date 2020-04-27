@@ -1,6 +1,6 @@
 ---
-metaTitle Logging
-description Introduction to Python Logging, Logging exceptions
+metaTitle: Logging
+description: Introduction to Python Logging, Logging exceptions
 ---
 
 # Logging

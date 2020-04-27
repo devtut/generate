@@ -1,6 +1,6 @@
 ---
-metaTitle Data Serialization
-description Serialization using JSON, Serialization using Pickle
+metaTitle: Data Serialization
+description: Serialization using JSON, Serialization using Pickle
 ---
 
 # Data Serialization
