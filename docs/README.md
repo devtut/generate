@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /android-chrome-512x512.png
+heroImage: /logo.png
 heroText: DevTut
 tagline: Lost Docs of Stackoverflow
 actionText: Python →
