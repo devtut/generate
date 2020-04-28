@@ -14,14 +14,14 @@ If it's not already done in php.ini, error reporting can be set dynamically and 
 
 **Syntax**
 
-```
+```php
 int error_reporting ([ int $level ] )
 
 ```
 
 **Examples**
 
-```
+```php
 // should always be used prior to 5.4
 error_reporting(E_ALL);
 
@@ -42,14 +42,14 @@ errors will be logged by default by php, normally in a error.log file at the sam
 
 in development environment, one can also show them on screen:
 
-```
+```php
 ini_set('display_errors', 1);
 
 ```
 
 in production however, one should
 
-```
+```php
 ini_set('display_errors', 0);
 
 ```
@@ -78,7 +78,7 @@ Reference:
 
 `try..catch` blocks can be used to control the flow of a program where [Exceptions](http://php.net/manual/en/language.exceptions.php) may be thrown. They can be caught and handled gracefully rather than letting PHP stop when one is encountered:
 
-```
+```php
 try {
     // Do a bunch of things...
     throw new Exception('My test exception!');
@@ -95,7 +95,7 @@ The above example would `catch` the Exception thrown in the `try` block and log 
 
 You can implement multiple `catch` statements for different types of exceptions to be handled in different ways, for example:
 
-```
+```php
 try {
     throw new InvalidArgumentException('Argument #1 must be an integer!');
 } catch (InvalidArgumentException $ex) {
@@ -114,7 +114,7 @@ Similarly, if you were to throw an [`UnexpectedValueException`](http://php.net/m
 
 If you need something to be done after either a `try` or a `catch` has finished running, you can use a `finally` statement:
 
-```
+```php
 try {
     throw new Exception('Hello world');
 } catch (Exception $e) {
@@ -135,7 +135,7 @@ Uh oh! Hello world - I'm finished now - home time!
 
 In PHP 7 we see the introduction of the [`Throwable`](http://php.net/manual/en/class.throwable.php) interface, which [`Error`](http://php.net/manual/en/class.error.php) as well as [`Exception`](http://php.net/manual/en/class.exception.php) implements. This adds a service contract level between exceptions in PHP 7, and allows you to implement the interface for your own custom exceptions:
 
-```
+```php
 $handler = function(\Throwable $ex) {
     $msg = "[ {$ex->getCode()} ] {$ex->getTraceAsString()}";
     mail('admin@server.com', $ex->getMessage(), $msg);

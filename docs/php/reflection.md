@@ -14,7 +14,7 @@ Reflection is often used as part of software testing, such as for the runtime cr
 
 Below is a very basic class for a Car. It has a protected member variable that will contain the value representing the color of the car. Because the member variable is protected we cannot access it directly and must use a getter and setter method to retrieve and set its value respectively.
 
-```
+```php
 class Car
 {
     protected $color
@@ -34,7 +34,7 @@ class Car
 
 To test this many developers will create a Car object, set the car's color using `Car::setColor()`, retrieve the color using `Car::getColor()`, and compare that value to the color they set:
 
-```
+```php
 /**
  * @test
  * @covers     \Car::setColor
@@ -59,7 +59,7 @@ On the surface this seems okay. After all, all `Car::getColor()` does is return 
 
 Let's look at why we shouldn't use `Car::getColor()` in our unit test and should use Reflection instead. Let's say a developer is assigned a task to add "Metallic" to every car color. So they attempt to modify the `Car::getColor()` to prepend "Metallic" to the car's color:
 
-```
+```php
 class Car
 {
     protected $color
@@ -83,7 +83,7 @@ So how do we verify `Car::$color` contains the value we are setting via `Car::se
 
 Let's see the code first and then break it down:
 
-```
+```php
 /**
  * @test
  * @covers     \Car::setColor
@@ -121,7 +121,7 @@ As you can see by using Reflection we could get the value of `Car::$color` witho
 
 Feature detection of classes can partly be done with the `property_exists` and `method_exists` functions.
 
-```
+```php
 class MyClass {
     public $public_field;
     protected $protected_field;
@@ -155,7 +155,7 @@ $check = property_exists($object, 'CONSTANT');    // false
 
 With a `ReflectionClass`, also constants can be detected:
 
-```
+```php
 $r = new ReflectionClass('MyClass');
 $check = $r->hasProperty('public_field');  // true
 $check = $r->hasMethod('public_function'); // true
@@ -173,7 +173,7 @@ Note: for `property_exists` and `method_exists`, also an object of the class of 
 
 Sometimes it's useful to test private & protected methods as well as public ones.
 
-```
+```php
 class Car
 {
     /**
@@ -199,7 +199,7 @@ class Car
 
 Easiest way to test drive method is using reflection
 
-```
+```php
 class DriveTest
 {
     /**
@@ -228,7 +228,7 @@ class DriveTest
 
 If the method is static you pass null in the place of the class instance
 
-```
+```php
 class StopTest
 {
     /**

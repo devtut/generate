@@ -13,7 +13,7 @@ description: "Type Comparison, Boolean, Float, Strings, Callable, Null, Type Cas
 
 There are two types of [comparison](http://php.net/manual/en/types.comparisons.php): **loose comparison** with `==` and **strict comparison** with `===`. Strict comparison ensures both the type and value of both sides of the operator are the same.
 
-```
+```php
 // Loose comparisons
 var_dump(1 == 1); // true
 var_dump(1 == "1"); // true
@@ -36,7 +36,7 @@ You can also use strong comparison to check if type and value **don't** match us
 
 A typical example where the `==` operator is not enough, are functions that can return different types, like [`strpos`](http://php.net/manual/en/function.strpos.php), which returns `false` if the `searchword` is not found, and the match position (`int`) otherwise:
 
-```
+```php
 if(strpos('text', 'searchword') == false)
   // strpos returns false, so == comparison works as expected here, BUT:
 if(strpos('text bla', 'text') == false)
@@ -56,7 +56,7 @@ if(strpos('text','text') === false)
 
 This code sets the value of `$foo` as `true` and `$bar` as `false`:
 
-```
+```php
 $foo = true;
 $bar = false;
 
@@ -66,7 +66,7 @@ $bar = false;
 
 Booleans can be used in if statements like this:
 
-```
+```php
 if ($foo) { //same as evaluating if($foo == true)
     echo "true";
 }
@@ -86,21 +86,21 @@ To avoid this loose comparison, you can enforce strong comparison using `===`, w
 
 To convert a type into boolean, you can use the `(bool)`  or `(boolean)` cast before the type.
 
-```
+```php
 var_dump((bool) "1"); //evaluates to true
 
 ```
 
 or call the [`boolval`](http://php.net/manual/en/function.boolval.php) function:
 
-```
+```php
 var_dump( boolval("1") ); //evaluates to true
 
 ```
 
 Boolean conversion to a string (note that `false` yields an empty string):
 
-```
+```php
 var_dump( (string) true ); // string(1) "1"
 var_dump( (string) false ); // string(0) ""
 
@@ -108,7 +108,7 @@ var_dump( (string) false ); // string(0) ""
 
 Boolean conversion to an integer:
 
-```
+```php
 var_dump( (int) true ); // int(1)
 var_dump( (int) false ); // int(0)
 
@@ -116,7 +116,7 @@ var_dump( (int) false ); // int(0)
 
 Note that the opposite is also possible:
 
-```
+```php
 var_dump((bool) "");        // bool(false)
 var_dump((bool) 1);         // bool(true)
 
@@ -124,7 +124,7 @@ var_dump((bool) 1);         // bool(true)
 
 Also all non-zero will return true:
 
-```
+```php
 var_dump((bool) -2);        // bool(true)
 var_dump((bool) "foo");     // bool(true)
 var_dump((bool) 2.3e5);     // bool(true)
@@ -139,7 +139,7 @@ var_dump((bool) "false");   // bool(true)
 ## Float
 
 
-```
+```php
 $float = 0.123;
 
 ```
@@ -152,7 +152,7 @@ Floats are floating point numbers, which allow more output precision than plain 
 
 Floats and integers can be used together due to PHP's loose casting of variable types:
 
-```
+```php
 $sum = 3 + 0.14;
 
 echo $sum; // 3.14
@@ -161,7 +161,7 @@ echo $sum; // 3.14
 
 php does not show float as float number like other languages, for example:
 
-```
+```php
 $var = 1;
 echo ((float) $var); //returns 1 not 1.0
 
@@ -196,7 +196,7 @@ A string in PHP is a series of single-byte characters (i.e. there is no native U
 
 Displays things almost completely "as is". Variables and most escape sequences will not be interpreted. The exception is that to display a literal single quote, one can escape it with a back slash ', and to display a back slash, one can escape it with another backslash \
 
-```
+```php
 $my_string = 'Nothing is parsed, except an escap\'d apostrophe or backslash. $foo\n';
 var_dump($my_string);
 
@@ -210,7 +210,7 @@ string(68) "Nothing is parsed, except an escap'd apostrophe or backslash. $foo\n
 
 Unlike a single-quoted string, simple variable names and [escape sequences](http://php.net/manual/en/language.types.string.php#language.types.string.syntax.double) in the strings will be evaluated. Curly braces (as in the last example) can be used to isolate complex variable names.
 
-```
+```php
 $variable1 = "Testing!";
 $variable2 = [ "Testing?", [ "Failure", "Success" ] ];
 $my_string = "Variables and escape characters are parsed:\n\n";
@@ -238,7 +238,7 @@ But we can get around them by wrapping the whole variable in braces: Success
 
 In a heredoc string, variable names and escape sequences are parsed in a similar manner to double-quoted strings, though braces are not available for complex variable names. The start of the string is delimited by `<<<`**`identifier`**, and the end by **`identifier`**, where **`identifier`** is any valid PHP name. The ending identifier must appear on a line by itself. No whitespace is allowed before or after the identifier, although like any line in PHP, it must also be terminated by a semicolon.
 
-```
+```php
 $variable1 = "Including text blocks is easier";
 $my_string = <<< EOF
 Everything is parsed in the same fashion as a double-quoted string,
@@ -261,7 +261,7 @@ Once we hit a line containing nothing but the identifier, the string ends."
 
 A nowdoc string is like the single-quoted version of heredoc, although not even the most basic escape sequences are evaluated. The identifier at the beginning of the string is wrapped in single quotes.
 
-```
+```php
 $my_string = <<< 'EOF'
 A similar syntax to heredoc but, similar to single quoted strings,
 nothing is parsed (not even escaped apostrophes \' and backslashes \\.)
@@ -303,14 +303,15 @@ Example Of referencing an object as an array element:
 </li>
 
 ```
- $obj = new MyClass();
+
+$obj = new MyClass();
  call_user_func([$obj, 'myCallbackMethod']);
 
 ```
 
 Callbacks can be denoted by `callable` [type hint](https://stackoverflow.com/documentation/php/1430/type-hinting) as of PHP 5.4.
 
-```
+```php
 $callable = function () {
     return 'value';
 };
@@ -332,7 +333,7 @@ PHP represents "no value" with the [`null`](http://php.net/manual/en/language.ty
 
 Setting the variable to null:
 
-```
+```php
 $nullvar = null; // directly
 
 function doSomething() {} // this function does not return anything
@@ -342,7 +343,7 @@ $nullvar = doSomething(); // so the null is assigned to $nullvar
 
 Checking if the variable was set to null:
 
-```
+```php
 if (is_null($nullvar)) { /* variable is null */ }
 
 if ($nullvar === null) {  /* variable is null */ }
@@ -353,7 +354,7 @@ if ($nullvar === null) {  /* variable is null */ }
 
 If the variable was not defined or was unset then any tests against the null will be successful but they will also generate a `Notice: Undefined variable: nullvar`:
 
-```
+```php
 $nullvar = null;
 unset($nullvar);
 if ($nullvar === null) {  /* true but also a Notice is printed */ }
@@ -363,7 +364,7 @@ if (is_null($nullvar)) {  /* true but also a Notice is printed */ }
 
 Therefore undefined values must be checked with [`isset`](http://php.net/manual/en/function.isset.php):
 
-```
+```php
 if (!isset($nullvar)) {  /* variable is null or is not even defined */  }
 
 ```
@@ -375,7 +376,7 @@ if (!isset($nullvar)) {  /* variable is null or is not even defined */  }
 
 PHP will generally correctly guess the data type you intend to use from the context it's used in, however sometimes it is useful to manually force a type. This can be accomplished by prefixing the declaration with the name of the required type in parenthesis:
 
-```
+```php
 $bool = true;
 var_dump($bool); // bool(true)
 
@@ -404,7 +405,7 @@ var_dump((unset)$string); // NULL
 
 But be carefull: not all type casts work as one might expect:
 
-```
+```php
 // below 3 statements hold for 32-bits systems (PHP_INT_MAX=2147483647)
 // an integer value bigger than PHP_INT_MAX is automatically converted to float:
 var_dump(       999888777666 ); // float(999888777666)
@@ -425,7 +426,7 @@ var_dump((bool) [false]); // bool(true)  (non-empty array)
 
 A [**resource**](https://secure.php.net/manual/en/language.types.resource.php) is a special type of variable that references an external resource, such as a file, socket, stream, document, or connection.
 
-```
+```php
 $file = fopen('/etc/passwd', 'r');
 
 echo gettype($file);
@@ -438,7 +439,7 @@ echo $file;
 
 There are different (sub-)types of resource. You can check the resource type using [`get_resource_type()`](https://secure.php.net/manual/en/function.get-resource-type.php):
 
-```
+```php
 $file = fopen('/etc/passwd', 'r');
 echo get_resource_type($file);
 #Out: stream
@@ -459,7 +460,7 @@ You can find a complete list of built-in resource types [here](https://secure.ph
 PHP is a weakly-typed language. It does not require explicit declaration of data types.
 The context in which the variable is used determines its data type; conversion is done automatically:
 
-```
+```php
 $a = "2";             // string 
 $a = $a + 2;          // integer (4) 
 $a = $a + 0.5;        // float (4.5)
@@ -474,7 +475,7 @@ $a = 1 + "2 oranges"; // integer (3)
 
 Integers in PHP can be natively specified in base 2 (binary), base 8 (octal), base 10 (decimal), or base 16 (hexadecimal.)
 
-```
+```php
 $my_decimal = 42;
 $my_binary = 0b101010;
 $my_octal = 052;
@@ -487,7 +488,7 @@ echo ($my_binary + $my_octal) / 2;
 
 Integers are 32 or 64 bits long, depending on the platform. The constant `PHP_INT_SIZE` holds integer size in bytes. `PHP_INT_MAX` and (since PHP 7.0) `PHP_INT_MIN` are also available.
 
-```
+```php
 printf("Integers are %d bits long" . PHP_EOL, PHP_INT_SIZE * 8);
 printf("They go up to %d" . PHP_EOL, PHP_INT_MAX);
 
@@ -495,7 +496,7 @@ printf("They go up to %d" . PHP_EOL, PHP_INT_MAX);
 
 Integer values are automatically created as needed from floats, booleans, and strings. If an explicit typecast is needed, it can be done with the `(int)` or `(integer)` cast:
 
-```
+```php
 $my_numeric_string = "123";
 var_dump($my_numeric_string);
 // Output: string(3) "123"
@@ -507,7 +508,7 @@ var_dump($my_integer);
 
 Integer overflow will be handled by conversion to a float:
 
-```
+```php
 $too_big_integer = PHP_INT_MAX + 7;
 var_dump($too_big_integer);
 // Output: float(9.2233720368548E+18)
@@ -516,7 +517,7 @@ var_dump($too_big_integer);
 
 There is no integer division operator in PHP, but it can be simulated using an implicit cast, which always 'rounds' by just discarding the float-part. As of PHP version 7, an integer division function was added.
 
-```
+```php
 $not_an_integer = 25 / 4;
 var_dump($not_an_integer);
 // Output: float(6.25)

@@ -16,7 +16,7 @@ So we have to write a userland function doing that. This example uses the symmet
 
 ### Encrypt Files
 
-```
+```php
 /**
  * Define the number of blocks that should be read from the source file for each chunk.
  * For 'AES-128-CBC' each block consist of 16 bytes.
@@ -68,7 +68,7 @@ function encryptFile($source, $key, $dest)
 
 To decrypt files that have been encrypted with the above function you can use this function.
 
-```
+```php
 /**
  * Dencrypt the passed file and saves the result in a new file, removing the
  * last 4 characters from file name.
@@ -112,7 +112,7 @@ function decryptFile($source, $key, $dest)
 
 If you need a small snippet to see how this works or to test the above functions, look at the following code.
 
-```
+```php
 $fileName = __DIR__.'/testfile.txt';
 $key = 'my secret key';
 file_put_contents($fileName, 'Hello World, here I am.');
@@ -136,7 +136,7 @@ This example illustrates the AES 256 symmetric cipher in CBC mode. An initializa
 
 ### Encryption
 
-```
+```php
 $method = "aes-256-cbc"; // cipher method
 $iv_length = openssl_cipher_iv_length($method); // obtain required IV length
 $strong = false; // set to false for next line
@@ -161,7 +161,7 @@ $enc_data = openssl_encrypt($data, $method, $password, true, $iv); // Encrypt
 
 ### Decryption
 
-```
+```php
 /* Retrieve the IV from the database and the password from a POST request */
 $dec_data = openssl_decrypt($enc_data, $method, $pass, true, $iv); // Decrypt
 
@@ -171,7 +171,7 @@ $dec_data = openssl_decrypt($enc_data, $method, $pass, true, $iv); // Decrypt
 
 If the encrypted data needs to be sent or stored in printable text, then the `base64_encode()` and `base64_decode()` functions should be used respectively.
 
-```
+```php
 /* Base64 Encoded Encryption */
 $enc_data = base64_encode(openssl_encrypt($data, $method, $password, true, $iv));
 

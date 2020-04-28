@@ -15,7 +15,7 @@ A **closure** is the PHP equivalent of an anonymous function, eg. a function tha
 
 A closure is nothing but an object of the Closure class which is created by declaring a function without a name. For example:
 
-```
+```php
 <?php
 
 $myClosure = function() {
@@ -32,7 +32,7 @@ The classic case you would need a Closure is when you have to give a `callable` 
 
 Here is an example where an array is sorted by the number of siblings of each person:
 
-```
+```php
 <?php
 
 $data = [
@@ -69,7 +69,7 @@ var_dump($data); // Will show Stan first, then John and finally Tom
 
 It is possible, inside a closure, to use an external variable with the special keyword **use**. For instance:
 
-```
+```php
 <?php
 
 $quantity = 1;
@@ -84,7 +84,7 @@ var_dump($calculator(2)); // Shows "3"
 
 You can go further by creating "dynamic" closures. It is possible to create a function that returns a specific calculator, depending on the quantity you want to add. For example:
 
-```
+```php
 <?php
 
 function createCalculator($quantity) {
@@ -108,7 +108,7 @@ var_dump($calculator2(2)); // Shows "4"
 
 As seen previously, a closure is nothing but an instance of the Closure class, and different methods can be invoked on them. One of them is `bindTo`, which, given a closure, will return a new one that is bound to a given object. For example:
 
-```
+```php
 <?php
 
 $myClosure = function() {
@@ -139,7 +139,7 @@ $myBoundClosure(); // Shows "Hello world!"
 
 Let's consider this example:
 
-```
+```php
 <?php
 
 $myClosure = function() {
@@ -167,7 +167,7 @@ Try to change the `property` visibility to either `protected` or `private`. You 
 
 The only way for a property to be accessed if it's `private` is that it is accessed from a scope that allows it, ie. the class's scope. In the just previous code example, the scope has not been specified, which means that the closure has been invoked in the same scope as the one used where the closure has been created. Let's change that:
 
-```
+```php
 <?php
 
 $myClosure = function() {
@@ -193,7 +193,7 @@ $myBoundClosure(); // Shows "Hello world!"
 
 As just said, if this second parameter is not used, the closure is invoked in the same context as the one used where the closure has been created. For example, a closure created inside a method's class which is invoked in an object context will have the same scope as the method's:
 
-```
+```php
 <?php
 
 class MyClass
@@ -227,7 +227,7 @@ $displayer(); // Shows "Hello world!"
 
 **Since PHP7**, it is possible to bind a closure just for one call, thanks to the [`call`](http://fr2.php.net/manual/fr/closure.call.php) method. For instance:
 
-```
+```php
 <?php
 
 class MyClass
@@ -261,7 +261,7 @@ In general, an observer is a class with a specific method being called when an a
 
 Here is a detailed example of such an implementation. Let's first declare a class whose purpose is to notify observers when its property is changed.
 
-```
+```php
 <?php
 
 class ObservedStuff implements SplSubject
@@ -305,7 +305,7 @@ class ObservedStuff implements SplSubject
 
 Then, let's declare the class that will represent the different observers.
 
-```
+```php
 <?php
 
 class NamedObserver implements SplObserver
@@ -330,7 +330,7 @@ class NamedObserver implements SplObserver
 
 Let's finally test this:
 
-```
+```php
 <?php
 
 $o = new ObservedStuff;

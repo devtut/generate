@@ -12,7 +12,7 @@ description: "Testing class rules, PHPUnit Data Providers, Test exceptions"
 
 Let's say, we have a simple `LoginForm` class with rules() method (used in login page as framework template):
 
-```
+```php
 class LoginForm {
     public $email;
     public $rememberMe;
@@ -67,7 +67,7 @@ class LoginForm {
 
 In order to perform tests on this class, we use **Unit** tests (checking source code to see if it fits our expectations):
 
-```
+```php
 class LoginFormTest extends TestCase {
     protected $loginForm;
 
@@ -124,21 +124,21 @@ class LoginFormTest extends TestCase {
 
 How exactly `Unit` tests can help with (excluding general examples) in here? For example, it fits very well when we get unexpected results. For example, let's take this rule from earlier:
 
-```
+```php
 ['password', 'match', 'pattern' => '/^[a-z0-9]+$/i'],
 
 ```
 
 Instead, if we missed one important thing and wrote this:
 
-```
+```php
 ['password', 'match', 'pattern' => '/^[a-z0-9]$/i'],
 
 ```
 
 With dozens of different rules (assuming we are using not just email and password), it's difficult to detect mistakes. This unit test:
 
-```
+```php
 // Initialize to valid and test this
 $this->loginForm->email = "valid@email.com";
 $this->loginForm->password = "password";
@@ -164,7 +164,7 @@ Example how `PHPUnit` test looks like in console (general look, not according to
 
 Test methods often need data to be tested with. To test some methods completely you need to provide different data sets for every possible test condition. Of course, you can do it manually using loops, like this:
 
-```
+```php
 ...
 public function testSomething()
 {
@@ -187,7 +187,7 @@ A data provider method must be public and either return an **array of arrays** o
 
 To use a data provider with your test, use `@dataProvider` annotation with the name of data provider function specified:
 
-```
+```php
 /**
 * @dataProvider dataProviderForTest
 */
@@ -213,7 +213,7 @@ public function dataProviderForTest()
 Note that `dataProviderForTest()` returns array of arrays. Each nested array has two elements and they will fill necessary parameters for `testEquals()` one by one. Error like this will be thrown `Missing argument 2 for Test::testEquals()` if there are not enough elements. PHPUnit will automatically loop through data and run tests:
 
 
-```
+```php
 public function dataProviderForTest()
 {
     return [
@@ -227,7 +227,7 @@ public function dataProviderForTest()
 
 Each data set can be **named** for convenience. It will be easier to detect failing data:
 
-```
+```php
 public function dataProviderForTest()
 {
     return [
@@ -242,7 +242,7 @@ public function dataProviderForTest()
 
 ### Iterators
 
-```
+```php
 class MyIterator implements Iterator {
     protected $array = [];
 
@@ -304,7 +304,7 @@ Note that even for a **single** parameter, data provider must return an array `[
 
 Because if we change our `current()` method (which actually return data on every iteration) to this:
 
-```
+```php
 function current() {
     return current($this->array)[0];
 }
@@ -313,7 +313,7 @@ function current() {
 
 Or change actual data:
 
-```
+```php
 return new MyIterator([
             'Test 1' => 0,
             'Test 2' => false,
@@ -324,7 +324,7 @@ return new MyIterator([
 
 We'll get an error:
 
-```
+```php
 There was 1 warning:
 
 1) Warning
@@ -343,7 +343,7 @@ It is not explicitly noted and shown in manual, but you can also use a [generato
 
 So here's an example of using `DirectoryIterator` combined with `generator`:
 
-```
+```php
 /**
  * @param string $file
  *
@@ -380,7 +380,7 @@ Note provider `yield`s an array. You'll get an invalid-data-provider warning ins
 
 Let's say you want to test method which throws an exception
 
-```
+```php
 class Car
 {
     /**
@@ -396,7 +396,7 @@ class Car
 
 You can do that by enclosing the method call into a try/catch block and making assertions on execption object's properties, but more conveniently you can use exception assertion methods. As of [PHPUnit 5.2](https://github.com/sebastianbergmann/phpunit/wiki/Release-Announcement-for-PHPUnit-5.2.0) you have expectX() methods available for asserting exception type, message & code
 
-```
+```php
 class DriveTest extends PHPUnit_Framework_TestCase
 {
     public function testDrive()
@@ -421,7 +421,7 @@ class DriveTest extends PHPUnit_Framework_TestCase
 
 If you are using earlier version of PHPUnit, method setExpectedException can be used in stead of expectX() methods, but keep in mind that it's deprecated and will be removed in version 6.
 
-```
+```php
 class DriveTest extends PHPUnit_Framework_TestCase
 {
     public function testDrive()

@@ -10,7 +10,7 @@ description: "composer.json syntax"
 ## composer.json syntax
 
 
-```
+```php
 {
     "name": "your/package",
     "license": "proprietary",

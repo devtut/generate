@@ -12,7 +12,7 @@ description: "Adding metadata to functions, Describing a variable, Adding metada
 
 Function level annotations help IDEs identify return values or potentially dangerous code
 
-```
+```php
 /**
  * Adds two numbers together.
  *
@@ -58,7 +58,7 @@ The `@var` keyword can be used to describe the type and usage of:
 - a local or global variable
 - a class or global constant
 
-```
+```php
 class Example {
     /** @var string This is something that stays the same */
     const UNCHANGING = "Untouchable";
@@ -88,7 +88,7 @@ The name of the variable should be included, but can be omitted if the docblock 
 
 File level metadata applies to all the code within the file and should be placed at the top of the file:
 
-```
+```php
 <?php
 
 /**
@@ -105,7 +105,7 @@ File level metadata applies to all the code within the file and should be placed
 
 If a class extends another class and would use the same metadata, providing it `@inheritDoc` is a simple way for use the same documentation. If multiple classes inherit from a base, only the base would need to be changed for the children to be affected.
 
-```
+```php
 abstract class FooBase
 {
     /**
@@ -135,7 +135,8 @@ class ConcreteFoo extends FooBase
 
 
 ```
- /**
+
+/**
  * Parameters
  * 
  * @param  int    $int
@@ -198,7 +199,7 @@ function demo_param_complex($config)
 
 ### Generics Syntax
 
-```
+```php
 Type[]
 Type<Type>
 Type<Type[, Type]...>
@@ -208,7 +209,7 @@ Type<Type[|Type]...>
 
 Values in a Collection MAY even be another array and even another Collection.
 
-```
+```php
 Type<Type<Type>>
 Type<Type<Type[, Type]...>>
 Type<Type<Type[|Type]...>>
@@ -217,7 +218,7 @@ Type<Type<Type[|Type]...>>
 
 ### Examples
 
-```
+```php
 <?php
 
 /** 
@@ -330,7 +331,7 @@ While PHPDoc annotations are not part of the PHP core, they currently hold draft
 
 All PHPDoc annotations are contained within **DocBlocks** that are demonstrated by a multi-line with two asterisks:
 
-```
+```php
 /**
  *
  */

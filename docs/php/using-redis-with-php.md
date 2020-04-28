@@ -12,7 +12,7 @@ description: "Connecting to a Redis instance, Installing PHP Redis on Ubuntu, Ex
 
 Assuming a default server running on localhost with the default port, the command to connect to that Redis server would be:
 
-```
+```php
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
 
@@ -25,21 +25,21 @@ $redis->connect('127.0.0.1', 6379);
 
 To install PHP on Ubuntu, first install the Redis server:
 
-```
+```php
 sudo apt install redis-server
 
 ```
 
 then install the PHP module:
 
-```
+```php
 sudo apt install php-redis
 
 ```
 
 And restart the Apache server:
 
-```
+```php
 sudo service apache2 restart
 
 ```
@@ -53,7 +53,7 @@ The Redis PHP module gives access to the same commands as the Redis CLI client s
 
 The syntax is as follow:
 
-```
+```php
 // Creates two new keys:
 $redis->set('mykey-1', 123);
 $redis->set('mykey-2', 'abcd');

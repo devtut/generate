@@ -23,7 +23,7 @@ When you've updated PHP you're able to use many new functions and features. Next
 <br><br>
 Now you only need to check if PHP-7 had been installed by running the following command: <br>
 
-```
+```php
 php -v
 
 ```
@@ -31,7 +31,8 @@ php -v
 The output should be something like this.
 
 ```
-    PHP 7.1.2 (cli) (built: Feb 14 2017 21:38:43) ( ZTS MSVC14 (Visual C++ 2015) x86)
+
+   PHP 7.1.2 (cli) (built: Feb 14 2017 21:38:43) ( ZTS MSVC14 (Visual C++ 2015) x86)
     Copyright (c) 1997-2017 The PHP Group
     Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
 

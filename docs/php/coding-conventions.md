@@ -16,7 +16,7 @@ When a file is not expected to produce output (the entire file is PHP code) the 
 
 Example of a simple PHP script:
 
-```
+```php
 <?php
 
 print "Hello World";
@@ -25,7 +25,7 @@ print "Hello World";
 
 Example class definition file:
 
-```
+```php
 <?php
 
 class Foo
@@ -37,7 +37,7 @@ class Foo
 
 Example of PHP embedded in HTML:
 
-```
+```php
 <ul id="nav">
     <?php foreach ($navItems as $navItem): ?>
         <li><a href="<?= htmlspecialchars($navItem->url) ?>">

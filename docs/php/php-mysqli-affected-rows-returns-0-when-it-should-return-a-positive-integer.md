@@ -17,7 +17,7 @@ It's as if the update statement is failing. Why?
 ## PHP's $stmt->affected_rows intermittently returning 0 when it should return a positive integer
 
 
-```
+```php
 <?php
     // if device exists, update timestamp
     $stmt = $mysqli->prepare("UPDATE new_devices SET nd_timestamp=? WHERE nd_deviceid=?");

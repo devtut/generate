@@ -17,7 +17,7 @@ As you code PHP you will most likely get your self in a position where you need 
 parse_url(): This function parses a URL and returns an associative array containing any of the various components of the URL that are present.
 
 
-```
+```php
 $url = parse_url('http://example.com/project/controller/action/param1/param2');
 
 Array
@@ -31,7 +31,7 @@ Array
 
 If you need the path separated you can use explode
 
-```
+```php
 $url = parse_url('http://example.com/project/controller/action/param1/param2');
 $url['sections'] = explode('/', $url['path']);
 
@@ -56,14 +56,14 @@ Array
 
 If you need the last part of the section you can use end() like this:
 
-```
+```php
 $last = end($url['sections']);
 
 ```
 
 If the URL contains GET vars you can retrieve those as well
 
-```
+```php
 $url = parse_url('http://example.com?var1=value1&var2=value2');
 
 Array
@@ -77,7 +77,7 @@ Array
 
 If you wish to break down the query vars you can use parse_str() like this:
 
-```
+```php
 $url = parse_url('http://example.com?var1=value1&var2=value2');
 parse_str($url['query'], $parts);
 
@@ -102,7 +102,7 @@ delimiter.</p>
 
 This function is pretty much straight forward.
 
-```
+```php
 $url = "http://example.com/project/controller/action/param1/param2";
 $parts = explode('/', $url);
 
@@ -122,7 +122,7 @@ Array
 
 You can retrieve the last part of the URL by doing this:
 
-```
+```php
 $last = end($parts);
 // Output: param2
 
@@ -130,7 +130,7 @@ $last = end($parts);
 
 You can also navigate inside the array by using sizeof() in combination with a math operator like this:
 
-```
+```php
 echo $parts[sizeof($parts)-2];
 // Output: param1
 
@@ -148,7 +148,7 @@ this function will return the trailing name component.</p>
 
 This function will return only the last part of an URL
 
-```
+```php
 $url = "http://example.com/project/controller/action/param1/param2";
 $parts = basename($url);
 // Output: param2
@@ -157,7 +157,7 @@ $parts = basename($url);
 
 If your URL has more stuff to it and what you need is the dir name containing the file you can use it with dirname() like this:
 
-```
+```php
 $url = "http://example.com/project/controller/action/param1/param2/index.php";
 $parts = basename(dirname($url));
 // Output: param2

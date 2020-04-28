@@ -12,7 +12,7 @@ description: "Difference between __FUNCTION__ and __METHOD__, Difference between
 
 `__FUNCTION__` returns only the name of the function whereas `__METHOD__` returns the name of the class along with the name of the function:
 
-```
+```php
 <?php
 
 class trick
@@ -43,7 +43,7 @@ $obj->doitagain();  // Outputs: trick::doitagain
 
 In contrast, `get_class($this)` and `get_called_class()` functions call, will both return the name of the actual class which was instantiated:
 
-```
+```php
 <?php
 
 class Definition_Class {
@@ -78,7 +78,7 @@ $c->say();
 
 You can get the name of the current PHP file (with the absolute path) using the `__FILE__` magic constant. This is most often used as a logging/debugging technique.
 
-```
+```php
 echo "We are in the file:" , __FILE__ , "\n";
 
 ```
@@ -87,28 +87,28 @@ echo "We are in the file:" , __FILE__ , "\n";
 
 To get the absolute path to the directory where the current file is located use the `__DIR__` magic constant.
 
-```
+```php
 echo "Our script is located in the:" , __DIR__ , "\n";
 
 ```
 
 To get the absolute path to the directory where the current file is located, use `dirname(__FILE__)`.
 
-```
+```php
 echo "Our script is located in the:" , dirname(__FILE__) , "\n";
 
 ```
 
 Getting current directory is often used by PHP frameworks to set a base directory:
 
-```
+```php
 // index.php of the framework
 
 define(BASEDIR, __DIR__); // using magic constant to define normal constant
 
 ```
 
-```
+```php
 // somefile.php looks for views:
 
 $view = 'page';
@@ -128,11 +128,12 @@ Besides magic constants PHP also adds some fixed constants for working with path
 <li>`DIRECTORY_SEPARATOR` constant for separating directories in a path. Takes value  `/` on *nix, and `\` on Windows.
 The example with views can be rewritten with:</li>
 
-```
+```php
 $view = 'page';
 $viewFile = BASEDIR . DIRECTORY_SEPARATOR .'views' . DIRECTORY_SEPARATOR . $view;
 
 ```
+
 
 - Rarely used `PATH_SEPARATOR` constant for separating paths in the `$PATH` environment variable. It is `;` on Windows, `:` otherwise
 

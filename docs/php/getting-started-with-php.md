@@ -14,7 +14,7 @@ PHP can be used to add content to HTML files. While HTML is processed directly b
 
 The following HTML markup contains a PHP statement that will add `Hello World!` to the output:
 
-```
+```php
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +29,7 @@ The following HTML markup contains a PHP statement that will add `Hello World!` 
 
 When this is saved as a PHP script and executed by a web server, the following HTML will be sent to the user's browser:
 
-```
+```php
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,14 +46,14 @@ When this is saved as a PHP script and executed by a web server, the following H
 
 For example, consider the following code:
 
-```
+```php
 <p><?= "Hello world!" ?></p>
 
 ```
 
 Its output is identical to the output of the following:
 
-```
+```php
 <p><?php echo "Hello world!"; ?></p>
 
 ```
@@ -69,14 +69,14 @@ See also: [Strings](http://stackoverflow.com/documentation/php/232/types/1027/st
 
 The most widely used language construct to print output in PHP is `echo`:
 
-```
+```php
 echo "Hello, World!\n";
 
 ```
 
 Alternatively, you can also use `print`:
 
-```
+```php
 print "Hello, World!\n";
 
 ```
@@ -91,7 +91,7 @@ Both `echo` and `print` are language constructs, not functions. That means they 
 
 C-style `printf` and related functions are available as well, as in the following example:
 
-```
+```php
 printf("%s\n", "Hello, World!");
 
 ```
@@ -109,7 +109,7 @@ The [`header()`](http://php.net/manual/en/function.header.php) function can send
 
 Consider the following code, where we set `Content-Type` as `text/plain`:
 
-```
+```php
 header("Content-Type: text/plain");
 echo "Hello World";
 
@@ -123,7 +123,7 @@ Hello World
 
 To produce [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) content, use the `application/json` content type instead:
 
-```
+```php
 header("Content-Type: application/json");
 
 // Create a PHP data array.
@@ -142,7 +142,7 @@ This will produce a document of type `application/json` with the following conte
 
 Note that the `header()` function must be called before PHP produces any output, or the web server will have already sent headers for the response. So, consider the following code:
 
-```
+```php
 // Error: We cannot send any output before the headers
 echo "Hello";
 
@@ -171,7 +171,7 @@ PHP 5.4+ comes with a built-in development server. It can be used to run applica
 
 It can be started by using the `-S` flag:
 
-```
+```php
 php -S <host/ip>:<port>
 
 ```
@@ -180,11 +180,12 @@ php -S <host/ip>:<port>
 
 1. Create an `index.php` file containing:
 
-```
+```php
 <?php
 echo "Hello World from built-in PHP server";
 
 ```
+
 
 <li>
 Run the command `php -S localhost:8080` from the command line. Do not include `http://`. This will start a web server listening on port 8080 using the current directory that you are in as the document root.
@@ -197,7 +198,7 @@ Open the browser and navigate to `http://localhost:8080`. You should see your "H
 
 To override the default document root (i.e. the current directory), use the `-t` flag:
 
-```
+```php
 php -S <host/ip>:<port> -t <directory>
 
 ```
@@ -208,7 +209,7 @@ E.g. if you have a `public/` directory in your project you can serve your projec
 
 Every time a request is made from the development server, a log entry like the one below is written to the command line.
 
-```
+```php
 [Mon Aug 15 18:20:19 2016] ::1:52455 [200]: /
 
 ```
@@ -234,9 +235,11 @@ Interactive mode enabled
 php > echo "Hello world!";
 Hello world!</pre></li>
 
-```
+```php
 Example.php</code></strong>
-<pre><code><?php
+
+```php
+<?php
 echo "Stdout 1\n";
 trigger_error("Stderr 2\n");
 print_r("Stdout 3\n");
@@ -247,7 +250,7 @@ Stdout 6
 
 ```
 
-```
+```php
 $ php Example.php 2>stderr.log >stdout.log;\
 > echo STDOUT; cat stdout.log; echo;\
 > echo STDERR; cat stderr.log\
@@ -281,14 +284,14 @@ Just like most other C-style languages, each statement is terminated with a semi
 
 If the last line of PHP code ends with a semicolon, the closing tag is optional if there is no code following that final line of code. For example, we can leave out the closing tag after `echo "No error";` in the following example:
 
-```
+```php
 <?php echo "No error"; // no closing tag is needed as long as there is no code below
 
 ```
 
 However, if there is any other code following your PHP code block, the closing tag is no longer optional:
 
-```
+```php
 <?php echo "This will cause an error if you leave out the closing tag"; ?>
 <html>
     <body>
@@ -299,7 +302,7 @@ However, if there is any other code following your PHP code block, the closing t
 
 We can also leave out the semicolon of the last statement in a PHP code block if that code block has a closing tag:
 
-```
+```php
 <?php echo "I hope this helps! :D";
 echo "No error" ?>      
 
@@ -309,7 +312,7 @@ It is generally recommended to always use a semicolon and use a closing tag for 
 
 So, your code should basically look like this:
 
-```
+```php
 <?php
     echo "Here we use a semicolon!";
     echo "Here as well!";
@@ -343,7 +346,7 @@ There are three kinds of tags to denote PHP blocks in a file. The PHP parser is 
 
 These tags are the standard method to embed PHP code in a file.
 
-```
+```php
 <?php
     echo "Hello World";
 ?>
@@ -354,7 +357,7 @@ These tags are the standard method to embed PHP code in a file.
 
 These tags are available in all PHP versions, and since PHP 5.4 are always enabled. In previous versions, echo tags could only be enabled in conjunction with short tags.
 
-```
+```php
 <?= "Hello World" ?>
 
 ```
@@ -363,7 +366,7 @@ These tags are available in all PHP versions, and since PHP 5.4 are always enabl
 
 You can disable or enable these tags with the option `short_open_tag`.
 
-```
+```php
 <?
     echo "Hello World";
 ?>
@@ -382,7 +385,7 @@ Short tags:
 
 By enabling the `asp_tags` option, ASP-style tags can be used.
 
-```
+```php
 <%
     echo "Hello World";
 %>

@@ -12,7 +12,7 @@ description: "Caching using memcache, Cache Using APC Cache"
 
 Memcache is a distributed object caching system and uses `key-value` for storing small data. Before you start calling `Memcache` code into PHP, you need to make sure that it is installed. That can be done using `class_exists` method in php. Once it is validated that the module is installed, you start with connecting to memcache server instance.
 
-```
+```php
 if (class_exists('Memcache')) {
   $cache = new Memcache();
   $cache->connect('localhost',11211);
@@ -30,7 +30,7 @@ Memcache runs as a daemon and is called **memcached**
 
 In the example above we only connected to a single instance, but you can also connect to multiple servers using
 
-```
+```php
 if (class_exists('Memcache')) {
   $cache = new Memcache();
   $cache->addServer('192.168.0.100',11211);
@@ -51,7 +51,7 @@ In caching there are three important operations that needs to be implemented
 
 `$cache` or memcached class object has a `set` method that takes in a key,value and time to save the value for (ttl).
 
-```
+```php
 $cache->set($key, $value, 0, $ttl);
 
 ```
@@ -62,7 +62,7 @@ Here $ttl or time to live is time in seconds that you want memcache to store the
 
 `$cache` or memcached class object has a `get` method that takes in a key and returns the corresponding value.
 
-```
+```php
 $value = $cache->get($key);
 
 ```
@@ -75,7 +75,7 @@ In case there is no value set for the key it will return **null**
 
 Sometimes you might have the need to delete some cache value.`$cache` or memcache instance has a `delete` method that can be used for the same.
 
-```
+```php
 $cache->delete($key);
 
 ```
@@ -84,7 +84,7 @@ $cache->delete($key);
 
 Let us assume a simple blog. It will be having multiple posts on landing page that get fetched from database with each page load. In order to reduce the sql queries we can use memcached to cache the posts. Here is a very small implementation
 
-```
+```php
 if (class_exists('Memcache')) {
   $cache = new Memcache();
   $cache->connect('localhost',11211);
@@ -112,7 +112,7 @@ The Alternative PHP Cache (APC) is a free and open opcode cache for PHP. Its goa
 
 [installation](http://php.net/manual/en/apc.installation.php)
 
-```
+```php
 sudo apt-get install php-apc
 sudo /etc/init.d/apache2 restart
 
@@ -120,7 +120,7 @@ sudo /etc/init.d/apache2 restart
 
 Add Cache:
 
-```
+```php
 apc_add ($key, $value , $ttl);
 $key = unique cache key
 $value = cache value
@@ -130,14 +130,14 @@ $ttl = Time To Live;
 
 Delete Cache:
 
-```
+```php
 apc_delete($key);
 
 ```
 
 Set  Cache Example:
 
-```
+```php
 if (apc_exists($key)) {
     echo "Key exists: ";
     echo apc_fetch($key);
@@ -161,7 +161,7 @@ APC is nearly [5 times](https://www.percona.com/blog/2006/09/27/apc-or-memcached
 
 You can install memcache using pecl
 
-```
+```php
 pecl install memcache
 
 ```

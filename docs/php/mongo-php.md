@@ -50,7 +50,7 @@ Check for Composer installation by running  `php composer.phar --version` will r
 
 **Connecting to MongoDB from php**
 
-```
+```php
 <?php
 
   //This path should point to Composer's autoloader from where your MongoDB library will be loaded
@@ -80,7 +80,7 @@ Check for Composer installation by running  `php composer.phar --version` will r
 
 **CREATE(Inserting) into MongoDB**
 
-```
+```php
 <?php
 
  //MongoDB uses collection rather than Tables as in case on SQL.
@@ -102,7 +102,7 @@ Check for Composer installation by running  `php composer.phar --version` will r
 
 **READ(Find) in MongoDB**
 
-```
+```php
 <?php
  //use find() method to query for records, where parameter will be array containing key value pair we need to find.
  $result = $collection->find( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
@@ -119,7 +119,7 @@ Check for Composer installation by running  `php composer.phar --version` will r
 
 **Drop in MongoDB**
 
-```
+```php
 <?php
 
  $result = $collection->drop( [ 'name' => 'Hinterland'] );

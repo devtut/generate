@@ -12,7 +12,7 @@ description: "Installing YAML extension, Using YAML to store application configu
 
 YAML does not come with a standard PHP installation, instead it needs to be installed as a PECL extension.  On linux/unix it can be installed with a simple
 
-```
+```php
 pecl install yaml
 
 ```
@@ -30,7 +30,7 @@ Installation on Windows machines is different - you can either download a pre-co
 
 Consider the following YAML file:
 
-```
+```php
 database:
     driver: mysql
     host: database.mydomain.com
@@ -45,7 +45,7 @@ country: us
 
 Let's say, it's saved as `config.yaml`.  Then to read this file in PHP the following code can be used:
 
-```
+```php
 $config = yaml_parse_file('config.yaml');
 print_r($config);
 
@@ -53,7 +53,7 @@ print_r($config);
 
 `print_r` will produce the following output:
 
-```
+```php
 Array
 (
     [database] => Array
@@ -74,7 +74,7 @@ Array
 
 Now config parameters can be used by simply using array elements:
 
-```
+```php
 $dbConfig = $config['database'];
 
 $connectString = $dbConfig['driver']

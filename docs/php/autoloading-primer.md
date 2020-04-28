@@ -10,7 +10,7 @@ description: "Inline class definition, no loading required, Manual class loading
 ## Inline class definition, no loading required
 
 
-```
+```php
 // zoo.php
 class Animal {
     public function eats($food) {
@@ -30,7 +30,7 @@ PHP knows what `Animal` is before executing `new Animal`, because PHP reads sour
 ## Manual class loading with require
 
 
-```
+```php
 // Animal.php
 class Animal {
     public function eats($food) {
@@ -61,7 +61,7 @@ Now imagine we had dozens or hundreds of cases where we wanted to perform `new A
 ## Autoloading replaces manual class definition loading
 
 
-```
+```php
 // autoload.php
 spl_autoload_register(function ($class) {
     require_once "$class.php";
@@ -95,7 +95,7 @@ The magic happens with [spl_autoload_register](http://php.net/manual/en/function
 ## Autoloading as part of a framework solution
 
 
-```
+```php
 // autoload.php
 spl_autoload_register(function ($class) {
     require_once "$class.php";
@@ -151,7 +151,7 @@ This makes working with third-party dependencies very easy.
 
 You can also add your own code to the Autoloader by adding an autoload section to your `composer.json`.
 
-```
+```php
 {
     "autoload": {
         "psr-4": {"YourApplicationNamespace\\": "src/"}
@@ -168,7 +168,7 @@ In addition to `PSR-4` autoloading, Composer also supports `PSR-0`, `classmap` a
 
 When you including the `/vendor/autoload.php` file it will return an instance of the Composer Autoloader. You might store the return value of the include call in a variable and add more namespaces. This can be useful for autoloading classes in a test suite, for example.
 
-```
+```php
 $loader = require __DIR__ . '/vendor/autoload.php';
 $loader->add('Application\\Test\\', __DIR__);
 

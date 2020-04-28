@@ -37,16 +37,26 @@ Happens when your script tries to send a HTTP header to the client but there alr
 </li>
 <li>
 **Raw HTML areas:** Unparsed HTML sections in a .php file are direct output as well. Script conditions that will trigger a `header()` call must be noted before any raw  blocks.
-<pre><code><!DOCTYPE html>
+
+```php
+<!DOCTYPE html>
 <?php
      // Too late for headers already.
-</code></pre>
+
+```
+
+
 </li>
 <li>
 **Whitespace before `<?php` for "script.php line 1" warnings:** If the warning refers to output in line 1, then it's mostly leading whitespace, text or HTML before the opening `<?php` token.
-<pre><code><?php
+
+```php
+<?php
 # There's a SINGLE space/newline before <? - Which already seals it.
-</code></pre>
+
+```
+
+
 </li>
 
 Reference from SO [answer](http://stackoverflow.com/a/8028987/5447994) by [Mario](http://stackoverflow.com/users/345031/mario)
@@ -62,14 +72,14 @@ Reference from SO [answer](http://stackoverflow.com/a/8028987/5447994) by [Mario
 
 **Possible Solution:**
 
-```
+```php
 $classname::doMethod();
 
 ```
 
 If the above code causes this error, you most likely need to simply change the way you call the method:
 
-```
+```php
 $classname->doMethod();
 
 ```

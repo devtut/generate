@@ -12,7 +12,7 @@ description: "String interpolation, Extracting/replacing substrings"
 
 You can also use interpolation to interpolate (**insert**) a variable within a string. Interpolation works in double quoted strings and the heredoc syntax only.
 
-```
+```php
 $name = 'Joel';
 
 // $name will be replaced with `Joel`
@@ -28,7 +28,7 @@ echo 'Hello $name, Nice to see you.'; # Careful with this notation
 
 The [**complex (curly) syntax**](http://php.net/manual/en/language.types.string.php#language.types.string.parsing.complex) format provides another option which requires that you wrap your variable within curly braces `{}`. This can be useful when embedding variables within textual content and helping to prevent  possible ambiguity between textual content and variables.
 
-```
+```php
 $name = 'Joel';
 
 // Example using the curly brace syntax for the variable $name
@@ -43,7 +43,7 @@ echo "<p>We need more $names to help us!</p>";
 
 The `{}` syntax only interpolates variables starting with a `$` into a string. The `{}` syntax **does not** evaluate arbitrary PHP expressions.
 
-```
+```php
 // Example tying to interpolate a PHP expression
 echo "1 + 2 = {1 + 2}";
 #> "1 + 2 = {1 + 2}"
@@ -64,7 +64,7 @@ echo "I say: {say_hello()}";
 
 However, the `{}` syntax does evaluate any array access, property access and function/method calls on variables, array elements or properties:
 
-```
+```php
 // Example accessing a value from an array — multidimensional access is allowed
 $companions = [0 => ['name' => 'Amy Pond'], 1 => ['name' => 'Dave Random']];
 echo "The best companion is: {$companions[0]['name']}";
@@ -93,7 +93,7 @@ echo "From us all: {$greet(10 ** 3)}";
 
 Notice that the dollar `$` sign can appear after the opening curly brace `{` as the above examples, or, like in Perl or Shell Script, can appear before it:
 
-```
+```php
 $name = 'Joel';
 
 // Example using the curly brace syntax with dollar sign before the opening curly brace
@@ -115,7 +115,7 @@ Single characters can be extracted using array (square brace) syntax as well as 
 
 Strings, like everything in PHP, are `0`-indexed.
 
-```
+```php
 $foo = 'Hello world';
 
 $foo[6]; // returns 'w'
@@ -128,7 +128,7 @@ substr($foo, 6, 2); // returns 'wo'
 
 Strings can also be changed one character at a time using the same square brace and curly brace syntax. Replacing more than one character requires a function, i.e.- [substr_replace](http://php.net/manual/en/function.substr-replace.php)
 
-```
+```php
 $foo = 'Hello world';
 
 $foo[6] = 'W'; // results in $foo = 'Hello World'

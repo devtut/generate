@@ -14,28 +14,28 @@ Before we download and install Composer, we need to make sure our server has all
 
 First, update the package manager cache by running:
 
-```
+```php
 sudo apt-get update
 
 ```
 
 Now, let's install the dependencies. We'll need `curl` in order to download Composer and `php5-cli` for installing and running it. `git` is used by Composer for downloading project dependencies. Everything can be installed with the following command:
 
-```
+```php
 sudo apt-get install curl php5-cli git
 
 ```
 
 Now let's install it:
 
-```
+```php
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 ```
 
 This will download and install Composer as a system-wide command named composer, under /usr/local/bin. The output should look like this:
 
-```
+```php
 Output
 #!/usr/bin/env php
 All settings correct for using Composer
@@ -48,14 +48,14 @@ Use it: php /usr/local/bin/composer
 
 To test your installation, run:
 
-```
+```php
 composer
 
 ```
 
 And you should get output similar to this:
 
-```
+```php
 Output
    ______
   / ____/___  ____ ___  ____  ____  ________  _____

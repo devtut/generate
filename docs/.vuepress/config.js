@@ -51,6 +51,13 @@ module.exports = {
       },
     ],
     ["meta", { name: "msapplication-TileColor", content: "#da532c" }],
+    [
+      "meta",
+      {
+        name: "google-site-verification",
+        content: "76_rKXgwMVIjd-axJC_1zPV9OS4mEjvtgjYOWVkAdnQ",
+      },
+    ],
   ],
   themeConfig: {
     repo: "devtut/generate",
@@ -425,6 +432,10 @@ module.exports = {
             "getting-started-with-composer-php",
             "how-to-use-private-repositories-with-composer",
             "auto-loading-with-composer",
+            "getting-started-with-phpunit",
+            "getting-started-with-phpunit",
+            "test-doubles-mocks-and-stubs",
+            "assertions",
           ],
         },
       ],

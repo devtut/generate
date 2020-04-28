@@ -12,7 +12,7 @@ description: "Getting Started, Using Pools and Workers"
 
 To start with multi-threading, you would need the `pthreads-ext` for php, which can be installed by
 
-```
+```php
 $ pecl install pthreads
 
 ```
@@ -21,7 +21,7 @@ and adding the entry to `php.ini`.
 
 A simple example:
 
-```
+```php
 <?php
 // NOTE: Code uses PHP7 semantics.
 class MyThread extends Thread {
@@ -63,7 +63,7 @@ Pooling provides a higher level abstraction of the Worker functionality, includi
 
 Pools and workers provide an higher level of control and ease of creating multi-threaded
 
-```
+```php
 <?php
 // This is the *Work* which would be ran by the worker.
 // The work which you'd want to do in your worker.
@@ -134,21 +134,21 @@ If you are using **Wamp** on **Windows**, you have to configure the extension in
 
 **Open php\php.ini and add:**
 
-```
+```php
 extension=php_pthreads.dll
 
 ```
 
 Concerning **Linux** users, you have to replace `.dll` by `.so`:
 
-```
+```php
 extension=pthreads.so
 
 ```
 
 You can directly execute this command to add it to `php.ini` (change `/etc/php.ini` with your custom path)
 
-```
+```php
 echo "extension=pthreads.so" >> /etc/php.ini
 
 ```

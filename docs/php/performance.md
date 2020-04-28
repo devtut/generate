@@ -14,7 +14,7 @@ An extension to PHP called Xdebug is available to assist in [profiling PHP appli
 
 To enable profiling, install the extension and adjust php.ini settings.  In our example we will run the profile optionally based on a request parameter.  This allows us to keep settings static and turn on the profiler only as needed.
 
-```
+```php
 // Set to 1 to turn it on for every request
 xdebug.profiler_enable = 0
 // Let's use a GET/POST parameter to turn on the profiler
@@ -29,14 +29,14 @@ xdebug.profiler_output_name = "cachegrind.out.%p"
 
 Next use a web client to make a request to your application's URL you wish to profile, e.g.
 
-```
+```php
 http://example.com/article/1?XDEBUG_PROFILE=1
 
 ```
 
 As the page processes it will write to a file with a name similar to
 
-```
+```php
 /tmp/cachegrind.out.12345
 
 ```
@@ -72,7 +72,8 @@ PHP's runtime memory limit is set through the INI directive `memory_limit`.  Thi
 The exact memory usage used during runtime can be determined by calling `memory_get_usage()`.  It returns the number of bytes of memory allocated to the currently running script.  As of PHP 5.2, it has one optional boolean parameter to get the total allocated system memory, as opposed to the memory that's actively being used by PHP.
 
 ```
- <?php
+
+<?php
  echo memory_get_usage() . "\n";
  // Outputs 350688 (or similar, depending on system and PHP version)
 
@@ -92,7 +93,7 @@ The exact memory usage used during runtime can be determined by calling `memory_
 
 Now `memory_get_usage` gives you memory usage at the moment it is run.  Between calls to this function you may allocate and deallocate other things in memory.  To get the maximum amount of memory used up to a certain point, call `memory_get_peak_usage()`.
 
-```
+```php
 <?php
 echo memory_get_peak_usage() . "\n";
 // 385688
@@ -116,7 +117,7 @@ Notice the value will only go up or stay constant.
 
 After installing the `xhprof` PHP module, profiling can be enabled / disabled from PHP code:
 
-```
+```php
 xhprof_enable();
 doSlowOperation();
 $profile_data = xhprof_disable();

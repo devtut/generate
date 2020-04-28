@@ -15,35 +15,35 @@ As the majority of websites run off PHP, application security is an important to
 
 By default, PHP will tell the world what version of PHP you are using, e.g.
 
-```
+```php
 X-Powered-By: PHP/5.3.8
 
 ```
 
 To fix this you can either change php.ini:
 
-```
+```php
 expose_php = off
 
 ```
 
 Or change the header:
 
-```
+```php
 header("X-Powered-By: Magic");
 
 ```
 
 Or if you'd prefer a htaccess method:
 
-```
+```php
 Header unset X-Powered-By
 
 ```
 
 If either of the above methods do not work, there is also the [`header_remove()`](http://php.net/header_remove) function that provides you the ability to remove the header:
 
-```
+```php
 header_remove('X-Powered-By');
 
 ```
@@ -61,7 +61,7 @@ Cross-site scripting is the unintended execution of remote code by a web client.
 
 For example, if a 3rd party side contains a [JavaScript](http://stackoverflow.com/documentation/javascript/231/promises/846/introduction#t=201607242111378436991) file:
 
-```
+```php
 // http://example.com/runme.js
 document.write("I'm running");
 
@@ -69,7 +69,7 @@ document.write("I'm running");
 
 And a PHP application directly outputs a string passed into it:
 
-```
+```php
 <?php
 echo '<div>' . $_GET['input'] . '</div>';
 
@@ -77,7 +77,7 @@ echo '<div>' . $_GET['input'] . '</div>';
 
 If an unchecked GET parameter contains `<script src="http://example.com/runme.js"></script>` then the output of the PHP script will be:
 
-```
+```php
 <div><script src="http://example.com/runme.js"></script></div>
 
 ```
@@ -100,7 +100,7 @@ PHP provides a few ways to escape output depending on the context.
 
 `htmlspecialchars` will convert any "HTML special characters" into their HTML encodings, meaning they will then **not** be processed as standard HTML.  To fix our previous example using this method:
 
-```
+```php
 <?php
 echo '<div>' . htmlspecialchars($_GET['input']) . '</div>';
 // or
@@ -110,14 +110,14 @@ echo '<div>' . filter_input(INPUT_GET, 'input', FILTER_SANITIZE_SPECIAL_CHARS) .
 
 Would output:
 
-```
+```php
 <div>&lt;script src=&quot;http://example.com/runme.js&quot;&gt;&lt;/script&gt;</div>
 
 ```
 
 Everything inside the `<div>` tag will **not** be interpreted as a JavaScript tag by the browser, but instead as a simple text node. The user will safely see:
 
-```
+```php
 <script src="http://example.com/runme.js"></script>
 
 ```
@@ -126,7 +126,7 @@ Everything inside the `<div>` tag will **not** be interpreted as a JavaScript ta
 
 When outputting a dynamically generated URL, PHP provides the `urlencode` function to safely output valid URLs.  So, for example, if a user is able to input data that becomes part of another GET parameter:
 
-```
+```php
 <?php
 $input = urlencode($_GET['input']);
 // or
@@ -155,7 +155,7 @@ For example you have [HTML Purifier](http://htmlpurifier.org/)
 
 Cross-Site Request Forgery or `CSRF` can force an end user to unknowingly generate malicious requests to a web server. This attack vector can be exploited in both POST and GET requests. Let's say for example the url endpoint `/delete.php?accnt=12` deletes account as passed from `accnt` parameter of a GET request. Now if an authenticated user will encounter the following script in any other application
 
-```
+```php
 <img src="http://domain.com/delete.php?accnt=12" width="0" height="0" border="0">
 
 ```
@@ -166,7 +166,7 @@ the account would be deleted.
 
 A common solution to this problem is the use of **CSRF tokens**. CSRF tokens are embedded into requests so that a web application can trust that a request came from an expected source as part of the application's normal workflow.  First the user performs some action, such as viewing a form, that triggers the creation of a unique token. A sample form implementing this might look like
 
-```
+```php
 <form method="get" action="/delete.php">
   <input type="text" name="accnt" placeholder="accnt number" />
   <input type="hidden" name="csrf_token" value="<randomToken>" />
@@ -181,7 +181,7 @@ The token can then be validated by the server against the user session after for
 
 Here is sample code for a basic implementation:
 
-```
+```php
 /* Code to generate a CSRF token and store the same */
 ...
 <?php
@@ -236,7 +236,7 @@ In a similar way that SQL injection allows an attacker to execute arbitrary quer
 
 Let's say, for example, a script allows a user to list directory contents on a web server.
 
-```
+```php
 <pre>
 <?php system('ls ' . $_GET['path']); ?>
 </pre>
@@ -247,7 +247,7 @@ Let's say, for example, a script allows a user to list directory contents on a w
 
 One would hope to get a `path` parameter similar to `/tmp`.  But as any input is allowed, `path` could be `; rm -fr /`.  The web server would then execute the command
 
-```
+```php
 ls; rm -fr /
 
 ```
@@ -260,7 +260,7 @@ All command arguments must be **escaped** using `escapeshellarg()` or `escapeshe
 
 In the simplest case, we can secure our example with
 
-```
+```php
 <pre>
 <?php system('ls ' . escapeshellarg($_GET['path'])); ?>
 </pre>
@@ -269,7 +269,7 @@ In the simplest case, we can secure our example with
 
 Following the previous example with the attempt to remove files, the executed command becomes
 
-```
+```php
 ls '; rm -fr /'
 
 ```
@@ -293,7 +293,7 @@ Therefore it's good practice to avoid displaying those messages which will revea
 
 You can turn them off so the messages don't show at all, however this makes debugging your script harder.
 
-```
+```php
 <?php
   ini_set("display_errors", "0");
 ?>
@@ -302,7 +302,7 @@ You can turn them off so the messages don't show at all, however this makes debu
 
 Or change them directly in the **php.ini**.
 
-```
+```php
 display_errors = 0
 
 ```
@@ -311,7 +311,7 @@ display_errors = 0
 
 A better option would be to store those error messages to a place they are more useful, like a database:
 
-```
+```php
 set_error_handler(function($errno , $errstr, $errfile, $errline){
   try{
     $pdo = new PDO("mysql:host=hostname;dbname=databasename", 'dbuser', 'dbpwd', [
@@ -345,7 +345,7 @@ Remote File Inclusion (also known as RFI) is a type of vulnerability that allows
 
 This example injects a remotely hosted file containing a malicious code:
 
-```
+```php
 <?php
 include $_GET['page'];
 
@@ -359,7 +359,7 @@ include $_GET['page'];
 
 Local File Inclusion (also known as LFI) is the process of including files on a server through the web browser.
 
-```
+```php
 <?php
 $page = 'pages/'.$_GET['page'];
 if(isset($page)) {
@@ -378,7 +378,7 @@ if(isset($page)) {
 
 It is recommended to only allow including files you approved, and limit to those only.
 
-```
+```php
 <?php
 $page = 'pages/'.$_GET['page'].'.php';
 $allowed = ['pages/home.php','pages/error.php'];
@@ -399,7 +399,7 @@ if(in_array($page,$allowed)) {
 
 ### Basic Example
 
-```
+```php
 $string = '<b>Hello,<> please remove the <> tags.</b>';
 
 echo strip_tags($string);
@@ -408,7 +408,7 @@ echo strip_tags($string);
 
 **Raw Output**
 
-```
+```php
 Hello, please remove the tags.
 
 ```
@@ -417,7 +417,7 @@ Hello, please remove the tags.
 
 Say you wanted to allow a certain tag but no other tags, then you'd specify that in the second parameter of the function. This parameter is optional. In my case I only want the `<b>` tag to be passed through.
 
-```
+```php
 $string = '<b>Hello,<> please remove the <br> tags.</b>';
 
 echo strip_tags($string, '<b>');
@@ -426,7 +426,7 @@ echo strip_tags($string, '<b>');
 
 **Raw Output**
 
-```
+```php
 <b>Hello, please remove the  tags.</b>
 
 ```
@@ -437,7 +437,7 @@ echo strip_tags($string, '<b>');
 
 In `PHP` 5.3.4 and later, self-closing `XHTML` tags are ignored and only non-self-closing tags should be used in allowable_tags. For example, to allow both `<br>` and `<br/>`, you should use:
 
-```
+```php
 <?php
 strip_tags($input, '<br>');
 ?>
@@ -455,13 +455,14 @@ If you want users to upload files to your server you need to do a couple of secu
 
 This array contains ****user**** **submitted data** and is **not** information about the file itself. While usually this data is generated by the browser one can easily make a post request to the same form using software.
 
-```
+```php
 $_FILES['file']['name'];
 $_FILES['file']['type'];
 $_FILES['file']['size'];
 $_FILES['file']['tmp_name'];
 
 ```
+
 
 - `name` - Verify every aspect of it.
 - `type` - Never use this data. It can be fetched by using PHP functions instead.
@@ -481,7 +482,7 @@ So now I've uploaded `script.php` to another directory, by-passing simple valida
 
 You can use [`pathinfo()`](http://php.net/manual/en/function.pathinfo.php) to extrapolate the name and extension in a safe manner but first we need to replace unwanted characters in the file name:
 
-```
+```php
 // This array contains a list of characters not allowed in a filename
 $illegal   = array_merge(array_map('chr', range(0,31)), ["<", ">", ":", '"', "/", "\\", "|", "?", "*", " "]);
 $filename  = str_replace($illegal, "-", $_FILES['file']['name']);
@@ -500,7 +501,7 @@ if(!empty($extension) && !empty($filename)){
 
 While now we have a filename and extension that can be used for storing, I still prefer storing that information in a database and give that file a generated name of for example, `md5(uniqid().microtime())`
 
-```
+```php
 +----+--------+-----------+------------+------+----------------------------------+---------------------+
 | id | title  | extension | mime       | size | filename                         | time                |
 +----+--------+-----------+------------+------+----------------------------------+---------------------+
@@ -517,7 +518,7 @@ Checking a file extension to determine what file it is is not enough as a file m
 
 You can even go 1 step further for validating images, and that is actually opening them:
 
-```
+```php
 if($mime == 'image/jpeg' && $extension == 'jpeg' || $extension == 'jpg'){
   if($img = imagecreatefromjpeg($filename)){
     imagedestroy($img);
@@ -534,7 +535,7 @@ You can fetch the mime-type using a build-in [function](http://php.net/manual/en
 
 Most importantly, you should whitelist file extensions and mime types depending on each form.
 
-```
+```php
 function isFiletypeAllowed($extension, $mime, array $allowed)
 {
     return  isset($allowed[$mime]) &&

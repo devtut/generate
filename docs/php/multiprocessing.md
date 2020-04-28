@@ -18,7 +18,7 @@ Note that under Windows this will make another command prompt pop up for each fo
 
 master.php
 
-```
+```php
 $cmd = "php worker.php 10";
 if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') // for windows use popen and pclose
 {
@@ -33,7 +33,7 @@ else //for unix systems use shell exec with "&" in the end
 
 worker.php
 
-```
+```php
 //send emails, upload files, analyze logs, etc
 $sleeptime = $argv[1];
 sleep($sleeptime);
@@ -47,7 +47,7 @@ sleep($sleeptime);
 
 PHP has built in function `pcntl_fork` for creating child process. `pcntl_fork` is same as `fork` in unix. It does not take in any parameters and returns integer which can be used to differentiate between parent and child process. Consider the following code for explanation
 
-```
+```php
 <?php
     // $pid is the PID of child
     $pid = pcntl_fork();
@@ -80,7 +80,7 @@ It is also worth noting that `zombie process` can't be killed using `SIGKILL` si
 Interprocess communication allows programmers to communicate between different processes. For example let us consider we need to write an PHP application that can run bash commands and print the output. We will be using `proc_open` , which will execute the command and return a resource that we can communicate with.
 The following code shows a basic implementation that runs `pwd` in `bash` from `php`
 
-```
+```php
 <?php
     $descriptor = array(
         0 => array("pipe", "r"), // pipe for stdin of child

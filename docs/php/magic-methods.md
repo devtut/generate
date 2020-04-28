@@ -13,7 +13,7 @@ description: "__call() and __callStatic(), __get(), __set(), __isset() and __uns
 `__call()` and `__callStatic()` are called when somebody is calling nonexistent object method in
 object or static context.
 
-```
+```php
 class Foo
 {
     /**
@@ -79,7 +79,7 @@ class Foo
 
 ### Example:
 
-```
+```php
 $instance = new Foo();
 
 $instance->setSomeState("foo");
@@ -103,7 +103,7 @@ Array
 
 Whenever you attempt to retrieve a certain field from a class like so:
 
-```
+```php
 $animal = new Animal();
 $height = $animal->height;
 
@@ -111,7 +111,7 @@ $height = $animal->height;
 
 PHP invokes the magic method `__get($name)`, with `$name` equal to `"height"` in this case. Writing to a class field like so:
 
-```
+```php
 $animal->height = 10;
 
 ```
@@ -120,14 +120,14 @@ Will invoke the magic method `__set($name, $value)`, with `$name` equal to `"hei
 
 PHP also has two built-in functions `isset()`, which check if a variable exists, and `unset()`, which destroys a variable. Checking whether a objects field is set like so:
 
-```
+```php
 isset($animal->height);
 
 ```
 
 Will invoke the `__isset($name)` function on that object. Destroying a variable like so:
 
-```
+```php
 unset($animal->height);
 
 ```
@@ -136,7 +136,7 @@ Will invoke the `__unset($name)` function on that object.
 
 Normally, when you don't define these methods on your class, PHP just retrieves the field as it is stored in your class. However, you can override these methods to create classes that can hold data like an array, but are usable like an object:
 
-```
+```php
 class Example {
     private $data = [];
 
@@ -194,7 +194,7 @@ empty() is essentially the concise equivalent to **!isset($var) || $var == false
 
 `__construct()` is the most common magic method in PHP, because it is used to set up a class when it is initialized. The opposite of the `__construct()` method is the `__destruct()` method. This method is called when there are no more references to an object that you created or when you force its deletion. PHP's garbage collection will clean up the object by first calling its destructor and then removing it from memory.
 
-```
+```php
 class Shape {
     public function __construct() {
         echo "Shape created!\n";
@@ -244,7 +244,7 @@ unset(new Rectangle(20, 50));
 
 Whenever an object is treated as a string, the `__toString()` method is called. This method should return a string representation of the class.
 
-```
+```php
 class User {
     public $first_name;
     public $last_name;
@@ -279,7 +279,7 @@ $user_as_string = (string) $user;
 
 `__clone` is invoked by use of the `clone` keyword. It is used to manipulate object state upon cloning, after the object has been actually cloned.
 
-```
+```php
 class CloneableUser
 {
     public $name;
@@ -300,7 +300,7 @@ class CloneableUser
 
 Example:
 
-```
+```php
 $user1 = new CloneableUser();
 $user1->name = "John";
 $user1->lastName = "Doe";
@@ -320,7 +320,7 @@ echo $user2->lastName; // Copy Doe
 This magic method is called when user tries to invoke object as a function. Possible use cases may include
 some approaches like functional programming or some callbacks.
 
-```
+```php
 class Invokable
 {
     /**
@@ -363,7 +363,7 @@ serialized.
 `__wakeup` in turn will be executed by `unserialize` if it is present in class. It's intention is to re-establish
 resources and other things that are needed to be initialized upon unserialization.
 
-```
+```php
 class Sleepy {
     public $tableName;
     public $tableFields;
@@ -404,7 +404,7 @@ class Sleepy {
 This method is called by `var_dump()` when dumping an object to get the properties that should be shown. If the method isn't defined on an object, then all public, protected and private properties will be shown. — [PHP Manual](https://secure.php.net/manual/en/language.oop5.magic.php#object.debuginfo)
 
 
-```
+```php
 class DeepThought {
     public function __debugInfo() {
         return [42];
@@ -413,27 +413,27 @@ class DeepThought {
 
 ```
 
-```
+```php
 var_dump(new DeepThought());
 
 ```
 
 The above example will output:
 
-```
+```php
 class DeepThought#1 (0) {
 }
 
 ```
 
-```
+```php
 var_dump(new DeepThought());
 
 ```
 
 The above example will output:
 
-```
+```php
 class DeepThought#1 (1) {
   public ${0} =>
   int(42)

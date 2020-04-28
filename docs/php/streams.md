@@ -14,7 +14,7 @@ A stream wrapper provides a handler for one or more specific schemes.
 
 The example below shows a simple stream wrapper that sends `PATCH` HTTP requests when the stream is closed.
 
-```
+```php
 // register the FooWrapper class as a wrapper for foo:// URLs.
 stream_wrapper_register("foo", FooWrapper::class, STREAM_IS_URL) or die("Duplicate stream wrapper registered");
 

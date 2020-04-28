@@ -12,7 +12,7 @@ description: "Assign by Reference, Return by Reference, Pass by Reference"
 
 This is the first phase of referencing. Essentially when you [assign by reference](http://php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign), you're allowing two variables to share the same value as such.
 
-```
+```php
 $foo = &$bar;
 
 ```
@@ -21,7 +21,7 @@ $foo = &$bar;
 
 You can also assign by reference within the **`array()`** language construct. While not strictly being an assignment by reference.
 
-```
+```php
 $foo = 'hi';
 $bar = array(1, 2);
 $array = array(&$foo, &$bar[0]);
@@ -39,7 +39,7 @@ passed by value.</p>
 
 Assigning by reference is not only limited to variables and arrays, they are also present for functions and all "pass-by-reference" associations.
 
-```
+```php
 function incrementArray(&$arr) {
     foreach ($arr as &$val) {
         $val++;
@@ -77,7 +77,7 @@ you have a valid technical reason to do so.</p>
 
 There are many different forms return by reference can take, including the following example:
 
-```
+```php
 function parent(&$var) {
     echo $var;
     $var = "updated";
@@ -95,7 +95,7 @@ parent(child()); // returns "updated"
 
 Return by reference is not only limited to function references. You also have the ability to implicitly call the function:
 
-```
+```php
 function &myFunction() {
     static $a = 'foo';
     return $a;
@@ -133,7 +133,7 @@ A common use of ["passing-by-reference"](http://php.net/manual/en/language.refer
 
 Below is an example of harnessing an element from an array and simply adding 1 to its initial value.
 
-```
+```php
 $arr = array(1, 2, 3, 4, 5);
 
 foreach($arr as &$num) {
@@ -144,7 +144,7 @@ foreach($arr as &$num) {
 
 Now when you harness any element within `$arr`, the original element will be updated as the reference was increased. You can verify this by:
 
-```
+```php
 print_r($arr);
 
 ```
@@ -152,13 +152,18 @@ print_r($arr);
 > 
 **Note**
 You should take note when harnessing pass by reference within loops. At the end of the above loop, `$num` still holds a reference to the last element of the array. Assigning it post loop will end up manipulating the last array element! You can ensure this doesn't happen by `unset()`'ing it post-loop:
-<pre><code>$myArray = array(1, 2, 3, 4, 5);
+
+```php
+$myArray = array(1, 2, 3, 4, 5);
 
 foreach($myArray as &$num) {
    $num++;
 }
 unset($num);
-</code></pre>
+
+```
+
+
 The above will ensure you don't run into any issues. An example of issues that could relate from this is present in [this question on StackOverflow](http://stackoverflow.com/q/24902742/2518525).
 
 
@@ -166,7 +171,7 @@ The above will ensure you don't run into any issues. An example of issues that c
 
 Another common usage for passing-by-reference is within functions. Modifying the original variable is as simple as:
 
-```
+```php
 $var = 5;
 // define
 function add(&$var) {
@@ -179,7 +184,7 @@ add($var);
 
 Which can be verified by `echo`'ing the original variable.
 
-```
+```php
 echo $var;
 
 ```
@@ -210,7 +215,7 @@ removed, so using it will raise a fatal error.</p>
 
 While assigning two variables by reference, both variables point to the same value. Take the following example:
 
-```
+```php
 $foo = 1;
 $bar = &$foo;
 
@@ -218,7 +223,7 @@ $bar = &$foo;
 
 `$foo` ****does not**** point to `$bar`. `$foo` and `$bar` both point to the same value of `$foo`, which is `1`. To illustrate:
 
-```
+```php
 $baz = &$bar;
 unset($bar);
 $baz++;

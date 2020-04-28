@@ -13,7 +13,7 @@ The spaceship operator is used for comparing two expressions. For example, $a <=
 ## Sorting a list of numbers
 
 
-```
+```php
 $array = [1, 0, 5, 9, 3, 7, 6, 8, 4, 2];
 
 usort($array, function (int $a, int $b): int {
@@ -24,7 +24,7 @@ print_r($array);
 
 ```
 
-```
+```php
 Array
 (
     [0] => 0
@@ -46,7 +46,7 @@ Array
 ## Simple Example
 
 
-```
+```php
 $a = 5;
 $b = 10;
 
@@ -63,7 +63,7 @@ $b <=> $a; // 1, because $b > $a
 
 Generic example in a form of `$a <=> $b` matrix.
 
-```
+```php
 0 <=> 1; // -1 (left operand less than right, right is greater)
 0 <=> 0; // 0 (operands are equal)
 1 <=> 0; // 1 (left operand greater than right, left is greater)
@@ -71,7 +71,7 @@ Generic example in a form of `$a <=> $b` matrix.
 
 ```
 
-```
+```php
 ╔═══════╦════╦════╗
 ║ $a/$b ║  0 ║  1 ║
 ╠═══════╬════╬════╣

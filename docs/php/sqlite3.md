@@ -10,7 +10,7 @@ description: "Querying a database, Retrieving only one result, SQLite3 Quickstar
 ## Querying a database
 
 
-```
+```php
 <?php
 //Create a new SQLite3 object from a database file on the server.
 $database = new SQLite3('mysqlitedb.db');
@@ -35,7 +35,7 @@ See also [http://stackoverflow.com/documentation/sql/topics](http://stackoverflo
 
 In addition to using LIMIT SQL statements you can also use the SQLite3 function `querySingle` to retrieve a single row, or the first column.
 
-```
+```php
 <?php
 $database = new SQLite3('mysqlitedb.db');
 
@@ -62,14 +62,14 @@ This is a complete example of all the commonly used SQLite related APIs. The aim
 Let's create a new database first. Create it only if the file doesn't exist and open it for reading/writing.
 The extension of the file is up to you, but `.sqlite` is pretty common and self-explanatory.
 
-```
+```php
 $db = new SQLite3('analytics.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
 
 ```
 
 ### Creating a table
 
-```
+```php
 $db->query('CREATE TABLE IF NOT EXISTS "visits" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     "user_id" INTEGER,
@@ -84,7 +84,7 @@ $db->query('CREATE TABLE IF NOT EXISTS "visits" (
 It's advisable to wrap related queries in a transaction (with keywords `BEGIN` and `COMMIT`),
 even if you don't care about atomicity. If you don't do this, SQLite automatically wraps every single query in a transaction, which slows down everything immensely. If you're new to SQLite, you may be surprised why the [INSERTs are so slow ](http://stackoverflow.com/a/3852082/388994).
 
-```
+```php
 $db->exec('BEGIN');
 $db->query('INSERT INTO "visits" ("user_id", "url", "time")
     VALUES (42, "/test", "2017-01-14 10:11:23")');
@@ -97,7 +97,7 @@ $db->exec('COMMIT');
 Insert potentially unsafe data with a prepared statement.
 You can do this with **named parameters**:
 
-```
+```php
 $statement = $db->prepare('INSERT INTO "visits" ("user_id", "url", "time")
     VALUES (:uid, :url, :time)');
 $statement->bindValue(':uid', 1337);
@@ -112,7 +112,7 @@ $statement->execute(); you can reuse the statement with different values
 Let's fetch today's visits of user #42.
 We'll use a prepared statement again, but with **numbered parameters** this time, which are more concise:
 
-```
+```php
 $statement = $db->prepare('SELECT * FROM "visits" WHERE "user_id" = ? AND "time" >= ?');
 $statement->bindValue(1, 42);
 $statement->bindValue(2, '2017-01-14');
@@ -134,7 +134,7 @@ Note: If there are no more rows, fetchArray() returns `false`. You can take adva
 
 Free the memory - this in **not** done automatically, while your script is running
 
-```
+```php
 $result->finalize();
 
 ```
@@ -149,7 +149,7 @@ escape the strings instead.
 Always put the values in SINGLE quotes! Double quotes are used for table
 and column names (similar to backticks in MySQL).
 
-```
+```php
 $query = 'SELECT * FROM "visits" WHERE "url" = \'' .
     SQLite3::escapeString('/test') .
     '\' ORDER BY "id" DESC LIMIT 1';
@@ -164,7 +164,7 @@ echo "\n";
 
 Another useful shorthand for retrieving just one value.
 
-```
+```php
 $userCount = $db->querySingle('SELECT COUNT(DISTINCT "user_id") FROM "visits"');
 
 echo "User count: $userCount\n";
@@ -177,7 +177,7 @@ echo "\n";
 Finally, close the database.
 This is done automatically when the script finishes, though.
 
-```
+```php
 $db->close();
 
 ```

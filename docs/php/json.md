@@ -17,7 +17,7 @@ The [`json_decode()`](http://php.net/manual/en/function.json-decode.php) functio
 
 Normally, `json_decode()` will return an **object of [\stdClass](http://php.net/manual/en/reserved.classes.php)** if the top level item in the JSON object is a dictionary or an **indexed array** if the JSON object is an array. It will also return scalar values or `NULL` for certain scalar values, such as simple strings, `"true"`, `"false"`, and `"null"`. It also returns `NULL` on any error.
 
-```
+```php
 // Returns an object (The top level item in the JSON string is a JSON dictionary)
 $json_string = '{"name": "Jeff", "age": 20, "active": true, "colors": ["red", "blue"]}';
 $object = json_decode($json_string);
@@ -33,7 +33,7 @@ printf('Hello %s, You are %s years old.', $array[0], $array[1]);
 
 Use [`var_dump()`](http://php.net/manual/en/function.var-dump.php) to view the types and values of each property on the object we decoded above.
 
-```
+```php
 // Dump our above $object to view how it was decoded
 var_dump($object);
 
@@ -41,7 +41,7 @@ var_dump($object);
 
 Output (note the variable types):
 
-```
+```php
 class stdClass#2 (4) {
  ["name"] => string(4) "Jeff"
  ["age"] => int(20)
@@ -59,7 +59,7 @@ class stdClass#2 (4) {
 
 To return an [associative array](http://php.net/manual/en/language.types.array.php) for JSON objects instead of returning an object, pass `true` as the [second parameter](http://php.net/manual/en/function.json-decode.php#refsect1-function.json-decode-parameters) to `json_decode()`.
 
-```
+```php
 $json_string = '{"name": "Jeff", "age": 20, "active": true, "colors": ["red", "blue"]}';
 $array = json_decode($json_string, true); // Note the second parameter
 var_dump($array);
@@ -68,7 +68,7 @@ var_dump($array);
 
 Output (note the array associative structure):
 
-```
+```php
 array(4) {
   ["name"] => string(4) "Jeff"
   ["age"] => int(20)
@@ -97,7 +97,7 @@ Although this superset is consistent with the expanded definition of "JSON text"
 
 This means, that, for example, a simple string will be considered to be a valid JSON object in PHP:
 
-```
+```php
 $json = json_decode('"some string"', true);
 var_dump($json, json_last_error_msg());
 
@@ -105,7 +105,7 @@ var_dump($json, json_last_error_msg());
 
 Output:
 
-```
+```php
 string(11) "some string"
 string(8) "No error"
 
@@ -124,7 +124,7 @@ are no longer accepted as valid input.</p>
 
 So this example:
 
-```
+```php
 var_dump(json_decode('tRue'), json_last_error_msg());
 var_dump(json_decode('tRUe'), json_last_error_msg());
 var_dump(json_decode('tRUE'), json_last_error_msg());
@@ -136,7 +136,7 @@ var_dump(json_decode('true'), json_last_error_msg());
 
 Before PHP 5.6:
 
-```
+```php
 bool(true)
 string(8) "No error"
 bool(true)
@@ -154,7 +154,7 @@ string(8) "No error"
 
 And after:
 
-```
+```php
 NULL
 string(12) "Syntax error"
 NULL
@@ -174,7 +174,7 @@ Similar behavior occurs for `false` and `null`.
 
 Note that `json_decode()` will return `NULL` if the string cannot be converted.
 
-```
+```php
 $json = "{'name': 'Jeff', 'age': 20 }" ;  // invalid json 
 
 $person = json_decode($json);
@@ -195,7 +195,7 @@ It is not safe to rely only on the return value being `NULL` to detect errors. F
 
 The [`json_encode`](http://php.net/manual/en/function.json-encode.php) function will convert a PHP array (or, since PHP 5.4, an object which implements the `JsonSerializable` interface) to a JSON-encoded string.  It returns a JSON-encoded string on success or FALSE on failure.
 
-```
+```php
 $array = [
     'name' => 'Jeff',
     'age' => 20,
@@ -208,14 +208,14 @@ $array = [
 
 During encoding, the PHP data types string, integer, and boolean are converted to their JSON equivalent. Associative arrays are encoded as JSON objects, and – when called with default arguments – indexed arrays are encoded as JSON arrays. (Unless the array keys are not a continuous numeric sequence starting from 0, in which case the array will be encoded as a JSON object.)
 
-```
+```php
 echo json_encode($array);
 
 ```
 
 Output:
 
-```
+```php
 {"name":"Jeff","age":20,"active":true,"colors":["red","blue"],"values":{"0":"foo","3":"bar"}}
 
 ```
@@ -230,7 +230,7 @@ As with any bitmask, they can be combined with the binary OR operator `|`.
 
 Forces the creation of an object instead of an array
 
-```
+```php
 $array = ['Joel', 23, true, ['red', 'blue']];
 echo json_encode($array);
 echo json_encode($array, JSON_FORCE_OBJECT);
@@ -239,7 +239,7 @@ echo json_encode($array, JSON_FORCE_OBJECT);
 
 Output:
 
-```
+```php
 ["Joel",23,true,["red","blue"]]
 {"0":"Joel","1":23,"2":true,"3":{"0":"red","1":"blue"}}
 
@@ -257,7 +257,7 @@ Ensures the following conversions during encoding:
 |`JSON_HEX_APOS`|`'`|`\u0027`
 |`JSON_HEX_QUOT`|`"`|`\u0022`
 
-```
+```php
 $array = ["tag"=>"<>", "amp"=>"&", "apos"=>"'", "quot"=>"\""];
 echo json_encode($array);
 echo json_encode($array, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
@@ -266,7 +266,7 @@ echo json_encode($array, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_
 
 Output:
 
-```
+```php
 {"tag":"<>","amp":"&","apos":"'","quot":"\""}
 {"tag":"\u003C\u003E","amp":"\u0026","apos":"\u0027","quot":"\u0022"}
 
@@ -276,7 +276,7 @@ Output:
 
 Ensures numeric strings are converted to integers.
 
-```
+```php
 $array = ['23452', 23452];
 echo json_encode($array);
 echo json_encode($array, JSON_NUMERIC_CHECK);
@@ -285,7 +285,7 @@ echo json_encode($array, JSON_NUMERIC_CHECK);
 
 Output:
 
-```
+```php
 ["23452",23452]    
 [23452,23452]
 
@@ -295,7 +295,7 @@ Output:
 
 Makes the JSON easily readable
 
-```
+```php
 $array = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4];
 echo json_encode($array);
 echo json_encode($array, JSON_PRETTY_PRINT);
@@ -304,7 +304,7 @@ echo json_encode($array, JSON_PRETTY_PRINT);
 
 Output:
 
-```
+```php
 {"a":1,"b":2,"c":3,"d":4}
 {
     "a": 1,
@@ -319,7 +319,7 @@ Output:
 
 Includes unescaped `/` forward slashes in the output
 
-```
+```php
 $array = ['filename' => 'example.txt', 'path' => '/full/path/to/file/'];
 echo json_encode($array);
 echo json_encode($array, JSON_UNESCAPED_SLASHES);
@@ -328,7 +328,7 @@ echo json_encode($array, JSON_UNESCAPED_SLASHES);
 
 Output:
 
-```
+```php
 {"filename":"example.txt","path":"\/full\/path\/to\/file"}
 {"filename":"example.txt","path":"/full/path/to/file"}
 
@@ -338,7 +338,7 @@ Output:
 
 Includes UTF8-encoded characters in the output instead of `\u`-encoded strings
 
-```
+```php
 $blues = ["english"=>"blue", "norwegian"=>"blå", "german"=>"blau"];
 echo json_encode($blues);
 echo json_encode($blues, JSON_UNESCAPED_UNICODE);
@@ -347,7 +347,7 @@ echo json_encode($blues, JSON_UNESCAPED_UNICODE);
 
 Output:
 
-```
+```php
 {"english":"blue","norwegian":"bl\u00e5","german":"blau"}
 {"english":"blue","norwegian":"blå","german":"blau"}
 
@@ -357,7 +357,7 @@ Output:
 
 Allows encoding to continue if some unencodable values are encountered.
 
-```
+```php
 $fp = fopen("foo.txt", "r");
 $array = ["file"=>$fp, "name"=>"foo.txt"];
 echo json_encode($array); // no output
@@ -367,7 +367,7 @@ echo json_encode($array, JSON_PARTIAL_OUTPUT_ON_ERROR);
 
 Output:
 
-```
+```php
 {"file":null,"name":"foo.txt"}
 
 ```
@@ -376,7 +376,7 @@ Output:
 
 Ensures that floats are always encoded as floats.
 
-```
+```php
 $array = [5.0, 5.5];
 echo json_encode($array);
 echo json_encode($array, JSON_PRESERVE_ZERO_FRACTION);
@@ -385,7 +385,7 @@ echo json_encode($array, JSON_PRESERVE_ZERO_FRACTION);
 
 Output:
 
-```
+```php
 [5,5.5]
 [5.0,5.5]
 
@@ -395,7 +395,7 @@ Output:
 
 When used with `JSON_UNESCAPED_UNICODE`, reverts to the behaviour of older PHP versions, and **does not** escape the characters U+2028 LINE SEPARATOR and U+2029 PARAGRAPH SEPARATOR. Although valid in JSON, these characters are not valid in JavaScript, so the default behaviour of `JSON_UNESCAPED_UNICODE` was changed in version 7.1.
 
-```
+```php
 $array = ["line"=>"\xe2\x80\xa8", "paragraph"=>"\xe2\x80\xa9"];
 echo json_encode($array, JSON_UNESCAPED_UNICODE);
 echo json_encode($array, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_LINE_TERMINATORS);
@@ -404,7 +404,7 @@ echo json_encode($array, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_LINE_TERMINATOR
 
 Output:
 
-```
+```php
 {"line":"\u2028","paragraph":"\u2029"}
 {"line":" ","paragraph":" "}
 
@@ -419,7 +419,7 @@ When `json_encode` or `json_decode` fails to parse the string provided, it will 
 
 The following example shows a common error when working with JSON, a failure to decode/encode a JSON string **(due to the passing of a bad UTF-8 encoded string, for example)**.
 
-```
+```php
 // An incorrectly formed JSON string
 $jsonString = json_encode("{'Bad JSON':\xB1\x31}");
 
@@ -442,7 +442,7 @@ The default **non-error** string is `No Error`</li>
 
 You should only use this function to get the message for display, **not** to test against in control statements.
 
-```
+```php
 // Don't do this:
 if (json_last_error_msg()){} // always true (it's a string)
 if (json_last_error_msg() != "No Error"){} // Bad practice
@@ -457,7 +457,7 @@ if (json_last_error() != JSON_ERROR_NONE) {
 
 This function doesn't exist before PHP 5.5. Here is a polyfill implementation:
 
-```
+```php
 if (!function_exists('json_last_error_msg')) {
     function json_last_error_msg() {
         static $ERRORS = array(
@@ -501,7 +501,7 @@ When you build REST API's, you may need to reduce the information of an object t
 
 In this example, the class `User` actually extends a DB model object of a hypotetical ORM.
 
-```
+```php
 class User extends Model implements JsonSerializable {
     public $id;
     public $name;
@@ -527,21 +527,21 @@ class User extends Model implements JsonSerializable {
 
 Add `JsonSerializable` implementation to the class, by providing the `jsonSerialize()` method.
 
-```
+```php
 public function jsonSerialize()
 
 ```
 
 Now in your application controller or script, when passing the object User to `json_encode()` you will get the return json encoded array of the `jsonSerialize()` method instead of the entire object.
 
-```
+```php
 json_encode($User);
 
 ```
 
 Will return:
 
-```
+```php
 {"name":"John", "surname":"Doe", "username" : "TestJson"}
 
 ```
@@ -559,7 +559,7 @@ To avoid using JsonSerializable, it is also possible to use private or protected
 class into JSON.</p>
 
 
-```
+```php
 <?php
 
 class User {
@@ -590,7 +590,7 @@ var_dump(json_encode($theUser));
 
 ### **Output:**
 
-```
+```php
 string(44) "{"name":null,"surname":null,"username":null}"
 
 ```
@@ -602,7 +602,7 @@ string(44) "{"name":null,"surname":null,"username":null}"
 
 By adding a header with content type as JSON:
 
-```
+```php
 <?php
  $result = array('menu1' => 'home', 'menu2' => 'code php', 'menu3' => 'about');
 
@@ -618,14 +618,14 @@ The header is there so your app can detect what data was returned and how it sho
 
 If you are using UTF-8, you can use :
 
-```
+```php
 header("Content-Type: application/json;charset=utf-8");
 
 ```
 
 Example jQuery :
 
-```
+```php
 $.ajax({
         url:'url_your_page_php_that_return_json'        
     }).done(function(data){

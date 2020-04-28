@@ -14,7 +14,7 @@ An image can be created using [`image*` functions](http://php.net/manual/en/func
 
 They have this syntax in common:
 
-```
+```php
 bool image___(resource $im [, mixed $to [ other parameters]] )
 
 ```
@@ -25,7 +25,7 @@ If you want to save the image to a file, you can pass the filename, or an opened
 
 For example, to save a PNG file:
 
-```
+```php
 imagepng($image, "/path/to/target/file.png");
 
 $stream = fopen("phar://path/to/target.phar/file.png", "wb");
@@ -42,7 +42,7 @@ Do **not** try to pass `fopen("php://temp", $f)` or `fopen("php://memory", $f)` 
 
 If you want to directly return this image as the response of the image (e.g. to create dynamic badges), you don't need to pass anything (or pass `null`) as the second argument. However, in the HTTP response, you need to specify your content type:
 
-```
+```php
 header("Content-Type: $mimeType");
 
 ```
@@ -55,7 +55,7 @@ There are two ways to write into a variable.
 
 ### Using OB (Output Buffering)
 
-```
+```php
 ob_start();
 imagepng($image, null, $quality); // pass null to supposedly write to stdout
 $binary = ob_get_clean();
@@ -68,7 +68,7 @@ You may have many reasons that you don't want to use output buffering. For examp
 
 Using the `stream_wrapper_register` function, a new stream wrapper can be registered. Hence, you can pass a stream to the image output function, and retrieve it later.
 
-```
+```php
 <?php
 
 class GlobalStream{
@@ -108,7 +108,7 @@ There are some special things to note:
 
 In the `<img>` HTML tag, an image can be directly provided rather than using an external link:
 
-```
+```php
 echo '<img src="data:image/png;base64,' . base64_encode($binary) . '">';
 
 ```
@@ -120,7 +120,7 @@ echo '<img src="data:image/png;base64,' . base64_encode($binary) . '">';
 
 To create a blank image, use the `imagecreatetruecolor` function:
 
-```
+```php
 $img = imagecreatetruecolor($width, $height);
 
 ```
@@ -135,7 +135,7 @@ Image resources can also be created from [image creation functions](http://php.n
 
 Image resources may be freed later when there are no more references to them. However, to free the memory immediately (this may be important if you are processing many large images), using `imagedestroy()` on an image when it is no longer used might be a good practice.
 
-```
+```php
 imagedestroy($image);
 
 ```
@@ -144,7 +144,7 @@ imagedestroy($image);
 
 Images created by image conversion does not modify the image until you output it. Therefore, an image converter can be as simple as three lines of code:
 
-```
+```php
 function convertJpegToPng(string $filename, string $outputFile) {
     $im = imagecreatefromjpeg($filename);
     imagepng($im, $outputFile);
@@ -162,7 +162,7 @@ If you have an image and want to create a new image, with new dimensions, you ca
 
 first create a new `image` with desired dimensions:
 
-```
+```php
 // new image
 $dst_img = imagecreatetruecolor($width, $height);
 
@@ -177,7 +177,7 @@ and store the original image into a variable. To do so, you may use one of the `
 
 For example:
 
-```
+```php
 //original image
 $src_img=imagecreatefromstring(file_get_contents($original_image_path));
 
@@ -185,7 +185,7 @@ $src_img=imagecreatefromstring(file_get_contents($original_image_path));
 
 Now, copy all (or part of) original image (src_img) into the new image (dst_img) by `imagecopyresampled`:
 
-```
+```php
 imagecopyresampled($dst_img, $src_img, 
     $dst_x ,$dst_y, $src_x, $src_y, 
     $dst_width, $dst_height, $src_width, $src_height);
@@ -198,7 +198,7 @@ To set `src_*` and `dst_*` dimensions, use the below image:
 
 Now, if you want to copy entire of source (initial) image, into entire of destination area (no cropping):
 
-```
+```php
 $src_x = $src_y = $dst_x = $dst_y = 0;
 $dst_width = $width;// width of new image
 $dst_height = $height; //height of new image

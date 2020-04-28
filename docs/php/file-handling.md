@@ -15,7 +15,7 @@ description: "Deleting files and directories, Convenience functions, Getting fil
 
 The [`unlink`](http://php.net/unlink) function deletes a single file and returns whether the operation was successful.
 
-```
+```php
 $filename = '/path/to/file.txt';
 
 if (file_exists($filename)) {
@@ -34,7 +34,7 @@ On the other hand, directories should be deleted with [`rmdir`](http://php.net/r
 
 The following example scans files in a directory, deletes member files/directories recursively, and returns the number of files (not directories) deleted.
 
-```
+```php
 function recurse_delete_dir(string $dir) : int {
     $count = 0;
 
@@ -74,7 +74,7 @@ function recurse_delete_dir(string $dir) : int {
 
 [`file_put_contents`](http://php.net/manual/en/function.file-put-contents.php) can also be used with the `FILE_APPEND` bitmask flag to append to, instead of truncate and overwrite, the file. It can be used along with `LOCK_EX` bitmask to acquire an exclusive lock to the file while proceeding to writing. Bitmask flags can be joined with the `|` bitwise-OR operator.
 
-```
+```php
 $path = "file.txt";
 // reads contents in file.txt to $contents
 $contents = file_get_contents($path);
@@ -87,14 +87,14 @@ file_put_contents($path, $contents);
 
 `FILE_APPEND` is handy for appending to log files while `LOCK_EX` helps prevent race condition of file writing from multiple processes. For example, to write to a log file about the current session:
 
-```
+```php
 file_put_contents("logins.log", "{$_SESSION["username"]} logged in", FILE_APPEND | LOCK_EX);
 
 ```
 
 ### CSV IO
 
-```
+```php
 fgetcsv($file, $length, $separator)
 
 ```
@@ -103,7 +103,7 @@ The [`fgetcsv`](http://php.net/fgetcsv) parses line from open file checking for 
 
 By default, it will read only one line of the CSV file.
 
-```
+```php
 $file = fopen("contacts.csv","r");
 print_r(fgetcsv($file));    
 print_r(fgetcsv($file,5," "));
@@ -113,7 +113,7 @@ fclose($file);
 
 **`contacts.csv`**
 
-```
+```php
 Kai Jim, Refsnes, Stavanger, Norway
 Hege, Refsnes, Stavanger, Norway
 
@@ -121,7 +121,7 @@ Hege, Refsnes, Stavanger, Norway
 
 Output:
 
-```
+```php
 Array
 (
     [0] => Kai Jim
@@ -140,7 +140,7 @@ Array
 
 [`readfile`](http://php.net/readfile) copies a file to the output buffer. readfile() will not present any memory issues, even when sending large files, on its own.
 
-```
+```php
 $file = 'monkey.gif';
 
 if (file_exists($file)) {
@@ -161,7 +161,7 @@ if (file_exists($file)) {
 
 Alternatively, to seek a point in the file to start copying to stdout, use [`fpassthru`](http://php.net/fpassthru) instead. In the following example, the last 1024 bytes are copied to stdout:
 
-```
+```php
 $fh = fopen("file.txt", "rb");
 fseek($fh, -1024, SEEK_END); 
 fpassthru($fh);
@@ -172,14 +172,14 @@ fpassthru($fh);
 
 [`file`](http://php.net/manual/en/function.file.php) returns the lines in the passed file in an array. Each element of the array corresponds to a line in the file, with the newline still attached.
 
-```
+```php
 print_r(file("test.txt"));
 
 ```
 
 **`test.txt`**
 
-```
+```php
 Welcome to File handling
 This is to test file handling
 
@@ -187,7 +187,7 @@ This is to test file handling
 
 Output:
 
-```
+```php
 Array 
 ( 
     [0] => Welcome to File handling 
@@ -205,7 +205,7 @@ Array
 
 The [`is_dir`](http://php.net/is-dir) function returns whether the argument is a directory, while [`is_file`](http://php.net/is-file) returns whether the argument is a file. Use [`file_exists`](http://php.net/file-exists) to check if it is either.
 
-```
+```php
 $dir  = "/this/is/a/directory";
 $file = "/this/is/a/file.txt";
 
@@ -220,7 +220,7 @@ echo is_dir($dir) ? "$dir is a directory" : "$dir is not a directory", PHP_EOL,
 
 This gives:
 
-```
+```php
 /this/is/a/directory is a directory
 /this/is/a/directory is not a file
 /this/is/a/directory exists
@@ -245,7 +245,7 @@ Use [`filetype`](http://php.net/filetype) to check the type of a file, which may
 
 Passing the filename to the [`filetype`](http://php.net/filetype) directly:
 
-```
+```php
 echo filetype("~"); // dir
 
 ```
@@ -262,7 +262,7 @@ The functions return `false` gracefully if the file does not exist.
 
 Using [`filemtime`](http://php.net/filemtime) and [`fileatime`](http://php.net/fileatime) returns the timestamp of the last modification or access of the file. The return value is a Unix timestamp -- see [Working with Dates and Time](http://stackoverflow.com/documentation/php/425/working-with-dates-and-time) for details.
 
-```
+```php
 echo "File was last modified on " . date("Y-m-d", filemtime("file.txt"));
 echo "File was last accessed on " . date("Y-m-d", fileatime("file.txt"));
 
@@ -270,7 +270,7 @@ echo "File was last accessed on " . date("Y-m-d", fileatime("file.txt"));
 
 ### Get path parts with fileinfo
 
-```
+```php
 $fileToAnalyze = ('/var/www/image.png');
 
 $filePathParts = pathinfo($fileToAnalyze);
@@ -283,7 +283,7 @@ echo '</pre>';
 
 This example will output:
 
-```
+```php
 Array
 (
     [dirname] => /var/www
@@ -296,7 +296,7 @@ Array
 
 Which can be used as:
 
-```
+```php
 $filePathParts['dirname']
 $filePathParts['basename']
 $filePathParts['extension']
@@ -327,7 +327,7 @@ Allowed memory size of XXXXX bytes exhausted
 
 error. Consider the following source (top-1m.csv has exactly 1 million rows and is about 22 Mbytes of size)
 
-```
+```php
 var_dump(memory_get_usage(true));
 $arr = file('top-1m.csv');
 var_dump(memory_get_usage(true));
@@ -336,7 +336,7 @@ var_dump(memory_get_usage(true));
 
 This outputs:
 
-```
+```php
 int(262144)
 int(210501632) 
 
@@ -346,7 +346,7 @@ because the interpreter needed to hold all the rows in `$arr` array, so it consu
 
 Now consider the following code:
 
-```
+```php
 var_dump(memory_get_usage(true));
 $index = 1;
 if (($handle = fopen("top-1m.csv", "r")) !== FALSE) {
@@ -362,7 +362,7 @@ var_dump(memory_get_usage(true));
 
 which outputs
 
-```
+```php
 int(262144)
 int(262144)
 
@@ -379,7 +379,7 @@ so we don't use a single extra byte of memory, but parse the whole CSV and save 
 
 [`fopen`](http://php.net/fopen) opens a file stream handle, which can be used with various functions for reading, writing, seeking and other functions on top of it. This value is of `resource` type, and cannot be passed to other threads persisting its functionality.
 
-```
+```php
 $f = fopen("errors.log", "a"); // Will try to open errors.log for writing
 
 ```
@@ -431,7 +431,7 @@ Using [`ftell`](http://php.net/ftell) will show the absolute position of the fil
 
 For example, the following script reads skips the first 10 bytes, reads the next 10 bytes, skips 10 bytes, reads the next 10 bytes, and then the last 10 bytes in file.txt:
 
-```
+```php
 $fh = fopen("file.txt", "rb");
 fseek($fh, 10); // start at offset 10
 echo fread($fh, 10); // reads 10 bytes
@@ -447,7 +447,7 @@ fclose($fh);
 
 Using [`fwrite`](http://php.net/fwrite) writes the provided string to the file starting at the current file pointer.
 
-```
+```php
 fwrite($fh, "Some text here\n");
 
 ```
@@ -461,7 +461,7 @@ fwrite($fh, "Some text here\n");
 
 [`copy`](http://php.net/copy) copies the source file in the first argument to the destination in the second argument. The resolved destination needs to be in a directory that is already created.
 
-```
+```php
 if (copy('test.txt', 'dest.txt')) {
     echo 'File has been copied successfully';
 } else {
@@ -474,7 +474,7 @@ if (copy('test.txt', 'dest.txt')) {
 
 Copying directories is pretty much similar to deleting directories, except that for files [`copy`](http://php.net/copy) instead of [`unlink`](http://php.net/unlink) is used, while for directories, [`mkdir`](http://php.net/mkdir) instead of [`rmdir`](http://php.net/rmdir) is used, at the beginning instead of being at the end of the function.
 
-```
+```php
 function recurse_delete_dir(string $src, string $dest) : int {
     $count = 0;
 

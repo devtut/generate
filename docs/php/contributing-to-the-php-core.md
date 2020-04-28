@@ -12,7 +12,7 @@ description: "Setting up a basic development environment"
 
 PHP's source code is hosted on [GitHub](https://github.com/php/php-src). To build from source you will first need to check out a working copy of the code.
 
-```
+```php
 mkdir /usr/local/src/php-7.0/
 cd /usr/local/src/php-7.0/
 git clone -b PHP-7.0 https://github.com/php/php-src .
@@ -21,14 +21,14 @@ git clone -b PHP-7.0 https://github.com/php/php-src .
 
 If you want to add a feature, it's best to create your own branch.
 
-```
+```php
 git checkout -b my_private_branch
 
 ```
 
 Finally, configure and build PHP
 
-```
+```php
 ./buildconf
 ./configure
 make

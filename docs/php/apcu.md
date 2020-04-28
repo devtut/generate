@@ -17,7 +17,7 @@ PHP-FPM processes of the same pool. Stored data persists between requests.
 The [`APCUIterator`](http://php.net/manual/en/class.apcuiterator.php) allows to
 iterate over entries in the cache:
 
-```
+```php
 foreach (new APCUIterator() as $entry) {
     print_r($entry);
 }
@@ -26,7 +26,7 @@ foreach (new APCUIterator() as $entry) {
 
 The iterator can be initialized with an optional regular expression to select only  entries with matching keys:
 
-```
+```php
 foreach (new APCUIterator($regex) as $entry) {
     print_r($entry);
 }
@@ -35,7 +35,7 @@ foreach (new APCUIterator($regex) as $entry) {
 
 Information about a single cache entry can be obtained via:
 
-```
+```php
 $key = '…';
 $regex = '(^' . preg_quote($key) . '$)';
 print_r((new APCUIterator($regex))->current());
@@ -50,7 +50,7 @@ print_r((new APCUIterator($regex))->current());
 [`apcu_store`](http://php.net/manual/de/function.apcu-store.php) can be used to store,
 [`apcu_fetch`](http://php.net/manual/de/function.apcu-fetch.php) to retrieve values:
 
-```
+```php
 $key = 'Hello';
 $value = 'World';
 apcu_store($key, $value);
@@ -66,7 +66,7 @@ print(apcu_fetch('Hello')); // 'World'
 [`apcu_cache_info`](http://php.net/manual/en/function.apcu-cache-info.php) provides
 information about the store and its entries:
 
-```
+```php
 print_r(apcu_cache_info());
 
 ```

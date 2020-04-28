@@ -15,7 +15,7 @@ An HTTP cookie is a small piece of data sent from a website and stored on the us
 
 The value of a cookie can be modified by resetting the cookie
 
-```
+```php
 setcookie("user", "John", time() + 86400, "/"); // assuming there is a "user" cookie already
 
 ```
@@ -41,7 +41,7 @@ A cookie is set using the `setcookie()` function. Since cookies are part of the 
 
 Example:
 
-```
+```php
 setcookie("user", "Tom", time() + 86400, "/"); // check syntax for function params
 
 ```
@@ -68,7 +68,7 @@ Use the `isset()` function upon the superglobal `$_COOKIE` variable to check if 
 
 Example:
 
-```
+```php
 // PHP <7.0
 if (isset($_COOKIE['user'])) {
     // true, cookie is set
@@ -90,7 +90,7 @@ echo 'User is ' . $_COOKIE['user'] ?? 'User is not logged in';
 
 To remove a cookie, set the expiry timestamp to a time in the past. This triggers the browser's removal mechanism:
 
-```
+```php
 setcookie('user', '', time() - 3600, '/');
 
 ```
@@ -101,7 +101,7 @@ When deleting a cookie make sure the `path` and `domain` parameters of `setcooki
 
 It is also a good idea to unset the `$_COOKIE` value in case the current page uses it:
 
-```
+```php
 unset($_COOKIE['user']);
 
 ```
@@ -115,7 +115,7 @@ unset($_COOKIE['user']);
 
 The value of a cookie can be retrieved using the global variable `$_COOKIE`. example if we have a cookie named `user` we can retrieve it like this
 
-```
+```php
 echo $_COOKIE['user'];
 
 ```
@@ -151,7 +151,7 @@ It is worth noting that mere invoking `setcookie` function doesn't just put give
 
 For example there is no point in doing:
 
-```
+```php
 setcookie("user", "Tom", time() + 86400, "/");
 var_dump(isset($_COOKIE['user'])); // yields false or the previously set value
 

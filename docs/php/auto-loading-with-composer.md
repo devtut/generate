@@ -12,14 +12,14 @@ description: "Autoloading"
 
 For libraries that specify autoload information, Composer generates a vendor/autoload.php file. You can simply include this file and you will get autoloading for free.
 
-```
+```php
 require __DIR__ . '/vendor/autoload.php';
 
 ```
 
 This makes it really easy to use third party code. For example: If your project depends on Monolog, you can just start using classes from it, and they will be autoloaded.
 
-```
+```php
 $log = new Monolog\Logger('name');
 $log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
 $log->addWarning('Foo');
@@ -28,7 +28,7 @@ $log->addWarning('Foo');
 
 You can even add your own code to the autoloader by adding an `autoload` field to `composer.json`
 
-```
+```php
 {
     "autoload": {
         "psr-4": {"Acme\\": "src/"}
@@ -45,7 +45,7 @@ After adding the autoload field, you have to re-run `dump-autoload` to re-genera
 
 Including that file will also return the autoloader instance, so you can store the return value of the include call in a variable and add more namespaces. This can be useful for autoloading classes in a test suite, for example.
 
-```
+```php
 $loader = require __DIR__ . '/vendor/autoload.php';
 $loader->add('Acme\\Test\\', __DIR__);
 

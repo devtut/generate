@@ -12,7 +12,7 @@ description: "Parsing HTML from a string, Using XPath, SimpleXML"
 
 PHP implements a [DOM Level 2](https://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/http://) compliant parser, allowing you to work with HTML using familiar methods like `getElementById()` or `appendChild()`.
 
-```
+```php
 $html = '<html><body><span id="text">Hello, World!</span></body></html>';
 
 $doc = new DOMDocument();
@@ -25,7 +25,7 @@ echo $doc->getElementById("text")->textContent;
 
 Outputs:
 
-```
+```php
 Hello, World!
 
 ```
@@ -37,7 +37,7 @@ Note that PHP will emit warnings about any problems with the HTML, especially if
 ## Using XPath
 
 
-```
+```php
 $html = '<html><body><span class="text">Hello, World!</span></body></html>';
 
 $doc = new DOMDocument();
@@ -52,7 +52,7 @@ echo $span->textContent;
 
 Outputs:
 
-```
+```php
 Hello, World!
 
 ```
@@ -73,7 +73,7 @@ The only restraint is that the XML document must be well-formed.
 
 ### Parsing XML using procedural approach
 
-```
+```php
 // Load an XML string
 $xmlstr = file_get_contents('library.xml');
 $library = simplexml_load_string($xmlstr);
@@ -87,7 +87,7 @@ $library = simplexml_load_file('library.xml');
 
 ### Parsing XML using OOP approach
 
-```
+```php
 // $isPathToFile: it informs the constructor that the 1st argument represents the path to a file,
 // rather than a string that contains 1the XML data itself.
 
@@ -109,7 +109,7 @@ $library = new SimpleXMLElement('library.xml', NULL, true);
 
 ### When you know their names:
 
-```
+```php
 $library = new SimpleXMLElement('library.xml', NULL, true);
 foreach ($library->book as $book){
     echo $book['isbn'];
@@ -120,11 +120,12 @@ foreach ($library->book as $book){
 
 ```
 
+
 - The major drawback of this approach is that it is necessary to know the names of every element and attribute in the XML document.
 
 ### When you don't know their names (or you don't want to know them):
 
-```
+```php
 foreach ($library->children() as $child){
     echo $child->getName();
     // Get attributes of this element

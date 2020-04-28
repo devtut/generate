@@ -12,7 +12,7 @@ description: "Single Line Comments, Multi Line Comments"
 
 The single line comment begins with "//" or "#".  When encountered, all text to the right will be ignored by the PHP interpreter.
 
-```
+```php
 // This is a comment
 
 # This is also a comment
@@ -28,7 +28,7 @@ echo "Hello World!"; // This is also a comment, beginning where we see "//"
 
 The multi-line comment can be used to comment out large blocks of code.  It begins with `/*` and ends with `*/`.
 
-```
+```php
 /* This is a multi-line comment.
    It spans multiple lines.
    This is still part of the comment. 

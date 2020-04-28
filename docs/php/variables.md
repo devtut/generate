@@ -15,7 +15,7 @@ Variables can be accessed via dynamic variable names. The name of a variable can
 
 To turn a variable into a variable variable, you put an extra `$` put in front of your variable.
 
-```
+```php
 $variableName = 'foo';
 $foo = 'bar';
 
@@ -37,7 +37,7 @@ echo ${$variableName};
 
 Variable variables are useful for mapping function/method calls:
 
-```
+```php
 function add($a, $b) {
     return $a + $b;
 }
@@ -50,7 +50,7 @@ echo $funcName(1, 2); // outputs 3
 
 This becomes particularly helpful in PHP classes:
 
-```
+```php
 class myClass {
     public function __construct() {
         $functionName = 'doSomething';
@@ -66,14 +66,14 @@ class myClass {
 
 It is possible, but not required to put `$variableName` between `{}`:
 
-```
+```php
 ${$variableName} = $value;
 
 ```
 
 The following examples are both equivalent and output "baz":
 
-```
+```php
 $fooBar = 'baz';
 $varPrefix = 'foo';
 
@@ -84,7 +84,7 @@ echo ${$varPrefix . 'Bar'}; // Also outputs "baz"
 
 Using `{}` is only mandatory when the name of the variable is itself an expression, like this:
 
-```
+```php
 ${$variableNamePart1 . $variableNamePart2} = $value;
 
 ```
@@ -93,8 +93,8 @@ It is nevertheless recommended to always use `{}`, because it's more readable.
 
 While it is not recommended to do so, it is  possible to chain this behavior:
 
-```
-$$$$$$$$DoNotTryThisAtHomeKids = $value;
+```php
+``````$$DoNotTryThisAtHomeKids = $value;
 
 ```
 
@@ -141,7 +141,7 @@ There are following data types in PHP: null, boolean, integer, float, string, ob
 
 Null can be assigned to any variable. It represents a variable with no value.
 
-```
+```php
 $foo = null;
 
 ```
@@ -152,7 +152,7 @@ This invalidates the variable and it's value would be undefined or void if calle
 
 This is the simplest type with only two possible values.
 
-```
+```php
 $foo = true;
 $bar = false;
 
@@ -160,7 +160,7 @@ $bar = false;
 
 Booleans can be used to control the flow of code.
 
-```
+```php
 $foo = true;
 
 if ($foo) {
@@ -175,7 +175,7 @@ if ($foo) {
 
 An integer is a whole number positive or negative. It can be in used with any number base. The size of an integer is platform-dependent. PHP does not support unsigned integers.
 
-```
+```php
 $foo = -3;  // negative
 $foo = 0;   // zero (can also be null or false (as boolean)
 $foo = 123; // positive decimal
@@ -190,7 +190,7 @@ var_dump(0123, 0xAB, 0b1010); // output: int(83) int(171) int(10)
 
 Floating point numbers, "doubles" or simply called "floats" are decimal numbers.
 
-```
+```php
 $foo = 1.23;
 $foo = 10.0;
 $bar = -INF;
@@ -202,7 +202,7 @@ $bar = NAN;
 
 An array is like a list of values. The simplest form of an array is indexed by integer, and ordered by the index, with the first element lying at index 0.
 
-```
+```php
 $foo = array(1, 2, 3); // An array of integers
 $bar = ["A", true, 123 => 5]; // Short array syntax, PHP 5.4+
 
@@ -215,7 +215,7 @@ echo $bar[1234]; // Returns null
 
 Arrays can also associate a key other than an integer index to a value. In PHP, all arrays are associative arrays behind the scenes, but when we refer to an 'associative array' distinctly, we usually mean one that contains one or more keys that aren't integers.
 
-```
+```php
 $array = array();
 $array["foo"] = "bar";
 $array["baz"] = "quux";
@@ -230,14 +230,14 @@ echo $array[42]; // Outputs "hello"
 
 A string is like an array of characters.
 
-```
+```php
 $foo = "bar";
 
 ```
 
 Like an array, a string can be indexed to return its individual characters:
 
-```
+```php
 $foo = "bar";
 echo $foo[0]; // Prints 'b', the first character of the string in $foo.
 
@@ -247,7 +247,7 @@ echo $foo[0]; // Prints 'b', the first character of the string in $foo.
 
 An object is an instance of a class. Its variables and methods can be accessed with the `->` operator.
 
-```
+```php
 $foo = new stdClass(); // create new object of class stdClass, which a predefined, empty class
 $foo->bar = "baz";
 echo $foo->bar; // Outputs "baz"
@@ -261,7 +261,7 @@ echo $quux->foo; // This outputs "bar".
 
 Resource variables hold special handles to opened files, database connections, streams, image canvas areas and the like (as it is stated in the [manual](https://secure.php.net/manual/en/language.types.resource.php#language.types.resource.casting)).
 
-```
+```php
 $fp = fopen('file.ext', 'r'); // fopen() is the function to open a file on disk as a resource.
 var_dump($fp); // output: resource(2) of type (stream)
 
@@ -269,7 +269,7 @@ var_dump($fp); // output: resource(2) of type (stream)
 
 To get the type of a variable as a string, use the `gettype()` function:
 
-```
+```php
 echo gettype(1); // outputs "integer"
 echo gettype(true); // "boolean"
 
@@ -282,7 +282,7 @@ echo gettype(true); // "boolean"
 
 We can illustrate this problem with the following pseudo-code
 
-```
+```php
 function foo() {
     global $bob;
     $bob->doSomething();
@@ -304,7 +304,7 @@ Since virtually all PHP programs make use of code like `include('file.php');` yo
 
 Also, this makes the task of testing your applications very difficult. Suppose you use a global variable to hold your database connection:
 
-```
+```php
 function foo(\Bar $bob) {
     $bob->doSomething();
 }
@@ -342,21 +342,21 @@ Although not necessary in PHP however it is a very good practice to initialize v
 
 **Unset AND unreferenced**
 
-```
+```php
 var_dump($unset_var); // outputs NULL
 
 ```
 
 **Boolean**
 
-```
+```php
 echo($unset_bool ? "true\n" : "false\n"); // outputs 'false' 
 
 ```
 
 **String**
 
-```
+```php
 $unset_str .= 'abc';
 var_dump($unset_str); // outputs 'string(3) "abc"'
 
@@ -364,7 +364,7 @@ var_dump($unset_str); // outputs 'string(3) "abc"'
 
 **Integer**
 
-```
+```php
 $unset_int += 25; // 0 + 25 => 25
 var_dump($unset_int); // outputs 'int(25)'
 
@@ -372,7 +372,7 @@ var_dump($unset_int); // outputs 'int(25)'
 
 **Float/double**
 
-```
+```php
 $unset_float += 1.25;
 var_dump($unset_float); // outputs 'float(1.25)'
 
@@ -380,7 +380,7 @@ var_dump($unset_float); // outputs 'float(1.25)'
 
 **Array**
 
-```
+```php
 $unset_arr[3] = "def";
 var_dump($unset_arr); //  outputs array(1) {  [3]=>  string(3) "def" }
 
@@ -388,7 +388,7 @@ var_dump($unset_arr); //  outputs array(1) {  [3]=>  string(3) "def" }
 
 **Object**
 
-```
+```php
 $unset_obj->foo = 'bar';
 var_dump($unset_obj); // Outputs: object(stdClass)#1 (1) {  ["foo"]=>  string(3) "bar" }
 
@@ -403,7 +403,7 @@ Relying on the default value of an uninitialized variable is problematic in the 
 
 In PHP, variable values have an associated "truthiness" so even non-boolean values will equate to `true` or `false`. This allows any variable to be used in a conditional block, e.g.
 
-```
+```php
 if ($var == true) { /* explicit version */ }
 if ($var) { /* $var == true is implicit */ }
 
@@ -414,7 +414,7 @@ Here are some fundamental rules for different types of variable values:
 - **Strings** with non-zero length equate to `true` including strings containing only whitepace such as `' '`.
 - Empty strings `''` equate to `false`.
 
-```
+```php
 $var = '';
 $var_is_true = ($var == true); // false
 $var_is_false = ($var == false); // true
@@ -425,9 +425,10 @@ $var_is_false = ($var == false); // false
 
 ```
 
+
 - **Integers** equate to `true` if they are nonzero, while zero equates to `false`.
 
-```
+```php
 $var = -1;
 $var_is_true = ($var == true); // true
 $var = 99;
@@ -437,18 +438,20 @@ $var_is_true = ($var == true); // false
 
 ```
 
+
 - **`null`** equates to `false`
 
-```
+```php
 $var = null;
 $var_is_true = ($var == true); // false
 $var_is_false = ($var == false); // true
 
 ```
 
+
 - **Empty** strings `''` and string zero `'0'` equate to `false`.
 
-```
+```php
 $var = '';
 $var_is_true = ($var == true); // false
 $var_is_false = ($var == false); // true
@@ -459,6 +462,7 @@ $var_is_false = ($var == false); // true
 
 ```
 
+
 <li>**Floating-point** values equate to `true` if they are nonzero, while zero values equates to `false`.
 <ul>
 - `NAN` (PHP's Not-a-Number) equates to `true`, i.e. `NAN == true` is `true`. This is because `NAN` is a **nonzero** floating-point value.
@@ -467,7 +471,7 @@ $var_is_false = ($var == false); // true
 - In fact, `floatval('0') === floatval('-0')`.
 - Additionally, both `floatval('0') == false` and `floatval('-0') == false`.
 
-```
+```php
 $var = NAN;
 $var_is_true = ($var == true); // true
 $var_is_false = ($var == false); // false
@@ -486,7 +490,7 @@ $var_is_false = ($var == false); // true
 
 In the [PHP Documentation for Comparison Operators](http://php.net/manual/en/language.operators.comparison.php), there is an Identical Operator `===`. This operator can be used to check whether a variable is **identical** to a reference value:
 
-```
+```php
 $var = null;
 $var_is_null = $var === null; // true
 $var_is_true = $var === true; // false
@@ -496,7 +500,7 @@ $var_is_false = $var === false; // false
 
 It has a corresponding **not identical** operator `!==`:
 
-```
+```php
 $var = null;
 $var_is_null = $var !== null; // false
 $var_is_true = $var !== true; // true
@@ -520,7 +524,7 @@ The function can return:
 
 Because both `0` and `false` have truthiness `false` in PHP but represent distinct situations for `strpos()`, it is important to distinguish between them and use the identical operator `===` to look exactly for `false` and not just a value that equates to `false`.
 
-```
+```php
 $idx = substr($haystack, $needle);
 if ($idx === false) 
 {
@@ -535,7 +539,7 @@ else
 
 Alternatively, using the **not identical** operator:
 
-```
+```php
 $idx = substr($haystack, $needle);
 if ($idx !== false) 
 {
@@ -555,7 +559,7 @@ else
 
 [`get_defined_vars()`](http://php.net/manual/en/function.get-defined-vars.php) returns an array with all the names and values of the variables defined in the scope in which the function is called. If you want to print data you can use standard functions for outputting human-readable data, like [`print_r`](http://php.net/manual/en/function.print-r.php) or [`var_dump`](http://php.net/manual/en/function.var-dump.php).
 
-```
+```php
 var_dump(get_defined_vars());
 
 ```
@@ -592,7 +596,7 @@ static typing. This is correct, but PHP does some type checking when it comes to
 
 You can enforce parameter and return value type-checking by using type-hinting in PHP 7 as follows:
 
-```
+```php
 <?php
 
 /**
@@ -614,7 +618,7 @@ function numberJuggling(int $a, int $b) : bool
 
 The above example throws an error in case non-numeric value is given as either the `$a` or `$b` parameter, and if the function returns something else than `true` or `false`. The above example is "loose", as in you can give a float value to `$a` or `$b`. If you wish to enforce strict types, meaning you can only input integers and not floats, add the following to the very beginning of your PHP file:
 
-```
+```php
 <?php
 declare('strict_types=1');
 

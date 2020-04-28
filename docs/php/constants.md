@@ -14,7 +14,7 @@ Constants are created using the `const` statement or the `define` function. The 
 
 ### Define constant using explicit values
 
-```
+```php
 const PI = 3.14; // float
 define("EARTH_IS_FLAT", false); // boolean
 const "UNKNOWN" = null; // null
@@ -32,7 +32,7 @@ define("BETTER_APP_LANGUAGES", ["lu", "de"]); // arrays
 
 if you have one constant you can define another one based on it:
 
-```
+```php
 const TAU = PI * 2;
 define("EARTH_IS_ROUND", !EARTH_IS_FLAT);
 define("MORE_UNKNOWN", UNKNOWN);
@@ -52,7 +52,7 @@ define("APP_BETTER_FUTURE_LANGUAGES", array_merge(["fr"], APP_BETTER_LANGUAGES))
 
 Some constant names are reserved by PHP and cannot be redefined. All these examples will fail:
 
-```
+```php
 define("true", false); // internal constant
 define("false", true); // internal constant
 define("CURLOPT_AUTOREFERER", "something"); // will fail if curl extension is loaded
@@ -61,7 +61,7 @@ define("CURLOPT_AUTOREFERER", "something"); // will fail if curl extension is lo
 
 And a Notice will be issued:
 
-```
+```php
 Constant ... already defined in ...
 
 ```
@@ -70,7 +70,7 @@ Constant ... already defined in ...
 
 If you have several files where you may define the same variable (for example, your main config then your local config) then following syntax may help avoiding conflicts:
 
-```
+```php
 defined("PI") || define("PI", 3.1415); // "define PI if it's not yet defined"
 
 ```
@@ -92,7 +92,7 @@ Thus `define` allows for dynamic values (i.e. function calls, variables etc.) an
 
 Constants can be defined inside classes using a `const` keyword.
 
-```
+```php
 class Foo {
     const BAR_TYPE = "bar";
 
@@ -109,7 +109,7 @@ echo Foo::BAR_TYPE;
 
 This is useful to store types of items.
 
-```
+```php
 <?php
 
 class Logger {
@@ -139,7 +139,7 @@ $logger->log("Error", Logger::LEVEL_ERROR); // using class
 
 To check if constant is defined use the `defined` function. Note that this function doesn't care about constant's value, it only cares if the constant exists or not. Even if the value of the constant is `null` or `false` the function will still return `true`.
 
-```
+```php
 <?php
 
 define("GOOD", false);
@@ -160,7 +160,7 @@ if (!defined("AWESOME")) {
 
 Note that constant becomes "visible" in your code only **after** the line where you have defined it:
 
-```
+```php
 <?php
 
 if (defined("GOOD")) {
@@ -179,7 +179,7 @@ if (defined("GOOD")) {
 
 To get all defined constants including those created by PHP use the `get_defined_constants` function:
 
-```
+```php
 <?php
 
 $constants = get_defined_constants();
@@ -189,7 +189,7 @@ var_dump($constants); // pretty large list
 
 To get only those constants that were defined by your app call the function at the beginning and at the end of your script (normally after the bootstrap process):
 
-```
+```php
 <?php
 
 $constants = get_defined_constants();
@@ -224,7 +224,7 @@ Arrays can be used as plain constants and class constants from version PHP 5.6 o
 
 ### Class constant example
 
-```
+```php
 class Answer {
     const C = [2,4];
 }
@@ -235,7 +235,7 @@ print Answer::C[1] . Answer::C[0]; // 42
 
 ### Plain constant example
 
-```
+```php
 const ANSWER = [2,4];
 print ANSWER[1] . ANSWER[0]; // 42
 
@@ -243,7 +243,7 @@ print ANSWER[1] . ANSWER[0]; // 42
 
 Also from version PHP 7.0 this functionality was ported to the [`define`](http://php.net/manual/en/function.define.php) function for plain constants.
 
-```
+```php
 define('VALUES', [2, 3]);
 define('MY_ARRAY', [
     1,
@@ -261,7 +261,7 @@ print MY_ARRAY[1][1]; // 3
 
 To use the constant simply use its name:
 
-```
+```php
 if (EARTH_IS_FLAT) {
     print "Earth is flat";
 }
@@ -272,7 +272,7 @@ print APP_ENV_UPPERCASE;
 
 or if you don't know the name of the constant in advance, use the `constant` function:
 
-```
+```php
 // this code is equivalent to the above code
 $const1 = "EARTH_IS_FLAT";
 $const2 = "APP_ENV_UPPERCASE";

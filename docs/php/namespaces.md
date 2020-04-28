@@ -18,7 +18,7 @@ A namespace declaration can look as follows:
 
 It is recommended to only declare a single namespace per file, even though you can declare as many as you like in a single file:
 
-```
+```php
 namespace First {
     class A { ... }; // Define class A in the namespace First.
 }
@@ -35,7 +35,7 @@ namespace {
 
 Every time you declare a namespace, classes you define after that will belong to that namespace:
 
-```
+```php
 namespace MyProject\Shapes;
 
 class Rectangle { ... }
@@ -53,7 +53,7 @@ A namespace declaration can be used multiple times in different files. The examp
 
 As shown in [Declaring Namespaces](http://stackoverflow.com/documentation/php/1021/namespaces/3304/declaring-namespaces), we can define a class in a namespace as follows:
 
-```
+```php
 namespace MyProject\Shapes;
 
 class Rectangle { ... }
@@ -62,14 +62,14 @@ class Rectangle { ... }
 
 To reference this class the full path (including the namespace) needs to be used:
 
-```
+```php
 $rectangle = new MyProject\Shapes\Rectangle();
 
 ```
 
 This can be shortened by importing the class via the `use`-statement:
 
-```
+```php
 // Rectangle becomes an alias to MyProject\Shapes\Rectangle
 use MyProject\Shapes\Rectangle;
 
@@ -79,7 +79,7 @@ $rectangle = new Rectangle();
 
 As for PHP 7.0 you can group various `use`-statements in one single statement using brackets:
 
-```
+```php
 use MyProject\Shapes\{
     Rectangle,         //Same as `use MyProject\Shapes\Rectangle`
     Circle,            //Same as `use MyProject\Shapes\Circle`
@@ -95,7 +95,7 @@ $rectangle = new Rectangle();
 
 Sometimes two classes have the same name. This is not a problem if they are in a different namespace, but it could become a problem when attempting to import them with the `use`-statement:
 
-```
+```php
 use MyProject\Shapes\Oval;
 use MyProject\Languages\Oval; // Apparantly Oval is also a language!
 // Error!
@@ -104,7 +104,7 @@ use MyProject\Languages\Oval; // Apparantly Oval is also a language!
 
 This can be solved by defining a name for the alias yourself using the `as` keyword:
 
-```
+```php
 use MyProject\Shapes\Oval as OvalShape;
 use MyProject\Languages\Oval as OvalLanguage;
 
@@ -112,7 +112,7 @@ use MyProject\Languages\Oval as OvalLanguage;
 
 To reference a class outside the current namespace, it has to be escaped with a `\`, otherwise a relative namespace path is assumed from the current namespace:
 
-```
+```php
 namespace MyProject\Shapes;
 
 // References MyProject\Shapes\Rectangle. Correct!
@@ -143,7 +143,7 @@ $a = new StdClass();
 
 To declare a single namespace with hierarchy use following example:
 
-```
+```php
 namespace MyProject\Sub\Level;
 
 const CONNECT_OK = 1;

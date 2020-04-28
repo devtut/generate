@@ -14,7 +14,7 @@ PHP 5.5 introduces Generators and the yield keyword, which allows us to write as
 
 The `yield` expression is responsible for giving control back to the calling code and providing a point of resumption at that place. One can send a value along the `yield` instruction. The return value of this expression is either `null` or the value which was passed to `Generator::send()`.
 
-```
+```php
 function reverse_range($i) {
     // the mere presence of the yield keyword in this function makes this a Generator
     do {
@@ -44,7 +44,7 @@ This mechanism can be used by a coroutine implementation to wait for Awaitables 
 
 [Icicle](https://github.com/icicleio/icicle) uses Awaitables and Generators to create Coroutines.
 
-```
+```php
 require __DIR__ . '/vendor/autoload.php';
 
 use Icicle\Awaitable;
@@ -88,7 +88,7 @@ If we split code into smaller chunks we can run it as multiple suprocesses. Then
 
 As an example we can have a small subprocess that just runs a loop and in each iteration sleeps randomly for 100 - 1000ms (note, the delay is always the same for one subprocess).
 
-```
+```php
 <?php
 // subprocess.php
 $name = $argv[1];
@@ -109,7 +109,7 @@ Then the main process will spawn subprocesses and read their output. We can spli
 - Run a loop until all subprocesses finish using [`proc_get_status()`](http://php.net/manual/en/function.proc-get-status.php).
 - Properly close file handles with the output pipe for each subprocess using [`fclose()`](http://php.net/manual/en/function.fclose.php) and close process handles with [`proc_close()`](http://php.net/manual/en/function.proc-close.php).
 
-```
+```php
 <?php
 // non-blocking-proc_open.php
 // File descriptors for each subprocess.
@@ -151,7 +151,7 @@ foreach (range(1, 3) as $i) {
 
 The output then contains mixture from all three subprocesses as they we're read by [fread()](http://php.net/manual/en/function.fread.php) (note, that in this case `proc1` ended much earlier than the other two):
 
-```
+```php
 $ php non-blocking-proc_open.php 
 proc1 delay: 200ms
 proc2 delay: 1000ms
@@ -181,7 +181,7 @@ proc2: 4
 
 [Amp](https://github.com/amphp/amp/tree/v1.x) harnesses Promises [another name for Awaitables] and Generators for coroutine creation.
 
-```
+```php
 require __DIR__ . '/vendor/autoload.php';
 
 use Amp\Dns;
@@ -228,7 +228,7 @@ function queryStackOverflow($recordtype) {
 
 **dio.php**
 
-```
+```php
 <?php
 class Scanner {
   protected $port; // port path, e.g. /dev/pts/5
@@ -305,7 +305,7 @@ $scanner->run();
 
 Run the following command in terminal A:
 
-```
+```php
 $ socat -d -d pty,raw,echo=0 pty,raw,echo=0
 2016/12/01 18:04:06 socat[16750] N PTY is /dev/pts/5
 2016/12/01 18:04:06 socat[16750] N PTY is /dev/pts/8
@@ -317,21 +317,21 @@ The output may be different. Use the PTYs from the first couple of rows (`/dev/p
 
 In terminal B run the above-mentioned script. You may need root privileges:
 
-```
+```php
 $ sudo php dio.php
 
 ```
 
 In terminal C send a string to the first PTY:
 
-```
+```php
 $ echo test > /dev/pts/8
 
 ```
 
 **Output**
 
-```
+```php
 string(1) "t"
 string(1) "e"
 string(1) "s"
@@ -352,7 +352,7 @@ The class allows to schedule a number of HTTP requests, then run them asynchrono
 
 ### http-client.php
 
-```
+```php
 <?php
 class MyHttpClient {
   /// @var EventBase
@@ -464,7 +464,7 @@ $client->run();
 
 This is a sample script on the server side.
 
-```
+```php
 <?php
 echo 'GET: ', var_export($_GET, true), PHP_EOL;
 echo 'User-Agent: ', $_SERVER['HTTP_USER_AGENT'] ?? '(none)', PHP_EOL;
@@ -473,14 +473,14 @@ echo 'User-Agent: ', $_SERVER['HTTP_USER_AGENT'] ?? '(none)', PHP_EOL;
 
 ### Usage
 
-```
+```php
 php http-client.php
 
 ```
 
 **Sample Output**
 
-```
+```php
 Success: 200
 Body:
 GET: array (
@@ -519,7 +519,7 @@ The following code shows how HTTP requests can be scheduled for parallel process
 
 ### http-client.php
 
-```
+```php
 <?php
 class MyHttpRequest {
   /// @var MyHttpClient
@@ -742,7 +742,7 @@ $client->run();
 
 Suppose `http://my-host.local/test.php` script is printing the dump of `$_GET`:
 
-```
+```php
 <?php
 echo 'GET: ', var_export($_GET, true), PHP_EOL;
 
@@ -750,7 +750,7 @@ echo 'GET: ', var_export($_GET, true), PHP_EOL;
 
 Then the output of `php http-client.php` command will be similar to the following:
 
-```
+```php
 <<<<
 HTTP/1.1 200 OK
 Server: nginx/1.10.1
@@ -791,7 +791,7 @@ GET: array (
 
 Note, in PHP 5 the **sockets** extension may log warnings for `EINPROGRESS`, `EAGAIN`, and `EWOULDBLOCK` `errno` values. It is possible to turn off the logs with
 
-```
+```php
 error_reporting(E_ERROR);
 
 ```

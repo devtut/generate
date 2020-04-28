@@ -13,7 +13,7 @@ description: "if  else, Alternative syntax for control structures, while, do-whi
 
 The `if` statement in the example above allows to execute a code fragment, when the condition is met. When you want to execute a code fragment, when the condition is not met you extend the `if` with an `else`.
 
-```
+```php
 if ($a > $b) {
   echo "a is greater than b";
 } else {
@@ -30,7 +30,7 @@ The [ternary operator](http://php.net/manual/de/language.operators.comparison.ph
 
 This is the example from above using a ternary expression and variable values: `$a=1; $b=2;`
 
-```
+```php
 echo ($a > $b) ? "a is greater than b" : "a is NOT greater than b";
 
 ```
@@ -46,7 +46,7 @@ PHP provides an alternative syntax for some control structures: `if`, `while`, `
 
 When compared to the normal syntax, the difference is, that the opening brace is replaced by a colon (`:`) and the closing brace is replaced by `endif;`, `endwhile;`, `endfor;`, `endforeach;`, or `endswitch;`, respectively. For individual examples, see the topic on [alternative syntax for control structures](http://stackoverflow.com/documentation/php/1199/alternative-syntax-for-control-structures).
 
-```
+```php
 if ($a == 42):
     echo "The answer to life, the universe and everything is 42.";
 endif;
@@ -55,7 +55,7 @@ endif;
 
 Multiple `elseif` statements using short-syntax:
 
-```
+```php
 if ($a == 5):
     echo "a equals 5";
 elseif ($a == 6):
@@ -75,7 +75,7 @@ endif;
 
 `while` loop iterates through a block of code as long as a specified condition is true.
 
-```
+```php
 $i = 1;
 while ($i < 10) {
     echo $i;
@@ -95,7 +95,7 @@ For detailed information, see [the Loops topic](http://stackoverflow.com/documen
 
 `do-while` loop first executes a block of code once, in every case, then iterates through that block of code as long as a specified condition is true.
 
-```
+```php
 $i = 0;
 do {
     $i++;
@@ -122,7 +122,7 @@ The target of the jump is specified by a label followed by a colon: `MyLabel:`.
 
 This example will print `Hello World!`:
 
-```
+```php
 <?php
 goto MyLabel;
 echo 'This text will be skipped, because of the jump.';
@@ -148,14 +148,14 @@ The following directives are recognized:
 
 For instance, set ticks to 1:
 
-```
+```php
 declare(ticks=1);
 
 ```
 
 To enable strict type mode, the `declare` statement is used with the `strict_types` declaration:
 
-```
+```php
 declare(strict_types=1);
 
 ```
@@ -169,7 +169,7 @@ declare(strict_types=1);
 
 `require` is similar to `include`, except that it will produce a fatal `E_COMPILE_ERROR` level error on failure. When the `require` fails, it will halt the script. When the `include` fails, it will not halt the script and only emit `E_WARNING`.
 
-```
+```php
 require 'file.php';
 
 ```
@@ -184,7 +184,7 @@ The `include` statement includes and evaluates a file.
 **./variables.php**
 
 
-```
+```php
 $a = 'Hello World!';
 
 ```
@@ -193,7 +193,7 @@ $a = 'Hello World!';
 ./main.php`
 
 
-```
+```php
 include 'variables.php';
 echo $a;
 // Output: `Hello World!`
@@ -208,7 +208,7 @@ You can also `include` file, which returns a value. This is extremely useful for
 configuration.php
 
 
-```
+```php
 <?php 
 return [
     'dbname' => 'my db',
@@ -222,7 +222,7 @@ return [
 main.php
 
 
-```
+```php
 <?php
 $config = include 'configuration.php';
 
@@ -238,7 +238,7 @@ Example :
 
 include1.php file :
 
-```
+```php
 <?php
     $a = "This is to be returned";
 
@@ -250,7 +250,8 @@ include1.php file :
 index.php file :
 
 ```
-    $value = include 'include1.php';
+
+   $value = include 'include1.php';
    // Here, $value = "This is to be returned"
 
 ```
@@ -264,7 +265,7 @@ The `return` statement returns the program control to the calling function.
 
 When `return` is called from within a function, the execution of the current function will end.
 
-```
+```php
 function returnEndsFunctions()
 {
    echo 'This is executed';
@@ -285,7 +286,7 @@ When `return` is called from within a function with and argument, the execution 
 
 `for` loops are typically used when you have a piece of code which you want to repeat a given number of times.
 
-```
+```php
 for ($i = 1; $i < 10; $i++) {
     echo $i;
 }
@@ -303,7 +304,7 @@ For detailed information, see [the Loops topic](http://stackoverflow.com/documen
 
 `foreach` is a construct, which enables you to iterate over arrays and objects easily.
 
-```
+```php
 $array = [1, 2, 3];
 foreach ($array as $value) {
     echo $value;
@@ -317,7 +318,7 @@ To use `foreach` loop with an object, it has to implement [`Iterator`](http://ph
 
 When you iterate over associative arrays:
 
-```
+```php
 $array = ['color'=>'red']; 
 
 foreach($array as $key => $value){
@@ -341,7 +342,7 @@ For detailed information, see [the Loops topic](http://stackoverflow.com/documen
 
 The following code displays either "a is bigger than b", "a is equal to b" or "a is smaller than b":
 
-```
+```php
 if ($a > $b) {
     echo "a is bigger than b";
 } elseif ($a == $b) {
@@ -356,7 +357,7 @@ if ($a > $b) {
 
 You can use multiple elseif statements within the same if statement:
 
-```
+```php
 if ($a == 1) {
     echo "a is One";
 } elseif ($a == 2) {
@@ -376,7 +377,7 @@ if ($a == 1) {
 
 The if construct allows for conditional execution of code fragments.
 
-```
+```php
 if ($a > $b) {
   echo "a is bigger than b";
 }
@@ -394,7 +395,7 @@ The `switch` structure performs the same function as a series of `if` statements
 
 Each block of code in a `case` or `default` statement should end with the `break` statement. This stops the execution of the `switch` structure and continues code execution immediately afterwards. If the `break` statement is omitted, the next `case` statement's code is executed, **even if there is no match**. This can cause unexpected code execution if the `break` statement is forgotten, but can also be useful where multiple `case` statements need to share the same code.
 
-```
+```php
 switch ($colour) {
 case "red":
     echo "the colour is red";
@@ -418,7 +419,7 @@ default:
 
 In addition to testing fixed values, the construct can also be coerced to test dynamic statements by providing a boolean value to the `switch` statement and any expression to the `case` statement. Keep in mind the **first** matching value is used, so the following code will output "more than 100":
 
-```
+```php
 $i = 1048;
 switch (true) {
 case ($i > 0):

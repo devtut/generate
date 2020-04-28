@@ -15,7 +15,7 @@ As more secure web services avoid storing passwords in plain text format, langua
 
 Create password hashes using [`password_hash()`](http://php.net/manual/en/function.password-hash.php) to use the current industry best-practice standard hash or key derivation. At time of writing, the standard is [bcrypt](https://en.wikipedia.org/wiki/Bcrypt), which means, that `PASSWORD_DEFAULT` contains the same value as `PASSWORD_BCRYPT`.
 
-```
+```php
 $options = [
     'cost' => 12,
 ];
@@ -32,7 +32,7 @@ On PHP lower than 5.5.0 the `password_*` functions are not available. You should
 
 If you are not able to use those, you can implement password hashing with [`crypt()`](http://php.net/manual/en/function.crypt.php) As `password_hash()` is implemented as a wrapper around the `crypt()` function, you need not lose any functionality.
 
-```
+```php
 // this is a simple implementation of a bcrypt hash otherwise compatible
 // with `password_hash()`
 // not guaranteed to maintain the same cryptographic strength of the full `password_hash()`
@@ -68,7 +68,8 @@ With [`password_hash()`](http://php.net/manual/en/function.password-hash.php) `b
 Even when this is discouraged, you can use the `salt` option to define your own random salt.
 
 ```
- $options = [
+
+$options = [
         'salt' => $salt, //see example below
  ];
 
@@ -85,7 +86,7 @@ The salt option has been [deprecated](http://php.net/manual/ru/function.password
 
 If you are using the `PASSWORD_DEFAULT` method to let the system choose the best algorithm to hash your passwords with, as the default increases in strength you may wish to rehash old passwords as users log in
 
-```
+```php
 <?php
 // first determine if a supplied password is valid
 if (password_verify($plaintextPassword, $hashedPassword)) {
@@ -107,7 +108,7 @@ if (password_verify($plaintextPassword, $hashedPassword)) {
 
 If the password_* functions are not available on your system (and you cannot use the compatibility pack linked in the remarks below), you can determine the algorithm and used to create the original hash in a method similar to the following:
 
-```
+```php
 <?php
 if (substr($hashedPassword, 0, 4) == '$2y$' && strlen($hashedPassword) == 60) {
     echo 'Algorithm is Bcrypt';
@@ -127,7 +128,7 @@ if (substr($hashedPassword, 0, 4) == '$2y$' && strlen($hashedPassword) == 60) {
 
 `password_verify()` is the built-in function provided (as of PHP 5.5) to verify the validity of a password against a known hash.
 
-```
+```php
 <?php
 if (password_verify($plaintextPassword, $hashedPassword)) {
     echo 'Valid Password';
@@ -143,7 +144,7 @@ All supported hashing algorithms store information identifying which hash was us
 
 If the password_* functions are not available on your system (and you cannot use the compatibility pack linked in the remarks below) you can implement password verification with the `crypt()` function.  Please note that specific precautions must be taken to avoid [timing attacks](https://en.wikipedia.org/wiki/Timing_attack).
 
-```
+```php
 <?php
 // not guaranteed to maintain the same cryptographic strength of the full `password_hash()`
 // implementation

@@ -38,7 +38,7 @@ To do anything with an IMAP account you need to connect to it first. To do this 
 
 Your connection string will look something like this:
 
-```
+```php
 {imap.example.com:993/imap/tls/secure}
 
 ```
@@ -47,7 +47,7 @@ Please note that if any of the characters in your connection string is non-ASCII
 
 To connect to the mailbox, we use the [imap_open](https://secure.php.net/manual/en/function.imap-open.php) command which returns a resource value pointing to a stream:
 
-```
+```php
 <?php
 $mailbox = imap_open("{imap.example.com:993/imap/tls/secure}", "username", "password");
 if ($mailbox === false) {
@@ -65,7 +65,7 @@ To use the [IMAP functions](http://www.php.net/imap) in PHP you'll need to insta
 
 **Debian/Ubuntu with PHP5**
 
-```
+```php
 sudo apt-get install php5-imap
 sudo php5enmod imap
 
@@ -73,21 +73,21 @@ sudo php5enmod imap
 
 **Debian/Ubuntu with PHP7**
 
-```
+```php
 sudo apt-get install php7.0-imap
 
 ```
 
 **YUM based distro**
 
-```
+```php
 sudo yum install php-imap
 
 ```
 
 **Mac OS X  with php5.6**
 
-```
+```php
 brew reinstall php56 --with-imap
 
 ```
@@ -99,7 +99,7 @@ brew reinstall php56 --with-imap
 
 Once you've connected to your mailbox, you'll want to take a look inside. The first useful command is [imap_list](https://secure.php.net/manual/en/function.imap-list.php). The first parameter is the resource you acquired from `imap_open`, the second is your mailbox string and the third is a fuzzy search string (`*` is used to match any pattern).
 
-```
+```php
 $folders = imap_list($mailbox, "{imap.example.com:993/imap/tls/secure}", "*");
 if ($folders === false) {
     echo "Failed to list folders in mailbox";
@@ -111,7 +111,7 @@ if ($folders === false) {
 
 The output should look similar to this
 
-```
+```php
 Array
 (
     [0] => {imap.example.com:993/imap/tls/secure}INBOX
@@ -125,14 +125,14 @@ Array
 
 You can use the third parameter to filter these results like this:
 
-```
+```php
 $folders = imap_list($mailbox, "{imap.example.com:993/imap/tls/secure}", "*.Sent");
 
 ```
 
 And now the result only contains entries with `.Sent` in the name:
 
-```
+```php
 Array
 (
     [0] => {imap.example.com:993/imap/tls/secure}INBOX.Sent
@@ -149,7 +149,7 @@ Array
 
 You can return a list of all the messages in a mailbox using [imap_headers](https://secure.php.net/manual/en/function.imap-headers.php).
 
-```
+```php
 <?php
 $headers = imap_headers($mailbox);
 
@@ -157,14 +157,14 @@ $headers = imap_headers($mailbox);
 
 The result is an array of strings with the following pattern:
 
-```
+```php
 [FLAG] [MESSAGE-ID])[DD-MM-YYY] [FROM ADDRESS] [SUBJECT TRUNCATED TO 25 CHAR] ([SIZE] chars)
 
 ```
 
 Here's a sample of what each line could look like:
 
-```
+```php
 A     1)19-Aug-2016 someone@example.com Message Subject (1728 chars)
 D     2)19-Aug-2016 someone@example.com RE: Message Subject (22840 chars)
 U     3)19-Aug-2016 someone@example.com RE: RE: Message Subject (1876 chars)
@@ -189,7 +189,7 @@ An alternative is to load individual messages as you need them. Your emails are 
 There are a number of functions to access an email directly, but the simplest way is to use
 [`imap_header`](https://secure.php.net/manual/en/function.imap-header.php) which returns structured header information:
 
-```
+```php
 <?php
 $header = imap_headerinfo($mailbox , 1);
 

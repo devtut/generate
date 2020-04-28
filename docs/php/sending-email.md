@@ -24,7 +24,7 @@ Sending mail in PHP can be as simple as calling the built-in function `mail()`. 
 
 A minimal example would resemble the following code:
 
-```
+```php
 mail('recipient@example.com', 'Email Subject', 'This is the email message body');
 
 ```
@@ -37,7 +37,7 @@ Additionally, `mail()` accepts a fourth parameter which allows you to have addit
 - the `Reply-To` email address the user's response will be sent to
 - additional non-standards headers like `X-Mailer` which can tell the recipient this email was sent via PHP
 
-```
+```php
 $to      = 'recipient@example.com';             // Could also be $to      = $_POST['recipient'];  
 $subject = 'Email Subject';                     // Could also be $subject = $_POST['subject'];  
 $message = 'This is the email message body';    // Could also be $message = $_POST['message'];  
@@ -51,14 +51,14 @@ $headers = implode("\r\n", [
 
 The optional fifth parameter can be used to pass additional flags as command line options to the program configured to be used when sending mail, as defined by the `sendmail_path` configuration setting. For example, this can be used to set the envelope sender address when using sendmail/postfix with the `-f` sendmail option.
 
-```
+```php
 $fifth  = '-fno-reply@example.com';
 
 ```
 
 Although using `mail()` can be pretty reliable, it is by no means guaranteed that an email will be sent when `mail()` is called. To see if there is a potential error when sending your email, you should capture the return value from `mail()`. `TRUE` will be returned if the mail was successfully accepted for delivery. Otherwise, you will receive `FALSE`.
 
-```
+```php
 $result = mail($to, $subject, $message, $headers, $fifth);
 
 ```
@@ -71,7 +71,7 @@ If you wish to send an HTML email, there isn't a lot more work you need to do. Y
 1. Add the `Content-Type` header
 1. Make sure your email content is HTML
 
-```
+```php
 $to      = 'recipient@example.com';                            
 $subject = 'Email Subject';                                     
 $message = '<html><body>This is the email message body</body></html>';       
@@ -87,7 +87,7 @@ $headers = implode("\r\n", [
 
 Here's a full example of using PHP's `mail()` function
 
-```
+```php
 <?php
 
 // Debugging tools. Only turn these on in your development environment.
@@ -171,7 +171,7 @@ Related Topics
 ## Sending HTML Email Using mail()
 
 
-```
+```php
 <?php
 $to      = 'recipent@example.com';
 $subject = 'Sending an HTML email using mail() in PHP';
@@ -199,7 +199,7 @@ This is not much different then [sending a plain text email](http://stackoverflo
 ## Sending Email With An Attachment Using mail()
 
 
-```
+```php
 <?php
 
 $to         = 'recipient@example.com';
@@ -286,7 +286,7 @@ Our example chooses the 7bit encoding, which represents US-ASCII characters, for
 
 **Basic Text Email**
 
-```
+```php
 <?php
 
 $mail = new PHPMailer();
@@ -313,7 +313,7 @@ else {
 
 **Adding addtional recipients, CC recipients, BCC recipients**
 
-```
+```php
 <?php
 
 $mail = new PHPMailer();
@@ -347,7 +347,7 @@ else {
 ## Sending HTML Email Using PHPMailer
 
 
-```
+```php
 <?php
 
 $mail = new PHPMailer();
@@ -383,7 +383,7 @@ else {
 ## Sending Email With An Attachment Using PHPMailer
 
 
-```
+```php
 <?php
 
 $mail = new PHPMailer();
@@ -425,7 +425,7 @@ else {
 
 **Basic Text Email**
 
-```
+```php
 <?php
 
 $sendgrid = new SendGrid("YOUR_SENDGRID_API_KEY");
@@ -442,7 +442,7 @@ $sendgrid->send($email);
 
 **Adding addtional recipients, CC recipients, BCC recipients**
 
-```
+```php
 <?php
 
 $sendgrid = new SendGrid("YOUR_SENDGRID_API_KEY");
@@ -471,7 +471,7 @@ $sendgrid->send($email);
 ## Sending Email With An Attachment Using Sendgrid
 
 
-```
+```php
 <?php
 
 $sendgrid = new SendGrid("YOUR_SENDGRID_API_KEY");

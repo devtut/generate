@@ -12,7 +12,7 @@ description: "getTimestamp, setDate, Add or Subtract Date Intervals, Create Date
 
 `getTimeStemp` is a unix representation of a datetime object.
 
-```
+```php
 $date = new DateTime();
 echo $date->getTimestamp(); 
 
@@ -27,7 +27,7 @@ this will out put an integer indication the seconds that have elapsed since 00:0
 
 `setDate` sets the date in a DateTime object.
 
-```
+```php
 $date = new DateTime();
 $date->setDate(2016, 7, 25);
 
@@ -35,7 +35,7 @@ $date->setDate(2016, 7, 25);
 
 this example sets the date to be the twenty-fifth of July, 2015, it will produce the following result:
 
-```
+```php
 2016-07-25 17:52:15.819442
 
 ```
@@ -49,7 +49,7 @@ We can use the class [DateInterval](http://php.net/manual/pt_BR/class.dateinterv
 
 See the example below, where we are adding an interval of 7 days and printing a message on the screen:
 
-```
+```php
 $now = new DateTime();// empty argument returns the current date
 $interval = new DateInterval('P7D');//this objet represents a 7 days interval
 $lastDay = $now->add($interval); //this will return a DateTime object
@@ -66,7 +66,7 @@ Samara says: Seven Days. You'll be happy on 2016-08-08.
 
 We can use the sub method in a similar way to subtract dates
 
-```
+```php
 $now->sub($interval);
 echo "Samara says: Seven Days. You were happy last on $formatedLastDay.";
 
@@ -87,7 +87,7 @@ PHP is able to parse [a number of date formats](https://secure.php.net/manual/en
 
 **Object oriented style**
 
-```
+```php
 $format = "Y,m,d";
 $time = "2009,2,26";
 $date = DateTime::createFromFormat($format, $time);
@@ -96,7 +96,7 @@ $date = DateTime::createFromFormat($format, $time);
 
 **Procedural style**
 
-```
+```php
 $format = "Y,m,d";
 $time = "2009,2,26";
 $date = date_create_from_format($format, $time);
@@ -110,7 +110,7 @@ $date = date_create_from_format($format, $time);
 
 PHP 4+ supplies a method, format that converts a DateTime object into a string with a desired format. According to PHP Manual, this is the object oriented function:
 
-```
+```php
 public string DateTime::format ( string $format )
 
 ```
@@ -138,7 +138,7 @@ The format is a string, and uses single characters to define the format:
 
 These characters can be used in various combinations to display times in virtually any format. Here are some examples:
 
-```
+```php
 $date = new DateTime('2000-05-26T13:30:20'); /* Friday, May 26, 2000 at 1:30:20 PM */
 
 $date->format("H:i");
@@ -164,14 +164,14 @@ The procedural format is similar:
 
 ### Object-Oriented
 
-```
+```php
 $date->format($format)
 
 ```
 
 ### Procedural Equivalent
 
-```
+```php
 date_format($date, $format)
 
 ```
@@ -183,14 +183,14 @@ date_format($date, $format)
 
 To create `\DateTimeImmutable` in PHP 5.6+ use:
 
-```
+```php
 \DateTimeImmutable::createFromMutable($concrete);
 
 ```
 
 Prior PHP 5.6 you can use:
 
-```
+```php
 \DateTimeImmutable::createFromFormat(\DateTime::ISO8601, $mutable->format(\DateTime::ISO8601), $mutable->getTimezone());
 
 ```

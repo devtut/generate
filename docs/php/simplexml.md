@@ -14,7 +14,7 @@ description: "Loading XML data into simplexml"
 
 Use `simplexml_load_string` to create a `SimpleXMLElement` from a string:
 
-```
+```php
 $xmlString = "<?xml version='1.0' encoding='UTF-8'?>";
 $xml = simplexml_load_string($xmlString) or die("Error: Cannot create object");
 
@@ -26,7 +26,7 @@ Note that `or` not `||` must be used here because the precedence of `or` is high
 
 Use `simplexml_load_file` to load XML data from a file or a URL:
 
-```
+```php
 $xml = simplexml_load_string("filePath.xml");
 
 $xml = simplexml_load_string("https://example.com/doc.xml");

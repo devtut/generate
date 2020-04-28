@@ -10,7 +10,7 @@ description: "Basic SOAP Server"
 ## Basic SOAP Server
 
 
-```
+```php
 function test($x)
 {
     return $x;

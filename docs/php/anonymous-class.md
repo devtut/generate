@@ -17,7 +17,7 @@ Anonymous classes are assigned a name by the engine, This name has to be regarde
 ## Simple in-place data wrapper
 
 
-```
+```php
 interface IArrayWrapper {
     public function getProperties(): array;
     public function has(string $name): bool;
@@ -80,12 +80,12 @@ new class($data) implements IArrayWrapper
 
 Assume our `$data` as follows and class is stored in `$cls` variable:
 
-```
+```php
 $data = ['a' => 'b', 'c' => 'd', 'e' => 5];
 
 ```
 
-```
+```php
 $cls->a; // b
 $cls->b; // null
 $cls->e; // 5

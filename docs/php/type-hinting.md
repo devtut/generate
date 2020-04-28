@@ -20,7 +20,7 @@ If a typo occurs in the function name such that it is not `is_callable()`, a les
 Fatal error: Uncaught TypeError: Argument 1 passed to foo() must be of the type callable, string/array given
 
 
-```
+```php
 function foo(callable $c) {}
 foo("count"); // valid
 foo("Phar::running"); // valid
@@ -36,7 +36,7 @@ Nonstatic methods can also be passed as callables in static format, resulting in
 
 Method visibility is taken into account. If the **context of the method with the `callable` parameter** does not have access to the callable provided, it will end up as if the method does not exist.
 
-```
+```php
 class Foo{
   private static function f(){
     echo "Good" . PHP_EOL;
@@ -62,7 +62,7 @@ Fatal error: Uncaught TypeError: Argument 1 passed to r() must be callable, arra
 
 Support for type hinting scalar types was added in PHP 7. This means that we gain type hinting support for `boolean`s, `integer`s, `float`s and `string`s.
 
-```
+```php
 <?php
 
 function add(int $a, int $b) {
@@ -77,7 +77,7 @@ By default, PHP will attempt to cast any provided argument to match its type hin
 
 To stop this behavior, one must add `declare(strict_types=1);` to the top of every PHP source file that requires it.
 
-```
+```php
 <?php
 
 declare(strict_types=1);
@@ -115,7 +115,7 @@ Type hinting for classes and interfaces was added in PHP 5.
 
 ### Class type hint
 
-```
+```php
 <?php
 
 class Student
@@ -148,7 +148,7 @@ Chris is being enrolled at University of Edinburgh
 
 ### Interface type hint
 
-```
+```php
 <?php
 
 interface Enrollable {};
@@ -195,7 +195,7 @@ The `self` keyword can be used as a type hint to indicate that the value must be
 
 Nullable type hint was added in PHP 7.1 using the `?` operator before the type hint.
 
-```
+```php
 function f(?string $a) {}
 function g(string $a) {}
 
@@ -206,7 +206,7 @@ g(null); // TypeError: Argument 1 passed to g() must be of the type string, null
 
 Before PHP 7.1, if a parameter has a type hint, it must declare a default value `null` to accept null values.
 
-```
+```php
 function f(string $a = null) {}
 function g(string $a) {}
 
@@ -221,7 +221,7 @@ In PHP 7.0, functions with a return type must not return null.
 
 In PHP 7.1, functions can declare a nullable return type hint. However, the function must still return null, not void (no/empty return statements).
 
-```
+```php
 function f() : ?string {
     return null;
 }
@@ -244,7 +244,7 @@ Since PHP objects don't inherit from any base class (including `stdClass`), ther
 
 For example, the below will not work.
 
-```
+```php
 <?php
 
 function doSomething(object $obj) {
@@ -270,7 +270,7 @@ Fatal error: Uncaught TypeError: Argument 1 passed to doSomething() must be an i
 
 A workaround to this is to declare a degenerate interface that defines no methods, and have all of your objects implement this interface.
 
-```
+```php
 <?php
 
 interface Object {}
@@ -297,7 +297,7 @@ doSomething($classTwo);
 
 In PHP 7.1, the `void` return type was added. While PHP has no actual `void` value, it is generally understood across programming languages that a function that returns nothing is returning `void`. This should not be confused with returning `null`, as `null` is a value that can be returned.
 
-```
+```php
 function lacks_return(): void {
     // valid
 }
@@ -306,7 +306,7 @@ function lacks_return(): void {
 
 Note that if you declare a `void` return, you cannot return any values or you will get a fatal error:
 
-```
+```php
 function should_return_nothing(): void {
     return null; // Fatal error: A void function must not return a value
 }
@@ -315,7 +315,7 @@ function should_return_nothing(): void {
 
 However, using return to exit the function is valid:
 
-```
+```php
 function returns_nothing(): void {
     return; // valid
 }

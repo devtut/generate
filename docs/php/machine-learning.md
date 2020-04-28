@@ -28,7 +28,7 @@ The `train` and `predict` method are same for all classifiers. The only differen
 
 Before we can start with predicting a new observation, we need to train our classifier. Consider the following code
 
-```
+```php
 // Import library
 use Phpml\Classification\SVC;
 use Phpml\SupportVectorMachine\Kernel;
@@ -48,7 +48,7 @@ The code is pretty straight forward. `$cost` used above is a measure of how much
 
 Now that we have the classifier trained we can start making some actual predictions. Consider the following codes that we have for predictions
 
-```
+```php
 $classifier->predict([3, 2]); // return 'b'
 $classifier->predict([[3, 2], [1, 5]]); // return ['b', 'a']
 
@@ -60,7 +60,7 @@ The classifier in the case above can take unclassified samples and predicts ther
 
 The classfier for this algorithm takes in two parameters and can be initialized like
 
-```
+```php
 $classifier = new KNearestNeighbors($neighbor_num=4);
 $classifier = new KNearestNeighbors($neighbor_num=3, new Minkowski($lambda=4));
 
@@ -70,7 +70,7 @@ $classifier = new KNearestNeighbors($neighbor_num=3, new Minkowski($lambda=4));
 
 Following is a short example on how to use this classifier
 
-```
+```php
 // Training data
 $samples = [[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]];
 $labels = ['a', 'a', 'a', 'b', 'b', 'b'];
@@ -92,7 +92,7 @@ $classifier->predict([[3, 2], [1, 5]]); // return ['b', 'a']
 
 The following code demonstrates a simple prediction implementation
 
-```
+```php
 // Training data
 $samples = [[5, 1, 1], [1, 5, 1], [1, 1, 5]];
 $labels = ['a', 'b', 'c'];
@@ -132,7 +132,7 @@ Regression has the same `train` and `predict` methods as used in classification.
 
 This is the regression version for SVM(Support Vector Machine).The first step like in classification is to train our model.
 
-```
+```php
 // Import library
 use Phpml\Regression\SVR;
 use Phpml\SupportVectorMachine\Kernel;
@@ -150,7 +150,7 @@ $regression->train($samples, $targets);
 
 In regression `$targets` are not class labels as opposed to classification. This is one of the differentiating factor for the two. After training our model with the data we can start with the actual predictions
 
-```
+```php
 $regression->predict([64])  // return 4.03
 
 ```
@@ -161,7 +161,7 @@ Note that the predictions return a value outside the target.
 
 This algorithm uses `least squares method` to approximate solution. The following demonstrates a simple code of training and predicting
 
-```
+```php
 // Training data
 $samples = [[60], [61], [62], [63], [65]];
 $targets = [3.1, 3.6, 3.8, 4, 4.1];
@@ -177,7 +177,7 @@ $regression->predict([64]); // return 4.06
 
 PHP-ML also provides with the option of `Multiple Linear Regression`. A sample code for the same can be as follows
 
-```
+```php
 $samples = [[73676, 1996], [77006, 1998], [10565, 2000], [146088, 1995], [15000, 2001], [65940, 2000], [9300, 2000], [93739, 1996], [153260, 1994], [17764, 2002], [57000, 1998], [15000, 2000]];
 $targets = [2000, 2750, 15500, 960, 4400, 8800, 7100, 2550, 1025, 5900, 4600, 4400];
 
@@ -211,7 +211,7 @@ Clustering is about grouping similar objects together. It is widely used for pat
 
 k-Means separates the data into `n` groups of equal variance. This means that we need to pass in a number `n` which would be the number of clusters we need in our solution. The following code will help bring more clarity
 
-```
+```php
 // Our data set
 $samples = [[1, 1], [8, 7], [1, 2], [7, 8], [2, 1], [8, 9]];
 
@@ -223,7 +223,7 @@ $kmeans->cluster($samples); // return [0=>[[7, 8]], 1=>[[8, 7]], 2=>[[1,1]]]
 
 Note that the output contains 3 arrays because because that was the value of `n` in `KMeans` constructor. There can also be an optional second parameter in the constructor which would be the `initialization method`. For example consider
 
-```
+```php
 $kmeans = new KMeans(4, KMeans::INIT_RANDOM);
 
 ```
@@ -241,7 +241,7 @@ As opposed to `KMeans`, `DBSCAN` is a density based clustering algorithm which m
 
 A quick sample for the same is as follows
 
-```
+```php
 // Our sample data set
 $samples = [[1, 1], [8, 7], [1, 2], [7, 8], [2, 1], [8, 9]];
 
@@ -267,7 +267,7 @@ Clustering is widely used in `pattern recognition` and `data mining`. Consider t
 
 The topic uses PHP-ML for all machine learning algorithms. The installation of the library can be done using
 
-```
+```php
 composer require php-ai/php-ml
 
 ```

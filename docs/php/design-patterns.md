@@ -21,7 +21,7 @@ Method Chaining is a technique explained in [Martin Fowler's book **Domain Speci
 
 Consider this non-chaining/regular piece of code (ported to PHP from the aforementioned book)
 
-```
+```php
 $hardDrive = new HardDrive;
 $hardDrive->setCapacity(150);
 $hardDrive->external();
@@ -31,7 +31,7 @@ $hardDrive->setSpeed(7200);
 
 Method Chaining would allow you to write the above statements in a more compact way:
 
-```
+```php
 $hardDrive = (new HardDrive)
     ->setCapacity(150)
     ->external()
@@ -41,7 +41,7 @@ $hardDrive = (new HardDrive)
 
 All you need to do for this to work is to `return $this` in the methods you want to chain from:
 
-```
+```php
 class HardDrive {
     protected $isExternal = false;
     protected $capacity = 0;

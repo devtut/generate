@@ -14,14 +14,14 @@ description: "First Steps, Convert Image into base64 String"
 
 ****Using apt on Debian based systems****
 
-```
+```php
 sudo apt-get install php5-imagick
 
 ```
 
 ****Using Homebrew on OSX/macOs****
 
-```
+```php
 brew install imagemagick
 
 ```
@@ -34,7 +34,7 @@ Instructions on [imagemagick website](https://www.imagemagick.org/script/binary-
 
 **Usage**
 
-```
+```php
 <?php
 
 $imagen = new Imagick('imagen.jpg');
@@ -54,7 +54,7 @@ echo $imagen;
 
 This example is how to turn an image into a Base64 string (i.e. a string you can use directly in a `src` attribute of an `img` tag). This example specifically uses the [Imagick](http://php.net/manual/en/intro.imagick.php) library (there are others available, such as [GD](http://php.net/manual/en/intro.image.php) as well).
 
-```
+```php
 <?php
 /**
  * This loads in the file, image.jpg for manipulation. 

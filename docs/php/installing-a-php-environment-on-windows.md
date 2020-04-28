@@ -58,7 +58,7 @@ The installation is a straight forward process and once the installation is comp
 
 Type in one of the following URLs in your favourite web browser:
 
-```
+```php
 http://localhost/
 http://127.0.0.1/
 
@@ -111,7 +111,7 @@ First of all you need to have **IIS** (**Internet Information Services**) instal
 1. On the right side panel click on `Add Module Mapping`.
 1. Setup the values like this:
 
-```
+```php
 Request Path: *.php   
 Module: FastCgiModule  
 Executable: C:\PHP\php-cgi.exe  
@@ -119,6 +119,7 @@ Name: PHP_FastCGI
 Request Restrictions: Folder or File, All Verbs, Access: Script
 
 ```
+
 
 <li>
 Install `vcredist_x64.exe` or `vcredist_x86.exe` (Visual C++ 2012 Redistributable) from [https://www.microsoft.com/en-US/download/details.aspx?id=30679](https://www.microsoft.com/en-US/download/details.aspx?id=30679)
@@ -140,7 +141,7 @@ Just like Linux, IIS has a directory structure on the server, the root of this t
 
 Now use your favorite editor, or just Windows Notepad, and type the following:
 
-```
+```php
 <?php 
 header('Content-Type: text/html; charset=UTF-8');    
 echo '<html><head><title>Hello World</title></head><body>Hello world!</body></html>';

@@ -20,7 +20,7 @@ Create a websocket script that listens to Port 5000
 Use putty, terminal to run `telnet 127.0.0.1 5000` (localhost).
 This script replies with the message you sent (as a ping-back)
 
-```
+```php
 <?php
 set_time_limit(0); // disable timeout
 ob_implicit_flush(); // disable output caching 

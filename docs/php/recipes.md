@@ -11,7 +11,7 @@ description: "Create a site visit counter"
 ## Create a site visit counter
 
 
-```
+```php
 <?php
 $visit = 1;
 

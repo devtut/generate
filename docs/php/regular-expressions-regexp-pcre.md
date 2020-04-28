@@ -20,7 +20,7 @@ The fourth argument, `$flags`, controls structure of `$matches` array. Default m
 
 Following code demonstrates usage of `preg_match_all`:
 
-```
+```php
 $subject = "a1b c2d3e f4g";
 $pattern = '/[a-z]([0-9])[a-z]/';
 
@@ -36,7 +36,7 @@ var_dump($matches);
 
 The first var_dump from `PREG_SET_ORDER` gives this output:
 
-```
+```php
 array(3) {
   [0]=>
   array(2) {
@@ -67,7 +67,7 @@ array(3) {
 
 The second var_dump (`PREG_PATTERN_ORDER`) gives this output:
 
-```
+```php
 array(2) {
   [0]=>
   array(3) {
@@ -93,7 +93,7 @@ array(2) {
 
 When the same regexp is run through `preg_match`, following array is returned:
 
-```
+```php
 array(2) {
   [0] =>
   string(3) "a1b"
@@ -110,7 +110,7 @@ array(2) {
 
 `preg_match` checks whether a string matches the regular expression.
 
-```
+```php
 $string = 'This is a string which contains numbers: 12345';
 
 $isMatched = preg_match('%^[a-zA-Z]+: [0-9]+$%', $string);
@@ -120,7 +120,7 @@ var_dump($isMatched); // bool(true)
 
 If you pass in a third parameter, it will be populated with the matching data of the regular expression:
 
-```
+```php
 preg_match('%^([a-zA-Z]+): ([0-9]+)$%', 'This is a string which contains numbers: 12345', $matches);
 // $matches now contains results of the regular expression matches in an array.
 echo json_encode($matches); // ["numbers: 12345", "numbers", "12345"]
@@ -134,7 +134,7 @@ echo json_encode($matches); // ["numbers: 12345", "numbers", "12345"]
 ## Split string into array by a regular expression
 
 
-```
+```php
 $string = "0| PHP 1| CSS 2| HTML 3| AJAX 4| JSON";
 
 //[0-9]: Any single character in the range 0 to 9
@@ -150,7 +150,7 @@ $array = preg_split("/[\d]+\|/", $string, -1, PREG_SPLIT_NO_EMPTY);
 
 Output:
 
-```
+```php
 Array
 (
     [0] =>  PHP
@@ -171,7 +171,7 @@ The fourth parameter is (`flags`) here we use the `PREG_SPLIT_NO_EMPTY` which pr
 ## String replacing with regular expression
 
 
-```
+```php
 $string = "a;b;c\nd;e;f";
 // $1, $2 and $3 represent the first, second and third capturing groups
 echo preg_replace("(^([^;]+);([^;]+);([^;]+)$)m", "$3;$2;$1", $string);
@@ -180,7 +180,7 @@ echo preg_replace("(^([^;]+);([^;]+);([^;]+)$)m", "$3;$2;$1", $string);
 
 Outputs
 
-```
+```php
 c;b;a
 f;e;d
 
@@ -196,7 +196,7 @@ Searches for everything between semicolons and reverses the order.
 `preg_replace_callback` works by sending every matched capturing group to the defined callback and replaces it with the return value of the callback.
 This allows us to replace strings based on any kind of logic.
 
-```
+```php
 $subject = "He said 123abc, I said 456efg, then she said 789hij";
 $regex = "/\b(\d+)\w+/";
 
@@ -255,7 +255,7 @@ It is possible to use PCRE modifiers in the `$pattern` string. Some common ones 
 
 Matches to PCRE strings are done with `$` prefixed numbered strings:
 
-```
+```php
 <?php
 
 $replaced = preg_replace('%hello ([a-z]+) world%', 'goodbye $1 world', 'hello awesome world');

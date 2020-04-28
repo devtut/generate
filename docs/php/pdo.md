@@ -15,7 +15,7 @@ The [PDO](http://php.net/manual/en/book.pdo.php) (PHP Data Objects) extension al
 
 SQL injection is a kind of attack that allows a malicious user to modify the SQL query, adding unwanted commands to it. For example, the following code is **vulnerable**:
 
-```
+```php
 // Do not use this vulnerable code!
 $sql = 'SELECT name, email, user_level FROM users WHERE userID = ' . $_GET['user'];
 $conn->query($sql);
@@ -24,14 +24,14 @@ $conn->query($sql);
 
 This allows any user of this script to modify our database basically at will. For example consider the following query string:
 
-```
+```php
 page.php?user=0;%20TRUNCATE%20TABLE%20users;
 
 ```
 
 This makes our example query look like this
 
-```
+```php
 SELECT name, email, user_level FROM users WHERE userID = 0; TRUNCATE TABLE users;
 
 ```
@@ -48,28 +48,38 @@ PDO supports two kinds of placeholders (placeholders cannot be used for column o
 
 <li>
 Named placeholders. A colon(`:`), followed by a distinct name (eg. `:user`)
-<pre><code>// using named placeholders
+
+```php
+// using named placeholders
 $sql = 'SELECT name, email, user_level FROM users WHERE userID = :user';
 $prep = $conn->prepare($sql);
 $prep->execute(['user' => $_GET['user']]); // associative array
 $result = $prep->fetchAll();
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Traditional SQL positional placeholders, represented as `?`:
-<pre><code>// using question-mark placeholders
+
+```php
+// using question-mark placeholders
 $sql = 'SELECT name, user_level FROM users WHERE userID = ? AND user_level = ?';
 $prep = $conn->prepare($sql);
 $prep->execute([$_GET['user'], $_GET['user_level']]); // indexed array
 $result = $prep->fetchAll();
-</code></pre>
+
+```
+
+
 </li>
 
 If ever you need to dynamically change table or column names, know that this is at your own security risks and a bad practice. Though, it can be done by string concatenation. One way to improve security of such queries is to set a table of allowed values and compare the value you want to concatenate to this table.
 
 Be aware that it is important to set connection charset through DSN only, otherwise your application could be prone to an [obscure vulnerability](https://stackoverflow.com/questions/134099/are-pdo-prepared-statements-sufficient-to-prevent-sql-injection/12202218#12202218) if some odd encoding is used. For PDO versions prior to 5.3.6 setting charset through DSN is not available and thus the only option is to set `PDO::ATTR_EMULATE_PREPARES` attribute  to `false` on the connection right after it’s created.
 
-```
+```php
 $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
 ```
@@ -85,7 +95,7 @@ However, be aware that PDO will [silently fallback](https://github.com/php/php-s
 
 Since PHP 5.0, [PDO](http://php.net/manual/en/intro.pdo.php) has been available as a database access layer. It is database agnostic, and so the following connection example code should work for any [of its supported databases](http://php.net/manual/en/pdo.drivers.php) simply by changing the DSN.
 
-```
+```php
 // First, create the database handle
 
 //Using MySQL (connection via local socket):
@@ -133,7 +143,7 @@ Database transactions ensure that a set of data changes will only be made perman
 
 PDO provides simple methods for beginning, committing, and rollbacking back transactions.
 
-```
+```php
 $pdo = new PDO(
     $dsn, 
     $username, 
@@ -177,7 +187,7 @@ To insert a new order into the database you need to do two things. First you nee
 
 You could do this by doing something similar to the following:
 
-```
+```php
 // Insert the metadata of the order into the database
 $preparedStatement = $db->prepare(
     'INSERT INTO `orders` (`name`, `address`, `telephone`, `created_at`)
@@ -222,7 +232,7 @@ To start a transaction using `PDO` all you have to do is to call the `beginTrans
 
 On the following example is demonstrated the use of transactions for inserting a new order into the database, while ensuring the same time the consistency of the data. If one of the two queries fails all the changes will be reverted.
 
-```
+```php
 // In this example we are using MySQL but this applies to any database that has support for transactions
 $db = new PDO('mysql:host=' . $host . ';dbname=' . $dbname . ';charset=utf8', $username, $password);    
 
@@ -287,7 +297,7 @@ There are two ways to connect to a MySQL/MariaDB server, depending on your infra
 
 ### Standard (TCP/IP) connection
 
-```
+```php
 $dsn = 'mysql:dbname=demo;host=server;port=3306;charset=utf8';
 $connection = new \PDO($dsn, $username, $password);
 
@@ -306,7 +316,7 @@ It is strongly recommended setting it to "exception mode", because that gains yo
 
 ### Socket connection
 
-```
+```php
 $dsn = 'mysql:unix_socket=/tmp/mysql.sock;dbname=demo;charset=utf8';
 $connection = new \PDO($dsn, $username, $password);
 
@@ -335,7 +345,7 @@ NOTE: This method should only be used to determine the number of rows affected b
 
 You may often find the need to get the auto incremented ID value for a row that you have just inserted into your database table.  You can achieve this with the lastInsertId() method.
 
-```
+```php
 // 1. Basic connection opening (for MySQL)
 $host = 'localhost';
 $database = 'foo';
@@ -356,7 +366,7 @@ $id = $pdo->lastInsertId(); // return value is an integer
 In postgresql and oracle, there is the RETURNING Keyword, which returns the specified columns of the currently inserted / modified rows.
 Here example for inserting one entry:
 
-```
+```php
 // 1. Basic connection opening (for PGSQL)
 $host = 'localhost';
 $database = 'foo';
@@ -396,7 +406,7 @@ SQLSTATE IM001 : Driver does not support this function
 
 Here is how you should properly check for exceptions using this method :
 
-```
+```php
 // Retrieving the last inserted id
 $id = null;
 

@@ -12,7 +12,7 @@ description: "What is Type Juggling?, Reading from a file, Switch surprises, Str
 
 PHP is a loosely typed language.  This means that, by default, it doesn't require operands in an expression to be of the same (or compatible) types.  For example, you can append a number to a string and expect it to work.
 
-```
+```php
 var_dump ("This is example number " . 1);
 
 ```
@@ -27,7 +27,7 @@ PHP accomplishes this by automatically casting incompatible variable types into 
 
 Consider the following:
 
-```
+```php
 if (1 == $variable) {
     // do something
 }
@@ -36,7 +36,7 @@ if (1 == $variable) {
 
 The intent appears to be that the programmer is checking that a variable has a value of 1.  But what happens if $variable has a value of "1 and a half" instead?  The answer might surprise you.
 
-```
+```php
 $variable = "1 and a half";
 var_dump (1 == $variable);
 
@@ -59,7 +59,7 @@ Granted, this is a very contrived example, but it serves to demonstrate the issu
 
 When reading from a file, we want to be able to know when we've reached the end of that file. Knowing that `fgets()` returns false at the end of the file, we might use this as the condition for a loop. However, if the data returned from the last read happens to be something that evaluates as boolean `false`, it can cause our file read loop to terminate prematurely.
 
-```
+```php
 $handle = fopen ("/path/to/my/file", "r");
 
 if ($handle === false) {
@@ -78,7 +78,7 @@ If the file being read contains a blank line, the `while` loop will be terminate
 
 Instead, we can check for the boolean `false` value explicitly, using [strict equality operators](http://stackoverflow.com/documentation/php/1687/operators/6231/comparison-operators):
 
-```
+```php
 while (($data = fgets($handle)) !== false) {
     echo ("Current file line is $data\n");
 }
@@ -87,7 +87,7 @@ while (($data = fgets($handle)) !== false) {
 
 Note this is a contrived example; in real life we would use the following loop:
 
-```
+```php
 while (!feof($handle)) {
     $data = fgets($handle);
     echo ("Current file line is $data\n");
@@ -97,7 +97,7 @@ while (!feof($handle)) {
 
 Or replace the whole thing with:
 
-```
+```php
 $filedata = file("/path/to/my/file");
 foreach ($filedata as $data) {
     echo ("Current file line is $data\n");
@@ -112,7 +112,7 @@ foreach ($filedata as $data) {
 
 Switch statements use non-strict comparison to determine matches.  This can lead to some [nasty surprises](http://stackoverflow.com/questions/4098104/odd-behaviour-in-a-switch-statement).  For example, consider the following statement:
 
-```
+```php
 switch ($name) {
     case 'input 1':
         $mode = 'output_1';
@@ -135,7 +135,7 @@ There are a few solutions to this problem:
 
 The value can be [typecast](http://stackoverflow.com/documentation/php/232/types/3880/type-casting) to a string before comparison:
 
-```
+```php
 switch ((string)$name) {
 ...
 }
@@ -144,7 +144,7 @@ switch ((string)$name) {
 
 Or a function known to return a string can also be used:
 
-```
+```php
 switch (strval($name)) {
 ...
 }
@@ -157,7 +157,7 @@ Both of these methods ensure the value is of the same type as the value in the `
 
 Using an `if` statement will provide us with control over how the comparison is done, allowing us to use [strict comparison operators](http://stackoverflow.com/documentation/php/1687/operators/6231/comparison-operators):
 
-```
+```php
 if ($name === "input 1") {
     $mode = "output_1";
 } elseif ($name === "input 2") {
@@ -175,14 +175,14 @@ if ($name === "input 1") {
 
 Since PHP 7.0, some of the harmful effects of type juggling can be mitigated with [strict typing](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration.strict). By including this `declare` statement as the first line of the file, PHP will enforce parameter type declarations and return type declarations by throwing a `TypeError` exception.
 
-```
+```php
 declare(strict_types=1);
 
 ```
 
 For example, this code, using parameter type definitions, will throw a catchable exception of type `TypeError` when run:
 
-```
+```php
 <?php
 declare(strict_types=1);
 
@@ -196,7 +196,7 @@ echo sum("1", 2);
 
 Likewise, this code uses a return type declaration; it will also throw an exception if it tries to return anything other than an integer:
 
-```
+```php
 <?php
 declare(strict_types=1);
 

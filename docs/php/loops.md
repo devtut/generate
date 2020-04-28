@@ -23,7 +23,7 @@ Just like the `break` statement the `continue` statement is situated inside the 
 
 In the following example loop prints out a message based on the values in an array, but skips a specified value.
 
-```
+```php
 $list = ['apple', 'banana', 'cherry'];
 
 foreach ($list as $value) {
@@ -37,7 +37,7 @@ foreach ($list as $value) {
 
 The expected output is:
 
-```
+```php
 I love to eat apple pie.
 I love to eat cherry pie.
 
@@ -54,7 +54,7 @@ The `continue` statement may also be used to immediately continue execution to a
 
 In order to only make pies from fruit which cost less than 5
 
-```
+```php
 $data = [
     [ "Fruit" => "Apple",  "Color" => "Red",    "Cost" => 1 ],
     [ "Fruit" => "Banana", "Color" => "Yellow", "Cost" => 7 ],
@@ -86,7 +86,7 @@ The `break` keyword immediately terminates the current loop.
 
 Similar to the `continue` statement, a `break` halts execution of a loop. Unlike a `continue` statement, however, `break` causes the immediate termination of the loop and does **not** execute the conditional statement again.
 
-```
+```php
 $i = 5;
 while(true) {
     echo 120/$i.PHP_EOL;
@@ -100,7 +100,7 @@ while(true) {
 
 This code will produce
 
-```
+```php
 24
 30
 40
@@ -113,7 +113,7 @@ but will not execute the case where `$i` is 0, which would result in a fatal err
 
 The break statement may also be used to break out of several levels of loops. Such behavior is very useful when executing nested loops. For example, to copy an array of strings into an output string, removing any `#` symbols, until the output string is exactly 160 characters
 
-```
+```php
 $output = "";
 $inputs = array(
     "#soblessed #throwbackthursday",
@@ -147,7 +147,7 @@ For each iteration the value of the current array element is assigned to `$value
 
 The following example displays the items in the array assigned.
 
-```
+```php
 $list = ['apple', 'banana', 'cherry'];
 
 foreach ($list as $value) {
@@ -158,14 +158,14 @@ foreach ($list as $value) {
 
 The expected output is:
 
-```
+```php
 I love to eat apple. I love to eat banana. I love to eat cherry. 
 
 ```
 
 You can also access the key / index of a value using foreach:
 
-```
+```php
 foreach ($list as $key => $value) {
     echo $key . ":" . $value . " ";
 }
@@ -176,7 +176,7 @@ foreach ($list as $key => $value) {
 
 By default `$value` is a copy of the value in `$list`, so changes made inside the loop will not be reflected in `$list` afterwards.
 
-```
+```php
 foreach ($list as $value) {
     $value = $value . " pie";
 }
@@ -186,7 +186,7 @@ echo $list[0]; // Outputs "apple"
 
 To modify the array within the `foreach` loop, use the `&` operator to assign `$value` by reference. It's important to `unset` the variable afterwards so that reusing `$value` elsewhere doesn't overwrite the array.
 
-```
+```php
 foreach ($list as &$value) { // Or foreach ($list as $key => &$value) {
     $value = $value . " pie";
 }
@@ -197,7 +197,7 @@ echo $list[0]; // Outputs "apple pie"
 
 You can also modify the array items within the `foreach` loop by referencing the array key of the current item.
 
-```
+```php
 foreach ($list as $key => $value) {
     $list[$key] = $value . " pie";
 }
@@ -216,7 +216,7 @@ The `do...while` statement will execute a block of code at least once - it then 
 
 The following example will increment the value of `$i` at least once, and it will continue incrementing the variable `$i` as long as it has a value of less than 25;
 
-```
+```php
 $i = 0;
 do {
     $i++;
@@ -228,7 +228,7 @@ echo 'The final value of i is: ', $i;
 
 The expected output is:
 
-```
+```php
 The final value of i is: 25
 
 ```
@@ -246,7 +246,7 @@ The initializer is used to set the start value for the counter of the number of 
 
 The following example iterates 10 times and displays numbers from 0 to 9.
 
-```
+```php
 for ($i = 0; $i <= 9; $i++) {
     echo $i, ',';
 }
@@ -276,7 +276,7 @@ for ($i = 0, $j = 0; $i <= 9; $j += $i, print $i. ',', $i++);
 
 The expected output is:
 
-```
+```php
 0,1,2,3,4,5,6,7,8,9,
 
 ```
@@ -294,7 +294,7 @@ If the test expression is true then the code block will be executed. After the c
 
 The following example iterates till the sum reaches 100 before terminating.
 
-```
+```php
 $i = true;
 $sum = 0;
 
@@ -311,7 +311,7 @@ echo 'The sum is: ', $sum;
 
 The expected output is:
 
-```
+```php
 The sum is: 100
 
 ```

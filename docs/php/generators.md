@@ -14,7 +14,7 @@ A `yield` statement is similar to a return statement, except that instead of sto
 
 Here is an example of the range function, written as a generator:
 
-```
+```php
 function gen_one_to_three() {
     for ($i = 1; $i <= 3; $i++) {
         // Note that $i is preserved between yields.
@@ -26,7 +26,7 @@ function gen_one_to_three() {
 
 You can see that this function returns a [Generator](http://php.net/manual/en/class.generator.php) object by inspecting the output of `var_dump`:
 
-```
+```php
 var_dump(gen_one_to_three())
 
 # Outputs:
@@ -39,7 +39,7 @@ class Generator (0) {
 
 The [Generator](http://php.net/manual/en/class.generator.php) object can then be iterated over like an array.
 
-```
+```php
 foreach (gen_one_to_three() as $value) {
     echo "$value\n";
 }
@@ -48,7 +48,7 @@ foreach (gen_one_to_three() as $value) {
 
 The above example will output:
 
-```
+```php
 1
 2
 3
@@ -59,7 +59,7 @@ The above example will output:
 
 In addition to yielding values, you can also yield key/value pairs.
 
-```
+```php
 function gen_one_to_three() {
     $keys = ["first", "second", "third"];
 
@@ -77,7 +77,7 @@ foreach (gen_one_to_three() as $key => $value) {
 
 The above example will output:
 
-```
+```php
 first: 1
 second: 2
 third: 3
@@ -91,7 +91,7 @@ third: 3
 
 One common use case for generators is reading a file from disk and iterating over its contents. Below is a class that allows you to iterate over a CSV file. The memory usage for this script is very predictable, and will not fluctuate depending on the size of the CSV file.
 
-```
+```php
 <?php
 
 class CsvReader
@@ -131,7 +131,7 @@ Generators are useful when you need to generate a large collection to later iter
 
 For example, consider the below function.
 
-```
+```php
 function randomNumbers(int $length)
 {
     $array = [];
@@ -147,7 +147,7 @@ function randomNumbers(int $length)
 
 All this function does is generates an array that's filled with random numbers. To use it, we might do `randomNumbers(10)`, which will give us an array of 10 random numbers. What if we want to generate one million random numbers? `randomNumbers(1000000)` will do that for us, but at a cost of memory. One million integers stored in an array uses approximately **33 megabytes** of memory.
 
-```
+```php
 $startMemory = memory_get_usage();
 
 $randomNumbers = randomNumbers(1000000);
@@ -166,7 +166,7 @@ This is due to the entire one million random numbers being generated and returne
 Generators are fast coded and in many cases a slim alternative to heavy iterator-implementations.
 With the fast implementation comes a little lack of control when a generator should stop generating or if it should generate something else. However this can be achieved with the usage of the `send()` function, enabling the requesting function to send parameters to the generator after every loop.
 
-```
+```php
 //Imagining accessing a large amount of data from a server, here is the generator for this:
 function generateDataFromServerDemo()
 {
@@ -210,7 +210,7 @@ Resulting in this Output:
 
 Our `randomNumbers()` function can be re-written to use a generator.
 
-```
+```php
 <?php
 
 function randomNumbers(int $length)

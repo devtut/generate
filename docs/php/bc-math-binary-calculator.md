@@ -15,7 +15,7 @@ The Binary Calculator can be used to calculate with numbers of any size and prec
 
 ### bcadd vs float+float
 
-```
+```php
 var_dump('10' + '-9.99');           // float(0.0099999999999998)
 var_dump(10 + -9.99);               // float(0.0099999999999998)
 var_dump(10.00 + -9.99);            // float(0.0099999999999998)
@@ -25,7 +25,7 @@ var_dump(bcadd('10', '-9.99', 20)); // string(22) "0.01000000000000000000"
 
 ### bcsub vs float-float
 
-```
+```php
 var_dump('10' - '9.99');           // float(0.0099999999999998)
 var_dump(10 - 9.99);               // float(0.0099999999999998)
 var_dump(10.00 - 9.99);            // float(0.0099999999999998)
@@ -35,7 +35,7 @@ var_dump(bcsub('10', '9.99', 20)); // string(22) "0.01000000000000000000"
 
 ### bcmul vs int*int
 
-```
+```php
 var_dump('5.00' * '2.00');            // float(10)
 var_dump(5.00 * 2.00);                // float(10)
 var_dump(bcmul('5.0', '2', 20));      // string(4) "10.0"
@@ -46,7 +46,7 @@ var_dump(bcmul('5', '2', 20));        // string(2) "10"
 
 ### bcmul vs float*float
 
-```
+```php
 var_dump('1.6767676767' * '1.6767676767');           // float(2.8115498416259)
 var_dump(1.6767676767 * 1.6767676767);               // float(2.8115498416259)
 var_dump(bcmul('1.6767676767', '1.6767676767', 20)); // string(22) "2.81154984162591572289"
@@ -55,7 +55,7 @@ var_dump(bcmul('1.6767676767', '1.6767676767', 20)); // string(22) "2.8115498416
 
 ### bcdiv vs float/float
 
-```
+```php
 var_dump('10' / '3.01');           // float(3.3222591362126)
 var_dump(10 / 3.01);               // float(3.3222591362126)
 var_dump(10.00 / 3.01);            // float(3.3222591362126)
@@ -72,7 +72,7 @@ On 32-bit systems, integers greater than `0x7FFFFFFF` cannot be stored primitive
 
 The [`pack`](https://php.net/pack)/[`unpack`](https://php.net/unpack) methods can be used to convert between binary bytes and decimal form of the numbers (both of type `string`, but one is binary and one is ASCII), but they will always try to cast the ASCII string into a 32-bit int on 32-bit systems. The following snippet provides an alternative:
 
-```
+```php
 /** Use pack("J") or pack("p") for 64-bit systems */
 function writeLong(string $ascii) : string {
     if(bccomp($ascii, "0") === -1) { // if $ascii < 0

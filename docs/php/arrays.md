@@ -15,7 +15,7 @@ An array is a data structure that stores an arbitrary number of values in a sing
 
 An array can be initialized empty:
 
-```
+```php
 // An empty array
 $foo = array();
 
@@ -26,7 +26,7 @@ $foo = [];
 
 An array can be initialized and preset with values:
 
-```
+```php
 // Creates a simple array with three strings
 $fruit = array('apples', 'pears', 'oranges');
 
@@ -37,7 +37,7 @@ $fruit = ['apples', 'pears', 'oranges'];
 
 An array can also be initialized with custom indexes **(also called an associative array)**:
 
-```
+```php
 // A simple associative array
 $fruit = array(
    'first'  => 'apples',
@@ -59,7 +59,7 @@ $fruit = [
 
 If the variable hasn't been used before, PHP will create it automatically. While convenient, this might make the code harder to read:
 
-```
+```php
 $foo[] = 1;     // Array( [0] => 1 )
 $bar[][] = 2;   // Array( [0] => Array( [0] => 2 ) )
 
@@ -67,7 +67,7 @@ $bar[][] = 2;   // Array( [0] => Array( [0] => 2 ) )
 
 The index will usually continue where you left off. PHP will try to use numeric strings as integers:
 
-```
+```php
 $foo = [2 => 'apple', 'melon'];  // Array( [2] => apple, [3] => melon )
 $foo = ['2' => 'apple', 'melon']; // same as above
 $foo = [2 => 'apple', 'this is index 3 temporarily', '3' => 'melon']; // same as above! The last entry will overwrite the second!
@@ -76,7 +76,7 @@ $foo = [2 => 'apple', 'this is index 3 temporarily', '3' => 'melon']; // same as
 
 To initialize an array with fixed size you can use [`SplFixedArray`](https://secure.php.net/manual/en/class.splfixedarray.php):
 
-```
+```php
 $array = new SplFixedArray(3);
 
 $array[0] = 1;
@@ -93,7 +93,7 @@ Note: An array created using `SplFixedArray` has a reduced memory footprint for 
 
 To initialize an array with a dynamic size but with `n` non empty elements (e.g. a placeholder) you can use a loop as follows:
 
-```
+```php
 $myArray = array();
 $sizeOfMyArray = 5;
 $fill = 'placeholder';
@@ -118,7 +118,7 @@ This creates and returns an array with `num` entries of `value`, keys starting a
 
 Note: If the `start_index` is negative it will start with the negative index and continue from 0 for the following elements.
 
-```
+```php
 $a = array_fill(5, 6, 'banana'); // Array ( [5] => banana, [6] => banana, ..., [10] => banana)
 $b = array_fill(-2, 4, 'pear'); // Array ( [-2] => pear, [0] => pear, ..., [2] => pear)
 
@@ -135,7 +135,7 @@ Whenever you want an array filled with a range of numbers (e.g. 1-4) you could e
 
 This function creates an array containing a range of elements. The first two parameters are required, where they set the start and end points of the (inclusive) range. The third parameter is optional and defines the size of the steps being taken. Creating a `range` from `0` to `4` with a `stepsize` of `1`, the resulting array would consist of the following elements: `0`, `1`, `2`, `3`, and `4`. If the step size is increased to `2` (i.e. `range(0, 4, 2)`) then the resulting array would be: `0`, `2`, and `4`.
 
-```
+```php
 $array = [];
 $array_with_range = range(1, 4);
 
@@ -157,7 +157,7 @@ print_r($array_with_range); // Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 )
 
 Use [`array_key_exists()`](http://php.net/manual/en/function.array-key-exists.php) or `isset()` or `!empty()`:
 
-```
+```php
 $map = [
     'foo' => 1,
     'bar' => null,
@@ -178,7 +178,7 @@ Note that `isset()` treats a `null` valued element as non-existent. Whereas `!em
 
 Note also that `isset()` and `!empty()` will work (and return false) if `$map` is not defined at all. This makes them somewhat error-prone to use:
 
-```
+```php
 // Note "long" vs "lang", a tiny typo in the variable name.
 $my_array_with_a_long_name = ['foo' => true];
 array_key_exists('foo', $my_array_with_a_lang_name); // shows a warning
@@ -188,7 +188,7 @@ isset($my_array_with_a_lang_name['foo']); // returns false
 
 You can also check for ordinal arrays:
 
-```
+```php
 $ord = ['a', 'b']; // equivalent to [0 => 'a', 1 => 'b']
 
 array_key_exists(0, $ord); // true
@@ -207,7 +207,7 @@ You can also use [`key_exists()`](http://php.net/manual/en/function.key-exists.p
 
 The function [`is_array()`](http://php.net/manual/en/function.is-array.php) returns true if a variable is an array.
 
-```
+```php
 $integer = 1337;
 $array = [1337, 42];
 
@@ -218,14 +218,14 @@ is_array($array); // true
 
 You can type hint the array type in a function to enforce a parameter type; passing anything else will result in a fatal error.
 
-```
+```php
 function foo (array $array) { /* $array is an array */ }
 
 ```
 
 You can also use the [`gettype()`](http://php.net/manual/en/function.gettype.php) function.
 
-```
+```php
 $integer = 1337;
 $array = [1337, 42];
 
@@ -239,7 +239,7 @@ gettype($array) === 'array'; // true
 ## Creating an array of variables
 
 
-```
+```php
 $username = 'Hadibut';
 $email = 'hadibut@example.org';
 
@@ -257,7 +257,7 @@ This method is often used in frameworks to pass an array of variables between tw
 
 The function [`in_array()`](http://php.net/manual/en/function.in-array.php) returns true if an item exists in an array.
 
-```
+```php
 $fruits = ['banana', 'apple'];
 
 $foo = in_array('banana', $fruits);
@@ -270,7 +270,7 @@ $bar = in_array('orange', $fruits);
 
 You can also use the function [`array_search()`](http://php.net/manual/en/function.array-search.php) to get the key of a specific item in an array.
 
-```
+```php
 $userdb = ['Sandra Shush', 'Stefanie Mcmohn', 'Michael'];
 $pos = array_search('Stefanie Mcmohn', $userdb);
 if ($pos !== false) {
@@ -283,7 +283,7 @@ In PHP 5.5 and later you can use [`array_column()`](http://php.net/manual/en/fun
 
 This is particularly useful for [checking if a value exists in an associative array](http://stackoverflow.com/questions/6990855/php-check-if-value-and-key-exist-in-multidimensional-array/37935356#37935356):
 
-```
+```php
 $userdb = [
     [
         "uid" => '100',
@@ -322,7 +322,7 @@ Assume we have a user class and a database table storing all the users. We would
 
 Consider the following source (hereinafter we're using short array creation syntax `[]` available since version 5.4):
 
-```
+```php
 class UserCollection implements ArrayAccess {
     protected $_conn;
     
@@ -383,7 +383,7 @@ class UserCollection implements ArrayAccess {
 
 then we can :
 
-```
+```php
 $users = new UserCollection();
 
 var_dump(empty($users['testuser']),isset($users['testuser']));
@@ -398,7 +398,7 @@ var_dump(empty($users['testuser']), isset($users['testuser']));
 
 which will output the following, assuming there was no `testuser` before we launched the code:
 
-```
+```php
 bool(true)
 bool(false)
 bool(false)
@@ -418,7 +418,7 @@ bool(false)
 
 **IMPORTANT:** `offsetExists` is not called when you check existence of a key with `array_key_exists` function. So the following code will output `false` twice:
 
-```
+```php
 var_dump(array_key_exists('testuser', $users));
 $users['testuser'] = ['username' => 'testuser', 
                       'password' => 'testpassword',
@@ -433,7 +433,7 @@ Let's extend our class from above with a few functions from `Iterator` interface
 
 First, we need to add a property holding our current index of iterator, let's add it to the class properties as `$_position`:
 
-```
+```php
 // iterator current position, required by Iterator interface methods
 protected $_position = 1;
 
@@ -441,14 +441,14 @@ protected $_position = 1;
 
 Second, let's add `Iterator` interface to the list of interfaces being implemented by our class:
 
-```
+```php
 class UserCollection implements ArrayAccess, Iterator {
 
 ```
 
 then add the required by the interface functions themselves:
 
-```
+```php
 // START of methods required by Iterator interface
 public function current () {
     return $this->_getById($this->_position);
@@ -471,7 +471,7 @@ public function valid () {
 
 So all in all here is complete source of the class implementing both interfaces. Note that this example is not perfect, because the IDs in the database may not be sequential, but this was written just to give you the main idea: you can address your objects collections in any possible way by implementing `ArrayAccess` and `Iterator` interfaces:
 
-```
+```php
 class UserCollection implements ArrayAccess, Iterator {
     // iterator current position, required by Iterator interface methods
     protected $_position = 1;
@@ -501,7 +501,7 @@ class UserCollection implements ArrayAccess, Iterator {
 
 and a foreach looping through all user objects:
 
-```
+```php
 foreach ($users as $user) {
     var_dump($user['id']);
 }
@@ -510,7 +510,7 @@ foreach ($users as $user) {
 
 which will output something like
 
-```
+```php
 string(2) "1"
 string(2) "2"
 string(2) "3"

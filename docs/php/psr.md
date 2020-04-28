@@ -22,9 +22,11 @@ PSRs can be in the following states: Accepted, Review, Draft or Deprecated.
 The fully qualified class name should match the following requirement:
 
 ```
- \<NamespaceName>(\<SubNamespaceNames>)*\<ClassName>
+
+\<NamespaceName>(\<SubNamespaceNames>)*\<ClassName>
 
 ```
+
 
 - It MUST contain a top level vendor namespace (E.g.: `Alphabet`)
 - It MAY contain one or more sub-namespaces (E.g.: `Google\AdWord`)
@@ -34,7 +36,7 @@ Thus the final class name would be `Alphabet\Google\AdWord\KeywordPlanner`. The 
 
 Starting with PHP 5.3.0, a [custom autoloader function](http://php.net/manual/en/function.spl-autoload-register.php) can be defined to load files based on the path and filename pattern that you define.
 
-```
+```php
 # Edit your php to include something like:
 spl_autoload_register(function ($class) { include 'classes/' . $class . '.class.php';});
 
@@ -44,7 +46,7 @@ Replacing the location ('classes/') and filename extension ('.class.php') with v
 
 [Composer](https://stackoverflow.com/documentation/php/1053/composer-dependency-manager) package manager [supports PSR-4](https://getcomposer.org/doc/01-basic-usage.md#autoloading) which means, if you follow the standard, you can load your classes in your project automatically using Composer's vendor autoloader.
 
-```
+```php
 # Edit the composer.json file to include
 {
     "autoload": {
@@ -58,14 +60,14 @@ Replacing the location ('classes/') and filename extension ('.class.php') with v
 
 Regenerate the autoloader file
 
-```
+```php
 $ composer dump-autoload
 
 ```
 
 Now in your code you can do the following:
 
-```
+```php
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
@@ -97,7 +99,7 @@ The draft outlines how to define an interface to make an object `Huggable`.
 
 Excert from the code outline:
 
-```
+```php
 <?php
 
 namespace Psr\Hug;

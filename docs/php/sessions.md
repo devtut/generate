@@ -15,7 +15,7 @@ Starting with PHP Sessions we can pass an array with [session-based `php.ini` op
 
 **Example**
 
-```
+```php
 <?php
    if (version_compare(PHP_VERSION, '7.0.0') >= 0) {
        // php >= 7 version
@@ -44,7 +44,7 @@ As we all are aware that PHP writes session data into a file at server side. Whe
 
 The session file remains locked until the script is completed or session is manually closed. To avoid this situation **i.e. to prevent multiple requests getting blocked**, we can start the session and close the session which will release the lock from session file and allow to continue the remaining requests.
 
-```
+```php
 // php < 7.0 
 // start session 
 session_start();
@@ -59,7 +59,7 @@ session_write_close();
 
 Now one will think if session is closed how we will read the session values, beautify even after session is closed, session is still available. So, we can still read the session data.
 
-```
+```php
 echo $_SESSION['id'];    // will output  123
 
 ```
@@ -73,7 +73,7 @@ In **php >= 7.0**, we can have **read_only** session, **read_write** session and
 
 The `$_SESSION` variable is an array, and you can retrieve or manipulate it like a normal array.
 
-```
+```php
 <?php
 // Starting the session
 session_start();
@@ -110,7 +110,7 @@ Session data can be hijacked.  This is outlined in: **[Pro PHP Security: From Ap
 
 If you've got a session which you wish to destroy, you can do this with [`session_destroy()`](http://php.net/session_destroy)
 
-```
+```php
 /*
     Let us assume that our session looks like this:
     Array([firstname] => Jon, [id] => 123)
@@ -158,7 +158,7 @@ Only use session_unset() for older deprecated code that does not use $_SESSION.
 
 Session name is the name of the cookie used to store sessions. You can use this to detect if cookies for a session have been created for the user:
 
-```
+```php
 if(isset($_COOKIE[session_name()])) {
     session_start();
 }
@@ -171,7 +171,7 @@ Note that this method is generally not useful unless you really don't want to cr
 
 You can update the session name by calling `session_name()`.
 
-```
+```php
 //Set the session name
 session_name('newname');
 //Start the session
@@ -193,7 +193,7 @@ The session name can't consist of digits only, at least one letter must be prese
 
 Many developers have this problem when they work on huge projects, especially if they work on some modular CMS on plugins, addons, components etc. Here is solution for safe session start where if first checked PHP version to cover all versions and on next is checked if session is started. If session not exists then I start session safe. If session exists nothing happen.
 
-```
+```php
 if (version_compare(PHP_VERSION, '7.0.0') >= 0) {
     if(session_status() == PHP_SESSION_NONE) {
         session_start(array(

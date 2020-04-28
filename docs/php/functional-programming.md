@@ -17,7 +17,7 @@ PHP's functional programming relies on functions. Functions in PHP provide organ
 
 When defining an anonymous function as such, you're creating a "namespace" for that function. It currently only has access to that namespace.
 
-```
+```php
 $externalVariable = "Hello";
 $secondExternalVariable = "Foo"; 
 $myFunction = function() { 
@@ -30,7 +30,7 @@ $myFunction = function() {
 
 It doesn't have access to any external variables. To grant this permission for this namespace to access external variables, you need to introduce it via closures (**`use()`**).
 
-```
+```php
 $myFunction = function() use($externalVariable, $secondExternalVariable) {
    var_dump($externalVariable, $secondExternalVariable); // Hello Foo
 }
@@ -59,7 +59,7 @@ In PHP, closures use an **early-binding** approach. This means that variables pa
 
 To change this behavior you should pass the variable **by-reference**.
 
-```
+```php
 $rate = .05;
 
 // Exports variable to closure's scope
@@ -73,7 +73,7 @@ print $calculateTax(100); // 5
 
 ```
 
-```
+```php
 $rate = .05;
 
 // Exports variable to closure's scope
@@ -89,7 +89,7 @@ print $calculateTax(100); // 10
 
 Default arguments are not implicitly required when defining anonymous functions with/without closures.
 
-```
+```php
 $message = 'Im yelling at you';
 
 $yell = function() use($message) {
@@ -107,7 +107,7 @@ $yell(); // returns: IM YELLING AT YOU
 
 [Anonymous functions](http://php.net/manual/en/functions.anonymous.php) can be assigned to variables for use as parameters where a callback is expected:
 
-```
+```php
 $uppercase = function($data) {
     return strtoupper($data);
 };
@@ -120,7 +120,7 @@ print_r($uppercased);
 
 These variables can also be used as standalone function calls:
 
-```
+```php
 echo $uppercase("Hello world!"); // HELLO WORLD!
 
 ```
@@ -130,7 +130,7 @@ echo $uppercase("Hello world!"); // HELLO WORLD!
 ## Objects as a function
 
 
-```
+```php
 class SomeClass {
     public function __invoke($param1, $param2) {
         // put your code here
@@ -153,7 +153,7 @@ The `__invoke` method will have access to all properties of the object and will 
 
 The `use` construct is used to import variables into the anonymous function's scope:
 
-```
+```php
 $divisor = 2332;
 $myfunction = function($number) use ($divisor) {
     return $number / $divisor;
@@ -165,7 +165,7 @@ echo $myfunction(81620); //Outputs 35
 
 Variables can also be imported by reference:
 
-```
+```php
 $collection = [];
 
 $additem = function($item) use (&$collection) {
@@ -186,7 +186,7 @@ $additem(2);
 
 In functions taking `callable` as an argument, you can also put a string with PHP built-in function. It's common to use `trim` as `array_map` parameter to remove leading and trailing whitespace from all strings in the array.
 
-```
+```php
 $arr = ['   one  ', 'two   ', '   three'];
 var_dump(array_map('trim', $arr));
 
@@ -208,7 +208,7 @@ var_dump(array_map('trim', $arr));
 
 An anonymous function is just a **function** that doesn't have a name.
 
-```
+```php
 // Anonymous function
 function() {
     return "Hello World!";
@@ -220,7 +220,7 @@ In PHP, an anonymous function is treated like an **expression** and for this rea
 
 An anonymous function should be **assigned** to a variable.
 
-```
+```php
 // Anonymous function assigned to a variable
 $sayHello = function($name) {
     return "Hello $name!";
@@ -232,7 +232,7 @@ print $sayHello('John'); // Hello John
 
 Or it should be **passed as parameter** of another function.
 
-```
+```php
 $users = [
     ['name' => 'Alice', 'age' => 20], 
     ['name' => 'Bobby', 'age' => 22], 
@@ -252,7 +252,7 @@ Or even been **returned** from another function.
 
 Self-executing anonymous functions:
 
-```
+```php
 // For PHP 7.x
 (function () {
     echo "Hello world!";
@@ -267,7 +267,7 @@ call_user_func(function () {
 
 Passing an argument into self-executing anonymous functions:
 
-```
+```php
 // For PHP 7.x
 (function ($name) {
     echo "Hello $name!";
@@ -287,7 +287,7 @@ call_user_func(function ($name) {
 
 A **pure function** is a function that, given the same input, will always return the same output and are **side-effect** free.
 
-```
+```php
 // This is a pure function
 function add($a, $b) {
     return $a + $b;
@@ -297,7 +297,7 @@ function add($a, $b) {
 
 Some **side-effects** are **changing the filesystem**, **interacting with databases**, **printing to the screen**.
 
-```
+```php
 // This is an impure function
 function add($a, $b) {
     echo "Adding...";
@@ -315,7 +315,7 @@ function add($a, $b) {
 
 Applying a function to all elements of an array :
 
-```
+```php
 array_map('strtoupper', $array);
 
 ```
@@ -326,7 +326,7 @@ Be aware that this is the only method of the list where the callback comes first
 
 Reducing an array to a single value :
 
-```
+```php
 $sum = array_reduce($numbers, function ($carry, $number) {
    return $carry + $number;
 });
@@ -337,7 +337,7 @@ $sum = array_reduce($numbers, function ($carry, $number) {
 
 Returns only the array items for which the callback returns `true` :
 
-```
+```php
 $onlyEven = array_filter($numbers, function ($number) {
     return ($number % 2) === 0;
 });
@@ -353,7 +353,7 @@ In PHP, an anonymous function has its own **scope** like any other PHP function.
 
 In JavaScript, an anonymous function can access a variable in outside scope. But in PHP, this is not permitted.
 
-```
+```php
 $name = 'John';
 
 // Anonymous function trying access outside scope
@@ -377,7 +377,7 @@ Depending on where the user-defined callback function was defined there are diff
 
 ### Procedural style:
 
-```
+```php
 function square($number)
 {
     return $number * $number;
@@ -391,7 +391,7 @@ var_dump($final_array); // prints the new array with 1, 4, 9, 16, 25
 
 ### Object Oriented style:
 
-```
+```php
 class SquareHolder
 {
     function square($number)
@@ -410,7 +410,7 @@ var_dump($final_array); // prints the new array with 1, 4, 9, 16, 25
 
 ### Object Oriented style using a static method:
 
-```
+```php
 class StaticSquareHolder
 {
     public static function square($number)

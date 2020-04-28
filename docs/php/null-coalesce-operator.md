@@ -15,7 +15,7 @@ It returns its first operand if it exists and is not `NULL`; otherwise it return
 ## General usage
 
 
-```
+```php
 // Fetches the value of $_GET['id'] and returns 0 if it does not exist.
 $id = $_GET['id'] ?? 0;
 // This is equivalent to:

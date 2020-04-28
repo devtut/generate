@@ -53,7 +53,7 @@ An associative array containing references to all variables which are currently 
 
 Code
 
-```
+```php
 $myGlobal = "global"; // declare variable outside of scope
 
 function test()
@@ -73,7 +73,7 @@ var_dump($myGlobal);
 
 Output
 
-```
+```php
 string 'local' (length=5)
 string 'global' (length=6)
 null
@@ -89,7 +89,7 @@ To remedy this there are two options.
 
 Option one: **`global` keyword**
 
-```
+```php
 function test()
 {
     global $myLocal;
@@ -106,7 +106,7 @@ Note that you cannot assign a value to a variable in the same statement as the g
 
 Option two: **`$GLOBALS` array**
 
-```
+```php
 function test()
 {
     $GLOBALS["myLocal"] = "local";
@@ -127,7 +127,7 @@ $_SERVER is an array containing information such as headers, paths, and script l
 
 An example output of this might be as follows (run on my Windows PC using WAMP)
 
-```
+```php
 C:\wamp64\www\test.php:2:
 array (size=36)
     'HTTP_HOST' => string 'localhost' (length=9)
@@ -198,7 +198,7 @@ Using [http://www.example.com/index.php?myVar=myVal](http://www.example.com/inde
 
 Using some code for those that don't like reading.
 
-```
+```php
 // URL = http://www.example.com/index.php?myVar=myVal
 echo $_GET["myVar"] == "myVal" ? "true" : "false"; // returns "true"
 
@@ -210,7 +210,7 @@ This shows how you can access the value from the URL using the `$_GET` superglob
 
 Now another example! **gasp**
 
-```
+```php
 // URL = http://www.example.com/index.php?myVar=myVal&myVar2=myVal2
 echo $_GET["myVar"]; // returns "myVal"
 echo $_GET["myVar2"]; // returns "myVal2"
@@ -232,7 +232,7 @@ Very similar to `$_GET` in that data is sent from one place to another.
 
 I'll start by going straight into an example. (I have omitted the action attribute as this will send the information to the page that the form is in).
 
-```
+```php
 <form method="POST">
     <input type="text" name="myVar" value="myVal" />
     <input type="submit" name="submit" value="Submit" />
@@ -242,7 +242,7 @@ I'll start by going straight into an example. (I have omitted the action attribu
 
 Above is a basic form for which data can be sent. In an real environment the `value` attribute would not be set meaning the form would be blank. This would then send whatever information is entered by the user.
 
-```
+```php
 echo $_POST["myVar"]); // returns "myVal"
 
 ```
@@ -258,7 +258,7 @@ An associative array of items uploaded to the current script via the HTTP POST m
 
 Let's start with a basic form.
 
-```
+```php
 <form method="POST" enctype="multipart/form-data">
     <input type="file" name="myVar" />
     <input type="submit" name="Submit" />
@@ -268,7 +268,7 @@ Let's start with a basic form.
 
 Note that I omitted the `action` attribute (again!). Also, I added `enctype="multipart/form-data"`, this is important to any form that will be dealing with file uploads.
 
-```
+```php
 // ensure there isn't an error
 if ($_FILES["myVar"]["error"] == UPLOAD_ERR_OK)
 {
@@ -288,7 +288,7 @@ There's an attribute for just about **anything**. <sub>[I'm sorry](https://www.y
 
 Below is an example of a form submitting multiple files.
 
-```
+```php
 <form method="POST" enctype="multipart/form-data">
     <input type="file" name="myVar[]" multiple="multiple" />
     <input type="submit" name="Submit" />
@@ -301,7 +301,7 @@ Note the changes made here; there are only a few.
 - The `input` name has square brackets. This is because it is now an array of files and so we are telling the form to make an array of the files selected. Omitting the square brackets will result in the latter most file being set to `$_FILES["myVar"]`.
 - The `multiple="multiple"` attribute. This just tells the browser that users can select more than one file.
 
-```
+```php
 $total = isset($_FILES["myVar"]) ? count($_FILES["myVar"]["name"]) : 0; // count how many files were sent
 // iterate over each of the files
 for ($i = 0; $i < $total; $i++)
@@ -367,7 +367,7 @@ Cookies are variables that contain data and are stored on the client's computer.
 
 Unlike the aforementioned superglobals, cookies must be created with a function (and not be assigning a value).  The convention is below.
 
-```
+```php
 setcookie("myVar", "myVal", time() + 3600);
 
 ```
@@ -376,14 +376,14 @@ In this example a name is specified for the cookie (in this example it is "myVar
 
 Despite the convention for creating a cookie being different, it is accessed in the same way as the others.
 
-```
+```php
 echo $_COOKIE["myVar"]; // returns "myVal"
 
 ```
 
 To destroy a cookie, `setcookie` must be called again, but the expiration time is set to **any** time in the past. See below.
 
-```
+```php
 setcookie("myVar", "", time() - 1);
 var_dump($_COOKIE["myVar"]); // returns null 
 
@@ -403,7 +403,7 @@ To use sessions you must include `session_start()` at the top of your scripts to
 
 Setting a session variable is the same as setting any other variable. See example below.
 
-```
+```php
 $_SESSION["myVar"] = "myVal";
 
 ```
@@ -457,7 +457,7 @@ Below are the PHP5 SuperGlobals
 
 **$GLOBALS**: This SuperGlobal Variable is used for accessing globals variables.
 
-```
+```php
 <?php    
 $a = 10;    
 function foo(){
@@ -470,7 +470,7 @@ function foo(){
 
 **$_REQUEST**: This SuperGlobal Variable is used to collect data submitted by a HTML Form.
 
-```
+```php
 <?php
 if(isset($_REQUEST['user'])){
     echo $_REQUEST['user'];
@@ -482,7 +482,7 @@ if(isset($_REQUEST['user'])){
 
 **$_GET**: This SuperGlobal Variable is used to collect data submitted by HTML Form with `get` method.
 
-```
+```php
 <?php
 if(isset($_GET['username'])){
     echo $_GET['username'];
@@ -494,7 +494,7 @@ if(isset($_GET['username'])){
 
 **$_POST**: This SuperGlobal Variable is used to collect data submitted by HTML Form with `post` method.
 
-```
+```php
 <?php
 if(isset($_POST['username'])){
     echo $_POST['username'];
@@ -506,7 +506,7 @@ if(isset($_POST['username'])){
 
 **$_FILES**: This SuperGlobal Variable holds the information of uploaded files via HTTP Post method.
 
-```
+```php
 <?php
 if($_FILES['picture']){
     echo "<pre>";
@@ -540,7 +540,7 @@ Array
 
 **$_SERVER**: This SuperGlobal Variable holds information about Scripts, HTTP Headers and Server Paths.
 
-```
+```php
 <?php
     echo "<pre>";
     print_r($_SERVER);
@@ -601,7 +601,7 @@ Array
 
 **$_COOKIE**: This SuperGlobal Variable is used to retrieve Cookie value with given Key.
 
-```
+```php
 <?php
 $cookie_name = "data";
 $cookie_value = "Foo Bar";
@@ -625,7 +625,7 @@ else {
 
 **$_SESSION**: This SuperGlobal Variable is used to Set and Retrieve Session Value which is stored on Server.
 
-```
+```php
 <?php
 //Start the session
 session_start();

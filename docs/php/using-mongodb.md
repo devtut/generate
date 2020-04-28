@@ -12,7 +12,7 @@ description: "Connect to MongoDB, Get multiple documents - find(), Get one docum
 
 Create a MongoDB connection, that later you can query:
 
-```
+```php
 $manager = new \MongoDB\Driver\Manager('mongodb://localhost:27017');
 
 ```
@@ -28,7 +28,7 @@ This extension close the connection automatically, it's not necessary to close m
 
 Example for searching multiple users with the name "Mike":
 
-```
+```php
 $filter = ['name' => 'Mike'];
 $query = new \MongoDB\Driver\Query($filter);
 
@@ -46,7 +46,7 @@ foreach ($cursor as $doc) {
 
 Example for searching just one user with a specific id, you should do:
 
-```
+```php
 $options = ['limit' => 1];
 $filter = ['_id' => new \MongoDB\BSON\ObjectID('578ff7c3648c940e008b457a')];
 $query = new \MongoDB\Driver\Query($filter, $options);
@@ -66,7 +66,7 @@ if(isset($cursorArray[0])) {
 
 Example for adding a document:
 
-```
+```php
 $document = [
     'name' => 'John',
     'active' => true,
@@ -85,7 +85,7 @@ $result = $manager->executeBulkWrite('database_name.collection_name', $bulk);
 
 Example for updating all documents where name is equal to "John":
 
-```
+```php
 $filter = ['name' => 'John'];
 $document = ['name' => 'Mike'];
 
@@ -106,7 +106,7 @@ $result = $manager->executeBulkWrite('database_name.collection_name', $bulk);
 
 Example for deleting all documents where name is equal to "Peter":
 
-```
+```php
 $bulk = new \MongoDB\Driver\BulkWrite;
 
 $filter = ['name' => 'Peter'];

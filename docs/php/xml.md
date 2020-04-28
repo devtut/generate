@@ -14,7 +14,7 @@ To create a XML using DOMDocument,basically, we need to create all the tags and 
 
 The example below includes tags, attributes, a CDATA section and a different namespace for the second tag:
 
-```
+```php
 $dom = new DOMDocument('1.0', 'utf-8');
 $dom->preserveWhiteSpace = false;
 $dom->formatOutput = true;
@@ -67,7 +67,7 @@ print_r ($dom->saveXML());
 
 This will output the following XML:
 
-```
+```php
 <?xml version="1.0" encoding="utf-8"?>
 <books xmlns:ns="www.example.com/libraryns/1.0">
   <book>
@@ -93,7 +93,7 @@ Similarly to the SimpleXML, you can use DOMDocument to parse XML from a string o
 
 **1. From a string**
 
-```
+```php
 $doc = new DOMDocument();
 $doc->loadXML($string);
 
@@ -101,7 +101,7 @@ $doc->loadXML($string);
 
 **2. From a file**
 
-```
+```php
 $doc = new DOMDocument();
 $doc->load('books.xml');// use the actual file path. Absolute or relative
 
@@ -111,7 +111,7 @@ $doc->load('books.xml');// use the actual file path. Absolute or relative
 
 Considering the following XML:
 
-```
+```php
 <?xml version="1.0" encoding="UTF-8"?>
 <books>
    <book>
@@ -130,7 +130,7 @@ Considering the following XML:
 
 This is a example code to parse it
 
-```
+```php
 $books = $doc->getElementsByTagName('book');
 foreach ($books as $book) {
     $title = $book->getElementsByTagName('name')->item(0)->nodeValue;
@@ -155,49 +155,49 @@ The title of the book 2 is PHP - Advanced and it costs $25.00.
 
 Instantiate a XMLWriter object:
 
-```
+```php
 $xml = new XMLWriter();
 
 ```
 
 Next open the file to which you want to write. For example, to write to `/var/www/example.com/xml/output.xml`, use:
 
-```
+```php
 $xml->openUri('file:///var/www/example.com/xml/output.xml');
 
 ```
 
 To start the document (create the XML open tag):
 
-```
+```php
 $xml->startDocument('1.0', 'utf-8');
 
 ```
 
 This will output:
 
-```
+```php
 <?xml version="1.0" encoding="UTF-8"?>
 
 ```
 
 Now you can start writing elements:
 
-```
+```php
 $xml->writeElement('foo', 'bar');
 
 ```
 
 This will generate the XML:
 
-```
+```php
 <foo>bar</foo>
 
 ```
 
 If you need something a little more complex than simply nodes with plain values, you can also "start" an element and add attributes to it before closing it:
 
-```
+```php
 $xml->startElement('foo');
 $xml->writeAttribute('bar', 'baz');
 $xml->writeCdata('Lorem ipsum');
@@ -207,7 +207,7 @@ $xml->endElement();
 
 This will output:
 
-```
+```php
 <foo bar="baz"><![CDATA[Lorem ipsum]]></foo>
 
 ```
@@ -221,14 +221,14 @@ You can parse XML from a string or from a XML file
 
 **1. From a string**
 
-```
+```php
 $xml_obj = simplexml_load_string($string);
 
 ```
 
 **2. From a file**
 
-```
+```php
 $xml_obj = simplexml_load_file('books.xml');
 
 ```
@@ -237,7 +237,7 @@ $xml_obj = simplexml_load_file('books.xml');
 
 Considering the following XML:
 
-```
+```php
 <?xml version="1.0" encoding="UTF-8"?>
 <books>
    <book>
@@ -256,7 +256,7 @@ Considering the following XML:
 
 This is a example code to parse it
 
-```
+```php
 $xml = simplexml_load_string($xml_string);
 $books = $xml->book;
 foreach ($books as $book) {
@@ -284,7 +284,7 @@ SimpleXML is a powerful library which converts XML strings to an easy to use PHP
 
 The following assumes an XML structure as below.
 
-```
+```php
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
     <book>
@@ -305,21 +305,21 @@ The following assumes an XML structure as below.
 
 To get started, we need to read our data into SimpleXML. We can do this in 3 different ways. Firstly, we can [load our data from a DOM node.](http://php.net/manual/en/function.simplexml-import-dom.php)
 
-```
+```php
 $xmlElement = simplexml_import_dom($domNode);
 
 ```
 
 Our next option is to [load our data from an XML file.](http://php.net/manual/en/function.simplexml-load-file.php)
 
-```
+```php
 $xmlElement = simplexml_load_file($filename);
 
 ```
 
 Lastly, we can [load our data from a variable.](http://php.net/manual/en/function.simplexml-load-string.php)
 
-```
+```php
 $xmlString = '<?xml version="1.0" encoding="UTF-8"?>
 <document>
     <book>
@@ -343,28 +343,28 @@ Whether you've picked to load from [a DOM Element](http://php.net/manual/en/func
 
 The simplest way to access data in our SimpleXMLElement object is to [call the properties directly](http://php.net/manual/en/simplexml.examples-basic.php#example-6325). If we want to access our first bookName, `StackOverflow SimpleXML Example`, then we can access it as per below.
 
-```
+```php
 echo $xmlElement->book->bookName;
 
 ```
 
 At this point, SimpleXML will assume that because we have not told it explicitly which book we want, that we want the first one. However, if we decide that we do not want the first one, rather that we want `Another SimpleXML Example`, then we can access it as per below.
 
-```
+```php
 echo $xmlElement->book[1]->bookName;
 
 ```
 
 It is worth noting that using `[0]` works the same as not using it, so
 
-```
+```php
 $xmlElement->book
 
 ```
 
 works the same as
 
-```
+```php
 $xmlElement->book[0]
 
 ```
@@ -373,7 +373,7 @@ $xmlElement->book[0]
 
 There are many reasons you may wish to [loop through XML](http://php.net/manual/en/simplexml.examples-basic.php#example-6327), such as that you have a number of items, books in our case, that we would like to display on a webpage. For this, we can use a [foreach loop](http://php.net/manual/en/control-structures.foreach.php) or a standard [for loop](http://php.net/manual/en/control-structures.for.php), taking advantage of [SimpleXMLElement's count function.](http://php.net/manual/en/simplexmlelement.count.php).
 
-```
+```php
 foreach ( $xmlElement->book as $thisBook ) {
     echo $thisBook->bookName
 }
@@ -382,7 +382,7 @@ foreach ( $xmlElement->book as $thisBook ) {
 
 or
 
-```
+```php
 $count = $xmlElement->count();
 for ( $i=0; $i<$count; $i++ ) {
     echo $xmlElement->book[$i]->bookName;
@@ -396,7 +396,7 @@ Now we have come so far, it is important to realise that we are only humans, and
 
 Consider we created an XML file. You will notice that while this XML is much alike what we had earlier, the problem with this XML file is that the final closing tag is /doc instead of /document.
 
-```
+```php
 <?xml version="1.0" encoding="UTF-8"?>
 <document>
     <book>
@@ -415,7 +415,7 @@ Consider we created an XML file. You will notice that while this XML is much ali
 
 Now, say, we load this into our PHP as $file.
 
-```
+```php
 libxml_use_internal_errors(true);
 $xmlElement = simplexml_load_file($file);
 if ( $xmlElement === false ) {
@@ -447,7 +447,7 @@ if ( $xmlElement === false ) {
 
 We will be greeted with the following
 
-```
+```php
 FATAL ERROR: 76
 Message: Opening and ending tag mismatch: document line 2 and doc
 

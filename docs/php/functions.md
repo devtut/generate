@@ -12,7 +12,7 @@ description: "Variable-length argument lists, Optional Parameters, Passing Argum
 
 PHP 5.6 introduced variable-length argument lists (a.k.a. varargs, variadic arguments), using the `...` token before the argument name to indicate that the parameter is variadic, i.e. it is an array including all supplied parameters from that one onward.
 
-```
+```php
 function variadic_func($nonVariadic, ...$variadic) {
     echo json_encode($variadic);
 }
@@ -23,14 +23,14 @@ variadic_func(1, 2, 3, 4); // prints [2,3,4]
 
 Type names can be added in front of the `...`:
 
-```
+```php
 function foo(Bar ...$bars) {}
 
 ```
 
 The `&` reference operator can be added before the `...`, but after the type name (if any). Consider this example:
 
-```
+```php
 class Foo{}
 function a(Foo &...$foos){
     $i = 0;
@@ -48,7 +48,7 @@ var_dump($a, $b, $c);
 
 Output:
 
-```
+```php
 int(0)
 int(1)
 int(1)
@@ -57,14 +57,14 @@ int(1)
 
 On the other hand, an array (or `Traversable`) of arguments can be unpacked to be passed to a function in the form of an argument list:
 
-```
+```php
 var_dump(...hash_algos());
 
 ```
 
 Output:
 
-```
+```php
 string(3) "md2"
 string(3) "md4"
 string(3) "md5"
@@ -74,14 +74,14 @@ string(3) "md5"
 
 Compare with this snippet without using `...`:
 
-```
+```php
 var_dump(hash_algos());
 
 ```
 
 Output:
 
-```
+```php
 array(46) {
   [0]=>
   string(3) "md2"
@@ -94,7 +94,7 @@ array(46) {
 
 Therefore, redirect functions for variadic functions can now be easily made, for example:
 
-```
+```php
 public function formatQuery($query, ...$args){
     return sprintf($query, ...array_map([$mysqli, "real_escape_string"], $args));
 }
@@ -103,7 +103,7 @@ public function formatQuery($query, ...$args){
 
 Apart from arrays, `Traversable`s, such as `Iterator` (especially many of its subclasses from SPL) can also be used. For example:
 
-```
+```php
 $iterator = new LimitIterator(new ArrayIterator([0, 1, 2, 3, 4, 5, 6]), 2, 3);
 echo bin2hex(pack("c*", ...$it)); // Output: 020304
 
@@ -111,7 +111,7 @@ echo bin2hex(pack("c*", ...$it)); // Output: 020304
 
 If the iterator iterates infinitely, for example:
 
-```
+```php
 $iterator = new InfiniteIterator(new ArrayIterator([0, 1, 2, 3, 4]));
 var_dump(...$iterator);
 
@@ -138,7 +138,7 @@ Note: HHVM (v3.10 - v3.12) does not support unpacking `Traversable`s. A warning 
 
 Functions can have optional parameters, for example:
 
-```
+```php
 function hello($name, $style = 'Formal')
 {
     switch ($style) {
@@ -172,7 +172,7 @@ hello('Alice', 'Australian');
 
 Function arguments can be passed "By Reference", allowing the function to modify the variable used outside the function:
 
-```
+```php
 function pluralize(&$word)
 {
     if (substr($word, -1) == 'y') {
@@ -192,7 +192,7 @@ print $word;
 
 Object arguments are always passed by reference:
 
-```
+```php
 function addOneDay($date)
 {
     $date->modify('+1 day');
@@ -210,14 +210,14 @@ To avoid implicit passing an object by reference, you should `clone` the object.
 
 Passing by reference can also be used as an alternative way to return parameters. For example, the `socket_getpeername` function:
 
-```
+```php
 bool socket_getpeername ( resource $socket , string &$address [, int &$port ] )
 
 ```
 
 This method actually aims to return the address and port of the peer, but since there are two values to return, it chooses to use reference parameters instead. It can be called like this:
 
-```
+```php
 if(!socket_getpeername($socket, $address, $port)) {
     throw new RuntimeException(socket_last_error());
 }
@@ -239,7 +239,7 @@ The variables `$address` and `$port` do not need to be defined before. They will
 
 A basic function is defined and executed like this:
 
-```
+```php
 function hello($name)
 {
     print "Hello $name";
@@ -256,7 +256,7 @@ hello("Alice");
 
 Variables inside functions is inside a local scope like this
 
-```
+```php
 $number = 5
 function foo(){
     $number = 10

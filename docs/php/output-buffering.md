@@ -13,7 +13,7 @@ description: "Basic usage getting content between buffers and clearing, Nested o
 
 Output buffering allows you to store any textual content (Text, `HTML`) in a variable and send to the browser as one piece at the end of your script. By default, `php` sends your content as it interprets it.
 
-```
+```php
 <?php
 
 // Turn on output buffering
@@ -50,7 +50,7 @@ Calling `ob_get_clean()` triggers both `ob_get_contents()` and `ob_end_clean()`.
 
 You can nest output buffers and fetch the level for them to provide different content using the `ob_get_level()` function.
 
-```
+```php
 <?php
 
 $i = 1;
@@ -85,7 +85,7 @@ while( $i > 2 ) {
 
 **Outputs:**
 
-```
+```php
 Current nest level: 1
 Current nest level: 2
 Current nest level: 3
@@ -105,7 +105,7 @@ Current nest level: 1
 ## Running output buffer before any content
 
 
-```
+```php
 ob_start();
 
 $user_count = 0;
@@ -155,7 +155,7 @@ We are using the output buffer here because we are triggering a `header()` redir
 
 You can apply any kind of additional processing to the output by passing a callable to `ob_start()`.
 
-```
+```php
 <?php
 function clearAllWhiteSpace($buffer) {
     return str_replace(array("\n", "\t", ' '), '', $buffer);
@@ -183,7 +183,7 @@ ob_start('clearAllWhiteSpace');
 
 Output:
 
-```
+```php
 <h1>LoremIpsum</h1><p><strong>Pellentesquehabitantmorbitristique</strong>senectusetnetusetmalesuadafamesacturpisegestas.<ahref="#">Donecnonenim</a>inturpispulvinarfacilisis.</p><h2>HeaderLevel2</h2><ol><li>Loremipsumdolorsitamet,consectetueradipiscingelit.</li><li>Aliquamtinciduntmauriseurisus.</li></ol>
 
 ```
@@ -193,7 +193,7 @@ Output:
 ## Using Output buffer to store contents in a file, useful for reports, invoices etc
 
 
-```
+```php
 <?php
 ob_start();
 ?>
@@ -223,7 +223,7 @@ This example takes the complete document, and writes it to file, it does not out
 ## Stream output to client
 
 
-```
+```php
 /**
  * Enables output buffer streaming. Calling this function
  * immediately flushes the buffer to the client, and any
@@ -245,7 +245,7 @@ In this example, we have an array containing some data.
 
 We capture the output buffer in `$items_li_html` and use it twice in the page.
 
-```
+```php
 <?php
 
 // Start capturing the output
@@ -282,7 +282,7 @@ Save the above code in a file `output_buffer.php` and run it via `php output_buf
 
 You should see the 2 list items we created above with the same list items we generated in PHP using the output buffer:
 
-```
+```php
 <!-- Menu 1: We can now re-use that (multiple times if required) in our HTML. -->
 <ul class="header-nav">
   <li>Home</li>
@@ -308,7 +308,7 @@ You should see the 2 list items we created above with the same list items we gen
 
 `ob_start` is especially handy when you have redirections on your page. For example, the following code won't work:
 
-```
+```php
 Hello!
 <?php
   header("Location: somepage.php");
@@ -320,7 +320,7 @@ The error that will be given is something like: `headers already sent by <xxx> o
 
 In order to fix this problem, you would write something like this at the start of your page:
 
-```
+```php
 <?php
   ob_start();
 ?>
@@ -329,7 +329,7 @@ In order to fix this problem, you would write something like this at the start o
 
 And something like this at the end of your page:
 
-```
+```php
 <?php
   ob_end_flush();
 ?>

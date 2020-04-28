@@ -17,44 +17,74 @@ To build a dynamic and interactive PHP program, it is useful to output variables
 
 <li>
 Assign the string `Joel` to the variable `$name`
-<pre><code>$name = "Joel";
-</code></pre>
+
+```php
+$name = "Joel";
+
+```
+
+
 </li>
 <li>
 Output the value of $name using `echo` & `print`
-<pre><code>echo $name;   #> Joel
+
+```php
+echo $name;   #> Joel
 print $name;  #> Joel
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Parentheses are not required, but can be used
-<pre><code>echo($name);  #> Joel
+
+```php
+echo($name);  #> Joel
 print($name); #> Joel
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Using multiple parameters (only `echo`)
-<pre><code>echo $name, "Smith";       #> JoelSmith
+
+```php
+echo $name, "Smith";       #> JoelSmith
 echo($name, " ", "Smith"); #> Joel Smith
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 `print`, unlike `echo`, is an expression (it returns `1`),  and thus can be used in more places:
-<pre><code>print("hey") && print(" ") && print("you"); #> you11
-</code></pre>
+
+```php
+print("hey") && print(" ") && print("you"); #> you11
+
+```
+
+
 </li>
 <li>
 The above is equivalent to:
-<pre><code>print ("hey" && (print (" " && print "you"))); #> you11
-</code></pre>
+
+```php
+print ("hey" && (print (" " && print "you"))); #> you11
+
+```
+
+
 </li>
 
 ### Shorthand notation for `echo`
 
 When [outside of PHP tags](http://php.net/manual/en/language.basic-syntax.phpmode.php), a shorthand notation for `echo` is available by default, using `<?=` to begin output and `?>` to end it. For example:
 
-```
+```php
 <p><?=$variable?></p>    
 <p><?= "This is also PHP" ?></p>
 
@@ -67,14 +97,14 @@ Note that there is no terminating `;`. This works because the closing PHP tag ac
 Although the `print` is language construction it has priority like operator. It places between `=` `+=` `-=` `*=` `**=` `/=` `.=` `%=` `&=` and `and` operators and has left association.
 Example:
 
-```
+```php
 echo '1' . print '2' + 3; //output 511
 
 ```
 
 Same example with brackets:
 
-```
+```php
 echo '1' . print ('2' + 3); //output 511
 
 ```
@@ -102,7 +132,7 @@ You may have a variable that is an array or object. Trying to output it with an 
 You can pass **true** as the second parameter to return the content as a string.
 
 
-```
+```php
 $myobject = new stdClass();
 $myobject->myvalue = 'Hello World';
 $myarray = [ "Hello", "World" ];
@@ -119,7 +149,7 @@ print_r($myint);
 
 This outputs the following:
 
-```
+```php
 stdClass Object
 (
     [myvalue] => Hello World
@@ -136,14 +166,14 @@ Hello World
 
 Further, the output from `print_r` can be captured as a string, rather than simply echoed. For instance, the following code will dump the formatted version of `$myarray` into a new variable:
 
-```
+```php
 $formatted_array = print_r($myarray, true);
 
 ```
 
 Note that if you are viewing the output of PHP in a browser, and it is interpreted as HTML, then the line breaks will not be shown and the output will be much less legible unless you do something like
 
-```
+```php
 echo '<pre>' . print_r($myarray, true) . '</pre>';
 
 ```
@@ -154,7 +184,7 @@ Opening the source code of a page will also format your variable in the same way
 
 Alternatively you can tell the browser that what you're outputting is plain text, and not HTML:
 
-```
+```php
 header('Content-Type: text/plain; charset=utf-8');
 print_r($myarray);
 
@@ -166,14 +196,14 @@ The output is more detailed as [compared](http://stackoverflow.com/questions/340
 
 You can use [`var_dump`](http://php.net/manual/en/function.var-dump.php) to output a more detailed version for debugging.
 
-```
+```php
 var_dump($myobject, $myarray, $mystring, $myint);
 
 ```
 
 Output is more detailed:
 
-```
+```php
 object(stdClass)#12 (1) {
   ["myvalue"]=>
   string(11) "Hello World"
@@ -199,7 +229,7 @@ int(42)
 You can pass **true** as the second parameter to return the contents into a variable.
 
 
-```
+```php
 var_export($myarray);
 var_export($mystring);
 var_export($myint);
@@ -208,7 +238,7 @@ var_export($myint);
 
 Output is valid PHP code:
 
-```
+```php
 array (
   0 => 'Hello',
   1 => 'World',
@@ -220,7 +250,7 @@ array (
 
 To put the content into a variable, you can do this:
 
-```
+```php
 $array_export = var_export($myarray, true);
 $string_export = var_export($mystring, true);
 $int_export = var_export($myint, 1); // any `Truthy` value
@@ -229,7 +259,7 @@ $int_export = var_export($myint, 1); // any `Truthy` value
 
 After that, you can output it like this:
 
-```
+```php
 printf('$myarray = %s; %s', $array_export, PHP_EOL);
 printf('$mystring = %s; %s', $string_export, PHP_EOL);
 printf('$myint = %s; %s', $int_export, PHP_EOL);
@@ -238,7 +268,7 @@ printf('$myint = %s; %s', $int_export, PHP_EOL);
 
 This will produce the following output:
 
-```
+```php
 $myarray = array (
   0 => 'Hello',
   1 => 'World',
@@ -257,7 +287,7 @@ You can use [concatenation to join strings](https://secure.php.net/manual/en/lan
 
 You can concatenate variables using a `.` (period/dot).
 
-```
+```php
 // String variable
 $name = 'Joel';
 
@@ -272,7 +302,7 @@ echo '<p>Hello ' . $name . ', Nice to see you.</p>';
 
 Similar to concatenation, `echo` (when used without parentheses) can be used to combine strings and variables together (along with other arbitrary expressions) using a comma (,).
 
-```
+```php
 $itemCount = 1;
 
 echo 'You have ordered ', $itemCount, ' item', $itemCount === 1 ? '' : 's';
@@ -286,14 +316,14 @@ echo 'You have ordered ', $itemCount, ' item', $itemCount === 1 ? '' : 's';
 
 Passing multiple arguments to the echo command is more advantageous than string concatenation in some circumstances. The arguments are written to the output in the same order as they are passed in.
 
-```
+```php
 echo "The total is: ", $x + $y;
 
 ```
 
 The problem with the concatenation is that the period `.` takes precedence in the expression. If concatenated, the above expression needs extra parentheses for the correct behavior. The precedence of the period affects ternary operators too.
 
-```
+```php
 echo "The total is: " . ($x + $y);
 
 ```
@@ -307,7 +337,7 @@ echo "The total is: " . ($x + $y);
 
 [`sprintf`](http://php.net/manual/en/function.sprintf.php) will **return** the formatted string
 
-```
+```php
 $name = 'Jeff';
 
 // The `%s` tells PHP to expect a string
@@ -324,7 +354,7 @@ echo $greeting;
 
 It is also possible to format a number with these 2 functions. This can be used to format a decimal value used to represent money so that it always has 2 decimal digits.
 
-```
+```php
 $money = 25.2;
 printf('%01.2f', $money);
 #> 25.20
@@ -340,7 +370,7 @@ The two functions [`vprintf`](http://php.net/manual/en/function.vprintf.php) and
 
 On 32-bits systems, integers larger than `PHP_INT_MAX` are automatically converted to float. Outputting these as integer values (i.e. non-scientific notation) can be done with `printf`, using the `float` representation, as illustrated below:
 
-```
+```php
 foreach ([1, 2, 3, 4, 5, 6, 9, 12] as $p) {
     $i = pow(1024, $p);
     printf("pow(1024, %d) > (%7s) %20s %38.0F", $p, gettype($i), $i, $i);
@@ -364,7 +394,7 @@ Note: watch out for float precision, which is not infinite!
 
 While this looks nice, in this contrived example the numbers can all be represented as a binary number since they are all powers of 1024 (and thus 2). See for example:
 
-```
+```php
 $n = pow(10, 27);
 printf("%s %.0F\n", $n, $n);
 // 1.0E+27 1000000000000000013287555072
@@ -376,7 +406,7 @@ printf("%s %.0F\n", $n, $n);
 ## Output a Multidimensional Array with index and value and print into the table
 
 
-```
+```php
 Array 
 ( 
     [0] => Array 
@@ -415,7 +445,7 @@ Array
 
 Output Multidimensional Array with index and value in table
 
-```
+```php
 <table>
 <?php 
 foreach ($products as $key => $value) {

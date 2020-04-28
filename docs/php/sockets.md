@@ -12,14 +12,14 @@ description: "TCP client socket, TCP server socket, UDP server socket, Handling 
 
 ### Creating a socket that uses the TCP (Transmission Control Protocol)
 
-```
+```php
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
 ```
 
 Make sure the socket is successfully created. The `onSocketFailure` function comes from [Handling socket errors](http://stackoverflow.com/documentation/php/6138/sockets/23034/handling-socket-errors) example in this topic.
 
-```
+```php
 if(!is_resource($socket)) onSocketFailure("Failed to create socket");
 
 ```
@@ -28,7 +28,7 @@ if(!is_resource($socket)) onSocketFailure("Failed to create socket");
 
 The second line fails gracefully if connection failed.
 
-```
+```php
 socket_connect($socket, "chat.stackoverflow.com", 6667)
         or onSocketFailure("Failed to connect to chat.stackoverflow.com:6667", $socket);
 
@@ -38,7 +38,7 @@ socket_connect($socket, "chat.stackoverflow.com", 6667)
 
 The `socket_write` function sends bytes through a socket. In PHP, a byte array is represented by a string, which is normally encoding-insensitive.
 
-```
+```php
 socket_write($socket, "NICK Alice\r\nUSER alice 0 * :Alice\r\n");
 
 ```
@@ -55,7 +55,7 @@ If `socket_set_nonblock` was called in prior, and `PHP_BINARY_READ` is used, `so
 
 This example reads data from a supposedly IRC server.
 
-```
+```php
 while(true) {
     // read a line from the socket
     $line = socket_read($socket, 1024, PHP_NORMAL_READ);
@@ -76,7 +76,7 @@ while(true) {
 
 Closing the socket frees the socket and its associated resources.
 
-```
+```php
 socket_close($socket);
 
 ```
@@ -90,7 +90,7 @@ socket_close($socket);
 
 Create a socket that uses the TCP. It is the same as creating a client socket.
 
-```
+```php
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
 ```
@@ -103,7 +103,7 @@ The second parameter is usually `"0.0.0.0"`, which accepts connection from all n
 
 One common cause of errors from `socket_bind` is that [the address specified is already bound to another process](https://www.google.com.hk/search?q=site%3Astackexchange.com%20OR%20site%3Astackoverflow.com%20kill%20processes%20bound%20to%20address). Other processes are usually killed (usually manually to prevent accidentally killing critical processes) so that the sockets would be freed.
 
-```
+```php
 socket_bind($socket, "0.0.0.0", 6667) or onSocketFailure("Failed to bind to 0.0.0.0:6667");
 
 ```
@@ -112,7 +112,7 @@ socket_bind($socket, "0.0.0.0", 6667) or onSocketFailure("Failed to bind to 0.0.
 
 Make the socket listen to incoming connections using `socket_listen`. The second parameter is the maximum number of connections to allow queuing before they are accepted.
 
-```
+```php
 socket_listen($socket, 5);
 
 ```
@@ -121,7 +121,7 @@ socket_listen($socket, 5);
 
 A TCP server is actually a server that handles child connections. `socket_accept` creates a new child connection.
 
-```
+```php
 $conn = socket_accept($socket);
 
 ```
@@ -143,7 +143,7 @@ A UDP (user datagram protocol) server, unlike TCP, is not stream-based. It is pa
 
 ### Creating a UDP server socket
 
-```
+```php
 $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 
 ```
@@ -152,7 +152,7 @@ $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 
 The parameters are same as that for a TCP server.
 
-```
+```php
 socket_bind($socket, "0.0.0.0", 9000) or onSocketFailure("Failed to bind to 0.0.0.0:9000", $socket);
 
 ```
@@ -161,7 +161,7 @@ socket_bind($socket, "0.0.0.0", 9000) or onSocketFailure("Failed to bind to 0.0.
 
 This line sends `$data` in a UDP packet to `$address`:`$port`.
 
-```
+```php
 socket_sendto($socket, $data, strlen($data), 0, $address, $port);
 
 ```
@@ -170,7 +170,7 @@ socket_sendto($socket, $data, strlen($data), 0, $address, $port);
 
 The following snippet attempts to manage UDP packets in a client-indexed manner.
 
-```
+```php
 $clients = [];
 while (true){
     socket_recvfrom($socket, $buffer, 32768, 0, $ip, $port) === true
@@ -195,7 +195,7 @@ while (true){
 
 `socket_strerror` can be used to convert the ID to human-readable strings.
 
-```
+```php
 function onSocketFailure(string $message, $socket = null) {
     if(is_resource($socket)) {
         $message .= ": " . socket_strerror(socket_last_error($socket));

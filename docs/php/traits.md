@@ -12,7 +12,7 @@ description: "Traits to facilitate horizontal code reuse, What is a Trait?, Conf
 
 Let's say we have an interface for logging:
 
-```
+```php
 interface Logger {
     function log($message);
 }
@@ -21,7 +21,7 @@ interface Logger {
 
 Now say we have two concrete implementations of the `Logger` interface: the `FileLogger` and the `ConsoleLogger`.
 
-```
+```php
 class FileLogger implements Logger {
     public function log($message) {
         // Append log message to some file
@@ -38,7 +38,7 @@ class ConsoleLogger implements Logger {
 
 Now if you define some other class `Foo` which you also want to be able to perform logging tasks, you could do something like this:
 
-```
+```php
 class Foo implements Logger {
     private $logger;
 
@@ -59,7 +59,7 @@ class Foo implements Logger {
 
 Instead of duplicating the code, a trait can be defined:
 
-```
+```php
 trait LoggableTrait {
     protected $logger;
 
@@ -78,7 +78,7 @@ trait LoggableTrait {
 
 Now that we have defined the logic in a trait, we can use the trait to add the logic to the `Foo` and `Bar` classes:
 
-```
+```php
 class Foo {
     use LoggableTrait;
 }
@@ -91,7 +91,7 @@ class Bar {
 
 And, for example, we can use the `Foo` class like this:
 
-```
+```php
 $foo = new Foo();
 $foo->setLogger( new FileLogger() );
 
@@ -107,7 +107,7 @@ $foo->log('my beautiful message');
 
 PHP only allows single inheritance. In other words, a class can only `extend` one other class. But what if you need to include something that doesn't belong in the parent class? Prior to PHP 5.4 you would have to get creative, but in 5.4 Traits were introduced. Traits allow you to basically "copy and paste" a portion of a class into your main class
 
-```
+```php
 trait Talk {
     /** @var string */
     public $phrase = 'Well Wilbur...';
@@ -156,7 +156,7 @@ Trying to use several traits into one class could result in issues involving con
 
 For example, let's create this hierarchy:
 
-```
+```php
 trait MeowTrait {
     public function say() {
         print "Meow \n";
@@ -185,7 +185,7 @@ class Cat extends UnMuteAnimals {
 
 Now, let's try to create the following class:
 
-```
+```php
 class TalkingParrot extends UnMuteAnimals {
     use MeowTrait, WoofTrait;
 }
@@ -204,7 +204,7 @@ To resolve this conflict, we could do this:
 - use keyword `insteadof` to use the method from one trait instead of method from another trait
 - create an alias for the method with a construct like  `WoofTrait::say as sayAsDog;`
 
-```
+```php
 class TalkingParrotV2 extends UnMuteAnimals {
     use MeowTrait, WoofTrait {
         MeowTrait::say insteadof WoofTrait;
@@ -234,7 +234,7 @@ Woof</p>
 
 In PHP there is quite a standard way of implementing a singleton:
 
-```
+```php
 public class Singleton {
     private $instance;
 
@@ -263,7 +263,7 @@ public class Singleton {
 
 To prevent code duplication, it is a good idea to extract this behaviour into a trait.
 
-```
+```php
 trait SingletonTrait {
     private $instance;
 
@@ -287,7 +287,7 @@ trait SingletonTrait {
 
 Now any class that wants to function as a singleton can simply use the trait:
 
-```
+```php
 class MyClass {
     use SingletonTrait;
 }
@@ -311,7 +311,7 @@ Even though it is now impossible to serialize a singleton, it is still useful to
 ## Multiple Traits Usage
 
 
-```
+```php
 trait Hello {
     public function sayHello() {
         echo 'Hello ';
@@ -340,7 +340,7 @@ $o->sayExclamationMark();
 
 The above example will output:
 
-```
+```php
 Hello World!
 
 ```
@@ -350,7 +350,7 @@ Hello World!
 ## Changing Method Visibility
 
 
-```
+```php
 trait HelloWorld {
     public function sayHello() {
         echo 'Hello World!';
@@ -372,7 +372,7 @@ class MyClass2 {
 
 Running this example:
 
-```
+```php
 (new MyClass1())->sayHello();
 // Fatal error: Uncaught Error: Call to protected method MyClass1::sayHello()
 
@@ -395,7 +395,7 @@ Over time, our classes may implement more and more interfaces. When these interf
 
 For example, let's suppose that we have two interfaces and a class implementing them:
 
-```
+```php
 interface Printable {
     public function print();   
     //other interface methods...
@@ -418,7 +418,7 @@ Instead of implementing all the interface methods inside the `Article` class, we
 
 From example, to implement the `Printable` interface we could create this trait:
 
-```
+```php
 trait PrintableArticle {
     //implements here the interface methods
     public function print() {
@@ -430,7 +430,7 @@ trait PrintableArticle {
 
 and make the class use the trait:
 
-```
+```php
 class Article implements Cachable, Printable {
     use PrintableArticle;
     use CacheableArticle; 

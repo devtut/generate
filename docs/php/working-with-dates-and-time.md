@@ -14,7 +14,7 @@ The most feasible way is to use, the `DateTime` class.
 
 An example:
 
-```
+```php
 <?php
 // Create a date time object, which has the value of ~ two years ago
 $twoYearsAgo = new DateTime("2014-01-18 20:05:56");
@@ -47,7 +47,7 @@ var_dump($diff);
 
 Also, comparing two dates is much easier, just use the [Comparison operators](http://stackoverflow.com/documentation/php/1687/operators/6231/comparison-operators) , like:
 
-```
+```php
 <?php
 // Create a date time object, which has the value of ~ two years ago
 $twoYearsAgo = new DateTime("2014-01-18 20:05:56");
@@ -69,7 +69,7 @@ var_dump($now == $now); // prints bool(true)
 
 The simplist way to convert one date format into another is to use [`strtotime()`](http://docs.php.net/manual/en/function.strtotime.php) with [`date()`](http://docs.php.net/manual/en/function.date.php). `strtotime()` will convert the date into a [Unix Timestamp](http://en.wikipedia.org/wiki/Unix_time). That Unix Timestamp can then be passed to `date()` to convert it to the new format.
 
-```
+```php
 $timestamp = strtotime('2008-07-01T22:35:17.02');
 $new_date_format = date('Y-m-d H:i:s', $timestamp);
 
@@ -77,7 +77,7 @@ $new_date_format = date('Y-m-d H:i:s', $timestamp);
 
 Or as a one-liner:
 
-```
+```php
 $new_date_format = date('Y-m-d H:i:s', strtotime('2008-07-01T22:35:17.02'));
 
 ```
@@ -88,7 +88,7 @@ Keep in mind that `strtotime()` requires the date to be in a [valid format](http
 
 As of PHP 5.2, PHP offered the [`DateTime()`](http://docs.php.net/manual/en/class.datetime.php) class which offers us more powerful tools for working with dates (and time). We can rewrite the above code using `DateTime()` as so:
 
-```
+```php
 $date = new DateTime('2008-07-01T22:35:17.02');
 $new_date_format = $date->format('Y-m-d H:i:s');
 
@@ -98,14 +98,14 @@ $new_date_format = $date->format('Y-m-d H:i:s');
 
 `date()` takes a Unix timestamp as its second parameter and returns a formatted date for you:
 
-```
+```php
 $new_date_format = date('Y-m-d H:i:s', '1234567890');
 
 ```
 
 DateTime() works with Unix timestamps by adding an `@` before the timestamp:
 
-```
+```php
 $date = new DateTime('@1234567890');
 $new_date_format = $date->format('Y-m-d H:i:s');
 
@@ -117,30 +117,31 @@ If the timestamp you have is in milliseconds (it may end in `000` and/or the tim
 
 Trimming the last three digits can be acheived several ways, but using `substr()` is the easiest:
 
-```
+```php
 $timestamp = substr('1234567899000', -3);
 
 ```
+
 
 - Divide the substr by 1000
 
 You can also convert the timestamp into seconds by dividing by 1000. Because the timestamp is too large for 32 bit systems to do math on you will need to use the [BCMath](http://php.net/manual/en/book.bc.php) library to do the math as strings:
 
-```
+```php
 $timestamp = bcdiv('1234567899000', '1000');
 
 ```
 
 To get a Unix Timestamp you can use `strtotime()` which returns a Unix Timestamp:
 
-```
+```php
 $timestamp = strtotime('1973-04-18');
 
 ```
 
 With DateTime() you can use [`DateTime::getTimestamp()`](http://php.net/manual/en/datetime.gettimestamp.php)
 
-```
+```php
 $date = new DateTime('2008-07-01T22:35:17.02');
 $timestamp = $date->getTimestamp();
 
@@ -148,7 +149,7 @@ $timestamp = $date->getTimestamp();
 
 If you're running PHP 5.2 you can use the `U` formatting option instead:
 
-```
+```php
 $date = new DateTime('2008-07-01T22:35:17.02');
 $timestamp = $date->format('U');
 
@@ -158,7 +159,7 @@ $timestamp = $date->format('U');
 
 Unfortunately not all dates that a developer has to work with are in a standard format. Fortunately PHP 5.3 provided us with a solution for that. [`DateTime::createFromFormat()`](http://docs.php.net/manual/en/datetime.createfromformat.php) allows us to tell PHP what format a date string is in so it can be successfully parsed into a DateTime object for further manipulation.
 
-```
+```php
 $date = DateTime::createFromFormat('F-d-Y h:i A', 'April-18-1973 9:48 AM');
 $new_date_format = $date->format('Y-m-d H:i:s');
 
@@ -166,7 +167,7 @@ $new_date_format = $date->format('Y-m-d H:i:s');
 
 In PHP 5.4 we gained the ability to do class member access on instantiation has been added which allows us to turn our `DateTime()` code into a one-liner:
 
-```
+```php
 $new_date_format = (new DateTime('2008-07-01T22:35:17.02'))->format('Y-m-d H:i:s');
 
 ```
@@ -180,7 +181,7 @@ Unfortunately this does not work with `DateTime::createFromFormat()` yet.
 
 Using the [`strtotime()`](https://secure.php.net/manual/en/function.strtotime.php) function combined with [`date()`](https://secure.php.net/manual/en/function.date.php) you can parse different English text descriptions to dates:
 
-```
+```php
 // Gets the current date
 echo date("m/d/Y", strtotime("now")), "\n"; // prints the current date
 echo date("m/d/Y", strtotime("10 September 2000")), "\n"; // prints September 10, 2000 in the m/d/Y format
@@ -229,7 +230,7 @@ We can use Predefined Constants for Date format in `date()` instead of the conve
 
 **Usage Examples**
 
-```
+```php
 echo date(DATE_RFC822);
 
 ```
@@ -238,7 +239,7 @@ echo date(DATE_RFC822);
 This will output: **Fri, 22 Jul 16 14:50:01 +0000**
 
 
-```
+```php
 echo date(DATE_ATOM,mktime(0,0,0,8,15,1947));
 
 ```

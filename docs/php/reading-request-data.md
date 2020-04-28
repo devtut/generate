@@ -14,7 +14,7 @@ Usually data sent in a POST request is structured key/value pairs with a MIME ty
 
 **`php://input`** is a stream that provides access to the raw request body.
 
-```
+```php
 $rawdata = file_get_contents("php://input");
 // Let's say we got JSON
 $decoded = json_decode($rawdata);
@@ -23,7 +23,7 @@ $decoded = json_decode($rawdata);
 
 **`$HTTP_RAW_POST_DATA`** is a global variable that contains the raw POST data. It is only available if the `always_populate_raw_post_data` directive in `php.ini` is enabled.
 
-```
+```php
 $rawdata = $HTTP_RAW_POST_DATA;
 // Or maybe we get XML
 $decoded = simplexml_load_string($rawdata);
@@ -45,7 +45,7 @@ Note that accessing a non-existent array item generates a notice, so existence s
 
 Example:
 
-```
+```php
 $from = isset($_POST["name"]) ? $_POST["name"] : "NO NAME";
 $message = isset($_POST["message"]) ? $_POST["message"] : "NO MESSAGE";
 
@@ -53,7 +53,7 @@ echo "Message from $from: $message";
 
 ```
 
-```
+```php
 $from = $_POST["name"] ?? "NO NAME";
 $message = $_POST["message"] ?? "NO MESSAGE";
 
@@ -72,7 +72,7 @@ Note that accessing a non-existent array item generates a notice, so existence s
 
 Example: (for URL `/topics.php?author=alice&topic=php`)
 
-```
+```php
 $author = isset($_GET["author"]) ? $_GET["author"] : "NO AUTHOR";
 $topic = isset($_GET["topic"]) ? $_GET["topic"] : "NO TOPIC";
 
@@ -80,7 +80,7 @@ echo "Showing posts from $author about $topic";
 
 ```
 
-```
+```php
 $author = $_GET["author"] ?? "NO AUTHOR";
 $topic = $_GET["topic"] ?? "NO TOPIC";
 
@@ -105,7 +105,7 @@ The `$_FILES["FILE_NAME"]['error']` (where `"FILE_NAME"` is the value of the nam
 
 An basic way to check for the errors, is as follows:
 
-```
+```php
 <?php
 $fileError = $_FILES["FILE_NAME"]["error"]; // where FILE_NAME is the name attribute of the file input in your form
 switch($fileError) {
@@ -138,14 +138,14 @@ switch($fileError) {
 
 [PHP provides support](http://php.net/manual/en/features.file-upload.put-method.php) for the HTTP PUT method used by some clients to store files on a server. PUT requests are much simpler than a file upload using POST requests and they look something like this:
 
-```
+```php
 PUT /path/filename.html HTTP/1.1
 
 ```
 
 Into your PHP code you would then do something like this:
 
-```
+```php
 <?php
 /* PUT data comes in on the stdin stream */
 $putdata = fopen("php://input", "r");
@@ -174,7 +174,7 @@ Also [here](http://stackoverflow.com/questions/12005790/how-to-receive-a-file-vi
 
 Usually, an HTML form element submitted to PHP results in a single value. For example:
 
-```
+```php
 <pre>
 <?php print_r($_POST);?>
 </pre>
@@ -187,7 +187,7 @@ Usually, an HTML form element submitted to PHP results in a single value. For ex
 
 This results in the following output:
 
-```
+```php
 Array
 (
     [foo] => bar
@@ -197,7 +197,7 @@ Array
 
 However, there may be cases where you want to pass an array of values. This can be done by adding a PHP-like suffix to the name of the HTML elements:
 
-```
+```php
 <pre>
 <?php print_r($_POST);?>
 </pre>
@@ -211,7 +211,7 @@ However, there may be cases where you want to pass an array of values. This can 
 
 This results in the following output:
 
-```
+```php
 Array
 (
     [foo] => Array
@@ -226,7 +226,7 @@ Array
 
 You can also specify the array indices, as either numbers or strings:
 
-```
+```php
 <pre>
 <?php print_r($_POST);?>
 </pre>
@@ -240,7 +240,7 @@ You can also specify the array indices, as either numbers or strings:
 
 Which returns this output:
 
-```
+```php
 Array
 (
     [foo] => Array

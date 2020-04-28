@@ -14,7 +14,7 @@ description: "Splitting a string by separators, Searching a substring with strpo
 
 A string containing several parts of text that are separated by a common character can be split into parts with the [`explode`](http://php.net/explode) function.
 
-```
+```php
 $fruits = "apple,pear,grapefruit,cherry";
 print_r(explode(",",$fruits)); // ['apple', 'pear', 'grapefruit', 'cherry']
 
@@ -22,35 +22,35 @@ print_r(explode(",",$fruits)); // ['apple', 'pear', 'grapefruit', 'cherry']
 
 The method also supports a limit parameter that can be used as follow:
 
-```
+```php
 $fruits= 'apple,pear,grapefruit,cherry';
 
 ```
 
 If the limit parameter is zero, then this is treated as 1.
 
-```
+```php
 print_r(explode(',',$fruits,0)); // ['apple,pear,grapefruit,cherry']
 
 ```
 
 If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
 
-```
+```php
 print_r(explode(',',$fruits,2)); // ['apple', 'pear,grapefruit,cherry']
 
 ```
 
 If the limit parameter is negative, all components except the last -limit are returned.
 
-```
+```php
 print_r(explode(',',$fruits,-1)); // ['apple', 'pear', 'grapefruit']
 
 ```
 
 `explode` can be combined with [`list`](http://php.net/list) to parse a string into variables in one line:
 
-```
+```php
 $email = "user@example.com";
 list($name, $domain) = explode("@", $email);
 
@@ -60,7 +60,7 @@ However, make sure that the result of `explode` contains enough elements, or an 
 
 `strstr` strips away or only returns the substring before the first occurrence of the given needle.
 
-```
+```php
 $string = "1:23:456";
 echo json_encode(explode(":", $string)); // ["1","23","456"]
 var_dump(strstr($string, ":")); // string(7) ":23:456"
@@ -76,7 +76,7 @@ var_dump(strstr($string, ":", true)); // string(1) "1"
 
 `strpos` can be understood as the number of bytes in the haystack before the first occurrence of the needle.
 
-```
+```php
 var_dump(strpos("haystack", "hay")); // int(0)
 var_dump(strpos("haystack", "stack")); // int(3)
 var_dump(strpos("haystack", "stackoverflow"); // bool(false)
@@ -87,7 +87,7 @@ var_dump(strpos("haystack", "stackoverflow"); // bool(false)
 
 Be careful with checking against TRUE or FALSE because if a index of 0 is returned an if statement will see this as FALSE.
 
-```
+```php
 $pos = strpos("abcd", "a"); // $pos = 0;
 $pos2 = strpos("abcd", "e"); // $pos2 = FALSE;
 
@@ -119,7 +119,7 @@ else {
 
 Output of the whole example:
 
-```
+```php
 1. I did not found your string 
 2. I found your string 
 3. I did not found your string 
@@ -128,7 +128,7 @@ Output of the whole example:
 
 ### Search starting from an offset
 
-```
+```php
 // With offset we can search ignoring anything before the offset
 $needle = "Hello";
 $haystack = "Hello world! Hello World";
@@ -139,7 +139,7 @@ $pos = strpos($haystack, $needle, 1); // $pos = 13, not 0
 
 ### Get all occurrences of a substring
 
-```
+```php
 $haystack = "a baby, a cat, a donkey, a fish";
 $needle = "a ";
 $offsets = [];
@@ -171,14 +171,14 @@ echo json_encode($offsets); // [0,8,15,25]
 
 Substring returns the portion of string specified by the start and length parameters.
 
-```
+```php
 var_dump(substr("Boo", 1)); // string(2) "oo"
 
 ```
 
 If there is a possibility of meeting multi-byte character strings, then it would be safer to use mb_substr.
 
-```
+```php
 $cake = "cakeæøå";
 var_dump(substr($cake, 0, 5)); // string(5) "cake�"
 var_dump(mb_substr($cake, 0, 5, 'UTF-8')); // string(6) "cakeæ"
@@ -187,7 +187,7 @@ var_dump(mb_substr($cake, 0, 5, 'UTF-8')); // string(6) "cakeæ"
 
 Another variant is the substr_replace function, which replaces text within a portion of a string.
 
-```
+```php
 var_dump(substr_replace("Boo", "0", 1, 1)); // string(3) "B0o"
 var_dump(substr_Replace("Boo", "ts", strlen("Boo"))); // string(5) "Boots"
 
@@ -195,7 +195,7 @@ var_dump(substr_Replace("Boo", "ts", strlen("Boo"))); // string(5) "Boots"
 
 Let's say you want to find a specific word in a string - and don't want to use Regex.
 
-```
+```php
 $hi = "Hello World!";
 $bye = "Goodbye cruel World!";
 
@@ -213,7 +213,7 @@ var_dump(strtolower(substr($hi, 0, strpos($hi, " "))) == 'hello'); // bool(true)
 
 Another option is a very basic parsing of an email.
 
-```
+```php
 $email = "test@example.com";
 $wrong = "foobar.co.uk";
 $notld = "foo@bar";
@@ -255,7 +255,7 @@ if ($nld == "co.uk") var_dump("$notld is a UK address");
 
 Or even putting the "Continue reading" or "..." at the end of a blurb
 
-```
+```php
 $blurb = "Lorem ipsum dolor sit amet";
 $limit = 20;
 
@@ -270,7 +270,7 @@ var_dump(substr($blurb, 0, $limit - 3) . '...'); // string(20) "Lorem ipsum dolo
 
 preg_match can be used to parse string using regular expression. The parts of expression enclosed in parenthesis are called subpatterns and with them you can pick individual parts of the string.
 
-```
+```php
 $str = "<a href=\"http://example.org\">My Link</a>";
 $pattern = "/<a href=\"(.*)\">(.*)<\/a>/";
 $result = preg_match($pattern, $str, $matches);
@@ -287,7 +287,7 @@ if($result === 1) {
 
 Output
 
-```
+```php
 Array
 (
     [0] => <a href="http://example.org">My Link</a>

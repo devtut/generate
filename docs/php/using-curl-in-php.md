@@ -13,7 +13,7 @@ description: "POST Requests, Basic Usage (GET Requests), Using Cookies, Using mu
 
 If you want to mimic HTML form POST action, you can use cURL.
 
-```
+```php
 // POST data in array
 $post = [
     'a' => 'apple',
@@ -44,7 +44,7 @@ curl_close($ch);
 
 cURL is a tool for transferring data with URL syntax. It support HTTP, FTP, SCP and many others(curl >= 7.19.4). **Remember, you need to [install and enable the cURL extension](http://php.net/manual/en/curl.installation.php) to use it.**
 
-```
+```php
 // a little script check is the cURL extension loaded or not
 if(!extension_loaded("curl")) {
     die("cURL extension not loaded! Quit Now.");
@@ -74,21 +74,21 @@ curl_close($curl);
 
 cURL can keep cookies received in responses for use with subsequent requests. For simple session cookie handling in memory, this is achieved with a single line of code:
 
-```
+```php
 curl_setopt($ch, CURLOPT_COOKIEFILE, "");
 
 ```
 
 In cases where you are required to keep cookies after the cURL handle is destroyed, you can specify the file to store them in:
 
-```
+```php
 curl_setopt($ch, CURLOPT_COOKIEJAR, "/tmp/cookies.txt");
 
 ```
 
 Then, when you want to use them again, pass them as the cookie file:
 
-```
+```php
 curl_setopt($ch, CURLOPT_COOKIEFILE, "/tmp/cookies.txt");
 
 ```
@@ -97,7 +97,7 @@ Remember, though, that these two steps are not necessary unless you need to carr
 
 Cookie handling can be used, for example, to retrieve resources from a web site that requires a login. This is typically a two-step procedure. First, POST to the login page.
 
-```
+```php
 <?php
 
 # create a cURL handle
@@ -129,7 +129,7 @@ $result = curl_exec($ch);
 
 The second step (after standard error checking is done) is usually a simple GET request. The important thing is to **reuse the existing cURL handle** for the second request. This ensures the cookies from the first response will be automatically included in the second request.
 
-```
+```php
 # we are not calling curl_init()
 
 # simply change the URL
@@ -163,7 +163,7 @@ We use the curl_multi_init and add each handle to it.
 
 In this example, we are using 2 different endpoints:
 
-```
+```php
 //array of data to POST
 $request_contents = array();
 //array of URLs
@@ -200,7 +200,7 @@ foreach ($urls as $key => $url) {
 
 Then, we use curl_multi_exec to send the requests
 
-```
+```php
 //running the requests
 $running = null;
 do {
@@ -242,7 +242,7 @@ The request to '[http://www.example2.com](http://www.example2.com)' returned 'se
 
 By default, PHP Curl supports `GET` and `POST` requests. It is possible to also send custom requests, such as `DELETE`, `PUT` or `PATCH` (or even non-standard methods) using the `CURLOPT_CUSTOMREQUEST` parameter.
 
-```
+```php
 $method = 'DELETE'; // Create a DELETE request
 
 $ch = curl_init($url);
@@ -266,7 +266,7 @@ So we have normal inputs, a multi-select field and a file dropzone where we can 
 
 Assuming the AJAX POST request was successful we get the following data on PHP site:
 
-```
+```php
 // print_r($_POST)
 
 Array
@@ -284,7 +284,7 @@ Array
 
 and the files should look like this
 
-```
+```php
 // print_r($_FILES)
 
 Array
@@ -333,7 +333,7 @@ Since cURL only accepts a simple but not a multi-dimensional array, we have to f
 
 To do this, you could use [this function for example](http://codereview.stackexchange.com/a/14685) which gives you the following:
 
-```
+```php
 // print_r($new_post_array)
 
 Array
@@ -348,7 +348,7 @@ Array
 
 The next step is to create CurlFile Objects for the uploaded files. This is done by the following loop:
 
-```
+```php
 $files = array();
 
 foreach ($_FILES["upload"]["error"] as $key => $error) {
@@ -368,14 +368,14 @@ curl_file_create is a helper function of the CurlFile Class and creates the Curl
 
 We now have to combine the flattened post array and the files array and save it as $data like this:
 
-```
+```php
 $data = $new_post_array + $files;
 
 ```
 
 The last step is to send the cURL request:
 
-```
+```php
 $ch = curl_init();
 
 curl_setopt_array($ch, array(
@@ -403,7 +403,7 @@ In upload.php on the external server you can now get the post data and files wit
 
 **Sending The Request Header**
 
-```
+```php
 $uri = 'http://localhost/http.php';
 $ch = curl_init($uri);
 curl_setopt_array($ch, array(
@@ -420,14 +420,14 @@ echo $out;
 
 **Reading the custom header**
 
-```
+```php
 print_r(apache_request_headers());
 
 ```
 
 **OutPut :-**
 
-```
+```php
 Array
 (
     [Host] => localhost
@@ -442,7 +442,7 @@ Array
 
 We can also send the header using below syntax :-
 
-```
+```php
 curl --header "X-MyHeader: 123" www.google.com
 
 ```

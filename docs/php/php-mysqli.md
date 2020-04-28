@@ -18,14 +18,14 @@ When we are finished querying the database, it is recommended to close the conne
 
 **Object oriented style**
 
-```
+```php
 $conn->close();
 
 ```
 
 **Procedural style**
 
-```
+```php
 mysqli_close($conn);
 
 ```
@@ -43,7 +43,7 @@ mysqli_close($conn);
 
 Connect to Server
 
-```
+```php
 $conn = new mysqli("localhost","my_user","my_password");
 
 ```
@@ -52,7 +52,7 @@ $conn = new mysqli("localhost","my_user","my_password");
 
 Connect to Database
 
-```
+```php
 $conn = new mysqli("localhost","my_user","my_password","my_db");
 
 ```
@@ -61,7 +61,7 @@ $conn = new mysqli("localhost","my_user","my_password","my_db");
 
 Connect to Server
 
-```
+```php
 $conn = mysqli_connect("localhost","my_user","my_password");
 
 ```
@@ -70,7 +70,7 @@ $conn = mysqli_connect("localhost","my_user","my_password");
 
 Connect to Database
 
-```
+```php
 $conn = mysqli_connect("localhost","my_user","my_password","my_db");
 
 ```
@@ -79,7 +79,7 @@ $conn = mysqli_connect("localhost","my_user","my_password","my_db");
 
 Object oriented style
 
-```
+```php
 if ($conn->connect_errno > 0) {
     trigger_error($db->connect_error);
 } // else: successfully connected
@@ -88,7 +88,7 @@ if ($conn->connect_errno > 0) {
 
 Procedural style
 
-```
+```php
 if (!$conn) {
    trigger_error(mysqli_connect_error());
 } // else: successfully connected
@@ -109,7 +109,7 @@ PHP makes it easy to get data from your results and loop over it using a `while`
 
 **Object oriented style**
 
-```
+```php
 while($row = $result->fetch_assoc()) {
     var_dump($row);
 }
@@ -118,7 +118,7 @@ while($row = $result->fetch_assoc()) {
 
 **Procedural style**
 
-```
+```php
 while($row = mysqli_fetch_assoc($result)) {
     var_dump($row);
 }
@@ -127,7 +127,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
 To get exact information from results, we can use:
 
-```
+```php
 while ($row = $result->fetch_assoc()) {
     echo 'Name and surname: '.$row['name'].' '.$row['surname'].'<br>';
     echo 'Age: '.$row['age'].'<br>'; // Prints info from 'age' column
@@ -146,7 +146,7 @@ The `$conn` variable here is a MySQLi object. See [MySQLi connect example](http:
 
 For both examples, we assume that `$sql` is
 
-```
+```php
 $sql = "SELECT column_1 
     FROM table 
     WHERE column_2 = ? 
@@ -158,7 +158,7 @@ The `?` represents the values we will provide later. Please note that we do not 
 
 **Object oriented style**
 
-```
+```php
 if ($stmt = $conn->prepare($sql)) {
   $stmt->bind_param("si", $column_2_value, $column_3_value);
   $stmt->execute();
@@ -173,7 +173,7 @@ if ($stmt = $conn->prepare($sql)) {
 
 **Procedural style**
 
-```
+```php
 if ($stmt = mysqli_prepare($conn, $sql)) {
   mysqli_stmt_bind_param($stmt, "si", $column_2_value, $column_3_value);
   mysqli_stmt_execute($stmt);
@@ -204,7 +204,7 @@ For retrieving data, see [How to get data from a prepared statement](http://stac
 
 Escaping strings is an older (**and less secure**) method of securing data for insertion into a query. It works by using [MySQL's function mysql_real_escape_string()](http://dev.mysql.com/doc/refman/5.7/en/mysql-real-escape-string.html) to process and sanitize the data (in other words, PHP is not doing the escaping). The MySQLi API provides direct access to this function
 
-```
+```php
 $escaped = $conn->real_escape_string($_GET['var']);
 // OR
 $escaped = mysqli_real_escape_string($conn, $_GET['var']);
@@ -213,7 +213,7 @@ $escaped = mysqli_real_escape_string($conn, $_GET['var']);
 
 At this point, you have a string that MySQL considers to be safe for use in a direct query
 
-```
+```php
 $sql = 'SELECT * FROM users WHERE username = "' . $escaped . '"';
 $result = $conn->query($sql);
 
@@ -221,7 +221,7 @@ $result = $conn->query($sql);
 
 So why is this not as secure as [prepared statements](http://stackoverflow.com/documentation/php/2784/php-mysqli/11958/prepared-statements-in-mysqli)? There are ways to trick MySQL to produce a string it considers safe. Consider the following example
 
-```
+```php
 $id = mysqli_real_escape_string("1 OR 1=1");    
 $sql = 'SELECT * FROM table WHERE id = ' . $id;
 
@@ -238,14 +238,14 @@ The `query` function takes a valid SQL string and executes it directly against t
 
 **Object oriented style**
 
-```
+```php
 $result = $conn->query("SELECT * FROM `people`");
 
 ```
 
 **Procedural style**
 
-```
+```php
 $result = mysqli_query($conn, "SELECT * FROM `people`");
 
 ```
@@ -256,7 +256,7 @@ $result = mysqli_query($conn, "SELECT * FROM `people`");
 
 A common problem here is that people will simply execute the query and expect it to work (i.e. return a [mysqli_stmt object](https://secure.php.net/manual/en/class.mysqli-stmt.php)). Since this function takes only a string, you're building the query first yourself. If there are any mistakes in the SQL at all, the MySQL compiler will fail, **at which point this function will return `false`**.
 
-```
+```php
 $result = $conn->query('SELECT * FROM non_existent_table'); // This query will fail
 $row = $result->fetch_assoc();
 
@@ -270,7 +270,7 @@ PHP Fatal error: Call to a member function fetch_assoc() on a non-object
 
 The procedural error is similar, but not fatal, because we're just violating the expectations of the function.
 
-```
+```php
 $row = mysqli_fetch_assoc($result); // same query as previous
 
 ```
@@ -283,7 +283,7 @@ mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given
 
 You can avoid this by doing a test first
 
-```
+```php
 if($result) $row = mysqli_fetch_assoc($result);
 
 ```
@@ -295,21 +295,21 @@ if($result) $row = mysqli_fetch_assoc($result);
 
 So your query has failed (see [MySQLi connect](http://stackoverflow.com/documentation/php/2784/php-mysqli/9380/mysqli-connect) for how we made `$conn`)
 
-```
+```php
 $result = $conn->query('SELECT * FROM non_existent_table'); // This query will fail
 
 ```
 
 How do we find out what happened? `$result` is `false` so that's no help. Thankfully the connect `$conn` can tell us what MySQL told us about the failure
 
-```
+```php
 trigger_error($conn->error);
 
 ```
 
 or procedural
 
-```
+```php
 trigger_error(mysqli_error($conn));
 
 ```
@@ -333,14 +333,14 @@ See [Prepared statements in MySQLi](http://stackoverflow.com/documentation/php/2
 
 **Object-oriented style**
 
-```
+```php
 $stmt->bind_result($forename);
 
 ```
 
 **Procedural style**
 
-```
+```php
 mysqli_stmt_bind_result($stmt, $forename);
 
 ```
@@ -353,7 +353,7 @@ We can then loop as follows:
 
 **Object-oriented style**
 
-```
+```php
 while ($stmt->fetch())
     echo "$forename<br />";
 
@@ -361,7 +361,7 @@ while ($stmt->fetch())
 
 **Procedural style**
 
-```
+```php
 while (mysqli_stmt_fetch($stmt))
     echo "$forename<br />";
 
@@ -371,14 +371,14 @@ The drawback to this is that you have to assign a lot of variables at once. This
 
 **Object-oriented style**
 
-```
+```php
 $result = $stmt->get_result();
 
 ```
 
 **Procedural style**
 
-```
+```php
 $result = mysqli_stmt_get_result($stmt);
 
 ```
@@ -391,7 +391,7 @@ If that is the case then @Sophivorus has you covered with [this amazing answer](
 
 This function can perform the task of `get_result` without it being installed on the server. It simply loops through the results and builds an associative array
 
-```
+```php
 function get_result(\mysqli_stmt $statement)
 {
     $result = array();
@@ -414,7 +414,7 @@ function get_result(\mysqli_stmt $statement)
 
 We can then use the function to get results like this, just as if we were using `mysqli_fetch_assoc()`
 
-```
+```php
 <?php
 $query = $mysqli->prepare("SELECT * FROM users WHERE forename LIKE ?");
 $condition = "J%";
@@ -439,14 +439,14 @@ Retrieve the last ID generated by an [`INSERT`](http://stackoverflow.com/documen
 
 **Object-oriented Style**
 
-```
+```php
 $id = $conn->insert_id;
 
 ```
 
 **Procedural Style**
 
-```
+```php
 $id = mysqli_insert_id($conn);
 
 ```
@@ -461,7 +461,7 @@ Normally an `UPDATE` statement does not return an insert id, since an `AUTO_INCR
 
 Setup for examples to follow:
 
-```
+```php
 CREATE TABLE iodku (
     id INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(99) NOT NULL,
@@ -487,7 +487,7 @@ Records: 2  Duplicates: 0  Warnings: 0
 
 The case of IODKU performing an "update" and `LAST_INSERT_ID()` retrieving the relevant `id`:
 
-```
+```php
 $sql = "INSERT INTO iodku (name, misc)
     VALUES
     ('Sally', 3333)            -- should update
@@ -501,7 +501,7 @@ $id = $conn->insert_id;        -- picking up existing value (2)
 
 The case where IODKU performs an "insert" and `LAST_INSERT_ID()` retrieves the new `id`:
 
-```
+```php
 $sql = "INSERT INTO iodku (name, misc)
     VALUES
     ('Dana', 789)            -- Should insert
@@ -515,7 +515,7 @@ $id = $conn->insert_id;      -- picking up new value (3)
 
 Resulting table contents:
 
-```
+```php
 SELECT * FROM iodku;
 +----+--------+------+
 | id | name   | misc |

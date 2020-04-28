@@ -15,7 +15,7 @@ description: "Get docker image for php, Writing dockerfile, Building image, Star
 
 In order to deploy the application on docker, first we need to get the image from registry.
 
-```
+```php
 docker pull php
 
 ```
@@ -29,7 +29,7 @@ This will get you the latest version of image from **official php repository**. 
 
 `Dockerfile` is used to configure the custom image that we will be building with the web-application codes. Create a new file `Dockerfile` in the root folder of project and then put the following contents in the same
 
-```
+```php
 FROM php:7.0-apache
 COPY /etc/php/php.ini /usr/local/etc/php/
 COPY . /var/www/html/
@@ -56,14 +56,14 @@ In some instances there might be some files that you don't want on server like e
 
 Building image is not something specific to `php`, but in order to build the image that we described above, we can simply use
 
-```
+```php
 docker build -t <Image name> .
 
 ```
 
 Once the image is built, you can verify the same using
 
-```
+```php
 docker images
 
 ```
@@ -77,7 +77,7 @@ Which would list out all the images installed in your system.
 
 Once we have an image ready, we can start and serve the same. In order to create a `container` from the image, use
 
-```
+```php
 docker run -p 80:80 -d <Image name>
 
 ```
@@ -88,7 +88,7 @@ In the command above `-p 80:80` would forward port `80` of your server to port `
 
 In order to check running containers, simply use
 
-```
+```php
 docker ps
 
 ```
@@ -99,7 +99,7 @@ This will list out all the containers running on docker daemon.
 
 Logs are very important to debug the application. In order to check on them use
 
-```
+```php
 docker logs <Container id>
 
 ```

@@ -18,7 +18,7 @@ Most of the code samples available ignore the fact that `HTTP_X_FORWARDED_FOR` c
 
 So here is an example of function written in PHP, how to detect a client IP address, if you know that client may be behind a proxy and you know this proxy can be trusted. If you don't known any trusted proxies, you can just use `REMOTE_ADDR`
 
-```
+```php
 function get_client_ip()
 {
     // Nothing to do without any reliable information

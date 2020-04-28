@@ -19,7 +19,7 @@ Class constants provide a mechanism for holding fixed values in a program. That 
 
 As an example, it may be convenient to have a shorthand representation for the value of π throughout a program. A class with `const` values provides a simple way to hold such values.
 
-```
+```php
 class MathValues {
     const PI = M_PI;
     const PHI = 1.61803;
@@ -33,7 +33,7 @@ Class constants may be accessed by using the double colon operator (so-called th
 
 Class constants are also useful for defining things internal to a class that might need changing later (but do not change frequently enough to warrant storing in, say, a database). We can reference this internally using the `self` scope resolutor (which works in both instanced and static implementations)
 
-```
+```php
 class Labor {
     /** How long, in hours, does it take to build the item? */
     const LABOR_UNITS = 0.26;
@@ -51,7 +51,7 @@ Class constants can only contain scalar values in versions < 5.6
 
 As of PHP 5.6 we can use expressions with constants, meaning math statements and strings with concatenation are acceptable constants
 
-```
+```php
 class Labor {
     /** How much are we paying employees per hour? Hourly wages * hours taken to make */
     const LABOR_COSTS = 12.75 * 0.26;
@@ -65,14 +65,14 @@ class Labor {
 
 As of PHP 7.0, constants declared with `define` may now contain arrays.
 
-```
+```php
 define("BAZ", array('baz'));
 
 ```
 
 Class constants are useful for more than just storing mathematical concepts. For example, if preparing a pie, it might be convenient to have a single `Pie` class capable of taking different kinds of fruit.
 
-```
+```php
 class Pie {
     protected $fruit;
 
@@ -85,14 +85,14 @@ class Pie {
 
 We can then use the `Pie` class like so
 
-```
+```php
 $pie = new Pie("strawberry");
 
 ```
 
 The problem that arises here is, when instantiating the `Pie` class, no guidance is provided as to the acceptable values. For example, when making a "boysenberry" pie, it might be misspelled "boisenberry". Furthermore, we might not support a plum pie. Instead, it would be useful to have a list of acceptable fruit types already defined somewhere it would make sense to look for them. Say a class named `Fruit`:
 
-```
+```php
 class Fruit {
     const APPLE = "apple";
     const STRAWBERRY = "strawberry";
@@ -109,7 +109,7 @@ Finally, using class constants means that the actual value of the constant may b
 
 Whilst the most common method to access a class constant is `MyClass::CONSTANT_NAME`, it may also be accessed by:
 
-```
+```php
 echo MyClass::CONSTANT;
 
 $classname = "MyClass";
@@ -121,7 +121,7 @@ Class constants in PHP are conventionally named all in uppercase with underscore
 
 As of PHP 7.1, class constants may now be defined with different visibilities from the default public scope. This means that both protected and private constants can now be defined to prevent class constants from unnecessarily leaking into the public scope (see [Method and Property Visibility](http://stackoverflow.com/documentation/php/504/classes-and-objects/6471/method-and-property-visibility) ). For example:
 
-```
+```php
 class Something {
     const PUBLIC_CONST_A = 1;
     public const PUBLIC_CONST_B = 2;
@@ -135,7 +135,7 @@ class Something {
 
 Although this is a valid construction:
 
-```
+```php
 function bar() { return 2; };
 
 define('BAR', bar());
@@ -144,7 +144,7 @@ define('BAR', bar());
 
 If you try to do the same with class constants, you'll get an error:
 
-```
+```php
 function bar() { return 2; };
 
 class Foo {
@@ -155,7 +155,7 @@ class Foo {
 
 But you can do:
 
-```
+```php
 function bar() { return 2; };
 
 define('BAR', bar());
@@ -172,7 +172,7 @@ For more information, see [constants in the manual](http://php.net/manual/en/lan
 
 PHP 5.5 introduced the `::class` syntax to retrieve the full class name, taking namespace scope and `use` statements into account.
 
-```
+```php
 namespace foo;
 use bar\Bar;
 echo json_encode(Bar::class); // "bar\\Bar"
@@ -185,7 +185,7 @@ The above works even if the classes are not even defined (i.e. this code snippet
 
 This syntax is useful for functions that require a class name. For example, it can be used with `class_exists` to check a class exists. No errors will be generated regardless of return value in this snippet:
 
-```
+```php
 class_exists(ThisClass\Will\NeverBe\Loaded::class, false);
 
 ```
@@ -197,7 +197,7 @@ class_exists(ThisClass\Will\NeverBe\Loaded::class, false);
 
 An abstract class is a class that cannot be instantiated. Abstract classes can define abstract methods, which are methods without any body, only a definition:
 
-```
+```php
 abstract class MyAbstractClass {
     abstract public function doSomething($a, $b);
 }
@@ -210,7 +210,7 @@ The main purpose of a class like this is to provide a kind of template that allo
 
 In this example we will be implementing a `Worker` interface. First we define the interface:
 
-```
+```php
 interface Worker {
     public function run();
 }
@@ -220,7 +220,7 @@ interface Worker {
 To ease the development of further Worker implementations, we will create an abstract worker class
 that already provides the `run()` method from the interface, but specifies some abstract methods that need to be filled in by any child class:
 
-```
+```php
 abstract class AbstractWorker implements Worker {
     protected $pdo;
     protected $logger;
@@ -266,7 +266,7 @@ Finally, all of these method calls have been grouped in a `try`-`catch` block. S
 
 Now lets define a child class that extends from the `AbstractWorker`:
 
-```
+```php
 class TranscactionProcessorWorker extends AbstractWorker {
     private $transactions;
 
@@ -322,7 +322,7 @@ in</p>
 
 In PHP 5.3+ and above you can utilize [late static binding](http://php.net/manual/en/language.oop5.late-static-bindings.php) to control which class a static property or method is called from. It was added to overcome the problem inherent with the `self::` scope resolutor. Take the following code
 
-```
+```php
 class Horse {
     public static function whatToSay() {
          echo 'Neigh!';
@@ -343,7 +343,7 @@ class MrEd extends Horse {
 
 You would expect that the `MrEd` class will override the parent `whatToSay()` function. But when we run this we get something unexpected
 
-```
+```php
 Horse::speak(); // Neigh!
 MrEd::speak(); // Neigh!
 
@@ -351,7 +351,7 @@ MrEd::speak(); // Neigh!
 
 The problem is that `self::whatToSay();` can only refer to the `Horse` class, meaning it doesn't obey `MrEd`. If we switch to the `static::` scope resolutor, we don't have this problem. This newer method tells the class to obey the instance calling it. Thus we get the inheritance we're expecting
 
-```
+```php
 class Horse {
     public static function whatToSay() {
          echo 'Neigh!';
@@ -380,7 +380,7 @@ Suppose we have these classes:
 
 Class file for `application\controllers\Base`:
 
-```
+```php
 <?php
 namespace application\controllers { class Base {...} }
 
@@ -388,7 +388,7 @@ namespace application\controllers { class Base {...} }
 
 Class file for `application\controllers\Control`:
 
-```
+```php
 <?php
 namespace application\controllers { class Control {...} }
 
@@ -396,7 +396,7 @@ namespace application\controllers { class Control {...} }
 
 Class file for `application\models\Page`:
 
-```
+```php
 <?php
 namespace application\models { class Page {...} }
 
@@ -417,7 +417,7 @@ Under the source folder, these classes should be placed at the paths as their FQ
 
 This approach makes it possible to programmatically resolve the class file path according to the FQN, using this function:
 
-```
+```php
 function getClassPath(string $sourceFolder, string $className, string $extension = ".php") {
     return $sourceFolder . "/" . str_replace("\\", "/", $className) . $extension; // note that "/" works as a directory separator even on Windows
 }
@@ -426,7 +426,7 @@ function getClassPath(string $sourceFolder, string $className, string $extension
 
 The `spl_autoload_register` function allows us to load a class when needed using a user-defined function:
 
-```
+```php
 const SOURCE_FOLDER = __DIR__ . "/src";
 spl_autoload_register(function (string $className) {
     $file = getClassPath(SOURCE_FOLDER, $className);
@@ -437,7 +437,7 @@ spl_autoload_register(function (string $className) {
 
 This function can be further extended to use fallback methods of loading:
 
-```
+```php
 const SOURCE_FOLDERS = [__DIR__ . "/src", "/root/src"]);
 spl_autoload_register(function (string $className) {
     foreach(SOURCE_FOLDERS as $folder) {
@@ -475,7 +475,7 @@ Interfaces are definitions of the public APIs classes must implement to satisfy 
 
 Interface definition is much alike class definition, changing the keyword `class` to `interface`:
 
-```
+```php
 interface Foo {
 
 }
@@ -484,7 +484,7 @@ interface Foo {
 
 Interfaces can contain methods and/or constants, but no attributes. Interface constants have the same restrictions as class constants. Interface methods are implicitly abstract:
 
-```
+```php
 interface Foo {
     const BAR = 'BAR';
 
@@ -501,7 +501,7 @@ Any class that needs to implement an interface must do so using the `implements`
 
 A single class **can** implement more than one interface at a time.
 
-```
+```php
 interface Foo {
     public function doSomething($param1, $param2);
 }
@@ -525,7 +525,7 @@ class Baz implements Foo, Bar {
 
 When abstract classes implement interfaces, they do not need to implement all methods. Any method not implemented in the base class must then be implemented by the concrete class that extends it:
 
-```
+```php
 abstract class AbstractBaz implements Foo, Bar {
     // Partial implementation of the required interface...
     public function doSomething($param1, $param2) {
@@ -554,7 +554,7 @@ this as long as the duplicate methods have the same signature[[1]](http://php.ne
 
 Like classes, it is possible to establish an inheritance relationship between interfaces, using the same keyword `extends`. The main difference is that multiple inheritance is allowed for interfaces:
 
-```
+```php
 interface Foo {
 
 }
@@ -573,7 +573,7 @@ interface Baz extends Foo, Bar {
 
 In the example bellow we have a simple example interface for a vehicle. Vehicles can go forwards and backwards.
 
-```
+```php
 interface VehicleInterface {
     public function forward();
 
@@ -632,7 +632,7 @@ Then we create two classes that implement the interface: Bike and Car. Bike and 
 
 Typehinting allows methods and functions to request Interfaces. Let's assume that we have a parking garage class, which contains vehicles of all kinds.
 
-```
+```php
 class ParkingGarage {
     protected $vehicles = [];
 
@@ -664,7 +664,7 @@ Declaring a method or a property as `public` allows the method or property to be
 
 An example of this `public` access would be:
 
-```
+```php
 class MyClass {
     // Property
     public $myProperty = 'test';
@@ -695,7 +695,7 @@ This **does not allow** external objects, classes, or code outside the class hie
 
 An example of this `protected` access would be:
 
-```
+```php
 class MyClass {
     protected $myProperty = 'test';
 
@@ -731,7 +731,7 @@ A `private` method or property is only visible and accessible within the class t
 
 Note that objects of the same type will have access to each others private and protected members even though they are not the same instances.
 
-```
+```php
 class MyClass {
     private $myProperty = 'test';
 
@@ -792,7 +792,7 @@ Def:
 
 **Final Method**
 
-```
+```php
 class BaseClass {
    public function test() {
        echo "BaseClass::test() called\n";
@@ -814,7 +814,7 @@ class ChildClass extends BaseClass {
 
 **Final Class:**
 
-```
+```php
 final class BaseClass {
    public function test() {
        echo "BaseClass::test() called\n";
@@ -868,7 +868,7 @@ There is the function [`__autoload`](https://secure.php.net/manual/function.auto
 
 **Examples**
 
-```
+```php
 spl_autoload_register(function ($className) {
     $path = sprintf('%s.php', $className);
     if (file_exists($path)) {
@@ -884,7 +884,7 @@ The code above simply tries to include a filename with the class name and the ap
 
 Of course this can be extended to fit the project's individual need. If `_` inside a class name is used to group, e.g. `User_Post` and `User_Image` both refer to `User`, both classes can be kept in a folder called "User" like so:
 
-```
+```php
 spl_autoload_register(function ($className) {
     //                        replace _ by / or \ (depending on OS)
     $path = sprintf('%s.php', str_replace('_', DIRECTORY_SEPARATOR, $className) );
@@ -903,7 +903,7 @@ The class `User_Post` will now be loaded from "User/Post.php", etc.
 
 If you want a more elaborate autoloading mechanism - and still don't want to include Composer - you can work without adding third party libraries.
 
-```
+```php
 spl_autoload_register(function ($className) {
     $path = sprintf('%1$s%2$s%3$s.php',
         // %1$s: get absolute path
@@ -933,7 +933,7 @@ spl_autoload_register(function ($className) {
 
 Using autoloaders like this, you can happily write code like this:
 
-```
+```php
 require_once './autoload.php'; // where spl_autoload_register is defined
 
 $foo = new Foo_Bar(new Hello_World());
@@ -942,12 +942,12 @@ $foo = new Foo_Bar(new Hello_World());
 
 Using classes:
 
-```
+```php
 class Foo_Bar extends Foo {}
 
 ```
 
-```
+```php
 class Hello_World implements Demo_Classes {}
 
 ```
@@ -963,7 +963,7 @@ Dynamic binding, also referred as **method overriding** is an example of **run t
 
 This is useful if a certain condition dictates which class will be used to perform an action, where the action is named the same in both classes.
 
-```
+```php
 interface Animal {
     public function makeNoise();
 }
@@ -1026,14 +1026,14 @@ In the above example, the `Animal` class (`Dog|Cat`) which will `makeNoise` is u
 
 A common pitfall of child classes is that, if your parent and child both contain a constructor(`__construct()`) method, **only the child class constructor will run**. There may be occasions where you need to run the parent `__construct()` method from it's child. If you need to do that, then you will need to use the [`parent::`](http://php.net/manual/en/keyword.parent.php) scope resolutor:
 
-```
+```php
 parent::__construct();
 
 ```
 
 Now harnessing that within a real-world situation would look something like:
 
-```
+```php
 class Foo {
 
     function __construct($args) { 
@@ -1066,7 +1066,7 @@ members, use `self::$member` for static members.</p>
 
 In the example below, `sayHello()` and `sayGoodbye()` are using `self` and `$this` difference can be observed here.
 
-```
+```php
 class Person {
     private $name;
 
@@ -1111,7 +1111,7 @@ $geekObj->sayGoodbye();
 
 Consider the following code:
 
-```
+```php
 class Car {
     protected static $brand = 'unknown';
     
@@ -1146,7 +1146,7 @@ That's because `self` refers to the `Car` class whenever method `brand()` is cal
 
 To refer to the correct class, you need to use `static` instead:
 
-```
+```php
 class Car {
     protected static $brand = 'unknown';
     
@@ -1183,7 +1183,7 @@ See also [Late static binding](http://stackoverflow.com/documentation/php/504/cl
 
 If you have an object that's expensive to create or represents a connection to some external resource you want to reuse, i.e. a database connection where there is no connection pooling or a socket to some other system, you can use the `static` and `self` keywords in a class to make it a singleton. There are strong opinions about whether the singleton pattern should or should not be used, but it does have its uses.
 
-```
+```php
 class Singleton {
     private static $instance = null;
 
@@ -1210,7 +1210,7 @@ We are also setting the constructor to be private to ensure that no one creates 
 
 To use this object you just write the following:
 
-```
+```php
 $singleton = Singleton::getInstance();
 
 ```
@@ -1226,7 +1226,7 @@ An object in PHP contains variables and functions. Objects typically belong to a
 
 The syntax to define a class is:
 
-```
+```php
 class Shape {
     public $sides = 0;
     
@@ -1239,14 +1239,14 @@ class Shape {
 
 Once a class is defined, you can create an instance using:
 
-```
+```php
 $myShape = new Shape();
 
 ```
 
 Variables and functions on the object are accessed like this:
 
-```
+```php
 $myShape = new Shape();
 $myShape->sides = 6;
 
@@ -1259,7 +1259,7 @@ print $myShape->description(); // "A shape with 6 sides"
 Classes can define a special `__construct()` method, which is executed as part of object creation. This is often used to
 specify the initial values of an object:
 
-```
+```php
 class Shape {
     public $sides = 0;
     
@@ -1284,7 +1284,7 @@ Class definitions can extend existing class definitions, adding new variables an
 
 Here is a class that extends the previous example:
 
-```
+```php
 class Square extends Shape {
     public $sideLength = 0;
     
@@ -1307,7 +1307,7 @@ class Square extends Shape {
 
 The `Square` class contains variables and behavior for both the `Shape` class and the `Square` class:
 
-```
+```php
 $mySquare = new Square(10);
 
 print $mySquare->description()/ // A shape with 4 sides
@@ -1327,7 +1327,7 @@ Anonymous classes were introduced into PHP 7 to enable for quick one-off objects
 
 In its most basic form, an anonymous class looks like the following:
 
-```
+```php
 new class("constructor argument") {
     public function __construct($param) {
         var_dump($param);
@@ -1340,7 +1340,7 @@ Nesting an anonymous class inside of another class does not give it access to pr
 
 For example:
 
-```
+```php
 class Outer {
     private $prop = 1;
     protected $prop2 = 2;
@@ -1397,7 +1397,7 @@ Classes may have properties, constants and methods.
 - **Constants** must be initialized on declaration and can only contain a primitive value. Constant values are fixed at compile time and may not be assigned at run time.
 - **Methods** must have a body, even an empty one, unless the method is declared abstract.
 
-```
+```php
 class Foo {
     private $foo = 'foo'; // OK
     private $baz = array(); // OK
@@ -1411,7 +1411,7 @@ Interfaces cannot have properties, but may have constants and methods.
 - Interface **constants** must be initialized on declaration and can only contain a primitive value. Constant values are fixed at compile time and may not be assigned at run time.
 - Interface **methods** have no body.
 
-```
+```php
 interface FooBar {
     const FOO_VALUE = 'bla';
     public function doAnything();

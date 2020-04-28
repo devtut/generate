@@ -14,21 +14,21 @@ description: "Serialize / Unserialize, The Serializable interface"
 
 **To serialize an object**
 
-```
+```php
 serialize($object);
 
 ```
 
 **To Unserialize an object**
 
-```
+```php
 unserialize($object)
 
 ```
 
 **Example**
 
-```
+```php
 $array = array();
 $array["a"] = "Foo";
 $array["b"] = "Bar";
@@ -53,7 +53,7 @@ Classes that implement this interface no longer support `__sleep()` and `__wakeu
 
 **Basic usage**
 
-```
+```php
 class obj implements Serializable {
     private $data;
     public function __construct() {

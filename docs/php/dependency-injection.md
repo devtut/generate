@@ -15,7 +15,7 @@ Objects will often depend on other objects. Instead of creating the dependency i
 
 In the following example, `Component` will depend on an instance of `Logger`, but it doesn't create one. It requires one to be passed as argument to the constructor instead.
 
-```
+```php
 interface Logger {
     public function log(string $message);
 }
@@ -32,7 +32,7 @@ class Component {
 
 Without dependency injection, the code would probably look similar to:
 
-```
+```php
 class Component {
     private $logger;
 
@@ -54,7 +54,7 @@ In the above example, where we are using dependency injection instead, we could 
 
 Dependencies can also be injected by setters.
 
-```
+```php
 interface Logger {
     public function log($message);
 }
@@ -93,7 +93,7 @@ Note that when using setter injection, it's better to extend the functionality r
 
 To prevent this, we should **add** a dependency with setter injection, like so :
 
-```
+```php
 interface Logger {
     public function log($message);
 }
@@ -135,7 +135,7 @@ Dependency Injection (DI) in the context of using a Dependency Injection Contain
 
 The exact implementation goes well beyond the scope of this document but at its very heart, a DIC relies on using the signature of a class...
 
-```
+```php
 namespace Documentation;
 
 class Example
@@ -152,7 +152,7 @@ class Example
 
 ... to automatically instantiate it, relying most of the time on an [autoloading system](http://stackoverflow.com/documentation/php/504/classes-and-objects/13197/autoloading#t=201612130423298386785).
 
-```
+```php
 // older PHP versions
 $container->make('Documentation\Example');
 

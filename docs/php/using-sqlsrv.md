@@ -16,7 +16,7 @@ There are 3 main ways to fetch results from a query:
 
 `sqlsrv_fetch_array()` retrieves the next row as an array.
 
-```
+```php
 $stmt = sqlsrv_query($conn, $query);
 
 while($row = sqlsrv_fetch_array($stmt)) {
@@ -33,7 +33,7 @@ while($row = sqlsrv_fetch_array($stmt)) {
 
 `sqlsrv_fetch_object()` retrieves the next row as an object.
 
-```
+```php
 $stmt = sqlsrv_query($conn, $query);
 
 while($obj = sqlsrv_fetch_object($stmt)) {
@@ -47,7 +47,7 @@ while($obj = sqlsrv_fetch_object($stmt)) {
 
 `sqlsrv_fetch()` makes the next row available for reading.
 
-```
+```php
 $stmt = sqlsrv_query($conn, $query);
 
 while(sqlsrv_fetch($stmt) === true) {
@@ -63,7 +63,7 @@ while(sqlsrv_fetch($stmt) === true) {
 
 When a query goes wrong, it is important to fetch the error message(s) returned by the driver to identify the cause of the problem. The syntax is:
 
-```
+```php
 sqlsrv_errors([int $errorsOrWarnings]);
 
 ```
@@ -78,7 +78,7 @@ This returns an array with:
 
 It is common to use the above function like so:
 
-```
+```php
 $brokenQuery = "SELECT BadColumnName FROM Table_1";
 $stmt = sqlsrv_query($conn, $brokenQuery);
 
@@ -99,7 +99,7 @@ if ($stmt === false) {
 ## Creating a Connection
 
 
-```
+```php
 $dbServer = "localhost,1234"; //Name of the server/instance, including optional port number (default is 1433)
 $dbName = "db001"; //Name of the database
 $dbUser = "user"; //Name of the user
@@ -117,7 +117,7 @@ $conn = sqlsrv_connect($dbServer, $connectionInfo);
 
 SQLSRV also has a PDO Driver. To connect using PDO:
 
-```
+```php
 $conn = new PDO("sqlsrv:Server=localhost,1234;Database=db001", $dbUser, $dbPassword);
 
 ```
@@ -127,7 +127,7 @@ $conn = new PDO("sqlsrv:Server=localhost,1234;Database=db001", $dbUser, $dbPassw
 ## Making a Simple Query
 
 
-```
+```php
 //Create Connection
 $conn = sqlsrv_connect($dbServer, $connectionInfo);
 
@@ -136,7 +136,7 @@ $stmt = sqlsrv_query($conn, $query);
 
 ```
 
-**Note: the use of square brackets** `[]` **is to escape the word** `table` **as it is a [reserved word](https://msdn.microsoft.com/en-us/library/ms189822.aspx). These work in the same way as backticks** ``` **do in MySQL**.
+**Note: the use of square brackets** `[]` **is to escape the word** `table` **as it is a [reserved word](https://msdn.microsoft.com/en-us/library/ms189822.aspx). These work in the same way as backticks** ```php **do in MySQL**.
 
 
 
@@ -145,7 +145,7 @@ $stmt = sqlsrv_query($conn, $query);
 
 To call a stored procedure on the server:
 
-```
+```php
 $query = "{call [dbo].[myStoredProcedure](?,?,?)}"; //Parameters '?' includes OUT parameters
 
 $params = array(
@@ -163,7 +163,7 @@ $result = sqlsrv_query($conn, $query, $params);
 ## Making a Parameterised Query
 
 
-```
+```php
 $conn = sqlsrv_connect($dbServer, $connectionInfo);
 
 $query = "SELECT * FROM [users] WHERE [name] = ? AND [password] = ?";
@@ -175,7 +175,7 @@ $stmt = sqlsrv_query($conn, $query, $params);
 
 If you plan on using the same query statement more than once, with different parameters, the same can be achieved with the `sqlsrv_prepare()` and `sqlsrv_execute()` functions, as shown below:
 
-```
+```php
 $cart = array(
     "apple" => 3,
     "banana" => 1,

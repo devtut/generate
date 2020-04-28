@@ -17,7 +17,7 @@ In order to filter out values from an array and obtain a new array containing al
 
 The simplest case of filtering is to remove all "empty" values:
 
-```
+```php
 $my_array = [1,0,2,null,3,'',4,[],5,6,7,8];
 $non_empties = array_filter($my_array); // $non_empties will contain [1,2,3,4,5,6,7,8]; 
 
@@ -27,7 +27,7 @@ $non_empties = array_filter($my_array); // $non_empties will contain [1,2,3,4,5,
 
 This time we define our own filtering rule. Suppose we want to get only even numbers:
 
-```
+```php
 $my_array = [1,2,3,4,5,6,7,8];
 
 $even_numbers = array_filter($my_array, function($number) {
@@ -42,7 +42,7 @@ The `array_filter` function receives the array to be filtered as its first argum
 
 A third parameter can be provided to the `array_filter` function, which allows to tweak which values are passed to the callback. This parameter can be set to either `ARRAY_FILTER_USE_KEY` or `ARRAY_FILTER_USE_BOTH`, which will result in the callback receiving the key instead of the value for each element in the array, or both value and key as its arguments. For example, if you want to deal with indexes istead of values:
 
-```
+```php
 $numbers = [16,3,5,8,1,4,6];
 
 $even_indexed_numbers = array_filter($numbers, function($index) {
@@ -55,7 +55,7 @@ $even_indexed_numbers = array_filter($numbers, function($index) {
 
 Note that `array_filter` preserves the original array keys. A common mistake would be to try an use `for` loop over the filtered array:
 
-```
+```php
 <?php
 
 $my_array = [1,0,2,null,3,'',4,[],5,6,7,8];
@@ -86,7 +86,7 @@ This happens because the values which were on positions 1 (there was `0`), 3 (`n
 
 If you need to loop through the result of a filter on an indexed array, you should first call `array_values` on the result of `array_filter` in order to create a new array with the correct indexes:
 
-```
+```php
 $my_array = [1,0,2,null,3,'',4,[],5,6,7,8];
 $filtered = array_filter($my_array); 
 $iterable = array_values($filtered);
@@ -108,7 +108,7 @@ for ($i = 0; $i < count($iterable); $i++) {
 
 To remove an element inside an array, e.g. the element with the index 1.
 
-```
+```php
 $fruit = array("bananas", "apples", "peaches");
 unset($fruit[1]);
 
@@ -118,7 +118,7 @@ This will remove the apples from the list, but notice that `unset` does not chan
 
 For associative array you can remove like this:
 
-```
+```php
 $fruit = array('banana', 'one'=>'apple', 'peaches');
 
 print_r($fruit);
@@ -137,7 +137,7 @@ unset($fruit['one']);
 
 Now $fruit is
 
-```
+```php
 print_r($fruit);
 
 /*
@@ -152,7 +152,7 @@ Array
 
 Note that
 
-```
+```php
 unset($fruit);
 
 ```
@@ -166,7 +166,8 @@ unsets the variable and thus removes the whole array, meaning none of its elemen
 Example:
 
 ```
-  $fruit = array("bananas", "apples", "peaches");
+
+ $fruit = array("bananas", "apples", "peaches");
   array_shift($fruit);
   print_r($fruit);
 
@@ -175,7 +176,8 @@ Example:
 Output:
 
 ```
- Array
+
+Array
 (
     [0] => apples
     [1] => peaches
@@ -188,7 +190,8 @@ Output:
 Example:
 
 ```
-  $fruit = array("bananas", "apples", "peaches");
+
+ $fruit = array("bananas", "apples", "peaches");
   array_pop($fruit);
   print_r($fruit);
 
@@ -197,7 +200,8 @@ Example:
 Output:
 
 ```
- Array
+
+Array
 (
     [0] => bananas
     [1] => apples
@@ -216,7 +220,7 @@ There are several sort functions for arrays in php:
 
 Sort an array in ascending order by value.
 
-```
+```php
 $fruits = ['Zitrone', 'Orange', 'Banane', 'Apfel'];
 sort($fruits);
 print_r($fruits);
@@ -225,7 +229,7 @@ print_r($fruits);
 
 results in
 
-```
+```php
 Array
 (
     [0] => Apfel
@@ -240,7 +244,7 @@ Array
 
 Sort an array in descending order by value.
 
-```
+```php
 $fruits = ['Zitrone', 'Orange', 'Banane', 'Apfel'];
 rsort($fruits);
 print_r($fruits);
@@ -249,7 +253,7 @@ print_r($fruits);
 
 results in
 
-```
+```php
 Array
 (
     [0] => Zitrone
@@ -264,7 +268,7 @@ Array
 
 Sort an array in ascending order by value and preserve the indecies.
 
-```
+```php
 $fruits = [1 => 'lemon', 2 => 'orange',  3 => 'banana', 4 => 'apple'];
 asort($fruits);
 print_r($fruits);
@@ -273,7 +277,7 @@ print_r($fruits);
 
 results in
 
-```
+```php
 Array
 (
     [4] => apple
@@ -288,7 +292,7 @@ Array
 
 Sort an array in descending order by value and preserve the indecies.
 
-```
+```php
 $fruits = [1 => 'lemon', 2 => 'orange',  3 => 'banana', 4 => 'apple'];
 arsort($fruits);
 print_r($fruits);
@@ -297,7 +301,7 @@ print_r($fruits);
 
 results in
 
-```
+```php
 Array
 (
     [2] => orange
@@ -312,7 +316,7 @@ Array
 
 Sort an array in ascending order by key
 
-```
+```php
 $fruits = ['d'=>'lemon', 'a'=>'orange', 'b'=>'banana', 'c'=>'apple'];
 ksort($fruits);
 print_r($fruits);
@@ -321,7 +325,7 @@ print_r($fruits);
 
 results in
 
-```
+```php
 Array
 (
     [a] => orange
@@ -336,7 +340,7 @@ Array
 
 Sort an array in descending order by key.
 
-```
+```php
 $fruits = ['d'=>'lemon', 'a'=>'orange', 'b'=>'banana', 'c'=>'apple'];
 krsort($fruits);
 print_r($fruits);
@@ -345,7 +349,7 @@ print_r($fruits);
 
 results in
 
-```
+```php
 Array
 (
     [d] => lemon
@@ -360,7 +364,7 @@ Array
 
 Sort an array in a way a human being would do (natural order).
 
-```
+```php
 $files = ['File8.stack', 'file77.stack', 'file7.stack', 'file13.stack', 'File2.stack'];
 natsort($files);
 print_r($files);
@@ -369,7 +373,7 @@ print_r($files);
 
 results in
 
-```
+```php
 Array
 (
     [4] => File2.stack
@@ -385,7 +389,7 @@ Array
 
 Sort an array in a way a human being would do (natural order), but case intensive
 
-```
+```php
 $files = ['File8.stack', 'file77.stack', 'file7.stack', 'file13.stack', 'File2.stack'];
 natcasesort($files);
 print_r($files);
@@ -394,7 +398,7 @@ print_r($files);
 
 results in
 
-```
+```php
 Array
 (
     [4] => File2.stack
@@ -410,7 +414,7 @@ Array
 
 Shuffles an array (sorted randomly).
 
-```
+```php
 $array = ['aa', 'bb', 'cc'];
 shuffle($array);
 print_r($array);
@@ -419,7 +423,7 @@ print_r($array);
 
 As written in the description it is random so here only one example in what it can result
 
-```
+```php
 Array
 (
     [0] => cc
@@ -433,7 +437,7 @@ Array
 
 Sort an array with a user defined comparison function.
 
-```
+```php
 function compare($a, $b)
 {
     if ($a == $b) {
@@ -450,7 +454,7 @@ print_r($array);
 
 results in
 
-```
+```php
 Array
 (
     [0] => 1
@@ -466,7 +470,7 @@ Array
 
 Sort an array with a user defined comparison function and preserve the keys.
 
-```
+```php
 function compare($a, $b)
 {
     if ($a == $b) {
@@ -483,7 +487,7 @@ print_r($array);
 
 results in
 
-```
+```php
 Array
 (
     [e] => -5
@@ -499,7 +503,7 @@ Array
 
 Sort an array by keys with a user defined comparison function.
 
-```
+```php
 function compare($a, $b)
 {
     if ($a == $b) {
@@ -517,7 +521,7 @@ print_r($array);
 
 results in
 
-```
+```php
 Array
 (
     [ee] => 1
@@ -548,7 +552,7 @@ be touched.</p>
 
 If you'd like to achieve this, all you need to do is the following:
 
-```
+```php
 $myArray = array(1, 2, 3);
 
 array_unshift($myArray, 4);
@@ -557,7 +561,7 @@ array_unshift($myArray, 4);
 
 This will now add `4` as the first element in your array. You can verify this by:
 
-```
+```php
 print_r($myArray);
 
 ```
@@ -568,7 +572,7 @@ Since **`array_unshift`** forces the array to reset the key-value pairs as the n
 
 Example:
 
-```
+```php
 $myArray = array('apples', 'bananas', 'pears');
 $myElement = array('oranges');
 $joinedArray = $myElement;
@@ -581,7 +585,7 @@ foreach ($myArray as $i) {
 
 Output ($joinedArray):
 
-```
+```php
 Array ( [0] => oranges [1] => apples [2] => bananas [3] => pears ) 
 
 ```
@@ -608,7 +612,7 @@ Using `array_filter` gives the additional flexibility of performing an arbitrary
 
 `array_flip` function will exchange all keys with its elements.
 
-```
+```php
 $colors = array(
     'one' => 'red',
     'two' => 'blue',
@@ -630,7 +634,7 @@ array(
 ## Merge two arrays into one array
 
 
-```
+```php
 $a1 = array("red","green");
 $a2 = array("blue","yellow");
 print_r(array_merge($a1,$a2));
@@ -643,7 +647,7 @@ print_r(array_merge($a1,$a2));
 
 Associative array:
 
-```
+```php
 $a1=array("a"=>"red","b"=>"green");
 $a2=array("c"=>"blue","b"=>"yellow");
 print_r(array_merge($a1,$a2));
@@ -652,6 +656,7 @@ print_r(array_merge($a1,$a2));
 */
 
 ```
+
 
 1. Merges the elements of one or more arrays together so that the values of one are appended to the end of the previous one. It returns the resulting array.
 1. If the input arrays have the same string keys, then the later value for that key will overwrite the previous one. If, however, the arrays contain numeric keys, the later value will not overwrite the original value, but will be appended.

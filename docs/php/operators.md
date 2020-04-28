@@ -19,14 +19,14 @@ Null coalescing is a new operator introduced in PHP 7. This operator returns its
 
 The following example:
 
-```
+```php
 $name = $_POST['name'] ?? 'nobody';
 
 ```
 
 is equivalent to both:
 
-```
+```php
 if (isset($_POST['name'])) {
     $name = $_POST['name'];
 } else {
@@ -37,21 +37,21 @@ if (isset($_POST['name'])) {
 
 and:
 
-```
+```php
 $name = isset($_POST['name']) ? $_POST['name'] : 'nobody'; 
 
 ```
 
 This operator can also be chained (with right-associative semantics):
 
-```
+```php
 $name = $_GET['name'] ?? $_POST['name'] ?? 'nobody';
 
 ```
 
 which is an equivalent to:
 
-```
+```php
 if (isset($_GET['name'])) {
     $name = $_GET['name'];
 } elseif (isset($_POST['name'])) {
@@ -66,7 +66,7 @@ Note:<br>
 When using coalescing operator on string concatenation dont forget to use parentheses `()`
 <br>
 
-```
+```php
 $firstName = "John";
 $lastName = "Doe";
 echo $firstName ?? "Unknown" . " " . $lastName ?? "";
@@ -75,7 +75,7 @@ echo $firstName ?? "Unknown" . " " . $lastName ?? "";
 
 This will output `John` only, and if its $firstName is null and $lastName is `Doe` it will output `Unknown Doe`. In order to output `John Doe`, we must use parentheses like this.<br>
 
-```
+```php
 $firstName = "John";
 $lastName = "Doe";
 echo ($firstName ?? "Unknown") . " " . ($lastName ?? "");
@@ -91,7 +91,7 @@ This will output `John Doe` instead of `John` only.
 
 PHP 7 introduces a new kind of operator, which can be used to compare expressions. This operator will return -1, 0 or 1 if the first expression is less than, equal to, or greater than the second expression.
 
-```
+```php
 // Integers
 print (1 <=> 1); // 0
 print (1 <=> 2); // -1
@@ -113,14 +113,14 @@ Objects are not comparable, and so doing so will result in undefined behaviour.
 
 This operator is particularly useful when writing a user-defined comparison function using `usort`, `uasort`, or `uksort`. Given an array of objects to be sorted by their `weight` property, for example, an anonymous function can use `<=>` to return the value expected by the sorting functions.
 
-```
+```php
 usort($list, function($a, $b) { return $a->weight <=> $b->weight; });
 
 ```
 
 In PHP 5 this would have required a rather more elaborate expression.
 
-```
+```php
 usort($list, function($a, $b) {
     return $a->weight < $b->weight ? -1 : ($a->weight == $b->weight ? 0 : 1);
 });
@@ -134,7 +134,7 @@ usort($list, function($a, $b) {
 
 The ternary operator can be thought of as an inline `if` statement. It consists of three parts. The `operator`, and two outcomes. The syntax is as follows:
 
-```
+```php
 $value = <operator> ? <true value> : <false value>
 
 ```
@@ -143,7 +143,7 @@ If the `operator` is evaluated as `true`, the value in the first block will be r
 
 Example:
 
-```
+```php
 $action = empty($_POST['action']) ? 'default' : $_POST['action'];
 
 ```
@@ -158,7 +158,7 @@ This behaves like the [Null Coalescing operator `??`](http://stackoverflow.com/d
 
 Example:
 
-```
+```php
 function setWidth(int $width = 0){
     $_SESSION["width"] = $width ?: getDefaultWidth();
 }
@@ -176,7 +176,7 @@ Refer to [Types](http://stackoverflow.com/documentation/php/232/php-types) for m
 
 Variables can be incremented or decremented by 1 with `++` or `--`, respectively. They can either precede or succeed variables and slightly vary semantically, as shown below.
 
-```
+```php
 $i = 1;
 echo $i; // Prints 1
 
@@ -203,7 +203,7 @@ More information about incrementing and decrementing operators can be found in t
 
 The PHP execution operator consists of backticks (``) and is used to run shell commands. The output of the command will be returned, and may, therefore, be stored in a variable.
 
-```
+```php
 // List files
 $output = `ls`;
 echo "<pre>$output</pre>";
@@ -244,16 +244,26 @@ There are only two string operators:
 
 <li>
 Concatenation of two strings (dot):
-<pre><code>$a = "a";
+
+```php
+$a = "a";
 $b = "b";
 $c = $a . $b; // $c => "ab"
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Concatenating assignment (dot=):
-<pre><code>$a = "a";
+
+```php
+$a = "a";
 $a .= "b"; // $a => "ab"
-</code></pre>
+
+```
+
+
 </li>
 
 
@@ -263,7 +273,7 @@ $a .= "b"; // $a => "ab"
 
 Members of objects or classes can be accessed using the object operator (`->`) and the class operator (`::`).
 
-```
+```php
 class MyClass {
     public $a = 1;
     public static $b = 2;
@@ -290,7 +300,7 @@ Note that after the object operator, the `$` should not be written (`$object->a`
 
 Also note that `var_dump(MyClass::d());` is only allowed if the function `d()` does **not** reference the object:
 
-```
+```php
 class MyClass {
     private $a = 1;
     public function d() {
@@ -307,7 +317,7 @@ This causes a 'PHP Fatal error: Uncaught Error: Using $this when not in object c
 
 These operators have **left** associativity, which can be used for 'chaining':
 
-```
+```php
 class MyClass {
     private $a = 1;
     
@@ -328,7 +338,7 @@ var_dump($object->add(4)->get());  // int(5)
 
 These operators have the highest precedence (they are not even mentioned in the manual), even higher that `clone`. Thus:
 
-```
+```php
 class MyClass {
     private $a = 0;
     public function add(int $a) {
@@ -351,7 +361,7 @@ The value of `$o1` is added to **before** the object is cloned!
 
 Note that using parentheses to influence precedence did not work in PHP version 5 and older (it does in PHP 7):
 
-```
+```php
 // using the class MyClass from the previous code
 $o1 = new MyClass();
 $o2 = (clone $o1)->add(2);  // Error in PHP 5 and before, fine in PHP 7
@@ -369,7 +379,7 @@ The combined assignment operators are a shortcut for an operation on some variab
 
 Arithmetic:
 
-```
+```php
 $a = 1;   // basic assignment
 $a += 2; // read as '$a = $a + 2'; $a now is (1 + 2) => 3
 $a -= 1; // $a now is (3 - 1) => 2
@@ -386,14 +396,14 @@ $arrOne += $arrTwo;
 
 [Processing Multiple Arrays Together](http://stackoverflow.com/documentation/php/6827/processing-multiple-arrays-together)
 
-```
+```php
 $a **= 2; // $a now is (4 ** 2) => 16 (4 raised to the power of 2)
 
 ```
 
 Combined concatenation and assignment of a string:
 
-```
+```php
 $a = "a";
 $a .= "b"; // $a => "ab"
 
@@ -401,7 +411,7 @@ $a .= "b"; // $a => "ab"
 
 Combined binary bitwise assignment operators:
 
-```
+```php
 $a = 0b00101010;  // $a now is 42
 $a &= 0b00001111; // $a now is (00101010 & 00001111) => 00001010 (bitwise and)
 $a |= 0b00100010; // $a now is (00001010 | 00100010) => 00101010 (bitwise or)
@@ -420,7 +430,7 @@ The order in which operators are evaluated is determined by the **operator prece
 
 In
 
-```
+```php
 $a = 2 * 3 + 4;
 
 ```
@@ -429,7 +439,7 @@ $a = 2 * 3 + 4;
 
 The precedence can be altered using parentheses: in
 
-```
+```php
 $a = 2 * (3 + 4);
 
 ```
@@ -441,7 +451,7 @@ $a = 2 * (3 + 4);
 ## Basic Assignment (=)
 
 
-```
+```php
 $a = "some string";
 
 ```
@@ -450,7 +460,7 @@ results in `$a` having the value `some string`.
 
 The result of an assignment expression is the value being assigned. **Note that a single equal sign `=` is NOT for comparison!**
 
-```
+```php
 $a = 3;
 $b = ($a = 5);
 
@@ -473,14 +483,14 @@ Thus: both `$a` and `$b` now have value `5`.
 
 If the preceedence of two operators is equal, the associativity determines the grouping (see also the Remarks section):
 
-```
+```php
 $a = 5 * 3 % 2; // $a now is (5 * 3) % 2 => (15 % 2) => 1
 
 ```
 
 `*` and `%` have equal precedence and **left** associativity. Because the multiplication occurs first (left), it is grouped.
 
-```
+```php
 $a = 5 % 3 * 2; // $a now is (5 % 3) * 2 => (2 * 2) => 4
 
 ```
@@ -489,7 +499,7 @@ Now, the modulus operator occurs first (left) and is thus grouped.
 
 ### Right association
 
-```
+```php
 $a = 1;
 $b = 1;
 $a = $b += 1;
@@ -511,7 +521,7 @@ The identical operator works the same as the equal operator, requiring its opera
 
 For example, the sample below will display 'a and b are equal', but not 'a and b are identical'.
 
-```
+```php
 $a = 4;
 $b = '4';
 if ($a == $b) {
@@ -550,38 +560,41 @@ They include:
 
 **Example**:
 
-```
+```php
 var_dump(5 > 2); // prints bool(true)
 var_dump(2 > 7); // prints bool(false)
 
 ```
 
+
 1. **Lesser Than**: `$a < $b`, returns `true` if `$a`'s value is smaller that of `$b`, otherwise returns false.
 
 **Example**:
 
-```
+```php
 var_dump(5 < 2); // prints bool(false)
 var_dump(1 < 10); // prints bool(true)
 
 ```
 
+
 1. **Greater Than Or Equal To**: `$a >= $b`, returns `true` if `$a`'s value is either greater than of `$b` or equal to `$b`, otherwise returns `false`.
 
 **Example**:
 
-```
+```php
 var_dump(2 >= 2); // prints bool(true)
 var_dump(6 >= 1); // prints bool(true)
 var_dump(1 >= 7); // prints bool(false)
 
 ```
 
+
 1. **Smaller Than Or Equal To**: `$a <= $b`, returns `true` if `$a`'s value is either smaller than of `$b` or equal to `$b`, otherwise returns `false`.
 
 **Example**:
 
-```
+```php
 var_dump(5 <= 5); // prints bool(true)
 var_dump(5 <= 8); // prints bool(true)
 var_dump(9 <= 1); // prints bool(false)
@@ -590,7 +603,7 @@ var_dump(9 <= 1); // prints bool(false)
 
 5/6. **Not Equal/Identical To:** To rehash the earlier example on equality, the sample below will display 'a and b are not identical', but not 'a and b are not equal'.
 
-```
+```php
 $a = 4;
 $b = '4';
 if ($a != $b) {
@@ -613,7 +626,7 @@ The first (left) parameter is the object to test. If this variable is not an obj
 
 The second (right) parameter is the class to compare with. The class can be provided as the class name itself, a string variable containing the class name (not a string constant!) or an object of that class.
 
-```
+```php
 class MyClass {
 }
 
@@ -636,7 +649,7 @@ $a = $b instanceof MyClass;    // false ($b is not an object)
 
 `instanceof` can also be used to check whether an object is of some class which extends another class or implements some interface:
 
-```
+```php
 interface MyInterface {
 }
 
@@ -657,7 +670,7 @@ $a = $o instanceof MyInterface;
 
 To check whether an object is **not** of some class, the not operator (`!`) can be used:
 
-```
+```php
 class MyClass {
 }
 
@@ -675,7 +688,7 @@ Note that parentheses around `$o instanceof MyClass` are not needed because `ins
 
 If a class does not exist, the registered autoload functions are called to try to define the class (this is a topic outside the scope of this part of the Documentation!). In PHP versions before 5.1.0, the `instanceof` operator would also trigger these calls, thus actually defining the class (and if the class could not be defined, a fatal error would occur). To avoid this, use a string:
 
-```
+```php
 // only PHP versions before 5.1.0!
 class MyClass {
 }
@@ -708,7 +721,7 @@ In older versions of PHP (before 5.0), the `is_a` function can be used to determ
 
 Bitwise operators are like logical operators but executed per bit rather than per boolean value.
 
-```
+```php
 // bitwise NOT ~: sets all unset bits and unsets all set bits
 printf("%'06b", ~0b110110); // 001001
 
@@ -718,21 +731,21 @@ printf("%'06b", ~0b110110); // 001001
 
 Bitwise AND `&`: a bit is set only if it is set in both operands
 
-```
+```php
 printf("%'06b", 0b110101 & 0b011001); // 010001
 
 ```
 
 Bitwise OR `|`:  a bit is set if it is set in either or both operands
 
-```
+```php
 printf("%'06b", 0b110101 | 0b011001); // 111101
 
 ```
 
 Bitwise XOR `^`: a bit is set if it is set in one operand and not set in another operand, i.e. only if that bit is in different state in the two operands
 
-```
+```php
 printf("%'06b", 0b110101 ^ 0b011001); // 101100
 
 ```
@@ -741,14 +754,14 @@ printf("%'06b", 0b110101 ^ 0b011001); // 101100
 
 These operators can be used to manipulate bitmasks. For example:
 
-```
+```php
 file_put_contents("file.log", LOCK_EX | FILE_APPEND);
 
 ```
 
 Here, the `|` operator is used to combine the two bitmasks. Although `+` has the same effect, `|` emphasizes that you are combining bitmasks, not adding two normal scalar integers.
 
-```
+```php
 class Foo{
     const OPTION_A = 1;
     const OPTION_B = 2;
@@ -807,7 +820,7 @@ Bitwise left shift `<<`: shift all bits to the left (more significant) by the gi
 
 `<< $x` is equivalent to unsetting the highest `$x` bits and multiplying by the `$x`th power of 2
 
-```
+```php
 printf("%'08b", 0b00001011<< 2); // 00101100
 
 assert(PHP_INT_SIZE === 4); // a 32-bit system
@@ -819,7 +832,7 @@ Bitwise right shift `>>`: discard the lowest shift and shift the remaining bits 
 
 `>> $x` is equivalent to dividing by the `$x`th power of 2 and discard the non-integer part
 
-```
+```php
 printf("%x", 0xFFFFFFFF >> 3); // 1FFFFFFF
 
 ```
@@ -828,7 +841,7 @@ printf("%x", 0xFFFFFFFF >> 3); // 1FFFFFFF
 
 Fast division by 16 (better performance than `/= 16`)
 
-```
+```php
 $x >>= 4;
 
 ```
@@ -836,7 +849,7 @@ $x >>= 4;
 On 32-bit systems, this discards all bits in the integer, setting the value to 0.
 On 64-bit systems, this unsets the most significant 32 bits and keep the least
 
-```
+```php
 $x = $x << 32 >> 32;
 
 ```

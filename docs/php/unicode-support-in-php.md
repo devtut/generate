@@ -5,14 +5,11 @@ description: "Converting Unicode characters using PHP, Converting Unicode charac
 
 # Unicode Support in PHP
 
-
-
 ## Converting Unicode characters using PHP
-
 
 You can use the following code for going back and forward.
 
-```
+```php
 if (!function_exists('codepoint_encode')) {
     function codepoint_encode($str) {
         return substr(json_encode($str), 1, -1);
@@ -29,7 +26,7 @@ if (!function_exists('codepoint_decode')) {
 
 ### **How to use** :
 
-```
+```php
 echo "\nUse JSON encoding / decoding\n";
 var_dump(codepoint_encode("我好"));
 var_dump(codepoint_decode('\u6211\u597d'));
@@ -38,21 +35,18 @@ var_dump(codepoint_decode('\u6211\u597d'));
 
 ### **Output** :
 
-```
+```php
 Use JSON encoding / decoding
 string(12) "\u6211\u597d"
 string(6) "我好"
 
 ```
 
-
-
 ## Converting Unicode characters to their numeric value and/or HTML entities using PHP
-
 
 You can use the following code for going back and forward.
 
-```
+```php
 if (!function_exists('mb_internal_encoding')) {
     function mb_internal_encoding($encoding = NULL) {
         return ($from_encoding === NULL) ? iconv_get_encoding() : iconv_set_encoding($encoding);
@@ -104,7 +98,7 @@ if (!function_exists('mb_html_entity_decode')) {
 
 ### **How to use** :
 
-```
+```php
 echo "Get string from numeric DEC value\n";
 var_dump(mb_chr(50319, 'UCS-4BE'));
 var_dump(mb_chr(271));
@@ -133,7 +127,7 @@ var_dump(mb_html_entity_decode('tch&#xFC;&#xDF;'));
 
 ### **Output** :
 
-```
+```php
 Get string from numeric DEC value
 string(4) "ď"
 string(2) "ď"
@@ -160,24 +154,20 @@ string(7) "tchüß"
 
 ```
 
-
-
 ## Intl extention for Unicode support
-
 
 Native string functions are mapped to single byte functions, they do not work well with Unicode. The extentions iconv and mbstring offer some support for Unicode, while the Intl-extention offers full support. Intl is a wrapper for the **facto de standard** ICU library, see [http://site.icu-project.org](http://site.icu-project.org) for detailed information that is not available on [http://php.net/manual/en/book.intl.php](http://php.net/manual/en/book.intl.php) . If you can not install the extention, have a look at [an alternative implemention of Intl from the Symfony framework](http://api.symfony.com/3.2/Symfony/Component/Intl/Intl.html).
 
 ICU offers full Internationalization of which Unicode is only a smaller part. You can do transcoding easily:
 
-```
+```php
 \UConverter::transcode($sString, 'UTF-8', 'UTF-8');  // strip bad bytes against attacks
 
 ```
 
 But, do not dismiss **iconv** just yet, consider:
 
-```
+```php
 \iconv('UTF-8', 'ASCII//TRANSLIT', "Cliënt"); // output: "Client"
 
 ```
-

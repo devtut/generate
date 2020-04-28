@@ -12,7 +12,7 @@ description: "Handling Program Options, Argument Handling, Input and Output Hand
 
 Program options can be handled with the `getopt()` function. It operates with a similar syntax to the POSIX `getopt` command, with additional support for GNU-style long options.
 
-```
+```php
 #!/usr/bin/php
 
 // a single colon indicates the option takes a value
@@ -66,7 +66,7 @@ fprintf(STDOUT, "Debug is %d" . PHP_EOL, $debug);
 
 This script can be tested like so:
 
-```
+```php
 ./test.php --help
 ./test.php --version
 ./test.php -f foo -ddd
@@ -89,7 +89,7 @@ Note the last method will not work because `-v 5` is not valid.
 
 Arguments are passed to the program in a manner similar to most C-style languages. `$argc` is an integer containing the number of arguments including the program name, and `$argv` is an array containing arguments to the program. The first element of `$argv` is the name of the program.
 
-```
+```php
 #!/usr/bin/php
 
 printf("You called the program %s with %d arguments\n", $argv[0], $argc - 1);
@@ -114,14 +114,14 @@ This example shows the how arguments are grouped when escapes such as `""` or `\
 
 **Example script**
 
-```
+```php
 var_dump($argc, $argv);
 
 ```
 
 **Command line**
 
-```
+```php
 $ php argc.argv.php --this-is-an-option three\ words\ together or "in one quote"     but\ multiple\ spaces\ counted\ as\ one
 int(6)
 array(6) {
@@ -143,7 +143,7 @@ array(6) {
 
 If the PHP script is run using `-r`:
 
-```
+```php
 $ php -r 'var_dump($argv);'
 array(1) {
   [0]=>
@@ -154,7 +154,7 @@ array(1) {
 
 Or code piped into STDIN of `php`:
 
-```
+```php
 $ echo '<?php var_dump($argv);' | php
 array(1) {
   [0]=>
@@ -170,7 +170,7 @@ array(1) {
 
 When run from the CLI, the constants **STDIN**, **STDOUT**, and **STDERR** are predefined. These constants are file handles, and can be considered equivalent to the results of running the following commands:
 
-```
+```php
 STDIN = fopen("php://stdin", "r");
 STDOUT = fopen("php://stdout", "w");
 STDERR = fopen("php://stderr", "w");
@@ -179,7 +179,7 @@ STDERR = fopen("php://stderr", "w");
 
 The constants can be used anywhere a standard file handle would be:
 
-```
+```php
 #!/usr/bin/php
 
 while ($line = fgets(STDIN)) {
@@ -200,7 +200,7 @@ while ($line = fgets(STDIN)) {
 
 The builtin stream addresses referenced earlier (`php://stdin`, `php://stdout`, and `php://stderr`) can be used in place of filenames in most contexts:
 
-```
+```php
 file_put_contents('php://stdout', 'This is stdout content');
 file_put_contents('php://stderr', 'This is stderr content');
 
@@ -216,7 +216,7 @@ fclose($stdout);
 
 As an alternative, you can also use [readline()](http://php.net/manual/en/function.readline.php) for input, and you can also use **echo** or **print** or any other string printing functions for output.
 
-```
+```php
 $name = readline("Please enter your name:");
 print "Hello, {$name}.";
 
@@ -229,7 +229,7 @@ print "Hello, {$name}.";
 
 The **exit** construct can be used to pass a return code to the executing environment.
 
-```
+```php
 #!/usr/bin/php
 
 if ($argv[1] === "bad") {
@@ -251,7 +251,7 @@ Return codes must be in the range of 0 to 254 (255 is reserved by PHP and should
 
 The function [`php_sapi_name()`](http://php.net/php_sapi_name) and the constant `PHP_SAPI` both return the type of interface (**S**erver **API**) that is being used by PHP. They can be used to restrict the execution of a script to the command line, by checking whether the output of the function is equal to `cli`.
 
-```
+```php
 if (php_sapi_name() === 'cli') {
     echo "Executed from command line\n";
 } else {
@@ -262,7 +262,7 @@ if (php_sapi_name() === 'cli') {
 
 The [`drupal_is_cli()`](https://api.drupal.org/api/drupal/includes!bootstrap.inc/function/drupal_is_cli/7.x) function is an example of a function that detects whether a script has been executed from the command line:
 
-```
+```php
 function drupal_is_cli() {
     return (!isset($_SERVER['SERVER_SOFTWARE']) && (php_sapi_name() == 'cli' || (is_numeric($_SERVER['argc']) && $_SERVER['argc'] > 0)));
 }
@@ -289,7 +289,7 @@ When running from the CLI, PHP exhibits some different behaviours than when run 
 
 On either Linux/UNIX or Windows, a script can be passed as an argument to the PHP executable, with that script's options and arguments following:
 
-```
+```php
 php ~/example.php foo bar
 c:\php\php.exe c:\example.php foo bar
 
@@ -299,7 +299,7 @@ This passes `foo` and `bar` as arguments to `example.php`.
 
 On Linux/UNIX, the preferred method of running scripts is to use a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) (e.g. `#!/usr/bin/env php`) as the first line of a file, and set the executable bit on the file. Assuming the script is in your path, you can then call it directly:
 
-```
+```php
 example.php foo bar
 
 ```
@@ -308,14 +308,14 @@ Using `/usr/bin/env php` makes the PHP executable to be found using the PATH. Fo
 
 On Windows, you could have the same result by adding the PHP's directory and your script to the PATH and editing PATHEXT to allow `.php` to be detected using the PATH. Another possibility is to add a file named `example.bat` or `example.cmd` in the same directory as your PHP script and write this line into it:
 
-```
+```php
 c:\php\php.exe "%~dp0example.php" %*
 
 ```
 
 Or, if you added PHP's directory into the PATH, for convenient use:
 
-```
+```php
 php "%~dp0example.php" %*
 
 ```
@@ -332,7 +332,7 @@ php -S :
 
 To test it create `index.php` file containing
 
-```
+```php
 <?php
 echo "Hello World from built-in PHP server";
 
@@ -344,7 +344,7 @@ Now yout should be able to see content in browser. To check this, navigate to `h
 
 Every access should result in log entry written to terminal
 
-```
+```php
 [Mon Aug 15 18:20:19 2016] ::1:52455 [200]: /
 
 ```
@@ -356,14 +356,14 @@ Every access should result in log entry written to terminal
 
 This example shows the behaviour of `getopt` when the user input is uncommon:
 
-```
+```php
 var_dump(
     getopt("ab:c::", ["delta", "epsilon:", "zeta::"])
 );
 
 ```
 
-```
+```php
 $ php getopt.php -a -a -bbeta -b beta -cgamma --delta --epsilon --zeta --zeta=f  -c gamma
 array(6) {
   ["a"]=>

@@ -22,21 +22,21 @@ also need to install a web-server such as [Apache](http://www.apache.org/), [Ngi
 
 Make sure that all of your [repositories](https://en.wikipedia.org/wiki/Software_repository) are up to date:
 
-```
+```php
 sudo apt-get update
 
 ```
 
 After updating your system's repositories, install PHP:
 
-```
+```php
 sudo apt-get install php7.0
 
 ```
 
 Let's test the installation by checking the PHP version:
 
-```
+```php
 php --version
 
 ```
@@ -45,7 +45,7 @@ This should output something like this.
 
 **Note: Your output will be slightly different.**
 
-```
+```php
 PHP 7.0.8-0ubuntu0.16.04.1 (cli) ( NTS )
 Copyright (c) 1997-2016 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
@@ -63,21 +63,21 @@ You now have the capability to run PHP from the command line.
 
 Use the `yum` command to manage packages in Enterprise Linux-based operating systems:
 
-```
+```php
 yum install php
 
 ```
 
 This installs a minimal install of PHP including some common features. If you need additional modules, you will need to install them separately. Once again, you can use `yum` to search for these packages:
 
-```
+```php
 yum search php-*
 
 ```
 
 Example output:
 
-```
+```php
 php-bcmath.x86_64 : A module for PHP applications for using the bcmath library
 php-cli.x86_64 : Command-line interface for PHP
 php-common.x86_64 : Common files for PHP
@@ -92,7 +92,7 @@ php-imap.x86_64 : A module for PHP applications that use IMAP
 
 To install the gd library:
 
-```
+```php
 yum install php-gd
 
 ```
@@ -107,7 +107,7 @@ IUS and Webtatic provide replacement packages with different names (e.g. `php56u
 
 Following are instructions on installing PHP 7.0 from Remi's repository. This is the simplest example, as uninstalling the system packages is not required.
 
-```
+```php
 # download the RPMs; replace 6 with 7 in case of EL 7
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 wget http://rpms.remirepo.net/enterprise/remi-release-6.rpm

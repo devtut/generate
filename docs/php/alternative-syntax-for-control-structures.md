@@ -10,7 +10,7 @@ description: "Alternative if/else statement, Alternative for statement, Alternat
 ## Alternative if/else statement
 
 
-```
+```php
 <?php
 
 if ($condition):
@@ -38,7 +38,7 @@ endif;
 ## Alternative for statement
 
 
-```
+```php
 <?php
 
 for ($i = 0; $i < 10; $i++):
@@ -58,7 +58,7 @@ endfor;
 ## Alternative while statement
 
 
-```
+```php
 <?php
 
 while ($condition):
@@ -78,7 +78,7 @@ endwhile;
 ## Alternative foreach statement
 
 
-```
+```php
 <?php
 
 foreach ($collection as $item):
@@ -98,7 +98,7 @@ endforeach;
 ## Alternative switch statement
 
 
-```
+```php
 <?php
 
 switch ($condition):

@@ -14,7 +14,7 @@ The [`var_dump`](http://php.net/manual/en/function.var-dump.php) function allows
 
 **Example:**
 
-```
+```php
 $array = [3.7, "string", 10, ["hello" => "world"], false, new DateTime()];
 var_dump($array);
 
@@ -22,7 +22,7 @@ var_dump($array);
 
 **Output:**
 
-```
+```php
 array(6) {
   [0]=>
   float(3.7)
@@ -63,7 +63,7 @@ PHP can display errors in text or HTML format, depending on the [`html_errors`](
 
 **Example:**
 
-```
+```php
 ini_set("display_errors", true);
 ini_set("html_errors", false); // Display errors in plain text
 error_reporting(E_ALL & ~E_USER_NOTICE); // Display everything except E_USER_NOTICE
@@ -76,7 +76,7 @@ nonexistentFunction(); // E_ERROR
 
 **Plain text output:** (HTML format differs between implementations)
 
-```
+```php
 Notice: Undefined variable: nonexistentVariable in /path/to/file.php on line 7
 
 Fatal error: Uncaught Error: Call to undefined function nonexistentFunction() in /path/to/file.php:8
@@ -105,7 +105,7 @@ The common way to handle `error_reporting` is to enable it fully with `E_ALL` co
 
 Having said that, it  can be a useful tool in understanding the PHP environment (OS, configuration, versions, paths, modules) in which you are working, especially when chasing a bug. It is a simple built in function:
 
-```
+```php
 phpinfo();
 
 ```
@@ -118,7 +118,7 @@ You can run it in the browser for a nicely formatted detailed look. It also work
 
 ### Example
 
-```
+```php
 phpinfo(INFO_CONFIGURATION | INFO_ENVIRONMENT | INFO_VARIABLES);
 
 ```
@@ -146,14 +146,14 @@ As you can see this extension is perfectly suited for development environment. E
 
 Usually installing of this extension is very simple:
 
-```
+```php
 pecl install xdebug # install from pecl/pear
 
 ```
 
 And activate it into your php.ini:
 
-```
+```php
 zend_extension="/usr/local/php/modules/xdebug.so"
 
 ```
@@ -176,7 +176,7 @@ This function accepts a single optional parameter in the form of extension name:
 
 ### **Example**
 
-```
+```php
 print "Current PHP version: " . phpversion();
 // Current PHP version: 7.0.8
 
@@ -192,7 +192,7 @@ print "Current cURL version: " . phpversion( 'curl' );
 ## Error Reporting (use them both)
 
 
-```
+```php
 // this sets the configuration option for your environment
 ini_set('display_errors', '1');
 

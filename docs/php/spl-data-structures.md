@@ -18,7 +18,7 @@ PHP's default Array type is actually implemented as ordered hash maps, which all
 
 So as you can see from this illustration a normal PHP array can be viewed more like an an ordered set of key/value pairs, where each key can map to any value. Notice in this array we have keys that are both numbers and strings, as well as values of different types and the key has no bearing on the order of the elements.
 
-```
+```php
 $arr = [
     9     => "foo",
     1     => 4.2,
@@ -33,7 +33,7 @@ foreach($arr as $key => $value) {
 
 So the above code would give us exactly what we'd expect.
 
-```
+```php
 $arr = new SplFixedArray(4);
 
 $arr[0] = "foo";
@@ -48,14 +48,14 @@ foreach($arr as $key => $value) {
 
 This gives you what you would expect.
 
-```
+```php
 var_dump(count($arr));
 
 ```
 
 Gives us...
 
-```
+```php
 $arr->setSize(3);
 
 var_dump(count($arr));
@@ -68,7 +68,7 @@ foreach($arr as $key => $value) {
 
 Now we get...
 
-```
+```php
 $array      = [1,2,3,4,5];
 $fixedArray = SplFixedArray::fromArray($array);
 
@@ -78,7 +78,7 @@ foreach($fixedArray as $value) {
 
 ```
 
-```
+```php
 $fixedArray = new SplFixedArray(5);
 
 $fixedArray[0] = 1;

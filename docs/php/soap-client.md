@@ -13,7 +13,7 @@ description: "WSDL Mode, Non-WSDL Mode, Classmaps, Tracing SOAP request and resp
 
 First, create a new `SoapClient` object, passing the URL to the WSDL file and optionally, an array of options.
 
-```
+```php
 // Create a new client object using a WSDL URL
 $soap = new SoapClient('https://example.com/soap.wsdl', [
     # This array and its values are optional
@@ -29,7 +29,7 @@ $soap = new SoapClient('https://example.com/soap.wsdl', [
 
 Then use the `$soap` object to call your SOAP methods.
 
-```
+```php
 $result = $soap->requestData(['a', 'b', 'c']);
 
 ```
@@ -41,7 +41,7 @@ $result = $soap->requestData(['a', 'b', 'c']);
 
 This is similar to WSDL mode, except we pass `NULL` as the WSDL file and make sure to set the `location` and `uri` options.
 
-```
+```php
 $soap = new SoapClient(NULL, [
     'location' => 'https://example.com/soap/endpoint',
     'uri' => 'namespace'
@@ -56,7 +56,7 @@ $soap = new SoapClient(NULL, [
 
 When creating a SOAP Client in PHP, you can also set a `classmap` key in the configuration array. This `classmap` defines which types defined in the WSDL should be mapped to actual classes, instead of the default `StdClass`. The reason you would want to do this is because you can get auto-completion of fields and method calls on these classes, instead of having to guess which fields are set on the regular `StdClass`.
 
-```
+```php
 class MyAddress {
     public $country;
     public $city;
@@ -88,7 +88,7 @@ $soap_client = new SoapClient($link_to_wsdl, [
 
 After configuring the classmap, whenever you perform a certain operation that returns a type `Address` or `Book`, the SoapClient will instantiate that class, fill the fields with the data and return it from the operation call.
 
-```
+```php
 // Lets assume 'getAddress(1234)' returns an Address by ID in the database
 $address = $soap_client->getAddress(1234);
 
@@ -119,7 +119,7 @@ echo $author->name;
 
 Sometimes we want to look at what is sent and received in the SOAP request. The following methods will return the XML in the request and response:
 
-```
+```php
 SoapClient::__getLastRequest()
 SoapClient::__getLastRequestHeaders()
 SoapClient::__getLastResponse()
@@ -129,7 +129,7 @@ SoapClient::__getLastResponseHeaders()
 
 For example, suppose we have an `ENVIRONMENT` constant and when this constant's value is set to `DEVELOPMENT` we want to echo all information when the call to `getAddress` throws an error. One solution could be:
 
-```
+```php
 try {
     $address = $soap_client->getAddress(1234);
 } catch (SoapFault $e) {
@@ -175,7 +175,7 @@ try {
 
 The `SoapClient` class is equipped with a `__call` method.  This is **not** to be called directly.  Instead this allows you to do:
 
-```
+```php
 $soap->requestInfo(['a', 'b', 'c']);
 
 ```

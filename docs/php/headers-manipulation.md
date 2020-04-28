@@ -12,7 +12,7 @@ description: "Basic Setting of a Header"
 
 Here is a basic setting of the Header to change to a new page when a button is clicked.
 
-```
+```php
 if(isset($_REQUEST['action']))
 {
     switch($_REQUEST['action'])

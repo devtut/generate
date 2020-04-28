@@ -12,7 +12,7 @@ description: "Iterating multiple arrays together, Using an incremental index, Us
 
 Sometimes two arrays of the same length need to be iterated together, for example:
 
-```
+```php
 $people = ['Tim', 'Tony', 'Turanga'];
 $foods = ['chicken', 'beef', 'slurm'];
 
@@ -20,7 +20,7 @@ $foods = ['chicken', 'beef', 'slurm'];
 
 `array_map` is the simplest way to accomplish this:
 
-```
+```php
 array_map(function($person, $food) {
     return "$person likes $food\n";
 }, $people, $foods);
@@ -29,7 +29,7 @@ array_map(function($person, $food) {
 
 which will output:
 
-```
+```php
 Tim likes chicken
 Tony likes beef
 Turanga likes slurm
@@ -38,7 +38,7 @@ Turanga likes slurm
 
 This can be done through a common index:
 
-```
+```php
 assert(count($people) === count($foods));
 for ($i = 0; $i < count($people); $i++) {
     echo "$people[$i] likes $foods[$i]\n";
@@ -50,7 +50,7 @@ If the two arrays don't have the incremental keys, `array_values($array)[$i]` ca
 
 If both arrays have the same order of keys, you can also use a foreach-with-key loop on one of the arrays:
 
-```
+```php
 foreach ($people as $index => $person) {
     $food = $foods[$index];
     echo "$person likes $food\n";
@@ -62,7 +62,7 @@ Separate arrays can only be looped through if they are the same length and also 
 
 You can also use `array_combine`.
 
-```
+```php
 $combinedArray = array_combine($people, $foods);
 // $combinedArray = ['Tim' => 'chicken', 'Tony' => 'beef', 'Turanga' => 'slurm'];
 
@@ -70,7 +70,7 @@ $combinedArray = array_combine($people, $foods);
 
 Then you can loop through this by doing the same as before:
 
-```
+```php
 foreach ($combinedArray as $person => $meal) {
     echo "$person likes $meal\n";
 }
@@ -84,7 +84,7 @@ foreach ($combinedArray as $person => $meal) {
 
 This method works by incrementing an integer from 0 to the greatest index in the array.
 
-```
+```php
 $colors = ['red', 'yellow', 'blue', 'green'];
 for ($i = 0; $i < count($colors); $i++) {
     echo 'I am the color ' . $colors[$i] . '<br>';
@@ -94,7 +94,7 @@ for ($i = 0; $i < count($colors); $i++) {
 
 This also allows iterating an array in reverse order without using `array_reverse`, which may result in overhead if the array is large.
 
-```
+```php
 $colors = ['red', 'yellow', 'blue', 'green'];
 for ($i = count($colors) - 1; $i >= 0; $i--) {
     echo 'I am the color ' . $colors[$i] . '<br>';
@@ -104,7 +104,7 @@ for ($i = count($colors) - 1; $i >= 0; $i--) {
 
 You can skip or rewind the index easily using this method.
 
-```
+```php
 $array = ["alpha", "beta", "gamma", "delta", "epsilon"];
 for ($i = 0; $i < count($array); $i++) {
     echo $array[$i], PHP_EOL;
@@ -120,7 +120,7 @@ for ($i = 0; $i < count($array); $i++) {
 
 Output:
 
-```
+```php
 alpha
 beta
 gamma
@@ -132,7 +132,7 @@ epsilon
 
 For arrays that do not have incremental indices (including arrays with indices in reverse order, e.g. `[1 => "foo", 0 => "bar"]`, `["foo" => "f", "bar" => "b"]`), this cannot be done directly. `array_values` or `array_keys` can be used instead:
 
-```
+```php
 $array = ["a" => "alpha", "b" => "beta", "c" => "gamma", "d" => "delta"];
 $keys = array_keys($array);
 for ($i = 0; $i < count($array); $i++) {
@@ -154,7 +154,7 @@ Each array instance contains an internal pointer. By manipulating this pointer, 
 
 Each call to `each()` returns the key and value of the current array element, and increments the internal array pointer.
 
-```
+```php
 $array = ["f" => "foo", "b" => "bar"];
 while (list($key, $value) = each($array)) {
     echo "$value begins with $key";
@@ -164,7 +164,7 @@ while (list($key, $value) = each($array)) {
 
 ### Using [`next`](http://php.net/next)
 
-```
+```php
 $array = ["Alpha", "Beta", "Gamma", "Delta"];
 while (($value = next($array)) !== false) {
     echo "$value\n";
@@ -174,7 +174,7 @@ while (($value = next($array)) !== false) {
 
 Note that this example assumes no elements in the array are identical to boolean `false`. To prevent such assumption, use [`key`](http://php.net/key) to check if the internal pointer has reached the end of the array:
 
-```
+```php
 $array = ["Alpha", "Beta", "Gamma", "Delta"];
 while (key($array) !== null) {
     echo current($array) . PHP_EOL;
@@ -185,7 +185,7 @@ while (key($array) !== null) {
 
 This also facilitates iterating an array without a direct loop:
 
-```
+```php
 class ColorPicker {
     private $colors = ["#FF0064", "#0064FF", "#64FF00", "#FF6400", "#00FF64", "#6400FF"];
     public function nextColor() : string {
@@ -207,7 +207,7 @@ class ColorPicker {
 
 ### Direct loop
 
-```
+```php
 foreach ($colors as $color) {
     echo "I am the color $color<br>";
 }
@@ -216,7 +216,7 @@ foreach ($colors as $color) {
 
 ### Loop with keys
 
-```
+```php
 $foods = ['healthy' => 'Apples', 'bad' => 'Ice Cream'];
 foreach ($foods as $key => $food) {
     echo "Eating $food is $key";
@@ -228,7 +228,7 @@ foreach ($foods as $key => $food) {
 
 In the `foreach` loops in the above examples, modifying the value (`$color` or `$food`) directly doesn't change its value in the array. The `&` operator is required so that the value is a reference pointer to the element in the array.
 
-```
+```php
 $years = [2001, 2002, 3, 4];
 foreach ($years as &$year) {
     if ($year < 2000) $year += 2000;
@@ -238,7 +238,7 @@ foreach ($years as &$year) {
 
 This is similar to:
 
-```
+```php
 $years = [2001, 2002, 3, 4];
 for($i = 0; $i < count($years); $i++) { // these two lines
     $year = &$years[$i];                // are changed to foreach by reference
@@ -251,7 +251,7 @@ for($i = 0; $i < count($years); $i++) { // these two lines
 
 PHP arrays can be modified in any ways during iteration without concurrency problems (unlike e.g. Java `List`s). If the array is iterated by reference, later iterations will be affected by changes to the array. Otherwise, the changes to the array will not affect later iterations (as if you are iterating a copy of the array instead). Compare looping by value:
 
-```
+```php
 $array = [0 => 1, 2 => 3, 4 => 5, 6 => 7];
 foreach ($array as $key => $value) {
     if ($key === 0) {
@@ -265,7 +265,7 @@ foreach ($array as $key => $value) {
 
 Output:
 
-```
+```php
 0 => 1
 2 => 3
 4 => 5
@@ -275,7 +275,7 @@ Output:
 
 But if the array is iterated with reference,
 
-```
+```php
 $array = [0 => 1, 2 => 3, 4 => 5, 6 => 7];
 foreach ($array as $key => &$value) {
     if ($key === 0) {
@@ -289,7 +289,7 @@ foreach ($array as $key => &$value) {
 
 Output:
 
-```
+```php
 0 => 1
 2 => 3
 6 => 17
@@ -307,7 +307,7 @@ Php arrayiterator allows you to modify and unset the values while iterating over
 
 Example:
 
-```
+```php
 $array = ['1' => 'apple', '2' => 'banana', '3' => 'cherry'];
 
 $arrayObject = new ArrayObject($array);
@@ -322,7 +322,7 @@ for($iterator; $iterator->valid(); $iterator->next()) {
 
 Output:
 
-```
+```php
 1 => apple
 2 => banana
 3 => cherry

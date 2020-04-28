@@ -15,7 +15,7 @@ Variable scope refers to the regions of code where a variable may be accessed.  
 
 [Superglobal variables](http://stackoverflow.com/documentation/php/3392/superglobal-variables-php/29659/suberglobals-explained#t=201704020208099490915) are defined by PHP and can always be used from anywhere without the `global` keyword.
 
-```
+```php
 <?php
 
 function getPostValue($key, $default = NULL) {
@@ -43,7 +43,7 @@ echo getPostValue('email', '');
 
 Static class properties that are defined with the `public` visibility are functionally the same as global variables.  They can be accessed from anywhere the class is defined.
 
-```
+```php
 class SomeClass {
     public static int $counter = 0;
 }
@@ -56,7 +56,7 @@ SomeClass::$counter += 1;
 
 Functions can also define static variables inside their own scope. These static variables persist through multiple function calls, unlike regular variables defined in a function scope. This can be a very easy and simple way to implement the Singleton design pattern:
 
-```
+```php
 class Singleton {
     public static function getInstance() {
         // Static variable $instance is not deleted when the function ends
@@ -95,7 +95,7 @@ The scope outside of any function or class is the global scope.  When a PHP scri
 
 Within the scope of a function or class method, the `global` keyword may be used to create an access user-defined global variables.
 
-```
+```php
 <?php
 
 $amount_of_log_calls = 0;
@@ -129,7 +129,7 @@ The $GLOBALS array is an associative array with the name of the global variable 
 
 This means that the `log_message()` function could be rewritten as:
 
-```
+```php
 function log_message($message) {
     // Access the global $amount_of_log_calls variable via the
     // $GLOBALS array. No need for 'global $GLOBALS;', since it

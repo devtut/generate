@@ -12,7 +12,7 @@ description: "Getting Started with PDFlib"
 
 This code requires that you use the [PDFlib library](http://php.net/manual/en/ref.pdf.php) for it to function properly.
 
-```
+```php
 <?php 
 $pdf = pdf_new(); //initialize new object
 

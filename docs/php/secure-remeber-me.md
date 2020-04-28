@@ -15,7 +15,7 @@ I have been searching on this topic for sometime till i found this post [https:/
 
 store the cookie with three parts.
 
-```
+```php
 function onLogin($user) {
     $token = GenerateRandomToken(); // generate a token, should be 128 - 256 bit
     storeTokenForUser($user, $token);
@@ -29,7 +29,7 @@ function onLogin($user) {
 
 Then, to validate:
 
-```
+```php
 function rememberMe() {
     $cookie = isset($_COOKIE['rememberme']) ? $_COOKIE['rememberme'] : '';
     if ($cookie) {
