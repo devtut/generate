@@ -113,33 +113,49 @@ Below are inter-process communication implementation steps:
 
 <li>
 Input arguments are serialized into JSON string and saved in a temporary text file:
-<pre> BsonDocument argsBson = BsonDocument.Parse("{ 'x' : '1', 'y' : '2' }"); 
+
+```py
+BsonDocument argsBson = BsonDocument.Parse("{ 'x' : '1', 'y' : '2' }"); 
  string argsFile = string.Format("{0}\\{1}.txt", Path.GetDirectoryName(pyScriptPath), Guid.NewGuid());
-</pre>
+
+```
+
 </li>
 <li>
 Python interpreter python.exe runs the python script that reads JSON string from a temporary text file and backs-out input arguments:
-<pre> filename = sys.argv[ 1 ]
+
+```py
+filename = sys.argv[ 1 ]
  with open( filename ) as data_file:  
     input_args = json.loads( data_file.read() )
 
  x, y = [ float(input_args.get( key )) for key in [ 'x', 'y' ] ]
-</pre>
+
+```
+
 </li>
 <li>
 Python script is executed and output dictionary is serialized into JSON string and printed to the command window:
-<pre> print json.dumps( { 'sum' : x + y , 'subtract' : x - y } )
-</pre>
+
+```py
+print json.dumps( { 'sum' : x + y , 'subtract' : x - y } )
+
+```
+
 [<img src="https://i.stack.imgur.com/HjjT9.png" alt="enter image description here" />](https://github.com/JulijJegorov/tandem-algorithms)
 </li>
 <li>
 Read output JSON string from C# application:
-<pre> using (StreamReader myStreamReader = process.StandardOutput)
+
+```py
+using (StreamReader myStreamReader = process.StandardOutput)
  {
     outputString = myStreamReader.ReadLine();
     process.WaitForExit();
  }
-</pre>
+
+```
+
 </li>
 
 [<img src="https://i.stack.imgur.com/zDdC1.jpg" alt="enter image description here" />](https://i.stack.imgur.com/zDdC1.jpg)
