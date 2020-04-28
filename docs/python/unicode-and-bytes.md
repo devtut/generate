@@ -16,7 +16,11 @@ The default is `'strict'`, which raises exceptions on error. Other modes are mor
 
 ### Encoding
 
+Always **encode** from unicode to bytes.  In this direction, **you get to choose the encoding**.
+
 ```
+>>> u'🐍'.encode('utf-8')
+'\xf0\x9f\x90\x8d'
 >>> "£13.55".encode('ascii', errors='replace')
 b'?13.55'
 >>> "£13.55".encode('ascii', errors='ignore')
@@ -32,7 +36,11 @@ b'\\xa313.55'
 
 ### Decoding
 
+The other way is to **decode** from bytes to unicode.   In this direction, **you have to know what the encoding is**.
+
 ```
+>>> b'\xf0\x9f\x90\x8d'.decode('utf-8')
+u'\U0001f40d'
 >>> b = "£13.55".encode('utf8')
 >>> b.decode('ascii', errors='replace')
 '��13.55'
