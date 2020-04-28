@@ -65,8 +65,27 @@ module.exports = {
     lastUpdated: "Last Updated",
     nav: [
       {
-        text: "Python",
-        link: "/python/",
+        text: "Topics",
+        ariaLabel: "Topics",
+        items: [
+          {
+            text: "Programming Language",
+            items: [
+              {
+                text: "Python",
+                link: "/python/",
+              },
+              {
+                text: "PHP",
+                link: "/php/",
+              },
+              {
+                text: "JavsScript",
+                link: "/javascript/",
+              },
+            ],
+          },
+        ],
       },
     ],
     sidebar: {
@@ -282,6 +301,13 @@ module.exports = {
             "django",
             "code-blocks-execution-frames-and-namespaces",
           ],
+        },
+      ],
+      "/php/": [
+        {
+          title: "PHP",
+          collapsable: false,
+          children: [["", "Disclaimer"]],
         },
       ],
     },
