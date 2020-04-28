@@ -15,7 +15,7 @@ Note that these only work in the developer tools of certain browsers.
 
 `$_` gives you the value of whatever expression was evaluated last.
 
-```
+```js
 "foo"             // "foo"
 $_                // "foo"
 
@@ -23,7 +23,7 @@ $_                // "foo"
 
 `$0` refers to the DOM element currently selected in the Inspector. So if `<div id="foo">` is highlighted:
 
-```
+```js
 $0                      // <div id="foo">
 $0.getAttribute('id')   // "foo"
 
@@ -33,7 +33,7 @@ $0.getAttribute('id')   // "foo"
 
 To get a collection of elements matching a CSS selector, use `$$(selector)`. This is essentially a shortcut for `document.querySelectorAll`.
 
-```
+```js
 var images = $$('img');  // Returns an array or a nodelist of all matching elements
 
 ```
@@ -122,7 +122,7 @@ Click next to the line number in your JavaScript source file to add a breakpoint
 
 Let's say you have an object like this:
 
-```
+```js
 var myObject = {
     name: 'Peter'
 }
@@ -131,7 +131,7 @@ var myObject = {
 
 Later in your code, you try to access `myObject.name` and you get **George** instead of **Peter**. You start wondering who changed it and where exactly it was changed. There is a way to place a `debugger` (or something else) on every set (every time someone does `myObject.name = 'something'`):
 
-```
+```js
 var myObject = {
     _name: 'Peter',
     set name(name){debugger;this._name=name},
@@ -146,7 +146,7 @@ Note that we renamed `name` to `_name` and we are going to define a setter and a
 
 Most of the time, though, the object that gets changed is not under our control. Fortunately, we can define setters and getters on **existing** objects to debug them.
 
-```
+```js
 // First, save the name to _name, because we are going to use name for setter/getter
 otherObject._name = otherObject.name;
 
@@ -173,7 +173,7 @@ Browser support for setters/getters:
 
 In many environments, you have access to a global `console` object that contains some basic methods for communicating with standard output devices. Most commonly, this will be the browser's JavaScript console (see [Chrome](https://developers.google.com/web/tools/chrome-devtools/debug/console/?utm_source=dcc), [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console), [Safari](https://developer.apple.com/safari/tools/), and [Edge](https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/f12-devtools-guide/console/) for more information).
 
-```
+```js
 // At its simplest, you can 'log' a string
 console.log("Hello, World!");
 
@@ -195,7 +195,7 @@ For more documentation, information on compatibility, and instructions on how to
 
 Note: if you need to support IE9, either remove `console.log` or wrap its calls as follows, because `console` is undefined until the Developer Tools are opened:
 
-```
+```js
 if (console) { //IE9 workaround
     console.log("test");
 }
@@ -265,7 +265,7 @@ Links to browser shortcut key documentation:
 
 For named (non-anonymous) functions, you can break when the function is executed.
 
-```
+```js
 debug(functionName);
 
 ```

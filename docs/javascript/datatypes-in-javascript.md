@@ -173,7 +173,7 @@ one way to do it is to use object constructor name to get what flavour of object
 
 To find whether an object was constructed by a certain constructor or one inheriting from it, you can use the `instanceof` command:
 
-```
+```js
 //We want this function to take the sum of the numbers passed to it
 //It can be called as sum(1, 2, 3) or sum([1, 2, 3]) and should give 6
 function sum(...arguments) {
@@ -194,7 +194,7 @@ console.log(sum(4))         //4
 
 Note that primitive values are not considered instances of any class:
 
-```
+```js
 console.log(2 instanceof Number)        //false
 console.log('abc' instanceof String)    //false
 console.log(true instanceof Boolean)    //false
@@ -204,7 +204,7 @@ console.log(Symbol() instanceof Symbol) //false
 
 Every value in JavaScript besides `null` and `undefined` also has a `constructor` property storing the function that was used to construct it. This even works with primitives.
 
-```
+```js
 //Whereas instanceof also catches instances of subclasses,
 //using obj.constructor does not
 console.log([] instanceof Object, [] instanceof Array)           //true true

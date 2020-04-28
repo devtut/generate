@@ -21,7 +21,7 @@ You can always run JavaScript from inside itself, although this is **strongly di
 
 To run JavaScript from inside JavaScript, simply use the below function:
 
-```
+```js
 eval("var a = 'Hello, World!'");
 
 ```
@@ -33,7 +33,7 @@ eval("var a = 'Hello, World!'");
 
 You can set a variable to something with the `eval()` function by using something similar to the below code:
 
-```
+```js
 var x = 10;
 var y = 20;
 var a = eval("x * y") + "<br>";
@@ -57,7 +57,7 @@ The result, stored in the variable `res`, will be:
 ## Evaluate a string of JavaScript statements
 
 
-```
+```js
 var x = 5;
 var str = "if (x == 5) {console.log('z is 42'); z = 42;} else z = 0; ";
 

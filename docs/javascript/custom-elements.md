@@ -12,7 +12,7 @@ description: "Extending Native Elements, Registering New Elements"
 
 It's possible to extent native elements, but their descendants don't get to have their own tag names. Instead, the `is` attribute is used to specify which subclass an element is supposed to use. For example, here's an extension of the `<img>` element which logs a message to the console when it's loaded.
 
-```
+```js
 const prototype = Object.create(HTMLImageElement.prototype);
 prototype.createdCallback = function() {
   this.addEventListener('load', event => {
@@ -24,7 +24,7 @@ document.registerElement('ex-image', { extends: 'img', prototype: prototype });
 
 ```
 
-```
+```js
 <img is="ex-image" src="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png" />
 
 ```
@@ -36,7 +36,7 @@ document.registerElement('ex-image', { extends: 'img', prototype: prototype });
 
 Defines an `<initially-hidden>` custom element which hides its contents until a specified number of seconds have elapsed.
 
-```
+```js
 const InitiallyHiddenElement = document.registerElement('initially-hidden', class extends HTMLElement {
   createdCallback() {
     this.revealTimeoutId = null;
@@ -60,7 +60,7 @@ const InitiallyHiddenElement = document.registerElement('initially-hidden', clas
 
 ```
 
-```
+```js
 <initially-hidden for="2">Hello</initially-hidden>
 <initially-hidden for="5">World</initially-hidden>
 

@@ -14,7 +14,7 @@ Here we have a simple class to be tested that returns a `Promise` based on the r
 
 For simplicty we'll assume that the `processResponse` method won't ever fail.
 
-```
+```js
 import {processResponse} from '../utils/response_processor';
 
 const ping = () => {
@@ -38,14 +38,14 @@ To test this we can leverage the following tools.
 
 I use the following `test` script in my `package.json` file.
 
-```
+```js
 "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require ./test/unit/test_helper.js  --recursive test/**/*_spec.js"
 
 ```
 
 This allows me to use `es6` syntax. It references a `test_helper` that will look like
 
-```
+```js
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -60,7 +60,7 @@ sinonStubPromise(sinon);
 
 `Proxyquire` allows us to inject our own stub in the place of the external `ResponseProcessor`. We can then use `sinon` to spy on that stub's methods.  We use the extensions to `chai` that `chai-as-promised` injects to check that the `ping()` method's promise is `fullfilled`, and that it `eventually` returns the required response.
 
-```
+```js
 import {expect}       from 'chai';
 import sinon          from 'sinon';
 import proxyquire     from 'proxyquire';
@@ -99,7 +99,7 @@ describe('ping', () => {
 
 Now instead let's assume you wish to test something that uses the response from `ping`.
 
-```
+```js
 import {ping} from './ping';
 
 const pingWrapper = () => {
@@ -120,7 +120,7 @@ To test the `pingWrapper` we leverage
 
 As before, `Proxyquire` allows us to inject our own stub in the place of the external dependency, in this case the `ping` method we tested previously. We can then use `sinon` to spy on that stub's methods and leverage `sinon-stub-promise` to allow us to `returnsPromise`.  This promise can then be resolved or rejected as we wish in the test, in order to test the wrapper's response to that.
 
-```
+```js
 import {expect}   from 'chai';
 import sinon      from 'sinon';
 import proxyquire from 'proxyquire';
@@ -161,7 +161,7 @@ describe('pingWrapper', () => {
 
 At its most basic level, Unit Testing in any language provides assertions against some known or expected output.
 
-```
+```js
 function assert( outcome, description ) { 
     var passFail = outcome ? 'pass' : 'fail'; 
     console.log(passFail, ': ', description);
@@ -174,7 +174,7 @@ The popular assertion method above shows us one quick and easy way to assert a v
 
 A good unit test is designed to test a discreet unit of code; usually a function.
 
-```
+```js
 function add(num1, num2) { 
     return num1 + num2; 
 } 
@@ -188,7 +188,7 @@ In the example above, the return value from the function `add(x, y)` or `5 + 20`
 
 If we simply modify our expected assertion outcome, the test will succeed and the resulting output would look something like this.
 
-```
+```js
 assert( result == 25, 'add(5, 20) should return 25...');
 
 console output:
@@ -201,7 +201,7 @@ This simple assertion can assure that in many different cases, your "add" functi
 
 A more rigorous set of assertions would look like this (using `var result = add(x,y)` for each assertion):
 
-```
+```js
 assert( result == 0, 'add(0, 0) should return 0...');
 assert( result == -1, 'add(0, -1) should return -1...');
 assert( result == 1, 'add(0, 1) should return 1...');
@@ -210,7 +210,7 @@ assert( result == 1, 'add(0, 1) should return 1...');
 
 And console output would be this:
 
-```
+```js
 > pass: should return 0...
 > pass: should return -1...
 > pass: should return 1...
@@ -219,7 +219,7 @@ And console output would be this:
 
 We can now safely say that **`add(x,y)`… should return the sum of two integers**. We can roll these up into something like this:
 
-```
+```js
 function test__addsIntegers() {
 
     // expect a number of passed assertions

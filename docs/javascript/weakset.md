@@ -14,7 +14,7 @@ The WeakSet object is used for storing weakly held objects in a collection. The 
 
 The WeakSet constructor has an optional parameter, which can be any iterable object (for example an array). All of its elements will be added to the created WeakSet.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -29,7 +29,7 @@ const weakset = new WeakSet([obj1, obj2]);
 
 To add a value to a WeakSet, use the `.add()` method. This method is chainable.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -45,7 +45,7 @@ weakset.add(obj1).add(obj2);
 
 To check if a value exits in a WeakSet, use the `.has()` method.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -62,7 +62,7 @@ console.log(weakset.has(obj2)); // false
 
 To remove a value from a WeakSet, use the `.delete()` method. This method returns `true` if the value existed and has been removed, otherwise `false`.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 

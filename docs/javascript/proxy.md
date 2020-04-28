@@ -15,7 +15,7 @@ A Proxy in JavaScript can be used to modify fundamental operations on objects. P
 
 This proxy simply appends the string `" went through proxy"` to every string property set on the target `object`.
 
-```
+```js
 let object  = {};
 
 let handler = {
@@ -45,7 +45,7 @@ To influence property lookup, the `get` handler must be used.
 
 In this example, we modify property lookup so that not only the value, but also the type of that value is returned. We use [Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect) to ease this.
 
-```
+```js
 let handler = {
     get(target, property) {
         if (!Reflect.has(target, property)) {

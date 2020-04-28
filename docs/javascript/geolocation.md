@@ -10,7 +10,7 @@ description: "Get a user's latitude and longitude, More descriptive error codes,
 ## Get a user's latitude and longitude
 
 
-```
+```js
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationFailure);
 } else {
@@ -36,7 +36,7 @@ var geolocationFailure = function(err) {
 
 In the event that geolocation fails, your callback function will receive a `PositionError` object. The object will include an attribute named `code` that will have a value of `1`, `2`, or `3`. Each of these numbers signifies a different kind of error; the `getErrorCode()` function below takes the `PositionError.code` as its only argument and returns a string with the name of the error that occurred.
 
-```
+```js
 var getErrorCode = function(err) {
   switch (err.code) {
     case err.PERMISSION_DENIED:
@@ -54,7 +54,7 @@ var getErrorCode = function(err) {
 
 It can be used in `geolocationFailure()` like so:
 
-```
+```js
 var geolocationFailure = function(err) {
   console.log("ERROR (" + getErrorCode(err) + "): " + err.message);
 };
@@ -68,7 +68,7 @@ var geolocationFailure = function(err) {
 
 You can also receive regular updates of the user's location; for example, as they move around while using a mobile device. Location tracking over time can be very sensitive, so be sure to explain to the user ahead of time why you're requesting this permission and how you'll use the data.
 
-```
+```js
 if (navigator.geolocation) {
     //after the user indicates that they want to turn on continuous location-tracking
     var watchId = navigator.geolocation.watchPosition(updateLocation, geolocationFailure);
@@ -84,7 +84,7 @@ var updateLocation = function(position) {
 
 To turn off continuous updates:
 
-```
+```js
 navigator.geolocation.clearWatch(watchId);
 
 ```
@@ -109,7 +109,7 @@ This API is defined in the W3C [Geolocation API Specification](https://www.w3.or
 
 To check if the browser supports the Geolocation API:
 
-```
+```js
 if(navigator.geolocation){
     // Horray! Support!
 } else {

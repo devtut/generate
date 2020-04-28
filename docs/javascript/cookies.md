@@ -12,7 +12,7 @@ description: "Adding and Setting Cookies, Reading cookies, Removing cookies, Tes
 
 The following variables set up the below example:
 
-```
+```js
 var COOKIE_NAME = "Example Cookie";    /* The cookie's name. */
 var COOKIE_VALUE = "Hello, world!";    /* The cookie's value. */
 var COOKIE_PATH = "/foo/bar";          /* The cookie's path. */
@@ -23,7 +23,7 @@ COOKIE_EXPIRES = (new Date(Date.now() + 60000)).toUTCString();
 
 ```
 
-```
+```js
 document.cookie += 
   COOKIE_NAME + "=" + COOKIE_VALUE
   + "; expires=" + COOKIE_EXPIRES
@@ -36,7 +36,7 @@ document.cookie +=
 ## Reading cookies
 
 
-```
+```js
 var name = name + "=",
     cookie_array = document.cookie.split(';'),
     cookie_value;
@@ -57,7 +57,7 @@ This will set `cookie_value` to the value of the cookie, if it exists. If the co
 ## Removing cookies
 
 
-```
+```js
 var expiry = new Date();
 expiry.setTime(expiry.getTime() - 3600);
 document.cookie = name + "=; expires=" + expiry.toGMTString() + "; path=/"
@@ -73,7 +73,7 @@ This will remove the cookie with a given `name`.
 
 If you want to make sure cookies are enabled before using them, you can use `navigator.cookieEnabled`:
 
-```
+```js
 if (navigator.cookieEnabled === false)
 {
     alert("Error: cookies not enabled!");

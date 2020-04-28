@@ -17,7 +17,7 @@ We'll open a DemoDB database. If it doesn't exist yet, it will get created when 
 The `2` below says that we're asking for version 2 of our database. Only one version
 exists at any time, but we can use the version number to upgrade old data, as you'll see.
 
-```
+```js
 var db = null, // We'll use this once we have our database
     request = window.indexedDB.open("DemoDB", 2);
 
@@ -64,7 +64,7 @@ request.onerror = function() {
 
 You can test for IndexedDB support in the current environment by checking for the presence of the `window.indexedDB` property:
 
-```
+```js
 if (window.indexedDB) {
     // IndexedDB is available
 }
@@ -80,7 +80,7 @@ Anything that needs to happen with data in an IndexedDB database happens in a tr
 
 We'll use the database we set up in **Opening a database.**
 
-```
+```js
 // Create a new readwrite (since we want to change things) transaction for the things store
 var transaction = db.transaction(["things"], "readwrite");
 
@@ -129,7 +129,7 @@ Anything that needs to happen with data in an IndexedDB database happens in a tr
 
 We'll use the database we set up in Opening a database.
 
-```
+```js
 // Create a new transaction, we'll use the default "readonly" mode and the things store
 var transaction = db.transaction(["things"]);
 

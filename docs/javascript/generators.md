@@ -17,7 +17,7 @@ A **generator function** is created with a `function*` declaration. When it is c
 
 A `yield` expression inside the function body defines a point at which execution can suspend and resume.
 
-```
+```js
 function* nums() {
     console.log('starting');  // A
     yield 1;                  // B
@@ -42,7 +42,7 @@ generator.next();  // Executes line G returning { value: undefined, done: true }
 
 ### Early iteration exit
 
-```
+```js
 generator = nums();
 generator.next(); // Executes lines A,B returning { value: 1, done: false }
 generator.next(); // Executes lines C,D returning { value: 2, done: false }
@@ -54,7 +54,7 @@ generator.next(); // no code executed returns { value: undefined, done: true }
 
 ### Throwing an error to generator function
 
-```
+```js
 function* nums() {
     try {
         yield 1;                  // A
@@ -82,7 +82,7 @@ generator.next();  // no code executed. returns { value: undefined, done: true }
 
 It is possible to **send** a value to the generator by passing it to the `next()` method.
 
-```
+```js
 function* summer() {
     let sum = 0, value;
     while (true) {
@@ -117,7 +117,7 @@ let sum = generator.next(null).value;  // 111
 
 From within a generator function, the control can be delegated to another generator function using `yield*`.
 
-```
+```js
 function* g1() {
   yield 2;
   yield 3;
@@ -148,7 +148,7 @@ console.log(it.next()); // undefined
 
 A generator is **iterable**. It can be looped over with a `for...of` statement, and used in other constructs which depend on the iteration protocol.
 
-```
+```js
 function* range(n) {
     for (let i = 0; i < n; ++i) {
         yield i;
@@ -168,7 +168,7 @@ let max = Math.max(...range(100));  // 99
 
 Here is another example of use generator to custom iterable object in ES6. Here anonymous generator function `function *` used.
 
-```
+```js
 let user = {
   name: "sam", totalReplies: 17, isBlocked: false
 };
@@ -197,7 +197,7 @@ for(let p of user){
 
 Generators are functions which are able to pause and then resume execution. This allows to emulate async functions using external libraries, mainly q or co. Basically it allows to write functions that wait for async results in order to go on:
 
-```
+```js
 function someAsyncResult() {
     return Promise.resolve('newValue')
 }
@@ -211,7 +211,7 @@ q.spawn(function * () {
 
 This allows to write async code as if it were synchronous. Moreover, try and catch work over several async blocks. If the promise is rejected, the error is caught by the next catch:
 
-```
+```js
 function asyncError() {
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
@@ -249,7 +249,7 @@ A generator(iterator) is a producer. In iteration the consumer `PULL`s the value
 
 Example:
 
-```
+```js
 function *gen() { yield 5; yield 6; }
 let a = gen();
 
@@ -261,7 +261,7 @@ Whenever you call `a.next()`, you're essentially `pull`-ing value from the Itera
 
 A generator is also an observer using which you can send some values back into the generator.
 
-```
+```js
 function *gen() {
   document.write('<br>observer:', yield 1);
 }
@@ -288,7 +288,7 @@ Sync is BLOCKING; Async is WAITING. Writing code that blocks is easy. When PULLi
 
 When you use iterators, you `PULL` the value from the producer. When you use callbacks, the producer `PUSH`es the value to the argument position of the callback.
 
-```
+```js
 var i = a.next() // PULL
 dosomething(..., v => {...}) // PUSH
 
@@ -298,7 +298,7 @@ Here, you pull the value from `a.next()` and in the second, `v => {...}` is the 
 
 Using this pull-push mechanism, we can write async programming like this,
 
-```
+```js
 let delay = t => new Promise(r => setTimeout(r, t));
 spawn(function*() {
   // wait for 100 ms and send 1

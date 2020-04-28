@@ -13,7 +13,7 @@ description: "Enum definition using Object.freeze(), Alternate definition, Print
 
 JavaScript does not directly support enumerators but the functionality of an enum can be mimicked.
 
-```
+```js
 // Prevent the enum from being changed
 const TestEnum = Object.freeze({
     One:1,
@@ -36,7 +36,7 @@ switch(x) {
 
 The above enumeration definition, can also be written as follows:
 
-```
+```js
 var TestEnum = { One: 1, Two: 2, Three: 3 }
 Object.freeze(TestEnum);
 
@@ -51,7 +51,7 @@ After that you can define a variable and print like before.
 
 The `Object.freeze()` method is available since version 5.1. For older versions, you can use the following code (note that it also works in versions 5.1 and later):
 
-```
+```js
 var ColorsEnum = {
     WHITE: 0,
     GRAY: 1,
@@ -69,7 +69,7 @@ var currentColor = ColorsEnum.GRAY;
 
 After defining an enum using any of the above ways and setting a variable, you can print both the variable's value as well as the corresponding name from the enum for the value. Here's an example:
 
-```
+```js
 // Define the enum
 var ColorsEnum = { WHITE: 0, GRAY: 1, BLACK: 2 }
 Object.freeze(ColorsEnum);
@@ -93,7 +93,7 @@ if(color == ColorsEnum.BLACK) {
 
 As ES6 introduced [**Symbols**](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol), which are both **unique and immutable primitive values** that may be used as the key of an `Object` property, instead of using strings as possible values for an enum, it's possible to use symbols.
 
-```
+```js
 // Simple symbol
 const newSymbol = Symbol();
 typeof newSymbol === 'symbol' // true
@@ -138,7 +138,7 @@ The [Symbols in ECMAScript 6](http://www.2ality.com/2014/12/es6-symbols.html) ar
 
 This Example demonstrates how to automatically assign a value to each entry in an enum list. This will prevent two enums from having the same value by mistake. NOTE: [Object.freeze browser support](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
 
-```
+```js
 var testEnum = function() {
     // Initializes the enumerations
     var enumList = [

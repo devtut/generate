@@ -16,7 +16,7 @@ As always check browser and Javascript implementations for support of any langua
 
 It provides a way to optimise recursive and deeply nested function calls by eliminating the need to push function state onto the global frame stack, and avoiding having to step down through each calling function by returning directly to the initial calling function.
 
-```
+```js
 function a(){
    return b(); // 2
 } 
@@ -46,7 +46,7 @@ TCO allows for recursive functions to have indefinite recursion as the frame sta
 
 Tail Call Optimisation makes it possible to safely implement recursive loops without concern for call stack overflow or the overhead of a growing frame stack.
 
-```
+```js
 function indexOf(array, predicate, i = 0) {
     if (0 <= i && i < array.length) {
         if (predicate(array[i])) {  return i; }

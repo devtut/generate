@@ -29,7 +29,7 @@ A benefit of adding it to your IDE is that you can create a JSON configuration f
 
 Example `.jshintrc` file
 
-```
+```js
 {
     "-W097": false, // Allow "use strict" at document level
     "browser": true, // defines globals exposed by modern browsers http://jshint.com/docs/options/#browser
@@ -54,7 +54,7 @@ Example `.jshintrc` file
 
 JSHint also allows configurations for specific lines/blocks of code
 
-```
+```js
 switch(operation)
 {
    case '+'
@@ -92,7 +92,7 @@ More configuration options are documented at [http://jshint.com/docs/options/](h
 
 A sample configuration for ESLint is as follows:
 
-```
+```js
 {
     "rules": {
         "semi": ["error", "always"], // throw an error when semicolons are detected 

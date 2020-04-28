@@ -14,7 +14,7 @@ In general, functions that operate on other functions, either by taking them as 
 
 A higher-order function is a function that can take another function as an argument. You are using higher-order functions when passing callbacks.
 
-```
+```js
 function iAmCallbackFunction() {
     console.log("callback has been invoked");
 }
@@ -33,7 +33,7 @@ iAmJustFunction(iAmCallbackFunction);
 
 A higher-order function is also a function that returns another function as its result.
 
-```
+```js
 function iAmJustFunction() {
     // do some stuff ...
 
@@ -59,14 +59,14 @@ Based on the [conference by Douglas Crockford on monads and gonads](https://www.
 
 Using this approach reusing your functions will be easier because of the flexibility this monad provides, and composition nightmares:
 
-```
+```js
 f(g(h(i(j(k(value), j1), i2), h1, h2), g1, g2), f1, f2)
 
 ```
 
 readable, nice and clean:
 
-```
+```js
 identityMonad(value)
     .bind(k)
     .bind(j, j1, j2)
@@ -77,7 +77,7 @@ identityMonad(value)
 
 ```
 
-```
+```js
 function identityMonad(value) {
     var monad = Object.create(null);
     
@@ -110,7 +110,7 @@ function identityMonad(value) {
 
 It works with primitive values
 
-```
+```js
 var value = 'foo',
     f = x => x + ' changed',
     g = x => x + ' again';
@@ -124,7 +124,7 @@ identityMonad(value)
 
 And also with objects
 
-```
+```js
 var value = { foo: 'foo' },
     f = x => identityMonad(Object.assign(x, { foo: 'bar' })),
     g = x => Object.assign(x, { bar: 'foo' }),
@@ -139,7 +139,7 @@ identityMonad(value)
 
 Let's try everything:
 
-```
+```js
 var add = (x, ...args) => x + args.reduce((r, n) => r + n, 0),
     multiply = (x, ...args) => x * args.reduce((r, n) => r * n, 1),
     divideMonad = (x, ...args) => identityMonad(x / multiply(...args)),
@@ -179,7 +179,7 @@ Pure functions must not change any variable outside their scope
 
 **Impure function**
 
-```
+```js
 let obj = { a: 0 }
 
 const impure = (input) => {
@@ -198,7 +198,7 @@ The function changed the `obj.a` value that is outside it's scope.
 
 **Pure function**
 
-```
+```js
 let obj = { a: 0 }
 
 const pure = (input) => {
@@ -221,7 +221,7 @@ Pure functions must not rely on variables outside their scope
 
 **Impure function**
 
-```
+```js
 let a = 1;
 
 let impure = (input) => {
@@ -240,7 +240,7 @@ This **impure** function rely on variable `a` that is defined outside it's scope
 
 **Pure function**
 
-```
+```js
 let pure = (input) => {
   let a = 1;
   // Multiply with variable inside function scope
@@ -259,7 +259,7 @@ The `pure`'s function result **does not rely** on any variable outside it's scop
 ## Accepting Functions as Arguments
 
 
-```
+```js
 function transform(fn, arr) {
     let result = [];
     for (let el of arr) {
@@ -276,7 +276,7 @@ As you can see, our `transform` function accepts two parameters, a function and 
 
 Looks familiar? This is very similar to how `Array.prototype.map()` works!
 
-```
+```js
 console.log([1, 2, 3, 4].map(x => x * 2)); // [2, 4, 6, 8]
 
 ```

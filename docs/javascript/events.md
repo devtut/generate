@@ -15,7 +15,7 @@ This is an example to explain the variations of load events.
 
 1. **onload event**
 
-```
+```js
 <body onload="someFunction()">
 <img src="image1" />
 <img src="image2" />
@@ -33,20 +33,30 @@ In this case, the message is logged once **all the contents of the page includin
 
 <li>
 **DOMContentLoaded event**
-<pre><code>document.addEventListener("DOMContentLoaded", function(event) {
+
+```js
+document.addEventListener("DOMContentLoaded", function(event) {
     console.log("Hello! I am loaded");
 });
-</code></pre>
+
+```
+
+
 </li>
 
 In the above code, the message is logged only after the DOM/document is loaded (**ie:once the DOM is constructed**).
 
 <li>
 **Self-invoking anonymous function**
-<pre><code>(function(){
+
+```js
+(function(){
     console.log("Hi I am an anonymous function! I am loaded");
 })();
-</code></pre>
+
+```
+
+
 </li>
 
 Here, the message gets logged as soon as the browser interprets the anonymous function. It means, this function can get executed even before the DOM is loaded.

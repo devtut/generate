@@ -15,7 +15,7 @@ AJAX stands for "Asynchronous JavaScript and XML". Although the name includes XM
 
 Fetch request promises initially return Response objects. These will provide response header information, but they don't directly include the response body, which may not have even loaded yet. Methods on the Response object such as `.json()` can be used to wait for the response body to load, then parse it.
 
-```
+```js
 const requestData = {
   method : 'getUsers'
 };
@@ -48,7 +48,7 @@ usersPromise.then(users => {
 Here's a way to show a GIF preloader while an AJAX call is executing.
 We need to prepare our add and remove preloader functions:
 
-```
+```js
 function addPreloader() {
   // if the preloader doesn't already exist, add one to the page
   if(!document.querySelector('#preloader')) {
@@ -70,7 +70,7 @@ function removePreloader() {
 
 Now we're going to look at where to use these functions.
 
-```
+```js
 var request = new XMLHttpRequest();
 
 ```
@@ -81,7 +81,7 @@ If **true**: the request is finished and response is ready that's where we'll us
 
 Else if **false**: the request is still in progress, in this case we'll run the function `addPreloader()`
 
-```
+```js
 xmlhttp.onreadystatechange = function() {
 
   if(request.readyState == 4 && request.status == 200) {
@@ -106,7 +106,7 @@ xmlhttp.send();
 
 We can make an AJAX request to [Stack Exchange's API](http://api.stackexchange.com/docs) to retrieve a list of the top JavaScript questions for the month, then present them as a list of links. If the request fails or the returns an API error, our [promise](http://stackoverflow.com/documentation/javascript/231/promises) error handling displays the error instead.
 
-```
+```js
 const url =
     'http://api.stackexchange.com/2.2/questions?site=stackoverflow' +
     '&tagged=javascript&sort=month&filter=unsafe&key=gik4BOCMC7J9doavgYteRw((';
@@ -145,7 +145,7 @@ fetch(url).then(response => response.json()).then(data => {
 
 This function runs an AJAX call using GET allowing us to send **parameters** (object) to a **file** (string) and launch a **callback** (function) when the request has been ended.
 
-```
+```js
 function ajax(file, params, callback) {
 
   var url = file + '?';
@@ -174,7 +174,7 @@ function ajax(file, params, callback) {
 
 Here's how we use it:
 
-```
+```js
 ajax('cars.php', {type:"Volvo", model:"300", color:"purple"}, function(response) {
   // add here the code to be executed when data comes back to this page      
   // for example console.log(response) will show the AJAX response in console
@@ -184,7 +184,7 @@ ajax('cars.php', {type:"Volvo", model:"300", color:"purple"}, function(response)
 
 And the following shows how to retreive the url parameters in `cars.php`:
 
-```
+```js
 if(isset($_REQUEST['type'], $_REQUEST['model'], $_REQUEST['color'])) {
   // they are set, we can use them !
   $response = 'The color of your car is ' . $_REQUEST['color'] . '. ';
@@ -207,7 +207,7 @@ The color of your car is purple. It is a Volvo model 300!
 
 This function executes an AJAX request using the HEAD method allowing us to **check whether a file exists in the directory** given as an argument. It also enables us to **launch a callback for each case** (success, failure).
 
-```
+```js
 function fileExists(dir, successCallback, errorCallback) {
     var xhttp = new XMLHttpRequest;
 
@@ -228,7 +228,7 @@ function fileExists(dir, successCallback, errorCallback) {
 ## Using GET and no parameters
 
 
-```
+```js
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
     if (xhttp.readyState === XMLHttpRequest.DONE && xhttp.status === 200) {
@@ -242,7 +242,7 @@ xhttp.send();
 
 The `fetch` API is a newer [promise-based](http://stackoverflow.com/documentation/javascript/231/promises#t=201604071914309123259) way to make asynchronous HTTP requests.
 
-```
+```js
 fetch('/').then(response => response.text()).then(text => {
   console.log("The home page is " + text.length + " characters long.");
 });
@@ -254,7 +254,7 @@ fetch('/').then(response => response.text()).then(text => {
 ## Listening to AJAX events at a global level
 
 
-```
+```js
 // Store a reference to the native method
 let open = XMLHttpRequest.prototype.open; 
 

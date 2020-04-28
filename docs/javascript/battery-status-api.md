@@ -11,7 +11,7 @@ description: "Battery Events, Getting current battery level, Is battery charging
 ## Battery Events
 
 
-```
+```js
 // Get the battery API
 navigator.getBattery().then(function(battery) {
     battery.addEventListener('chargingchange', function(){
@@ -38,7 +38,7 @@ navigator.getBattery().then(function(battery) {
 ## Getting current battery level
 
 
-```
+```js
 // Get the battery API
 navigator.getBattery().then(function(battery) {
     // Battery level is between 0 and 1, so we multiply it by 100 to get in percents
@@ -52,7 +52,7 @@ navigator.getBattery().then(function(battery) {
 ## Is battery charging?
 
 
-```
+```js
 // Get the battery API
 navigator.getBattery().then(function(battery) {
     if (battery.charging) {
@@ -69,7 +69,7 @@ navigator.getBattery().then(function(battery) {
 ## Get time left until battery is empty
 
 
-```
+```js
 // Get the battery API
 navigator.getBattery().then(function(battery) {
     console.log( "Battery will drain in ", battery.dischargingTime, " seconds" );
@@ -82,7 +82,7 @@ navigator.getBattery().then(function(battery) {
 ## Get time left until battery is fully charged
 
 
-```
+```js
 // Get the battery API
 navigator.getBattery().then(function(battery) {
     console.log( "Battery will get fully charged in ", battery.chargingTime, " seconds" );

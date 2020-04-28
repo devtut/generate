@@ -12,7 +12,7 @@ description: "Format numbers as money, Extract extension from file name, Set obj
 
 Fast and short way to format value of type `Number` as money, e.g. `1234567.89 => "1,234,567.89"`:
 
-```
+```js
 var num = 1234567.89,
     formatted;
 
@@ -22,7 +22,7 @@ formatted = num.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  // "1,234,567.8
 
 More advanced variant with support of any number of decimals `[0 .. n]`, variable size of number groups `[0 .. x]` and different delimiter types:
 
-```
+```js
 /**
  * Number.prototype.format(n, x, s, c)
  * 
@@ -52,7 +52,7 @@ Number.prototype.format = function(n, x, s, c) {
 
 Fast and short way to extract extension from file name in JavaScript will be:
 
-```
+```js
 function get_extension(filename) {
     return filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
 }
@@ -61,7 +61,7 @@ function get_extension(filename) {
 
 It works correctly both with names having no extension (e.g. `myfile`) or starting with `.` dot (e.g. `.htaccess`):
 
-```
+```js
 get_extension('')                           // ""
 get_extension('name')                       // ""
 get_extension('name.txt')                   // "txt"
@@ -72,7 +72,7 @@ get_extension('name.with.many.dots.myext')  // "myext"
 
 The following solution may extract file extensions from full path:
 
-```
+```js
 function get_extension(path) {
     var basename = path.split(/[\\/]/).pop(),  // extract file name from full path ...
                                                // (supports `\\` and `/` separators)
@@ -93,7 +93,7 @@ get_extension('/path/to/file.ext');  // "ext"
 ## Set object property given its string name
 
 
-```
+```js
 function assign(obj, prop, value) {
     if (typeof prop === 'string')
         prop = prop.split('.');

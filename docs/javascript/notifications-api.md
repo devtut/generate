@@ -12,7 +12,7 @@ description: "Requesting Permission to send notifications, Sending Notifications
 
 We use `Notification.requestPermission` to ask the user if he/she wants to receive notifications from our website.
 
-```
+```js
 Notification.requestPermission(function() {
     if (Notification.permission === 'granted') {
         // user approved.
@@ -30,7 +30,7 @@ Notification.requestPermission(function() {
 Since Firefox 47
 The `.requestPermission` method can also return a promise when handling the user's decision for granting permission
 
-```
+```js
 Notification.requestPermission().then(function(permission) {
     if (!('permission' in Notification)) {
         Notification.permission = permission;
@@ -50,7 +50,7 @@ Notification.requestPermission().then(function(permission) {
 
 After the user has approved a [request for permission to send notifications](http://stackoverflow.com/documentation/javascript/696/notifications-api/2305/requesting-permission-to-send-notifications), we can send a simple notification that says Hello to the user:
 
-```
+```js
 new Notification('Hello', { body: 'Hello, world!', icon: 'url to an .ico image' });
 
 ```
@@ -69,7 +69,7 @@ Hello, world!
 
 You can close a notification by using the `.close()` method.
 
-```
+```js
 let notification = new Notification(title, options);
 // do some work, then close the notification
 notification.close()
@@ -78,7 +78,7 @@ notification.close()
 
 You can utilize the `setTimeout` function to auto-close the notification sometime in the future.
 
-```
+```js
 let notification = new Notification(title, options);
 setTimeout(() => {
     notification.close()
@@ -101,18 +101,19 @@ This event will run when you click on the notification body (excluding the closi
 
 Example:
 
-```
+```js
 notification.onclick = function(event) {
     console.debug("you click me and this is my event object: ", event);
 }
 
 ```
 
+
 1. The `error` event
 
 The notification will fire this event whenever something wrong will happen, like being unable to display
 
-```
+```js
 notification.onerror = function(event) {
     console.debug("There was an error: ", event);
 }

@@ -15,7 +15,7 @@ description: "Abstract equality / inequality and type conversion, NaN Property o
 
 The abstract equality and inequality operators (`==` and `!=`) convert their operands if the operand types do not match. This type coercion is a common source of confusion about the results of these operators, in particular, these operators aren't always transitive as one would expect.
 
-```
+```js
 "" ==  0;     // true A
  0 == "0";    // true A
 "" == "0";    // false B
@@ -32,7 +32,7 @@ false != "0"; // false
 
 The results start to make sense if you consider how JavaScript converts empty strings to numbers.
 
-```
+```js
 Number("");    // 0
 Number("0");   // 0
 Number(false); // 0
@@ -45,7 +45,7 @@ In the statement `false B`, both the operands are strings (`""` and `"0"`), henc
 
 One way to eliminate unexpected behavior here is making sure that you always compare operands of the same type. For example, if you want the results of numerical comparison use explicit conversion:
 
-```
+```js
 var test = (a,b) => Number(a) == Number(b); 
 test("", 0);        // true;
 test("0", 0);       // true
@@ -56,7 +56,7 @@ test("abc", "abc"); // false as operands are not numbers
 
 Or, if you want string comparison:
 
-```
+```js
 var test = (a,b) => String(a) == String(b);
 test("", 0);   // false;
 test("0", 0);  // true
@@ -66,7 +66,7 @@ test("", "0"); // false;
 
 **Side-note**: `Number("0")` and `new Number("0")` isn't the same thing! While the former performs a type conversion, the latter will create a new object. Objects are compared by reference and not by value which explains the results below.
 
-```
+```js
 Number("0") == Number("0");         // true;
 new Number("0") == new Number("0"); // false 
 
@@ -74,7 +74,7 @@ new Number("0") == new Number("0"); // false
 
 Finally, you have the option to use strict equality and inequality operators which will not perform any implicit type conversions.
 
-```
+```js
 "" ===  0;  // false
  0 === "0"; // false
 "" === "0"; // false
@@ -96,7 +96,7 @@ Further reference to this topic can be found here:
 
 Any equality or relational comparisons with `NaN` returns `false`, even comparing it with itself. Because,  `NaN` is supposed to denote the result of a nonsensical computation, and as such, it isn’t equal to the result of any other nonsensical computations.
 
-```
+```js
 (1 * "two") === NaN  //false
 
 NaN === 0;          // false
@@ -113,7 +113,7 @@ NaN >= 'two';       // false
 
 Non-equal comparisons will always return `true`:
 
-```
+```js
 NaN !== 0;          // true
 NaN !== NaN;        // true
 
@@ -123,7 +123,7 @@ NaN !== NaN;        // true
 
 You can test a value or expression for `NaN` by using the function [Number.isNaN()](http://stackoverflow.com/documentation/javascript/700/built-in-constants/1760/testing-for-nan-using-isnan#t=201607302335066533303):
 
-```
+```js
 Number.isNaN(NaN);         // true
 Number.isNaN(0 / 0);       // true
 Number.isNaN('str' - 12);  // true
@@ -141,14 +141,14 @@ Number.isNaN({});          // false
 
 You can check if a value is `NaN` by comparing it with itself:
 
-```
+```js
 value !== value;    // true for NaN, false for any other value
 
 ```
 
 You can use the following polyfill for `Number.isNaN()`:
 
-```
+```js
 Number.isNaN = Number.isNaN || function(value) {     
     return value !== value;
 }
@@ -157,7 +157,7 @@ Number.isNaN = Number.isNaN || function(value) {
 
 By contrast, the global function `isNaN()` returns `true` not only for `NaN`, but also for any value or expression that cannot be coerced into a number:
 
-```
+```js
 isNaN(NaN);         // true
 isNaN(0 / 0);       // true
 isNaN('str' - 12);  // true
@@ -174,7 +174,7 @@ isNaN({});          // true
 
 ECMAScript defines a “sameness” algorithm called `SameValue` which, since ECMAScript 6, can be invoked with `Object.is`. Unlike the `==` and `===` comparison, using `Object.is()` will treat `NaN` as identical with itself (and `-0` as not identical with `+0`):
 
-```
+```js
 Object.is(NaN, NaN)      // true
 Object.is(+0, 0)         // false
 
@@ -185,7 +185,7 @@ NaN === NaN              // false
 
 You can use the following polyfill for `Object.is()` (from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Polyfill_for_non-ES6_browsers)):
 
-```
+```js
 if (!Object.is) {
   Object.is = function(x, y) {
     // SameValue algorithm
@@ -205,7 +205,7 @@ if (!Object.is) {
 
 NaN itself is a number, meaning that it does not equal to the string "NaN", and most importantly (though perhaps unintuitively):
 
-```
+```js
 typeof(NaN) === "number"; //true
 
 ```
@@ -225,7 +225,7 @@ In `x || y`, `y` will not be evaluated if `x` evaluated to `true`, because the w
 
 Take the following two functions:
 
-```
+```js
 function T() { // True
   console.log("T");
   return true;
@@ -240,7 +240,7 @@ function F() { // False
 
 ****Example 1****
 
-```
+```js
 T() && F(); // false
 
 ```
@@ -254,7 +254,7 @@ Output:
 
 ****Example 2****
 
-```
+```js
 F() && T(); // false
 
 ```
@@ -267,7 +267,7 @@ Output:
 
 ****Example 3****
 
-```
+```js
 T() || F(); // true
 
 ```
@@ -280,7 +280,7 @@ Output:
 
 ****Example 4****
 
-```
+```js
 F() || T(); // true
 
 ```
@@ -294,7 +294,7 @@ Output:
 
 **Short-circuiting to prevent errors**
 
-```
+```js
 var obj; // object has value of undefined
 if(obj.property){ }// TypeError: Cannot read property 'property' of undefined
 if(obj.property && obj !== undefined){}// Line A TypeError: Cannot read property 'property' of undefined
@@ -303,14 +303,14 @@ if(obj.property && obj !== undefined){}// Line A TypeError: Cannot read property
 
 Line A: if you reverse the order the first conditional statement will prevent the error on the second by not executing it if it would throw the error
 
-```
+```js
 if(obj !== undefined && obj.property){}; // no error thrown 
 
 ```
 
 But should only be used if you expect `undefined`
 
-```
+```js
 if(typeof obj === "object" && obj.property){}; // safe option but slower
 
 ```
@@ -321,7 +321,7 @@ The `||` operator can be used to select either a "truthy" value, or the default 
 
 For example, this can be used to ensure that a nullable value is converted to a non-nullable value:
 
-```
+```js
 var nullableObj = null;
 var obj = nullableObj || {};  // this selects {}
 
@@ -332,7 +332,7 @@ var obj2 = nullableObj2 || {} // this selects {x: 5}
 
 Or to return the first truthy value
 
-```
+```js
 var truthyValue = {x: 10};
 return truthyValue || {}; // will return {x: 10}
 
@@ -340,7 +340,7 @@ return truthyValue || {}; // will return {x: 10}
 
 The same can be used to fall back multiple times:
 
-```
+```js
 envVariable || configValue || defaultConstValue // select the first "truthy" of these
 
 ```
@@ -349,7 +349,7 @@ envVariable || configValue || defaultConstValue // select the first "truthy" of 
 
 The `&&` operator can be used to evaluate a callback, only if it is passed:
 
-```
+```js
 function myMethod(cb) {
     // This can be simplified
     if (cb) {
@@ -397,7 +397,7 @@ The comparison `x == y`, where `x` and `y` are values, produces `true` or `false
 
 ### Examples:
 
-```
+```js
 1 == 1;                     // true
 1 == true;                  // true  (operand converted to number: true => 1)
 1 == '1';                   // true  (operand converted to number: '1' => 1 )
@@ -421,7 +421,7 @@ null == undefined;          // true  (spec #2)
 
 `null` and `undefined` share abstract equality `==` but not strict equality `===`,
 
-```
+```js
 null == undefined   // true
 null === undefined  // false
 
@@ -441,7 +441,7 @@ They are different types of syntax:
 
 `null` and `undefined` are both falsy.
 
-```
+```js
 if (null) console.log("won't be logged");
 if (undefined) console.log("won't be logged");
 
@@ -449,7 +449,7 @@ if (undefined) console.log("won't be logged");
 
 Neither `null` or `undefined` equal `false` (see [this question](http://stackoverflow.com/q/19277458/220060)).
 
-```
+```js
 false == undefined   // false
 false == null        // false
 false === undefined  // false
@@ -469,7 +469,7 @@ false === null       // false
 ## Logic Operators with Booleans
 
 
-```
+```js
 var x = true,
     y = false;
 
@@ -479,7 +479,7 @@ var x = true,
 
 This operator will return true if both of the expressions evaluate to true. This boolean operator will employ short-circuiting and will not evaluate `y` if `x` evaluates to `false`.
 
-```
+```js
 x && y;
 
 ```
@@ -490,7 +490,7 @@ This will return false, because `y` is false.
 
 This operator will return true if one of the two expressions evaluate to true. This boolean operator will employ short-circuiting and `y` will not be evaluated if `x` evaluates to `true`.
 
-```
+```js
 x || y;
 
 ```
@@ -501,7 +501,7 @@ This will return true, because `x` is true.
 
 This operator will return false if the expression on the right evaluates to true, and return true if the expression on the right evaluates to false.
 
-```
+```js
 !x;
 
 ```
@@ -515,7 +515,7 @@ This will return false, because `x` is true.
 
 Logical OR (`||`), reading left to right, will evaluate to the first **truthy** value. If no **truthy** value is found, the last value is returned.
 
-```
+```js
 var a = 'hello' || '';             // a = 'hello'
 var b = '' || [];                  // b = []
 var c = '' || undefined;           // c = undefined
@@ -528,7 +528,7 @@ var g = '' || 'yay' || 'boo';      // g = 'yay'
 
 Logical AND (`&&`), reading left to right, will evaluate to the first **falsy** value. If no **falsey** value is found, the last value is returned.
 
-```
+```js
 var a = 'hello' && '';                  // a = ''
 var b = '' && [];                       // b = ''
 var c = undefined && 0;                 // c = undefined
@@ -541,7 +541,7 @@ var g = 'bye' && undefined && 'adios';  // g = undefined
 
 This trick can be used, for example, to set a default value to a function argument (prior to ES6).
 
-```
+```js
 var foo = function(val) {
     // if val evaluates to falsey, 'default' will be returned instead.
     return val || 'default';
@@ -562,7 +562,7 @@ Just keep in mind that for arguments, `0` and (to a lesser extent) the empty str
 ## Empty Array
 
 
-```
+```js
 /* ToNumber(ToPrimitive([])) == ToNumber(false) */
 [] == false; // true
 
@@ -572,7 +572,7 @@ When `[].toString()` is executed it calls `[].join()` if it exists, or `Object.p
 
 Beware though, all objects are truthy and `Array` is an instance of `Object`:
 
-```
+```js
 // Internally this is evaluated as ToBoolean([]) === true ? 'truthy' : 'falsy'
 [] ? 'truthy' : 'falsy'; // 'truthy'
 
@@ -587,7 +587,7 @@ Beware that numbers can accidentally be converted to strings or NaN (Not a Numbe
 
 JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type:
 
-```
+```js
 var x = "Hello";     // typeof x is a string
 x = 5;               // changes typeof x to a number
 
@@ -595,7 +595,7 @@ x = 5;               // changes typeof x to a number
 
 When doing mathematical operations, JavaScript can convert numbers to strings:
 
-```
+```js
 var x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number
 var x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string
 var x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string
@@ -608,7 +608,7 @@ var x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number
 
 Subtracting a string from a string, does not generate an error but returns NaN (Not a Number):
 
-```
+```js
 "Hello" - "Dolly"    // returns NaN
 
 ```
@@ -630,7 +630,7 @@ You can use this comparison algorithm via `Object.is` (ECMAScript 6).
 
 Examples:
 
-```
+```js
 Object.is(1, 1);            // true
 Object.is(+0, -0);          // false
 Object.is(NaN, NaN);        // true
@@ -656,7 +656,7 @@ You can use this comparison algorithm via `Array.prototype.includes` (ECMAScript
 
 Examples:
 
-```
+```js
 [1].includes(1);            // true
 [+0].includes(-0);          // true
 [NaN].includes(NaN);        // true
@@ -687,7 +687,7 @@ There is also the `!==` operator (ECMAScript 3), which negates the result of `==
 
 Examples:
 
-```
+```js
 1 === 1;            // true
 +0 === -0;          // true
 NaN === NaN;        // false
@@ -727,7 +727,7 @@ There is also the `!=` operator (ECMAScript 1), which negates the result of `==`
 
 Examples:
 
-```
+```js
 1 == 1;            // true
 +0 == -0;          // true
 NaN == NaN;        // false
@@ -755,7 +755,7 @@ But is not an [equivalence relation](https://en.wikipedia.org/wiki/Equivalence_r
 
 When both operands are numeric, they are compared normally:
 
-```
+```js
 1 < 2        // true
 2 <= 2       // true
 3 >= 5       // false
@@ -765,7 +765,7 @@ true < false // false (implicitly converted to numbers, 1 > 0)
 
 When both operands are strings, they are compared lexicographically (according to alphabetical order):
 
-```
+```js
 'a' < 'b'    // true
 '1' < '2'    // true
 '100' > '12' // false ('100' is less than '12' lexicographically!)
@@ -774,7 +774,7 @@ When both operands are strings, they are compared lexicographically (according t
 
 When one operand is a string and the other is a number, the string is converted to a number before comparison:
 
-```
+```js
 '1' < 2      // true
 '3' > 2      // true
 true > '2'   // false (true implicitly converted to number, 1 < 2)
@@ -783,7 +783,7 @@ true > '2'   // false (true implicitly converted to number, 1 < 2)
 
 When the string is non-numeric, numeric conversion returns `NaN` (not-a-number). Comparing with `NaN` always returns `false`:
 
-```
+```js
 1 < 'abc'    // false
 1 > 'abc'    // false
 
@@ -791,7 +791,7 @@ When the string is non-numeric, numeric conversion returns `NaN` (not-a-number).
 
 But be careful when comparing a numeric value with `null`, `undefined` or empty strings:
 
-```
+```js
 1 > ''        // true
 1 < ''        // false
 1 > null      // true
@@ -803,7 +803,7 @@ But be careful when comparing a numeric value with `null`, `undefined` or empty 
 
 When one operand is a object and the other is a number, the object is converted to a number before comparison.So `null` is particular case because `Number(null);//0`
 
-```
+```js
 new Date(2015)< 1479480185280            // true
 null > -1                                //true
 ({toString:function(){return 123}}) > 122  //true
@@ -822,7 +822,7 @@ The javascript engine will try and convert both operands to matching types if th
 
 **Sample:**
 
-```
+```js
 1 != '1'     // false
 1 != 2       // true
 
@@ -835,7 +835,7 @@ Will return true if the operands are not equal or if their types do not match.
 
 Example:
 
-```
+```js
 1 !== '1'    // true
 1 !== 2      // true
 1 !== 1      // false
@@ -849,7 +849,7 @@ Example:
 
 You can group multiple boolean logic statements within parenthesis in order to create a more complex logic evaluation, especially useful in if statements.
 
-```
+```js
 if ((age >= 18 && height >= 5.11) || (status === 'royalty' && hasInvitation)) {
   console.log('You can enter our club');
 }
@@ -858,7 +858,7 @@ if ((age >= 18 && height >= 5.11) || (status === 'royalty' && hasInvitation)) {
 
 We could also move the grouped logic to variables to make the statement a bit shorter and descriptive:
 
-```
+```js
 var isLegal = age >= 18;
 var tall = height >= 5.11;
 var suitable = isLegal && tall;
@@ -899,7 +899,7 @@ For example user input. When getting input from a keyboard's direction keys up, 
 
 Example reading keyboard via bitfield
 
-```
+```js
 var bitField = 0;  // the value to hold the bits
 const KEY_BITS = [4,1,8,2]; // left up right down
 const KEY_MASKS = [0b1011,0b1110,0b0111,0b1101]; // left up right down
@@ -917,7 +917,7 @@ window.onkeydown = window.onkeyup = function (e) {
 
 Example reading as an array
 
-```
+```js
 var directionState = [false,false,false,false];
 window.onkeydown = window.onkeyup = function (e) {
     if(e.keyCode >= 37 && e.keyCode <41){
@@ -933,7 +933,7 @@ You may say the above example seems a lot more complex than assigning the variou
 
 If you want to test if all keys are up.
 
-```
+```js
 // as bit field
 if(!bitfield) // no keys are on
 
@@ -944,7 +944,7 @@ if(!(directionState[0] && directionState[1] && directionState[2] && directionSta
 
 You can set some constants to make things easier
 
-```
+```js
 // postfix U,D,L,R for Up down left right
 const KEY_U = 1;
 const KEY_D = 2;
@@ -959,7 +959,7 @@ const KEY_DR = KEY_D + KEY_R; // down right
 
 You can then quickly test for many various keyboard states
 
-```
+```js
 if ((bitfield & KEY_UL) === KEY_UL) { // is UP and LEFT only down
 if (bitfield  & KEY_UL) {             // is Up left down 
 if ((bitfield & KEY_U) === KEY_U) {   // is Up only down

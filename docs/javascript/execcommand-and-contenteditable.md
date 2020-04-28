@@ -14,7 +14,7 @@ Events that work with most form elements (e.g., `change`, `keydown`, `keyup`, `k
 
 Instead, you can listen to changes of `contenteditable` contents with the `input` event. Assuming `contenteditableHtmlElement` is a JS DOM object that is `contenteditable`:
 
-```
+```js
 contenteditableHtmlElement.addEventListener("input", function() {
     console.log("contenteditable element changed");
 });
@@ -28,7 +28,7 @@ contenteditableHtmlElement.addEventListener("input", function() {
 
 The HTML attribute `contenteditable` provides a simple way to turn a HTML element into a user-editable area
 
-```
+```js
 <div contenteditable>You can <b>edit</b> me!</div>
 
 ```
@@ -39,10 +39,11 @@ Using **JavaScript** and [`execCommand`<sup>W3C</sup>](https://w3c.github.io/edi
 
 The `execCommand` function method accepts 3 arguments
 
-```
+```js
 document.execCommand(commandId, showUI, value)
 
 ```
+
 
 <li>`commandId` String.  from the list of
 available ****commandId****s<br />
@@ -55,7 +56,7 @@ expects a command-related String ****value****, otherwise `""`. <sup><br />
 
 Example using the `"bold"` **command** and `"formatBlock"` (where a **value** is expected):
 
-```
+```js
 document.execCommand("bold", false, "");          // Make selected text bold
 document.execCommand("formatBlock", false, "H2"); // Make selected text Block-level <h2>
 
@@ -63,7 +64,7 @@ document.execCommand("formatBlock", false, "H2"); // Make selected text Block-le
 
 **Quick Start Example:**
 
-```
+```js
 <button data-edit="bold"><b>B</b></button>
 <button data-edit="italic"><i>I</i></button>
 <button data-edit="formatBlock:p">P</button>
@@ -105,7 +106,7 @@ Users can add formatting to `contenteditable` documents or elements using their 
 
 Additionally, developers can use JavaScript to apply formatting to the current selection (highlighted text).
 
-```
+```js
 document.execCommand('bold', false, null); // toggles bold formatting
 document.execCommand('italic', false, null); // toggles italic formatting
 document.execCommand('underline', false, null); // toggles underline
@@ -119,7 +120,7 @@ document.execCommand('underline', false, null); // toggles underline
 
 Example:
 
-```
+```js
 <!DOCTYPE html>
 <html lang="en">
 <head>

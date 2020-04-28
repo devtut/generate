@@ -12,7 +12,7 @@ description: "Modifying constants, Declaring and initializing constants, Declara
 
 Declaring a variable `const` only prevents its value from being **replaced** by a new value. `const` does not put any restrictions on the internal state of an object. The following example shows that a value of a property of a `const` object can be changed, and even new properties can be added, because the object that is assigned to `person` is modified, but not **replaced**.
 
-```
+```js
 const person = { 
     name: "John" 
 };
@@ -28,7 +28,7 @@ console.log('The name of the person is', person.name, 'and the surname is', pers
 
 **Result:**
 
-```
+```js
 The name of the person is John
 The name of the person is Steve
 The name of the person is Steve and the surname is Fox
@@ -44,7 +44,7 @@ In this example we've created constant object called `person` and we've reassign
 
 You can initialize a constant by using the `const` keyword.
 
-```
+```js
 const foo = 100;
 const bar = false;
 const person = { name: "John" };
@@ -68,7 +68,7 @@ There are four principle ways to declare a variable in JavaScript: using the `va
 - The `const` keyword creates a block-scope variable that cannot be reassigned.
 - A bare declaration creates a global variable.
 
-```
+```js
 var a = 'foo';    // Function-scope
 let b = 'foo';    // Block-scope
 const c = 'foo';  // Block-scope & immutable reference
@@ -77,7 +77,7 @@ const c = 'foo';  // Block-scope & immutable reference
 
 Keep in mind that you can't declare constants without initializing them at the same time.
 
-```
+```js
 const foo; // "Uncaught SyntaxError: Missing initializer in const declaration"
 
 ```
@@ -91,7 +91,7 @@ const foo; // "Uncaught SyntaxError: Missing initializer in const declaration"
 
 JavaScript variables can hold many data types: numbers, strings, arrays, objects and more:
 
-```
+```js
 // Number
 var length = 16;
 
@@ -111,7 +111,7 @@ var person = {
 
 JavaScript has dynamic types. This means that the same variable can be used as different types:
 
-```
+```js
 var a;              // a is undefined
 var a = 5;          // a is a Number
 var a = "John";     // a is a String
@@ -125,7 +125,7 @@ var a = "John";     // a is a String
 
 Declared variable without a value will have the value `undefined`
 
-```
+```js
 var a;
 
 console.log(a); // logs: undefined
@@ -134,7 +134,7 @@ console.log(a); // logs: undefined
 
 Trying to retrieve the value of undeclared variables results in a ReferenceError. However, both the type of undeclared and unitialized variables is "undefined":
 
-```
+```js
 var a;
 console.log(typeof a === "undefined"); // logs: true
 console.log(typeof variableDoesNotExist === "undefined"); // logs: true
@@ -148,7 +148,7 @@ console.log(typeof variableDoesNotExist === "undefined"); // logs: true
 
 To assign a value to a previously declared variable, use the assignment operator, `=`:
 
-```
+```js
 a = 6;
 b = "Foo";
 
@@ -156,7 +156,7 @@ b = "Foo";
 
 As an alternative to independent declaration and assignment, it is possible to perform both steps in one statement:
 
-```
+```js
 var a = 6;
 let b = "Foo";
 
@@ -164,7 +164,7 @@ let b = "Foo";
 
 It is in this syntax that global variables may be declared without a keyword; if one were to declare a bare variable without an assignment immediately afterword, the interpreter would not be able to differentiate global declarations `a;` from references to variables `a;`.
 
-```
+```js
 c = 5;
 c = "Now the value is a String.";
 myNewGlobal;    // ReferenceError
@@ -175,7 +175,7 @@ Note, however, that the above syntax is generally discouraged and is not strict-
 
 Additionally, variables may be declared several at a time by separating each declaration (and optional value assignment) with a comma. Using this syntax, the var and let keywords need only be used once at the beginning of each statement.
 
-```
+```js
 globalA = "1", globalB = "2";
 let x, y = 5;
 var person = 'John Doe',
@@ -196,7 +196,7 @@ Notice in the preceding code snippet that the order in which declaration and ass
 
 ### Increment by
 
-```
+```js
 var a = 9,  
 b = 3;  
 b += a;  
@@ -207,14 +207,14 @@ b += a;
 
 This is functionally the same as
 
-```
+```js
 b = b + a; 
 
 ```
 
 ### Decrement by
 
-```
+```js
 var a = 9,  
 b = 3;  
 b -= a;  
@@ -225,14 +225,14 @@ b -= a;
 
 This is functionally the same as
 
-```
+```js
 b = b - a;  
 
 ```
 
 ### Multiply by
 
-```
+```js
 var a = 5,  
 b = 3;  
 b *= a;  
@@ -243,14 +243,14 @@ b *= a;
 
 This is functionally the same as
 
-```
+```js
 b = b * a;  
 
 ```
 
 ### Divide by
 
-```
+```js
 var a = 3,  
 b = 15;  
 b /= a;  
@@ -261,14 +261,14 @@ b /= a;
 
 This is functionally the same as
 
-```
+```js
 b = b / a;  
 
 ```
 
 ### Raised to the power of
 
-```
+```js
 var a = 3,  
 b = 15;  
 b **= a;  
@@ -279,7 +279,7 @@ b **= a;
 
 This is functionally the same as
 
-```
+```js
 b = b ** a;  
 
 ```
@@ -291,7 +291,7 @@ b = b ** a;
 
 You can't reassign constants.
 
-```
+```js
 const foo = "bar";
 foo = "hello";
 
@@ -299,7 +299,7 @@ foo = "hello";
 
 **Prints:**
 
-```
+```js
 Uncaught TypeError: Assignment to constant.
 
 ```

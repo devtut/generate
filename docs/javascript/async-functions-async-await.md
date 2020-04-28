@@ -23,7 +23,7 @@ A function defined as `async` is a function that can perform asynchronous action
 
 For instance, using the promise-based [Fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API):
 
-```
+```js
 async function getJSON(url) {
     try {
         const response = await fetch(url);
@@ -41,7 +41,7 @@ An async function always returns a Promise itself, so you can use it in other as
 
 ### Arrow function style
 
-```
+```js
 const getJSON = async url => {
     const response = await fetch(url);
     return await response.json();
@@ -60,7 +60,7 @@ Imagine that we have an asynchronous function which calls another asynchronous f
 
 Look at the following code:
 
-```
+```js
 async function myAsyncFunction() {
     await getUnicorn().getSize();
 }
@@ -69,7 +69,7 @@ async function myAsyncFunction() {
 
 At first sight, it seems valid, but it's not. Due to operator precedence, it's equivalent to the following:
 
-```
+```js
 async function myAsyncFunction() {
     await (getUnicorn().getSize());
 }
@@ -80,7 +80,7 @@ Here we attempt to call `getSize()` method of the Promise object, which isn't wh
 
 Instead, we should use brackets to denote that we first want to wait for the unicorn, and then call `getSize()` method of the result:
 
-```
+```js
 async function asyncFunction() {
     (await getUnicorn()).getSize();
 }
@@ -96,7 +96,7 @@ Of course. the previous version could be valid in some cases, for example, if th
 
 `async` functions do not replace the `Promise` type; they add language keywords that make promises easier to call. They are interchangeable:
 
-```
+```js
 async function doAsyncThing() { ... }
 
 function doPromiseThing(input) { return new Promise((r, x) => ...); }
@@ -119,7 +119,7 @@ catch(ex) { ... }
 
 Any function that uses chains of promises can be rewritten using `await`:
 
-```
+```js
 function newUnicorn() {
   return fetch('unicorn.json')                     // fetch unicorn.json from server
   .then(responseCurrent => responseCurrent.json()) // parse the response as JSON
@@ -138,7 +138,7 @@ function newUnicorn() {
 
 The function can be rewritten using `async` / `await` as follows:
 
-```
+```js
 async function newUnicorn() {
   try {
     const responseCurrent = await fetch('unicorn.json'); // fetch unicorn.json from server
@@ -166,7 +166,7 @@ You can call `async` functions as if they were promises, and `await` any promise
 
 You can also use an `async` [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) if you want to execute that code immediately:
 
-```
+```js
 (async () => {
   await makeCoffee()
   console.log('coffee is ready!')
@@ -183,7 +183,7 @@ When using async await in loops, you might encounter some of these problems.
 
 If you just try to use await inside `forEach`, this will throw an `Unexpected token` error.
 
-```
+```js
 (async() => {
  data = [1, 2, 3, 4, 5];
  data.forEach(e => {
@@ -199,7 +199,7 @@ The interpreter protects us from making the above error, but if you add `async` 
 
 Example:
 
-```
+```js
 (async() => {
   data = [1, 2, 3, 4, 5];
   data.forEach(async(e) => {
@@ -223,7 +223,7 @@ But there are better ways of doing this, and that is to just use a loop.</p>
 
 You can use a `for-of` loop or a `for/while` loop, it doesn't really matter which one you pick.
 
-```
+```js
 (async() => {
   data = [1, 2, 3, 4, 5];
   for (let e of data) {
@@ -239,7 +239,7 @@ You can use a `for-of` loop or a `for/while` loop, it doesn't really matter whic
 But there's another catch. This solution will wait for each call to `somePromiseFn` to complete before iterating over the next one.<br />
 This is great if you actually want your `somePromiseFn` invocations to be executed in order but if you want them to run concurrently, you will need to `await` on `Promise.all`.
 
-```
+```js
 (async() => {
  data = [1, 2, 3, 4, 5];
  const p = await Promise.all(data.map(async(e) => await somePromiseFn(e)));
@@ -254,7 +254,7 @@ This is great if you actually want your `somePromiseFn` invocations to be execut
 The above examples are fully runnable. The `somePromiseFn` function can be made as an async echo function with a timeout.
 You can try out the examples in the [babel-repl](https://babeljs.io/repl) with at least the `stage-3` preset and look at the output.
 
-```
+```js
 function somePromiseFn(n) {
  return new Promise((res, rej) => {
    setTimeout(() => res(n), 250);
@@ -270,7 +270,7 @@ function somePromiseFn(n) {
 
 With promises:
 
-```
+```js
 function doTheThing() {
     return doOneThing()
         .then(doAnother)
@@ -282,7 +282,7 @@ function doTheThing() {
 
 With async functions:
 
-```
+```js
 async function doTheThing() {
     try {
         const one = await doOneThing();
@@ -304,7 +304,7 @@ Note how the return is at the bottom, and not at the top, and you use the langua
 
 Often you will want to perform asynchronous operations in parallel. There is direct syntax that supports this in the `async`/`await` proposal, but since `await` will wait for a promise, you can wrap multiple promises together in `Promise.all` to wait for them:
 
-```
+```js
 // Not in parallel
 
 async function getFriendPosts(user) {
@@ -320,7 +320,7 @@ async function getFriendPosts(user) {
 
 This will do each query to get each friend's posts serially, but they can be done simultaneously:
 
-```
+```js
 // In parallel
 
 async function getFriendPosts(user) {

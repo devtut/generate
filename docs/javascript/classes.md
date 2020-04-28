@@ -15,7 +15,7 @@ The fundamental part of most classes is its constructor, which sets up each inst
 
 It's defined in a `class` block as though you're defining a method named `constructor`, though it's actually handled as a special case.
 
-```
+```js
 class MyClass {
     constructor(option) {
         console.log(`Creating instance using ${option} option.`);
@@ -27,7 +27,7 @@ class MyClass {
 
 Example usage:
 
-```
+```js
 const foo = new MyClass('speedy'); // logs: "Creating instance using speedy option"
 
 ```
@@ -43,7 +43,7 @@ Inheritance works just like it does in other object-oriented languages: methods 
 
 If the subclass declares its own constructor then it must invoke the parents constructor via `super()` before it can access `this`.
 
-```
+```js
 class SuperClass {
 
     constructor() {
@@ -78,7 +78,7 @@ subClass.log(); // logs: "Hello subclass"
 
 Static methods and properties are defined on **the class/constructor itself**, not on instance objects. These are specified in a class definition by using the `static` keyword.
 
-```
+```js
 class MyClass {
     static myStaticMethod() {
         return 'Hello';
@@ -96,7 +96,7 @@ console.log(MyClass.myStaticProperty); // logs: "Goodbye"
 
 We can see that static properties are not defined on object instances:
 
-```
+```js
 const myClassInstance = new MyClass();
 
 console.log(myClassInstance.myStaticProperty); // logs: undefined
@@ -105,7 +105,7 @@ console.log(myClassInstance.myStaticProperty); // logs: undefined
 
 However, they **are** defined on subclasses:
 
-```
+```js
 class MySubClass extends MyClass {};
 
 console.log(MySubClass.myStaticMethod()); // logs: "Hello"
@@ -124,7 +124,7 @@ In a `class` definition, a getter is written like a no-argument method prefixed 
 
 Here's an example class which provides a getter and setter for its `.name` property. Each time it's assigned, we'll record the new name in an internal `.names_` array. Each time it's accessed, we'll return the latest name.
 
-```
+```js
 class MyClass {
     constructor() {
         this.names_ = [];
@@ -150,7 +150,7 @@ console.log(myClassInstance.names_); // logs: ["Joe", "Bob"]
 
 If you only define a setter, attempting to access the property will always return `undefined`.
 
-```
+```js
 const classInstance = new class {
     set prop(value) {
         console.log('setting', value);
@@ -165,7 +165,7 @@ console.log(classInstance.prop); // logs: undefined
 
 If you only define a getter, attempting to assign the property will have no effect.
 
-```
+```js
 const classInstance = new class {
     get prop() {
         return 5;
@@ -191,7 +191,7 @@ of a constructor function.
 The `Queue` example demonstrates how, with constructor functions, local state
 can be preserved and made accessible too via privileged methods.
 
-```
+```js
 class Queue {
 
   constructor () {                    // - does generate a closure with each instantiation.
@@ -243,7 +243,7 @@ The same is true for the amount/size of state that is going to be stored within 
 
 There is also the ability to evaluate expressions when naming methods similar to how you can access an objects' properties with `[]`. This can be useful for having dynamic property names, however is often used in conjunction with Symbols.
 
-```
+```js
 let METADATA = Symbol('metadata');
 
 class Car {
@@ -288,7 +288,7 @@ MazdaMPV[METADATA](); // { make: "Mazda", model: "MPV" }
 Methods can be defined in classes to perform a function and optionally return a result.<br />
 They can receive arguments from the caller.
 
-```
+```js
 class Something {
     constructor(data) {
         this.data = data
@@ -330,7 +330,7 @@ As such, they won't be revealed using `for var in` or `Object.keys`.
 
 Thus we can use symbols to store private data.
 
-```
+```js
 const topSecret = Symbol('topSecret'); // our private key; will only be accessible on the scope of the module file
 export class SecretAgent{
     constructor(secret){
@@ -346,7 +346,7 @@ export class SecretAgent{
 
 Because `symbols` are unique, we must have reference to the original symbol to access the private property.
 
-```
+```js
 import {SecretAgent} from 'SecretAgent.js'
 const agent = new SecretAgent('steal all the ice cream');
 // ok lets try to get the secret out of him!
@@ -358,7 +358,7 @@ agent[Symbol('topSecret')]; // undefined, as we said, symbols are always unique,
 But it's not 100% private; let's break that agent down!
 We can use the `Object.getOwnPropertySymbols` method to get the object symbols.
 
-```
+```js
 const secretKeys = Object.getOwnPropertySymbols(agent);
 agent[secretKeys[0]] // 'steal all the ice cream' , we got the secret.
 
@@ -386,7 +386,7 @@ Thus only inside the class will we have access to the `WeakMap` collection.
 
 Let's give our agent a try, with `WeakMap`:
 
-```
+```js
 const topSecret = new WeakMap(); // will hold all private data of all instances.
 export class SecretAgent{
     constructor(secret){
@@ -407,7 +407,8 @@ Because the const `topSecret` is defined inside our module closure, and since we
 The idea here is simply to define all our methods and members inside the constructor and use the closure to access private members without assigning them to `this`.
 
 ```
-   export class SecretAgent{
+
+  export class SecretAgent{
         constructor(secret){
             const topSecret = secret;
             this.coverStory = 'just a simple gardner';
@@ -427,7 +428,7 @@ We will decide that any property who is private will be prefixed with `_`.
 
 Note that for this approach the data isn't really private.
 
-```
+```js
 export class SecretAgent{
     constructor(secret){
         this._topSecret = secret; // it private by convention
@@ -450,7 +451,7 @@ ClassDeclaration's Name is bound in different ways in different scopes -
 1. The scope in which the class is defined - `let` binding
 1. The scope of the class itself - within `{` and `}` in `class {}` - `const` binding
 
-```
+```js
 class Foo {
   // Foo inside this block is a const binding
 }
@@ -460,7 +461,7 @@ class Foo {
 
 For example,
 
-```
+```js
 class A {
   foo() {
     A = null; // will throw at runtime as A inside the class is a `const` binding
@@ -472,7 +473,7 @@ A = null; // will NOT throw as A here is a `let` binding
 
 This is not the same for a Function -
 
-```
+```js
 function A() {
   A = null; // works
 }
@@ -508,7 +509,7 @@ A = null; // works
 
 Javascript classes are syntactical sugar over JavaScript's already existing prototype-based inheritance. This new syntax does not introduce a new object-oriented inheritance model to JavaScript, just a simpler way to deal with objects and inheritance. A `class` declaration is essentially a shorthand for manually defining a constructor `function` and adding properties to the prototype of the constructor. An important difference is that functions can be called directly (without the `new` keyword), whereas a class called directly will throw an exception.
 
-```
+```js
 class someClass {
     constructor () {}
     someMethod () {}

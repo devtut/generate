@@ -12,7 +12,7 @@ description: "Closures, Hoisting, Difference between var and let, Apply and Call
 
 When a function is declared, variables in the context of its **declaration** are captured in its scope. For example, in the code below, the variable `x` is bound to a value in the outer scope, and then the reference to `x` is captured in the context of `bar`:
 
-```
+```js
 var x = 4; // declaration in outer scope
 
 function bar() {
@@ -29,7 +29,7 @@ Sample output: `4`
 
 This concept of "capturing" scope is interesting because we can use and modify variables from an outer scope even after the outer scope exits. For example, consider the following:
 
-```
+```js
 function foo() {
     var x = 4; // declaration in outer scope
 
@@ -57,7 +57,7 @@ In the above example, when `foo` is called, its context is captured in the funct
 
 This lets us do some interesting things, such as defining "private" variables that are visible only to a specific function or set of functions. A contrived (but popular) example:
 
-```
+```js
 function makeCounter() {
     var counter = 0;
 
@@ -89,7 +89,7 @@ Sample output:
 </pre>
 
 
-```
+```js
 var $ = jQuery;
 // we've just polluted the global namespace by assigning window.$ to jQuery
 
@@ -97,7 +97,7 @@ var $ = jQuery;
 
 In the following example, an IIFE is used to ensure that the `$` is bound to `jQuery` only in the context created by the closure:
 
-```
+```js
 (function ($) {
     // $ is assigned to jQuery here
 })(jQuery);
@@ -118,7 +118,7 @@ See [the canonical answer on Stackoverflow](http://stackoverflow.com/a/111111/22
 
 For example, consider the following code:
 
-```
+```js
 console.log(foo);  // → undefined
 var foo = 42;
 console.log(foo);  // → 42
@@ -127,7 +127,7 @@ console.log(foo);  // → 42
 
 The above code is the same as:
 
-```
+```js
 var foo;             // → Hoisted variable declaration
 console.log(foo);    // → undefined
 foo = 42;            // → variable assignment remains in the same place
@@ -137,14 +137,14 @@ console.log(foo);    // → 42
 
 Note that due to hoisting the above `undefined` is not the same as the `not defined` resulting from running:
 
-```
+```js
 console.log(foo);    // → foo is not defined 
 
 ```
 
 A similar principle applies to functions. When functions are assigned to a variable (i.e. a [function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function)), the variable declaration is hoisted while the assignment remains in the same place. The following two code snippets are equivalent.
 
-```
+```js
 console.log(foo(2, 3));     // → foo is not a function
 
 var foo = function(a, b) {
@@ -153,7 +153,7 @@ var foo = function(a, b) {
 
 ```
 
-```
+```js
 var foo;
 console.log(foo(2, 3));     // → foo is not a function
 foo = function(a, b) {
@@ -164,7 +164,7 @@ foo = function(a, b) {
 
 When declaring [function statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function), a different scenario occurs. Unlike function statements, function declarations are hoisted to the top of their scope. Consider the following code:
 
-```
+```js
 console.log(foo(2, 3));  // → 6
 function foo(a, b) {
     return a * b;
@@ -174,7 +174,7 @@ function foo(a, b) {
 
 The above code is the same as the next code snippet due to hoisting:
 
-```
+```js
 function foo(a, b) {
     return a * b;
 }
@@ -185,7 +185,7 @@ console.log(foo(2, 3));  // → 6
 
 Here are some examples of what is and what isn't hoisting:
 
-```
+```js
 // Valid code:
 foo();
 
@@ -227,7 +227,7 @@ Initializing a variable can not be Hoisted or In simple JavaScript Hoists declar
 
 For example: The below scripts will give different outputs.
 
-```
+```js
 var x = 2; 
 var y = 4; 
 alert(x + y);
@@ -236,7 +236,7 @@ alert(x + y);
 
 This will give you an output of 6. But this...
 
-```
+```js
 var x = 2; 
 alert(x + y);
 var y = 4; 
@@ -247,7 +247,7 @@ This will give you an output of NaN. Since we are initializing the value of y, t
 
 So the second example is same as of below.
 
-```
+```js
 var x = 2; 
 var y;
 alert(x + y);
@@ -270,7 +270,7 @@ This will give you an output of NaN.
 
 `var` is scoped to the containing function or the global space, depending when it is declared:
 
-```
+```js
 var x = 4; // global scope
 
 function DoThings() {
@@ -286,7 +286,7 @@ console.log(x); // >> 4
 
 That means it "escapes" `if` statements and all similar block constructs:
 
-```
+```js
 var x = 4;
 if (true) {
     var x = 7;
@@ -303,7 +303,7 @@ console.log(j); // >> 10
 
 By comparison, `let` is block scoped:
 
-```
+```js
 let x = 4;
 
 if (true) {
@@ -329,7 +329,7 @@ There are several other crucial differences:
 
 In the top scope (outside any functions and blocks), `var` declarations put an element in the global object. `let` does not:
 
-```
+```js
 var x = 4;
 let y = 7;
 
@@ -342,7 +342,7 @@ console.log(this.y); // >> undefined
 
 Declaring a variable twice using `var` doesn't produce an error (even though it's equivalent to declaring it once):
 
-```
+```js
 var x = 4;
 var x = 7;
 
@@ -350,7 +350,7 @@ var x = 7;
 
 With `let`, this produces an error:
 
-```
+```js
 let x = 4;
 let x = 7;
 
@@ -362,7 +362,7 @@ TypeError: Identifier `x` has already been declared
 
 The same is true when `y` is declared with `var`:
 
-```
+```js
 var y = 4;
 let y = 7;
 
@@ -374,7 +374,7 @@ TypeError: Identifier `y` has already been declared
 
 However variables declared with let can be reused (not re-declared) in a nested block
 
-```
+```js
 let i = 5;    
 {
    let i = 6;
@@ -386,7 +386,7 @@ console.log(i); // >> 5
 
 Within the block the outer `i` can be accessed, but if the within block has a `let` declaration for `i`, the outer `i` can not be accessed and will throw a `ReferenceError` if used before the second is declared.
 
-```
+```js
 let i = 5;
 {
     i = 6;  // outer i is unavailable within the Temporal Dead Zone
@@ -403,7 +403,7 @@ ReferenceError: i is not defined
 
 Variables declared both with `var` and `let` are [hoisted](http://stackoverflow.com/documentation/javascript/480/scope/1576/hoisting#t=201607211958234904044). The difference is that a variable declared with `var` can be referenced before its own assignment, since it gets automatically assigned (with `undefined` as its value), but `let` cannot–it specifically requires the variable to be declared before being invoked:
 
-```
+```js
 console.log(x); // >> undefined
 console.log(y); // >> "ReferenceError: `y` is not defined"
 //OR >> "ReferenceError: can't access lexical declaration `y` before initialization"
@@ -414,7 +414,7 @@ let y = 7;
 
 The area between the start of a block and a `let` or `const` declaration is known as the [Temporal Dead Zone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let), and any references to the variable in this area will cause a `ReferenceError`. This happens even if the [variable is assigned before being declared](http://stackoverflow.com/questions/41451181/does-let-override-a-global-declaration-and-throws-a-referenceerror):
 
-```
+```js
 y=7; // >> "ReferenceError: `y` is not defined"
 let y;
 
@@ -429,7 +429,7 @@ In non-strict-mode, [assigning a value to a variable without any declaration, au
 
 The `apply` and `call` methods in every function allow it to provide a custom value for `this`.
 
-```
+```js
 function print() {
     console.log(this.toPrint);
 }
@@ -444,7 +444,7 @@ i.e. The signature looks similar.
 
 But there is a small difference in their usage, since we are dealing with functions and changing their scopes, we still need to maintain the original arguments passed to the function. Both `apply` and `call` support passing arguments to the target function as follows:
 
-```
+```js
 function speak() {
     var sentences = Array.prototype.slice.call(arguments);
     console.log(this.name+": "+sentences);
@@ -459,7 +459,7 @@ Notice that `apply` allows you to pass an `Array` or the `arguments` object (arr
 
 These two methods give you the freedom to get as fancy as you want, like implementing a poor version of the ECMAScript's native `bind` to create a function that will always be called as a method of an object from an original function.
 
-```
+```js
 function bind (func, obj) { 
     return function () {
         return func.apply(obj, Array.prototype.slice.call(arguments, 1));
@@ -497,7 +497,7 @@ The `bind` function has a lot going on
 
 When using arrow functions `this` takes the value from the enclosing execution context's `this` (that is, `this` in arrow functions has lexical scope rather than the usual dynamic scope). In global code (code that doesn't belong to any function) it would be the global object. And it keeps that way, even if you invoke the function declared with the arrow notation from any of the others methods here described.
 
-```
+```js
 var globalThis = this; //"window" in a browser, or "global" in Node.js
 
 var foo = (() => this);           
@@ -511,7 +511,7 @@ console.log(foo.call(obj) === globalThis);  //true
 
 See how `this` inherits the context rather than referring to the object the method was called on.
 
-```
+```js
 var globalThis = this;
 
 var obj = {
@@ -538,7 +538,7 @@ console.log(fn2() === globalThis);            //true
 
 The `bind` method of every function allows you to create new version of that function with the context strictly bound to a specific object. It is specially useful to force a function to be called as a method of an object.
 
-```
+```js
 var obj = { foo: 'bar' };
 
 function foo() {
@@ -564,7 +564,7 @@ bar
 
 Invoking a function as a method of an object the value of `this` will be that object.
 
-```
+```js
 var obj = {
     name: "Foo",
     print: function () {
@@ -576,7 +576,7 @@ var obj = {
 
 We can now invoke print as a method of obj. `this` will be obj
 
-```
+```js
 obj.print();
 
 ```
@@ -594,7 +594,7 @@ Foo
 
 Invoking a function as an anonymous function, `this` will be the global object (`self` in the browser).
 
-```
+```js
 function func() {
     return this;
 }
@@ -605,7 +605,7 @@ func() === window; // true
 
 In [ECMAScript 5's strict mode](http://stackoverflow.com/documentation/javascript/381/strict-mode#t=201606190406546634623), `this` will be `undefined` if the function is invoked anonymously.
 
-```
+```js
 (function () {
     "use strict";
     func();
@@ -626,7 +626,7 @@ This will output
 
 When a function is invoked as a constructor with the `new` keyword `this` takes the value of the object being constructed
 
-```
+```js
 function Obj(name) {
     this.name = name;
 }
@@ -650,7 +650,7 @@ This will log
 
 Let's say we need to add a button for each piece of `loadedData` array (for instance, each button should be a slider showing the data; for the sake of simplicity, we'll just alert a message). One may try something like this:
 
-```
+```js
 for(var i = 0; i < loadedData.length; i++)
     jQuery("#container").append("<a class='button'>"+loadedData[i].label+"</a>")
         .children().last() // now let's attach a handler to the button which is a child
@@ -666,7 +666,7 @@ TypeError: loadedData[i] is undefined
 
 error. This is because the scope of `i` is the global scope (or a function scope) and after the loop, `i == 3`. What we need is not to "remember the state of `i`". This can be done using `let`:
 
-```
+```js
 for(let i = 0; i < loadedData.length; i++)
     jQuery("#container").append("<a class='button'>"+loadedData[i].label+"</a>")
         .children().last() // now let's attach a handler to the button which is a child
@@ -677,7 +677,8 @@ for(let i = 0; i < loadedData.length; i++)
 An example of `loadedData` to be tested with this code:
 
 ```
-    var loadedData = [
+
+   var loadedData = [
         { label:"apple",      content:"green and round" },
         { label:"blackberry", content:"small black or blue" },
         { label:"pineapple",  content:"weird stuff.. difficult to explain the shape" }

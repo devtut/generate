@@ -13,7 +13,7 @@ description: "For entire scripts, For functions, Changes to properties, Changes 
 
 Strict mode can be applied on entire scripts by placing the statement `"use strict";` before any other statements.
 
-```
+```js
 "use strict";
 // strict mode now applies for the rest of the script
 
@@ -30,7 +30,7 @@ Strict mode is only enabled in scripts where you define `"use strict"`. You can 
 
 Strict mode can also be applied to single functions by prepending the `"use strict";` statement at the beginning of the function declaration.
 
-```
+```js
 function strict() {
    "use strict";
    // strict mode now applies to the rest of this function
@@ -54,7 +54,7 @@ Strict mode will also apply to any inner scoped functions.
 
 Strict mode also prevents you from deleting undeletable properties.
 
-```
+```js
 "use strict";
 delete Object.prototype; // throws a TypeError
 
@@ -64,7 +64,7 @@ The above statement would simply be ignored if you don't use strict mode, howeve
 
 It also prevents you from extending a non-extensible property.
 
-```
+```js
 var myObject = {name: "My Name"}
 Object.preventExtensions(myObject);
 
@@ -86,7 +86,7 @@ function setAge() {
 
 In a non-strict-mode scope, when a variable is assigned without being initialized with the `var`, `const` or the `let` keyword, it is automatically declared in the global scope:
 
-```
+```js
 a = 12;
 console.log(a); // 12
 
@@ -94,7 +94,7 @@ console.log(a); // 12
 
 In strict mode however, any access to an undeclared variable will throw a reference error:
 
-```
+```js
 "use strict";
 a = 12; // ReferenceError: a is not defined
 console.log(a);
@@ -103,7 +103,7 @@ console.log(a);
 
 This is useful because JavaScript has a number of possible events that are sometimes unexpected. In non-strict-mode, these events often lead developers to believe they are bugs or unexpected behavior, thus by enabling strict-mode, any errors that are thrown enforces them to know exactly what is being done.
 
-```
+```js
 "use strict";
                        // Assuming a global variable mistypedVariable exists
 mistypedVaraible = 17; // this line throws a ReferenceError due to the 
@@ -117,7 +117,7 @@ In non-strict-mode, besides the fact that no error is thrown and the assignment 
 
 Furthermore, by forcing declaration of variables, the developer cannot accidentally declare global variables inside functions. In non-strict-mode:
 
-```
+```js
 function foo() { 
    a = "bar"; // variable is automatically declared in the global scope
 }
@@ -128,7 +128,7 @@ console.log(a); // >> bar
 
 In strict mode, it is necessary to explicitly declare the variable:
 
-```
+```js
 function strict_scope() { 
    "use strict";
    var a = "bar"; // variable is local
@@ -140,7 +140,7 @@ console.log(a); // >> "ReferenceError: a is not defined"
 
 The variable can also be declared outside and after a function, allowing it to be used, for instance, in the global scope:
 
-```
+```js
 function strict_scope() { 
    "use strict";
    a = "bar"; // variable is global
@@ -158,7 +158,7 @@ console.log(a); // >> bar
 
 Strict mode does not allow you to use duplicate function parameter names.
 
-```
+```js
 function foo(bar, bar) {}  // No error. bar is set to the final argument when called
 
 "use strict";
@@ -173,7 +173,7 @@ function foo(bar, bar) {}; // SyntaxError: duplicate formal argument bar
 
 In Strict Mode, functions declared in a local block are inaccessible outside the block.
 
-```
+```js
 "use strict";
 {
   f(); // 'hi'
@@ -192,7 +192,7 @@ Scope-wise, function declarations in Strict Mode have the same kind of binding a
 
 `arguments` object behave different in **strict** and **non strict** mode. In **non-strict** mode, the `argument` object will reflect the changes in the value of the parameters which are present, however in **strict** mode any changes to the value of the parameter will not be reflected in the `argument` object.
 
-```
+```js
 function add(a, b){
     console.log(arguments[0], arguments[1]); // Prints : 1,2
 
@@ -207,7 +207,7 @@ add(1, 2);
 
 For the above code, the `arguments` object is changed when we change the value of the parameters. However, for **strict** mode, the same will not be reflected.
 
-```
+```js
 function add(a, b) {
     'use strict';
 
@@ -224,7 +224,7 @@ It's worth noting that, if any one of the parameters is `undefined`, and we try 
 
 **Strict mode**
 
-```
+```js
 function add(a, b) {
     'use strict';
 
@@ -247,7 +247,7 @@ add(1)
 
 **Non-Strict Mode**
 
-```
+```js
 function add(a,b) {
 
     console.log(arguments[0],arguments[1]);
@@ -271,7 +271,7 @@ add(1);
 ## Non-Simple parameter lists
 
 
-```
+```js
 function a(x = 5) {
   "use strict";
 }
@@ -284,25 +284,27 @@ Non-Simple parameters include -
 
 - Default assignemnt
 
-```
+```js
 function a(x = 1) {
   "use strict";
 }
 
 ```
 
+
 - Destructuring
 
-```
+```js
 function a({ x }) {
   "use strict";
 }
 
 ```
 
+
 - Rest params
 
-```
+```js
 function a(...args) {
   "use strict";
 }

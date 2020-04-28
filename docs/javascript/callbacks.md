@@ -14,7 +14,7 @@ Callbacks offer a way to extend the functionality of a function (or method) ****
 
 Suppose we have written the following function, calculating the sum of a given array of values:
 
-```
+```js
 function foo(array) {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {
@@ -27,7 +27,7 @@ function foo(array) {
 
 Now suppose that we want to do something with each value of the array, e.g. display it using `alert()`. We could make the appropriate changes in the code of `foo`, like this:
 
-```
+```js
 function foo(array) {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {
@@ -41,7 +41,7 @@ function foo(array) {
 
 But what if we decide to use `console.log` instead of `alert()`? Obviously changing the code of `foo`, whenever we decide to do something else with each value, is not a good idea. It is much better to have the option to change our mind without changing the code of `foo`. That's exactly the use case for callbacks. We only have to slightly change `foo`'s signature and body:
 
-```
+```js
 function foo(array, callback) {
     var sum = 0;
     for (var i = 0; i < array.length; i++) {
@@ -55,7 +55,7 @@ function foo(array, callback) {
 
 And now we are able to change the behaviour of `foo` just by changing its parameters:
 
-```
+```js
 var array = [];
 foo(array, alert);
 foo(array, function (x) {
@@ -70,14 +70,14 @@ In jQuery, the `$.getJSON()` method to fetch JSON data is asynchronous. Therefor
 
 `$.getJSON()` syntax:
 
-```
+```js
 $.getJSON( url, dataObject, successCallback );
 
 ```
 
 Example of `$.getJSON()` code:
 
-```
+```js
 $.getJSON("foo.json", {}, function(data) {
     // data handling code
 });
@@ -86,7 +86,7 @@ $.getJSON("foo.json", {}, function(data) {
 
 The following would **not** work, because the data-handling code would likely be called **before** the data is actually received, because the `$.getJSON` function takes an unspecified length of time and does not hold up the call stack as it waits for the JSON.
 
-```
+```js
 $.getJSON("foo.json", {});
 // data handling code
 
@@ -96,14 +96,14 @@ Another example of an asynchronous function is jQuery's `animate()` function. Be
 
 `.animate()` syntax:
 
-```
+```js
 jQueryElement.animate( properties, duration, callback );
 
 ```
 
 For example, to create a fading-out animation after which the element completely disappears, the following code can be run. Note the use of the callback.
 
-```
+```js
 elem.animate( { opacity: 0 }, 5000, function() {
     elem.hide();
 } );
@@ -112,7 +112,7 @@ elem.animate( { opacity: 0 }, 5000, function() {
 
 This allows the element to be hidden right after the function has finished execution. This differs from:
 
-```
+```js
 elem.animate( { opacity: 0 }, 5000 );
 elem.hide();
 
@@ -127,7 +127,7 @@ because the latter does not wait for `animate()` (an asynchronous function) to c
 
 This is a normal function call:
 
-```
+```js
 console.log("Hello World!");
 
 ```
@@ -136,7 +136,7 @@ When you call a normal function, it does its job and then returns control back t
 
 However, sometimes a function needs to return control back to the caller in order to do its job:
 
-```
+```js
 [1,2,3].map(function double(x) {
     return 2 * x;
 });
@@ -152,7 +152,7 @@ Thus, the function `map` is essentially returning control back to the caller eve
 
 Functions may accept more than one callback:
 
-```
+```js
 promise.then(function onFulfilled(value) {
     console.log("Fulfilled with value " + value);
 }, function onRejected(reason) {
@@ -185,7 +185,7 @@ The `then` callbacks are considered continuations of the `doSomething()` methods
 
 Often when using a callback you want access to a specific context.
 
-```
+```js
 function SomeClass(msg, elem) {
   this.msg = msg;
   elem.addEventListener('click', function() {
@@ -203,24 +203,34 @@ var s = new SomeClass("hello", someElement);
 Use `bind`
 <p>`bind` effectively generates a new function that sets `this` to whatever
 was passed to `bind` then calls the original function.</p>
-<pre><code>  function SomeClass(msg, elem) {
+
+```js
+  function SomeClass(msg, elem) {
     this.msg = msg;
     elem.addEventListener('click', function() {
       console.log(this.msg);  
     }.bind(this));  // <=-  bind the function to `this`
   }
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Use arrow functions
 Arrow functions automatically bind the current `this` context.
-<pre><code>  function SomeClass(msg, elem) {
+
+```js
+  function SomeClass(msg, elem) {
     this.msg = msg;
     elem.addEventListener('click',() => {   // <=-  arrow function binds `this`
       console.log(this.msg);  
     });
   }
-</code></pre>
+
+```
+
+
 </li>
 
 Often you'd like to call a member function, ideally passing any arguments that were passed to the event on to the function.
@@ -229,7 +239,9 @@ Often you'd like to call a member function, ideally passing any arguments that w
 
 <li>
 Use bind
-<pre><code>  function SomeClass(msg, elem) {
+
+```js
+  function SomeClass(msg, elem) {
     this.msg = msg;
     elem.addEventListener('click', this.handleClick.bind(this));
   }
@@ -237,11 +249,16 @@ Use bind
   SomeClass.prototype.handleClick = function(event) {
     console.log(event.type, this.msg);
   };
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Use arrow functions and the rest operator
-<pre><code>  function SomeClass(msg, elem) {
+
+```js
+  function SomeClass(msg, elem) {
     this.msg = msg;
     elem.addEventListener('click', (...a) => this.handleClick(...a));
   }
@@ -249,12 +266,17 @@ Use arrow functions and the rest operator
   SomeClass.prototype.handleClick = function(event) {
     console.log(event.type, this.msg);
   };
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 For DOM event listeners in particular you can implement the [`EventListener` interface](https://developer.mozilla.org/en-US/docs/Web/API/EventListener)
-<pre><code>  function SomeClass(msg, elem) {
+
+```js
+  function SomeClass(msg, elem) {
     this.msg = msg;
     elem.addEventListener('click', this);
   }
@@ -269,7 +291,10 @@ For DOM event listeners in particular you can implement the [`EventListener` int
   SomeClass.prototype.click = function(event) {
     console.log(this.msg);
   };
-</code></pre>
+
+```
+
+
 </li>
 
 
@@ -279,7 +304,7 @@ For DOM event listeners in particular you can implement the [`EventListener` int
 
 Callbacks are often used to provide error handling. This is a form of control flow branching, where some instructions are executed only when an error occurs:
 
-```
+```js
 const expected = true;
 
 function compare(actual, success, failure) {
@@ -309,7 +334,7 @@ compare(false, onSuccess, onFailure);
 
 Code execution in `compare()` above has two possible branches: `success` when the expected and actual values are the same, and `error` when they are different. This is especially useful when control flow should branch after some asynchronous instruction:
 
-```
+```js
 function compareAsync(actual, success, failure) {
   setTimeout(function () {
     compare(actual, success, failure)
@@ -338,7 +363,7 @@ It should be noted, multiple callbacks do not have to be mutually exclusive –
 
 The default syntax for arrow function is
 
-```
+```js
 () => {}
 
 ```
@@ -349,7 +374,7 @@ For example if we want to print all elements in an array [1,2,3,4,5]
 
 without arrow function, the code will look like this
 
-```
+```js
 [1,2,3,4,5].forEach(function(x){
                  console.log(x);
             }
@@ -358,7 +383,7 @@ without arrow function, the code will look like this
 
 With arrow function, it can be reduced to
 
-```
+```js
 [1,2,3,4,5].forEach(x => console.log(x));
 
 ```

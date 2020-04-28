@@ -12,7 +12,7 @@ description: "Convert to a string format, Create a new Date object, Creating a D
 
 ### Convert to String
 
-```
+```js
 var date1 = new Date();
 date1.toString();
 
@@ -24,7 +24,7 @@ Returns: "Fri Apr 15 2016 07:48:48 GMT-0400 (Eastern Daylight Time)"
 
 ### Convert to Time String
 
-```
+```js
 var date1 = new Date();
 date1.toTimeString();
 
@@ -36,7 +36,7 @@ Returns: "07:48:48 GMT-0400 (Eastern Daylight Time)"
 
 ### Convert to Date String
 
-```
+```js
 var date1 = new Date();
 date1.toDateString();
 
@@ -48,7 +48,7 @@ Returns: "Thu Apr 14 2016"
 
 ### Convert to UTC String
 
-```
+```js
 var date1 = new Date();
 date1.toUTCString();
 
@@ -60,7 +60,7 @@ Returns: "Fri, 15 Apr 2016 11:48:48 GMT"
 
 ### Convert to ISO String
 
-```
+```js
 var date1 = new Date();
 date1.toISOString();
 
@@ -72,7 +72,7 @@ Returns: "2016-04-14T23:49:08.596Z"
 
 ### Convert to GMT String
 
-```
+```js
 var date1 = new Date();
 date1.toGMTString();
 
@@ -86,7 +86,7 @@ This function has been marked as deprecated so some browsers may not support it 
 
 ### Convert to Locale Date String
 
-```
+```js
 var date1 = new Date();
 date1.toLocaleDateString();
 
@@ -98,14 +98,14 @@ Returns: "4/14/2016"
 
 This function returns a locale sensitive date string based upon the user's location by default.
 
-```
+```js
 date1.toLocaleDateString([locales [, options]])
 
 ```
 
 can be used to provide specific locales but is browser implementation specific. For example,
 
-```
+```js
 date1.toLocaleDateString(["zh", "en-US"]);
 
 ```
@@ -113,7 +113,7 @@ date1.toLocaleDateString(["zh", "en-US"]);
 would attempt to print the string in the chinese locale using United States English as a fallback.
 The options parameter can be used to provide specific formatting. For example:
 
-```
+```js
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 date1.toLocaleDateString([], options);
 
@@ -158,7 +158,7 @@ To create a new `Date` object use the `Date()` constructor:
 
 Note that these examples were generated on a browser in the Central Time Zone of the US, during Daylight Time, as evidenced by the code. Where comparison with UTC was instructive, `Date.prototype.toISOString()` was used to show the date and time in UTC (the Z in the formatted string denotes UTC).
 
-```
+```js
 // Creates a Date object with the current date and time from the 
 // user's browser
 var now = new Date();
@@ -246,7 +246,7 @@ In this problem we want to communicate a specific date (day, month, year) with s
 
 ### Naive approach with WRONG results
 
-```
+```js
 function formatDate(dayOfWeek, day, month, year) {
   var daysOfWeek = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
   var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -266,7 +266,7 @@ sendToBar(birthday.getTime());
 Sample output: `Foo was born on: Sat Jan 1 2000`
 
 
-```
+```js
 //Meanwhile somewhere else...
 
 //Bar lives in a country with timezone GMT - 1
@@ -284,7 +284,7 @@ And thus, Bar would always believe Foo was born on the last day of 1999.
 
 ### Correct approach
 
-```
+```js
 function formatDate(dayOfWeek, day, month, year) {
   var daysOfWeek = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
   var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -304,7 +304,7 @@ sendToBar(birthday.getTime());
 Sample output: `Foo was born on: Sat Jan 1 2000`
 
 
-```
+```js
 //Meanwhile somewhere else...
 
 //Bar lives in a country with timezone GMT - 1
@@ -322,7 +322,7 @@ Sample output: `Foo was born on: Sat Jan 1 2000`
 
 If one wants to create a `Date` object based on UTC or GMT, the `Date.UTC(...)` method can be used. It uses the same arguments as the longest `Date` constructor. This method will return a number representing the time that has passed since January 1, 1970, 00:00:00 UTC.
 
-```
+```js
 console.log(Date.UTC(2000,0,31,12));
 
 ```
@@ -331,7 +331,7 @@ console.log(Date.UTC(2000,0,31,12));
 Sample output: `949320000000`
 
 
-```
+```js
 var utcDate = new Date(Date.UTC(2000,0,31,12));
 console.log(utcDate);
 
@@ -343,7 +343,7 @@ Sample output: `Mon Jan 31 2000 13:00:00 GMT+0100 (West-Europa (standaardtijd))`
 
 Unsurprisingly, the difference between UTC time and local time is, in fact, the timezone offset converted to milliseconds.
 
-```
+```js
 var utcDate = new Date(Date.UTC(2000,0,31,12));
 var localDate = new Date(2000,0,31,12);
 
@@ -359,7 +359,7 @@ Sample output: `true`
 
 All `Date` object modifiers, such as `setDate(...)` and `setFullYear(...)` have an equivalent takes an argument in UTC time rather than in local time.
 
-```
+```js
 var date = new Date();
 date.setUTCFullYear(2000,0,31);
 date.setUTCHours(12,0,0,0);
@@ -377,7 +377,7 @@ The other UTC-specific modifiers are `.setUTCMonth()`, `.setUTCDate()` (for the 
 
 Where the methods above are required to differentiate between ambiguity in dates, it is usually easier to communicate a date as the amount of time that has passed since January 1, 1970, 00:00:00 UTC. This single number represents a single point in time, and can be converted to local time whenever necessary.
 
-```
+```js
 var date = new Date(Date.UTC(2000,0,31,12));
 var timestamp = date.getTime();
 //Alternatively
@@ -390,7 +390,7 @@ console.log(timestamp === timestamp2);
 Sample output: `true`
 
 
-```
+```js
 //And when constructing a date from it elsewhere...
 var otherDate = new Date(timestamp);
 
@@ -419,7 +419,7 @@ In modern browsers (*), [`Date.prototype.toLocaleDateString()`](https://develope
 
 It requires the following format :
 
-```
+```js
 dateObj.toLocaleDateString([locales [, options]])
 
 ```
@@ -444,7 +444,7 @@ The `options` parameter should be an object with some or all of the following pr
 
 ### How to use
 
-```
+```js
 var today = new Date().toLocaleDateString('en-GB', {  
     day : 'numeric',
     month : 'short',
@@ -455,7 +455,7 @@ var today = new Date().toLocaleDateString('en-GB', {
 
 Output if executed on January 24ᵗʰ, 2036 :
 
-```
+```js
 '24 Jan 2036'
 
 ```
@@ -464,7 +464,7 @@ Output if executed on January 24ᵗʰ, 2036 :
 
 If `Date.prototype.toLocaleDateString()` isn't flexible enough to fulfill whatever need you may have, you might want to consider creating a custom Date object that looks like this:
 
-```
+```js
 var DateObject = (function() {
     var monthNames = [
       "January", "February", "March",
@@ -501,7 +501,7 @@ var DateObject = (function() {
 
 If you included that code and executed `new DateObject()` on January 20ᵗʰ, 2019, it would produce an object with the following properties:
 
-```
+```js
 day: 20
 dayPadded: "20"
 month: 1
@@ -513,14 +513,14 @@ year: 2019
 
 To get a formatted string, you could do something like this:
 
-```
+```js
 new DateObject().get(['dayPadded', 'monthPadded', 'year']);
 
 ```
 
 That would produce the following output:
 
-```
+```js
 20-01-2016
 
 ```
@@ -542,7 +542,7 @@ Below are some common date methods.
 
 ### Get the current year
 
-```
+```js
 var year = (new Date()).getFullYear();
 console.log(year);
 // Sample output: 2016 
@@ -551,7 +551,7 @@ console.log(year);
 
 ### Get the current month
 
-```
+```js
 var month = (new Date()).getMonth();
 console.log(month);
 // Sample output: 0 
@@ -562,7 +562,7 @@ Please note that 0 = January. This is because months range from **0** to **11**,
 
 ### Get the current day
 
-```
+```js
 var day = (new Date()).getDate();
 console.log(day);
 // Sample output: 31
@@ -571,7 +571,7 @@ console.log(day);
 
 ### Get the current hour
 
-```
+```js
 var hours = (new Date()).getHours();
 console.log(hours);
 // Sample output: 10
@@ -580,7 +580,7 @@ console.log(hours);
 
 ### Get the current minutes
 
-```
+```js
 var minutes = (new Date()).getMinutes();
 console.log(minutes);
 // Sample output: 39
@@ -589,7 +589,7 @@ console.log(minutes);
 
 ### Get the current seconds
 
-```
+```js
 var seconds = (new Date()).getSeconds();
 console.log(second);
 // Sample output: 48
@@ -600,7 +600,7 @@ console.log(second);
 
 To get the milliseconds (ranging from 0 to 999) of an instance of a `Date` object, use its `getMilliseconds` method.
 
-```
+```js
 var milliseconds = (new Date()).getMilliseconds();
 console.log(milliseconds);
  // Output: milliseconds right now
@@ -609,7 +609,7 @@ console.log(milliseconds);
 
 ### Convert the current time and date to a human-readable string
 
-```
+```js
 var now = new Date();
 // convert date to a string in UTC timezone format:
 console.log(now.toUTCString());
@@ -619,7 +619,7 @@ console.log(now.toUTCString());
 
 The static method `Date.now()` returns the number of milliseconds that have elapsed since 1 January 1970 00:00:00 UTC.  To get the number of milliseconds that have elapsed since that time using an instance of a `Date` object, use its `getTime` method.
 
-```
+```js
 // get milliseconds using static method now of Date
 console.log(Date.now());
 
@@ -633,7 +633,7 @@ console.log((new Date()).getTime());
 ## Convert to JSON
 
 
-```
+```js
 var date1 = new Date();
 date1.toJSON();
 
@@ -650,7 +650,7 @@ Returns: "2016-04-14T23:49:08.596Z"
 
 To increment date objects in Javascript, we can usually do this:
 
-```
+```js
 var checkoutDate = new Date();    // Thu Jul 21 2016 10:05:13 GMT-0400 (EDT)
 
 checkoutDate.setDate( checkoutDate.getDate() + 1 );
@@ -661,7 +661,7 @@ console.log(checkoutDate); // Fri Jul 22 2016 10:05:13 GMT-0400 (EDT)
 
 It is possible to use `setDate` to change the date to a day in the following month by using a value larger than the number of days in the current month -
 
-```
+```js
 var checkoutDate = new Date();    // Thu Jul 21 2016 10:05:13 GMT-0400 (EDT)
 checkoutDate.setDate( checkoutDate.getDate() + 12 );
 console.log(checkoutDate); // Tue Aug 02 2016 10:05:13 GMT-0400 (EDT)
@@ -674,7 +674,7 @@ The same applies to other methods such as getHours(), getMonth(),etc.
 
 If you wish to add work days (in this case I am assuming Monday - Friday) you can use the `setDate` function although you need a little extra logic to account for the weekends (obviously this will not take account of national holidays) -
 
-```
+```js
 function addWorkDays(startDate, days) {
     // Get the day of the week as a number (0 = Sunday, 1 = Monday, .... 6 = Saturday)
     var dow = startDate.getDay();
@@ -709,7 +709,7 @@ function addWorkDays(startDate, days) {
 
 The static method `Date.now` returns the number of milliseconds that have elapsed since 1 January 1970 00:00:00 UTC.  To get the number of milliseconds that have elapsed since that time using an instance of a `Date` object, use its `getTime` method.
 
-```
+```js
 // get milliseconds using static method now of Date
 console.log(Date.now());
 

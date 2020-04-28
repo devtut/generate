@@ -19,7 +19,7 @@ Destructuring is a convenient way to extract properties from objects into variab
 
 Basic syntax:
 
-```
+```js
 let person = {
   name: 'Bob',
   age: 25
@@ -35,7 +35,7 @@ let age = person.age;   // 25
 
 Destructuring and renaming:
 
-```
+```js
 let person = {
   name: 'Bob',
   age: 25
@@ -51,7 +51,7 @@ let firstName = person.name; // 'Bob'
 
 Destructuring with default values:
 
-```
+```js
 let person = {
   name: 'Bob',
   age: 25
@@ -66,7 +66,7 @@ let phone = person.hasOwnProperty('phone') ? person.phone : '123-456-789'; // '1
 
 Destructuring and renaming with default values
 
-```
+```js
 let person = {
   name: 'Bob',
   age: 25
@@ -86,7 +86,7 @@ let p = person.hasOwnProperty('phone') ? person.phone : '123-456-789'; // '123-4
 
 Pull properties from an object passed into a function. This pattern simulates named parameters instead of relying on argument position.
 
-```
+```js
 let user = {
     name: 'Jill',
     age: 33,
@@ -103,7 +103,7 @@ greeting(user)
 
 This also works for arrays:
 
-```
+```js
 let parts = ["Hello", "World!"];
 
 function greeting([first, second]) {
@@ -121,7 +121,7 @@ We are not limited to destructuring an object/array, we can destructure a nested
 
 ****Nested Object Destructuring****
 
-```
+```js
 var obj = {
   a: {
     c: 1,
@@ -144,7 +144,7 @@ console.log(x, y, z);     // 1,3,2
 
 ****Nested Array Destructuring****
 
-```
+```js
 var arr = [1, 2, [3, 4], 5];
 
 var [a, , [b, c], d] = arr;
@@ -157,7 +157,7 @@ Destructuring is not just limited to a single pattern, we can have arrays in it,
 
 ****Arrays Within Object****
 
-```
+```js
 var obj = {
   a: 1,
   b: [2, 3]
@@ -174,7 +174,7 @@ console.log(x1, x2, x3);    // 1 2 3
 
 ****Objects Within Arrays****
 
-```
+```js
 var arr = [1, 2 , {a : 3}, 4];
 
 var [x1, x2 , {a : x3}, x4] = arr;
@@ -188,7 +188,7 @@ console.log(x1, x2, x3, x4);
 ## Destructuring Arrays
 
 
-```
+```js
 const myArr = ['one', 'two', 'three']
 const [ a, b, c ] = myArr
 
@@ -200,7 +200,7 @@ We can set default value in destructuring array, see the example of [Default Val
 
 With destructuring array, we can swap the values of 2 variables easily:
 
-```
+```js
 var a = 1;
 var b = 3;
 
@@ -211,7 +211,7 @@ var b = 3;
 
 We can specify empty slots to skip unneeded values:
 
-```
+```js
 [a, , b] = [1, 2, 3] // a = 1, b = 3
 
 ```
@@ -223,7 +223,7 @@ We can specify empty slots to skip unneeded values:
 
 Destructuring allows us to refer to one key in an object, but declare it as a variable with a different name.  The syntax looks like the key-value syntax for a normal JavaScript object.
 
-```
+```js
 let user = {
   name: 'John Smith',
   id: 10,
@@ -244,7 +244,7 @@ console.log(userId) // 10
 
 Aside from destructuring objects into function arguments, you can use them inside variable declarations as follows:
 
-```
+```js
 const person = {
   name: 'John Doe',
   age: 45,
@@ -267,7 +267,7 @@ As you can see, three new variables were created: `name`, `age` and `location` a
 
 We often encounter a situation where a property we're trying to extract doesn't exist in the object/array, resulting in a `TypeError` (while destructuring nested objects) or being set to `undefined`. While destructuring we can set a default value, which it will fallback to, in case of it not being found in the object.
 
-```
+```js
 var obj = {a : 1};
 var {a : x , b : x1 = 10} = obj;
 console.log(x, x1); // 1, 10
@@ -287,7 +287,7 @@ If you ever need an array that consists of extra arguments that you may or may n
 
 **Example 1, optional arguments into an array:**
 
-```
+```js
 function printArgs(arg1, arg2, ...theRest) {
   console.log(arg1, arg2, theRest);
 }
@@ -299,7 +299,7 @@ printArgs(1, 2, 'optional', 4, 5);
 
 **Example 2, all arguments are an array now:**
 
-```
+```js
 function printArgs(...myArguments) {
   console.log(myArguments, Array.isArray(myArguments));
 }

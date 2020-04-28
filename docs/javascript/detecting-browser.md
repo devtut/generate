@@ -15,7 +15,7 @@ Browsers, as they have evolved, offered more features to Javascript. But often t
 
 This method looks for the existence of browser specific things. This would be more difficult to spoof, but is not guaranteed to be future proof.
 
-```
+```js
 // Opera 8.0+
 var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
@@ -61,7 +61,7 @@ The four conditional blocks following the user agent matching code are meant to 
 
 Note that this method can be easily spoofed by a user.
 
-```
+```js
 navigator.sayswho= (function(){
     var ua= navigator.userAgent, tem,
     M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
@@ -93,7 +93,7 @@ One popular browser-detection library is [Bowser](https://github.com/ded/bowser)
 
 Usage example:
 
-```
+```js
 if (bowser.msie && bowser.version >= 6) {
     alert('IE version 6 or newer');
 }

@@ -10,7 +10,7 @@ description: "Get the text of the selection, Deselect everything that is selecte
 ## Get the text of the selection
 
 
-```
+```js
 let sel = document.getSelection();
 let text = sel.toString();
 console.log(text); // logs what the user selected
@@ -19,7 +19,7 @@ console.log(text); // logs what the user selected
 
 Alternatively, since the `toString` member function is called automatically by some functions when converting the object to a string, you don't always have to call it yourself.
 
-```
+```js
 console.log(document.getSelection());
 
 ```
@@ -29,7 +29,7 @@ console.log(document.getSelection());
 ## Deselect everything that is selected
 
 
-```
+```js
 let sel = document.getSelection();
 sel.removeAllRanges();
 
@@ -40,7 +40,7 @@ sel.removeAllRanges();
 ## Select the contents of an element
 
 
-```
+```js
 let sel = document.getSelection();
 
 let myNode = document.getElementById('element-to-select');

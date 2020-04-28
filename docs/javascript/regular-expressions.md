@@ -17,21 +17,21 @@ It is recommended to use this form only when creating regex from dynamic variabl
 
 Use when the expression may change or the expression is user generated.
 
-```
+```js
 var re = new RegExp(".*");
 
 ```
 
 With flags:
 
-```
+```js
 var re = new RegExp(".*", "gmi");
 
 ```
 
 With a backslash: (this must be escaped because the regex is specified with a string)
 
-```
+```js
 var re = new RegExp("\\w*");
 
 ```
@@ -40,21 +40,21 @@ var re = new RegExp("\\w*");
 
 Use when you know the regular expression will not change, and you know what the expression is before runtime.
 
-```
+```js
 var re = /.*/;
 
 ```
 
 With flags:
 
-```
+```js
 var re = /.*/gmi;
 
 ```
 
 With a backslash: (this should not be escaped because the regex is specified in a literal)
 
-```
+```js
 var re = /\w*/;
 
 ```
@@ -81,7 +81,7 @@ There are several flags you can specify to alter the RegEx behaviour. Flags may 
 ## Check if string contains pattern using .test()
 
 
-```
+```js
 var re = /[a-z]+/;
 if (re.test("foo")) {
     console.log("Match exists.");
@@ -100,7 +100,7 @@ The `test` method performs a search to see if a regular expression matches a str
 
 `RegExp.prototype.exec(string)` returns an array of captures, or `null` if there was no match.
 
-```
+```js
 var re = /([0-9]+)[a-z]+/;
 var match = re.exec("foo123bar");
 
@@ -114,7 +114,7 @@ var match = re.exec("foo123bar");
 
 ### Loop Through Matches Using `.exec()`
 
-```
+```js
 var re = /a/g;
 var result;
 while ((result = re.exec('barbatbaz')) !== null) {
@@ -145,7 +145,7 @@ The String object has the following methods that accept regular expressions as a
 
 ### Match with RegExp
 
-```
+```js
 console.log("string".match(/[i-n]+/));
 console.log("string".match(/(r)[i-n]+/));
 
@@ -160,7 +160,7 @@ Array ["rin", "r"]</p>
 
 ### Replace with RegExp
 
-```
+```js
 console.log("string".replace(/[i-n]+/, "foo"));
 
 ```
@@ -173,7 +173,7 @@ strfoog
 
 ### Split with RegExp
 
-```
+```js
 console.log("stringstring".split(/[i-n]+/));
 
 ```
@@ -188,7 +188,7 @@ Array ["str", "gstr", "g"]
 
 `.search()` returns the index at which a match is found or -1.
 
-```
+```js
 console.log("string".search(/[i-n]+/));
 console.log("string".search(/[o-q]+/));
 
@@ -219,7 +219,7 @@ Sometimes the desired match relies on it's context. This means a simple **RegExp
 
 Say there is a **String** where all `+` signs need to be replaced with a space, but only if they follow a letter character. This means a simple match would include that letter character and it would also be removed. Capturing it is the solution as it means the matched letter can be preserved.
 
-```
+```js
 let str = "aa+b+cc+1+2",
     re = /([a-z])\+/g;
 
@@ -236,7 +236,7 @@ Using the form `(?:pattern)`, these work in a similar way to capture groups, exc
 
 They can be particularly useful if other data is being captured which you don't want to move the indices of, but need to do some advanced pattern matching such as an OR
 
-```
+```js
 let str = "aa+b+cc+1+2",
     re = /(?:\b|c)([a-z])\+/g;
 
@@ -248,7 +248,7 @@ str.replace(re, '$1 '); // "aa+b c 1+2"
 
 If the desired match relies on something which follows it, rather than matching that and capturing it, it is possible to use a look-ahead to test for it but not include it in the match. A positive look-ahead has the form `(?=pattern)`, a negative look-ahead (where the expression match only happens if the look-ahead pattern did not match) has the form `(?!pattern)`
 
-```
+```js
 let str = "aa+b+cc+1+2",
     re = /\+(?=[a-z])/g;
 
@@ -263,7 +263,7 @@ str.replace(re, ' '); // "aa b cc+1+2"
 
 `String#replace` can have a function as its second argument so you can provide a replacement based on some logic.
 
-```
+```js
 "Some string Some".replace(/Some/g, (match, startIndex, wholeString) => {
   if(startIndex == 0){
     return 'Start';
@@ -277,7 +277,7 @@ str.replace(re, ' '); // "aa b cc+1+2"
 
 One line template library
 
-```
+```js
 let data = {name: 'John', surname: 'Doe'}
 "My name is {surname}, {name} {surname}".replace(/(?:{(.+?)})/g, x => data[x.slice(1,-1)]);
 
@@ -296,7 +296,7 @@ What is a match ? When a compatible substring is found for the entire regex in t
 
 Imagine a html string :
 
-```
+```js
 <html>
 <head></head>
 <body>
@@ -309,7 +309,7 @@ Imagine a html string :
 
 You want to extract and get all the links inside an `a` tag. At first, here the regex you write :
 
-```
+```js
 var re = /<a[^>]*href="https?:\/\/.*"[^>]*>[^<]*<\/a>/g;
 
 ```
@@ -317,7 +317,7 @@ var re = /<a[^>]*href="https?:\/\/.*"[^>]*>[^<]*<\/a>/g;
 But now, imagine you want the `href` and the `anchor` of each link. And you want it together.
 You can simply add a new regex in for each match **OR** you can use parentheses :
 
-```
+```js
 var re = /<a[^>]*href="(https?:\/\/.*)"[^>]*>([^<]*)<\/a>/g; 
 var str = '<html>\n    <head></head>\n    <body>\n        <h1>Example</h1>\n        <p>Look a this great link : <a href="https://stackoverflow.com">Stackoverflow</a> http://anotherlinkoutsideatag</p>\n\n        Copyright <a href="https://stackoverflow.com">Stackoverflow</a>\n    </body>\';\n';
 var m;
@@ -342,7 +342,7 @@ while ((m = re.exec(str)) !== null) {
 
 At the end of the loop, you have an array of link with `anchor` and `href` and you can use it to write markdown for example :
 
-```
+```js
 links.forEach(function(link) {
   console.log('[%s](%s)', link.anchor, link.href);
 });

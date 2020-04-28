@@ -13,14 +13,14 @@ description: "Read file as string, Read file as dataURL, Slice a file, Client si
 
 Make sure to have a file input on your page:
 
-```
+```js
 <input type="file" id="upload">
 
 ```
 
 Then in JavaScript:
 
-```
+```js
 document.getElementById('upload').addEventListener('change', readFileAsString)
 function readFileAsString() {
     var files = this.files;
@@ -45,7 +45,7 @@ function readFileAsString() {
 
 Reading the contents of a file within a web application can be accomplished by utilizing the HTML5 File API. First, add an input with `type="file"` in your HTML:
 
-```
+```js
 <input type="file" id="upload">
 
 ```
@@ -53,7 +53,7 @@ Reading the contents of a file within a web application can be accomplished by u
 Next, we're going to add a change listener on the file-input. This examples defines the listener via JavaScript, but it could also be added as attribute on the input element.
 This listener gets triggered every time a new file has been selected. Within this callback, we can read the file that was selected and perform further actions (like creating an image with the contents of the selected file):
 
-```
+```js
 document.getElementById('upload').addEventListener('change', showImage);
 
 function showImage(evt) {
@@ -86,7 +86,7 @@ The `blob.slice()` method is used to create a new Blob object containing the dat
 
 Here we slice a file in a specific amount of blobs. This is useful especially in cases where you need to process files that are too large to read in memory all in once. We can then read the chunks one by one using `FileReader`.
 
-```
+```js
 /**
 * @param {File|Blob} - file to slice
 * @param {Number} - chunksAmount
@@ -112,7 +112,7 @@ function sliceFile(file, chunksAmount) {
 ## Client side csv download using Blob
 
 
-```
+```js
 function downloadCsv() {
   var blob = new Blob([csvString]);
   if (window.navigator.msSaveOrOpenBlob){
@@ -144,21 +144,21 @@ Source reference ; [https://github.com/mholt/PapaParse/issues/175](https://githu
 
 The HTML5 file API allows you to restrict which kind of files are accepted by simply setting the accept attribute on a file input, e.g.:
 
-```
+```js
 <input type="file" accept="image/jpeg">
 
 ```
 
 Specifying multiple MIME types separated by a comma (e.g. `image/jpeg,image/png`) or using wildcards (e.g. `image/*` for allowing all types of images) give you a quick and powerful way to restrict the type of files you want to select. Here's an example for allowing any image or video:
 
-```
+```js
 <input type="file" accept="image/*,video*">
 
 ```
 
 By default, the file input lets the user select a single file. If you want to enable multiple file selection, simply add the `multiple` attribute:
 
-```
+```js
 <input type="file" multiple>
 
 ```
@@ -172,14 +172,14 @@ You can then read all the selected files via the file input's `files` array. See
 
 If you want to get the properties of the file (like the name or the size) you can do it before using the File Reader. If we have the following html piece of code:
 
-```
+```js
 <input type="file" id="newFile">
 
 ```
 
 You can access the properties directly like this:
 
-```
+```js
 document.getElementById('newFile').addEventListener('change', getFile);
 
 function getFile(event) {

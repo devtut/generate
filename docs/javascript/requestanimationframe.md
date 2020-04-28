@@ -13,7 +13,7 @@ description: "Use requestAnimationFrame to fade in element, Cancelling an Animat
 - **View jsFiddle**: [https://jsfiddle.net/HimmatChahal/jb5trg67/](https://jsfiddle.net/HimmatChahal/jb5trg67/)
 - **Copy + Pasteable code below**:
 
-```
+```js
 <html>
     <body>
         <h1>This will fade in at 60 frames per second (or as close to possible as your hardware allows)</h1>
@@ -77,7 +77,7 @@ description: "Use requestAnimationFrame to fade in element, Cancelling an Animat
 
 To cancel a call to `requestAnimationFrame`, you need the id it returned from when it was last called.  This is the parameter you use for `cancelAnimationFrame`.  The following example starts some hypothetical animation then pauses it after one second.
 
-```
+```js
 // stores the id returned from each call to requestAnimationFrame
 var requestId;
 
@@ -115,7 +115,7 @@ setTimeout(pause,1000);
 
 Of course, just like most things in browser JavaScript, you just can't count on the fact that everything will be the same everywhere. In this case, `requestAnimationFrame` might have a prefix on some platforms and are named differently, such as `webkitRequestAnimationFrame`. Fortunately, there's a really easy way to group all the known differences that could exist down to 1 function:
 
-```
+```js
 window.requestAnimationFrame = (function(){
     return window.requestAnimationFrame ||
         window.webkitRequestAnimationFrame ||

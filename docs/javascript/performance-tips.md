@@ -17,7 +17,7 @@ Some JavaScript engines (for example, the current version of Node.js and older v
 
 If you need to handle exceptions in performance-critical code, it can be faster in some cases to keep the try/catch in a separate function. For example, this function will not be optimized by some implementations:
 
-```
+```js
 function myPerformanceCriticalFunction() {
     try {
         // do complex calculations here
@@ -30,7 +30,7 @@ function myPerformanceCriticalFunction() {
 
 However, you can refactor to move the slow code into a separate function (that **can** be optimized) and call it from inside the `try` block.
 
-```
+```js
 // This function can be optimized
 function doCalculations() {
     // do complex calculations here
@@ -64,7 +64,7 @@ The consequence of updating the document too frequently is illustrated with the 
 
 Consider the following document containing a `<ul>` element:
 
-```
+```js
 <!DOCTYPE html>
 <html>
     <body>
@@ -76,7 +76,7 @@ Consider the following document containing a `<ul>` element:
 
 We add `5000` items to the list looping 5000 times (you can try this with a larger number on a powerful computer to increase the effect).
 
-```
+```js
 var list = document.getElementById("list");
 for(var i = 1; i <= 5000; i++) {             
     list.innerHTML += `<li>item ${i}</li>`;  // update 5000 times
@@ -86,7 +86,7 @@ for(var i = 1; i <= 5000; i++) {
 
 In this case, the performance can be improved by batching all 5000 changes in one single DOM update.
 
-```
+```js
 var list = document.getElementById("list");
 var html = "";
 for(var i = 1; i <= 5000; i++) {
@@ -98,7 +98,7 @@ list.innerHTML = html;     // update once
 
 The function [`document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment) can be used as a lightweight container for the HTML created by the loop. This method is slightly faster than modifying the container element's `innerHTML` property (as shown below).
 
-```
+```js
 var list = document.getElementById("list");
 var fragment = document.createDocumentFragment();
 for(var i = 1; i <= 5000; i++) {
@@ -132,7 +132,7 @@ To measure code execution time, you can use different time measurement tools lik
 
 In this example we are going to calculate the elapsed time for the execution of our function, and we are going to use the [Performance.now()](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now) method that returns a [DOMHighResTimeStamp](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp), measured in milliseconds, accurate to one thousandth of a millisecond.
 
-```
+```js
 let startTime, endTime;
 
 function myFunction() {
@@ -155,7 +155,7 @@ console.debug('Elapsed time:', (endTime - startTime));
 
 The result in console will look something like this:
 
-```
+```js
 Elapsed time: 0.10000000009313226
 
 ```
@@ -166,7 +166,7 @@ Usage of [`performance.now()`](https://developer.mozilla.org/en-US/docs/Web/API/
 
 In this example we are going to calculate the elapsed time for the initialization of a big array (1 million values), and we are going to use the `Date.now()` method
 
-```
+```js
 let t0 = Date.now(); //stores current Timestamp in milliseconds since 1 January 1970 00:00:00 UTC
 let arr = []; //store empty array
 for (let i = 0; i < 1000000; i++) { //1 million iterations
@@ -180,7 +180,7 @@ console.log(Date.now() - t0); //print elapsed time between stored t0 and now
 
 In this example we are doing the same task as in Example 2, but we are going to use the `console.time("label")` & `console.timeEnd("label")` methods
 
-```
+```js
 console.time("t"); //start new timer for label name: "t"
 let arr = []; //store empty array
 for(let i = 0; i < 1000000; i++) { //1 million iterations
@@ -194,7 +194,7 @@ console.timeEnd("t"); //stop the timer for label name: "t" and print elapsed tim
 
 In Node.js programs this is the most precise way to measure spent time.
 
-```
+```js
 let start = process.hrtime();
 
 // long execution here, maybe asynchronous
@@ -215,7 +215,7 @@ If you are building a function that may be heavy on the processor (either client
 
 Let's say I have a recursive factorial function:
 
-```
+```js
 function fact(num) {
   return (num === 0)? 1 : num * fact(num - 1);
 }
@@ -226,7 +226,7 @@ If I pass small values from 1 to 100 for example, there would be no problem, but
 
 We could hard code our own dictionary from 1 to god-knows-what number with their corresponding factorials but, I'm not sure if I advise that! Let's create a memoizer, shall we?
 
-```
+```js
 var fact = (function() {
   var cache = {}; // Initialise a memory cache object
   
@@ -274,7 +274,7 @@ We can also create a function that "memoizes" other functions, using the same sc
 
 WARNING: ES6 syntax, if you don't like it, replace ... with nothing and use the `var args = Array.prototype.slice.call(null, arguments);` trick; replace const and let with var, and the other things you already know.
 
-```
+```js
 function memoize(func) {
   let cache = {};
 
@@ -301,7 +301,7 @@ Now notice that this will work for multiple arguments but won't be of much use i
 
 To use the above method you just:
 
-```
+```js
 const newFunction = memoize(oldFunction);
 
 // Assuming new oldFunction just sums/concatenates:
@@ -336,7 +336,7 @@ a for loop. Within the loop, I'm assigning the same string to all object's "x" p
 
 This is code:
 
-```
+```js
 function f1() {
     var P = function () {
         this.value = 1
@@ -389,7 +389,8 @@ function f2() {
 This is the result for Chrome and Firefox.
 
 ```
-       FireFox     Chrome
+
+      FireFox     Chrome
  --------------------------
  f1      6,400      11,400
  f2      1,700       9,600   
@@ -405,7 +406,7 @@ As we can see, the performance improvements are very different between the two.
 
 ### Example A
 
-```
+```js
 var i,a,b,len;
 a = {x:0,y:0}
 function test(){ // return object created each call
@@ -433,7 +434,7 @@ It is very inefficient to create a new object in performance code. Loop A calls 
 
 ### Example B
 
-```
+```js
 var i,a,b,len;
 a = {x:0,y:0}
 function test2(a){
@@ -466,7 +467,7 @@ Javascript engines first look for variables within the local scope before extend
 
 This has implications when working with performance-critical code. Take for instance a common `for` loop:
 
-```
+```js
 var global_variable = 0;
 function foo(){
     global_variable = 0;
@@ -481,7 +482,7 @@ For every iteration in `for` loop, the engine will lookup `items`, lookup the `l
 
 A performant rewrite of the above function is:
 
-```
+```js
 function foo(){
     var local_variable = 0;
     for (var i=0, li=items.length; i<li; i++) {
@@ -503,7 +504,7 @@ If the engine is able to correctly predict you're using a specific small type fo
 
 In this example, we'll use this trivial function summing the elements of an array and outputting the time it took:
 
-```
+```js
 // summing properties
 var sum = (function(arr){
         var start = process.hrtime();
@@ -520,7 +521,7 @@ var sum = (function(arr){
 
 Let's make an array and sum the elements:
 
-```
+```js
 var     N = 12345,
         arr = [];
 for (var i=0; i<N; i++) arr[i] = Math.random();
@@ -529,14 +530,14 @@ for (var i=0; i<N; i++) arr[i] = Math.random();
 
 Result:
 
-```
+```js
 Summing took 384416 nanoseconds
 
 ```
 
 Now, let's do the same but with only integers:
 
-```
+```js
 var     N = 12345,
         arr = [];
 for (var i=0; i<N; i++) arr[i] = Math.round(1000*Math.random());
@@ -545,7 +546,7 @@ for (var i=0; i<N; i++) arr[i] = Math.round(1000*Math.random());
 
 Result:
 
-```
+```js
 Summing took 180520 nanoseconds
 
 ```

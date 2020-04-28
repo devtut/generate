@@ -14,7 +14,7 @@ Runtime errors in JavaScript are instances of the `Error` object. The `Error` ob
 
 The first parameter to the `Error` constructor is the human-readable error message. You should try to always specify a useful error message of what went wrong, even if additional information can be found elsewhere.
 
-```
+```js
 try {
    throw new Error('Useful message');
 } catch (error) {
@@ -30,7 +30,7 @@ try {
 
 Exceptions are to synchronous code what rejections are to [promise](http://stackoverflow.com/documentation/javascript/231/promises)-based asynchronous code. If an exception is thrown in a promise handler, its error will be automatically caught and used to reject the promise instead.
 
-```
+```js
 Promise.resolve(5)
     .then(result => {
         throw new Error("I don't like five");
@@ -46,14 +46,14 @@ Promise.resolve(5)
 
  
 
-```
+```js
 Promise rejected: Error: I don't like five
 
 ```
 
 The [async functions proposal](http://tc39.github.io/ecmascript-asyncawait/)—expected to be part of ECMAScript 2017—extends this in the opposite direction. If you await a rejected promise, its error is raised as an exception:
 
-```
+```js
 async function main() {
   try {
     await Promise.reject(new Error("Invalid something"));
@@ -67,7 +67,7 @@ main();
 
  
 
-```
+```js
 Caught error: Invalid something
 
 ```
@@ -79,7 +79,7 @@ Caught error: Invalid something
 
 Without a try catch block, undefined functions will throw errors and stop execution:
 
-```
+```js
 undefinedFunction("This will not get executed");
 console.log("I will never run because of the uncaught error!");
 
@@ -87,14 +87,14 @@ console.log("I will never run because of the uncaught error!");
 
 Will throw an error and not run the second line:
 
-```
+```js
 // Uncaught ReferenceError: undefinedFunction is not defined
 
 ```
 
 You need a try catch block, similar to other languages, to ensure you catch that error so code can continue to execute:
 
-```
+```js
 try {
     undefinedFunction("This will not get executed");
 } catch(error) {
@@ -108,7 +108,7 @@ console.log("I will run because we caught the error!");
 
 Now, we've caught the error and can be sure that our code is going to execute
 
-```
+```js
 // An error occured! ReferenceError: undefinedFunction is not defined(…)
 // The code-block has finished
 // I will run because we caught the error!
@@ -117,7 +117,7 @@ Now, we've caught the error and can be sure that our code is going to execute
 
 What if an error occurs in our catch block!?
 
-```
+```js
 try {
     undefinedFunction("This will not get executed");
 } catch(error) {
@@ -132,7 +132,7 @@ console.log("I won't run because of the uncaught error in the catch block!");
 
 We won't process the rest of our catch block, and execution will halt except for the finally block.
 
-```
+```js
 // The code-block has finished
 // Uncaught ReferenceError: otherUndefinedFunction is not defined(…)
 
@@ -140,7 +140,7 @@ We won't process the rest of our catch block, and execution will halt except for
 
 You could always nest your try catch blocks.. but you shouldn't because that will get extremely messy..
 
-```
+```js
 try {
     undefinedFunction("This will not get executed");
 } catch(error) {
@@ -159,7 +159,7 @@ console.log("I will run because we caught the error!");
 
 Will catch all errors from the previous example and log the following:
 
-```
+```js
 //Too much nesting is bad for my heart and soul...
 //An error occured! ReferenceError: undefinedFunction is not defined(…)
 //The code-block has finished
@@ -173,7 +173,7 @@ Also, you shouldn't wrap every variable and function in a try/catch block, becau
 
 Without a protected way to call untrusted or exception throwing methods:
 
-```
+```js
 function foo(a, b, c) {
     console.log(a, b, c);
     throw new Error("custom error!");
@@ -197,7 +197,7 @@ try {
 
 And with protection:
 
-```
+```js
 function foo(a, b, c) {
     console.log(a, b, c);
     throw new Error("custom error!");
@@ -255,7 +255,7 @@ range.</p>
 
 If you are implementing error handling mechanism you can check which kind of error you are catching from code.
 
-```
+```js
 try {
     throw new TypeError();
 }

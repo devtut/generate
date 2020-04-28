@@ -13,7 +13,7 @@ In the conventional JS there are no class instead we have prototypes. Like the c
 ## Creation and initialising Prototype
 
 
-```
+```js
 var Human = function() {
   this.canWalk = true;
   this.canSpeak = true; // 
@@ -33,7 +33,7 @@ Person.prototype.greet = function() {
 
 The prototype can be instantiated like this
 
-```
+```js
 obj = Object.create(Person.prototype);
 ob.greet();
 
@@ -43,7 +43,7 @@ We can pass value for the constructor and make the boolean true and false based 
 
 Detailed Explanation
 
-```
+```js
 var Human = function() {
     this.canSpeak = true;
 };

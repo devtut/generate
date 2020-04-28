@@ -12,7 +12,7 @@ description: "Recursive setTimeout, Intervals, Removing intervals, Removing time
 
 To repeat a function indefinitely, `setTimeout` can be called recursively:
 
-```
+```js
 function repeatingFunc() {
     console.log("It's been 5 seconds. Execute the function again.");
     setTimeout(repeatingFunc, 5000);
@@ -29,7 +29,7 @@ Unlike `setInterval`, this ensures that the function will execute even if the fu
 ## Intervals
 
 
-```
+```js
 function waitFunc(){
     console.log("This will be logged every 5 seconds");
 }
@@ -45,7 +45,7 @@ window.setInterval(waitFunc,5000);
 
 `window.setInterval()` returns an `IntervalID`, which can be used to stop that interval from continuing to run. To do this, store the return value of `window.setInterval()` in a variable and call `clearInterval()` with that variable as the only argument:
 
-```
+```js
 function waitFunc(){
     console.log("This will be logged every 5 seconds");
 }    
@@ -67,7 +67,7 @@ This will log `This will be logged every 5 seconds` every 5 seconds, but will st
 
 `window.setTimout()` returns a `TimeoutID`, which can be used to stop that timeout from running. To do this, store the return value of `window.setTimeout()` in a variable and call `clearTimeout()` with that variable as the only argument:
 
-```
+```js
 function waitFunc(){
     console.log("This will not be logged after 5 seconds");
 }
@@ -91,7 +91,7 @@ This will not log the message because the timer is stopped after 3 seconds.
 
 You don't need to create the variable, but it's a good practice as you can use that variable with clearInterval to stop the currently running interval.
 
-```
+```js
 var int = setInterval("doSomething()", 5000 ); /* 5 seconds */
 var int = setInterval(doSomething, 5000 ); /* same thing, no quotes, no parens */
 
@@ -103,7 +103,7 @@ If you need to pass parameters to the doSomething function, you can pass them as
 
 setInterval, as above, will run every 5 seconds (or whatever you set it to) no matter what. Even if the function doSomething takes long than 5 seconds to run. That can create issues. If you just want to make sure there is that pause in between runnings of doSomething, you can do this:
 
-```
+```js
 (function(){
 
    doSomething();
@@ -128,7 +128,7 @@ setInterval, as above, will run every 5 seconds (or whatever you set it to) no m
 
 **Example :**  This example outputs "hello" to the console after 1 second.  The second parameter is in milliseconds, so 1000 = 1 sec, 250 = 0.25 sec, etc.
 
-```
+```js
 setTimeout(function() {
     console.log('hello');
 }, 1000);
@@ -139,7 +139,7 @@ setTimeout(function() {
 
 if you're using the `setTimeout` method in a for loop **:**
 
-```
+```js
 for (i = 0; i < 3; ++i) {
   setTimeout(function(){
     console.log(i);
@@ -152,7 +152,7 @@ This will output the value `3 three` times, which is not correct.
 
 Workaround of this problem :
 
-```
+```js
 for (i = 0; i < 3; ++i) {
   setTimeout(function(j){
     console.log(i);
@@ -167,7 +167,7 @@ It will output the value `0`,`1`,`2`. Here, we’re passing the `i` into the fun
 
 Additionally though, due to the fact that Javascript is single threaded and uses a global event loop, `setTimeout` can be used to add an item to the end of the execution queue by calling `setTimeout` with zero delay.  For example:
 
-```
+```js
 setTimeout(function() {
     console.log('world');
 }, 0);
@@ -178,7 +178,7 @@ console.log('hello');
 
 Will actually output:
 
-```
+```js
 hello
 world
 
@@ -194,7 +194,7 @@ Also, zero milliseconds here does not mean the function inside the setTimeout wi
 
 **Example :**
 
-```
+```js
 var timeout = setTimeout(function() {
     console.log('hello');
 }, 1000);

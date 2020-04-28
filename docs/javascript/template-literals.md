@@ -17,7 +17,7 @@ Template literals are a special type of string literal that can be used instead 
 
 Template literals can contain line breaks and arbitrary expressions can be embedded using the `${ expression }` substitution syntax. By default, the values of these substitution expressions are concatenated directly into the string where they appear.
 
-```
+```js
 const name = "John";
 const score = 74;
 
@@ -27,7 +27,7 @@ ${name}'s score was ${score * 10}.`);
 
 ```
 
-```
+```js
 Game Over!
 
 John's score was 740.
@@ -43,7 +43,7 @@ A function identified immediately before a template literal is used to interpret
 
 The first argument to the tag function, `strings`, is an Array of each constant piece of the literal. The remaining arguments, `...substitutions`, contain the evaluated values of each `${}` substitution expression.
 
-```
+```js
 function settings(strings, ...substitutions) {
   const result = new Map();
   for (let i = 0; i < substitutions.length; i++) {
@@ -60,14 +60,14 @@ const remoteConfiguration = settings`
 
 ```
 
-```
+```js
 Map {"label" => "Content", "servers" => 17, "hostname" => "stackoverflow.com"}
 
 ```
 
 The `strings` Array has a special `.raw` property referencing a parallel Array of the same constant pieces of the template literal but **exactly** as they appear in the source code, without any backslash-escapes being replaced.
 
-```
+```js
 function example(strings, ...substitutions) {
   console.log('strings:', strings);
   console.log('...substitutions:', substitutions);
@@ -77,7 +77,7 @@ example`Hello ${'world'}.\n\nHow are you?`;
 
 ```
 
-```
+```js
 strings: ["Hello ", ".\n\nHow are you?", raw: ["Hello ", ".\\n\\nHow are you?"]]
 substitutions: ["world"]
 
@@ -92,7 +92,7 @@ The `String.raw` tag function can be used with template literals to access a ver
 
 `String.raw`\n`` will contain a backslash and the lowercase letter n, while ``\n`` or `'\n'` would contain a single newline character instead.
 
-```
+```js
 const patternString = String.raw`Welcome, (\w+)!`;
 const pattern = new RegExp(patternString);
 
@@ -101,7 +101,7 @@ pattern.exec(message);
 
 ```
 
-```
+```js
 ["Welcome, John!", "John"]
 
 ```
@@ -113,7 +113,7 @@ pattern.exec(message);
 
 You can create an `HTML`...`` template string tag function to automatically encodes interpolated values. (This requires that interpolated values are only used as text, and **may not be safe if interpolated values are used in code** such as scripts or styles.)
 
-```
+```js
 class HTMLString extends String {
   static escape(text) {
     if (text instanceof HTMLString) {
@@ -158,11 +158,11 @@ document.body.innerHTML = HTML`
 ## Introduction
 
 
-Template Literals act like strings with special features. They are enclosed by by the back-tick ```` and can be spanned across multiple lines.
+Template Literals act like strings with special features. They are enclosed by by the back-tick ```js` and can be spanned across multiple lines.
 
 Template Literals can contain embedded expressions too. These expressions are indicated by a `$` sign and curly braces `{}`
 
-```
+```js
 //A single line Template Literal  
 var aLiteral = `single line string data`;
 

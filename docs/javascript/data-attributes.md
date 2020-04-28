@@ -14,7 +14,7 @@ description: "Accessing data attributes"
 
 The new `dataset` property allows access (for both reading and writing) to all data attributes `data-*` on any element.
 
-```
+```js
 <p>Countries:</p>
 <ul>
   <li id="C1" onclick="showDetails(this)" data-id="US" data-dial-code="1">USA</li>
@@ -45,7 +45,7 @@ Note: The `dataset` property is only supported in modern browsers and it's sligh
 
 If you want to support the older browsers before HTML5, you can use the `getAttribute` and `setAttribute` methods which are used to access any attribute including the data attributes. The two functions in the example above can be written this way:
 
-```
+```js
 <script>
 function showDetails(item) {
     var msg = item.innerHTML

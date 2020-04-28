@@ -24,14 +24,14 @@ We will build an example to send messages to a child window and have the message
 
 In order to send messages to another window, you need to have a reference to its [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) object. [`window.open()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/open) returns the reference object of the newly opened window. For other methods to obtain a reference to a window object, see the explanation under `otherWindow` parameter [here](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage#Syntax).
 
-```
+```js
 var childWindow = window.open("http://receiver.com", "_blank");
 
 ```
 
 Add a `textarea` and a `send button` that will be used to send messages to child window.
 
-```
+```js
 <textarea id="text"></textarea>
 <button id="btn">Send Message</button>
 
@@ -39,7 +39,7 @@ Add a `textarea` and a `send button` that will be used to send messages to child
 
 Send the text of `textarea` using [`.postMessage(message, targetOrigin)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) when the `button` is clicked.
 
-```
+```js
 var btn = document.getElementById("btn"),
     text = document.getElementById("text");
 
@@ -68,7 +68,7 @@ The code under this part should be put in the receiver page, which is `http://re
 
 In order to receive messages, the [`message event`](https://developer.mozilla.org/en-US/docs/Web/Events/message_webmessaging)  of the `window` should be listened.
 
-```
+```js
 window.addEventListener("message", receiveMessage);
 
 ```
@@ -81,7 +81,7 @@ When a message is received there are a couple of **steps that should be followed
 
 The sender should always be validated to make sure the message is received from a trusted sender. After that, the message itself should be validated to make sure nothing malicious is received. After these two validations, the message can be processed.
 
-```
+```js
 function receiveMessage(ev) {
     //Check event.origin to see if it is a trusted sender.
     //If you have a reference to the sender, validate event.source

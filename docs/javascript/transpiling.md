@@ -19,7 +19,7 @@ Transpiling is the process of interpreting certain programming languages and tra
 
 This ES2015 syntax
 
-```
+```js
 // ES2015 arrow function syntax 
 [1,2,3].map(n => n + 1); 
 
@@ -27,7 +27,7 @@ This ES2015 syntax
 
 is interpreted and translated to this ES5 syntax:
 
-```
+```js
 // Conventional ES5 anonymous function syntax 
 [1,2,3].map(function(n) {   
     return n + 1; 
@@ -39,7 +39,7 @@ is interpreted and translated to this ES5 syntax:
 
 This CoffeeScript
 
-```
+```js
 # Existence:
 alert "I knew it!" if elvis?
 
@@ -47,7 +47,7 @@ alert "I knew it!" if elvis?
 
 is interpreted and translated to Javascript:
 
-```
+```js
 if (typeof elvis !== "undefined" && elvis !== null) {
   alert("I knew it!");
 }
@@ -82,32 +82,35 @@ If you would like to use ES6/7 in your projects without having to worry about co
 1. [Download](https://nodejs.org/en/download/) and install Node
 1. Go to a folder and create a project using your favourite command line tool
 
-```
+```js
 ~ npm init
 
 ```
 
+
 1. Install Babel CLI
 
-```
+```js
 ~ npm install --save-dev babel-cli
 ~ npm install --save-dev babel-preset-es2015
 
 ```
 
+
 1. Create a `scripts` folder to store your `.js` files, and then a `dist/scripts` folder where the transpiled fully compatible files will be stored.
 1. Create a `.babelrc` file in the root folder of your project, and write this on it
 
-```
+```js
 {
     "presets": ["es2015"]
 }
 
 ```
 
+
 1. Edit your `package.json` file (created when you ran `npm init`) and add the `build` script to the `scripts` property:
 
-```
+```js
 {
     ...
     "scripts": {
@@ -119,10 +122,11 @@ If you would like to use ES6/7 in your projects without having to worry about co
 
 ```
 
+
 1. Enjoy [programming in ES6/7](https://babeljs.io/docs/learn-es2015/)
 1. Run the following to transpile all your files to ES5
 
-```
+```js
 ~ npm run build
 
 ```

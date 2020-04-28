@@ -17,7 +17,7 @@ To add annotations, hints, or exclude some code from being executed JavaScript p
 
 Everything after the `//` until the end of the line is excluded from execution.
 
-```
+```js
 function elementAt( event ) {
   // Gets the element from Event coordinates
   return document.elementFromPoint(event.clientX, event.clientY);
@@ -30,7 +30,7 @@ function elementAt( event ) {
 
 Everything between the opening `/*` and the closing `*/` is excluded from execution, even if the opening and closing are on different lines.
 
-```
+```js
 /*
    Gets the element from Event coordinates.
    Use like: 
@@ -56,7 +56,7 @@ One-line comments with the HTML comment opening sequence (`<!--`):
 **Note:** the JavaScript interpreter ignores the closing characters of HTML comments (`-->`) here.
 
 
-```
+```js
 <!-- A single-line comment.
 <!-- --> Identical to using `//` since
 <!-- --> the closing `-->` is ignored.
@@ -65,7 +65,7 @@ One-line comments with the HTML comment opening sequence (`<!--`):
 
 This technique can be observed in legacy code to hide JavaScript from browsers that didn't support it:
 
-```
+```js
 <script type="text/javascript" language="JavaScript">
 <!--
 /* Arbitrary JavaScript code.
@@ -78,14 +78,14 @@ This technique can be observed in legacy code to hide JavaScript from browsers t
 
 An HTML closing comment can also be used in JavaScript (independent of an opening comment) at the beginning of a line (optionally preceded by whitespace) in which case it too causes the rest of the line to be ignored:
 
-```
+```js
 --> Unreachable JS code
 
 ```
 
 These facts have also been exploited to allow a page to call itself first as HTML and secondly as JavaScript. For example:
 
-```
+```js
 <!--
 self.postMessage('reached JS "file"');
 /*

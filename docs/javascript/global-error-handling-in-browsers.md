@@ -12,7 +12,7 @@ description: "Handling window.onerror to report all errors back to the server-si
 
 The following example listens to `window.onerror` event and uses an image beacon technique to send the information through the GET parameters of an URL.
 
-```
+```js
 var hasLoggedOnce = false;
 
 // Some browsers (at least Firefox) don't report line and column numbers

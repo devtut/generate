@@ -17,7 +17,7 @@ Any digit that is a 1 in the expression becomes a 0 in the result. Any digit tha
 
 The following example illustrates use of the bitwise NOT (~) operator on integer numbers.
 
-```
+```js
 let number = 3;
 let complement = ~number;
 
@@ -32,7 +32,7 @@ Result of the `complement` number equals to -4;
 
 To simplify this, we can think of it as function `f(n) = -(n+1)`.
 
-```
+```js
 let a = ~-2; // a is now 1
 let b = ~-1; // b is now 0
 let c = ~0;  // c is now -1
@@ -52,7 +52,7 @@ The following example illustrates use of the bitwise NOT (~~) operator on decima
 
 To keep the example simple, decimal number `3.5` will be used, cause of it's simple representation in binary format.
 
-```
+```js
 let number = 3.5;
 let complement = ~number;
 
@@ -71,7 +71,7 @@ To simplify this, we can think of it as functions `f2(n) = -(-(n+1) + 1)` and `g
 
 **f2(n)** will leave the integer number as it is.
 
-```
+```js
 let a = ~~-2; // a is now -2
 let b = ~~-1; // b is now -1
 let c = ~~0;  // c is now 0
@@ -82,7 +82,7 @@ let e = ~~2;  // e is now 2
 
 **g2(n)** will essentially round positive numbers down and negative numbers up.
 
-```
+```js
 let a = ~~-2.5; // a is now -2
 let b = ~~-1.5; // b is now -1
 let c = ~~0.5;  // c is now 0
@@ -102,7 +102,7 @@ If expression cannot be converted to numeric value, it will convert to `0`.
 
 `true` and `false` bool values are exceptions, where `true` is presented as numeric value `1` and `false` as `0`
 
-```
+```js
 let a = ~~"-2";     // a is now -2
 let b = ~~"1";      // b is now -1
 let c = ~~"0";      // c is now 0
@@ -125,13 +125,13 @@ We know that `~` converts `-1` to `0`, so we can use it with `indexOf` on array.
 
 ### indexOf
 
-```
+```js
 let items = ['foo', 'bar', 'baz'];
 let el = 'a';
 
 ```
 
-```
+```js
 if (items.indexOf('a') !== -1) {}
 
 or
@@ -142,7 +142,7 @@ if (items.indexOf('a') >= 0) {}
 
 ### can be re-written as
 
-```
+```js
 if (~items.indexOf('a')) {}
 
 ```
@@ -156,7 +156,7 @@ The following example illustrates use of the bitwise NOT (~) operator on decimal
 
 To keep the example simple, decimal number `3.5` will be used, cause of it's simple representation in binary format.
 
-```
+```js
 let number = 3.5;
 let complement = ~number;
 
@@ -171,7 +171,7 @@ Result of the `complement` number equals to -4;
 
 To simplify this, we can think of it as function `f(n) = -(integer(n)+1)`.
 
-```
+```js
 let a = ~-2.5; // a is now 1
 let b = ~-1.5; // b is now 0
 let c = ~0.5;  // c is now -1

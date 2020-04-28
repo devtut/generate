@@ -12,7 +12,7 @@ description: "Using localStorage, Simpler way of handling Storage, Storage event
 
 The localStorage object provides persistent (but not permanent - see limits below) key-value storage of strings. Any changes are immediately visible in all other windows/frames from the same origin. The stored values persistent indefinitely unless the user clears saved data or configures an expiration limit. localStorage uses a map-like interface for getting and setting values.
 
-```
+```js
 localStorage.setItem('name', "John Smith");
 console.log(localStorage.getItem('name')); // "John Smith"
 
@@ -23,7 +23,7 @@ console.log(localStorage.getItem('name')); // null
 
 If you want to store simple structured data, [you can use JSON](http://stackoverflow.com/documentation/javascript/416/json#t=201604100719160411843) to serialize it to and from strings for storage.
 
-```
+```js
 var players = [{name: "Tyler", score: 22}, {name: "Ryan", score: 41}];
 localStorage.setItem('players', JSON.stringify(players));
 
@@ -56,7 +56,7 @@ Desktop browsers:
 `localStorage`, `sessionStorage` are JavaScript **Objects** and you can treat them as such.<br />
 Instead of using Storage Methods like `.getItem()`, `.setItem()`, etc… here's a simpler alternative:
 
-```
+```js
 // Set
 localStorage.greet = "Hi!"; // Same as: window.localStorage.setItem("greet", "Hi!");
 
@@ -73,7 +73,7 @@ localStorage.clear();
 
 **Example:**
 
-```
+```js
 // Store values (Strings, Numbers)
 localStorage.hello = "Hello";
 localStorage.year  = 2017;    
@@ -107,7 +107,7 @@ localStorage.clear();
 
 Whenever a value in set in localStorage, a `storage` event will be dispatched on all other `windows` from the same origin. This can be used to synchronize state between different pages without reloading or communicating with a server. For example, we can reflect the value of an input element as paragraph text in another window:
 
-```
+```js
 var input = document.createElement('input');
 document.body.appendChild(input);
 
@@ -119,7 +119,7 @@ input.oninput = function(event) {
 
 ```
 
-```
+```js
 var output = document.createElement('p');
 document.body.appendChild(output);
 
@@ -137,7 +137,7 @@ window.addEventListener('storage', function(event) {
 
 Event is not fired or catchable under Chrome, Edge and Safari if domain was modified through script.
 
-```
+```js
 // page url: http://sub.a.com/1.html
 document.domain = 'a.com';
 
@@ -152,7 +152,7 @@ input.oninput = function(event) {
 
 ```
 
-```
+```js
 // page url: http://sub.a.com/2.html
 document.domain = 'a.com';
 
@@ -175,7 +175,7 @@ window.addEventListener('storage', function(event) {
 
 The sessionStorage object implements the same Storage interface as localStorage. However, instead of being shared with all pages from the same origin, sessionStorage data is stored separately for every window/tab. Stored data persists between pages **in that window/tab** for as long as it's open, but is visible nowhere else.
 
-```
+```js
 var audio = document.querySelector('audio');
 
 // Maintain the volume if the user clicks a link then navigates back here.
@@ -188,21 +188,21 @@ audio.onvolumechange = function(event) {
 
 Save data to sessionStorage
 
-```
+```js
 sessionStorage.setItem('key', 'value');
 
 ```
 
 Get saved data from sessionStorage
 
-```
+```js
 var data = sessionStorage.getItem('key');
 
 ```
 
 Remove saved data from sessionStorage
 
-```
+```js
 sessionStorage.removeItem('key')
 
 ```
@@ -214,7 +214,7 @@ sessionStorage.removeItem('key')
 
 To clear the storage, simply run
 
-```
+```js
 localStorage.clear();
 
 ```
@@ -226,7 +226,7 @@ localStorage.clear();
 
 Most browsers, when configured to block cookies, will also block `localStorage`. Attempts to use it will result in an exception. Do not forget to [manage these cases](https://stackoverflow.com/documentation/javascript/268/error-handling#t=201607211709350670614&a=syntax).
 
-```
+```js
 var video = document.querySelector('video')
 try {
     video.volume = localStorage.getItem('volume')
@@ -246,14 +246,14 @@ If error were not handled, program would stop functioning properly.
 
 To remove a specific item from the browser Storage (the opposite of `setItem`) use `removeItem`
 
-```
+```js
 localStorage.removeItem("greet");
 
 ```
 
 **Example:**
 
-```
+```js
 localStorage.setItem("greet", "hi");
 localStorage.removeItem("greet");
 
@@ -274,7 +274,7 @@ Example:
 
 Set Items
 
-```
+```js
 localStorage.setItem('StackOverflow', 'Documentation');
 localStorage.setItem('font', 'Helvetica');
 localStorage.setItem('image', 'sprite.svg');
@@ -283,7 +283,7 @@ localStorage.setItem('image', 'sprite.svg');
 
 Get length
 
-```
+```js
 localStorage.length; // 3
 
 ```

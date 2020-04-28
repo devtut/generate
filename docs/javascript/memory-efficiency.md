@@ -12,7 +12,7 @@ description: "Drawback of creating true private method"
 
 One drawback of creating private method in Javascript is memory-inefficient because a copy of the private method will be created every time a new instance is created. See this simple example.
 
-```
+```js
 function contact(first, last) {
     this.firstName = first;
     this.lastName = last;
@@ -33,7 +33,7 @@ function contact(first, last) {
 
 When you create few instances, they all have a copy of `formatPhoneNumber` method
 
-```
+```js
 var rob = new contact('Rob', 'Sanderson');
 var don = new contact('Donald', 'Trump');
 var andy = new contact('Andy', 'Whitehall');

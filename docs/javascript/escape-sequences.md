@@ -12,7 +12,7 @@ description: "Entering special characters in strings and regular expressions, Es
 
 Most printable characters can be included in string or regular expression literals just as they are, e.g.
 
-```
+```js
 var str = "ポケモン"; // a valid string
 var regExp = /[Α-Ωα-ω]/; // matches any Greek letter without diacritics
 
@@ -57,14 +57,14 @@ The sequences `\\`, `\'` and `\"` are used to escape the character that follows 
 
 Characters with codes between 0 and 255 can be represented with an escape sequence where `\x` is followed by the 2-digit hexadecimal character code. For example, the non-breaking space character has code 160 or A0 in base 16, and so it can be written as `\xa0`.
 
-```
+```js
 var str = "ONE\xa0LINE"; // ONE and LINE with a non-breaking space between them
 
 ```
 
 For hex digits above 9, the letters `a` to `f` are used, in lowercase or uppercase without distinction.
 
-```
+```js
 var regExp1 = /[\x00-xff]/; // matches any character between U+0000 and U+00FF
 var regExp2 = /[\x00-xFF]/; // same as above
 
@@ -78,7 +78,7 @@ For example, the Unicode standard defines the right arrow character ("→") with
 
 This produces the string "A → B":
 
-```
+```js
 var str = "A \u2192 B";
 
 ```
@@ -91,14 +91,14 @@ Hexadecimal codes shorter than 4 digits must be left-padded with zeros: `\u007A`
 ES6 extends Unicode support to the full code range from 0 to 0x10FFFF.
 In order to escape characters with code greater than 2<sup>16</sup> - 1, a new syntax for escape sequences was introduced:
 
-```
+```js
 \u{???}
 
 ```
 
 Where the code in curly braces is hexadecimal representation of the code point value, e.g.
 
-```
+```js
 alert("Look! \u{1f440}"); // Look! 👀
 
 ```
@@ -115,7 +115,7 @@ Octal escape sequences are deprecated as of ES5, but they are still supported in
 
 For example, the capital letter "E" has character code 69, or 105 in base 8. So it can be represented with the escape sequence `\105`:
 
-```
+```js
 /\105scape/.test("Fun with Escape Sequences"); // true
 
 ```
@@ -128,14 +128,14 @@ Some escape sequences are only recognized inside regular expression literals (no
 
 For example, in the regular expression
 
-```
+```js
 `/\cG/`
 
 ```
 
 The letter "G" (the 7th letter in the alphabet) refers to the character U+0007, and thus
 
-```
+```js
 `/\cG`/.test(String.fromCharCode(7)); // true
 
 ```
@@ -148,7 +148,7 @@ The letter "G" (the 7th letter in the alphabet) refers to the character U+0007, 
 Not everything that starts with a backslash is an escape sequence.
 Many characters are just not useful to escape sequences, and will simply cause a preceding backslash to be ignored.
 
-```
+```js
 "\H\e\l\l\o" === "Hello" // true
 
 ```
@@ -156,14 +156,14 @@ Many characters are just not useful to escape sequences, and will simply cause a
 On the other hand, some characters like "u" and "x" will cause a syntax error when used improperly after a backslash.
 The following is not a valid string literal because it contains the Unicode escape sequence prefix `\u` followed by a character that is not a valid hexadecimal digit nor a curly brace:
 
-```
+```js
 "C:\Windows\System32\updatehandlers.dll" // SyntaxError
 
 ```
 
 A backslash at the end of a line inside a string does not introduce an escape sequence, but indicates line continuation, i.e.
 
-```
+```js
 "contin\
 uation" === "continuation" // true
 

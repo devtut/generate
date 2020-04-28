@@ -12,14 +12,14 @@ description: "Standard function prototype, Difference between Object.key and Obj
 
 Start by defining a `Foo` function that we'll use as a constructor.
 
-```
+```js
 function Foo (){}
 
 ```
 
 By editing `Foo.prototype`, we can define properties and methods that will be shared by all instances of `Foo`.
 
-```
+```js
 Foo.prototype.bar = function() {
   return 'I am bar';
 };
@@ -28,7 +28,7 @@ Foo.prototype.bar = function() {
 
 We can then create an instance using the `new` keyword, and call the method.
 
-```
+```js
 var foo = new Foo();
 
 console.log(foo.bar()); // logs `I am bar`
@@ -42,7 +42,7 @@ console.log(foo.bar()); // logs `I am bar`
 
 Unlike in languages like Python, static properties of the constructor function are **not** inherited to instances. Instances only inherit from their prototype, which inherits from the parent type's prototype. Static properties are never inherited.
 
-```
+```js
 function Foo() {};
 Foo.style = 'bold';
 
@@ -65,21 +65,21 @@ console.log(foo.style); // 'italic'
 
 Suppose we have a plain object called `prototype`:
 
-```
+```js
 var prototype = { foo: 'foo', bar: function () { return this.foo; } };
 
 ```
 
 Now we want another object called `obj` that inherits from `prototype`, which is the same as saying that `prototype` is the prototype of `obj`
 
-```
+```js
 var obj = Object.create(prototype);
 
 ```
 
 Now all the properties and methods from `prototype` will be available to `obj`
 
-```
+```js
 console.log(obj.foo);
 console.log(obj.bar());
 
@@ -87,7 +87,7 @@ console.log(obj.bar());
 
 Console output
 
-```
+```js
 "foo"
 "foo"
 
@@ -95,7 +95,7 @@ Console output
 
 Prototypal inheritance is made through object references internally and objects are completely mutable. This means any change you make on a prototype will immediately affect every other object that prototype is prototype of.
 
-```
+```js
 prototype.foo = "bar";
 console.log(obj.foo);
 
@@ -103,14 +103,14 @@ console.log(obj.foo);
 
 Console output
 
-```
+```js
 "bar"
 
 ```
 
 `Object.prototype` is the prototype of every object, so it's strongly recommended you don't mess with it, specially if you use any third party library, but we can play with it a little bit.
 
-```
+```js
 Object.prototype.breakingLibraries = 'foo';
 console.log(obj.breakingLibraries);
 console.log(prototype.breakingLibraries);
@@ -119,7 +119,7 @@ console.log(prototype.breakingLibraries);
 
 Console output
 
-```
+```js
 "foo"
 "foo"
 
@@ -138,7 +138,7 @@ It's an emulation of classical inheritance using [prototypical inheritance](http
 
 A "class" is just a function that is made to be called with the `new` operand and it's used as a constructor.
 
-```
+```js
 function Foo(id, name) {
     this.id = id;
     this.name = name;
@@ -159,7 +159,7 @@ foo is an instance of Foo.The JavaScript coding convention says if a function be
 
 To add properties or methods to the "class" you have to add them to it's prototype, which can be found in the `prototype` property of the constructor.
 
-```
+```js
 Foo.prototype.bar = 'bar';
 console.log(foo.bar);
 
@@ -175,7 +175,7 @@ In fact what Foo is doing as a "constructor" is just creating objects with `Foo.
 
 You can find a reference to its constructor on every object
 
-```
+```js
 console.log(foo.constructor);
 
 ```
@@ -184,7 +184,7 @@ console.log(foo.constructor);
 function Foo(id, name) { ...
 
 
-```
+```js
 console.log({ }.constructor);
 
 ```
@@ -195,7 +195,7 @@ function Object() { [native code] }
 
 And also check if an object is an instance of a given class with the `instanceof` operator
 
-```
+```js
 console.log(foo instanceof Foo);
 
 ```
@@ -204,7 +204,7 @@ console.log(foo instanceof Foo);
 true
 
 
-```
+```js
 console.log(foo instaceof Object);
 
 ```
@@ -220,7 +220,7 @@ true
 
 With ES5+, the `Object.create` function can be used to create an Object with any other Object as it's prototype.
 
-```
+```js
 const anyObj = {
     hello() {
         console.log(`this.foo is ${this.foo}`);
@@ -236,7 +236,7 @@ objWithProto.hello(); // "this.foo is bar"
 
 To explicitly create an Object without a prototype, use `null` as the prototype. This means the Object will not inherit from `Object.prototype` either and is useful for Objects used for existence checking dictionaries, e.g.
 
-```
+```js
 let objInheritingObject = {};
 let objInheritingNull = Object.create(null);
 
@@ -247,7 +247,7 @@ let objInheritingNull = Object.create(null);
 
 From ES6, the prototype of an existing Object can be changed using `Object.setPrototypeOf`, for example
 
-```
+```js
 let obj = Object.create({foo: 'foo'});
 obj = Object.setPrototypeOf(obj, {bar: 'bar'});
 
@@ -262,7 +262,7 @@ This can be done almost anywhere, including on a `this` object or in a construct
 
 Before ES5, the only way to create an Object with a manually defined prototype was to construct it with `new`, for example
 
-```
+```js
 var proto = {fizz: 'buzz'};
 
 function ConstructMyObj() {}
@@ -282,7 +282,7 @@ This behaviour is close enough to `Object.create` that it is possible to write a
 
 In JavaScript, any object can be the prototype of another. When an object is created as a prototype of another, it will inherit all of its parent's properties.
 
-```
+```js
 var proto = { foo: "foo", bar: () => this.foo };
 
 var obj = Object.create(proto);
@@ -294,7 +294,7 @@ console.log(obj.bar());
 
 Console output:
 
-```
+```js
 > "foo"
 > "foo"
 
@@ -302,7 +302,7 @@ Console output:
 
 **NOTE** `Object.create` is available from ECMAScript 5, but here's a polyfill if you need support for ECMAScript 3
 
-```
+```js
 if (typeof Object.create !== 'function') {
     Object.create = function (o) {
         function F() {}

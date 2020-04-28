@@ -17,7 +17,7 @@ Can be used to shorten if/else operations. This comes in handy for returning a v
 
 For example:
 
-```
+```js
 var animal = 'kitty';
 var result = (animal === 'kitty') ? 'cute' : 'still nice';
 
@@ -27,7 +27,7 @@ In this case, `result` gets the 'cute' value, because the value of animal is 'ki
 
 Compare this to what the code would like with `if/else` conditions.
 
-```
+```js
 var animal = 'kitty';
 var result = '';
 if (animal === 'kitty') {
@@ -40,7 +40,7 @@ if (animal === 'kitty') {
 
 The `if` or `else` conditions may have several operations. In this case the operator returns the result of the last expression.
 
-```
+```js
 var a = 0;
 var str = 'not a';
 var b = '';
@@ -52,7 +52,7 @@ Because `a` was equal to 0, it becomes `1`, and `str` becomes 'not a test'. The 
 
 Ternary operators **always** expect else conditions, otherwise you'll get a syntax error. As a workaround you could return a zero something similar in the else branch - this doesn't matter if you aren't using the return value but just shortening (or attempting to shorten) the operation.
 
-```
+```js
 var a = 1;
 a === 1 ? alert('Hey, it is 1!') : 0;
 
@@ -60,7 +60,7 @@ a === 1 ? alert('Hey, it is 1!') : 0;
 
 As you see, `if (a === 1) alert('Hey, it is 1!');` would do the same thing. It would be just a char longer, since it doesn't need an obligatory `else` condition. If an `else` condition was involved, the ternary method would be much cleaner.
 
-```
+```js
 a === 1 ? alert('Hey, it is 1!') : alert('Weird, what could it be?');
 if (a === 1) alert('Hey, it is 1!') else alert('Weird, what could it be?');
 
@@ -68,7 +68,7 @@ if (a === 1) alert('Hey, it is 1!') else alert('Weird, what could it be?');
 
 Ternaries can be nested to encapsulate additional logic. For example
 
-```
+```js
 foo ? bar ? 1 : 2 : 3
 
 // To be clear, this is evaluated left to right 
@@ -80,7 +80,7 @@ foo ? (bar ? 1 : 2) : 3
 
 This is the same as the following `if/else`
 
-```
+```js
 if (foo) {
   if (bar) {
     1
@@ -97,7 +97,7 @@ Stylistically this should only be used with short variable names, as multi-line 
 
 The only statements which cannot be used in ternaries are control statements. For example, you cannot use return or break with ternaries. The following expression will be invalid.
 
-```
+```js
 var animal = 'kitty';
 for (var i = 0; i < 5; ++i) {
     (animal === 'kitty') ? break:console.log(i);
@@ -107,7 +107,7 @@ for (var i = 0; i < 5; ++i) {
 
 For return statements, the following would also be invalid:
 
-```
+```js
 var animal = 'kitty';
 (animal === 'kitty') ? return 'meow' : return 'woof';
 
@@ -115,7 +115,7 @@ var animal = 'kitty';
 
 To do the above properly, you would return the ternary as follows:
 
-```
+```js
 var animal = 'kitty';
 return (animal === 'kitty') ? 'meow' : 'woof';
 
@@ -128,7 +128,7 @@ return (animal === 'kitty') ? 'meow' : 'woof';
 
 Switch statements compare the value of an expression against 1 or more values and executes different sections of code based on that comparison.
 
-```
+```js
 var value = 1;
 switch (value) {
   case 1:
@@ -147,7 +147,7 @@ The `break` statement "breaks" out of the switch statement and ensures no more c
 **Warning**: lack of a `break` or `return` statement for each case means the program will continue to evaluate the next case, even if the case criteria is unmet!
 
 
-```
+```js
 switch (value) {
   case 1:
     console.log('I will only run if value === 1');
@@ -164,7 +164,7 @@ switch (value) {
 
 The last case is the `default` case. This one will run if no other matches were made.
 
-```
+```js
 var animal = 'Lion';
 switch (animal) {
   case 'Dog':
@@ -181,7 +181,7 @@ switch (animal) {
 
 It should be noted that a case expression can be any kind of expression. This means you can use comparisons, function calls, etc. as case values.
 
-```
+```js
 function john() {
   return 'John';
 }
@@ -208,7 +208,7 @@ switch (name) {
 
 Since cases "fall through" without a `break` or `return` statement, you can use this to create multiple inclusive criteria:
 
-```
+```js
 var x = "c"
 switch (x) {
    case "a":
@@ -233,7 +233,7 @@ switch (x) {
 
 In its most simple form, an `if` condition can be used like this:
 
-```
+```js
 var i = 0;
 
 if (i < 1) {
@@ -246,7 +246,7 @@ The condition `i < 1` is evaluated, and if it evaluates to `true` the block that
 
 An `if` condition can be expanded with an `else` block. The condition is checked **once** as above, and if it evaluates to `false` a secondary block will be executed (which would be skipped if the condition were `true`). An example:
 
-```
+```js
 if (i < 1) {
     console.log("i is smaller than 1");
 } else {
@@ -257,7 +257,7 @@ if (i < 1) {
 
 Supposing the `else` block contains nothing but another `if` block (with optionally an `else` block) like this:
 
-```
+```js
 if (i < 1) {
     console.log("i is smaller than 1");
 } else {
@@ -272,7 +272,7 @@ if (i < 1) {
 
 Then there is also a different way to write this which reduces nesting:
 
-```
+```js
 if (i < 1) {
     console.log("i is smaller than 1");
 } else if (i < 2) {
@@ -299,23 +299,43 @@ The `if-else-if` ladder exits at the first success. That is, in the example abov
 </li>
 <li>
 If you have only one statement, the braces around that statement are technically optional, e.g this is fine:
-<pre><code>if (i < 1) console.log("i is smaller than 1");
-</code></pre>
+
+```js
+if (i < 1) console.log("i is smaller than 1");
+
+```
+
+
 And this will work as well:
-<pre><code>if (i < 1) 
+
+```js
+if (i < 1) 
     console.log("i is smaller than 1");
-</code></pre>
+
+```
+
+
 If you want to execute multiple statements inside an `if` block, then the curly braces around them are mandatory. Only using indentation isn't enough. For example, the following code:
-<pre><code>if (i < 1) 
+
+```js
+if (i < 1) 
     console.log("i is smaller than 1");
     console.log("this will run REGARDLESS of the condition"); // Warning, see text!
-</code></pre>
+
+```
+
+
 is equivalent to:
-<pre><code>if (i < 1) {
+
+```js
+if (i < 1) {
     console.log("i is smaller than 1");
 }
 console.log("this will run REGARDLESS of the condition");
-</code></pre>
+
+```
+
+
 </li>
 
 
@@ -327,7 +347,7 @@ A strategy pattern can be used in Javascript in many cases to replace a switch s
 
 Strategy object is simple an object with multiple functions, representing each separate condition. Example:
 
-```
+```js
 const AnimalSays = {
     dog () {
         return 'woof';
@@ -352,7 +372,7 @@ const AnimalSays = {
 
 The above object can be used as follows:
 
-```
+```js
 function makeAnimalSpeak (animal) {
     // Match the animal by type
     const speak = AnimalSays[animal] || AnimalSays.default;
@@ -363,7 +383,7 @@ function makeAnimalSpeak (animal) {
 
 Results:
 
-```
+```js
 makeAnimalSpeak('dog') // => 'dog says woof'
 makeAnimalSpeak('cat') // => 'cat says meow'
 makeAnimalSpeak('lion') // => 'lion says roar'
@@ -380,7 +400,7 @@ In the last case, our default function handles any missing animals.
 
 The Boolean operators  `||` and `&&` will "short circuit" and not evaluate the second parameter if the first is true or false respectively. This can be used to write short conditionals like:
 
-```
+```js
 var x = 10
 
 x == 10 && alert("x is 10")

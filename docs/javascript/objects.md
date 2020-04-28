@@ -13,7 +13,7 @@ description: "Shallow cloning, Object.freeze, Object cloning, Object properties 
 
 ES6's `Object.assign()` function can be used to copy all of the **enumerable** properties from an existing `Object` instance to a new one.
 
-```
+```js
 const existing = { a: 1, b: 2, c: 3 };
 
 const clone = Object.assign({}, existing);
@@ -24,7 +24,7 @@ This includes `Symbol` properties in addition to `String` ones.
 
 [Object rest/spread destructuring](https://github.com/tc39/proposal-object-rest-spread) which is currently a stage 3 proposal provides an even simpler way to create shallow clones of Object instances:
 
-```
+```js
 const existing = { a: 1, b: 2, c: 3 };
 
 const { ...clone } = existing;
@@ -33,7 +33,7 @@ const { ...clone } = existing;
 
 If you need to support older versions of JavaScript, the most-compatible way to clone an Object is by manually iterating over its properties and filtering out inherited ones using `.hasOwnProperty()`.
 
-```
+```js
 var existing = { a: 1, b: 2, c: 3 };
 
 var clone = {};
@@ -54,7 +54,7 @@ for (var prop in existing) {
 
 The operations following the freeze will fail silently unless the code is running in strict mode. If the code is in strict mode, a `TypeError` will be thrown.
 
-```
+```js
 var obj = {
   foo: 'foo',
   bar: [1, 2, 3],
@@ -92,7 +92,7 @@ When you want a complete copy of an object (i.e. the object properties and the v
 
 If an object can be serialized to JSON, then you can create a deep clone of it with a combination of `JSON.parse` and `JSON.stringify`:
 
-```
+```js
 var existing = { a: 1, b: { c: 2 } };
 var copy = JSON.parse(JSON.stringify(existing));
 existing.b.c = 3; // copy.b.c will not change
@@ -110,7 +110,7 @@ There is no built-in function in JavaScript for creating deep clones, and it is 
 
 Assuming that you have a "nice" object whose properties only contain primitive values, dates, arrays, or other "nice" objects, then the following function can be used for making deep clones. It is a recursive function that can detect objects with a cyclic structure and will throw an error in such cases.
 
-```
+```js
 function deepClone(obj) {
     function clone(obj, traversedObjects) {
         var copy;
@@ -165,7 +165,7 @@ function deepClone(obj) {
 
 You can access each property that belongs to an object with this loop
 
-```
+```js
 for (var property in object) {
     // always check if an object has a property
     if (object.hasOwnProperty(property)) {
@@ -179,7 +179,7 @@ You should include the additional check for `hasOwnProperty` because an object m
 
 You can also use `Object.keys` function which return an Array containing all properties of an object and then you can loop through this array with `Array.map` or `Array.forEach` function.
 
-```
+```js
 var obj = { 0: 'a', 1: 'b', 2: 'c' };
 
 Object.keys(obj).map(function(key) {
@@ -198,7 +198,7 @@ The [Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Re
 
 Use it to assign values to an existing object:
 
-```
+```js
 var user = {
     firstName: "John"
 };
@@ -210,7 +210,7 @@ console.log(user); // Logs: {firstName: "John", lastName: "Doe", age: 39}
 
 Or to create a shallow copy of an object:
 
-```
+```js
 var obj = Object.assign({}, user);
 
 console.log(obj); // Logs: {firstName: "John", lastName: "Doe", age: 39} 
@@ -219,7 +219,7 @@ console.log(obj); // Logs: {firstName: "John", lastName: "Doe", age: 39}
 
 Or merge many properties from multiple objects to one:
 
-```
+```js
 var obj1 = {
     a: 1
 };
@@ -238,7 +238,7 @@ console.log(obj1); // Logs: { a: 1, b: 2, c: 3 }, target object itself is change
 
 Primitives will be wrapped, null and undefined will be ignored:
 
-```
+```js
 var var_1 = 'abc';
 var var_2 = true;
 var var_3 = 10;
@@ -255,7 +255,7 @@ Note, only string wrappers can have own enumerable properties
 
 Use it as reducer: (merges an array to an object)
 
-```
+```js
 return users.reduce((result, user) => Object.assign({}, {[user.id]: user})
 
 ```
@@ -269,7 +269,7 @@ Object spreading is just syntactic sugar for `Object.assign({}, obj1, ..., objn)
 
 It is done with the `...` operator:
 
-```
+```js
 let obj = { a: 1 };
 
 let obj2 = { ...obj, b: 2, c: 3 };
@@ -280,7 +280,7 @@ console.log(obj2); // { a: 1, b: 2, c: 3 };
 
 As `Object.assign` it does **shallow** merging, not deep merging.
 
-```
+```js
 let obj3 = { ...obj, b: { c: 2 } };
 
 console.log(obj3); // { a: 1, b: { c: 2 } };
@@ -296,7 +296,7 @@ console.log(obj3); // { a: 1, b: { c: 2 } };
 
 It allows us to define a property in an existing object using a property descriptor.
 
-```
+```js
 var obj = { };
 
 Object.defineProperty(obj, 'foo', { value: 'foo' });
@@ -313,7 +313,7 @@ foo
 
 `Object.defineProperty` can be called with the following options:
 
-```
+```js
 Object.defineProperty(obj, 'nameOfTheProperty', {
   value: valueOfTheProperty, 
   writable: true, // if false, the property is read-only
@@ -325,7 +325,7 @@ Object.defineProperty(obj, 'nameOfTheProperty', {
 
 `Object.defineProperties` allows you to define multiple properties at a time.
 
-```
+```js
 var obj = {};
 Object.defineProperties(obj, {
   property1: {
@@ -353,7 +353,7 @@ The `set` property is also a function, it will be called when the property has b
 
 You cannot assign a `value` or `writable`  to a descriptor that has `get` or `set`
 
-```
+```js
 var person = { name: "John", surname: "Doe"};
 Object.defineProperty(person, 'fullName', { 
     get: function () { 
@@ -381,7 +381,7 @@ console.log(person.name) // -> "Mary"
 
 Sometimes the property name needs to be stored into a variable. In this example, we ask the user what word needs to be looked up, and then provide the result from an object I've named `dictionary`.
 
-```
+```js
 var dictionary = {
     lettuce: 'a veggie',
     banana: 'a fruit',
@@ -398,7 +398,7 @@ alert(word + '\n\n' + definition)
 
 Note how we are using `[]` bracket notation to look at the variable named `word`; if we were to use the traditional `.` notation, then it would take the value literally, hence:
 
-```
+```js
 console.log(dictionary.word)  // doesn't work because word is taken literally and dictionary has no field named `word`
 console.log(dictionary.apple) // it works! because apple is taken literally
 
@@ -411,7 +411,7 @@ You could also write literal values with `[]` notation by replacing the variable
 
 You can also set dynamic properties with the bracket syntax:
 
-```
+```js
 var property="test";
 var obj={
  [property]=1;
@@ -423,7 +423,7 @@ console.log(obj.test);//1
 
 It does the same as:
 
-```
+```js
 var property="test";
 var obj={};
 obj[property]=1;
@@ -441,7 +441,7 @@ obj[property]=1;
 
 Supposing we created the following object which has some properties you would expect to see in an Array.
 
-```
+```js
 var anObject = {
     foo: 'bar',
     length: 'interesting',
@@ -453,14 +453,14 @@ var anObject = {
 
 Then we'll create an array.
 
-```
+```js
 var anArray = ['zero.', 'one.'];
 
 ```
 
 Now, notice how we can inspect both the object, and the array in the same way.
 
-```
+```js
 console.log(anArray[0], anObject[0]); // outputs: zero.  zero!
 console.log(anArray[1], anObject[1]); // outputs: one.  one!
 console.log(anArray.length, anObject.length); // outputs: 2 interesting
@@ -474,7 +474,7 @@ Since `anArray` is actually an object, just like `anObject`, we can even add cus
 **Disclaimer:** Arrays with custom properties are not usually recommended as they can be confusing, but it can be useful in advanced cases where you need the optimized functions of an Array. (i.e. jQuery objects)
 
 
-```
+```js
 anArray.foo = 'it works!';
 console.log(anArray.foo);
 
@@ -482,7 +482,7 @@ console.log(anArray.foo);
 
 We can even make `anObject` to be an array-like object by adding a `length`.
 
-```
+```js
 anObject.length = 2;
 
 ```
@@ -493,7 +493,7 @@ Note that `anObject` is only an **array-like** object. (also known as a List) It
 
 Many of the DOM `document` functions will return a List (i.e. `querySelectorAll`, `form.elements`) which is similar to the array-like `anObject` we created above.  See [Converting Array-like Objects to Arrays](http://stackoverflow.com/documentation/javascript/187/arrays/2333/converting-array-like-objects-to-arrays)
 
-```
+```js
 console.log(typeof anArray == 'object', typeof anObject == 'object'); // outputs: true  true
 console.log(anArray instanceof Object, anObject instanceof Object); // outputs: true  true
 console.log(anArray instanceof Array, anObject instanceof Array); // outputs: true  false
@@ -510,7 +510,7 @@ console.log(Array.isArray(anArray), Array.isArray(anObject)); // outputs: true  
 
 Attempts to do this operations on a sealed object will fail silently
 
-```
+```js
 var obj = { foo: 'foo', bar: function () { return 'bar'; } };
 
 Object.seal(obj)
@@ -538,7 +538,7 @@ obj.foo; // 'foo';
 
 In strict mode these operations will throw a `TypeError`
 
-```
+```js
 (function () {
     'use strict';
 
@@ -579,7 +579,9 @@ Properties from an object could be retrieved by the following methods,
 <li>
 [`for..in`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/for...in) loop
 This loop is very useful in retrieving enumerable properties from an object.  Additionally this loop will retrieve enumerable own properties as well as it will do the same retrieval by traversing through the prototype chain until it sees the prototype as null.
-<pre><code>//Ex 1 : Simple data
+
+```js
+//Ex 1 : Simple data
 var x = { a : 10 , b : 3} , props = [];
 
 for(prop in x){
@@ -606,12 +608,17 @@ for(prop in x){
 }
 
 console.log(props); //["a"]
-</code></pre>
+
+```
+
+
 </li>
 <li>
 [`Object.keys()`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) function
 This function was unveiled as a part of EcmaScript 5. It is used to retrieve enumerable own properties from an object. Prior to its release people used to retrieve own properties from an object by combining [`for..in`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/for...in) loop and [`Object.prototype.hasOwnProperty()`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) function.
-<pre><code>//Ex 1 : Simple data
+
+```js
+//Ex 1 : Simple data
 var x = { a : 10 , b : 3} , props;
 
 props = Object.keys(x);
@@ -632,13 +639,18 @@ Object.defineProperty(x, "b", {value : 5, enumerable : false});
 props = Object.keys(x);
 
 console.log(props); //["a"]
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 [`Object.getOwnProperties()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) function
 This function will retrieve both enumerable and non enumerable, own properties from an object. It was also released as a part of EcmaScript 5.
-<pre><code>//Ex 1 : Simple data
+
+```js
+//Ex 1 : Simple data
 var x = { a : 10 , b : 3} , props;
 
 props = Object.getOwnPropertyNames(x);
@@ -659,14 +671,17 @@ Object.defineProperty(x, "b", {value : 5, enumerable : false});
 props = Object.getOwnPropertyNames(x);
 
 console.log(props); //["a", "b"]
-</code></pre>
+
+```
+
+
 </li>
 
 ### **Miscellaneous :**
 
 A technique for retrieving all (own, enumerable, non enumerable, all prototype level)  properties from an object is given below,
 
-```
+```js
 function getAllProperties(obj, props = []){
   return obj == null ? props :
            getAllProperties(Object.getPrototypeOf(obj),
@@ -691,7 +706,7 @@ And this will be supported by the browsers which supports EcmaScript 5.
 
 Given this object:
 
-```
+```js
 var obj = {
     a: "hello",
     b: "this is",
@@ -702,7 +717,7 @@ var obj = {
 
 You can convert its values to an array by doing:
 
-```
+```js
 var array = Object.keys(obj)
     .map(function(key) {
         return obj[key];
@@ -719,7 +734,7 @@ console.log(array); // ["hello", "this is", "javascript!"]
 
 `Object.keys(obj)` returns an array of a given object's keys.
 
-```
+```js
 var obj = {
     a: "hello",
     b: "this is",
@@ -741,7 +756,7 @@ Using property descriptors we can make a property read only, and any attempt to 
 
 The `writable` property in a property descriptor indicates whether that property can be changed or not.
 
-```
+```js
 var a  = { };
 
 Object.defineProperty(a, 'foo', { value: 'original', writable: false });
@@ -767,7 +782,7 @@ We can avoid a property from showing up in `for (... in ...)` loops
 
 The `enumerable` property of the property descriptor tells whether that property will be enumerated while looping through the object's properties.
 
-```
+```js
 var obj = { };
 
 Object.defineProperty(obj, "foo", { value: 'show', enumerable: true });
@@ -794,7 +809,7 @@ A property's descriptor can be locked so no changes can be made to it. It will s
 
 The `configurable` property of the property descriptor is used to disallow any further changes on the descriptor.
 
-```
+```js
 var obj = {};
 
 // Define 'foo' as read only and lock it
@@ -816,7 +831,7 @@ TypeError: Cannot redefine property: foo
 
 And the property will still be read only.
 
-```
+```js
 obj.foo = "new value";
 console.log(foo);
 
@@ -842,7 +857,7 @@ There are two types of named properties:
 
 Demonstration:
 
-```
+```js
 obj.propertyName1 = 5; //translates behind the scenes into
                        //either assigning 5 to the value field* if it is a data property
                 //or calling the set function with the parameter 5 if accessor property
@@ -862,7 +877,7 @@ The property's type is determined by its descriptor's fields, and a property can
 
 Sample:
 
-```
+```js
 {
    value: 10,
    writable: true;
@@ -877,7 +892,7 @@ Sample:
 
 Sample:
 
-```
+```js
 {
     get: function () {
         return 10;
@@ -909,7 +924,8 @@ Sample:
 Example:
 
 ```
-    var obj = {propertyName1: 1}; //the pair is actually ('propertyName1', {value:1,
+
+   var obj = {propertyName1: 1}; //the pair is actually ('propertyName1', {value:1,
                                                                     // writable:true,
                                                                     // enumerable:true,
                                                                     // configurable:true})
@@ -944,7 +960,7 @@ console.log(obj.propertyName2); //this will be logged every time propertyName2 i
 
 Get the description of an specific property in an object.
 
-```
+```js
 var sampleObject = {
     hello: 'world'
 };
@@ -963,7 +979,7 @@ While object property notation is usually written as `myObject.property`, this w
 
 If you need special characters, such as space, ☺, or user-provided content, this is possible using `[]` bracket notation.
 
-```
+```js
 myObject['special property ☺'] = 'it works!'
 console.log(myObject['special property ☺'])
 
@@ -973,7 +989,7 @@ console.log(myObject['special property ☺'])
 
 In addition to special characters, property names that are all-digits will require bracket notation. However, in this case the property need not be written as a string.
 
-```
+```js
 myObject[123] = 'hi!' // number 123 is automatically converted to a string
 console.log(myObject['123']) // notice how using string 123 produced the same result
 console.log(myObject['12' + '3']) // string concatenation
@@ -992,7 +1008,7 @@ See also: [Arrays are Objects] example.
 ## Creating an Iterable object
 
 
-```
+```js
 var myIterableObject = {};
 // An Iterable object must define a method located at the Symbol.iterator key:
 myIterableObject[Symbol.iterator] = function () {
@@ -1039,7 +1055,7 @@ One
 
 The [proposed `Object.entries()`](https://github.com/tc39/proposal-object-values-entries) method returns an array of key/value pairs for the given object. It does not return an iterator like [`Array.prototype.entries()`](http://stackoverflow.com/documentation/javascript/187/arrays/15738/the-entries-method#t=201607290930558752555), but the Array returned by `Object.entries()` can be iterated regardless.
 
-```
+```js
 const obj = {
     one: 1,
     two: 2,
@@ -1052,7 +1068,7 @@ Object.entries(obj);
 
 Results in:
 
-```
+```js
 [
     ["one", 1],
     ["two", 2],
@@ -1063,7 +1079,7 @@ Results in:
 
 It is an useful way of iterating over the key/value pairs of an object:
 
-```
+```js
 for(const [key, value] of Object.entries(obj)) {
     console.log(key); // "one", "two" and "three"
     console.log(value); // 1, 2 and 3
@@ -1078,7 +1094,7 @@ for(const [key, value] of Object.entries(obj)) {
 
 The `Object.values()` method returns an array of a given object's own enumerable property values, in the same order as that provided by a for...in loop (the difference being that a for-in loop enumerates properties in the prototype chain as well).
 
-```
+```js
 var obj = { 0: 'a', 1: 'b', 2: 'c' };
 console.log(Object.values(obj)); // ['a', 'b', 'c']
 

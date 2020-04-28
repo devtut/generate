@@ -13,14 +13,14 @@ description: "Single vibration, Check for support, Vibration patterns"
 
 Vibrate the device for 100ms:
 
-```
+```js
 window.navigator.vibrate(100);
 
 ```
 
 or
 
-```
+```js
 window.navigator.vibrate([100]);
 
 ```
@@ -32,7 +32,7 @@ window.navigator.vibrate([100]);
 
 Check if browser supports vibrations
 
-```
+```js
 if ('vibrate' in window.navigator)
     // browser has support for vibrations
 else
@@ -47,7 +47,7 @@ else
 
 An array of values describes periods of time in which the device is vibrating and not vibrating.
 
-```
+```js
 window.navigator.vibrate([200, 100, 200]);
 
 ```

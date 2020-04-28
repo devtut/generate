@@ -12,7 +12,7 @@ description: "Double Negation (!!x), Implicit conversion, Converting to boolean,
 
 The double-negation `!!` is not a distinct JavaScript operator nor a special syntax but rather just a sequence of two negations. It is used to convert the value of any type to its appropriate `true` or `false` Boolean value depending on whether it is **truthy** or **falsy**.
 
-```
+```js
 !!1            // true
 !!0            // false
 !!undefined    // false
@@ -25,7 +25,7 @@ The first negation converts any value to `false` if it is **truthy** and to `tru
 
 However, many professionals consider the practice of using such syntax unacceptable and recommend simpler to read alternatives, even if they're longer to write:
 
-```
+```js
 x !== 0        // instead of !!x in case x is a number
 x != null      // instead of !!x in case x is an object, a string, or an undefined
 
@@ -44,7 +44,7 @@ Usage of `!!x` is considered poor practice due to the following reasons:
 
 JavaScript will try to automatically convert variables to more appropriate types upon use. It's usually advised to do conversions explicitly (see other examples), but it's still worth knowing what conversions take place implicitly.
 
-```
+```js
 "1" + 5 === "15" // 5 got converted to string.
 1 + "5" === "15" // 1 got converted to string.
 1 - "5" === -4 // "5" got converted to a number.
@@ -57,7 +57,7 @@ new Array(3) === ",,"; // Return true. The array is converted to string - Array.
 
 Some of the trickier parts:
 
-```
+```js
 !"0" === false // "0" got converted to true, then reversed.
 !"false" === false // "false" converted to true, then reversed.
 
@@ -70,7 +70,7 @@ Some of the trickier parts:
 
 `Boolean(...)` will convert any data type into either `true` or `false`.
 
-```
+```js
 Boolean("true") === true
 Boolean("false") === true
 Boolean(-1) === true
@@ -88,7 +88,7 @@ Empty strings and the number 0 will be converted to false, and all others will b
 
 A shorter, but less clear, form:
 
-```
+```js
 !!"true" === true
 !!"false" === true
 !!-1 === true
@@ -120,7 +120,7 @@ Values that get converted to `false` as booleans are called **falsy** (and all o
 ## Converting a string to a number
 
 
-```
+```js
 Number('0') === 0
 
 ```
@@ -129,7 +129,7 @@ Number('0') === 0
 
 A shorter, but less clear, form:
 
-```
+```js
 +'0' === 0
 
 ```
@@ -137,7 +137,7 @@ A shorter, but less clear, form:
 The unary `+` operator does nothing to numbers, but converts anything else to a number.<br />
 Interestingly, `+(-12) === -12`.
 
-```
+```js
 parseInt('0', 10) === 0
 
 ```
@@ -149,7 +149,7 @@ parseInt('0', 10) === 0
 ## Converting a number to a string
 
 
-```
+```js
 String(0) === '0'
 
 ```
@@ -158,7 +158,7 @@ String(0) === '0'
 
 A shorter, but less clear, form:
 
-```
+```js
 '' + 0 === '0'
 
 ```
@@ -168,7 +168,7 @@ A shorter, but less clear, form:
 ## Converting a number to a boolean
 
 
-```
+```js
 Boolean(0) === false
 
 ```
@@ -177,7 +177,7 @@ Boolean(0) === false
 
 A shorter, but less clear, form:
 
-```
+```js
 !!0 === false
 
 ```
@@ -189,21 +189,21 @@ A shorter, but less clear, form:
 
 To convert a string to boolean use
 
-```
+```js
 Boolean(myString)
 
 ```
 
 or the shorter but less clear form
 
-```
+```js
 !!myString 
 
 ```
 
 All strings except the empty string (of length zero) are evaluated to `true` as booleans.
 
-```
+```js
 Boolean('') === false   // is true
 Boolean("") === false   // is true
 Boolean('0') === false  // is false
@@ -227,21 +227,21 @@ To convert a float to an integer, JavaScript provides multiple methods.
 
 The `floor` function returns the first integer less than or equal to the float.
 
-```
+```js
 Math.floor(5.7); // 5
 
 ```
 
 The `ceil` function returns the first integer greater than or equal to the float.
 
-```
+```js
 Math.ceil(5.3); // 6
 
 ```
 
 The `round` function rounds the float.
 
-```
+```js
 Math.round(3.2); // 3
 Math.round(3.6); // 4
 
@@ -249,14 +249,14 @@ Math.round(3.6); // 4
 
 Truncation (`trunc`) removes the decimals from the float.
 
-```
+```js
 Math.trunc(3.7); // 3
 
 ```
 
 Notice the difference between truncation (`trunc`) and `floor`:
 
-```
+```js
 Math.floor(-3.1); // -4
 Math.trunc(-3.1); // -3
 
@@ -269,7 +269,7 @@ Math.trunc(-3.1); // -3
 
 `parseFloat` accepts a string as an argument which it converts to a float/
 
-```
+```js
 parseFloat("10.01") // = 10.01
 
 ```
@@ -294,7 +294,7 @@ With a blank separator:
 
 This way may seem to be uselss becuase you are using anonymous function to acomplish something that you can do it with join(); But if you need to make something to the strings while you are converting the Array to String, this can be useful.
 
-```
+```js
 var  arr = ['a', 'á', 'b', 'c']
 
 function upper_lower (a, b, i) {
@@ -349,14 +349,14 @@ Some languages require you to define ahead of time what kind of variable you're 
 
 If we use the following HTML
 
-```
+```js
 <span id="freezing-point">0</span>
 
 ```
 
 And retrieve its content through JS, it will **not** convert it to a number, even though one might expect it to. If we use the following snippet, one might expect `boilingPoint` to be `100`. However, JavaScript will convert `moreHeat` to a string and concatenate the two string; the result will be `0100`.
 
-```
+```js
 var el = document.getElementById('freezing-point');
 var freezingPoint = el.textContent || el.innerText;
 var moreHeat = 100;
@@ -366,7 +366,7 @@ var boilingPoint = freezingPoint + moreHeat;
 
 We can fix this by explicitly converting `freezingPoint` to a number.
 
-```
+```js
 var el = document.getElementById('freezing-point');
 var freezingPoint = Number(el.textContent || el.innerText);
 var boilingPoint = freezingPoint + moreHeat;

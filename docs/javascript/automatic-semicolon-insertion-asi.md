@@ -12,7 +12,7 @@ description: "Avoid semicolon insertion on return statements, Rules of Automatic
 
 The JavaScript coding convention is to place the starting bracket of blocks on the same line of their declaration:
 
-```
+```js
 if (...) {
 
 }
@@ -25,7 +25,7 @@ function (a, b, ...) {
 
 Instead of in the next line:
 
-```
+```js
 if (...)
 {
 
@@ -40,7 +40,7 @@ function (a, b, ...)
 
 This has been adopted to avoid semicolon insertion in return statements that return objects:
 
-```
+```js
 function foo() 
 {
     return // A semicolon will be inserted here, making the function return nothing
@@ -104,7 +104,7 @@ However, there is an additional overriding condition on  the preceding rules: a 
 
 When the end of the input stream of tokens is encountered and the parser is unable to parse the input token stream as a single complete Program, then a semicolon is automatically inserted at the end of the input stream.
 
-```
+```js
 a = b
 ++c
 // is transformed to:
@@ -113,7 +113,7 @@ a = b;
 
 ```
 
-```
+```js
 x
 ++
 y
@@ -125,7 +125,7 @@ x;
 
 **Array indexing/literals**
 
-```
+```js
 console.log("Hello, World")
 [1,2,3].join()
 // is transformed to:
@@ -135,7 +135,7 @@ console.log("Hello, World")[(1, 2, 3)].join();
 
 **Return statement:**
 
-```
+```js
 return 
   "something";
 // is transformed to

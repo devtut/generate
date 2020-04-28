@@ -147,7 +147,7 @@ With regards to reserved words there is a small distinctions between the **"Iden
 
 For example the following will result in an illegal syntax error:
 
-```
+```js
 var break = true;
 
 ```
@@ -158,7 +158,7 @@ Uncaught SyntaxError: Unexpected token break
 
 However the name is deemed valid as a property of an object (as of ECMAScript 5+):
 
-```
+```js
 var obj = {
     break: true
 };
@@ -177,9 +177,14 @@ Identifier Names are tokens that are interpreted according to the grammar given 
 
 > 
 **Syntax**
-<pre><code>Identifier ::
+
+```js
+Identifier ::
   IdentifierName but not ReservedWord
-</code></pre>
+
+```
+
+
 
 
 By specification, a `ReservedWord` is:
@@ -187,12 +192,17 @@ By specification, a `ReservedWord` is:
 > 
 Section 7.6.1
 A reserved word is an `IdentifierName` that cannot be used as an `Identifier`.
-<pre><code>ReservedWord :: 
+
+```js
+ReservedWord :: 
   Keyword
   FutureReservedWord
   NullLiteral
   BooleanLiteral
-</code></pre>
+
+```
+
+
 
 
 This includes keywords, future keywords, `null`, and boolean literals. The full list of keywords are in [Sections 7.6.1](http://www.ecma-international.org/ecma-262/5.1/#sec-7.6.1) and literals are in [Section 7.8](http://www.ecma-international.org/ecma-262/5.1/#sec-7.8).
@@ -202,21 +212,31 @@ The above (Section 7.6) implies that `IdentifierName`s can be `ReservedWord`s, a
 > 
 Section 11.1.5
 **Syntax**
-<pre><code>ObjectLiteral :
+
+```js
+ObjectLiteral :
   { }
   { PropertyNameAndValueList }
   { PropertyNameAndValueList , }
-</code></pre>
+
+```
+
+
 
 
 Where `PropertyName` is, by specification:
 
 > 
-<pre><code>PropertyName :
+
+```js
+PropertyName :
   IdentifierName
   StringLiteral
   NumericLiteral
-</code></pre>
+
+```
+
+
 
 
 As you can see, a `PropertyName` may be an `IdentifierName`, thus allowing `ReservedWord`s to be `PropertyName`s. That conclusively tells us that, **by specification**, it is allowed to have `ReservedWord`s such as `class` and `var` as `PropertyName`s unquoted just like string literals or numeric literals.

@@ -18,7 +18,7 @@ description: "About User Prompts, Persistent Prompt Modal, Confirm to Delete ele
 Show a modal **popup** with a message to the user.<br />
 Requires the user to click [OK] to dismiss.
 
-```
+```js
 alert("Hello World"); 
 
 ```
@@ -30,7 +30,7 @@ More information below in "Using alert()".
 Show a modal **popup** with the provided message.<br />
 Provides [OK] and [Cancel] buttons which will respond with a boolean value `true` / `false` respectively.
 
-```
+```js
 confirm("Delete this comment?");
 
 ```
@@ -40,7 +40,7 @@ confirm("Delete this comment?");
 Show a modal **popup** with the provided message and an input field with an optional pre-filled value.<br />
 Returns as `result` the user provided input value.
 
-```
+```js
 prompt("Enter your website address", "http://");
 
 ```
@@ -51,7 +51,7 @@ More information below in "Usage of prompt()".
 
 Opens a modal with document print options.
 
-```
+```js
 print();
 
 ```
@@ -64,12 +64,12 @@ print();
 When using **prompt** a user can always click ****Cancel**** and no value will be returned.<br />
 To prevent empty values and make it more **persistent**:
 
-```
+```js
 <h2>Welcome <span id="name"></span>!</h2>
 
 ```
 
-```
+```js
 <script>
 // Persistent Prompt modal
 var userName;
@@ -94,7 +94,7 @@ while(!userName) {
 
 A way to use `confirm()` is when some UI action does some **destructive** changes to the page and is better accompanied by a **notification** and a **user confirmation** - like i.e. before deleting a post message:
 
-```
+```js
 <div id="post-102">
   <p>I like Confirm modals.</p>
   <a data-deletepost="post-102">Delete post</a>
@@ -106,7 +106,7 @@ A way to use `confirm()` is when some UI action does some **destructive** change
 
 ```
 
-```
+```js
 // Collect all buttons
 var deleteBtn = document.querySelectorAll("[data-deletepost]");
 
@@ -139,7 +139,7 @@ The `alert()` method of the `window` object displays an **alert box** with a spe
 
 **Syntax**
 
-```
+```js
 alert("Hello world!");
 // Or, alternatively...
 window.alert("Hello world!");
@@ -169,7 +169,7 @@ An **alert box** is often used if you want to make sure information comes throug
 
 Prompt will display a dialog to the user requesting their input. You can provide a message that will be placed above the text field. The return value is a string representing the input provided by the user.
 
-```
+```js
 var name = prompt("What's your name?");
 console.log("Hello, " + name);
 
@@ -177,7 +177,7 @@ console.log("Hello, " + name);
 
 You can also pass `prompt()` a second parameter, which will be displayed as the default text in the prompt's text field.
 
-```
+```js
 var name = prompt('What\'s your name?', ' Name...');
 console.log('Hello, ' + name);
 

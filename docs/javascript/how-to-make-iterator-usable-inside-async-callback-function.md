@@ -11,7 +11,7 @@ description: "Erroneous code, can you spot why this usage of key will lead to bu
 ## Erroneous code, can you spot why this usage of key will lead to bugs?
 
 
-```
+```js
 var pipeline = {};
 // (...) adding things in pipeline
 
@@ -36,7 +36,7 @@ The problem is that there is only one instance of **var key**. All callbacks wil
 ## Correct Writing
 
 
-```
+```js
 var pipeline = {};
 // (...) adding things in pipeline
 

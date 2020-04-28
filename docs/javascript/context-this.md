@@ -11,7 +11,7 @@ description: "this with simple objects, Saving this for use in nested functions 
 ## this with simple objects
 
 
-```
+```js
 var person = {
   name: 'John Doe',
   age: 42,
@@ -37,7 +37,7 @@ In non-strict mode, the default context is the global object (`window`). In stri
 
 One common pitfall is to try and use `this` in a nested function or an object, where the context has been lost.
 
-```
+```js
 document.getElementById('myAJAXButton').onclick = function(){
     makeAJAXRequest(function(result){
       if (result) { // success
@@ -50,7 +50,7 @@ document.getElementById('myAJAXButton').onclick = function(){
 
 Here the context (`this`) is lost in the inner callback function. To correct this, you can save the value of `this` in a variable:
 
-```
+```js
 document.getElementById('myAJAXButton').onclick = function(){
     var self = this;
     makeAJAXRequest(function(result){
@@ -64,7 +64,7 @@ document.getElementById('myAJAXButton').onclick = function(){
 
 ES6 introduced [arrow functions](http://stackoverflow.com/documentation/javascript/5007/arrow-functions#t=20161219073932659973) which include lexical `this` binding. The above example could be written like this:
 
-```
+```js
 document.getElementById('myAJAXButton').onclick = function(){
     makeAJAXRequest(result => {
       if (result) { // success
@@ -82,7 +82,7 @@ document.getElementById('myAJAXButton').onclick = function(){
 
 Every function has a `bind` method, which will create a wrapped function that will call it with the correct context. See [here](http://stackoverflow.com/documentation/javascript/186/functions/1394/binding-this-and-arguments#t=201612190754563650665) for more information.
 
-```
+```js
 var monitor = {
   threshold: 5,
   check: function(value) {
@@ -115,7 +115,7 @@ check8(); // We also bound the argument to `8` here. It can't be re-specified.
 - Advantage: It's useful when you want to protect particular objects from being lost.
 - Example:
 
-```
+```js
 function Person(){
     console.log("I'm " + this.name);
 }
@@ -146,6 +146,7 @@ Person.call(person3);
 
 ```
 
+
 - So, as you can remark in the example above, whatever object you pass to **Person**, it'll always use **person0 object**: **it's hard binded**.
 
 
@@ -155,7 +156,7 @@ Person.call(person3);
 
 When using a function as a [constructor](http://stackoverflow.com/documentation/javascript/1291/constructor-functions#t=201612190801516224657), it has a special `this` binding, which refers to the newly created object:
 
-```
+```js
 function Cat(name) {
   this.name = name;
   this.sound = "Meow";

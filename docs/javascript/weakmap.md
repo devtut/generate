@@ -12,7 +12,7 @@ description: "Getting a value associated to the key, Assigning a value to the ke
 
 To get a value associated to the key, use the `.get()` method. If there's no value associated to the key, it returns `undefined`.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -29,7 +29,7 @@ console.log(weakmap.get(obj2)); // undefined
 
 To assign a value to the key, use the `.set()` method. It returns the WeakMap object, so you can chain `.set()` calls.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -47,7 +47,7 @@ console.log(weakmap.get(obj2)); // 2
 
 To check if an element with a specified key exits in a WeakMap, use the `.has()` method. It returns `true` if it exits, and otherwise `false`.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -64,7 +64,7 @@ console.log(weakmap.has(obj2)); // false
 
 To remove an element with a specified key, use the `.delete()` method. It returns `true` if the element existed and has been removed, otherwise `false`.
 
-```
+```js
 const obj1 = {},
       obj2 = {};
 
@@ -84,7 +84,7 @@ JavaScript uses [reference counting](https://developer.mozilla.org/en-US/docs/We
 
 Here is a demo of weakmap. I use a very large object as value to show that weak reference does not contribute to reference count.
 
-```
+```js
 // manually trigger garbage collection to make sure that we are in good status.
 > global.gc(); 
 undefined
@@ -156,7 +156,7 @@ WeakMap object allows you to store key/value pairs. The difference from [Map](ht
 
 WeakMap constructor has an optional parameter, which can be any iterable object (for example Array) containing key/value pairs as two-element arrays.
 
-```
+```js
 const o1 = {a: 1, b: 2},
       o2 = {};
 

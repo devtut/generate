@@ -24,7 +24,7 @@ An anonymous function that creates our module. This is passed as the second argu
 
 In the below example we check for AMD, then CommonJS. If neither of those loaders are in use we fall back to making the module and its dependencies available globally.
 
-```
+```js
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -53,7 +53,7 @@ In the below example we check for AMD, then CommonJS. If neither of those loader
 
 Immediately invoked function expressions can be used to create a private scope while producing a public API.
 
-```
+```js
 var Module = (function() {
   var privateData = 1;
 
@@ -88,7 +88,7 @@ The key thing here is that a module can have a dependency and not hold everythin
 
 Here's an example of AMD:
 
-```
+```js
 // Define a module "myModule" with two dependencies, jQuery and Lodash
 define("myModule", ["jquery", "lodash"], function($, _) {
     // This publicly accessible object is our module
@@ -116,21 +116,21 @@ define("myModule", ["jquery", "lodash"], function($, _) {
 
 Modules can also skip the name and be anonymous. When that's done, they're usually loaded by file name.
 
-```
+```js
 define(["jquery", "lodash"], function($, _) { /* factory */ });
 
 ```
 
 They can also skip dependencies:
 
-```
+```js
 define(function() { /* factory */ });
 
 ```
 
 Some AMD loaders support defining modules as plain objects:
 
-```
+```js
 define("myModule", { version: 1, value: "sample string" });
 
 ```
@@ -146,7 +146,7 @@ The CommonJS system is centered around a `require()` function that loads other m
 
 Here's an example of CommonJS, we'll load Lodash and Node.js' `fs` module:
 
-```
+```js
 // Load fs and lodash, we can use them anywhere inside the module
 var fs = require("fs"),
     _ = require("lodash");
@@ -164,7 +164,7 @@ exports.myMethod = function(param) {
 
 You can also export a function as the entire module using `module.exports`:
 
-```
+```js
 module.exports = function() {
     return "Hello!";
 };
@@ -180,7 +180,7 @@ In ECMAScript 6, when using the module syntax (import/export), each file becomes
 
 **Note:** Although this is the official method for creating JavaScript modules, it is not supported by any major browsers right now. However, ES6 Modules are supported by many transpilers.
 
-```
+```js
 export function greet(name) {
     console.log("Hello %s!", name);
 }
@@ -201,7 +201,7 @@ export class MyClass {
 
 Importing modules is as simple as specifying their path:
 
-```
+```js
 import greet from "mymodule.js";
 
 greet("Bob");
@@ -212,7 +212,7 @@ This imports only the `myMethod` method from our `mymodule.js` file.
 
 It's also possible to import all methods from a module:
 
-```
+```js
 import * as myModule from "mymodule.js";
 
 myModule.greet("Alice");
@@ -221,7 +221,7 @@ myModule.greet("Alice");
 
 You can also import methods under a new name:
 
-```
+```js
 import { greet as A, myMethod as B } from "mymodule.js";
 
 ```

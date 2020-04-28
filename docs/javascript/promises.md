@@ -27,7 +27,7 @@ A promise is said to be **settled** (or **resolved**) when it is either fulfille
 
 ### Example
 
-```
+```js
 const promise = new Promise((resolve, reject) => {
     // Perform some work (possibly asynchronous)
     // ...
@@ -50,7 +50,7 @@ const promise = new Promise((resolve, reject) => {
 
 The [`then`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) and [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) methods can be used to attach fulfillment and rejection callbacks:
 
-```
+```js
 promise.then(value => {
     // Work has completed successfully,
     // promise has been fulfilled with "value"
@@ -65,7 +65,7 @@ promise.then(value => {
 
 Alternatively, both callbacks can be attached in a single call to [`then`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then):
 
-```
+```js
 promise.then(onFulfilled, onRejected);
 
 ```
@@ -81,7 +81,7 @@ Attaching callbacks to a promise that has already been settled will immediately 
 
 The [`then`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method of a promise returns a new promise.
 
-```
+```js
 const promise = new Promise(resolve => setTimeout(resolve, 5000));
 
 promise
@@ -95,7 +95,7 @@ promise
 
 Returning a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) from a [`then`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) callback will append it to the promise chain.
 
-```
+```js
 function wait(millis) {
     return new Promise(resolve => setTimeout(resolve, millis));
 }
@@ -107,7 +107,7 @@ p.then(() => { /* 10 seconds have passed */ });
 
 A [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) allows a rejected promise to recover, similar to how `catch` in a `try`/`catch` statement works. Any chained [`then`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) after a [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) will execute its resolve handler using the value resolved from the [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch).
 
-```
+```js
 const p = new Promise(resolve => {throw 'oh no'});
 p.catch(() => 'oh yes').then(console.log.bind(console));  // outputs "oh yes"
 
@@ -115,7 +115,7 @@ p.catch(() => 'oh yes').then(console.log.bind(console));  // outputs "oh yes"
 
 If there are no [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) or `reject` handlers in the middle of the chain, a [`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) at the end will capture any rejection in the chain:
 
-```
+```js
 p.catch(() => Promise.reject('oh yes'))
   .then(console.log.bind(console))      // won't be called
   .catch(console.error.bind(console));  // outputs "oh yes"
@@ -124,7 +124,7 @@ p.catch(() => Promise.reject('oh yes'))
 
 On certain occasions, you may want to "branch" the execution of the functions. You can do it by returning different promises from a function depending on the condition. Later in the code, you can merge all of these branches into one to call other functions on them and/or to handle all errors in one place.
 
-```
+```js
 promise
     .then(result => {          
         if (result.condition) {
@@ -146,7 +146,7 @@ promise
 
 Thus, the execution order of the functions looks like:
 
-```
+```js
 promise --> handlerFn1 -> handlerFn2 --> handlerFn5 ~~> .catch()
          |                            ^
          V                            |
@@ -163,7 +163,7 @@ The single `catch` will get the error on whichever branch it may occur.
 
 The [`Promise.all()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) static method accepts an iterable (e.g. an `Array`) of promises and returns a new promise, which resolves when **all** promises in the iterable have resolved, or rejects if **at least one** of the promises in the iterable have rejected.
 
-```
+```js
 // wait "millis" ms, then resolve with "value"
 function resolve(value, milliseconds) {
     return new Promise(resolve => setTimeout(() => resolve(value), milliseconds));
@@ -191,7 +191,7 @@ Promise.all([
 
 Non-promise values in the iterable are ["promisified"](http://stackoverflow.com/documentation/javascript/231/promises/1850/promisifying-values).
 
-```
+```js
 Promise.all([
     resolve(1, 5000),
     resolve(2, 6000),
@@ -203,7 +203,7 @@ Promise.all([
 
 Destructuring assignment can help to retrieve results from multiple promises.
 
-```
+```js
 Promise.all([
     resolve(1, 5000),
     resolve(2, 6000),
@@ -233,7 +233,7 @@ There are two variants :
 
 This variant of the pattern builds a [`.then()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) chain, and might be used for chaining animations, or making a sequence of dependent HTTP requests.
 
-```
+```js
 [1, 3, 5, 7, 9].reduce((seq, n) => {
     return seq.then(() => {
         console.log(n);
@@ -260,7 +260,7 @@ Note: The "then" reduction is a sequential counterpart of `Promise.all()`.
 
 This variant of the pattern builds a [`.catch()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) chain and might be used for sequentially probing a set of web servers for some mirrored resource until a working server is found.
 
-```
+```js
 var working_resource = 5; // one of the values from the source array
 [1, 3, 5, 7, 9].reduce((seq, n) => {
     return seq.catch(() => {
@@ -295,7 +295,7 @@ Note: The "catch" reduction is a sequential counterpart of `Promise.any()` (as i
 
 The [`Promise.race()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) static method accepts an iterable of Promises and returns a new Promise which resolves or rejects as soon as the **first** of the promises in the iterable has resolved or rejected.
 
-```
+```js
 // wait "milliseconds" milliseconds, then resolve with "value"
 function resolve(value, milliseconds) {
     return new Promise(resolve => setTimeout(() => resolve(value), milliseconds));
@@ -330,14 +330,14 @@ Promise.race([
 
 Given a function that accepts a Node-style callback,
 
-```
+```js
 fooFn(options, function callback(err, result) { ... });
 
 ```
 
 you can promisify it **(convert it to a promise-based function)** like this:
 
-```
+```js
 function promiseFooFn(options) {
     return new Promise((resolve, reject) =>
         fooFn(options, (err, result) =>
@@ -351,7 +351,7 @@ function promiseFooFn(options) {
 
 This function can then be used as follows:
 
-```
+```js
 promiseFooFn(options).then(result => {
     // success!
 }).catch(err => {
@@ -362,7 +362,7 @@ promiseFooFn(options).then(result => {
 
 In a more generic way, here's how to promisify any given callback-style function:
 
-```
+```js
 function promisify(func) {
     return function(...args) {
         return new Promise((resolve, reject) => {
@@ -375,7 +375,7 @@ function promisify(func) {
 
 This can be used like this:
 
-```
+```js
 const fs = require('fs');
 const promisedStat = promisify(fs.stat.bind(fs));
 
@@ -392,7 +392,7 @@ promisedStat('/foo/bar')
 
 Errors thrown from promises are handled by the second parameter (`reject`) passed to `then` or by the handler passed to `catch`:
 
-```
+```js
 throwErrorAsync()
   .then(null, error => { /* handle error here */ });
 // or
@@ -405,7 +405,7 @@ throwErrorAsync()
 
 If you have a promise chain then an error will cause `resolve` handlers to be skipped:
 
-```
+```js
 throwErrorAsync()
   .then(() => { /* never called */ })
   .catch(error => { /* handle error here */ });
@@ -414,7 +414,7 @@ throwErrorAsync()
 
 The same applies to your `then` functions. If a `resolve` handler throws an exception then the next `reject` handler will be invoked:
 
-```
+```js
 doSomethingAsync()
   .then(result => { throwErrorSync(); })
   .then(() => { /* never called */ })
@@ -424,7 +424,7 @@ doSomethingAsync()
 
 An error handler returns a new promise, allowing you to continue a promise chain. The promise returned by the error handler is resolved with the value returned by the handler:
 
-```
+```js
 throwErrorAsync()
   .catch(error => { /* handle error here */; return result; })
   .then(result => { /* handle result here */ });
@@ -433,7 +433,7 @@ throwErrorAsync()
 
 You can let an error cascade down a promise chain by re-throwing the error:
 
-```
+```js
 throwErrorAsync()
   .catch(error => {
       /* handle error from throwErrorAsync() */
@@ -446,7 +446,7 @@ throwErrorAsync()
 
 It is possible to throw an exception that is not handled by the promise by wrapping the `throw` statement inside a `setTimeout` callback:
 
-```
+```js
 new Promise((resolve, reject) => {
   setTimeout(() => { throw new Error(); });
 });
@@ -459,7 +459,7 @@ This works because promises cannot handle exceptions thrown asynchronously.
 
 An error will be silently ignored if a promise doesn't have a `catch` block or `reject` handler:
 
-```
+```js
 throwErrorAsync()
   .then(() => { /* will not be called */ });
 // error silently ignored
@@ -468,7 +468,7 @@ throwErrorAsync()
 
 To prevent this, always use a `catch` block:
 
-```
+```js
 throwErrorAsync()
   .then(() => { /* will not be called */ })
   .catch(error => { /* handle error*/ });
@@ -480,14 +480,14 @@ throwErrorAsync()
 
 Alternatively, subscribe to the [`unhandledrejection`](https://developer.mozilla.org/en-US/docs/Web/Events/unhandledrejection) event to catch any unhandled rejected promises:
 
-```
+```js
 window.addEventListener('unhandledrejection', event => {});
 
 ```
 
 Some promises can handle their rejection later than their creation time. The [`rejectionhandled`](https://developer.mozilla.org/en-US/docs/Web/Events/rejectionhandled) event gets fired whenever such a promise is handled:
 
-```
+```js
 window.addEventListener('unhandledrejection', event => console.log('unhandled'));
 window.addEventListener('rejectionhandled', event => console.log('handled'));
 var p = Promise.reject('test');
@@ -502,7 +502,7 @@ The `event` argument contains information about the rejection. `event.reason` is
 
 In Nodejs the `rejectionhandled` and `unhandledrejection` events are called [`rejectionHandled`](https://nodejs.org/api/process.html#process_event_rejectionhandled) and [`unhandledRejection`](https://nodejs.org/api/process.html#process_event_unhandledrejection) on `process`, respectively, and have a different signature:
 
-```
+```js
 process.on('rejectionHandled', (reason, promise) => {});
 process.on('unhandledRejection', (reason, promise) => {});
 
@@ -522,7 +522,7 @@ The `then(fulfill, reject)` function (with both parameters not `null`) has uniqu
 
 The function works as expected if given `null` for one of the inputs:
 
-```
+```js
 // the following calls are equivalent
 promise.then(fulfill, null) 
 promise.then(fulfill)
@@ -535,7 +535,7 @@ promise.catch(reject)
 
 However, it adopts unique behavior when both inputs are given:
 
-```
+```js
 // the following calls are not equivalent!
 promise.then(fulfill, reject)
 promise.then(fulfill).catch(reject)
@@ -548,7 +548,7 @@ promise.catch(reject).then(fulfill)
 
 The `then(fulfill, reject)` function looks like it is a shortcut for `then(fulfill).catch(reject)`, but it is not, and will cause problems if used interchangeably. One such problem is that the `reject` handler does not handle errors from the `fulfill` handler. Here is what will happen:
 
-```
+```js
 Promise.resolve() // previous promise is fulfilled
     .then(() => { throw new Error(); }, // error in the fulfill handler
         error => { /* this is not called! */ });
@@ -557,7 +557,7 @@ Promise.resolve() // previous promise is fulfilled
 
 The above code will result in a rejected promise because the error is propagated. Compare it to the following code, which results in a fulfilled promise:
 
-```
+```js
 Promise.resolve() // previous promise is fulfilled
     .then(() => { throw new Error(); }) // error in the fulfill handler
     .catch(error => { /* handle error */ });
@@ -570,7 +570,7 @@ A similar problem exists when using `then(fulfill, reject)` interchangeably with
 
 Imagine a function like this:
 
-```
+```js
 function foo(arg) {
   if (arg === 'unexepectedValue') {
     throw new Error('UnexpectedValue')
@@ -585,7 +585,7 @@ function foo(arg) {
 
 If such function is used in the **middle** of a promise chain, then apparently there is no problem:
 
-```
+```js
 makeSomethingAsync().
   .then(() => foo('unexpectedValue'))
   .catch(err => console.log(err)) // <-- Error: UnexpectedValue will be caught here
@@ -594,7 +594,7 @@ makeSomethingAsync().
 
 However, if the same function is called outside of a promise chain, then the error will not be handled by it and will be thrown to the application:
 
-```
+```js
 foo('unexpectedValue') // <-- error will be thrown, so the application will crash
   .then(makeSomethingAsync) // <-- will not run
   .catch(err => console.log(err)) // <-- will not catch
@@ -607,7 +607,7 @@ There are 2 possible workarounds:
 
 Instead of throwing, do as follows:
 
-```
+```js
 function foo(arg) {
   if (arg === 'unexepectedValue') {
     return Promise.reject(new Error('UnexpectedValue'))
@@ -624,7 +624,7 @@ function foo(arg) {
 
 Your `throw` statement will be properly caught when it is already inside a promise chain:
 
-```
+```js
 function foo(arg) {
   return Promise.resolve()
     .then(() => {
@@ -647,7 +647,7 @@ function foo(arg) {
 
 In some cases you may want to wrap a synchronous operation inside a promise to prevent repetition in code branches. Take this example:
 
-```
+```js
 if (result) { // if we already have a result
   processResult(result); // process it
 } else {
@@ -658,7 +658,7 @@ if (result) { // if we already have a result
 
 The synchronous and asynchronous branches of the above code can be reconciled by redundantly wrapping the synchronous operation inside a promise:
 
-```
+```js
 var fetch = result
   ? Promise.resolve(result)
   : fetchResult();
@@ -672,7 +672,7 @@ itself. This ensures that only one asynchronous operation is required to resolve
 
 Care should be taken to invalidate cached values when error conditions are encountered.
 
-```
+```js
 // A resource that is not expected to change frequently
 var planets = 'http://swapi.co/api/planets/';
 // The cached promise, or null
@@ -702,7 +702,7 @@ The [`setTimeout()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTime
 
 In this example calling the `wait` function resolves the promise after the time specified as first argument:
 
-```
+```js
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));  
 }
@@ -720,7 +720,7 @@ wait(5000).then(() => {
 
 The [`Promise.resolve`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) static method can be used to wrap values into promises.
 
-```
+```js
 let resolved = Promise.resolve(2);
 resolved.then(value => {
     // immediately invoked
@@ -731,7 +731,7 @@ resolved.then(value => {
 
 If `value` is already a promise, [`Promise.resolve`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) simply recasts it.
 
-```
+```js
 let one = new Promise(resolve => setTimeout(() => resolve(2), 1000));
 let two = Promise.resolve(one);
 two.then(value => {
@@ -743,7 +743,7 @@ two.then(value => {
 
 In fact, `value` can be any "thenable" (object defining a `then` method that works sufficiently like a spec-compliant promise). This allows [`Promise.resolve`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) to convert untrusted 3rd-party objects into trusted 1st-party Promises.
 
-```
+```js
 let resolved = Promise.resolve({
     then(onResolved) {
         onResolved(2);
@@ -758,7 +758,7 @@ resolved.then(value => {
 
 The [`Promise.reject`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) static method returns a promise which immediately rejects with the given `reason`.
 
-```
+```js
 let rejected = Promise.reject("Oops!");
 rejected.catch(reason => {
     // immediately invoked
@@ -776,7 +776,7 @@ The same example above, [Image loading](http://stackoverflow.com/documentation/j
 
 Note: [as of April 2017, the current releases of all browsers but Internet Explorer supports async functions](http://caniuse.com/#feat=async-functions).
 
-```
+```js
 function loadImage(url) {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -810,7 +810,7 @@ function loadImage(url) {
 
 It is possible to effectively apply a function (`cb`) which returns a promise to each element of an array, with each element waiting to be processed until the previous element is processed.
 
-```
+```js
 function promiseForEach(arr, cb) {
   var i = 0;
 
@@ -845,7 +845,7 @@ There is currently a [proposal](https://github.com/tc39/proposal-promise-finally
 
 You would usually use this functionality for cleanup:
 
-```
+```js
 var loadingData = true;
 
 fetch('/data')
@@ -862,7 +862,7 @@ will be resolved with the return value of `processData(result.data)` even though
 
 With the standardization process still being in progress, your promises implementation most likely won't support `finally` callbacks out of the box. For synchronous callbacks you can add this functionality with a polyfill however:
 
-```
+```js
 if (!Promise.prototype.finally) {
     Promise.prototype.finally = function(callback) {
         return this.then(result => {
@@ -884,7 +884,7 @@ if (!Promise.prototype.finally) {
 
 This is an example of a simple `GET` API call wrapped in a promise to take advantage of its asynchronous functionality.
 
-```
+```js
 var get = function(path) {
   return new Promise(function(resolve, reject) {
     let request = new XMLHttpRequest();
@@ -899,7 +899,7 @@ var get = function(path) {
 
 More robust error handling can be done using the following [`onload`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onload) and [`onerror`](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequestEventTarget/onerror) functions.
 
-```
+```js
 request.onload = function() {
   if (this.status >= 200 && this.status < 300) {
     if(request.response) {

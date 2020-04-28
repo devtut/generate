@@ -25,7 +25,7 @@ A JavaScript `AsyncIterator` is an object with a `.next()` method, which returns
 
 To create an AsyncIterator, we can use the **async generator** syntax:
 
-```
+```js
 /**
  * Returns a promise which resolves after time had passed.
  */
@@ -44,7 +44,7 @@ The `delayedRange` function will take a maximum number, and returns an `AsyncIte
 
 Usage:
 
-```
+```js
 for await (let number of delayedRange(10)) {
   console.log(number);
 }

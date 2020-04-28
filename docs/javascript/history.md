@@ -12,7 +12,7 @@ description: "history.pushState(), history.replaceState(), Load a specific URL f
 
 Syntax :
 
-```
+```js
 history.pushState(state object, title, url)
 
 ```
@@ -21,7 +21,7 @@ This method allows to ADD histories entries. For more reference, Please have a l
 
 **Example :**
 
-```
+```js
 window.history.pushState("http://example.ca", "Sample Title", "/example/path.html");
 
 ```
@@ -37,14 +37,14 @@ Note this is different from the `history.replaceState()`. Which updates the curr
 
 **Syntax :**
 
-```
+```js
 history.replaceState(data, title [, url ])
 
 ```
 
 This method modifies the current history entry instead of creating a new one. Mainly used when we want to update URL of the current history entry.
 
-```
+```js
 window.history.replaceState("http://example.ca", "Sample Title", "/example/path.html");
 
 ```
@@ -67,7 +67,7 @@ The parameter can either be a number which goes to the URL within the specific p
 Syntax
 
 
-```
+```js
 history.go(number|URL)
 
 ```
@@ -78,7 +78,7 @@ Example
 
 Click on the button to go back two pages:
 
-```
+```js
 <html>
     <head>
     <script type="text/javascript">

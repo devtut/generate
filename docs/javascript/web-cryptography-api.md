@@ -10,7 +10,7 @@ description: "Creating digests (e.g. SHA-256), Cryptographically random data, Ge
 ## Creating digests (e.g. SHA-256)
 
 
-```
+```js
 // Convert string to ArrayBuffer. This step is only necessary if you wish to hash a string, not if you aready got an ArrayBuffer such as an Uint8Array.
 var input = new TextEncoder('utf-8').encode('Hello world!');
 
@@ -48,7 +48,7 @@ The current draft suggests to provide at least `SHA-1`, `SHA-256`, `SHA-384` and
 ## Cryptographically random data
 
 
-```
+```js
 // Create an array with a fixed size and type.
 var array = new Uint8Array(5);
 
@@ -76,7 +76,7 @@ console.log(array);
 
 In this example you will learn how to generate RSA-OAEP key pair and how to convert private key from this key pair to base64 so you can use it with OpenSSL etc. Please note that this process can also be used for public key you just have to use prefix and suffix below:
 
-```
+```js
 -----BEGIN PUBLIC KEY-----
 -----END PUBLIC KEY-----
 
@@ -84,7 +84,7 @@ In this example you will learn how to generate RSA-OAEP key pair and how to conv
 
 NOTE: This example is fully tested in these browsers: Chrome, Firefox, Opera, Vivaldi
 
-```
+```js
 function arrayBufferToBase64(arrayBuffer) {
     var byteArray = new Uint8Array(arrayBuffer);
     var byteString = '';
@@ -152,7 +152,7 @@ So, have you ever wondered how to use your PEM RSA key pair that was generated b
 
 NOTE: This process can also be used for public key, you only need to change prefix and suffix to:
 
-```
+```js
 -----BEGIN PUBLIC KEY-----
 -----END PUBLIC KEY-----
 
@@ -160,7 +160,7 @@ NOTE: This process can also be used for public key, you only need to change pref
 
 This example assumes that you have your RSA key pair generated in PEM.
 
-```
+```js
 function removeLines(str) {
     return str.replace("\n", "");
 }

@@ -21,7 +21,7 @@ Often, factory functions are used as API wrappers, like in the cases of [jQuery]
 
 The following is the simplest form of factory function; taking arguments and using them to craft a new object with the object literal:
 
-```
+```js
 function cowFactory(name) {
     return {
         name: name,
@@ -38,7 +38,7 @@ daisy.talk();  // "Moo, my name is Daisy"
 
 It is easy to define private properties and methods in a factory, by including them outside of the returned object. This keeps your implementation details encapsulated, so you can only expose the public interface to your object.
 
-```
+```js
 function cowFactory(name) {
     function formalName() {
         return name + ' the cow';
@@ -70,7 +70,7 @@ Factories are also a great way of applying functional programming practices in J
 
 **Behaviour factories**
 
-```
+```js
 var speaker = function (state) {
     var noise = state.noise || 'grunt';
 
@@ -96,7 +96,7 @@ var mover = function (state) {
 
 **Object factories**
 
-```
+```js
 var person = function (name, age) {
     var state = {
         name: name,
@@ -127,7 +127,7 @@ var rabbit = function (name, colour) {
 
 **Usage**
 
-```
+```js
 var fred = person('Fred', 42);
 fred.speak();        // outputs: Fred says Hello
 fred.moveSlowly();   // outputs: Fred is moving slowly
@@ -150,7 +150,7 @@ The Module pattern is a [creational and structural design pattern](https://en.wi
 
 This gives us a clean solution for hiding the main logic and only exposing an interface we wish other parts of our application to use.
 
-```
+```js
 var Module = (function(/* pass initialization data if necessary */) {
   // Private data is stored within the closure
   var privateData = 1;
@@ -175,7 +175,7 @@ var Module = (function(/* pass initialization data if necessary */) {
 
 The Revealing Module pattern is a variant in the Module pattern. The key differences are that all members (private and public) are defined within the closure, the return value is an object literal containing no function definitions, and all references to member data are done through direct references rather than through the returned object.
 
-```
+```js
 var Module = (function(/* pass initialization data if necessary */) {
   // Private data is stored just like before
   var privateData = 1;
@@ -203,7 +203,7 @@ var Module = (function(/* pass initialization data if necessary */) {
 
 This variation of the revealing pattern is used to separate the constructor to the methods. This pattern allow us to use the javascript language like a objected oriented language:
 
-```
+```js
 //Namespace setting
 var NavigationNs = NavigationNs || {};
 
@@ -252,7 +252,7 @@ NavigationNs.pagination.prototype = function() {
 
 This code above should be in a separated file .js to be referenced in any page that is needed. It can be used like this:
 
-```
+```js
 var menuActive = new NavigationNs.active('ul.sidebar-menu li', 5);
 menuActive.setCurrent();
 
@@ -267,7 +267,7 @@ The prototype pattern focuses on creating an object that can be used as a bluepr
 
 **Creating methods on the prototype**
 
-```
+```js
 function Welcome(name) {
   this.name = name;
 }
@@ -286,7 +286,7 @@ welcome.sayHello();
 
 Inheriting from a 'parent object' is relatively easy via the following pattern
 
-```
+```js
 ChildObject.prototype = Object.create(ParentObject.prototype);
 ChildObject.prototype.constructor = ChildObject;
 
@@ -298,7 +298,7 @@ If the parent object has values it initializes in it's constructor you need to c
 
 You do that using the following pattern in the `ChildObject` constructor.
 
-```
+```js
 function ChildObject(value) {
     ParentObject.call(this, value);
 }
@@ -307,7 +307,7 @@ function ChildObject(value) {
 
 A complete example where the above is implemented
 
-```
+```js
 function RoomService(name, order) {
   // this.name will be set and made available on the scope of this function
   Welcome.call(this, name);
@@ -349,7 +349,7 @@ delivery.deliverOrder();
 
 The Singleton pattern is a design pattern that restricts the instantiation of a class to one object. After the first object is created, it will return the reference to the same one whenever called for an object.
 
-```
+```js
 var Singleton = (function () {
         // instance stores a reference to the Singleton
         var instance;
@@ -386,7 +386,7 @@ var Singleton = (function () {
 
 **Usage:**
 
-```
+```js
 // there is no existing instance of Singleton, so it will create one
 var instance1 = Singleton.getInstance();
 // there is an instance of Singleton, so it will return the reference to this one
@@ -402,7 +402,7 @@ console.log(instance1 === instance2); // true
 
 The Abstract Factory Pattern is a creational design pattern that can be used to define specific instances or classes without having to specify the exact object that is being created.
 
-```
+```js
 function Car() { this.name = "Car"; this.wheels = 4; }
 function Truck() { this.name = "Truck"; this.wheels = 6; }
 function Bike() { this.name = "Bike"; this.wheels = 2; }

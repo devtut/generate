@@ -17,21 +17,21 @@ In JavaScript, functions may be anonymously defined using the "arrow" (`=>`) syn
 
 The simplest form of an arrow function has its arguments on the left side of `=>` and the return value on the right side:
 
-```
+```js
 item => item + 1 // -> function(item){return item + 1}
 
 ```
 
 This function can be [immediately invoked](http://stackoverflow.com/documentation/javascript/186/functions/843/immediately-invoked-function-expressions#t=201701191225012327274) by providing an argument to the expression:
 
-```
+```js
 (item => item + 1)(41) // -> 42
 
 ```
 
 If an arrow function takes a single parameter, the parentheses around that parameter are optional. For example, the following expressions assign the same type of function into [constant variables](http://stackoverflow.com/documentation/javascript/3059/declarations-and-assignments/3965/declaring-and-initializing-constants#t=201701191238586119513):
 
-```
+```js
 const foo = bar => bar + 1;
 const bar = (baz) => baz + 1;
 
@@ -39,7 +39,7 @@ const bar = (baz) => baz + 1;
 
 However, if the arrow function takes no parameters, or more than one parameter, a new set of parentheses **must** encase all the arguments:
 
-```
+```js
 (() => "foo")() // -> "foo"
 
 ((bow, arrow) => bow + arrow)('I took an arrow ', 'to the knee...')
@@ -49,7 +49,7 @@ However, if the arrow function takes no parameters, or more than one parameter, 
 
 If the function body doesn't consist of a single expression, it must be surrounded by brackets and use an explicit `return` statement for providing a result:
 
-```
+```js
 (bar => {
   const baz = 41;
   return bar + baz;
@@ -59,7 +59,7 @@ If the function body doesn't consist of a single expression, it must be surround
 
 If the arrow function's body consists only of an object literal, this object literal has to be enclosed in parentheses:
 
-```
+```js
 (bar => ({ baz: 1 }))(); // -> Object {baz: 1}
 
 ```
@@ -75,7 +75,7 @@ Arrow functions are [lexically scoped](http://stackoverflow.com/questions/104745
 
 Take a look at the following example. The class `Cow` has a method that allows for it to print out the sound it makes after 1 second.
 
-```
+```js
 class Cow {
 
   constructor() {
@@ -106,7 +106,7 @@ If you had used a regular [function](http://stackoverflow.com/documentation/java
 
 Arrow functions do not expose an arguments object; therefore, `arguments` would simply refer to a variable in the current scope.
 
-```
+```js
 const arguments = [true];
 const foo = x => console.log(arguments[0]);
 
@@ -118,7 +118,7 @@ Due to this, arrow functions are also **not** aware of their caller/callee.
 
 While the lack of an arguments object can be a limitation in some edge cases, rest parameters are generally a suitable alternative.
 
-```
+```js
 const arguments = [true];
 const foo = (...arguments) => console.log(arguments[0]);
 
@@ -133,7 +133,7 @@ foo(false); // -> false
 
 Arrow functions may implicitly return values by simply omitting the curly braces that traditionally wrap a function's body if their body only contains a single expression.
 
-```
+```js
 const foo = x => x + 1;
 foo(1); // -> 2
 
@@ -141,7 +141,7 @@ foo(1); // -> 2
 
 When using implicit returns, object literals must be wrapped in parenthesis so that the curly braces are not mistaken for the opening of the function's body.
 
-```
+```js
 const foo = () => { bar: 1 } // foo() returns undefined
 const foo = () => ({ bar: 1 }) // foo() returns {bar: 1}
 
@@ -161,7 +161,7 @@ Arrow functions will throw a `TypeError` when used with the `new` keyword.
 
 Arrow functions can behave very similar to classic [functions](http://stackoverflow.com/documentation/javascript/186/functions) in that you may explicitly return a value from them using the `return` keyword; simply wrap your function's body in curly braces, and return a value:
 
-```
+```js
 const foo = x => {
   return x + 1;
 }

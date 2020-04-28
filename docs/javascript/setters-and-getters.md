@@ -11,7 +11,7 @@ description: "Defining a Setter/Getter Using Object.defineProperty, Defining an 
 ## Defining a Setter/Getter Using Object.defineProperty
 
 
-```
+```js
 var setValue;
 var obj = {};
 Object.defineProperty(obj, "objProperty", {
@@ -32,7 +32,7 @@ Object.defineProperty(obj, "objProperty", {
 
 JavaScript allows us to define getters and setters in the object literal syntax. Here's an example:
 
-```
+```js
 var date = {
     year: '2017',
     month: '02',
@@ -67,7 +67,7 @@ Accessing the `date.date` property would return the value `2017-02-27`.  Setting
 ## Defining getters and setters in ES6 class
 
 
-```
+```js
 class Person {
   constructor(firstname, lastname) {
     this._firstname = firstname;

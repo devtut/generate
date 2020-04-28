@@ -14,7 +14,7 @@ The `typeof` operator returns the data type of the unevaluated operand as a stri
 
 ### Syntax:
 
-```
+```js
 typeof operand
 
 ```
@@ -40,7 +40,7 @@ The unusual behavior of `document.all` with the `typeof` operator is from its fo
 
 ### Examples:
 
-```
+```js
 // returns 'number'
 typeof 3.14;
 typeof Infinity;
@@ -112,7 +112,7 @@ The `delete` operator deletes a property from an object.
 
 ### Syntax:
 
-```
+```js
 delete object.property
 
 delete object['property']
@@ -139,7 +139,7 @@ The `delete` operator does not directly free memory. It can indirectly free memo
 
 ### Examples:
 
-```
+```js
 // Deleting a property
 foo = 1;              // a global variable is a property of `window`: `window.foo`
 delete foo;           // true
@@ -180,7 +180,7 @@ The unary plus (`+`) precedes its operand **and evaluates** to its operand. It a
 
 ### Syntax:
 
-```
+```js
 +expression
 
 ```
@@ -203,7 +203,7 @@ Values that can't be converted will evaluate to `NaN`.
 
 ### Examples:
 
-```
+```js
 +42           // 42
 +"42"         // 42
 +true         // 1
@@ -220,7 +220,7 @@ Values that can't be converted will evaluate to `NaN`.
 Note that attempting to convert an array can result in unexpected return values.<br />
 In the background, arrays are first converted to their string representations:
 
-```
+```js
 [].toString() === '';
 [1].toString() === '1';
 [1, 2].toString() === '1,2';
@@ -229,7 +229,7 @@ In the background, arrays are first converted to their string representations:
 
 The operator then attempts to convert those strings to numbers:
 
-```
+```js
 +[]           // 0   ( === +'' )
 +[1]          // 1   ( === +'1' )
 +[1, 2]       // NaN ( === +'1,2' )
@@ -245,7 +245,7 @@ The `void` operator evaluates the given expression and then returns `undefined`.
 
 ### Syntax:
 
-```
+```js
 void expression
 
 ```
@@ -268,7 +268,7 @@ However, in older versions of ECMAScript, `window.undefined` could be assigned a
 
 Returning `undefined`:
 
-```
+```js
 function foo(){
     return void 0;
 }
@@ -278,7 +278,7 @@ console.log(foo()); // undefined
 
 Changing the value of `undefined` inside a certain scope:
 
-```
+```js
 (function(undefined){
     var str = 'foo';
     console.log(str === undefined); // true
@@ -295,7 +295,7 @@ The unary negation (`-`) precedes its operand and negates it, after trying to co
 
 ### Syntax:
 
-```
+```js
 -expression
 
 ```
@@ -312,7 +312,7 @@ Values that can't be converted will evaluate to `NaN` (there is no `-NaN`).
 
 ### Examples:
 
-```
+```js
 -42           // -42
 -"42"         // -42
 -true         // -1
@@ -329,7 +329,7 @@ Values that can't be converted will evaluate to `NaN` (there is no `-NaN`).
 Note that attempting to convert an array can result in unexpected return values.<br />
 In the background, arrays are first converted to their string representations:
 
-```
+```js
 [].toString() === '';
 [1].toString() === '1';
 [1, 2].toString() === '1,2';
@@ -338,7 +338,7 @@ In the background, arrays are first converted to their string representations:
 
 The operator then attempts to convert those strings to numbers:
 
-```
+```js
 -[]           // -0  ( === -'' )
 -[1]          // -1  ( === -'1' )
 -[1, 2]       // NaN ( === -'1,2' )
@@ -354,7 +354,7 @@ The bitwise NOT (`~`) performs a NOT operation on each bit in a value.
 
 ### Syntax:
 
-```
+```js
 ~expression
 
 ```
@@ -372,7 +372,7 @@ The truth table for the NOT operation is:
 |0|1
 |1|0
 
-```
+```js
 1337  (base 10) = 0000010100111001 (base 2)
 ~1337 (base 10) = 1111101011000110 (base 2) = -1338 (base 10)
 
@@ -400,7 +400,7 @@ The logical NOT (`!`) operator performs logical negation on an expression.
 
 ### Syntax:
 
-```
+```js
 !expression
 
 ```
@@ -418,7 +418,7 @@ Non-boolean values get converted to boolean values first, then are negated.
 
 This means that a double logical NOT (`!!`) can be used to cast any value to a boolean:
 
-```
+```js
 !!"FooBar" === true
 !!1 === true
 !!0 === false
@@ -427,7 +427,7 @@ This means that a double logical NOT (`!!`) can be used to cast any value to a b
 
 These are all equal to `!true`:
 
-```
+```js
 !'true' === !new Boolean('true');
 !'false' === !new Boolean('false');
 !'FooBar' === !new Boolean('FooBar');
@@ -438,7 +438,7 @@ These are all equal to `!true`:
 
 These are all equal to `!false`:
 
-```
+```js
 !0 === !new Boolean(0);
 !'' === !new Boolean('');
 !NaN === !new Boolean(NaN);
@@ -449,7 +449,7 @@ These are all equal to `!false`:
 
 ### Examples:
 
-```
+```js
 !true         // false
 !-1           // false
 !"-1"         // false

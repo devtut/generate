@@ -19,7 +19,7 @@ WebSocket works over HTTP protocol.
 ## Working with string messages
 
 
-```
+```js
 var wsHost = "ws://my-sites-url.com/path/to/echo-web-socket-handler";
 var ws = new WebSocket(wsHost);
 var value = "an example message";
@@ -47,7 +47,7 @@ ws.onopen = function() {
 ## Establish a web socket connection
 
 
-```
+```js
 var wsHost = "ws://my-sites-url.com/path/to/web-socket-handler";
 var ws = new WebSocket(wsHost);
 
@@ -58,7 +58,7 @@ var ws = new WebSocket(wsHost);
 ## Working with binary messages
 
 
-```
+```js
 var wsHost = "http://my-sites-url.com/path/to/echo-web-socket-handler";
 var ws = new WebSocket(wsHost);
 var buffer = new ArrayBuffer(5); // 5 byte buffer
@@ -85,7 +85,7 @@ ws.onopen = function() {
 ## Making a secure web socket connection
 
 
-```
+```js
 var sck = "wss://site.com/wss-handler";
 var wss = new WebSocket(sck);
 

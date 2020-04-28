@@ -14,14 +14,14 @@ A Map is a basic mapping of keys to values. Maps are different from objects in t
 
 To create a Map, use the Map constructor:
 
-```
+```js
 const map = new Map();
 
 ```
 
 It has an optional parameter, which can be any iterable object (for example an array) which contains arrays of two elements – first is the key, the seconds is the value. For example:
 
-```
+```js
 const map = new Map([[new Date(), {foo: "bar"}], [document.body, "body"]]);
 //                      ^key          ^value          ^key        ^value
 
@@ -34,14 +34,14 @@ const map = new Map([[new Date(), {foo: "bar"}], [document.body, "body"]]);
 
 To remove all elements from a Map, use the `.clear()` method:
 
-```
+```js
 map.clear();
 
 ```
 
 Example:
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 console.log(map.size); // 2
 map.clear();
@@ -57,14 +57,14 @@ console.log(map.get(1)); // undefined
 
 To remove an element from a map use the `.delete()` method.
 
-```
+```js
 map.delete(key);
 
 ```
 
 Example:
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 console.log(map.get(3)); // 4
 map.delete(3);
@@ -74,7 +74,7 @@ console.log(map.get(3)); // undefined
 
 This method returns `true` if the element existed and has been removed, otherwise `false`:
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 console.log(map.delete(1)); // true
 console.log(map.delete(7)); // false
@@ -88,14 +88,14 @@ console.log(map.delete(7)); // false
 
 To check if a key exists in a Map, use the `.has()` method:
 
-```
+```js
 map.has(key);
 
 ```
 
 Example:
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 console.log(map.has(1)); // true
 console.log(map.has(2)); // false
@@ -109,7 +109,7 @@ console.log(map.has(2)); // false
 
 Map has three methods which returns iterators: `.keys()`, `.values()` and `.entries()`. `.entries()` is the default Map iterator, and contains `[key, value]` pairs.
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 
 for (const [key, value] of map) {
@@ -133,7 +133,7 @@ Map also has `.forEach()` method. The first parameter is a callback function, wh
 
 The callback function has three arguments: value, key, and the map object.
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 map.forEach((value, key, theMap) => console.log(`key: ${key}, value: ${value}`));
 // logs:
@@ -153,7 +153,7 @@ If the element with the specified key doesn't exist in the map, `.get()` returns
 
 `.set()` method returns the map object, so you can chain `.set()` calls.
 
-```
+```js
 const map = new Map();
 console.log(map.get(1)); // undefined
 map.set(1, 2).set(3, 4);
@@ -168,7 +168,7 @@ console.log(map.get(1)); // 2
 
 To get the numbers of elements of a Map, use the `.size` property:
 
-```
+```js
 const map = new Map([[1, 2], [3, 4]]);
 console.log(map.size); // 2
 
@@ -210,7 +210,7 @@ console.log(map.size); // 2
 
 In Maps `NaN` is considered to be the same as `NaN`, even though `NaN !== NaN`. For example:
 
-```
+```js
 const map = new Map([[NaN, true]]);
 console.log(map.get(NaN)); // true
 

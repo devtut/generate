@@ -10,7 +10,7 @@ description: "Getting JSON data, Set Request Headers, POST Data, GlobalFetch, Se
 ## Getting JSON data
 
 
-```
+```js
 // get some data from stackoverflow
 fetch("https://api.stackexchange.com/2.2/questions/featured?order=desc&sort=activity&site=stackoverflow")
   .then(resp => resp.json())
@@ -24,7 +24,7 @@ fetch("https://api.stackexchange.com/2.2/questions/featured?order=desc&sort=acti
 ## Set Request Headers
 
 
-```
+```js
 fetch('/example.json', {
     headers: new Headers({
         'Accept': 'text/plain',
@@ -41,7 +41,7 @@ fetch('/example.json', {
 
 Posting form data
 
-```
+```js
 fetch(`/example/submit`, {
     method: 'POST',
     body: new FormData(document.getElementById('example-form'))
@@ -51,7 +51,7 @@ fetch(`/example/submit`, {
 
 Posting JSON data
 
-```
+```js
 fetch(`/example/submit.json`, {
     method: 'POST',
     body: JSON.stringify({
@@ -69,7 +69,7 @@ fetch(`/example/submit.json`, {
 
 The [GlobalFetch](https://fetch.spec.whatwg.org/#globalfetch) interface exposes the `fetch` function, which can be used to request resources.
 
-```
+```js
 fetch('/path/to/resource.json')
     .then(response => {
         if (!response.ok()) {
@@ -95,16 +95,17 @@ The fetch function does not send cookies by default. There are two possible ways
 
 1. Only send cookies if the URL is on the same origin as the calling script.
 
-```
+```js
 fetch('/login', {
     credentials: 'same-origin'
 })
 
 ```
 
+
 1. Always send cookies, even for cross-origin calls.
 
-```
+```js
 fetch('https://otherdomain.com/login', {
     credentials: 'include'
 })
@@ -116,7 +117,7 @@ fetch('https://otherdomain.com/login', {
 ## Using Fetch to Display Questions from the Stack Overflow API
 
 
-```
+```js
 const url =
       'http://api.stackexchange.com/2.2/questions?site=stackoverflow&tagged=javascript';
 

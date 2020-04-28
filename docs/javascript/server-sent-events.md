@@ -18,7 +18,7 @@ Example:
 
 Events have names with which they are categorized and sent, and a listener must be setup to listen to each such event by name. the default event name is `message` and in order to listen to it you must use the appropriate event listener, `.onmessage`
 
-```
+```js
 evtSource.onmessage = function(event) {
   var data = JSON.parse(event.data);
   // do something with data
@@ -35,7 +35,7 @@ The above function will run everytime the server will push an event to the clien
 
 An event stream to the server can be closed using the `EventSource.close()` method
 
-```
+```js
 var eventSource = new EventSource("api/my-events");
 // do things ...
 eventSource.close(); // you will not receive anymore events from this object
@@ -63,7 +63,7 @@ EventSource.addEventListener(name: String, callback: Function, [options])
 
 The following example shows a heartbeat event stream from the server, the server sends events on the `heartbeat` channel and this routine will always run when an event in accepted.
 
-```
+```js
 var eventSource = new EventSource("api/heartbeat");
 ...
 eventSource.addEventListener("heartbeat", function(event) {

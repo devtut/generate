@@ -23,22 +23,34 @@ The `postMessage()` method of the target `window` can be called to send a messag
 
 <li>
 Content of `http://main-site.com/index.html`:
-<pre><code> <!-- ... -->
+
+```js
+ <!-- ... -->
  <iframe id="frame-id" src="http://other-site.com/index.html"></iframe>
  <script src="main_site_script.js"></script>
  <!-- ... -->
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Content of `http://other-site.com/index.html`:
-<pre><code> <!-- ... -->
+
+```js
+ <!-- ... -->
  <script src="other_site_script.js"></src>
  <!-- ... -->
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Content of `main_site_script.js`:
-<pre><code> // Get the <iframe>'s window
+
+```js
+ // Get the <iframe>'s window
  var frameWindow = document.getElementById('frame-id').contentWindow;
 
  // Add a listener for a response
@@ -55,11 +67,16 @@ Content of `main_site_script.js`:
 
  // Send a message to the frame's window
  frameWindow.postMessage(/* any obj or var */, '*');
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Content of `other_site_script.js`:
-<pre><code> window.addEventListener('message', function(evt) { 
+
+```js
+ window.addEventListener('message', function(evt) { 
 
      // IMPORTANT: Check the origin of the data! 
      if (event.origin.indexOf('http://main-site.com') == 0) {
@@ -72,7 +89,10 @@ Content of `other_site_script.js`:
          window.parent.postMessage(/* any obj or var */, '*');
      }
  });
-</code></pre>
+
+```
+
+
 </li>
 
 
@@ -96,7 +116,7 @@ However, because developers cannot change other servers' response headers, this 
 
 The data requested using JSONP is typically [JSON](http://stackoverflow.com/documentation/javascript/416/json#t=201701100442325497224), which happens to fit the syntax used for object definition in JavaScript, making this method of transport very simple. A common way to let websites use the external data obtained via JSONP is to wrap it inside a callback function, which is set via a `GET` parameter in the URL. Once the external script file loads, the function will be called with the data as its first parameter.
 
-```
+```js
 <script>
 function myfunc(obj){
     console.log(obj.example_field);
@@ -108,7 +128,7 @@ function myfunc(obj){
 
 The contents of `http://example.com/api/endpoint.js?callback=myfunc` might look like this:
 
-```
+```js
 myfunc({"example_field":true})
 
 ```

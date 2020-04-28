@@ -23,14 +23,14 @@ You can push items into a set and iterate them similar to a plain JavaScript arr
 
 To create a new set:
 
-```
+```js
 const mySet = new Set();
 
 ```
 
 Or you can create a set from any iterable object to give it starting values:
 
-```
+```js
 const arr = [1,2,3,4,4,5];
 const mySet = new Set(arr);
 
@@ -45,7 +45,7 @@ In the example above the set content would be `{1, 2, 3, 4, 5}`. Note that the v
 
 To add a value to a Set, use the `.add()` method:
 
-```
+```js
 mySet.add(5);
 
 ```
@@ -54,7 +54,7 @@ If the value already exist in the set it will not be added again, as Sets contai
 
 Note that the `.add()` method returns the set itself, so you can chain add calls together:
 
-```
+```js
 mySet.add(1).add(2).add(3);
 
 ```
@@ -66,7 +66,7 @@ mySet.add(1).add(2).add(3);
 
 To remove a value from a set, use `.delete()` method:
 
-```
+```js
 mySet.delete(some_val);
 
 ```
@@ -80,7 +80,7 @@ This function will return `true` if the value existed in the set and was removed
 
 To check if a given value exists in a set, use `.has()` method:
 
-```
+```js
 mySet.has(someVal);
 
 ```
@@ -94,7 +94,7 @@ Will return `true` if `someVal` appears in the set, `false` otherwise.
 
 You can remove all the elements in a set using the `.clear()` method:
 
-```
+```js
 mySet.clear();
 
 ```
@@ -106,7 +106,7 @@ mySet.clear();
 
 You can get the number of elements inside the set using the `.size` property
 
-```
+```js
 const mySet = new Set([1, 2, 2, 3]);
 mySet.add(4);
 mySet.size; // 4
@@ -115,7 +115,7 @@ mySet.size; // 4
 
 This property, unlike `Array.prototype.length`, is read-only, which means that you can't change it by assigning something to it:
 
-```
+```js
 mySet.size = 5;
 mySet.size; // 4
 
@@ -123,7 +123,7 @@ mySet.size; // 4
 
 In strict mode it even throws an error:
 
-```
+```js
 TypeError: Cannot set property size of #<Set> which has only a getter
 
 ```
@@ -135,7 +135,7 @@ TypeError: Cannot set property size of #<Set> which has only a getter
 
 Sometimes you may need to convert a Set to an array, for example to be able to use `Array.prototype` methods like `.filter()`. In order to do so, use [`Array.from()`](http://stackoverflow.com/documentation/javascript/187/arrays/2333/converting-an-array-like-object-list-to-an-array#t=201608050855343146834) or [`destructuring-assignment`](http://stackoverflow.com/documentation/javascript/616/destructuring-assignment#t=201702150551283063641):
 
-```
+```js
 var mySet = new Set([1, 2, 3, 4]);
 //use Array.from
 const myArray = Array.from(mySet);
@@ -146,14 +146,14 @@ const myArray = [...mySet];
 
 Now you can filter the array to contain only even numbers and convert it back to Set using Set constructor:
 
-```
+```js
 mySet = new Set(myArray.filter(x => x % 2 === 0));
 
 ```
 
 `mySet` now contains only even numbers:
 
-```
+```js
 console.log(mySet); // Set {2, 4}
 
 ```
@@ -165,7 +165,7 @@ console.log(mySet); // Set {2, 4}
 
 There are no build-in methods for intersection and difference in Sets, but you can still achieve that but converting them to arrays, filtering, and converting back to Sets:
 
-```
+```js
 var set1 = new Set([1, 2, 3, 4]),
     set2 = new Set([3, 4, 5, 6]);
 
@@ -181,7 +181,7 @@ const difference = new Set(Array.from(set1).filter(x => !set2.has(x))); //Set {1
 
 You can use a simple for-of loop to iterate a Set:
 
-```
+```js
 const mySet = new Set([1, 2, 3]);
 
 for (const value of mySet) {
@@ -192,7 +192,7 @@ for (const value of mySet) {
 
 When iterating over a set, it will always return values in the order they were first added to the set. For example:
 
-```
+```js
 const set = new Set([4, 5, 6])
 set.add(10)
 set.add(5) //5 already exists in the set
@@ -204,7 +204,7 @@ There's also a `.forEach()` method, similar to `Array.prototype.forEach()`. It h
 
 `callback` has three arguments. The first two arguments are both the current element of Set (for consistency with `Array.prototype.forEach()` and `Map.prototype.forEach()`) and the third argument is the Set itself.
 
-```
+```js
 mySet.forEach((value, value2, set) => console.log(value)); // logs 1, 2 and 3
 
 ```

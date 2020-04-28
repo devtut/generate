@@ -43,14 +43,14 @@ Workers can be created in a few ways.
 
 The most common is from a simple URL:
 
-```
+```js
 var webworker = new Worker("./path/to/webworker.js");
 
 ```
 
 It's also possible to create a Worker dynamically from a string using `URL.createObjectURL()`:
 
-```
+```js
 var workerData = "function someFunction() {}; console.log('More code');";
 
 var blobURL = URL.createObjectURL(new Blob(["(" + workerData + ")"], { type: "text/javascript" }));
@@ -61,7 +61,7 @@ var webworker = new Worker(blobURL);
 
 The same method can be combined with `Function.toString()` to create a worker from an existing function:
 
-```
+```js
 var workerFn = function() {
     console.log("I was run");
 };
@@ -77,7 +77,7 @@ var webworker = new Worker(blobURL);
 ## Register a service worker
 
 
-```
+```js
 // Check if service worker is available. 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -88,6 +88,7 @@ if ('serviceWorker' in navigator) {
 }
 
 ```
+
 
 - You can call `register()` on every page load. If the SW is already registered, the browser provides you with instance that is already running
 - The SW file can be any name. `sw.js` is common.
@@ -102,7 +103,7 @@ Once you are done with a worker you should terminate it. This helps to free up r
 
 **Main Thread:**
 
-```
+```js
 // Terminate a worker from your application.
 worker.terminate();
 
@@ -112,7 +113,7 @@ worker.terminate();
 
 **Worker Thread:**
 
-```
+```js
 // Have a worker terminate itself.
 self.close();
 
@@ -127,7 +128,7 @@ After your service worker is registered, the browser will try to install & later
 
 **Install event listener**
 
-```
+```js
 this.addEventListener('install', function(event) {
     console.log('installed');
 });
@@ -139,7 +140,7 @@ this.addEventListener('install', function(event) {
 One can use this install event returned to cache the assets needed to run the app offline.
 Below example uses the cache api to do the same.
 
-```
+```js
 this.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open('v1').then(function(cache) {
@@ -164,14 +165,14 @@ Since workers run in a separate thread from the one that created them, communica
 
 **Note:** Because of the different export prefixes, some browsers have `webkitPostMessage` instead of `postMessage`. You should override `postMessage` to make sure workers "work" (no pun intended) in the most places possible:
 
-```
+```js
 worker.postMessage = (worker.webkitPostMessage || worker.postMessage);
 
 ```
 
 From the main thread (parent window):
 
-```
+```js
 // Create a worker
 var webworker = new Worker("./path/to/webworker.js");
 
@@ -188,7 +189,7 @@ webworker.addEventListener("message", function(event) {
 
 From the worker, in `webworker.js`:
 
-```
+```js
 // Send information to the main thread (parent window)
 self.postMessage(["foo", "bar", "baz"]);
 
@@ -204,7 +205,7 @@ Alternatively, you can also add event listeners using `onmessage`:
 
 From the main thread (parent window):
 
-```
+```js
 webworker.onmessage = function(event) {
     console.log("Message from worker:", event.data); // ["foo", "bar", "baz"]
 }
@@ -213,7 +214,7 @@ webworker.onmessage = function(event) {
 
 From the worker, in `webworker.js`:
 
-```
+```js
 self.onmessage = function(event) {
     console.log("Message from parent:", event.data); // "Sample message"
 }
@@ -231,7 +232,7 @@ A dedicated web worker is only accessible by the script that called it.
 
 Main application:
 
-```
+```js
 var worker = new Worker('worker.js');
 worker.addEventListener('message', function(msg) {
     console.log('Result from the worker:', msg.data);
@@ -242,7 +243,7 @@ worker.postMessage([2,3]);
 
 worker.js:
 
-```
+```js
 self.addEventListener('message', function(msg) {
     console.log('Worker received arguments:', msg.data);
     self.postMessage(msg.data[0] + msg.data[1]);
@@ -258,7 +259,7 @@ Creating a shared worker is very similar to how to create a dedicated one, but i
 
 Main application
 
-```
+```js
 var myWorker = new SharedWorker('worker.js');
 myWorker.port.start();  // open the port connection
 
@@ -268,7 +269,7 @@ myWorker.port.postMessage([2,3]);
 
 worker.js
 
-```
+```js
 self.port.start(); open the port connection to enable two-way communication
 
 self.onconnect = function(e) {

@@ -19,7 +19,7 @@ Calling [`console.time([label])`](https://developer.mozilla.org/en-US/docs/Web/A
 
 **Example 1:**
 
-```
+```js
 console.time('response in');
 
 alert('Click to continue');
@@ -32,7 +32,7 @@ console.timeEnd('response in');
 
 will output:
 
-```
+```js
 response in: 774.967ms
 response in: 1402.199ms
 
@@ -40,7 +40,7 @@ response in: 1402.199ms
 
 **Example 2:**
 
-```
+```js
 var elms = document.getElementsByTagName('*'); //select all elements on the page
 
 console.time('Loop time');
@@ -57,7 +57,7 @@ console.timeEnd('Loop time');
 
 will output:
 
-```
+```js
 Loop time: 40.716ms
 
 ```
@@ -69,7 +69,7 @@ Loop time: 40.716ms
 
 Many of the [console's print methods](http://stackoverflow.com/documentation/javascript/2288/console/7511/printing-to-a-browsers-debugging-console#t=201701021150430209756) can also handle [C-like string formatting](http://stackoverflow.com/documentation/c/3750/formatted-input-output/13619/conversion-specifiers-for-printing#t=201701021144085503458), using `%` tokens:
 
-```
+```js
 console.log('%s has %d points', 'Sam', 100);
 
 ```
@@ -91,7 +91,7 @@ The full list of format specifiers in Javascript is:
 
 When the CSS format specifier (`%c`) is placed at the left side of the string, the print method will accept a second parameter with CSS rules which allow fine-grained control over the formatting of that string:
 
-```
+```js
 console.log('%cHello world!', 'color: blue; font-size: xx-large');
 
 ```
@@ -107,7 +107,7 @@ It is possible to use multiple `%c` format specifiers:
 - if two `%c` format specifiers are found, the 1<sup>st</sup> (encased in `%c`) and 2<sup>nd</sup> substring will have their rules defined in the 2<sup>nd</sup>  and 3<sup>rd</sup> parameter of the print method respectively.
 - if three `%c` format specifiers are found, then the 1<sup>st</sup>, 2<sup>nd</sup>  and 3<sup>rd</sup> substrings will have their rules defined in the 2<sup>nd</sup> , 3<sup>rd</sup>  and 4<sup>th</sup> parameter respectively, and so on...
 
-```
+```js
 console.log("%cHello %cWorld%c!!", // string to be printed
             "color: blue;", // applies color formatting to the 1st substring
             "font-size: xx-large;", // applies font formatting to the 2nd substring
@@ -142,7 +142,7 @@ Groups can be cascaded to allow multiple idented output or collapsible layers wi
 
 A browser's debugging console can be used in order to print simple messages. This debugging or [web console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console) can be directly opened in the browser (<kbd>F12</kbd> key in most browsers – see **Remarks** below for further information) and the `log` method of the `console` Javascript object can be invoked by typing the following:
 
-```
+```js
 console.log('My message');
 
 ```
@@ -151,7 +151,7 @@ Then, by pressing <kbd>Enter</kbd>, this will display `My message` in the debugg
 
 `console.log()` can be called with any number of arguments and variables available in the current scope. Multiple arguments will be printed in one line with a small space between them.
 
-```
+```js
 var obj = { test: 1 };
 console.log(['string'], 1, obj, window);
 
@@ -159,14 +159,14 @@ console.log(['string'], 1, obj, window);
 
 The `log` method will display the following in the debugging console:
 
-```
+```js
 ['string']  1  Object { test: 1 }  Window { /* truncated */ }
 
 ```
 
 Beside plain strings, `console.log()` can handle other types, like arrays, objects, dates, functions, etc.:
 
-```
+```js
 console.log([0, 3, 32, 'a string']);
 console.log({ key1: 'value', key2: 'another value'});
 
@@ -174,7 +174,7 @@ console.log({ key1: 'value', key2: 'another value'});
 
 Displays:
 
-```
+```js
 Array [0, 3, 32, 'a string']
 Object { key1: 'value', key2: 'another value'}
 
@@ -182,21 +182,21 @@ Object { key1: 'value', key2: 'another value'}
 
 Nested objects may be collapsed:
 
-```
+```js
 console.log({ key1: 'val', key2: ['one', 'two'], key3: { a: 1, b: 2 } });
 
 ```
 
 Displays:
 
-```
+```js
 Object { key1: 'val', key2: Array[2], key3: Object }
 
 ```
 
 Certain types such as `Date` objects and `function`s may be displayed differently:
 
-```
+```js
 console.log(new Date(0));
 console.log(function test(a, b) { return c; });
 
@@ -204,7 +204,7 @@ console.log(function test(a, b) { return c; });
 
 Displays:
 
-```
+```js
 Wed Dec 31 1969 19:00:00 GMT-0500 (Eastern Standard Time)
 function test(a, b) { return c; }
 
@@ -225,27 +225,47 @@ In addition to the `log` method, modern browsers also support similar methods:
 </li>
 <li>
 [`console.timeStamp`](https://developer.mozilla.org/en-US/docs/Web/API/Console/timeStamp) – outputs the current time and a specified string, but is non-standard:
-<pre><code>console.timeStamp('msg');
-</code></pre>
+
+```js
+console.timeStamp('msg');
+
+```
+
+
 Displays:
-<pre><code>00:00:00.001 msg
-</code></pre>
+
+```js
+00:00:00.001 msg
+
+```
+
+
 </li>
 <li>
 [`console.trace`](https://developer.mozilla.org/en-US/docs/Web/API/Console/trace) – outputs the current stack trace or displays the same output as the `log` method if invoked in the global scope.
-<pre><code>function sec() {
+
+```js
+function sec() {
    first();
 }
 function first() {
    console.trace();
 }
 sec();
-</code></pre>
+
+```
+
+
 Displays:
-<pre><code>first
+
+```js
+first
 sec
 (anonymous function)
-</code></pre>
+
+```
+
+
 </li>
 
 [<img src="https://i.stack.imgur.com/Rk9OO.png" alt="Console functions" />](https://i.stack.imgur.com/Rk9OO.png)
@@ -262,7 +282,7 @@ See the [`console.dir`](http://stackoverflow.com/documentation/javascript/2288/c
 ## Including a stack trace when logging - console.trace()
 
 
-```
+```js
 function foo() {
   console.trace('My log statement');
 }
@@ -273,7 +293,7 @@ foo();
 
 Will display this in the console:
 
-```
+```js
 My log statement       VM696:1
   foo                  @ VM696:1
   (anonymous function) @ (program):1
@@ -282,7 +302,7 @@ My log statement       VM696:1
 
 Note: Where available it's also useful to know that the same stack trace is accessible as a property of the Error object. This can be useful for post-processing and gathering automated feedback.
 
-```
+```js
 var e = new Error('foo');
 console.log(e.stack);
 
@@ -297,7 +317,7 @@ In most environments, `console.table()` can be used to display objects and array
 
 **For example:**
 
-```
+```js
 console.table(['Hello', 'world']);
 
 ```
@@ -309,7 +329,7 @@ displays like:
 |0|"Hello"
 |1|"world"
 
-```
+```js
 console.table({foo: 'bar', bar: 'baz'});
 
 ```
@@ -361,7 +381,7 @@ displays like:
 
 [`console.count([obj])`](https://developer.mozilla.org/en-US/docs/Web/API/Console/count) places a counter on the object's value provided as argument. Each time this method is invoked, the counter is increased (with the exception of the empty string `''`). A label together with a number is displayed in the debugging console according to the following format:
 
-```
+```js
 [label]: X
 
 ```
@@ -370,7 +390,7 @@ displays like:
 
 An object's value is always considered, even if variables are provided as arguments:
 
-```
+```js
 var o1 = 1, o2 = '2', o3 = "";
 console.count(o1);
 console.count(o2);
@@ -384,7 +404,7 @@ console.count('');
 
 Displays:
 
-```
+```js
 1: 1
 2: 1
 : 1
@@ -396,7 +416,7 @@ Displays:
 
 Strings with numbers are converted to `Number` objects:
 
-```
+```js
 console.count(42.3);
 console.count(Number('42.3'));
 console.count('42.3');
@@ -405,7 +425,7 @@ console.count('42.3');
 
 Displays:
 
-```
+```js
 42.3: 1
 42.3: 2
 42.3: 3
@@ -414,7 +434,7 @@ Displays:
 
 Functions point always to the global `Function` object:
 
-```
+```js
 console.count(console.constructor);
 console.count(function(){});
 console.count(Object);
@@ -426,7 +446,7 @@ console.count(Number);
 
 Displays:
 
-```
+```js
 [object Function]: 1
 [object Function]: 2
 [object Function]: 3
@@ -437,7 +457,7 @@ Displays:
 
 Certain objects get specific counters associated to the type of object they refer to:
 
-```
+```js
 console.count(undefined);
 console.count(document.Batman);
 var obj;
@@ -460,7 +480,7 @@ console.count(null);
 
 Displays:
 
-```
+```js
 undefined: 1
 undefined: 2
 undefined: 3
@@ -484,7 +504,7 @@ null: 1
 
 If no argument is provided while **sequentially inputting the count method in the debugging console**, an empty string is assumed as parameter, i.e.:
 
-```
+```js
 > console.count();
   : 1
 > console.count('');
@@ -501,7 +521,7 @@ If no argument is provided while **sequentially inputting the count method in th
 
 Writes an error message to the console if the assertion is `false`. Otherwise, if the assertion is `true`, this does nothing.
 
-```
+```js
 console.assert('one' === 1);
 
 ```
@@ -528,7 +548,7 @@ You can clear the console window using the `console.clear()` method. This remove
 
 `console.dir(object)` displays an interactive list of the properties of the specified JavaScript object. The output is presented as a hierarchical listing with disclosure triangles that let you see the contents of child objects.
 
-```
+```js
 var myObject = {
     "foo":{
         "bar":"data"
@@ -547,7 +567,7 @@ displays:
 
 **Example 1:**
 
-```
+```js
 console.dirxml(document)
 
 ```
@@ -558,7 +578,7 @@ displays:
 
 **Example 2:**
 
-```
+```js
 console.log(document)
 
 ```
@@ -569,7 +589,7 @@ displays:
 
 **Example 3:**
 
-```
+```js
 var myObject = {
     "foo":{
         "bar":"data"
@@ -689,7 +709,7 @@ Opening the “Console” in opera:
 
 When using or emulating Internet Explorer 8 or earlier versions (e.g. through Compatibility View / Enterprise Mode) the console will **only** be defined when the Developer Tools are active, so `console.log()` statements can cause an exception and prevent code from executing. To mitigate this, you can check to see if the console is available before you log:
 
-```
+```js
 if (typeof window.console !== 'undefined')
 {
    console.log("Hello World");
@@ -699,7 +719,7 @@ if (typeof window.console !== 'undefined')
 
 Or at the start of your script you can identify if the console is available and if not, define a null function to catch all of your references and prevent exceptions.
 
-```
+```js
 if (!window.console)
 { 
     console = {log: function() {}}; 

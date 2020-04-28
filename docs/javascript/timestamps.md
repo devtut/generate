@@ -14,7 +14,7 @@ description: "High-resolution timestamps, Low-resolution timestamps, Get Timesta
 
 More generally, it returns the time elapsed since the [`performanceTiming.navigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) event.
 
-```
+```js
 t = performance.now();
 
 ```
@@ -28,7 +28,7 @@ For example, in a web browser's main context, `performance.now()` returns `6288.
 
 [`Date.now()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now) returns the number of whole milliseconds that have elapsed since 1 January 1970 00:00:00 UTC.
 
-```
+```js
 t = Date.now();
 
 ```
@@ -42,7 +42,7 @@ For example, `Date.now()` returns `1461069314` if it was called on 19 April 2016
 
 To get the timestamp in seconds
 
-```
+```js
 Math.floor((new Date().getTime()) / 1000)
 
 ```
@@ -54,14 +54,14 @@ Math.floor((new Date().getTime()) / 1000)
 
 In older browsers where `Date.now()` is unavailable, use [`(new Date()).getTime()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) instead:
 
-```
+```js
 t = (new Date()).getTime();
 
 ```
 
 Or, to provide a `Date.now()` function for use in older browsers, [use this polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now#Polyfill):
 
-```
+```js
 if (!Date.now) {
   Date.now = function now() {
     return new Date().getTime();

@@ -13,7 +13,7 @@ Javascript is great for designing fluent API - a consumer-oriented API with focu
 ## Fluent API capturing construction of HTML articles with JS
 
 
-```
+```js
 class Item {
     constructor(text, type) {   
         this.text = text;
@@ -99,7 +99,7 @@ Article.withTopic = topic => new Article(topic);
 
 This allows the consumer of the API to have a nice-looking article construction, almost a DSL for this purpose, using plain JS:
 
-```
+```js
 const articles = [
     Article.withTopic('Artificial Intelligence - Overview')
       .section('What is Artificial Intelligence?')

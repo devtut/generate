@@ -11,7 +11,7 @@ description: "Swapping Two Integers with Bitwise XOR (without additional memory 
 ## Swapping Two Integers with Bitwise XOR (without additional memory allocation)
 
 
-```
+```js
 var a = 11, b = 22;
 a = a ^ b;
 b = a ^ b;
@@ -27,7 +27,7 @@ console.log("a = " + a + "; b = " + b);// a is now 22 and b is now 11
 
 Instead of this (unfortunately too often seen in the real code) "masterpiece":
 
-```
+```js
 function isEven(n) {
     return n % 2 == 0;
 }
@@ -44,7 +44,7 @@ function isOdd(n) {
 
 You can do the parity check much more effective and simple:
 
-```
+```js
 if(n & 1) {
     console.log("ODD!");
 } else {
@@ -62,7 +62,7 @@ if(n & 1) {
 
 Shifting bits left (right) is equivalent to multiplying (dividing) by 2. It's the same in base 10: if we "left-shift" `13` by `2` places, we get `1300`, or `13 * (10 ** 2)`. And if we take `12345` and "right-shift" by `3` places and then remove the decimal part, we get `12`, or `Math.floor(12345 / (10 ** 3))`. So if we want to multiply a variable by `2 ** n`, we can just left-shift by `n` bits.
 
-```
+```js
 console.log(13 * (2 ** 6)) //13 * 64 = 832
 console.log(13    <<   6)  //          832
 
@@ -70,7 +70,7 @@ console.log(13    <<   6)  //          832
 
 Similarly, to do (floored) integer division by `2 ** n`, we can right shift by `n` bits. Example:
 
-```
+```js
 console.log(1000 / (2 ** 4)) //1000 / 16 = 62.5
 console.log(1000    >>   4)  //            62
 
@@ -78,7 +78,7 @@ console.log(1000    >>   4)  //            62
 
 It even works with negative numbers:
 
-```
+```js
 console.log(-80 / (2 ** 3)) //-80 / 8 = -10
 console.log(-80      >> 3)  //          -10
 

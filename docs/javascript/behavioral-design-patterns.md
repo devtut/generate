@@ -12,7 +12,7 @@ description: "Observer pattern, Mediator Pattern, Command, Iterator"
 
 The [Observer](https://en.wikipedia.org/wiki/Observer_pattern) pattern is used for event handling and delegation. A **subject** maintains a collection of **observers.** The subject then notifies these observers whenever an event occurs. If you've ever used [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) then you've utilized the Observer pattern.
 
-```
+```js
 function Subject() {
     this.observers = []; // Observers listening to the subject
     
@@ -49,7 +49,7 @@ function Observer() {
 
 **Example usage:**
 
-```
+```js
 function Employee(name) {
     this.name = name;
 
@@ -83,7 +83,7 @@ This is how mediator works, it works as a communication hub among different modu
 
 This **[Chatroom example](http://www.dofactory.com/javascript/mediator-design-pattern)** explains how mediator patterns works:
 
-```
+```js
 // each participant is just a module that wants to talk to other modules(other participants)
 var Participant = function(name) {
     this.name = name;
@@ -168,7 +168,7 @@ There are three components in this pattern:
 
 **Command Message as an Array**
 
-```
+```js
 var aCommand = new Array();
 aCommand.push(new Instructions().DoThis);  //Method to execute
 aCommand.push("String Argument");  //string argument
@@ -180,7 +180,7 @@ aCommand.push(new Array() );       //array argument
 
 Constructor for command class
 
-```
+```js
 class DoThis {
     constructor( stringArg, numArg, objectArg, arrayArg ) {
         this._stringArg = stringArg;
@@ -198,7 +198,7 @@ class DoThis {
 
 **Invoker**
 
-```
+```js
 aCommand.Execute();  
 
 ```
@@ -214,7 +214,7 @@ Can invoke:
 
 **Receiver**
 
-```
+```js
 class Instructions {
     DoThis( stringArg, numArg, objectArg, arrayArg ) {
         console.log( `${stringArg}, ${numArg}, ${objectArg}, ${arrayArg}` );
@@ -234,7 +234,7 @@ An iterator pattern provides a simple method for selecting, sequentially, the ne
 
 **Fixed Collection**
 
-```
+```js
 class BeverageForPizza {
     constructor(preferenceRank) {
         this.beverageList = beverageList;
@@ -253,7 +253,7 @@ withPepperoni.next(); //Beer
 
 In ECMAScript 2015 iterators are a built-in as a method that returns done and value. done is true when the iterator is at the end of the collection
 
-```
+```js
 function preferredBeverage(beverage){
     if( beverage == "Beer" ){
         return true;
@@ -273,7 +273,7 @@ for( var bevToOrder of withPepperoni ){
 
 **As a Generator**
 
-```
+```js
 class FibonacciIterator {
     constructor() {
         this.previous = 1;
@@ -296,7 +296,7 @@ fib.next(); //5
 
 In ECMAScript 2015
 
-```
+```js
 function* FibonacciGenerator() {  //asterisk informs javascript of generator 
     var previous = 1;
     var beforePrevious = 1;

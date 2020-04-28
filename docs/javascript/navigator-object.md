@@ -13,7 +13,7 @@ description: "Get some basic browser data and return it as a JSON object"
 
 The following function can be used to get some basic information about the current browser and return it in JSON format.
 
-```
+```js
 function getBrowserInfo() {
     var
         json = "[{",

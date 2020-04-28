@@ -13,7 +13,7 @@ description: "Defining a module, Default exports, Importing named members from a
 
 In ECMAScript 6, when using the module syntax (`import`/`export`), each file becomes its own module with a private namespace. Top-level functions and variables do not pollute the global namespace. To expose functions, classes, and variables for other modules to import, you can use the `export` keyword.
 
-```
+```js
 // not exported
 function somethingPrivate() {
     console.log('TOP SECRET')
@@ -44,7 +44,7 @@ Only the values which are explicitly exported will be available outside of the m
 
 Importing this module would yield (assuming the previous code block is in `my-module.js`):
 
-```
+```js
 import * as myModule from './my-module.js';
 
 myModule.PI;                 // 3.14
@@ -62,7 +62,7 @@ myModule.somethingPrivate(); // This would fail since somethingPrivate was not e
 
 In addition to named imports, you can provide a default export.
 
-```
+```js
 // circle.js
 export const PI = 3.14;
 export default function area(radius) {
@@ -73,7 +73,7 @@ export default function area(radius) {
 
 You can use a simplified syntax to import the default export.
 
-```
+```js
 import circleArea from './circle';
 console.log(circleArea(4));
 
@@ -81,7 +81,7 @@ console.log(circleArea(4));
 
 Note that a **default export** is implicitly equivalent to a named export with the name `default`, and the imported binding (`circleArea` above) is simply an alias. The previous module can be written like
 
-```
+```js
 import { default as circleArea } from './circle';
 console.log(circleArea(4));
 
@@ -89,7 +89,7 @@ console.log(circleArea(4));
 
 You can only have one default export per module. The name of the default export can be omitted.
 
-```
+```js
 // named export: must have a name
 export const PI = 3.14;
 
@@ -107,7 +107,7 @@ export default function (radius) {
 
 Given that the module from the Defining a Module section exists in the file `test.js`, you can import from that module and use its exported members:
 
-```
+```js
 import {doSomething, MyClass, PI} from './test'
 
 doSomething()
@@ -121,7 +121,7 @@ console.log(PI)
 
 The `somethingPrivate()` method was not exported from the `test` module, so attempting to import it will fail:
 
-```
+```js
 import {somethingPrivate} from './test'
 
 somethingPrivate()
@@ -135,7 +135,7 @@ somethingPrivate()
 
 In addition to importing named members from a module or a module's default export, you can also import all members into a namespace binding.
 
-```
+```js
 import * as test from './test'
 
 test.doSomething()
@@ -153,7 +153,7 @@ All exported members are now available on the `test` variable. Non-exported memb
 
 Sometimes you may encounter members that have really long member names, such as `thisIsWayTooLongOfAName()`. In this case, you can import the member and give it a shorter name to use in your current module:
 
-```
+```js
 import {thisIsWayTooLongOfAName as shortName} from 'module'
 
 shortName()
@@ -162,7 +162,7 @@ shortName()
 
 You can import multiple long member names like this:
 
-```
+```js
 import {thisIsWayTooLongOfAName as shortName, thisIsAnotherLongNameThatShouldNotBeUsed as otherName} from 'module'
 
 shortName()
@@ -172,7 +172,7 @@ console.log(otherName)
 
 And finally, you can mix import aliases with the normal member import:
 
-```
+```js
 import {thisIsWayTooLongOfAName as shortName, PI} from 'module'
 
 shortName()
@@ -189,14 +189,14 @@ Sometimes you have a module that you only want to import so its top-level code g
 
 Given a file named `test.js`:
 
-```
+```js
 console.log('Initializing...')
 
 ```
 
 You can use it like this:
 
-```
+```js
 import './test'
 
 ```
@@ -208,7 +208,7 @@ This example will print `Initializing...` to the console.
 ## Exporting multiple named members
 
 
-```
+```js
 const namedMember1 = ...
 const namedMember2 = ...
 const namedMember3 = ...

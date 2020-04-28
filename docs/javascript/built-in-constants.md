@@ -14,7 +14,7 @@ description: "null, Testing for NaN using isNaN(), NaN, undefined and null, Infi
 
 It is equal to `undefined` but not identical to it.
 
-```
+```js
 null == undefined; // true
 null === undefined; // false
 
@@ -22,14 +22,14 @@ null === undefined; // false
 
 **CAREFUL**: The `typeof` `null` is `'object'`.
 
-```
+```js
 typeof null; // 'object';
 
 ```
 
 To properly check if a value is `null`, compare it with the [strict equality operator](http://stackoverflow.com/documentation/javascript/208/boolean-logic/798/strictly-equal#t=201606190429161299094)
 
-```
+```js
 var a = null;
 
 a === null; // true
@@ -49,7 +49,7 @@ The global function `isNaN()` can be used to check if a certain value or express
 
 These examples will help you better understand the `isNaN()` behavior:
 
-```
+```js
 isNaN(NaN);          // true
 isNaN(1);            // false: 1 is a number
 isNaN(-2e-4);        // false: -2e-4 is a number (-0.0002) in scientific notation
@@ -92,7 +92,7 @@ When the `Number.isNaN` is called with one argument `number`, the following step
 
 Some examples:
 
-```
+```js
 // The one and only 
 Number.isNaN(NaN);          // true
 
@@ -133,7 +133,7 @@ Number.isNaN([true]);       // false
 
 It is a property of the global object, and a reference to [`Number.NaN`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/NaN)
 
-```
+```js
 window.hasOwnProperty('NaN'); // true
 NaN; // NaN
 
@@ -141,14 +141,14 @@ NaN; // NaN
 
 Perhaps confusingly, `NaN` is still considered a number.
 
-```
+```js
 typeof NaN; // 'number'
 
 ```
 
 Don't check for `NaN` using the equality operator. See [`isNaN`](https://stackoverflow.com/documentation/javascript/700/built-in-constants/1760/testing-for-nan-using-isnan#t=201607272211248187198) instead.
 
-```
+```js
 NaN == NaN  // false
 NaN === NaN // false
 
@@ -176,40 +176,60 @@ The following evaluate to `undefined`:
 <li>A variable when it is declared but not assigned a value (i.e. defined)
 <ul>
 <li>
-<pre><code>let foo;
+
+```js
+let foo;
 console.log('is undefined?', foo === undefined);
 // is undefined? true
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
-<pre><code>let foo = { a: 'a' };
+
+```js
+let foo = { a: 'a' };
 console.log('is undefined?', foo.b === undefined);
 // is undefined? true
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
-<pre><code>function foo() { return; }
+
+```js
+function foo() { return; }
 console.log('is undefined?', foo() === undefined);
 // is undefined? true
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
-<pre><code>function foo(param) { 
+
+```js
+function foo(param) { 
   console.log('is undefined?', param === undefined);
 }
 foo('a');
 foo();
 // is undefined? false
 // is undefined? true
-</code></pre>
+
+```
+
+
 </li>
 
 `undefined` is also a property of the global `window` object.
 
-```
+```js
 // Only in browsers
 console.log(window.undefined); // undefined
 window.hasOwnProperty('undefined'); // true    
@@ -223,7 +243,7 @@ Before ECMAScript 5 you could actually change the value of the `window.undefined
 ## Infinity and -Infinity
 
 
-```
+```js
 1 / 0; // Infinity
 // Wait! WHAAAT?
 
@@ -237,14 +257,14 @@ There is also `-Infinity`  which is mathematical negative infinity, and it's low
 
 To get `-Infinity` you negate `Infinity`, or get a reference to it in `Number.NEGATIVE_INFINITY`.
 
-```
+```js
 - (Infinity); // -Infinity
 
 ```
 
 Now let's have some fun with examples:
 
-```
+```js
 Infinity > 123192310293; // true
 -Infinity < -123192310293; // true
 1 / 0; // Infinity
@@ -275,7 +295,7 @@ a === b; // true
 
 Mathematical operations on values other than numbers return NaN.
 
-```
+```js
 "a" + 1
 "b" * 3
 "cde" - "e"
@@ -285,21 +305,21 @@ Mathematical operations on values other than numbers return NaN.
 
 An exception: Single-number arrays.
 
-```
+```js
 [2] * [3]  // Returns 6
 
 ```
 
 Also, remember that the `+` operator concatenates strings.
 
-```
+```js
 "a" + "b"  // Returns "ab"
 
 ```
 
 Dividing zero by zero returns `NaN`.
 
-```
+```js
 0 / 0         // NaN
 
 ```
@@ -313,14 +333,14 @@ Note: In mathematics generally (unlike in JavaScript programming), dividing by z
 
 Generally, `Math` functions that are given non-numeric arguments will return NaN.
 
-```
+```js
 Math.floor("a")
 
 ```
 
 The square root of a negative number returns NaN, because `Math.sqrt` does not support [imaginary](https://en.wikipedia.org/wiki/Imaginary_number) or [complex](https://en.wikipedia.org/wiki/Complex_number) numbers.
 
-```
+```js
 Math.sqrt(-1)
 
 ```

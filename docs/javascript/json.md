@@ -17,7 +17,7 @@ A basic overview can be found on the [json.org](http://json.org) website which a
 
 A reviver function can be used to filter or transform the value being parsed.
 
-```
+```js
 var jsonString = '[{"name":"John","score":51},{"name":"Jack","score":17}]';
 
 var data = JSON.parse(jsonString, function reviver(key, value) {
@@ -26,7 +26,7 @@ var data = JSON.parse(jsonString, function reviver(key, value) {
 
 ```
 
-```
+```js
 const jsonString = '[{"name":"John","score":51},{"name":"Jack","score":17}]';
 
 const data = JSON.parse(jsonString, (key, value) =>
@@ -37,7 +37,7 @@ const data = JSON.parse(jsonString, (key, value) =>
 
 This produces the following result:
 
-```
+```js
 [
   {
     'name': 'JOHN',
@@ -53,7 +53,7 @@ This produces the following result:
 
 This is particularly useful when data must be sent that needs to be serialized/encoded when being transmitted with JSON, but one wants to access it deserialized/decoded. In the following example, a date was encoded to its ISO 8601 representation. We use the reviver function to parse this in a JavaScript `Date`.
 
-```
+```js
 var jsonString = '{"date":"2016-01-04T23:00:00.000Z"}';
 
 var data = JSON.parse(jsonString, function (key, value) {
@@ -62,7 +62,7 @@ var data = JSON.parse(jsonString, function (key, value) {
 
 ```
 
-```
+```js
 const jsonString = '{"date":"2016-01-04T23:00:00.000Z"}';
 
 const data = JSON.parse(jsonString, (key, value) =>
@@ -80,14 +80,15 @@ It is important to make sure the reviver function returns a useful value at the 
 
 A JavaScript value can be converted to a JSON string using the `JSON.stringify` function.
 
-```
+```js
 JSON.stringify(value[, replacer[, space]])
 
 ```
 
+
 1. `value` The value to convert to a JSON string.
 
-```
+```js
 /* Boolean */  JSON.stringify(true)             // 'true'
 /* Number  */  JSON.stringify(12)               // '12'
 /* String  */  JSON.stringify('foo')            // '"foo"'
@@ -99,9 +100,10 @@ JSON.stringify(value[, replacer[, space]])
 
 ```
 
+
 1. `replacer` A function that alters the behaviour of the stringification process or an array of String and Number objects that serve as a whitelist for filtering the properties of the value object to be included in the JSON string. If this value is null or is not provided, all properties of the object are included in the resulting JSON string.
 
-```
+```js
 // replacer as a function
 function replacer (key, value) {
     // Filtering out properties
@@ -117,7 +119,7 @@ JSON.stringify(foo, replacer)
 
 ```
 
-```
+```js
 // replacer as an array
 JSON.stringify(foo, ['foundation', 'week', 'month'])
 // -> '{"foundation": "Mozilla", "week": 45, "month": 7}'
@@ -125,9 +127,10 @@ JSON.stringify(foo, ['foundation', 'week', 'month'])
 
 ```
 
+
 1. `space` For readability, the number of spaces used for indentation may be specified as the third parameter.
 
-```
+```js
 JSON.stringify({x: 1, y: 1}, null, 2)  // 2 space characters will be used for indentation
 /* output:
     {
@@ -140,7 +143,7 @@ JSON.stringify({x: 1, y: 1}, null, 2)  // 2 space characters will be used for in
 
 Alternatively, a string value can be provided to use for indentation. For example, passing `'\t'` will cause the tab character to be used for indentation.
 
-```
+```js
 JSON.stringify({x: 1, y: 1}, null, '\t')
 /* output:
     {
@@ -158,7 +161,7 @@ JSON.stringify({x: 1, y: 1}, null, '\t')
 
 You can use a custom `toJSON` method and reviver function to transmit instances of your own class in JSON. If an object has a `toJSON` method, its result will be serialized instead of the object itself.
 
-```
+```js
 function Car(color, speed) {
   this.color = color;
   this.speed = speed;
@@ -178,7 +181,7 @@ Car.fromJSON = function(data) {
 
 ```
 
-```
+```js
 class Car {
   constructor(color, speed) {
     this.color = color;
@@ -201,7 +204,7 @@ class Car {
 
 ```
 
-```
+```js
 var userJson = JSON.stringify({
   name: "John",
   car: new Car('red', 'fast')
@@ -211,12 +214,12 @@ var userJson = JSON.stringify({
 
 This produces the a string with the following content:
 
-```
+```js
 {"name":"John","car":{"$type":"com.example.Car","color":"red","speed":"fast"}}
 
 ```
 
-```
+```js
 var userObject = JSON.parse(userJson, function reviver(key, value) {
   return (value && value.$type === 'com.example.Car') ? Car.fromJSON(value) : value;
 });
@@ -225,7 +228,7 @@ var userObject = JSON.parse(userJson, function reviver(key, value) {
 
 This produces the following object:
 
-```
+```js
 {
   name: "John",
   car: Car {
@@ -259,35 +262,35 @@ While nome JSON is also valid JavaScript and some JavaScript is also valid JSON,
 
 Take the following JSON string as an example:
 
-```
+```js
 {"color": "blue"}
 
 ```
 
 This can be directly inserted into JavaScript. It will be syntactically valid and will yield the correct value:
 
-```
+```js
 const skin = {"color": "blue"};
 
 ```
 
 However, we know that "color" is a valid identifier name and the quotes around the property name can be omitted:
 
-```
+```js
 const skin = {color: "blue"};
 
 ```
 
 We also know that we can use single quotes instead of double quotes:
 
-```
+```js
 const skin = {'color': 'blue'};
 
 ```
 
 But, if we were to take both of these literals and treat them as JSON, **neither will be syntactically valid** JSON:
 
-```
+```js
 {color: "blue"}
 {'color': 'blue'}
 
@@ -301,7 +304,7 @@ More confusion starts arising when **incorrect terminology** is applied in code 
 
 A common anti-pattern is to name variables that hold non-JSON values as "json":
 
-```
+```js
 fetch(url).then(function (response) {
   const json = JSON.parse(response.data); // Confusion ensues!
 
@@ -315,7 +318,7 @@ In the above example, `response.data` is a JSON string that is returned by some 
 
 A less confusing way to write the above is:
 
-```
+```js
 fetch(url).then(function (response) {
   const value = JSON.parse(response.data);
 
@@ -334,7 +337,7 @@ Developers also tend to throw the phrase "JSON object" around a lot. This also l
 
 A `replacer` function can be used to filter or transform values being serialized.
 
-```
+```js
 const userRecords = [
   {name: "Joe", points: 14.9, level: 31.5},
   {name: "Jane", points: 35.5, level: 74.4},
@@ -353,7 +356,7 @@ const anonymousReport = JSON.stringify(userRecords, (key, value) =>
 
 This produces the following string:
 
-```
+```js
 '[{"points":14,"level":31},{"points":35,"level":74},{"points":18,"level":41},{"points":15,"level":28}]'
 
 ```
@@ -365,7 +368,7 @@ This produces the following string:
 
 The `JSON.parse()` method parses a string as JSON and returns a JavaScript primitive, array or object:
 
-```
+```js
 const array = JSON.parse('[1, 2, "c", "d", {"e": false}]');
 console.log(array); // logs: [1, 2, "c", "d", {e: false}]
 
@@ -380,7 +383,7 @@ Not all objects can be converted to a JSON string. When an object has cyclic sel
 
 This is typically the case for hierarchical data structures where parent and child both reference each other:
 
-```
+```js
 const world = {
   name: 'World',
   regions: []

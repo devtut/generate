@@ -22,7 +22,7 @@ In a browser environment, the `console.log()` function is predominantly used for
 
 
 
-<pre class="snippet-code-js lang-js prettyprint-override">`console.log("Hello, World!");`</pre>
+<pre class="snippet-code-js lang-js prettyprint-override">console.log("Hello, World!");</pre>
 
 
 
@@ -37,7 +37,7 @@ In the example above, the `console.log()` function prints `Hello, World!` to the
 
 `console.log()` can be used to log variables of any kind; not only strings. Just pass in the variable that you want to be displayed in the console, for example:
 
-```
+```js
 var foo = "bar";
 console.log(foo);
 
@@ -51,11 +51,12 @@ If you want to log two or more values, simply separate them with commas. Spaces 
 
 
 
-<pre class="snippet-code-js lang-js prettyprint-override"><code>var thisVar = 'first value';
+```js
+var thisVar = 'first value';
 var thatVar = 'second value';
-console.log("thisVar:", thisVar, "and thatVar:", thatVar);</code></pre>
+console.log("thisVar:", thisVar, "and thatVar:", thatVar);
 
-
+```
 
 This will log the following to the console:
 
@@ -65,7 +66,7 @@ This will log the following to the console:
 
 You can use `console.log()` in combination with placeholders:
 
-```
+```js
 var greet = "Hello", who = "World";
 console.log("%s, %s!", greet, who);
 
@@ -81,7 +82,8 @@ Below we see the result of logging an object. This is often useful for logging J
 
 
 
-<pre class="snippet-code-js lang-js prettyprint-override"><code>console.log({
+```js
+console.log({
     'Email': '', 
     'Groups': {},
     'Id': 33,
@@ -90,9 +92,9 @@ Below we see the result of logging an object. This is often useful for logging J
     'LoginName': 'i:0#.w|virtualdomain\\user2',
     'PrincipalType': 1,
     'Title': 'user2'
-});</code></pre>
+});
 
-
+```
 
 
 This will log the following to the console:
@@ -103,7 +105,7 @@ This will log the following to the console:
 
 You have the ability to log any element which exists within the [**DOM**](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). In this case we log the body element:
 
-```
+```js
 console.log(document.body);
 
 ```
@@ -127,21 +129,21 @@ Setting the `textContent` property of an `Element` is one way to output text on 
 
 For example, consider the following HTML tag:
 
-```
+```js
 <p id="paragraph"></p>
 
 ```
 
 To change its `textContent` property, we can run the following JavaScript:
 
-```
+```js
 document.getElementById("paragraph").textContent = "Hello, World";
 
 ```
 
 This will select the element that with the id `paragraph` and set its text content to "Hello, World":
 
-```
+```js
 <p id="paragraph">Hello, World</p>
 
 ```
@@ -150,7 +152,7 @@ This will select the element that with the id `paragraph` and set its text conte
 
 You can also use JavaScript to create a new HTML element programmatically. For example, consider an HTML document with the following body:
 
-```
+```js
 <body>
    <h1>Adding an element</h1>
 </body> 
@@ -159,7 +161,7 @@ You can also use JavaScript to create a new HTML element programmatically. For e
 
 In our JavaScript, we create a new `<p>` tag with a `textContent` property of and add it at the end of the html body:
 
-```
+```js
 var element = document.createElement('p');
 element.textContent = "Hello, World";
 document.body.appendChild(element); //add the newly created element to the DOM
@@ -168,7 +170,7 @@ document.body.appendChild(element); //add the newly created element to the DOM
 
 That will change your HTML body to the following:
 
-```
+```js
 <body>
    <h1>Adding an element</h1>
    <p>Hello, World</p>
@@ -187,21 +189,21 @@ A third way to make sure all your DOM has been loaded, is [to wrap the DOM manip
 
 The `alert` method displays a visual alert box on screen. The alert method parameter is displayed to the user in **plain** text:
 
-```
+```js
 window.alert(message);
 
 ```
 
 Because `window` is the global object, you can call also use the following shorthand:
 
-```
+```js
 alert(message);
 
 ```
 
 So what does `window.alert()` do? Well, let's take the following example:
 
-```
+```js
 alert('hello, world');
 
 ```
@@ -217,7 +219,7 @@ The `alert` method is technically a property of `window` object, but since all `
 
 Unlike using `console.log`, `alert` acts as a modal prompt meaning that the code calling `alert` will pause until the prompt is answered. Traditionally this means that **no other JavaScript code will execute** until the alert is dismissed:
 
-```
+```js
 alert('Pause!');
 console.log('Alert was dismissed');
 
@@ -265,7 +267,7 @@ The `window.confirm()` method displays a modal dialog with an optional message a
 
 Now, let's take the following example:
 
-```
+```js
 result = window.confirm(message);
 
 ```
@@ -274,7 +276,7 @@ Here, **message** is the optional string to be displayed in the dialog and **res
 
 `window.confirm()` is typically used to ask for user confirmation before doing a dangerous operation like deleting something in a Control Panel:
 
-```
+```js
 if(window.confirm("Are you sure you want to delete this?")) {
     deleteItem(itemId);
 }
@@ -287,7 +289,7 @@ The output of that code would look like this in the browser:
 
 If you need it for later use, you can simply store the result of the user's interaction in a variable:
 
-```
+```js
 var deleteConfirm = window.confirm("Are you sure you want to delete this?");
 
 ```
@@ -310,7 +312,7 @@ HTML provides the canvas element for building raster-based images.
 
 First build a canvas for holding image pixel information.
 
-```
+```js
 var canvas = document.createElement('canvas');
 canvas.width = 500;
 canvas.height = 250;
@@ -319,14 +321,14 @@ canvas.height = 250;
 
 Then select a context for the canvas, in this case two-dimensional:
 
-```
+```js
 var ctx = canvas.getContext('2d');
 
 ```
 
 Then set properties related to the text:
 
-```
+```js
 ctx.font = '30px Cursive';
 ctx.fillText("Hello world!", 50, 50);
 
@@ -334,7 +336,7 @@ ctx.fillText("Hello world!", 50, 50);
 
 Then insert the `canvas` element into the page to take effect:
 
-```
+```js
 document.body.appendChild(canvas);
 
 ```
@@ -345,7 +347,7 @@ SVG is for building scalable vector-based graphics and can be used within HTML.
 
 First create an SVG element container with dimensions:
 
-```
+```js
 var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 svg.width = 500;
 svg.height = 50;
@@ -354,7 +356,7 @@ svg.height = 50;
 
 Then build a `text` element with the desired positioning and font characteristics:
 
-```
+```js
 var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 text.setAttribute('x', '0');
 text.setAttribute('y', '50');
@@ -365,14 +367,14 @@ text.style.fontSize = '50';
 
 Then add the actual text to display to the `text`element:
 
-```
+```js
 text.textContent = 'Hello world!';
 
 ```
 
 Finally add the `text` element to our `svg` container and add the `svg` container element to the HTML document:
 
-```
+```js
 svg.appendChild(text);
 document.body.appendChild(svg);
 
@@ -382,7 +384,7 @@ document.body.appendChild(svg);
 
 If you already have an image file containing the desired text and have it placed on a server, you can add the URL of the image and then add the image to the document as follows:
 
-```
+```js
 var img = new Image();
 img.src = 'https://i.ytimg.com/vi/zecueq-mo4M/maxresdefault.jpg';
 document.body.appendChild(img);
@@ -402,7 +404,7 @@ JavaScript is a commonly referenced implementation of ECMAScript standard.
 
 Topics in this tag often refer to the use of JavaScript within the browser, unless otherwise stated. JavaScript files alone can't be run directly by the browser; it's necessary to embed them in an HTML document. If you have some JavaScript code you'd like to try, you can embed it in some placeholder content like this, and save the result as `example.html`:
 
-```
+```js
 <!doctype html>
 <html>
   <head>

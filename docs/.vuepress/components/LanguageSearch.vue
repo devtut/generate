@@ -22,7 +22,7 @@ export default {
       search: "",
       languages: [
         { id: 1, name: "Python", topics: 206, url: "/python/" },
-        { id: 2, name: "PHP", topics: 116, url: "/php/" },
+        { id: 2, name: "PHP", topics: 120, url: "/php/" },
         { id: 3, name: "JavaScript", topics: 106, url: "/javascript/" }
       ]
     };

@@ -19,7 +19,7 @@ Everything defined within the function is not accessible by code outside the
 function. Only code within this scope can see the entities defined inside the
 scope.
 
-```
+```js
 function foo() {
   var a = 'hello';
   console.log(a);  // => 'hello'
@@ -31,7 +31,7 @@ console.log(a);  // reference error
 
 Nested functions are possible in JavaScript and the same rules apply.
 
-```
+```js
 function foo() {
   var a = 'hello';
   
@@ -55,7 +55,7 @@ it in the current scope. If it cannot find that declaration in the current scope
 climbs up one scope to look for it. This process repeats until the declaration has been found. If the JavaScript parser reaches the global scope and still cannot find the
 reference, a reference error will be thrown.
 
-```
+```js
 var a = 'hello';
 
 function foo() {
@@ -76,7 +76,7 @@ function foo() {
 This climbing behavior can also mean that one reference may "shadow" over a
 similarly named reference in the outer scope since it gets seen first.
 
-```
+```js
 var a = 'hello';
 
 function foo() {
@@ -91,7 +91,7 @@ function foo() {
 
 The way JavaScript resolves scoping also applies to the `const` keyword. Declaring a variable with the `const` keyword implies that you are not allowed to reassign the value, but declaring it in a function will create a new scope and with that a new variable.
 
-```
+```js
 function foo() {
   const a = true;
 
@@ -124,7 +124,7 @@ Use cases: When the values of some arguments are available before others, you ca
 
 For example, the volume of a rectangular prism can be explained by a function of three factors: length (`l`), width (`w`), and height (`h`):
 
-```
+```js
 var prism = function(l, w, h) {
     return l * w * h;
 }
@@ -133,7 +133,7 @@ var prism = function(l, w, h) {
 
 A curried version of this function would look like:
 
-```
+```js
 function prism(l) {
     return function(w) {
         return function(h) {
@@ -144,7 +144,7 @@ function prism(l) {
 
 ```
 
-```
+```js
 // alternatively, with concise ECMAScript 6+ syntax:
 var prism = l => w => h => l * w * h;
 
@@ -163,7 +163,7 @@ applied function</a>, you cannot use `prism()(3)(5)`.
 
 Sometimes you don't want to have your function accessible/stored as a variable. You can create an Immediately Invoked Function Expression (IIFE for short). These are essentially **self-executing anonymous functions**. They have access to the surrounding scope, but the function itself and any internal variables will be inaccessible from outside. An important thing to note about IIFE is that even if you name your function, IIFE are not hoisted like standard functions are and cannot be called by the function name they are declared with.
 
-```
+```js
 (function() {
    alert("I've run - but can't be run again because I'm immediately invoked at runtime,
           leaving behind only the result I generate");
@@ -173,7 +173,7 @@ Sometimes you don't want to have your function accessible/stored as a variable. 
 
 This is another way to write IIFE. Notice that the closing parenthesis before the semicolon was moved and placed right after the closing curly bracket:
 
-```
+```js
 (function() {
    alert("This is IIFE too.");
 })();
@@ -182,7 +182,7 @@ This is another way to write IIFE. Notice that the closing parenthesis before th
 
 You can easily pass parameters into an IIFE:
 
-```
+```js
 (function(message) {
    alert(message);
 }("Hello World!"));
@@ -191,7 +191,7 @@ You can easily pass parameters into an IIFE:
 
 Additionally, you can return values to the surrounding scope:
 
-```
+```js
 var example = (function() {
    return 42;
 }());
@@ -201,7 +201,7 @@ console.log(example); // => 42
 
 If required it is possible to name an IIFE. While less often seen, this pattern has several advantages, such as providing a reference which can be used for a recursion and can make debugging simpler as the name is included in the callstack.
 
-```
+```js
 (function namedIIFE() { 
     throw error; // We can now see the error thrown in 'namedIIFE()'
 }());
@@ -210,7 +210,7 @@ If required it is possible to name an IIFE. While less often seen, this pattern 
 
 While wrapping a function in parenthesis is the most common way to denote to the Javascript parser to expect an expression, in places where an expression is already expected, the notation can be made more concise:
 
-```
+```js
 var a = function() { return 42 }();
 console.log(a)  // => 42
 
@@ -218,7 +218,7 @@ console.log(a)  // => 42
 
 Arrow version of immediately invoked function:
 
-```
+```js
 (() => console.log("Hello!"))(); // => Hello!
 
 ```
@@ -232,7 +232,7 @@ When you take a reference to a method (a property which is a function) in JavaSc
 
 You can use the `.bind()` method on a function to create a wrapper that includes the value of `this` and any number of leading arguments.
 
-```
+```js
 var monitor = {
   threshold: 5,
   check: function(value) {
@@ -261,7 +261,7 @@ check8(); // We also bound the argument to `8` here. It can't be re-specified.
 
 When not in strict mode, a function uses the global object (`window` in the browser) as `this`, unless the function is called as a method, bound, or called with the method `.call` syntax.
 
-```
+```js
 window.x = 12; 
 
 function example() {
@@ -274,7 +274,7 @@ console.log(example()); // 12
 
 In strict mode `this` is `undefined` by default
 
-```
+```js
 window.x = 12; 
     
 function example() {
@@ -290,7 +290,7 @@ console.log(example()); // Uncaught TypeError: Cannot read property 'x' of undef
 
 The double colon **bind operator** can be used as a shortened syntax for the concept explained above:
 
-```
+```js
 var log = console.log.bind(console); // long version
 const log = ::console.log; // short version
 
@@ -309,21 +309,21 @@ This syntax allows you to write normally, without worrying about binding `this` 
 
 ### Binding console functions to variables
 
-```
+```js
 var log = console.log.bind(console);
 
 ```
 
 **Usage:**
 
-```
+```js
 log('one', '2', 3, [4], {5: 5});
 
 ```
 
 **Output:**
 
-```
+```js
 one 2 3 [4] Object {5: 5}
 
 ```
@@ -332,7 +332,7 @@ one 2 3 [4] Object {5: 5}
 
 One use case can be when you have custom logger and you want to decide on runtime which one to use.
 
-```
+```js
 var logger = require('appLogger');
 
 var log = logToServer ? logger.log : console.log.bind(console);
@@ -346,7 +346,7 @@ var log = logToServer ? logger.log : console.log.bind(console);
 
 Functions can either be named or unnamed ([anonymous functions](http://stackoverflow.com/documentation/javascript/186/functions/726/anonymous-function#t=201608210702278709208)):
 
-```
+```js
 var namedSum = function sum (a, b) { // named
     return a + b;
 }
@@ -367,7 +367,7 @@ anonSum(1, 3);
 
 But their names are private to their own scope:
 
-```
+```js
 var sumTwoNumbers = function sum (a, b) {
     return a + b;
 }
@@ -391,7 +391,7 @@ Named functions differ from the anonymous functions in multiple scenarios:
 
 When using an anonymous function, the function can only be called after the line of declaration, whereas a named function can be called before declaration. Consider
 
-```
+```js
 foo();
 var foo = function () { // using an anonymous function
     console.log('bar');
@@ -403,7 +403,7 @@ var foo = function () { // using an anonymous function
 Uncaught TypeError: foo is not a function
 
 
-```
+```js
 foo();
 function foo () { // using a named function
     console.log('bar');
@@ -419,7 +419,7 @@ bar
 
 A recursive function can be defined as:
 
-```
+```js
 var say = function (times) {
     if (times > 0) {
         console.log('Hello!');
@@ -443,7 +443,7 @@ Hello!</p>
 
 What if somewhere in your code the original function binding gets redefined?
 
-```
+```js
 var say = function (times) {
     if (times > 0) {
         console.log('Hello!');
@@ -466,7 +466,7 @@ Uncaught TypeError: say is not a function</p>
 
 This can be solved using a named function
 
-```
+```js
 // The outer variable can even have the same name as the function
 // as they are contained in different scopes
 var say = function say (times) {
@@ -493,7 +493,7 @@ Hello!</p>
 
 And as bonus, the named function can't be set to `undefined`, even from inside:
 
-```
+```js
 var say = function say (times) {
     // this does nothing
     say = undefined;
@@ -523,7 +523,7 @@ Hello!</p>
 
 Before ES6, named functions had their `name` properties set to their function names, and anonymous functions had their `name` properties set to the empty string.
 
-```
+```js
 var foo = function () {}
 console.log(foo.name); // outputs ''
 
@@ -534,7 +534,7 @@ console.log(foo.name); // outputs 'foo'
 
 Post ES6, named and unnamed functions both set their `name` properties:
 
-```
+```js
 var foo = function () {}
 console.log(foo.name); // outputs 'foo'
 
@@ -556,7 +556,7 @@ To create a function which accepts an undetermined number of arguments, there ar
 Whenever a function is called, it has an Array-like [arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object in its scope, containing all the arguments passed to the function.
 Indexing into or iterating over this will give access to the arguments, for example
 
-```
+```js
 function logSomeThings() {
     for (var i = 0; i < arguments.length; ++i) {
         console.log(arguments[i]);
@@ -573,7 +573,7 @@ Note that you can convert `arguments` to an actual Array if need-be; see: [Conve
 
 From ES6, the function can be declared with it's last parameter using the [rest operator](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Functions/rest_parameters) (`...`). This creates an Array which holds the arguments from that point onwards
 
-```
+```js
 function personLogsSomeThings(person, ...msg) {
    msg.forEach(arg => {
        console.log(person, 'says', arg);
@@ -588,7 +588,7 @@ personLogsSomeThings('John', 'hello', 'world');
 
 Functions can also be called with similar way, the [spread syntax](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
-```
+```js
 const logArguments = (...args) => console.log(args)
 const list = [1, 2, 3]
 
@@ -599,7 +599,7 @@ logArguments('a', 'b', 'c', ...list)
 
 This syntax can be use to insert arbitrary number of arguments to any position, and can be used with any iterable(`apply` accepts only array-like objects).
 
-```
+```js
 const logArguments = (...args) => console.log(args)
 function* generateNumbers() {
   yield 6
@@ -621,7 +621,7 @@ logArguments('a', ...generateNumbers(), ...'pqr', 'b')
 
 When a function is defined, you often give it a name and then invoke it using that name, like so:
 
-```
+```js
 foo();
 
 function foo(){
@@ -632,7 +632,7 @@ function foo(){
 
 When you define a function this way, the Javascript runtime stores your function in memory and then creates a reference to that function, using the name you've assigned it. That name is then accessible within the current scope. This can be a very convenient way to create a function, but Javascript does not require you to assign a name to a function. The following is also perfectly legal:
 
-```
+```js
 function() {
     // ...
 }
@@ -645,7 +645,7 @@ When a function is defined without a name, it's known as an anonymous function. 
 
 A very common use of anonymous functions is to assign them to a variable:
 
-```
+```js
 var foo = function(){ /*...*/ };
 
 foo();
@@ -658,7 +658,7 @@ This use of anonymous functions is covered in more detail in [Functions as a var
 
 Some functions may accept a reference to a function as a parameter. These are sometimes referred to as "dependency injections" or "callbacks", because it allows the function your calling to "call back" to your code, giving you an opportunity to change the way the called function behaves. For example, the Array object's map function allows you to iterate over each element of an array, then build a new array by applying a transform function to each element.
 
-```
+```js
 var nums = [0,1,2];
 var doubledNums = nums.map( function(element){ return element * 2; } ); // [0,2,4]
 
@@ -670,7 +670,7 @@ It would be tedious, sloppy and unnecessary to create a named function, which wo
 
 Sometimes it's useful to return a function as the result of another function. For example:
 
-```
+```js
 var hash = getHashFunction( 'sha1' );
 var hashValue = hash( 'Secret Value' );
 
@@ -687,7 +687,7 @@ function getHashFunction( algorithm ){
 
 Unlike many other languages, scoping in Javascript is function-level, not block-level. (See [Function Scoping](http://stackoverflow.com/documentation/javascript/186/functions/844/function-scoping#t=20160817162538432807) ). In some cases, however, it's necessary to create a new scope. For example, it's common to create a new scope when adding code via a `<script>` tag, rather than allowing variable names to be defined in the global scope (which runs the risk of other scripts colliding with your variable names). A common method to handle this situation is to define a new anonymous function and then immediately invoke it, safely hiding you variables within the scope of the anonymous function and without making your code accessible to third-parties via a leaked function name. For example:
 
-```
+```js
 <!-- My Script -->
 <script>
 function initialize(){
@@ -715,7 +715,7 @@ initialize();
 
 Sometimes it's useful for an anonymous function to be able to refer to itself. For example, the function may need to recursively call itself or add properties to itself. If the function is anonymous, though, this can be very difficult as it requires knowledge of the variable that the function has been assigned to. This is the less than ideal solution:
 
-```
+```js
 var foo = function(callAgain){
     console.log( 'Whassup?' );
     // Less then ideal... we're dependent on a variable reference...
@@ -746,7 +746,7 @@ The intent here was for the anonymous function to recursively call itself, but w
 
 Instead, we can give the anonymous function a reference to itself by giving it a private name, like so:
 
-```
+```js
 var foo = function myself(callAgain){
     console.log( 'Whassup?' );
     // Less then ideal... we're dependent on a variable reference...
@@ -775,14 +775,14 @@ bar(true);
 
 Note that the function name is scoped to itself. The name has not leaked into the outer scope:
 
-```
+```js
 myself(false); // ReferenceError: myself is not defined
 
 ```
 
 This technique is especially useful when dealing with recursive anonymous functions as callback parameters:
 
-```
+```js
 // Calculate the fibonacci value for each number in an array:
 var fib = false,
     result = [1,2,3,4,5,6,7,8].map(
@@ -801,7 +801,7 @@ var fib = false,
 
 Before ECMAScript 2015 (ES6), a parameter's default value could be assigned in the following way:
 
-```
+```js
 function printMsg(msg) {
   msg = typeof msg !== 'undefined' ? // if a value was provided 
         msg :                        // then, use that value in the reassignemnt
@@ -813,14 +813,14 @@ function printMsg(msg) {
 
 ES6 provided a new syntax where the condition and reassignment depicted above is no longer necessary:
 
-```
+```js
 function printMsg(msg='Default value for msg.') {
     console.log(msg);
 }
 
 ```
 
-```
+```js
 printMsg(); // -> "Default value for msg."
 printMsg(undefined); // -> "Default value for msg."
 printMsg('Now my msg in different!'); // -> "Now my msg in different!"
@@ -829,7 +829,7 @@ printMsg('Now my msg in different!'); // -> "Now my msg in different!"
 
 This also shows that if a parameter is missing when the function is invoked, its value is kept as `undefined`, as it can be confirmed by explicitly providing it in the following example (using an [arrow function](http://stackoverflow.com/documentation/javascript/5007/arrow-functions/720/defining-and-using-arrow-functions#t=20170119164653068688)):
 
-```
+```js
 let param_check = (p = 'str') => console.log(p + ' is of type: ' + typeof p);
 
 param_check(); // -> "str is of type: string"
@@ -844,7 +844,7 @@ param_check(this); // -> "[object Window] is of type: object"
 
 The default parameters' values are not restricted to numbers, strings or simple objects. A function can also be set as the default value `callback = function(){}`:
 
-```
+```js
 function foo(callback = function(){ console.log('default'); }) {
     callback();
 }
@@ -866,7 +866,7 @@ There are certain characteristics of the operations that can be performed throug
 - Variables existing in the same scope of the function being declared can be used in its default values.
 - Functions can be invoked in order to provide their return value into a default value.
 
-```
+```js
 let zero = 0;
 function multiply(x) { return x * 2;}
 
@@ -884,7 +884,7 @@ add(1, 2, 5, 10);      // 8, 20
 
 ### Reusing the function's return value in a new invocation's default value:
 
-```
+```js
 let array = [1]; // meaningless: this will be overshadowed in the function's scope
 function add(value, array = []) {
   array.push(value);
@@ -900,7 +900,7 @@ add(6, add(5)); // [5, 6]
 
 The [`arguments` array object](http://stackoverflow.com/documentation/javascript/5007/arrow-functions/17664/arguments-object#t=201701231210419176666) only retains the parameters whose values are not default, i.e. those that are explicitly provided when the function is invoked:
 
-```
+```js
 function foo(a = 1, b = a + 1) {
     console.info(arguments.length, arguments);
     console.log(a,b);
@@ -919,7 +919,7 @@ foo(5, 6);    // info: 2 >> [5, 6] | log: 5, 6
 
 Functions can take inputs in form of variables that can be used and assigned inside their own scope. The following function takes two numeric values and returns their sum:
 
-```
+```js
 function addition (argument1, argument2){
     return argument1 + argument2; 
 }
@@ -932,14 +932,14 @@ console.log(addition(2, 3)); // -> 5
 
 The `arguments` object contains all the function's parameters that contain a non-[default value](http://stackoverflow.com/documentation/javascript/186/functions/9475/default-parameters). It can also be used even if the parameters are not explicitly declared:
 
-```
+```js
 (function() { console.log(arguments) })(0,'str', [2,{3}]) // -> [0, "str", Array[2]]
 
 ```
 
 Although when printing `arguments` the output resembles an Array, it is in fact an object:
 
-```
+```js
 (function() { console.log(typeof arguments) })(); // -> object
 
 ```
@@ -948,7 +948,7 @@ Although when printing `arguments` the output resembles an Array, it is in fact 
 
 In ES6, the `...` syntax when used in the declaration of a function's parameters transforms the variable to its right into a single object containing all the remaining parameters provided after the declared ones. This allows the function to be invoked with an unlimited number of arguments, which will become part of this variable:
 
-```
+```js
 (function(a, ...b){console.log(typeof b+': '+b[0]+b[1]+b[2]) })(0,1,'2',[3],{i:4});
 // -> object: 123  
 
@@ -958,7 +958,7 @@ In ES6, the `...` syntax when used in the declaration of a function's parameters
 
 In ES6, the `...` syntax can also be used when invoking a function by placing an object/variable to its right. This allows that object's elements to be passed into that function as a single object:
 
-```
+```js
 let nums = [2,42,-1];
 console.log(...['a','b','c'], Math.max(...nums)); // -> a b c 42
 
@@ -971,7 +971,7 @@ console.log(...['a','b','c'], Math.max(...nums)); // -> a b c 42
 
 In JavaScript all arguments are passed by value. When a function assigns a new value to an argument variable, that change will not be visible to the caller:
 
-```
+```js
 var obj = {a: 2};
 function myfunc(arg){
     arg = {a: 5}; // Note the assignment is to the parameter variable itself
@@ -983,7 +983,7 @@ console.log(obj.a); // 2
 
 However, changes made to (nested) properties **of** such arguments, will be visible to the caller:
 
-```
+```js
 var obj = {a: 2};
 function myfunc(arg){
     arg.a = 5; // assignment to a property of the argument
@@ -997,7 +997,7 @@ This can be seen as a **call by reference**: although a function cannot change t
 
 As primitive valued arguments, like numbers or strings, are immutable, there is no way for a function to mutate them:
 
-```
+```js
 var s = 'say';
 function myfunc(arg){
     arg += ' hello'; // assignment to the parameter variable itself
@@ -1009,7 +1009,7 @@ console.log(s); // 'say'
 
 When a function wants to mutate an object passed as argument, but does not want to actually mutate the caller's object, the argument variable should be reassigned:
 
-```
+```js
 var obj = {a: 2, b: 3};
 function myfunc(arg){
     arg = Object.assign({}, arg); // assignment to argument variable, shallow copy
@@ -1022,7 +1022,7 @@ console.log(obj.a); // 2
 
 As an alternative to in-place mutation of an argument, functions can create a new value, based on the argument, and return it. The caller can then assign it, even to the original variable that was passed as argument:
 
-```
+```js
 var a = 2;
 function myfunc(arg){
     arg++;
@@ -1042,7 +1042,7 @@ Functions have two built-in methods that allow the programmer to supply argument
 
 This is useful, because functions that operate on one object (the object that they are a property of) can be repurposed to operate on another, compatible object. Additionally, arguments can be given in one shot as arrays, similar to the spread (`...`) operator in ES6.
 
-```
+```js
 let obj = {
     a: 1,
     b: 2,
@@ -1072,7 +1072,7 @@ in addition to `call()` and `apply()` to explicitly set **`this`** value of the 
 
 It behaves quite differently than the other two. The first argument to `bind()` is the `this` value for the new function. All other arguments represent named parameters that should be permanently set in the new function.
 
-```
+```js
 function showName(label) {
     console.log(label + ":" + this.name);
 }
@@ -1108,7 +1108,7 @@ Example:
 
 This function ...
 
-```
+```js
 function multiplyThenAdd(a, b, c) {
     return a * b + c;
 }
@@ -1117,7 +1117,7 @@ function multiplyThenAdd(a, b, c) {
 
 ... can be used to create another function that will always multiply by 2 and then add 10 to the passed value;
 
-```
+```js
 function reversedMultiplyThenAdd(c, b, a) {
     return a * b + c;
 }
@@ -1145,7 +1145,8 @@ composition makes a pipeline through which our data will transit and get modifie
 you start out with some single responsibility functions:
 
 ```
- const capitalize = x => x.replace(/^\w/, m => m.toUpperCase());
+
+const capitalize = x => x.replace(/^\w/, m => m.toUpperCase());
  const sign = x => x + ',\nmade with love';
 
 ```
@@ -1153,7 +1154,8 @@ you start out with some single responsibility functions:
 and easily create a transformation track:
 
 ```
- const formatText = compose(capitalize, sign);
+
+const formatText = compose(capitalize, sign);
 
  formatText('this is an example')
  //This is an example,
@@ -1166,7 +1168,8 @@ N.B. Composition is achieved through a utility function usually called `compose`
 Implementation of `compose` are present in many JavaScript utility libraries ([lodash](https://lodash.com/docs#flow), [rambda](http://ramdajs.com/), etc.) but you can also start out with a simple  implementation such as:
 
 ```
- const compose = (...funs) =>
+
+const compose = (...funs) =>
    x =>
    funs.reduce((ac, f) => f(ac), x);
 
@@ -1179,7 +1182,7 @@ Implementation of `compose` are present in many JavaScript utility libraries ([l
 
 A normal function declaration looks like this:
 
-```
+```js
 function foo(){
 }
 
@@ -1187,7 +1190,7 @@ function foo(){
 
 A function defined like this is accessible from anywhere within its context by its name. But sometimes it can be useful to treat function references like object references. For example, you can assign an object to a variable based on some set of conditions and then later retrieve a property from one or the other object:
 
-```
+```js
 var name = 'Cameron';
 var spouse;
 
@@ -1200,7 +1203,7 @@ var spouseName = spouse.name;
 
 In JavaScript, you can do the same thing with functions:
 
-```
+```js
 // Example 1
 var hashAlgorithm = 'sha1';
 var hash;
@@ -1216,7 +1219,7 @@ In the example above, `hash` is a normal variable. It is assigned a reference to
 
 The example above references anonymous functions... functions that do not have their own name. You can also use variables to refer to named functions. The example above could be rewritten like so:
 
-```
+```js
 // Example 2
 var hashAlgorithm = 'sha1';
 var hash;
@@ -1238,7 +1241,7 @@ function sha1Hash(value){
 
 Or, you can assign function references from object properties:
 
-```
+```js
 // Example 3
 var hashAlgorithms = {
     sha1: function(value) { /**/ },
@@ -1257,7 +1260,7 @@ hash('Fred');
 
 You can assign the reference to a function held by one variable to another by omitting the parentheses. This can result in an easy-to-make mistake: attempting to assign the return value of a function to another variable, but accidentally assigning the reference to the function.
 
-```
+```js
 // Example 4
 var a = getValue;
 var b = a; // b is now a reference to getValue.
@@ -1271,7 +1274,7 @@ function getValue(){
 
 A reference to a function is like any other value. As you've seen, a reference can be assigned to a variable, and that variable's reference value can be subsequently assigned to other variables. You can pass around references to functions like any other value, including passing a reference to a function as the return value of another function. For example:
 
-```
+```js
 // Example 5
 // getHashingFunction returns a function, which is assigned
 // to hash for later use:
@@ -1296,7 +1299,7 @@ function md5Hash(value){
 
 You don't need to assign a function reference to a variable in order to invoke it. This example, building off example 5, will call getHashingFunction and then immediately invoke the returned function and pass its return value to hashedValue.
 
-```
+```js
 // Example 6
 var hashedValue = getHashingFunction( 'sha1' )( 'Fred' );
 
@@ -1306,7 +1309,7 @@ var hashedValue = getHashingFunction( 'sha1' )( 'Fred' );
 
 Keep in mind that, unlike normal function declarations, variables that reference functions are not "hoisted". In example 2, the `md5Hash` and `sha1Hash` functions are defined at the bottom of the script, but are available everywhere immediately. No matter where you define a function, the interpreter "hoists" it to the top of its scope, making it immediately available. This is **not** the case for variable definitions, so code like the following will break:
 
-```
+```js
 var functionVariable;
 
 hoistedFunction(); // works, because the function is "hoisted" to the top of its scope
@@ -1324,7 +1327,7 @@ functionVariable = function(){};
 
 A recursive function is simply a function, that would call itself.
 
-```
+```js
 function factorial (n) {
     if (n <= 1) {
         return 1;
@@ -1339,7 +1342,7 @@ The above function shows a basic example of how to perform a recursive function 
 
 Another example, would be to retrieve the sum of even numbers in an array.
 
-```
+```js
 function countEvenNumbers (arr) {
     // Sentinel value.  Recursion stops on empty array.
     if (arr.length < 1) {
@@ -1366,7 +1369,7 @@ It is important that such functions make some sort of sentinel value check to av
 
 The return statement can be a useful way to create output for a function. The return statement is especially useful if you do not know in which context the function will be used yet.
 
-```
+```js
 //An example function that will take a string as input and return 
 //the first character of the string.
 
@@ -1380,14 +1383,14 @@ Now to use this function, you need to put it in place of a variable somewhere el
 
 **Using the function result as an argument for another function:**
 
-```
+```js
 console.log(firstChar("Hello world"));
 
 ```
 
 **Console output will be:**
 
-```
+```js
 > H
 
 ```
@@ -1396,7 +1399,7 @@ console.log(firstChar("Hello world"));
 
 If we modify the function in the beginning, we can demonstrate that the return statement ends the function.
 
-```
+```js
 function firstChar (stringIn){
     console.log("The first action of the first char function");
     return stringIn.charAt(0);
@@ -1407,14 +1410,14 @@ function firstChar (stringIn){
 
 Running this function like so will look like this:
 
-```
+```js
 console.log(firstChar("JS"));
 
 ```
 
 **Console output:**
 
-```
+```js
 > The first action of the first char function
 > J
 
@@ -1426,7 +1429,7 @@ It will not print the message after the return statement, as the function has no
 
 In JavaScript, you can normally split up a line of code into many lines for readability purposes or organization.  This is valid JavaScript:
 
-```
+```js
 var
     name = "bob",
     age = 18;
@@ -1435,7 +1438,7 @@ var
 
 When JavaScript sees an incomplete statement like `var` it looks to the next line to complete itself.  However, if you make the same mistake with the `return` statement, you will not get what you expected.
 
-```
+```js
 return
     "Hi, my name is "+ name + ". " +
     "I'm "+ age + " years old.";
@@ -1444,7 +1447,7 @@ return
 
 This code will return `undefined` because `return` by itself is a complete statement in Javascript, so it will not look to the next line to complete itself.  If you need to split up a `return` statement into multiple lines, put a value next to return before you split it up, like so.
 
-```
+```js
 return "Hi, my name is " + name + ". " +
     "I'm " + age + " years old.";
 
@@ -1457,7 +1460,7 @@ return "Hi, my name is " + name + ". " +
 
 **ES6**:
 
-```
+```js
 myFunction.name
 
 ```
@@ -1468,7 +1471,7 @@ myFunction.name
 
 If you have a reference to the function, you can do:
 
-```
+```js
 function functionName( func )
 {
     // Match:

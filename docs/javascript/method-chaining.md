@@ -16,7 +16,7 @@ Objects that can be chained are said to be chainable. If you call an object chai
 
 ### Object designed to be chainable
 
-```
+```js
 function Vec(x = 0, y = 0){
     this.x = x;
     this.y = y;
@@ -47,7 +47,7 @@ Vec.prototype = {
 
 ### Chaining example
 
-```
+```js
 var vec = new Vec();
 vec.add({x:10,y:10})
     .add({x:10,y:10})
@@ -68,7 +68,8 @@ Not all function calls return a useful chainable type, nor do they always return
 An example of an ambiguous function name in a chainable object.
 
 ```
- // line object represents a line
+
+// line object represents a line
  line.rotate(1)
     .vec();  // ambiguous you don't need to be looking up docs while writing.
 
@@ -85,7 +86,8 @@ An example of an ambiguous function name in a chainable object.
 There is no formal usage syntax when chaining. The convention is to either chain the calls on a single line if short or to chain on the new line indented one tab from the referenced object with the dot on the new line.  Use of the semicolon is optional but does help by clearly denoting the end of the chain.
 
 ```
-  vec.scale(2).add({x:2,y:2}).log();  // for short chains
+
+ vec.scale(2).add({x:2,y:2}).log();  // for short chains
 
   vec.scale(2)     // or alternate syntax
       .add({x:2,y:2})
@@ -118,7 +120,8 @@ There is no formal usage syntax when chaining. The convention is to either chain
 ### A bad syntax
 
 ```
-   vec          // new line before the first function call
+
+  vec          // new line before the first function call
       .scale()  // can make it unclear what the intention is
       .log();
 
@@ -134,7 +137,8 @@ There is no formal usage syntax when chaining. The convention is to either chain
 When you assign the results of a chain the last returning call or object reference is assigned.
 
 ```
- var vec2 = vec.scale(2)
+
+var vec2 = vec.scale(2)
                 .add(x:1,y:10)
                 .clone();   // the last returned result is assigned
                                 // vec2 is a clone of vec after the scale and add
@@ -154,7 +158,7 @@ The advantage of changing is clearer more maintainable code. Some people prefer 
 
 Method chaining is a programming strategy that simplifies your code and beautifies it. Method chaining is done by ensuring that each method on an object returns the entire object, instead of returning a single element of that object. For example:
 
-```
+```js
 function Door() {
     this.height = '';
     this.width = '';

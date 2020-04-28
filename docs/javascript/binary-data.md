@@ -14,7 +14,7 @@ This example is inspired by [this question](http://stackoverflow.com/q/38334315/
 
 We'll assume you know how to [load a file using the File API](http://www.html5rocks.com/en/tutorials/file/dndfiles/).
 
-```
+```js
 // preliminary code to handle getting local file and finally printing to console
 // the results of our function ArrayBufferToBinary().
 var file = // get handle to local file.
@@ -29,7 +29,7 @@ reader.readAsArrayBuffer(file); //gets an ArrayBuffer of the file
 
 Now we perform the actual conversion of the file data into 1's and 0's using a `DataView`:
 
-```
+```js
 function ArrayBufferToBinary(buffer) {
    // Convert an array buffer to a string bit-representation: 0 1 1 0 0 0...
    var dataView = new DataView(buffer);
@@ -50,7 +50,7 @@ For this task, `DataView`s are overkill. They are typically used in cases where 
 
 A much better - and shorter - solution can be found using an `UInt8Array` typed array, which treats the entire `ArrayBuffer` as composed of unsigned 8-bit integers:
 
-```
+```js
 function ArrayBufferToBinary(buffer) {
     var uint8 = new Uint8Array(buffer);
     return uint8.reduce((binary, uint8) => binary + uint8.toString(2), "");
@@ -67,7 +67,7 @@ JavaScript has two primary ways to represent binary data in the browser. ArrayBu
 
 ### Convert a `Blob` to an `ArrayBuffer` (asynchronous)
 
-```
+```js
 var blob = new Blob(["\x01\x02\x03\x04"]),
     fileReader = new FileReader(),
     array;
@@ -83,7 +83,7 @@ fileReader.readAsArrayBuffer(blob);
 
 ### Convert a `Blob` to an `ArrayBuffer` using a `Promise` (asynchronous)
 
-```
+```js
 var blob = new Blob(["\x01\x02\x03\x04"]);
 
 var arrayPromise = new Promise(function(resolve) {
@@ -104,7 +104,7 @@ arrayPromise.then(function(array) {
 
 ### Convert an `ArrayBuffer` or typed array to a `Blob`
 
-```
+```js
 var array = new Uint8Array([0x04, 0x06, 0x07, 0x08]);
 
 var blob = new Blob([array]);
@@ -118,7 +118,7 @@ var blob = new Blob([array]);
 
 DataViews provide methods to read and write individual values from an ArrayBuffer, instead of viewing the entire thing as an array of a single type. Here we set two bytes individually then interpret them together as a 16-bit unsigned integer, first big-endian then little-endian.
 
-```
+```js
 var buffer = new ArrayBuffer(2);
 var view = new DataView(buffer);
 
@@ -135,7 +135,7 @@ console.log(view.getUint16(0, true));  // 511
 ## Creating a TypedArray from a Base64 string
 
 
-```
+```js
 var data = 
    'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACN' +
    'byblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHx' +
@@ -158,7 +158,7 @@ for (var i = 0; i < characters.length; i++) {
 
 TypedArrays are a set of types providing different views into fixed-length mutable binary ArrayBuffers. For the most part, they act like [Arrays](http://stackoverflow.com/documentation/javascript/187/arrays#t=201604090812054495167) that coerce all assigned values to a given numeric type. You can pass an ArrayBuffer instance to a TypedArray constructor to create a new view of its data.
 
-```
+```js
 var buffer = new ArrayBuffer(8);
 var byteView = new Uint8Array(buffer);
 var floatView = new Float64Array(buffer);
@@ -175,7 +175,7 @@ console.log(floatView); // [6.64421383e-316]
 
 ArrayBuffers can be copied using the `.slice(...)` method, either directly or through a TypedArray view.
 
-```
+```js
 var byteView2 = byteView.slice();
 var floatView2 = new Float64Array(byteView2.buffer);
 byteView2[6] = 0xFF;
@@ -191,7 +191,7 @@ console.log(floatView2); // [7.06327456e-304]
 
 For a convenient way to iterate through an arrayBuffer, you can create a simple iterator that implements the `DataView` methods under the hood:
 
-```
+```js
 var ArrayBufferCursor = function() {
   var ArrayBufferCursor = function(arrayBuffer) {
     this.dataview = new DataView(arrayBuffer, 0);
@@ -247,14 +247,14 @@ var ArrayBufferCursor = function() {
 
 You can then create an iterator like this:
 
-```
+```js
 var cursor = new ArrayBufferCursor(arrayBuffer);
 
 ```
 
 You can use the `hasNext` to check if there's still items
 
-```
+```js
 for(;cursor.hasNext();) {
     // There's still items to process
 }
@@ -263,7 +263,7 @@ for(;cursor.hasNext();) {
 
 You can use the `next` method to take the next value:
 
-```
+```js
 var nextValue = cursor.next('Float');
 
 ```
