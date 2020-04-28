@@ -85,13 +85,23 @@ def main():
 
 <li>
 Import the sys module and make it available in the current namespace:
-<pre><code>import sys
-</code></pre>
+
+```py
+import sys
+
+```
+
+
 </li>
 <li>
 Import a specific function from the sys module directly into the current namespace:
-<pre><code>from sys import exit
-</code></pre>
+
+```py
+from sys import exit
+
+```
+
+
 </li>
 
 

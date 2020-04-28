@@ -23,7 +23,9 @@ a = [1, 2, 3, 4, 5]
 
 <li>
 `append(value)` – appends a new element to the end of the list.
-<pre><code># Append values 6, 7, and 7 to the list
+
+```py
+# Append values 6, 7, and 7 to the list
 a.append(6)
 a.append(7)
 a.append(7)
@@ -38,20 +40,30 @@ a.append(b)
 my_string = "hello world"
 a.append(my_string)
 # a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9], "hello world"]
-</code></pre>
+
+```
+
+
 **Note that** the `append()` method only appends one new element to the end of the list. If you append a list to another list, the list that you append becomes a single element at the end of the first list.
-<pre><code># Appending a list to another list
+
+```py
+# Appending a list to another list
 a = [1, 2, 3, 4, 5, 6, 7, 7]
 b = [8, 9]
 a.append(b)
 # a: [1, 2, 3, 4, 5, 6, 7, 7, [8, 9]]
 a[8]
 # Returns: [8,9]
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `extend(enumerable)` – extends the list by appending elements from another enumerable.
-<pre><code>a = [1, 2, 3, 4, 5, 6, 7, 7]
+
+```py
+a = [1, 2, 3, 4, 5, 6, 7, 7]
 b = [8, 9, 10]
 
 # Extend list by appending all elements from b
@@ -61,15 +73,25 @@ a.extend(b)
 # Extend list with elements from a non-list enumerable:
 a.extend(range(3))
 # a: [1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10, 0, 1, 2]
-</code></pre>
+
+```
+
+
 Lists can also be concatenated with the `+` operator. Note that this does not modify any of the original lists:
-<pre><code>a = [1, 2, 3, 4, 5, 6] + [7, 7] + b
+
+```py
+a = [1, 2, 3, 4, 5, 6] + [7, 7] + b
 # a: [1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `index(value, [startIndex])` – gets the index of the first occurrence of the input value. If the input value is not in the list a `ValueError` exception is raised. If a second argument is provided, the search is started at that specified index.
-<pre><code>a.index(7)
+
+```py
+a.index(7)
 # Returns: 6
 
 a.index(49) # ValueError, because 49 is not in a.
@@ -78,20 +100,30 @@ a.index(7, 7)
 # Returns: 7
 
 a.index(7, 8) # ValueError, because there is no 7 starting at index 8
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 `insert(index, value)` – inserts `value` just before the specified `index`. Thus after the insertion the new element occupies position `index`.
-<pre><code>a.insert(0, 0)  # insert 0 at position 0
+
+```py
+a.insert(0, 0)  # insert 0 at position 0
 a.insert(2, 5)  # insert 5 at position 2
 # a: [0, 1, 5, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 `pop([index])` – removes and returns the item at `index`. With no argument it removes and returns the last element of the list.
-<pre><code>a.pop(2)
+
+```py
+a.pop(2)
 # Returns: 5
 # a: [0, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]
 a.pop(8)
@@ -102,42 +134,72 @@ a.pop(8)
 a.pop()
 # Returns: 10
 # a: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `remove(value)` – removes the first occurrence of the specified value. If the provided value cannot be found, a `ValueError` is raised.
-<pre><code>a.remove(0)
+
+```py
+a.remove(0)
 a.remove(9)
 # a: [1, 2, 3, 4, 5, 6, 7, 8]
 a.remove(10)
 # ValueError, because 10 is not in a
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `reverse()` – reverses the list in-place and returns `None`.
-<pre><code>a.reverse()
+
+```py
+a.reverse()
 # a: [8, 7, 6, 5, 4, 3, 2, 1]
-</code></pre>
+
+```
+
+
 There are also [other ways of reversing a list](http://stackoverflow.com/documentation/python/3553/common-pitfalls/12259/list-multiplication-and-common-references#t=201607282214343131018).
 </li>
 <li>
 `count(value)` – counts the number of occurrences of some value in the list.
-<pre><code>a.count(7)
+
+```py
+a.count(7)
 # Returns: 2
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `sort()` – sorts the list in numerical and lexicographical order and returns `None`.
-<pre><code>a.sort()
+
+```py
+a.sort()
 # a = [1, 2, 3, 4, 5, 6, 7, 8]
 # Sorts the list in numerical order
-</code></pre>
+
+```
+
+
 Lists can also be reversed when sorted using the `reverse=True` flag in the `sort()` method.
-<pre><code>a.sort(reverse=True)
+
+```py
+a.sort(reverse=True)
 # a = [8, 7, 6, 5, 4, 3, 2, 1]
-</code></pre>
+
+```
+
+
 If you want to sort by attributes of items, you can use the `key` keyword argument:
-<pre><code>import datetime
+
+```py
+import datetime
 
 class Person(object):
     def __init__(self, name, birthday, height):
@@ -160,9 +222,14 @@ l.sort(key=lambda item: item.birthday)
 
 l.sort(key=lambda item: item.height)
 # l: [John Cena, Chuck Norris, Jon Skeet]
-</code></pre>
+
+```
+
+
 In case of list of dicts the concept is the same:
-<pre><code>import datetime
+
+```py
+import datetime
 
 l = [{'name':'John Cena', 'birthday': datetime.date(1992, 9, 12),'height': 175},
  {'name': 'Chuck Norris', 'birthday': datetime.date(1990, 8, 28),'height': 180},
@@ -176,9 +243,14 @@ l.sort(key=lambda item: item['birthday'])
 
 l.sort(key=lambda item: item['height'])
 # l: [John Cena, Chuck Norris, Jon Skeet]
-</code></pre>
+
+```
+
+
 Sort by sub dict :
-<pre><code>import datetime
+
+```py
+import datetime
 
 l = [{'name':'John Cena', 'birthday': datetime.date(1992, 9, 12),'size': {'height': 175, 'weight': 100}},
  {'name': 'Chuck Norris', 'birthday': datetime.date(1990, 8, 28),'size' : {'height': 180, 'weight': 90}},
@@ -186,7 +258,10 @@ l = [{'name':'John Cena', 'birthday': datetime.date(1992, 9, 12),'size': {'heigh
 
 l.sort(key=lambda item: item['size']['height'])
 # l: [John Cena, Chuck Norris, Jon Skeet]
-</code></pre>
+
+```
+
+
 </li>
 
 **Better way to sort using `attrgetter` and `itemgetter`**
@@ -232,53 +307,93 @@ person.sort(key=by_birthday) #sort by birthday
 
 <li>
 `clear()` – removes all items from the list
-<pre><code>a.clear()
+
+```py
+a.clear()
 # a = []
-</code></pre>
+
+```
+
+
 </li>
 <li>
 **Replication** – multiplying an existing list by an integer will produce a larger list consisting of that many copies of the original. This can be useful for example for list initialization:
-<pre><code>b = ["blah"] * 3
+
+```py
+b = ["blah"] * 3
 # b = ["blah", "blah", "blah"]
 b = [1, 3, 5] * 5
 # [1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5, 1, 3, 5]
-</code></pre>
+
+```
+
+
 Take care doing this if your list contains references to objects (eg a list of lists), see [Common Pitfalls - List multiplication and common references](http://stackoverflow.com/documentation/python/3553/common-pitfalls/12259/list-multiplication-and-common-references#t=201607282214343131018).
 </li>
 <li>
 **Element deletion** – it is possible to delete multiple elements in the list using the `del` keyword and slice notation:
-<pre><code>a = list(range(10))
+
+```py
+a = list(range(10))
 del a[::2]
 # a = [1, 3, 5, 7, 9]
 del a[-1]
 # a = [1, 3, 5, 7]
 del a[:]
 # a = []
-</code></pre>
+
+```
+
+
 </li>
 <li>
 **Copying**
 The default assignment "=" assigns a reference of the original list to the new name.  That is, the original name and new name are both pointing to the same list object. Changes made through any of them will be reflected in another. This is often not what you intended.
-<pre><code>b = a
+
+```py
+b = a
 a.append(6)
 # b: [1, 2, 3, 4, 5, 6]
-</code></pre>
+
+```
+
+
 If you want to create a copy of the list you have below options.
 You can slice it:
-<pre><code>new_list = old_list[:]
-</code></pre>
+
+```py
+new_list = old_list[:]
+
+```
+
+
 You can use the built in list() function:
-<pre><code>new_list = list(old_list)
-</code></pre>
+
+```py
+new_list = list(old_list)
+
+```
+
+
 You can use generic copy.copy():
-<pre><code>import copy
+
+```py
+import copy
 new_list = copy.copy(old_list) #inserts references to the objects found in the original.
-</code></pre>
+
+```
+
+
 This is a little slower than list() because it has to find out the datatype of old_list first.
 If the list contains objects and you want to copy them as well, use generic copy.deepcopy():
-<pre><code>import copy
+
+```py
+import copy
 new_list = copy.deepcopy(old_list) #inserts copies of the objects found in the original.
-</code></pre>
+
+```
+
+
 Obviously the slowest and most memory-needing method, but sometimes unavoidable.
 </li>
 
@@ -583,12 +698,19 @@ Out[2]: [9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 <li>
 **The simplest way to concatenate** `list1` and `list2`:
-<pre><code>merged = list1 + list2
-</code></pre>
+
+```py
+merged = list1 + list2
+
+```
+
+
 </li>
 <li>
 **`zip` returns a list of tuples**, where the i-th tuple contains the i-th element from each of the argument sequences or iterables:
-<pre><code>alist = ['a1', 'a2', 'a3']
+
+```py
+alist = ['a1', 'a2', 'a3']
 blist = ['b1', 'b2', 'b3']
 
 for a, b in zip(alist, blist):
@@ -598,9 +720,14 @@ for a, b in zip(alist, blist):
 # a1 b1
 # a2 b2
 # a3 b3
-</code></pre>
+
+```
+
+
 If the lists have different lengths then the result will include only as many elements as the shortest one:
-<pre><code>alist = ['a1', 'a2', 'a3']
+
+```py
+alist = ['a1', 'a2', 'a3']
 blist = ['b1', 'b2', 'b3', 'b4']
 for a, b in zip(alist, blist):
     print(a, b)
@@ -615,9 +742,14 @@ len(list(zip(alist, blist)))
 
 # Output:
 # 0
-</code></pre>
+
+```
+
+
 For padding lists of unequal length to the longest one with `None`s use `itertools.zip_longest` (`itertools.izip_longest` in Python 2)
-<pre><code>alist = ['a1', 'a2', 'a3']
+
+```py
+alist = ['a1', 'a2', 'a3']
 blist = ['b1']
 clist = ['c1', 'c2', 'c3', 'c4']
 
@@ -629,18 +761,31 @@ for a,b,c in itertools.zip_longest(alist, blist, clist):
 # a2 None c2
 # a3 None c3
 # None None c4
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 **Insert to a specific index values:**
-<pre><code> alist = [123, 'xyz', 'zara', 'abc']
+
+```py
+ alist = [123, 'xyz', 'zara', 'abc']
  alist.insert(3, [2009])
  print("Final List :", alist)
-</code></pre>
+
+```
+
+
 Output:
-<pre><code> Final List : [123, 'xyz', 'zara', 2009, 'abc']
-</code></pre>
+
+```py
+ Final List : [123, 'xyz', 'zara', 2009, 'abc']
+
+```
+
+
 </li>
 
 

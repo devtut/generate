@@ -265,11 +265,18 @@ In this PEP, context managers provide `__enter__()` and `__exit__()` methods tha
 It then goes on to define the `with` statement as follows.
 
 > 
-<pre><code>with EXPR as VAR:
+
+```py
+with EXPR as VAR:
     BLOCK
-</code></pre>
+
+```
+
+
 The translation of the above statement is:
-<pre><code>   mgr = (EXPR)
+
+```py
+   mgr = (EXPR)
    exit = type(mgr).__exit__  # Not calling it yet
    value = type(mgr).__enter__(mgr)
    exc = True
@@ -287,6 +294,9 @@ The translation of the above statement is:
        # The normal and non-local-goto cases are handled here
        if exc:
            exit(mgr, None, None, None)
-</code></pre>
+
+```
+
+
 
 

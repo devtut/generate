@@ -61,9 +61,14 @@ For most (all in Python 2.x) arithmetic operations the result's type will be tha
 
 <li>
 Base: `int`, exponent: `int < 0`:
-<pre><code>2 ** -3
+
+```py
+2 ** -3
 # Out: 0.125 (result is a float)
-</code></pre>
+
+```
+
+
 </li>
 <li>
 This is also valid for Python 3.x.
@@ -73,9 +78,14 @@ Before Python 2.2.0, this raised a `ValueError`.
 </li>
 <li>
 Base: `int < 0` or `float < 0`, exponent: `float != int`
-<pre><code>(-2) ** (0.5)  # also (-2.) ** (0.5)    
+
+```py
+(-2) ** (0.5)  # also (-2.) ** (0.5)    
 # Out: (8.659560562354934e-17+1.4142135623730951j) (result is complex)
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Before python 3.0.0, this raised a `ValueError`.

@@ -14,7 +14,9 @@ A **Mixin** is a set of properties and methods that can be used in different cla
 
 > 
 For instance, say you have the classes `Car`, `Boat`, and `Plane`. Objects from all of these classes have the ability to travel, so they get the function `travel`. In this scenario, they all travel the same basic way, too; by getting a route, and moving along it. To implement this function, you could derive all of the classes from `Vehicle`, and put the function in that shared class:
-<pre><code>class Vehicle(object):
+
+```py
+class Vehicle(object):
    """A generic vehicle class."""
 
    def __init__(self, position):
@@ -32,7 +34,10 @@ class Boat(Vehicle):
 
 class Plane(Vehicle):
    ...
-</code></pre>
+
+```
+
+
 With this code, you can call `travel` on a car (`car.travel("Montana")`), boat (`boat.travel("Hawaii")`), and plane (`plane.travel("France")`)
 
 
@@ -47,7 +52,9 @@ class Foo(main_super, mixin): ...
 
 > 
 So, to give the classes `Car` and clock the ability to use a radio, you could override `Car` from the last example and write this:
-<pre><code>class RadioUserMixin(object):
+
+```py
+class RadioUserMixin(object):
    def __init__(self):
        self.radio = Radio()
 
@@ -60,7 +67,10 @@ class Car(Vehicle, RadioUserMixin):
 
 class Clock(Vehicle, RadioUserMixin):
    ...
-</code></pre>
+
+```
+
+
 Now you can call `car.play_song_on_station(98.7)` and `clock.play_song_on_station(101.3)`, but not something like `boat.play_song_on_station(100.5)`
 
 

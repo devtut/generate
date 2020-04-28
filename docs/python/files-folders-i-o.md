@@ -51,13 +51,18 @@ file, not to modify it. When using this mode the file must exist.</p>
 </li>
 <li>
 `'ab+'` - appending and reading mode in binary. The same as `a+` except that the data is in binary.
-<pre><code> with open(filename, 'r') as f:
+
+```py
+ with open(filename, 'r') as f:
      f.read()
  with open(filename, 'w') as f:
      f.write(filedata)
  with open(filename, 'a') as f:
      f.write('\n' + newdata)
-</code></pre>
+
+```
+
+
 </li>
 
 ||r|r+|w|w+|a|a+
@@ -314,18 +319,28 @@ This will also avoid race-conditions if another process deleted the file between
 
 <li>
 Using the `os` module:
-<pre><code>import os
+
+```py
+import os
 os.path.isfile('/path/to/some/file.txt')
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 Using `pathlib`:
-<pre><code>import pathlib
+
+```py
+import pathlib
 path = pathlib.Path('/path/to/some/file.txt')
 if path.is_file():
     ...
-</code></pre>
+
+```
+
+
 </li>
 
 To check whether a given path exists or not, you can follow the above EAFP procedure, or explicitly check the path:

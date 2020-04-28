@@ -205,7 +205,9 @@ Import the module using `import ply.lex`
 </li>
 <li>
 All lexers must provide a list called `tokens` that defines all of the possible token names that can be produced by the lexer. This list is always required.
-<pre><code> tokens = [
+
+```py
+ tokens = [
     'NUMBER',
     'PLUS',
     'MINUS',
@@ -214,7 +216,10 @@ All lexers must provide a list called `tokens` that defines all of the possible 
     'LPAREN',
     'RPAREN',
  ]
-</code></pre>
+
+```
+
+
 </li>
 
 `tokens` could also be a tuple of strings (rather than a string), where each string denotes a token as before.
@@ -227,17 +232,27 @@ For simple tokens, the regular expression can be specified as strings: `t_PLUS =
 </li>
 <li>
 If some kind of action needs to be performed, a token rule can be specified as a function.
-<pre><code>   def t_NUMBER(t):
+
+```py
+   def t_NUMBER(t):
        r'\d+'
        t.value = int(t.value)
        return t
-</code></pre>
+
+```
+
+
 Note, the rule is specified as a doc string within the function. The function accepts one argument which is an instance of `LexToken`, performs some action and then returns back the argument.
 If you want to use an external string as the regex rule for the function instead of specifying a doc string, consider the following example:
-<pre><code>   @TOKEN(identifier)         # identifier is a string holding the regex
+
+```py
+   @TOKEN(identifier)         # identifier is a string holding the regex
    def t_ID(t):
        ...      # actions
-</code></pre>
+
+```
+
+
 </li>
 <li>
 An instance of `LexToken` object (let's call this object `t`) has the following attributes:
@@ -251,17 +266,27 @@ For simple tokens, the regular expression can be specified as strings: `t_PLUS =
 </li>
 <li>
 If some kind of action needs to be performed, a token rule can be specified as a function.
-<pre><code>   def t_NUMBER(t):
+
+```py
+   def t_NUMBER(t):
        r'\d+'
        t.value = int(t.value)
        return t
-</code></pre>
+
+```
+
+
 Note, the rule is specified as a doc string within the function. The function accepts one argument which is an instance of `LexToken`, performs some action and then returns back the argument.
 If you want to use an external string as the regex rule for the function instead of specifying a doc string, consider the following example:
-<pre><code>   @TOKEN(identifier)         # identifier is a string holding the regex
+
+```py
+   @TOKEN(identifier)         # identifier is a string holding the regex
    def t_ID(t):
        ...      # actions
-</code></pre>
+
+```
+
+
 </li>
 <li>
 An instance of `LexToken` object (let's call this object `t`) has the following attributes:
@@ -271,10 +296,15 @@ An instance of `LexToken` object (let's call this object `t`) has the following 
 - `t.lineno` which is the current line number (this is not automatically updated, as the lexer knows nothing of line numbers). Update lineno using a function called `t_newline`.
 </ol>
 <h3></h3>
-<pre><code>  def t_newline(t):
+
+```py
+  def t_newline(t):
       r'\n+'
       t.lexer.lineno += len(t.value)
-</code></pre>
+
+```
+
+
 <h3></h3>
 <ol start="4">
 - `t.lexpos` which is the position of the token relative to the beginning of the input text.
@@ -285,20 +315,35 @@ An instance of `LexToken` object (let's call this object `t`) has the following 
 
 <li>
 If nothing is returned from a regex rule function, the token is discarded. If you want to discard a token, you can alternatively add t_ignore_ prefix to a regex rule variable instead of defining a function for the same rule.
-<pre><code>   def t_COMMENT(t):
+
+```py
+   def t_COMMENT(t):
        r'\#.*'
        pass
        # No return value. Token discarded
-</code></pre>
+
+```
+
+
 ...Is the same as:
-<pre><code>   t_ignore_COMMENT = r'\#.*'
-</code></pre>
+
+```py
+   t_ignore_COMMENT = r'\#.*'
+
+```
+
+
 <h3></h3>
 <sup>This is of course invalid if you're carrying out some action when you see a comment. In which case, use a function to define the regex rule.</sup>
 If you haven't defined a token for some characters but still want to ignore it, use `t_ignore = "<characters to ignore>"` (these prefixes are necessary):
-<pre><code>   t_ignore_COMMENT = r'\#.*'
+
+```py
+   t_ignore_COMMENT = r'\#.*'
    t_ignore  = ' \t'    # ignores spaces and tabs
-</code></pre>
+
+```
+
+
 <h3></h3>
 </li>
 <li>
@@ -317,31 +362,51 @@ If you are matching `==` and `=` in the same file, take advantage of these rules
 <li>
 <p>Literals are tokens that are returned as they are. Both `t.type` and `t.value` will be set to the character itself.
 Define a list of literals as such:</p>
-<pre><code>literals = [ '+', '-', '*', '/' ]
-</code></pre>
+
+```py
+literals = [ '+', '-', '*', '/' ]
+
+```
+
+
 or,
-<pre><code>literals = "+-*/"
-</code></pre>
+
+```py
+literals = "+-*/"
+
+```
+
+
 <h3></h3>
 It is possible to write token functions that perform additional actions when literals are matched. However, you'll need to set the token type appropriately. For example:
-<pre><code>literals = [ '{', '}' ]
+
+```py
+literals = [ '{', '}' ]
 
 def t_lbrace(t):
     r'\{'
     t.type = '{'  # Set token type to the expected literal (ABSOLUTE MUST if this is a literal)
     return t
-</code></pre>
+
+```
+
+
 </li>
 
 ### 
 
 <li>
 Handle errors with t_error function.
-<pre><code># Error handling rule
+
+```py
+# Error handling rule
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1) # skip the illegal token (don't process it)
-</code></pre>
+
+```
+
+
 In general, `t.lexer.skip(n)` skips n characters in the input string.
 </li>
 
@@ -459,13 +524,18 @@ while True:
 
 <li>
 Each grammar rule is defined by a function where the docstring to that function contains the appropriate context-free grammar specification. The statements that make up the function body implement the semantic actions of the rule. Each function accepts a single argument p that is a sequence containing the values of each grammar symbol in the corresponding rule. The values of `p[i]` are mapped to grammar symbols as shown here:
-<pre><code>  def p_expression_plus(p):
+
+```py
+  def p_expression_plus(p):
       'expression : expression PLUS term'
       #   ^            ^        ^    ^
       #  p[0]         p[1]     p[2] p[3]
 
       p[0] = p[1] + p[3]
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
@@ -483,7 +553,9 @@ The `p_error(p)` rule is defined to catch syntax errors (same as `yyerror` in ya
 </li>
 <li>
 Multiple grammar rules can be combined into a single function, which is a good idea if productions have a similar structure.
-<pre><code>  def p_binary_operators(p):
+
+```py
+  def p_binary_operators(p):
       '''expression : expression PLUS term
                     | expression MINUS term
          term       : term TIMES factor
@@ -496,11 +568,16 @@ Multiple grammar rules can be combined into a single function, which is a good i
           p[0] = p[1] * p[3]
       elif p[2] == '/':
           p[0] = p[1] / p[3] 
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Character literals can be used instead of tokens.
-<pre><code>  def p_binary_operators(p):
+
+```py
+  def p_binary_operators(p):
       '''expression : expression '+' term
                     | expression '-' term
          term       : term '*' factor
@@ -513,7 +590,10 @@ Character literals can be used instead of tokens.
           p[0] = p[1] * p[3]
       elif p[2] == '/':
           p[0] = p[1] / p[3]
-</code></pre>
+
+```
+
+
 Of course, the literals must be specified in the lexer module.
 </li>
 <li>
@@ -525,13 +605,18 @@ To explicitly set the start symbol, use `start = 'foo'`, where `foo` is some non
 <li>
 Setting precedence and associativity can be done using the precedence variable.
 <h3></h3>
-<pre><code>  precedence = (
+
+```py
+  precedence = (
       ('nonassoc', 'LESSTHAN', 'GREATERTHAN'),  # Nonassociative operators
       ('left', 'PLUS', 'MINUS'),
       ('left', 'TIMES', 'DIVIDE'),
       ('right', 'UMINUS'),            # Unary minus operator
   )
-</code></pre>
+
+```
+
+
 Tokens are ordered from lowest to highest precedence. `nonassoc` means that those tokens do not associate. This means that something like `a < b < c` is illegal whereas `a < b` is still legal.
 </li>
 <li>

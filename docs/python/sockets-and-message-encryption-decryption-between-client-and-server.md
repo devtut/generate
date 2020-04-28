@@ -259,19 +259,29 @@ Socket Setup:
 <p>As the creating public and private keys as well as hashing the public key, we need
 to setup the socket now. For setting up the socket, we need to import another module with “import socket” and connect(for client) or bind(for server) the IP address and the port with the socket getting from the user.</p>
 **----------Client Side----------**
-<pre><code>  server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+```py
+  server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
   host = raw_input("Server Address To Be Connected -> ")
   port = int(input("Port of The Server -> "))
   server.connect((host, port))
-</code></pre>
+
+```
+
+
 **----------Server Side---------**
-<pre><code>  try:
+
+```py
+  try:
   #setting up socket
   server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)     
   server.bind((host,port))
   server.listen(5)
   except BaseException: print "-----Check Server Address or Port-----"
-</code></pre>
+
+```
+
+
 **“ socket.AF_INET,socket.SOCK_STREAM” will allow us to use accept() function and messaging fundamentals. Instead of it, we can use “ socket.AF_INET,socket.SOCK_DGRAM” also but that time we will have to use setblocking(value) .**
 </li>
 
@@ -291,9 +301,14 @@ random_generator is derived from “**from Crypto import Random**” module. Key
 
 <li>
 (CLIENT)After creating the public and private key, we have to hash the public key to send over to the server using SHA-1 hash. To use the SHA-1 hash we need to import another module by writing “import hashlib” .To hash the public key we have write two lines of code:
-<pre><code>  hash_object = hashlib.sha1(public) 
+
+```py
+  hash_object = hashlib.sha1(public) 
   hex_digest = hash_object.hexdigest()
-</code></pre>
+
+```
+
+
 </li>
 
 Here hash_object and hex_digest is our variable. After this, client will send hex_digest and public to the server and Server will verify them by comparing the hash got from client and new hash of the public key. If the new hash and the hash from the client matches, it will move to next procedure. As the public sent from the client is in form of string, it will not be able to be used as key in the server
@@ -301,12 +316,17 @@ side. To prevent this and converting string public key to rsa public key, we nee
 
 <li>
 (SERVER)The next step is to create a session key. Here, I have used “os” module to create a random key “key = os.urandom(16)” which will give us a 16bit long key and after that I have encrypted that key in “AES.MODE_CTR” and hash it again with SHA-1:
-<pre><code> #encrypt CTR MODE session key
+
+```py
+ #encrypt CTR MODE session key
  en = AES.new(key_128,AES.MODE_CTR,counter = lambda:key_128) encrypto = en.encrypt(key_128)
  #hashing sha1
  en_object = hashlib.sha1(encrypto)
  en_digest = en_object.hexdigest()
-</code></pre>
+
+```
+
+
 </li>
 
 So the en_digest will be our session key.
@@ -314,9 +334,14 @@ So the en_digest will be our session key.
 <li>
 <p>(SERVER) For the final part of the handshake process is to encrypt the public key got from the client and the session key created in
 server side.</p>
-<pre><code> #encrypting session key and public key
+
+```py
+ #encrypting session key and public key
  E = server_public_key.encrypt(encrypto,16)
-</code></pre>
+
+```
+
+
 </li>
 
 After encrypting, server will send the key to the client as string.
@@ -328,11 +353,16 @@ which was created earlier along with the public key. As the encrypted
 back as a key by using eval() . If the decryption is done, the
 handshake process is completed also as both sides confirms that they
 are using same keys. To decrypt:</p>
-<pre><code> en = eval(msg)
+
+```py
+ en = eval(msg)
  decrypt = key.decrypt(en)
  # hashing sha1
  en_object = hashlib.sha1(decrypt) en_digest = en_object.hexdigest()
-</code></pre>
+
+```
+
+
 </li>
 
 I have used the SHA-1 here so that it will be readable in the output.
@@ -344,8 +374,13 @@ For communication process, we have to use the session key from both side as the 
 <li>
 <p>(Encryption) For IDEA encryption, we need key of 16bit in size and counter as must callable. Counter is mandatory in MODE_CTR. The session key that we encrypted and hashed is now size of 40 which will exceed the limit key of the IDEA encryption. Hence, we need to reduce the size of the session key. For reducing, we can use normal python built in function string[value:value]. Where the value can be any value according to the choice of the user. In our case, I have done “key[:16]”
 where it will take from 0 to 16 values from the key. This conversion could be done in many ways like key[1:17] or key[16:]. Next part is to create new IDEA encryption function by writing IDEA.new() which will take 3 arguments for processing. The first argument will be KEY,second argument will be the mode of the IDEA encryption (in our case, IDEA.MODE_CTR) and the third argument will be the counter= which is a must callable function. The counter= will hold a size of of string which will be returned by the function. To define the counter= , we must have to use a reasonable values. In this case, I have used the size of the KEY by defining lambda. Instead of using lambda, we could use Counter.Util which generates random value for counter= . To use Counter.Util, we need to import counter module from crypto. Hence, the code will be:</p>
-<pre><code>  ideaEncrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda : key)
-</code></pre>
+
+```py
+  ideaEncrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda : key)
+
+```
+
+
 </li>
 
 Once defining the “ideaEncrypt” as our IDEA encryption variable, we can use the built in encrypt function to encrypt any message.

@@ -425,37 +425,67 @@ Fish shell is friendlier yet you might face trouble while using with `virtualenv
 
 <li>
 Install virtualfish to the global space
-<pre><code> sudo pip install virtualfish
-</code></pre>
+
+```py
+ sudo pip install virtualfish
+
+```
+
+
 </li>
 <li>
 Load the python module virtualfish during the fish shell startup
-<pre><code> $ echo "eval (python -m virtualfish)" > ~/.config/fish/config.fish
-</code></pre>
+
+```py
+ $ echo "eval (python -m virtualfish)" > ~/.config/fish/config.fish
+
+```
+
+
 </li>
 <li>
 Edit this function `fish_prompt` by `$ funced fish_prompt --editor vim` and add the below lines and close the vim editor
-<pre><code> if set -q VIRTUAL_ENV
+
+```py
+ if set -q VIRTUAL_ENV
      echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
  end
-</code></pre>
+
+```
+
+
 Note: If you are unfamiliar with vim, simply supply your favorite editor like this `$ funced fish_prompt --editor nano` or `$ funced fish_prompt --editor gedit`
 </li>
 
 <li>
 Save changes using `funcsave`
-<pre><code> funcsave fish_prompt
-</code></pre>
+
+```py
+ funcsave fish_prompt
+
+```
+
+
 </li>
 <li>
 To create a new virtual environment use `vf new`
-<pre><code> vf new my_new_env # Make sure $HOME/.virtualenv exists
-</code></pre>
+
+```py
+ vf new my_new_env # Make sure $HOME/.virtualenv exists
+
+```
+
+
 </li>
 <li>
 If you want create a new python3 environment specify it via `-p` flag
-<pre><code> vf new -p python3 my_new_env
-</code></pre>
+
+```py
+ vf new -p python3 my_new_env
+
+```
+
+
 </li>
 <li>
 To switch between virtualenvironments use `vf deactivate` & `vf activate another_env`

@@ -209,10 +209,15 @@ From Python's documentation on [naming and binding](http://docs.python.org/3/ref
 
 > 
 The scope of names defined in a class block is limited to the class block; it does not extend to the code blocks of methods – this includes comprehensions and generator expressions since they are implemented using a function scope. This means that the following will fail:
-<pre><code>class A:
+
+```py
+class A:
     a = 42
     b = list(a + i for i in range(10))
-</code></pre>
+
+```
+
+
 
 
 This example uses references from [this answer](http://stackoverflow.com/questions/13905741/accessing-class-variables-from-a-list-comprehension-in-the-class-definition/13913933#13913933) by Martijn Pieters, which contains more in depth analysis of this behavior.

@@ -605,26 +605,41 @@ True * True  == 1 # 1 * 1 == 1
 
 <li>
 `int`: Integer number
-<pre><code>a = 2
+
+```py
+a = 2
 b = 100
 c = 123456789
 d = 38563846326424324
-</code></pre>
+
+```
+
+
 Integers in Python are of arbitrary sizes.
 Note: in older versions of Python, a `long` type was available and this was distinct from `int`. The two have been unified.
 </li>
 <li>
 `float`: Floating point number; precision depends on the implementation and system architecture, for CPython the `float` datatype corresponds to a C double.
-<pre><code>a = 2.0
+
+```py
+a = 2.0
 b = 100.e0
 c = 123456789.e1
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `complex`: Complex numbers
-<pre><code>a = 2 + 1j
+
+```py
+a = 2 + 1j
 b = 100 + 10j
-</code></pre>
+
+```
+
+
 </li>
 
 The `<`, `<=`, `>` and `>=` operators will raise a `TypeError` exception when any operand is a complex number.
@@ -647,38 +662,63 @@ strings (`str`, `bytes`, `unicode`) are sequences
 </li>
 <li>
 `reversed`: A reversed order of `str` with `reversed` function
-<pre><code>a = reversed('hello')
-</code></pre>
+
+```py
+a = reversed('hello')
+
+```
+
+
 </li>
 <li>
 `tuple`: An ordered collection of `n` values of any type (`n >= 0`).
-<pre><code>a = (1, 2, 3)
+
+```py
+a = (1, 2, 3)
 b = ('a', 1, 'python', (1, 2))
 b[2] = 'something else' # returns a TypeError
-</code></pre>
+
+```
+
+
 Supports indexing; immutable; hashable if all its members are hashable
 </li>
 <li>
 `list`: An ordered collection of `n` values (`n >= 0`)
-<pre><code>a = [1, 2, 3]
+
+```py
+a = [1, 2, 3]
 b = ['a', 1, 'python', (1, 2), [1, 2]]
 b[2] = 'something else' # allowed
-</code></pre>
+
+```
+
+
 Not hashable; mutable.
 </li>
 <li>
 `set`: An unordered collection of unique values. Items must be [hashable](https://docs.python.org/3.5/glossary.html).
-<pre><code>a = {1, 2, 'a'}
-</code></pre>
+
+```py
+a = {1, 2, 'a'}
+
+```
+
+
 </li>
 <li>
 `dict`: An unordered collection of unique key-value pairs; keys must be [hashable](https://docs.python.org/3.5/glossary.html).
-<pre><code>a = {1: 'one',
+
+```py
+a = {1: 'one',
      2: 'two'}
 
 b = {'a': [1, 2, 3],
      'b': 'a string'}
-</code></pre>
+
+```
+
+
 </li>
 
 > 
@@ -1853,17 +1893,32 @@ You can upgrade your existing pip installation by using the following commands
 
 <li>
 On Linux or macOS X:
-<pre><code>$ pip install -U pip
-</code></pre>
+
+```py
+$ pip install -U pip
+
+```
+
+
 You may need to use `sudo` with pip on some Linux Systems
 </li>
 <li>
 On Windows:
-<pre><code>py -m pip install -U pip
-</code></pre>
+
+```py
+py -m pip install -U pip
+
+```
+
+
 or
-<pre><code>python -m pip install -U pip
-</code></pre>
+
+```py
+python -m pip install -U pip
+
+```
+
+
 </li>
 
 For more information regarding pip do [read here](https://pip.pypa.io/en/stable/).
@@ -1968,18 +2023,28 @@ Python</a> is a widely used programming language. It is:
 </li>
 <li>
 **Dynamically typed**: Every variable in Python can reference any type of data. A single expression may evaluate to data of different types at different times. Due to that, the following code is possible:
-<pre><code>if something:
+
+```py
+if something:
     x = 1
 else:
     x = 'this is a string'
 print(x)
-</code></pre>
+
+```
+
+
 </li>
 <li>
 **Strongly typed**: During program execution, you are not allowed to do anything that's incompatible with the type of data you're working with. For example, there are no hidden conversions from strings to numbers; a string made out of digits will never be treated as a number unless you convert it explicitly:
-<pre><code>1 + '1'  # raises an error
+
+```py
+1 + '1'  # raises an error
 1 + int('1')  # results with 2
-</code></pre>
+
+```
+
+
 </li>
 <li>
 **Beginner friendly :)**: Python's syntax and structure are very intuitive. It is high level and provides constructs intended to enable writing clear programs on both a small and large scale. Python supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural styles. It has a large, comprehensive standard library and many easy-to-install 3rd party libraries.

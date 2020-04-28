@@ -177,18 +177,33 @@ reduce(do_and, [100, [], 20, 0])                  # = []
 
 <li>
 `sum()` for the sum of a sequence containing **addable** elements (not strings):
-<pre><code>sum([1,2,3])                                 # = 6
-</code></pre>
+
+```py
+sum([1,2,3])                                 # = 6
+
+```
+
+
 </li>
 <li>
 `str.join` for the concatenation of strings:
-<pre><code>''.join(['Hello', ',', ' World'])            # = 'Hello, World'
-</code></pre>
+
+```py
+''.join(['Hello', ',', ' World'])            # = 'Hello, World'
+
+```
+
+
 </li>
 <li>
 `next` together with a generator could be a short-circuit variant compared to `reduce`:
-<pre><code># First falsy item:
+
+```py
+# First falsy item:
 next((i for i in [100, [], 20, 0] if not i)) # = []  
-</code></pre>
+
+```
+
+
 </li>
 

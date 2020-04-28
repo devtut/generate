@@ -48,21 +48,38 @@ The result of this example should be:
 
 <li>
 Import the sqlite module using
-<pre><code>>>> import sqlite3
-</code></pre>
+
+```py
+>>> import sqlite3
+
+```
+
+
 </li>
 <li>
 To use the module, you must first create a Connection object that represents the database. Here the data will be stored in the example.db file:
-<pre><code>>>> conn = sqlite3.connect('users.db')
-</code></pre>
+
+```py
+>>> conn = sqlite3.connect('users.db')
+
+```
+
+
 Alternatively, you can also supply the special name `:memory:` to create a temporary database in RAM, as follows:
-<pre><code>>>> conn = sqlite3.connect(':memory:')
-</code></pre>
+
+```py
+>>> conn = sqlite3.connect(':memory:')
+
+```
+
+
 </li>
 <li>
 Once you have a `Connection`, you can create a `Cursor` object and call its `execute()` method to perform SQL commands:
 <h3></h3>
-<pre><code>c = conn.cursor()
+
+```py
+c = conn.cursor()
 
 # Create table
 c.execute('''CREATE TABLE stocks
@@ -77,7 +94,10 @@ conn.commit()
 # We can also close the connection if we are done with it.
 # Just be sure any changes have been committed or they will be lost.
 conn.close()
-</code></pre>
+
+```
+
+
 </li>
 
 ### Important Attributes and Functions of `Connection`
@@ -119,7 +139,9 @@ These functions perform the same way as those of the cursor object. This is a sh
 <li>
 `row_factory`
 You can change this attribute to a callable that accepts the cursor and the original row as a tuple and will return the real result row.
-<pre><code>def dict_factory(cursor, row):
+
+```py
+def dict_factory(cursor, row):
     d = {}
     for i, col in enumerate(cursor.description):
         d[col[0]] = row[i]
@@ -127,7 +149,10 @@ You can change this attribute to a callable that accepts the cursor and the orig
 
 conn = sqlite3.connect(":memory:")
 conn.row_factory = dict_factory
-</code></pre>
+
+```
+
+
 </li>
 
 ### Important Functions of `Cursor`
@@ -136,7 +161,9 @@ conn.row_factory = dict_factory
 `execute(sql[, parameters])`
 <p>Executes a **single** SQL statement. The SQL statement may be parametrized (i. e. placeholders instead of SQL literals).
 The sqlite3 module supports two kinds of placeholders: question marks `?` (“qmark style”) and named placeholders `:name` (“named style”).</p>
-<pre><code>import sqlite3
+
+```py
+import sqlite3
 conn = sqlite3.connect(":memory:")
 cur = conn.cursor()
 cur.execute("create table people (name, age)")
@@ -152,7 +179,10 @@ cur.execute("select * from people where name=:who and age=:age",
             {"who": who, "age": age})  # the keys correspond to the placeholders in SQL
 
 print(cur.fetchone())
-</code></pre>
+
+```
+
+
 </li>
 
 > 
@@ -164,7 +194,9 @@ can make your program vulnerable to an SQL injection attack (see
 <li>
 `executemany(sql, seq_of_parameters)`
 Executes an SQL command against all parameter sequences or mappings found in the sequence sql. The sqlite3 module also allows using an iterator yielding parameters instead of a sequence.
-<pre><code>L = [(1, 'abcd', 'dfj', 300),    # A list of tuples to be inserted into the database
+
+```py
+L = [(1, 'abcd', 'dfj', 300),    # A list of tuples to be inserted into the database
      (2, 'cfgd', 'dyfj', 400),
      (3, 'sdd', 'dfjh', 300.50)]                           
 
@@ -174,9 +206,14 @@ conn.executemany("insert into book values (?, ?, ?, ?)", L)
 
 for row in conn.execute("select * from book"):
     print(row)
-</code></pre>
+
+```
+
+
 You can also pass iterator objects as a parameter to executemany, and the function will iterate over the each tuple of values that the iterator returns. The iterator must return a tuple of values.
-<pre><code>import sqlite3
+
+```py
+import sqlite3
 
 class IterChars:
     def __init__(self):
@@ -201,13 +238,18 @@ cur.executemany("insert into characters(c) values (?)", theIter)
 rows = cur.execute("select c from characters")
 for row in rows:
     print(row[0]),
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `executescript(sql_script)`
 This is a nonstandard convenience method for executing multiple SQL statements at once. It issues a `COMMIT` statement first, then executes the SQL script it gets as a parameter.
 `sql_script` can be an instance of `str` or `bytes`.
-<pre><code>import sqlite3
+
+```py
+import sqlite3
 conn = sqlite3.connect(":memory:")
 cur = conn.cursor()
 cur.executescript("""
@@ -230,10 +272,15 @@ cur.executescript("""
          1987
      );
      """)
-</code></pre>
+
+```
+
+
 The next set of functions are used in conjunction with `SELECT` statements in SQL. To retrieve data after executing a `SELECT` statement, you can either treat the cursor as an iterator, call the cursor’s `fetchone()` method to retrieve a single matching row, or call `fetchall()` to get a list of the matching rows.
 Example of the iterator form:
-<pre><code>import sqlite3
+
+```py
+import sqlite3
 stocks = [('2006-01-05', 'BUY', 'RHAT', 100, 35.14),
           ('2006-03-28', 'BUY', 'IBM', 1000, 45.0),
           ('2006-04-06', 'SELL', 'IBM', 500, 53.0),
@@ -251,12 +298,17 @@ for row in cur.execute('SELECT * FROM stocks ORDER BY price'):
 # ('2006-03-28', 'BUY', 'IBM', 1000, 45.0)
 # ('2006-04-06', 'SELL', 'IBM', 500, 53.0)
 # ('2006-04-05', 'BUY', 'MSFT', 1000, 72.0)
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `fetchone()`
 Fetches the next row of a query result set, returning a single sequence, or None when no more data is available.
-<pre><code>cur.execute('SELECT * FROM stocks ORDER BY price')
+
+```py
+cur.execute('SELECT * FROM stocks ORDER BY price')
 i = cur.fetchone()
 while(i): 
     print(i)
@@ -267,27 +319,40 @@ while(i):
 # ('2006-03-28', 'BUY', 'IBM', 1000, 45.0)
 # ('2006-04-06', 'SELL', 'IBM', 500, 53.0)
 # ('2006-04-05', 'BUY', 'MSFT', 1000, 72.0)
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `fetchmany(size=cursor.arraysize)`
 Fetches the next set of rows of a query result (specified by size), returning a list. If size is omitted, fetchmany returns a single row. An empty list is returned when no more rows are available.
-<pre><code>cur.execute('SELECT * FROM stocks ORDER BY price')
+
+```py
+cur.execute('SELECT * FROM stocks ORDER BY price')
 print(cur.fetchmany(2))
 
 # Output:    
 # [('2006-01-05', 'BUY', 'RHAT', 100, 35.14), ('2006-03-28', 'BUY', 'IBM', 1000, 45.0)]
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `fetchall()`
 Fetches all (remaining) rows of a query result, returning a list.
-<pre><code>cur.execute('SELECT * FROM stocks ORDER BY price')
+
+```py
+cur.execute('SELECT * FROM stocks ORDER BY price')
 print(cur.fetchall())
 
 # Output:
 # [('2006-01-05', 'BUY', 'RHAT', 100, 35.14), ('2006-03-28', 'BUY', 'IBM', 1000, 45.0), ('2006-04-06', 'SELL', 'IBM', 500, 53.0), ('2006-04-05', 'BUY', 'MSFT', 1000, 72.0)]
-</code></pre>
+
+```
+
+
 </li>
 
 ### SQLite and Python data types

@@ -243,56 +243,91 @@ There a few things to note:
 
 <li>
 The names `args` and `kwargs` are used by convention, they are not a part of the language specification. Thus, these are equivalent:
-<pre><code> def func(*args, **kwargs):
+
+```py
+ def func(*args, **kwargs):
      print(args)
      print(kwargs)
-</code></pre>
+
+```
+
+
 <h3></h3>
-<pre><code> def func(*a, **b):
+
+```py
+ def func(*a, **b):
      print(a)
      print(b)
-</code></pre>
+
+```
+
+
 </li>
 <li>
 You may not have more than one `args` or more than one `kwargs` parameters (however they are not required)
-<pre><code> def func(*args1, *args2):
+
+```py
+ def func(*args1, *args2):
  #   File "<stdin>", line 1
  #     def test(*args1, *args2):
  #                      ^
  # SyntaxError: invalid syntax
-</code></pre>
+
+```
+
+
 <h3></h3>
-<pre><code> def test(**kwargs1, **kwargs2):
+
+```py
+ def test(**kwargs1, **kwargs2):
  #   File "<stdin>", line 1
  #     def test(**kwargs1, **kwargs2):
  #                       ^
  # SyntaxError: invalid syntax
-</code></pre>
+
+```
+
+
 </li>
 <li>
 If any positional argument follow `*args`, they are keyword-only arguments that can only be passed by name. A single star may be used instead of `*args` to force values to be keyword arguments without providing a variadic parameter list. Keyword-only parameter lists are only available in Python 3.
-<pre><code> def func(a, b, *args, x, y):
+
+```py
+ def func(a, b, *args, x, y):
      print(a, b, args, x, y)
 
  func(1, 2, 3, 4, x=5, y=6)
  #>>> 1, 2, (3, 4), 5, 6
-</code></pre>
+
+```
+
+
 <h3></h3>
-<pre><code> def func(a, b, *, x, y):
+
+```py
+ def func(a, b, *, x, y):
      print(a, b, x, y)
 
  func(1, 2, x=5, y=6)
  #>>> 1, 2, 5, 6
-</code></pre>
+
+```
+
+
 </li>
 <li>
 `**kwargs` must come last in the parameter list.
-<pre><code> def test(**kwargs, *args):
+
+```py
+ def test(**kwargs, *args):
  #   File "<stdin>", line 1
  #     def test(**kwargs, *args):
  #                      ^
  # SyntaxError: invalid syntax
-</code></pre>
+
+```
+
+
 </li>
 
 ### 

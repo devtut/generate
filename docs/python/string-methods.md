@@ -115,7 +115,9 @@ Python supports a `translate` method on the `str` type which allows you to speci
 table</code></td>|It is a lookup table that defines the mapping from one character to another.</tr>|`deletechars`|A list of characters which are to be removed from the string.
 </tbody></table>
 The `maketrans` method (`str.maketrans` in Python 3 and `string.maketrans` in Python 2) allows you to generate a translation table.
-<pre><code>>>> translation_table = str.maketrans("aeiou", "12345")
+
+```py
+>>> translation_table = str.maketrans("aeiou", "12345")
 >>> my_string = "This is a string!"
 >>> translated = my_string.translate(translation_table)
 'Th3s 3s 1 str3ng!'

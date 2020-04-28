@@ -278,10 +278,15 @@ Some recommended [PEP8](https://www.python.org/dev/peps/pep-0008/#imports) style
 
 <li>
 Imports should be on separate lines:
-<pre><code> from math import sqrt, ceil      # Not recommended
+
+```py
+ from math import sqrt, ceil      # Not recommended
  from math import sqrt            # Recommended
  from math import ceil
-</code></pre>
+
+```
+
+
 </li>
 
 <li>

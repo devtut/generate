@@ -254,8 +254,13 @@ math.hypot(a, b) # returns the Euclidean norm, same as math.sqrt(a*a + b*b)
 Note that `math.hypot(x, y)` is also the length of the vector (or Euclidean distance) from the origin `(0, 0)` to the point `(x, y)`.
 <p>To compute the Euclidean distance between two points `(x1, y1)` & `(x2, y2)` you can use
 `math.hypot` as follows</p>
-<pre><code>math.hypot(x2-x1, y2-y1)
-</code></pre>
+
+```py
+math.hypot(x2-x1, y2-y1)
+
+```
+
+
 
 
 To convert from radians -> degrees and degrees -> radians respectively use `math.degrees` and `math.radians`

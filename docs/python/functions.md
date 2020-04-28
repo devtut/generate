@@ -408,11 +408,21 @@ Bear in mind that [PEP-8](https://www.python.org/dev/peps/pep-0008/#programming-
 > 
 Always use a def statement instead of an assignment statement that binds a lambda expression directly to an identifier.
 Yes:
-<pre><code>def f(x): return 2*x
-</code></pre>
+
+```py
+def f(x): return 2*x
+
+```
+
+
 No:
-<pre><code>f = lambda x: 2*x
-</code></pre>
+
+```py
+f = lambda x: 2*x
+
+```
+
+
 The first form means that the name of the resulting function object is specifically `f` instead of the generic `<lambda>`. This is more useful for tracebacks and string representations in general. The use of the assignment statement eliminates the sole benefit a lambda expression can offer over an explicit `def` statement (i.e. that it can be embedded inside a larger expression).
 
 
@@ -526,7 +536,9 @@ First, some terminology:
 
 <li>
 Mutating a parameter will mutate the argument (if the argument's type is mutable).
-<pre><code>def foo(x):        # here x is the parameter
+
+```py
+def foo(x):        # here x is the parameter
     x[0] = 9       # This mutates the list labelled by both x and y
     print(x)
 
@@ -535,11 +547,16 @@ foo(y)             # call foo with y as argument
 # Out: [9, 5, 6]   # list labelled by x has been mutated
 print(y)           
 # Out: [9, 5, 6]   # list labelled by y has been mutated too
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Reassigning the parameter won’t reassign the argument.
-<pre><code>def foo(x):        # here x is the parameter, when we call foo(y) we assign y to x
+
+```py
+def foo(x):        # here x is the parameter, when we call foo(y) we assign y to x
     x[0] = 9       # This mutates the list labelled by both x and y
     x = [1, 2, 3]  # x is now labeling a different list (y is unaffected)
     x[2] = 8       # This mutates x's list, not y's list
@@ -548,7 +565,10 @@ y = [4, 5, 6]      # y is the argument, x is the parameter
 foo(y)             # Pretend that we wrote "x = y", then go to line 1
 y
 # Out: [9, 5, 6]
-</code></pre>
+
+```
+
+
 </li>
 
 **In Python, we don’t really assign values to variables, instead we **bind** (i.e. assign, attach) variables (considered as **names**) to objects.**
@@ -1058,24 +1078,36 @@ TypeError: unpacking() got multiple values for argument 'c'
 
 <li>
 Assign functions to variables
-<pre><code>def f():
+
+```py
+def f():
   print(20)
 y = f
 y()
 # Output: 20
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Define functions within other functions ([Nested functions](https://stackoverflow.com/documentation/python/228/functions/8717/nested-functions) )
-<pre><code>def f(a, b, y):
+
+```py
+def f(a, b, y):
     def inner_add(a, b):      # inner_add is hidden from outer code
         return a + b
     return inner_add(a, b)**y
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Functions can return other functions
-<pre><code>def f(y):
+
+```py
+def f(y):
     def nth_power(x):
         return x ** y
     return nth_power    # returns a function
@@ -1084,26 +1116,39 @@ squareOf = f(2)         # function that returns the square of a number
 cubeOf = f(3)           # function that returns the cube of a number
 squareOf(3)             # Output: 9
 cubeOf(2)               # Output: 8
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Functions can be passed as parameters to other functions
-<pre><code>def a(x, y):
+
+```py
+def a(x, y):
     print(x, y)
 def b(fun, str):        # b has two arguments: a function and a string 
     fun('Hello', str)
 b(a, 'Sophia')           # Output: Hello Sophia
-</code></pre>
+
+```
+
+
 </li>
 <li>
 Inner functions have access to the enclosing scope ([Closure](https://stackoverflow.com/documentation/python/228/functions/3885/closure) )
-<pre><code>def outer_fun(name):
+
+```py
+def outer_fun(name):
     def inner_fun():     # the variable name is available to the inner function
         return "Hello "+ name + "!"
     return inner_fun
 greet = outer_fun("Sophia")
 print(greet())            # Output: Hello Sophia!
-</code></pre>
+
+```
+
+
 </li>
 
 ### Additional resources

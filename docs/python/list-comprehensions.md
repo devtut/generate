@@ -243,13 +243,23 @@ results = [2*x for x in range(10) if x % 2 == 0]
 
 <li>
 **Map**
-<pre><code>map(F, S) == [F(x) for x in S]
-</code></pre>
+
+```py
+map(F, S) == [F(x) for x in S]
+
+```
+
+
 </li>
 <li>
 **Filter**
-<pre><code>filter(P, S) == [x for x in S if P(x)]
-</code></pre>
+
+```py
+filter(P, S) == [x for x in S if P(x)]
+
+```
+
+
 </li>
 
 **where `F` and `P` are functions which respectively transform input values and return a `bool`**

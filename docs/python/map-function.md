@@ -137,16 +137,26 @@ There are different requirements if more than one iterable is passed to `map` de
 
 <li>
 The function must take as many parameters as there are iterables:
-<pre><code>def median_of_three(a, b, c):
+
+```py
+def median_of_three(a, b, c):
     return sorted((a, b, c))[1]
 
 list(map(median_of_three, measurement1, measurement2))
-</code></pre>
+
+```
+
+
 <blockquote>
 TypeError: median_of_three() missing 1 required positional argument: 'c'
 </blockquote>
-<pre><code>list(map(median_of_three, measurement1, measurement2, measurement3, measurement3))
-</code></pre>
+
+```py
+list(map(median_of_three, measurement1, measurement2, measurement3, measurement3))
+
+```
+
+
 <blockquote>
 TypeError: median_of_three() takes 3 positional arguments but 4 were given
 </blockquote>
@@ -158,21 +168,28 @@ TypeError: median_of_three() takes 3 positional arguments but 4 were given
 
 <li>
 `map`: The mapping iterates as long as one iterable is still not fully consumed but assumes `None` from the fully consumed iterables:
-<pre><code>import operator
+
+```py
+import operator
 
 measurement1 = [100, 111, 99, 97]
 measurement2 = [102, 117]
 
 # Calculate difference between elements
 list(map(operator.sub, measurement1, measurement2))
-</code></pre>
+
+```
+
+
 <blockquote>
 TypeError: unsupported operand type(s) for -: 'int' and 'NoneType'
 </blockquote>
 </li>
 <li>
 `itertools.imap` and `future_builtins.map`: The mapping stops as soon as one iterable stops:
-<pre><code>import operator
+
+```py
+import operator
 from itertools import imap
 
 measurement1 = [100, 111, 99, 97]
@@ -183,12 +200,17 @@ list(imap(operator.sub, measurement1, measurement2))
 # Out: [-2, -6]
 list(imap(operator.sub, measurement2, measurement1))
 # Out: [2, 6]
-</code></pre>
+
+```
+
+
 </li>
 
 <li>
 The mapping stops as soon as one iterable stops:
-<pre><code>import operator
+
+```py
+import operator
 
 measurement1 = [100, 111, 99, 97]
 measurement2 = [102, 117]
@@ -198,7 +220,10 @@ list(map(operator.sub, measurement1, measurement2))
 # Out: [-2, -6]
 list(map(operator.sub, measurement2, measurement1))
 # Out: [2, 6]
-</code></pre>
+
+```
+
+
 </li>
 
 
