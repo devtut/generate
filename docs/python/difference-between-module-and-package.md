@@ -14,7 +14,7 @@ A module is a single Python file that can be imported. Using a module looks like
 
 `module.py`
 
-```
+```py
 def hi():
     print("Hello world!")
 
@@ -22,7 +22,7 @@ def hi():
 
 `my_script.py`
 
-```
+```py
 import module
 module.hi()
 
@@ -30,7 +30,7 @@ module.hi()
 
 in an interpreter
 
-```
+```py
 >>> from module import hi
 >>> hi()
 # Hello world!
@@ -52,7 +52,7 @@ Folder `package`
 
 `__init__.py`
 
-```
+```py
 from package.dog import woof
 from package.hi import hi
 
@@ -60,7 +60,7 @@ from package.hi import hi
 
 `dog.py`
 
-```
+```py
 def woof():
     print("WOOF!!!")
 
@@ -68,7 +68,7 @@ def woof():
 
 `hi.py`
 
-```
+```py
 def hi():
     print("Hello world!")
 
@@ -83,7 +83,7 @@ All Python packages must contain an `__init__.py` file. When you import a packag
 
 It is possible to put a Python package in a ZIP file, and use it that way if you add these lines to the beginning of your script:
 
-```
+```py
 import sys
 sys.path.append("package.zip")
 

@@ -17,7 +17,7 @@ As one of the most basic functions in programming, loops are an important piece 
 
 When a `break` statement executes inside a loop, control flow "breaks" out of the loop immediately:
 
-```
+```py
 i = 0
 while i < 7:
     print(i)
@@ -32,7 +32,7 @@ The loop conditional will not be evaluated after the `break` statement is execut
 
 Executing the following prints every digit until number `4` when the `break` statement is met and the loop stops:
 
-```
+```py
 0
 1
 2
@@ -44,7 +44,7 @@ Breaking from loop
 
 `break` statements can also be used inside `for` loops, the other looping construct provided by Python:
 
-```
+```py
 for i in (0, 1, 2, 3, 4):
     print(i)
     if i == 2:
@@ -54,7 +54,7 @@ for i in (0, 1, 2, 3, 4):
 
 Executing this loop now prints:
 
-```
+```py
 0
 1
 2
@@ -69,7 +69,7 @@ If a loop has [an `else` clause](http://stackoverflow.com/documentation/python/2
 
 A `continue` statement will skip to the next iteration of the loop bypassing the rest of the current block but continuing the loop. As with `break`, `continue` can only appear inside loops:
 
-```
+```py
 for i in (0, 1, 2, 3, 4, 5):
     if i == 2 or i == 4:
         continue
@@ -88,7 +88,7 @@ Note that `2` and `4` aren't printed, this is because `continue` goes to the nex
 
 `break` and `continue` only operate on a single level of loop. The following example will only break out of the inner `for` loop, not the outer `while` loop:
 
-```
+```py
 while True:
     for i in range(1,5):
         if i == 2:
@@ -104,7 +104,7 @@ The [`return` statement ](http://stackoverflow.com/documentation/python/228/func
 
 If you have a loop inside a function, using `return` from inside that loop is equivalent to having a `break` as the rest of the code of the loop is not executed (**note that any code after the loop is not executed either**):
 
-```
+```py
 def break_loop():
     for i in range(1, 5):
         if (i == 2):
@@ -116,7 +116,7 @@ def break_loop():
 
 If you have nested loops, the `return` statement will break all loops:
 
-```
+```py
 def break_all():
     for j in range(1, 5):
         for i in range(1,4):
@@ -128,7 +128,7 @@ def break_all():
 
 will output:
 
-```
+```py
 1 # 1*1
 2 # 1*2
 3 # 1*3
@@ -146,7 +146,7 @@ will output:
 
 `for` loops iterate over a collection of items, such as `list` or `dict`, and run a block of code with each element from the collection.
 
-```
+```py
 for i in [0, 1, 2, 3, 4]:
     print(i)
 
@@ -156,7 +156,7 @@ The above `for` loop iterates over a list of numbers.
 
 Each iteration sets the value of `i` to the next element of the list. So first it will be `0`, then `1`, then `2`, etc. The output will be as follow:
 
-```
+```py
 0  
 1
 2
@@ -167,7 +167,7 @@ Each iteration sets the value of `i` to the next element of the list. So first i
 
 `range` is a function that returns a series of numbers under an iterable form, thus it can be used in `for` loops:
 
-```
+```py
 for i in range(5):
     print(i)
 
@@ -187,7 +187,7 @@ The `__iter__` function returns an iterator, which is an object with a `next` fu
 
 To iterate through a list you can use `for`:
 
-```
+```py
 for x in ['one', 'two', 'three', 'four']:
     print(x)
 
@@ -195,7 +195,7 @@ for x in ['one', 'two', 'three', 'four']:
 
 This will print out the elements of the list:
 
-```
+```py
 one
 two
 three
@@ -205,7 +205,7 @@ four
 
 The `range` function generates numbers which are also often used in a for loop.
 
-```
+```py
 for x in range(1, 6):
     print(x)
 
@@ -213,7 +213,7 @@ for x in range(1, 6):
 
 The result will be a special [range sequence type](https://docs.python.org/3/library/stdtypes.html#ranges) in python >=3 and a list in python <=2. Both can be looped through using the for loop.
 
-```
+```py
 1
 2
 3
@@ -224,7 +224,7 @@ The result will be a special [range sequence type](https://docs.python.org/3/lib
 
 If you want to loop though both the elements of a list **and** have an index for the elements as well, you can use Python's `enumerate` function:
 
-```
+```py
 for index, item in enumerate(['one', 'two', 'three', 'four']):
     print(index, '::', item)
 
@@ -232,7 +232,7 @@ for index, item in enumerate(['one', 'two', 'three', 'four']):
 
 `enumerate` will generate tuples, which are unpacked into `index` (an integer) and `item` (the actual value from the list).  The above loop will print
 
-```
+```py
 (0, '::', 'one')
 (1, '::', 'two')
 (2, '::', 'three')
@@ -242,7 +242,7 @@ for index, item in enumerate(['one', 'two', 'three', 'four']):
 
 Iterate over a list with value manipulation using `map` and `lambda`, i.e. apply lambda function on each element in the list:
 
-```
+```py
 x = map(lambda e :  e.upper(), ['one', 'two', 'three', 'four'])
 print(x)
 
@@ -250,7 +250,7 @@ print(x)
 
 Output:
 
-```
+```py
 ['ONE', 'TWO', 'THREE', 'FOUR'] # Python 2.x
 
 ```
@@ -266,7 +266,7 @@ The `for` and `while` compound statements (loops) can optionally have an `else` 
 
 The `else` clause only executes after a `for` loop terminates by iterating to completion, or after a `while` loop terminates by its conditional expression becoming false.
 
-```
+```py
 for i in range(3):
     print(i)
 else:
@@ -284,7 +284,8 @@ else:
 output:
 
 ```
- 0
+
+0
  1
  2
  done
@@ -293,7 +294,7 @@ output:
 
 The `else` clause does **not** execute if the loop terminates some other way (through a `break` statement or by raising an exception):
 
-```
+```py
 for i in range(2):
     print(i)
     if i == 1:
@@ -305,7 +306,7 @@ else:
 
 output:
 
-```
+```py
 0
 1
 
@@ -317,7 +318,7 @@ The original concept for such a clause dates back to Donald Knuth  and the meani
 
 For example:
 
-```
+```py
 while loop_condition():
     ...
     if break_condition():
@@ -328,7 +329,7 @@ while loop_condition():
 
 is equivalent to:
 
-```
+```py
 # pseudocode
 
 <<start>>:
@@ -347,7 +348,7 @@ These remain equivalent if we attach an `else` clause to each of them.
 
 For example:
 
-```
+```py
 while loop_condition():
     ...
     if break_condition():
@@ -360,7 +361,7 @@ else:
 
 is equivalent to:
 
-```
+```py
 # pseudocode
 
 <<start>>:
@@ -383,7 +384,7 @@ A `for` loop with an `else` clause can be understood the same way. Conceptually,
 
 The main use case for the `for...else` construct is a concise implementation of search as for instance:
 
-```
+```py
 a = [1, 2, 3, 4]
 for i in a:
     if type(i) is not int:
@@ -407,13 +408,14 @@ Some discussions on this can be found in [[Python-ideas] Summary of for...else t
 Considering the following dictionary:
 
 ```
- d = {"a": 1, "b": 2, "c": 3}
+
+d = {"a": 1, "b": 2, "c": 3}
 
 ```
 
 To iterate through its keys, you can use:
 
-```
+```py
 for key in d:
     print(key)
 
@@ -421,7 +423,7 @@ for key in d:
 
 Output:
 
-```
+```py
 "a"
 "b"
 "c"
@@ -430,7 +432,7 @@ Output:
 
 This is equivalent to:
 
-```
+```py
 for key in d.keys():
     print(key)
 
@@ -438,7 +440,7 @@ for key in d.keys():
 
 or in Python 2:
 
-```
+```py
 for key in d.iterkeys():
     print(key)
 
@@ -446,7 +448,7 @@ for key in d.iterkeys():
 
 To iterate through its values, use:
 
-```
+```py
 for value in d.values():
     print(value)
 
@@ -454,7 +456,7 @@ for value in d.values():
 
 Output:
 
-```
+```py
 1
 2
 3
@@ -463,7 +465,7 @@ Output:
 
 To iterate through its keys and values, use:
 
-```
+```py
 for key, value in d.items():
     print(key, "::", value)
 
@@ -471,7 +473,7 @@ for key, value in d.items():
 
 Output:
 
-```
+```py
 a :: 1
 b :: 2
 c :: 3
@@ -493,7 +495,7 @@ Note also that in Python 3, Order of items printed in the above manner does not 
 
 `pass` is a null statement for when a statement is required by Python syntax (such as within the body of a `for` or `while` loop), but no action is required or desired by the programmer. This can be useful as a placeholder for code that is yet to be written.
 
-```
+```py
 for x in range(10):
     pass #we don't want to do anything, or are not ready to do anything here, so we'll pass
 
@@ -503,7 +505,7 @@ In this example, nothing will happen. The `for` loop will complete without error
 
 Similarly, `pass` can be used in `while` loops, as well as in selections and function definitions etc.
 
-```
+```py
 while x == y:
     pass
 
@@ -516,7 +518,7 @@ while x == y:
 
 A `while` loop will cause the loop statements to be executed until the loop condition is [falsey](http://stackoverflow.com/documentation/python/1111/conditionals/8719/truth-values#t=201607241816416765906). The following code will execute the loop statements a total of 4 times.
 
-```
+```py
 i = 0 
 while i < 4:
     #loop statements
@@ -526,7 +528,7 @@ while i < 4:
 
 While the above loop can easily be translated into a more elegant `for` loop, `while` loops are useful for checking if some condition has been met. The following loop will continue to execute until `myObject` is ready.
 
-```
+```py
 myObject = anObject()
 while myObject.isNotReady():
     myObject.tryToGetReady()
@@ -535,7 +537,7 @@ while myObject.isNotReady():
 
 `while` loops can also run without a condition by using numbers (complex or real) or `True`:
 
-```
+```py
 import cmath
 
 complex_num = cmath.sqrt(-1)
@@ -546,7 +548,7 @@ while complex_num:      # You can also replace complex_num with any number, True
 
 If the condition is always true the while loop will run forever (infinite loop) if it is not terminated by a break or return statement or an exception.
 
-```
+```py
 while True:
     print "Infinite loop"
 # Infinite loop
@@ -565,7 +567,7 @@ Suppose you have a long list of elements and you are only interested in every ot
 
 Here's a simple list that will be used throughout the examples:
 
-```
+```py
 lst = ['alpha', 'bravo', 'charlie', 'delta', 'echo']
 
 ```
@@ -574,7 +576,7 @@ lst = ['alpha', 'bravo', 'charlie', 'delta', 'echo']
 
 To iterate over each element in the list, a `for` loop like below can be used:
 
-```
+```py
 for s in lst:
     print s[:1] # print the first letter
 
@@ -582,7 +584,7 @@ for s in lst:
 
 The `for` loop assigns s for each element of `lst`. This will print:
 
-```
+```py
 a
 b
 c
@@ -593,7 +595,7 @@ e
 
 Often you need both the element and the index of that element. The `enumerate` keyword performs that task.
 
-```
+```py
 for idx, s in enumerate(lst):
     print("%s has an index of %d" % (s, idx))
 
@@ -601,7 +603,7 @@ for idx, s in enumerate(lst):
 
 The index `idx` will start with zero and increment for each iteration, while the `s` will contain the element being processed. The previous snippet will output:
 
-```
+```py
 alpha has an index of 0
 bravo has an index of 1
 charlie has an index of 2
@@ -614,7 +616,7 @@ echo has an index of 4
 
 If we want to iterate over a range (remembering that Python uses zero-based indexing), use the `range` keyword.
 
-```
+```py
 for i in range(2,4):
     print("lst at %d contains %s" % (i, lst[i]))
 
@@ -622,7 +624,7 @@ for i in range(2,4):
 
 This would output:
 
-```
+```py
 lst at 2 contains charlie
 lst at 3 contains delta
 
@@ -630,7 +632,7 @@ lst at 3 contains delta
 
 The list may also be sliced. The following slice notation goes from element at index 1 to the end with a step of 2. The two `for` loops give the same result.
 
-```
+```py
 for s in lst[1::2]:
     print(s)
 
@@ -641,7 +643,7 @@ for i in range(1, len(lst), 2):
 
 The above snippet outputs:
 
-```
+```py
 bravo
 delta
 
@@ -656,7 +658,7 @@ delta
 
 Unlike other languages, Python doesn't have a do-until or a do-while construct (this will allow code to be executed once before the condition is tested). However, you can combine a `while True` with a [`break`](http://stackoverflow.com/documentation/python/237/loops/875/break-and-continue-in-loops) to achieve the same purpose.
 
-```
+```py
 a = 10
 while True:
     a = a-1
@@ -669,7 +671,7 @@ print('Done.')
 
 This will print:
 
-```
+```py
 9
 8
 7
@@ -685,14 +687,14 @@ Done.
 
 If you want to loop over a list of tuples for example:
 
-```
+```py
 collection = [('a', 'b', 'c'), ('x', 'y', 'z'), ('1', '2', '3')]
 
 ```
 
 instead of doing something like this:
 
-```
+```py
 for item in collection:
     i1 = item[0]
     i2 = item[1]
@@ -703,7 +705,7 @@ for item in collection:
 
 or something like this:
 
-```
+```py
 for item in collection:
     i1, i2, i3 = item
     # logic
@@ -712,7 +714,7 @@ for item in collection:
 
 You can simply do this:
 
-```
+```py
 for i1, i2, i3 in collection:
     # logic
 

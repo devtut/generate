@@ -12,7 +12,7 @@ description: "Installation and Setup, Using Pyinstaller, Bundling to One Folder,
 
 Pyinstaller is a normal python package. It can be installed using pip:
 
-```
+```py
 pip install pyinstaller
 
 ```

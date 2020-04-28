@@ -16,7 +16,7 @@ Data types are nothing but variable you used to reserve some space in memory. Py
 String are identified as a contiguous set of characters represented in the quotation marks. Python allows for either pairs of single or double quotes.
 Strings are immutable sequence data type, i.e each time one makes any changes to a string, completely new string object is created.
 
-```
+```py
 a_str = 'Hello World'
 print(a_str)    #output will be whole string. Hello World
 print(a_str[0])    #output will be first character. H
@@ -31,7 +31,7 @@ print(a_str[0:5])    #output will be first five characters. Hello
 
 Numbers have four types in Python. Int, float, complex, and long.
 
-```
+```py
 int_num = 10    #int value
 float_num = 10.2    #float value
 complex_num = 3.14j    #complex value
@@ -46,7 +46,7 @@ long_num = 1234567L    #long value
 
 A list contains items separated by commas and enclosed within square brackets [].lists are almost similar to arrays in C. One difference is that all the items belonging to a list can be of different data type.
 
-```
+```py
 list = [123,'abcd',10.2,'d']    #can be a array of any data type or single data type.
 list1 = ['hello','world']
 print(list)    #will ouput whole list. [123,'abcd',10.2,'d']
@@ -63,7 +63,7 @@ print(list + list1)    #will gave concatenation of both the lists. [123,'abcd',1
 
 Dictionary consists of key-value pairs.It is enclosed by curly braces {} and values can be assigned and accessed using square brackets[].
 
-```
+```py
 dic={'name':'red','age':10}
 print(dic)    #will output all the key-value pairs. {'name':'red','age':10}
 print(dic['name'])    #will output only value with 'name' key. 'red'
@@ -111,7 +111,7 @@ print(cities)
 Lists are enclosed in brackets [ ] and their elements and size can be changed, while tuples are enclosed in parentheses ( ) and cannot be updated.
 Tuples are immutable.
 
-```
+```py
 tuple = (123,'hello')
 tuple1 = ('world')
 print(tuple)    #will output whole tuple. (123,'hello')

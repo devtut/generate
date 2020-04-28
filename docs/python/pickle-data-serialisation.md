@@ -16,7 +16,7 @@ For the simplest code, we use the `dump()` and `load()` functions.
 
 ### To serialize the object
 
-```
+```py
 import pickle
 
 # An arbitrary collection of objects supported by pickle.
@@ -34,7 +34,7 @@ with open('data.pickle', 'wb') as f:
 
 ### To deserialize the object
 
-```
+```py
 import pickle
 
 with open('data.pickle', 'rb') as f:
@@ -49,7 +49,7 @@ with open('data.pickle', 'rb') as f:
 It is also possible to serialize into and deserialize out of byte objects, using
 the `dumps` and `loads` function, which are equivalent to `dump` and `load`.
 
-```
+```py
 serialized_data = pickle.dumps(data, pickle.HIGHEST_PROTOCOL)
 # type(serialized_data) is bytes
 
@@ -69,7 +69,7 @@ What will be pickled can be defined in `__getstate__` method. This method must r
 
 On the oposite side is `__setstate__`: it will receive what `__getstate__` created and has to initialize the object.
 
-```
+```py
 class A(object):
     def __init__(self, important_data):
         self.important_data = important_data
@@ -94,7 +94,7 @@ class A(object):
 
 Now, this can be done:
 
-```
+```py
 >>> a1 = A('very important')
 >>>
 >>> s = pickle.dumps(a1)  # calls a1.__getstate__()

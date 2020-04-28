@@ -13,7 +13,7 @@ This section shows basic code for reading, sub-setting and writing external data
 ## Basic Code to Import, Subset and Write External Data Files Using Pandas
 
 
-```
+```py
 # Print the working directory
 import os
 print os.getcwd()

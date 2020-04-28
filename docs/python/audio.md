@@ -15,7 +15,7 @@ description: "Working with WAV files, Convert any soundfile with python and ffmp
 
 - Windows environment
 
-```
+```py
 import winsound
 winsound.PlaySound("path_to_wav_file.wav", winsound.SND_FILENAME)
 
@@ -26,7 +26,7 @@ winsound.PlaySound("path_to_wav_file.wav", winsound.SND_FILENAME)
 - Support mono/stereo
 - Doesn't support compression/decompression
 
-```
+```py
 import wave
 with wave.open("path_to_wav_file.wav", "rb") as wav_file:    # Open WAV file in read-only mode.
     # Get basic information.
@@ -55,7 +55,7 @@ with wave.open("path_to_new_wav_file.wav", "wb") as wav_file:    # Open WAV file
 ## Convert any soundfile with python and ffmpeg
 
 
-```
+```py
 from subprocess import check_call
 
 ok = check_call(['ffmpeg','-i','input.mp3','output.wav'])
@@ -77,7 +77,7 @@ note:
 
 Windows provides an explicit interface through which the `winsound` module allows you to play raw beeps at a given frequency and duration.
 
-```
+```py
 import winsound
 freq = 2500 # Set frequency To 2500 Hertz
 dur = 1000 # Set duration To 1000 ms == 1 second
@@ -90,7 +90,7 @@ winsound.Beep(freq, dur)
 ## Audio With Pyglet
 
 
-```
+```py
 import pyglet
 audio = pyglet.media.load("audio.wav")
 audio.play()

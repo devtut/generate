@@ -17,7 +17,7 @@ A context manager is an object that is notified when a context (a block of code)
 
 For example, file objects are context managers. When a context ends, the file object is closed automatically:
 
-```
+```py
 open_file = open(filename)
 with open_file:
     file_contents = open_file.read()
@@ -28,7 +28,7 @@ with open_file:
 
 The above example is usually simplified by using the `as` keyword:
 
-```
+```py
 with open(filename) as open_file:
     file_contents = open_file.read()
 
@@ -45,7 +45,7 @@ Anything that ends execution of the block causes the context manager's exit meth
 
 A context manager is any object that implements two magic methods `__enter__()` and `__exit__()` (although it can implement other methods as well):
 
-```
+```py
 class AContextManager():
 
     def __enter__(self):
@@ -63,7 +63,7 @@ If the context exits with an exception, the information about that exception wil
 
 If an exception occurs and is passed to the `__exit__` method, the method can return `True` in order to suppress the exception, or the exception will be re-raised at the end of the `__exit__` function.
 
-```
+```py
 with AContextManager() as a:
     print("a is %r" % a)
 # Entered
@@ -84,7 +84,7 @@ Note that in the second example even though an exception occurs in the middle of
 
 If you only need an `__exit__` method, you can return the instance of the context manager:
 
-```
+```py
 class MyContextManager:
     def __enter__(self):
         return self
@@ -101,7 +101,7 @@ class MyContextManager:
 
 It is also possible to write a context manager using generator syntax thanks to the [`contextlib.contextmanager`](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) decorator:
 
-```
+```py
 import contextlib
 
 @contextlib.contextmanager
@@ -120,7 +120,7 @@ with context_manager(2) as cm:
 
 produces:
 
-```
+```py
 Enter
 Right in the middle with cm = 3
 Exit
@@ -131,7 +131,7 @@ The decorator simplifies the task of writing a context manager by converting a g
 
 If an exception needs to be handled by the context manager, a `try..except..finally`-block can be written in the generator and any exception raised in the `with`-block will be handled by this exception block.
 
-```
+```py
 @contextlib.contextmanager
 def error_handling_context_manager(num):
     print("Enter")
@@ -151,7 +151,7 @@ with error_handling_context_manager(-1) as cm:
 
 This produces:
 
-```
+```py
 Enter
 Dividing by cm = 0
 Caught error
@@ -167,7 +167,7 @@ Exit
 
 You can open several content managers at the same time:
 
-```
+```py
 with open(input_path) as input_file, open(output_path, 'w') as output_file:
 
     # do something with both files. 
@@ -180,7 +180,7 @@ with open(input_path) as input_file, open(output_path, 'w') as output_file:
 
 It has the same effect as nesting context managers:
 
-```
+```py
 with open(input_path) as input_file:
     with open(output_path, 'w') as output_file:
         for line in input_file:
@@ -197,7 +197,7 @@ Many context managers return an object when entered. You can assign that object 
 
 For example, using a database connection in a `with` statement could give you a cursor object:
 
-```
+```py
 with database_connection as cursor:
     cursor.execute(sql_query)
 
@@ -205,7 +205,7 @@ with database_connection as cursor:
 
 File objects return themselves, this makes it possible to both open the file object and use it as a context manager in one expression:
 
-```
+```py
 with open(filename) as open_file:
     file_contents = open_file.read()
 
@@ -216,7 +216,7 @@ with open(filename) as open_file:
 ## Manage Resources
 
 
-```
+```py
 class File():
     def __init__(self, filename, mode):
         self.filename = filename
@@ -237,7 +237,7 @@ Using these magic methods (`__enter__`, `__exit__`) allows you to implement obje
 
 Use File class:
 
-```
+```py
 for _ in range(10000):
     with File('foo.txt', 'w') as f:
         f.write('foo')

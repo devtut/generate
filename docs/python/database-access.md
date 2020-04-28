@@ -13,7 +13,7 @@ description: "SQLite, Accessing MySQL database using MySQLdb, Connection, Postgr
 
 SQLite is a lightweight, disk-based database. Since it does not require a separate database server, it is often used for prototyping or for small applications that are often used by a single user or by one user at a given time.
 
-```
+```py
 import sqlite3
 
 conn = sqlite3.connect("users.db")
@@ -37,7 +37,7 @@ The code above connects to the database stored in the file named `users.db`, cre
 
 The result of this example should be:
 
-```
+```py
 [(u'User A', 42), (u'User B', 43)]
 
 ```
@@ -297,7 +297,8 @@ SQLite natively supports the following types: NULL, INTEGER, REAL, TEXT, BLOB.
 This is how the data types are converted when moving from SQL to Python or vice versa.
 
 ```
-                None     <->     NULL
+
+               None     <->     NULL
                 int      <->     INTEGER/INT
                 float    <->     REAL/FLOAT
                 str      <->     TEXT/VARCHAR(n)
@@ -318,7 +319,7 @@ Once everything is done, don't forget to close the cursor and the connection.
 
 Here is a Dbconnect class with everything you'll need.
 
-```
+```py
 import MySQLdb
 
 class Dbconnect(object):
@@ -343,7 +344,7 @@ class Dbconnect(object):
 
 Interacting with the database is simple. After creating the object, just use the execute method.
 
-```
+```py
 db = Dbconnect()
 db.dbcursor.execute('SELECT * FROM %s' % 'table_example')
 
@@ -351,7 +352,7 @@ db.dbcursor.execute('SELECT * FROM %s' % 'table_example')
 
 If you want to call a stored procedure, use the following syntax. Note that the parameters list is optional.
 
-```
+```py
 db = Dbconnect()
 db.callproc('stored_procedure_name', [parameters] )
 
@@ -359,7 +360,7 @@ db.callproc('stored_procedure_name', [parameters] )
 
 After the query is done, you can access the results multiple ways. The cursor object is a generator that can fetch all the results or be looped.
 
-```
+```py
 results = db.dbcursor.fetchall()
 for individual_row in results:
     first_field = individual_row[0]
@@ -368,7 +369,7 @@ for individual_row in results:
 
 If you want a loop using directly the generator:
 
-```
+```py
 for individual_row in db.dbcursor:
     first_field = individual_row[0]
 
@@ -376,14 +377,14 @@ for individual_row in db.dbcursor:
 
 If you want to commit changes to the database:
 
-```
+```py
 db.commit_db()
 
 ```
 
 If you want to close the cursor and the connection:
 
-```
+```py
 db.close_db()
 
 ```
@@ -397,7 +398,7 @@ db.close_db()
 
 According to PEP 249, the connection to a database should be established using a `connect()` constructor, which returns a `Connection` object. The arguments for this constructor are database dependent. Refer to the database specific topics for the relevant arguments.
 
-```
+```py
 import MyDBAPI
 
 con = MyDBAPI.connect(*database_dependent_args)
@@ -408,7 +409,7 @@ This connection object has four methods:
 
 **1: close**
 
-```
+```py
 con.close()
 
 ```
@@ -417,7 +418,7 @@ Closes the connection instantly. Note that the connection is automatically close
 
 **2: commit**
 
-```
+```py
 con.commit()
 
 ```
@@ -426,7 +427,7 @@ Commits any pending transaction the to database.
 
 **3: rollback**
 
-```
+```py
 con.rollback()
 
 ```
@@ -435,7 +436,7 @@ Rolls back to the start of any pending transaction. In other words: this cancels
 
 **4: cursor**
 
-```
+```py
 cur = con.cursor()
 
 ```
@@ -456,7 +457,7 @@ Returns a `Cursor` object. This is used to do transactions on the database.
 
 ### Establishing a connection to the database and creating a table
 
-```
+```py
 import psycopg2
 
 # Establish a connection to the database.
@@ -484,7 +485,7 @@ conn.close()
 
 ### Inserting data into the table:
 
-```
+```py
 # After creating the table as shown above, insert values into it.
 cur.execute("""INSERT INTO FRUITS (id, fruit_name, color, price)
                VALUES (1, 'Apples', 'green', 1.00)""")
@@ -496,7 +497,7 @@ cur.execute("""INSERT INTO FRUITS (id, fruit_name, color, price)
 
 ### Retrieving table data:
 
-```
+```py
 # Set up a query and execute it 
 cur.execute("""SELECT id, fruit_name, color, price 
              FROM fruits""")
@@ -515,7 +516,7 @@ for row in rows:
 
 The output of the above would be:
 
-```
+```py
 ID = 1 
 NAME = Apples
 COLOR = green
@@ -551,7 +552,7 @@ Install the cx_Oracle package as:
 Extract the Oracle instant client and set environment variables as:
 </li>
 
-```
+```py
 ORACLE_HOME=<PATH_TO_INSTANTCLIENT>
 PATH=$ORACLE_HOME:$PATH
 LD_LIBRARY_PATH=<PATH_TO_INSTANTCLIENT>:$LD_LIBRARY_PATH
@@ -560,7 +561,7 @@ LD_LIBRARY_PATH=<PATH_TO_INSTANTCLIENT>:$LD_LIBRARY_PATH
 
 **Creating a connection:**
 
-```
+```py
 import cx_Oracle
 
 class OraExec(object):
@@ -576,7 +577,7 @@ class OraExec(object):
 
 **Get database version:**
 
-```
+```py
 ver = con.version.split(".")
 print ver
 
@@ -587,7 +588,7 @@ Sample Output:
 
 **Execute query: SELECT**
 
-```
+```py
 _db_cur.execute("select * from employees order by emp_id")
 for result in _db_cur:
     print result
@@ -602,7 +603,7 @@ Output will be in Python tuples:
 
 **Execute query: INSERT**
 
-```
+```py
 _db_cur.execute("insert into employees(emp_id, title, dept, grade) 
                 values (31, 'MTS', 'ENGINEERING', 7)
 _db_connection.commit()
@@ -617,7 +618,7 @@ When you perform insert/update/delete operations in an Oracle Database, the chan
 
 Bind variables enable you to re-execute statements with new values, without the overhead of re-parsing the statement. Bind variables improve code re-usability, and can reduce the risk of SQL Injection attacks.
 
-```
+```py
 rows = [ (1, "First" ),
      (2, "Second" ),
      (3, "Third" ) ]
@@ -630,7 +631,7 @@ _db_connection.commit()
 
 **Close connection:**
 
-```
+```py
 _db_connection.close()
 
 ```
@@ -644,7 +645,7 @@ The close() method closes the connection. Any connections not explicitly closed 
 
 To use sqlalchemy for database:
 
-```
+```py
 from sqlalchemy import create_engine
 from sqlalchemy.engine.url import URL
 
@@ -662,7 +663,7 @@ engine = create_engine(url)  # sqlalchemy engine
 Now this engine can be used:
 e.g. with pandas to fetch dataframes directly from mysql
 
-```
+```py
 import pandas as pd
 
 con = engine.connect()

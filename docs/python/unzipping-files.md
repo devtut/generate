@@ -13,7 +13,7 @@ To extract or uncompress a tarball, ZIP, or gzip file, Python's tarfile, zipfile
 ## Using Python ZipFile.extractall() to decompress a ZIP file
 
 
-```
+```py
 file_unzip = 'filename.zip'
 unzip = zipfile.ZipFile(file_unzip, 'r')
 unzip.extractall()
@@ -26,7 +26,7 @@ unzip.close()
 ## Using Python TarFile.extractall() to decompress a tarball
 
 
-```
+```py
 file_untar = 'filename.tar.gz'
 untar = tarfile.TarFile(file_untar)
 untar.extractall()

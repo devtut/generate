@@ -15,7 +15,7 @@ Using `subprocess.Popen` give more fine-grained control over launched processes 
 
 ### Launching a subprocess
 
-```
+```py
 process = subprocess.Popen([r'C:\path\to\app.exe', 'arg1', '--flag', 'arg'])
 
 ```
@@ -24,7 +24,7 @@ The signature for `Popen` is very similar to the `call` function; however, `Pope
 
 ### Waiting on a subprocess to complete
 
-```
+```py
 process = subprocess.Popen([r'C:\path\to\app.exe', 'arg1', '--flag', 'arg'])
 process.wait()
 
@@ -32,7 +32,7 @@ process.wait()
 
 ### Reading output from a subprocess
 
-```
+```py
 process = subprocess.Popen([r'C:\path\to\app.exe'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 # This will block until process completes
@@ -48,7 +48,7 @@ You can read and write on `stdin` and `stdout` even while the subprocess hasn't 
 
 ### Writing to a subprocess
 
-```
+```py
 process = subprocess.Popen([r'C:\path\to\app.exe'], stdout = subprocess.PIPE, stdin = subprocess.PIPE)
 
 
@@ -67,7 +67,7 @@ you should use `communicate()` rather than directly accessing `stdin` and `stdou
 
 In case you want to see the output of a subprocess line by line, you can use the following snippet:
 
-```
+```py
 process = subprocess.Popen(<your_command>, stdout=subprocess.PIPE)
 while process.poll() is None:
     output_line = process.stdout.readline()
@@ -76,7 +76,7 @@ while process.poll() is None:
 
 in the case the subcommand output do not have EOL character, the above snippet does not work. You can then read the output character by character as follows:
 
-```
+```py
 process = subprocess.Popen(<your_command>, stdout=subprocess.PIPE)
 while process.poll() is None:
     output_line = process.stdout.read(1)
@@ -96,14 +96,14 @@ The same procedure could be applied to the `stderr` of the subprocess.
 
 The simplest use case is using the `subprocess.call` function.  It accepts a list as the first argument.  The first item in the list should be the external application you want to call.  The other items in the list are arguments that will be passed to that application.
 
-```
+```py
 subprocess.call([r'C:\path\to\app.exe', 'arg1', '--flag', 'arg'])
 
 ```
 
 For shell commands, set `shell=True` and provide the command as a string instead of a list.
 
-```
+```py
 subprocess.call('echo "Hello, world"', shell=True)
 
 ```
@@ -121,7 +121,7 @@ The subprocess method that allows running commands needs the command in form of 
 
 The rules to create the list are not always straightforward to follow, especially with complex commands. Fortunately, there is a very helpful tool that allows doing that: `shlex`. The easiest way of creating the list to be used as command is the following:
 
-```
+```py
 import shlex
 cmd_to_subprocess = shlex.split(command_used_in_the_shell)
 
@@ -129,7 +129,7 @@ cmd_to_subprocess = shlex.split(command_used_in_the_shell)
 
 A simple example:
 
-```
+```py
 import shlex
 shlex.split('ls --color -l -t -r')
 

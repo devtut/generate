@@ -15,7 +15,7 @@ While cleanly separated into a module, it's actually built-in and as such will a
 ## Command line arguments
 
 
-```
+```py
 if len(sys.argv) != 4:         # The script name needs to be accounted for as well.
     raise RuntimeError("expected 3 command line arguments")
 
@@ -32,7 +32,7 @@ Note that in larger and more polished programs you would use modules such as [cl
 ## Script name
 
 
-```
+```py
 # The name of the executed script is at the beginning of the argv list.
 print('usage:', sys.argv[0], '<filename> <start> <end>')
 
@@ -51,7 +51,7 @@ program_path = pathlib.Path(program_file).resolve().parent
 ## Standard error stream
 
 
-```
+```py
 # Error messages should not go to standard output, if possible.
 print('ERROR: We have no cheese at all.', file=sys.stderr)
 
@@ -67,7 +67,7 @@ except OSError as e:
 ## Ending the process prematurely and returning an exit code
 
 
-```
+```py
 def main():
     if len(sys.argv) != 4 or '--help' in sys.argv[1:]:
         print('usage: my_program <arg1> <arg2> <arg3>', file=sys.stderr)

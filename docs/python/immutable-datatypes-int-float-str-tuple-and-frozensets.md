@@ -11,7 +11,7 @@ description: "Individual characters of strings are not assignable, Tuple's indiv
 ## Individual characters of strings are not assignable
 
 
-```
+```py
 foo = "bar"
 foo[0] = "c" # Error 
 
@@ -24,7 +24,7 @@ Immutable variable value can not be changed once they are created.
 ## Tuple's individual members aren't assignable
 
 
-```
+```py
 foo = ("bar", 1, "Hello!",)
 foo[1] = 2 # ERROR!! 
 
@@ -38,7 +38,7 @@ Because of tuple's immutability.<br>
 ## Frozenset's are immutable and not assignable
 
 
-```
+```py
 foo = frozenset(["bar", 1, "Hello!"])
 foo[2] = 7 # ERROR
 foo.add(3) # ERROR

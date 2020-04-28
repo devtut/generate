@@ -15,7 +15,7 @@ pyautogui is a module used to control mouse and keyboard. This module is basical
 
 These are some of useful mouse functions to control the mouse.
 
-```
+```py
 size()           #gave you the size of the screen
 position()     #return current position of mouse
 moveTo(200,0,duration=1.5)     #move the cursor  to (200,0) position  with 1.5 second delay     
@@ -33,7 +33,7 @@ pyautogui.displayMousePosition()     #gave you the current mouse position but sh
 
 These are some of useful keyboard functions to automate the key pressing.
 
-```
+```py
 typewrite('')    #this will type the string on the screen where current window has focused.
 typewrite(['a','b','left','left','X','Y'])
 pyautogui.KEYBOARD_KEYS    #get the list of all the keyboard_keys.
@@ -48,7 +48,7 @@ pyautogui.hotkey('ctrl','o')    #for the combination of keys to enter.
 
 These function will help you to take the screenshot and also match the image with the part of the screen.
 
-```
+```py
 .screenshot('c:\\path')        #get the screenshot.
 .locateOnScreen('c:\\path')    #search that image on screen and get the coordinates for you.
 locateCenterOnScreen('c:\\path')       #get the coordinate for the image on screen.

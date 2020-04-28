@@ -49,7 +49,7 @@ e.g. Singleton can be used in database operations, where we want database object
 
 We can implement Singleton Pattern in Python by creating only one instance of Singleton class and serving the same object again.
 
-```
+```py
 class Singleton(object):
     def __new__(cls):
         # hasattr method checks if the class object an instance property or not.
@@ -67,7 +67,7 @@ print ("Object2 created", s1)
 
 **Output:**
 
-```
+```py
 ('Object created', <__main__.Singleton object at 0x10a7cc310>)
 ('Object2 created', <__main__.Singleton object at 0x10a7cc310>)
 
@@ -79,7 +79,7 @@ Note that in languages like C++ or Java, this pattern is implemented by making t
 
 Factory pattern is also a `Creational pattern`. The term `factory` means that a class is responsible for creating objects of other types. There is a class that acts as a factory which has objects and methods associated with it. The client creates an object by calling the methods with certain parameters and factory creates the object of the desired type and return it to the client.
 
-```
+```py
 from abc import ABCMeta, abstractmethod
 
 class Music():
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
 **Output:**
 
-```
+```py
 Which music you want to play Mp3 or Ogg"Ogg"
 Playing .ogg music!
 
@@ -130,7 +130,7 @@ from clients that use it.
 
 For example, animals can "walk" in many different ways. Walking could be considered a strategy that is implemented by different types of animals:
 
-```
+```py
 from types import MethodType
 
 
@@ -169,7 +169,7 @@ def two_legged_animal_walk(self):
 
 Running this example would produce the following output:
 
-```
+```py
 generic_animal = Animal()
 king_cobra = Animal(name='King Cobra', walk=snake_walk)
 elephant = Animal(name='Elephant', walk=four_legged_animal_walk)
@@ -209,7 +209,7 @@ Suppose we'd like to guarantee that only user of specific permissions can access
 
 Proxy definition: (it ensure that only users which actually can see reservations will be able to consumer reservation_service)
 
-```
+```py
 from datetime import date
 from operator import attrgetter
 
@@ -287,6 +287,7 @@ test(User(True, "John the Admin"), 2017)
 test(User(False, "Guest"),         2017)
 
 ```
+
 
 - **we're avoiding any changes in `ReservationService` when access restrictions are changed.**
 - **we're not mixing business related data (`date_from`, `date_to`, `reservations_count`) with domain unrelated concepts (user permissions) in service.**

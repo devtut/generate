@@ -18,7 +18,7 @@ The default is `'strict'`, which raises exceptions on error. Other modes are mor
 
 Always **encode** from unicode to bytes.  In this direction, **you get to choose the encoding**.
 
-```
+```py
 >>> u'🐍'.encode('utf-8')
 '\xf0\x9f\x90\x8d'
 >>> "£13.55".encode('ascii', errors='replace')
@@ -38,7 +38,7 @@ b'\\xa313.55'
 
 The other way is to **decode** from bytes to unicode.   In this direction, **you have to know what the encoding is**.
 
-```
+```py
 >>> b'\xf0\x9f\x90\x8d'.decode('utf-8')
 u'\U0001f40d'
 >>> b = "£13.55".encode('utf8')
@@ -62,7 +62,7 @@ It is clear from the above that it is vital to keep your encodings straight when
 
 Files opened in a non-binary mode (e.g. `'r'` or `'w'`) deal with strings. The deafult encoding is `'utf8'`.
 
-```
+```py
 open(fn, mode='r')                    # opens file for reading in utf8
 open(fn, mode='r', encoding='utf16')  # opens file for reading utf16
 
@@ -73,7 +73,7 @@ open("foo.txt", "w").write(b"foo")
 
 Files opened in a binary mode (e.g. `'rb'` or `'wb'`) deal with bytes. No encoding argument can be specified as there is no encoding.
 
-```
+```py
 open(fn, mode='wb')  # open file for writing bytes
 
 # ERROR: cannot write string when bytes is expected:
@@ -88,7 +88,7 @@ open(fn, mode='wb').write("hi")
 
 **In Python 3** `str` is the type for unicode-enabled strings, while `bytes` is the type for sequences of raw bytes.
 
-```
+```py
 type("f") == type(u"f")  # True, <class 'str'>
 type(b"f")               # <class 'bytes'>
 
@@ -96,7 +96,7 @@ type(b"f")               # <class 'bytes'>
 
 **In Python 2** a casual string was a sequence of raw bytes by default and the unicode string was every string with "u" prefix.
 
-```
+```py
 type("f") == type(b"f")  # True, <type 'str'>
 type(u"f")               # <type 'unicode'>
 
@@ -108,7 +108,7 @@ Unicode strings can be converted to bytes with `.encode(encoding)`.
 
 **Python 3**
 
-```
+```py
 >>> "£13.55".encode('utf8')
 b'\xc2\xa313.55'
 >>> "£13.55".encode('utf16')
@@ -120,7 +120,7 @@ b'\xff\xfe\xa3\x001\x003\x00.\x005\x005\x00'
 
 in py2 the default console encoding is `sys.getdefaultencoding() == 'ascii'` and not `utf-8` as in py3, therefore printing it as in the previous example is not directly possible.
 
-```
+```py
 >>> print type(u"£13.55".encode('utf8'))
 <type 'str'>
 >>> print u"£13.55".encode('utf8')
@@ -134,7 +134,7 @@ SyntaxError: Non-ASCII character '\xc2' in...
 
 ```
 
-```
+```py
 >>> "£13.55".encode('ascii')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -148,7 +148,7 @@ Bytes can be converted to unicode strings with `.decode(encoding)`.
 
 **A sequence of bytes can only be converted into a unicode string via the appropriate encoding!**
 
-```
+```py
 >>> b'\xc2\xa313.55'.decode('utf8')
 '£13.55'
 
@@ -156,7 +156,7 @@ Bytes can be converted to unicode strings with `.decode(encoding)`.
 
 If the encoding can't handle the string, a `UnicodeDecodeError` is raised:
 
-```
+```py
 >>> b'\xc2\xa313.55'.decode('utf16')
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

@@ -13,7 +13,7 @@ description: "Deque operations, Algorithmic Notations..., Notation, List operati
 
 A deque is a double-ended queue.
 
-```
+```py
 class Deque:
 def __init__(self):
     self.items = []
@@ -122,7 +122,7 @@ Let us consider the same Insertion sort example here. The time complexity of Ins
 
 The notation used when describing the speed of your Python program is called Big-O notation. Let's say you have a function:
 
-```
+```py
 def list_check(to_check, the_list):
     for item in the_list:
         if to_check == item:

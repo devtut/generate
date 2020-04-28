@@ -11,7 +11,7 @@ description: "Hello World in Pyglet, Installation of Pyglet, Playing Sound in Py
 ## Hello World in Pyglet
 
 
-```
+```py
 import pyglet
 window = pyglet.window.Window()
 label = pyglet.text.Label('Hello, world',
@@ -36,14 +36,14 @@ Install Python, go into the command line and type:
 
 Python 2:
 
-```
+```py
 pip install pyglet
 
 ```
 
 Python 3:
 
-```
+```py
 pip3 install pyglet
 
 ```
@@ -53,7 +53,7 @@ pip3 install pyglet
 ## Playing Sound in Pyglet
 
 
-```
+```py
 sound = pyglet.media.load(sound.wav)
 sound.play()
 
@@ -64,7 +64,7 @@ sound.play()
 ## Using Pyglet for OpenGL
 
 
-```
+```py
 import pyglet
 from pyglet.gl import *
 
@@ -83,7 +83,7 @@ pyglet.app.run()
 ## Drawing Points Using Pyglet and OpenGL
 
 
-```
+```py
 import pyglet
 from pyglet.gl import *
 

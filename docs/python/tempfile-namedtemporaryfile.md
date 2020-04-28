@@ -15,7 +15,7 @@ You can create temporary files which has a visible name on the file system which
 
 The following will create and open a named temporary file and write 'Hello World!' to that file.  The filepath of the temporary file can be accessed via `name`, in this example it is saved to the variable `path` and printed for the user.  The file is then re-opened after closing the file and the contents of the tempfile are read and printed for the user.
 
-```
+```py
 import tempfile
 
 with tempfile.NamedTemporaryFile(delete=False) as t:
@@ -30,7 +30,7 @@ with open(path) as t:
 
 Output:
 
-```
+```py
 /tmp/tmp6pireJ
 Hello World!
 

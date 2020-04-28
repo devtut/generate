@@ -19,7 +19,7 @@ So, lets start:
 
 **Example Configuration Directly in Code**
 
-```
+```py
 import logging
 
 logger = logging.getLogger()
@@ -36,7 +36,7 @@ logger.debug('this is a %s test', 'debug')
 
 Output example:
 
-```
+```py
 2016-07-26 18:53:55,332 root         DEBUG    this is a debug test
 
 ```
@@ -45,7 +45,7 @@ Output example:
 
 Assuming the file is named logging_config.ini. More details for the file format are in the [logging configuration](https://docs.python.org/3/howto/logging.html#configuring-logging) section of the [logging tutorial](https://docs.python.org/3/howto/logging.html).
 
-```
+```py
 [loggers]
 keys=root
 
@@ -72,7 +72,7 @@ format=%(asctime)s %(name)-12s %(levelname)-8s %(message)s
 
 Then use `logging.config.fileConfig()` in the code:
 
-```
+```py
 import logging
 from logging.config import fileConfig
 
@@ -86,7 +86,7 @@ logger.debug('often makes a very good meal of %s', 'visiting tourists')
 
 As of Python 2.7, you can use a dictionary with configuration details. [PEP 391](https://www.python.org/dev/peps/pep-0391/) contains a list of the mandatory and optional elements in the configuration dictionary.
 
-```
+```py
 import logging
 from logging.config import dictConfig
 
@@ -121,7 +121,7 @@ logger.debug('often makes a very good meal of %s', 'visiting tourists')
 
 If you want to log exceptions you can and should make use of the `logging.exception(msg)` method:
 
-```
+```py
 >>> import logging
 >>> logging.basicConfig()
 >>> try:
@@ -140,7 +140,7 @@ Exception: foo
 
 As `logging.exception(msg)` expects a `msg` arg, it is a common pitfall to pass the exception into the logging call like this:
 
-```
+```py
 >>> try:
 ...     raise Exception('foo')
 ... except Exception as e:
@@ -155,7 +155,7 @@ Exception: foo
 
 While it might look as if this is the right thing to do at first, it is actually problematic due to the reason how exceptions and various encoding work together in the logging module:
 
-```
+```py
 >>> try:
 ...     raise Exception(u'föö')
 ... except Exception as e:
@@ -181,7 +181,7 @@ Obviously, in your own code, you might be aware of the encoding in exceptions. H
 
 If instead of the exception you just pass a message and let python do its magic, it will work:
 
-```
+```py
 >>> try:
 ...     raise Exception(u'föö')
 ... except Exception as e:
@@ -200,7 +200,7 @@ As you can see we don't actually use `e` in that case, the call to `logging.exce
 
 If you want to log an exception with another log level than ERROR, you can use the the `exc_info` argument of the default loggers:
 
-```
+```py
 logging.debug('exception occurred', exc_info=1)
 logging.info('exception occurred', exc_info=1)
 logging.warning('exception occurred', exc_info=1)
@@ -211,7 +211,7 @@ logging.warning('exception occurred', exc_info=1)
 
 Be aware that libraries out there might throw exceptions with messages as any of unicode or (utf-8 if you're lucky) byte-strings. If you really need to access an exception's text, the only reliable way, that will always work, is to use `repr(e)` or the `%r` string formatting:
 
-```
+```py
 >>> try:
 ...     raise Exception(u'föö')
 ... except Exception as e:

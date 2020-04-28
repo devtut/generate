@@ -14,7 +14,7 @@ Every package requires a [`setup.py`](https://docs.python.org/3/distutils/setups
 
 Consider the following directory structure for a simple package:
 
-```
+```py
 +-- package_name
 |       |
 |       +-- __init__.py
@@ -27,7 +27,7 @@ The `__init__.py` contains only the line `def foo(): return 100`.
 
 The following `setup.py` will define the package:
 
-```
+```py
 from setuptools import setup
 
 
@@ -46,7 +46,7 @@ setup(
 
 [virtualenv](https://virtualenv.pypa.io/en/stable/) is great to test package installs without modifying your other Python environments:
 
-```
+```py
 $ virtualenv .virtualenv
 ...
 $ source .virtualenv/bin/activate
@@ -73,7 +73,7 @@ Once your `setup.py` is fully functional (see [Introduction](http://stackoverflo
 
 This file stores logins and passwords to authenticate your accounts.  It is typically stored in your home directory.
 
-```
+```py
 # .pypirc file
 
 [distutils]
@@ -95,7 +95,7 @@ password=your_password
 
 It is [safer](https://packaging.python.org/distributing/#upload-your-distributions) to use `twine` for uploading packages, so make sure that is installed.
 
-```
+```py
 $ pip install twine
 
 ```
@@ -106,14 +106,14 @@ $ pip install twine
 
 Either log in, or create a new account at [testpypi](https://testpypi.python.org/pypi). Registration is only required the first time, although registering more than once is not harmful.
 
-```
+```py
 $ python setup.py register -r pypitest
 
 ```
 
 While in the root directory of your package:
 
-```
+```py
 $ twine upload dist/* -r pypitest
 
 ```
@@ -124,7 +124,7 @@ Your package should now be accessible through your account.
 
 Make a test virtual environment.  Try to `pip install` your package from either testpypi or PyPI.
 
-```
+```py
 # Using virtualenv
 $ mkdir testenv
 $ cd testenv
@@ -154,14 +154,14 @@ If successful, your package is least importable.  You might consider testing you
 
 Make sure `twine` is installed:
 
-```
+```py
 $ pip install twine
 
 ```
 
 Either log in, or create a new account at [PyPI](https://pypi.python.org/pypi).
 
-```
+```py
 $ python setup.py register -r pypi
 $ twine upload dist/*
 
@@ -181,7 +181,7 @@ If your package doesn't have a big documentation, include what can help other us
 
 Create `setup.cfg` file and put these two lines in it:
 
-```
+```py
 [metadata]
 description-file = README.rst
 
@@ -204,7 +204,7 @@ If your package isn't only a library, but has a piece of code that can be used e
 
 Put the `__main__.py` in the `package_name` folder. This way you will be able to run it directly from console:
 
-```
+```py
 python -m package_name
 
 ```

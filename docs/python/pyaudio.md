@@ -17,7 +17,7 @@ PyAudio provides Python bindings for PortAudio, the cross-platform audio I/O lib
 ## Callback Mode Audio I/O
 
 
-```
+```py
 """PyAudio Example: Play a wave file (callback version)."""
 
 import pyaudio
@@ -76,7 +76,7 @@ To keep the stream active, the main thread must not terminate, e.g., by sleeping
 
 """PyAudio Example: Play a wave file."""
 
-```
+```py
 import pyaudio
 import wave
 import sys

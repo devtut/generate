@@ -85,7 +85,7 @@ Python 3 added a new mode for `exclusive creation` so that you will not accident
 
 Allow one to write your file open code in a more pythonic manner:
 
-```
+```py
 try:
     with open("fname", "r") as fout:
         # Work with your open file
@@ -96,7 +96,7 @@ except FileExistsError:
 
 In Python 2 you would have done something like
 
-```
+```py
 import os.path
 if os.path.isfile(fname):
     with open("fname", "w") as fout:
@@ -113,7 +113,7 @@ else:
 
 The simplest way to iterate over a file line-by-line:
 
-```
+```py
 with open('myfile.txt', 'r') as fp:
     for line in fp:
         print(line)
@@ -122,7 +122,7 @@ with open('myfile.txt', 'r') as fp:
 
 `readline()` allows for more granular control over line-by-line iteration. The example below is equivalent to the one above:
 
-```
+```py
 with open('myfile.txt', 'r') as fp:
     while True:
         cur_line = fp.readline()
@@ -138,7 +138,7 @@ Using the for loop iterator and readline() together is considered bad practice.
 
 More commonly, the `readlines()` method is used to store an iterable collection of the file's lines:
 
-```
+```py
 with open("myfile.txt", "r") as fp:
     lines = fp.readlines()
 for i in range(len(lines)):
@@ -160,7 +160,7 @@ Line 1: world
 
 To iterate all files, including in sub directories, use os.walk:
 
-```
+```py
 import os
 for root, folders, files in os.walk(root_dir):
     for filename in files:
@@ -172,7 +172,7 @@ root_dir can be "." to start from current directory, or any other path to start 
 
 If you also wish to get information about the file, you may use the more efficient method [os.scandir](https://docs.python.org/3/library/os.html#os.scandir) like so:
 
-```
+```py
 for entry in os.scandir(path):
    if not entry.name.startswith('.') and entry.is_file():
        print(entry.name)
@@ -186,7 +186,7 @@ for entry in os.scandir(path):
 
 The preferred method of file i/o is to use the `with` keyword.  This will ensure the file handle is closed once the reading or writing has been completed.
 
-```
+```py
 with open('myfile.txt') as in_file:
     content = in_file.read()
 
@@ -196,7 +196,7 @@ print(content)
 
 or, to handle closing the file manually, you can forgo `with` and simply call `close` yourself:
 
-```
+```py
 in_file = open('myfile.txt', 'r')
 content = in_file.read()
 print(content)
@@ -206,7 +206,7 @@ in_file.close()
 
 Keep in mind that without using a `with` statement, you might accidentally keep the file open in case an unexpected exception arises like so:
 
-```
+```py
 in_file = open('myfile.txt', 'r')
 raise Exception("oops")
 in_file.close()  # This will never be called
@@ -218,7 +218,7 @@ in_file.close()  # This will never be called
 ## Writing to a file
 
 
-```
+```py
 with open('myfile.txt', 'w') as f:
     f.write("Line 1")
     f.write("Line 2")
@@ -235,7 +235,7 @@ Line 1Line 2Line 3Line 4
 
 Python doesn't automatically add line breaks, you need to do that manually:
 
-```
+```py
 with open('myfile.txt', 'w') as f:
     f.write("Line 1\n")
     f.write("Line 2\n")
@@ -255,7 +255,7 @@ Do not use `os.linesep` as a line terminator when writing files opened in text m
 
 If you want to specify an encoding, you simply add the `encoding` parameter to the `open` function:
 
-```
+```py
 with open('my_file.txt', 'w', encoding='utf-8') as f:
     f.write('utf-8 text')
 
@@ -263,7 +263,7 @@ with open('my_file.txt', 'w', encoding='utf-8') as f:
 
 It is also possible to use the print statement to write to a file.  The mechanics are different in Python 2 vs Python 3, but the concept is the same in that you can take the output that would have gone to the screen and send it to a file instead.
 
-```
+```py
 with open('fred.txt', 'w') as outfile:
     s = "I'm Not Dead Yet!"
     print(s) # writes to stdout
@@ -279,7 +279,7 @@ with open('fred.txt', 'w') as outfile:
 
 In Python 2 you would have done something like
 
-```
+```py
 outfile = open('fred.txt', 'w')
 s = "I'm Not Dead Yet!"
 print s   # writes to stdout
@@ -296,7 +296,7 @@ Unlike using the write function, the print function does automatically add line 
 
 Employ the [EAFP](https://docs.python.org/glossary.html#term-eafp) coding style and `try` to open it.
 
-```
+```py
 import errno
 
 try:
@@ -330,7 +330,7 @@ if path.is_file():
 
 To check whether a given path exists or not, you can follow the above EAFP procedure, or explicitly check the path:
 
-```
+```py
 import os
 path = "/home/myFiles/directory1"
 
@@ -346,7 +346,7 @@ if os.path.exists(path):
 
 Using the [`mmap`](https://docs.python.org/2/library/mmap.html) module allows the user to randomly access locations in a file by mapping the file into memory. This is an alternative to using normal file operations.
 
-```
+```py
 import mmap
 
 with open('filename.ext', 'r') as fd:
@@ -375,16 +375,17 @@ with open('filename.ext', 'r') as fd:
 ## Copying contents of one file to a different file
 
 
-```
+```py
 with open(input_file, 'r') as in_file, open(output_file, 'w') as out_file:
     for line in in_file:
         out_file.write(line)
 
 ```
 
+
 - Using the `shutil` module:
 
-```
+```py
 import shutil
 shutil.copyfile(src, dst)
 
@@ -395,7 +396,7 @@ shutil.copyfile(src, dst)
 ## Copy a directory tree
 
 
-```
+```py
 import shutil
 source='//192.168.1.2/Daily Reports'
 destination='D:\\Reports\\Today'
@@ -425,7 +426,7 @@ And when you are using the file object as an iterable, please don't use the `rea
 ## Replacing text in a file
 
 
-```
+```py
 import fileinput
 
 replacements = {'Search1': 'Replace1',
@@ -444,7 +445,7 @@ for line in fileinput.input('filename.txt', inplace=True):
 ## Checking if a file is empty
 
 
-```
+```py
 >>> import os
 >>> os.stat(path_to_file).st_size == 0
 
@@ -452,7 +453,7 @@ for line in fileinput.input('filename.txt', inplace=True):
 
 or
 
-```
+```py
 >>> import os    
 >>> os.path.getsize(path_to_file) > 0
 
@@ -460,7 +461,7 @@ or
 
 However, both will throw an exception if the file does not exist. To avoid having to catch such an error, do this:
 
-```
+```py
 import os
 def is_empty_file(fpath):  
     return os.path.isfile(fpath) and os.path.getsize(fpath) > 0
@@ -501,7 +502,7 @@ While `linux` systems do indeed use `utf-8` as default, this is ****not**** nece
 
 To check a system's default encoding, try this:
 
-```
+```py
 import sys
 sys.getdefaultencoding()
 
@@ -511,7 +512,7 @@ from any python interpreter.
 
 Hence, it is wise to always sepcify an encoding, to make sure the strings you're working with are encoded as what you think they are, ensuring cross-platform compatiblity.
 
-```
+```py
 with open('somefile.txt', 'r', encoding='UTF-8') as f:
     for line in f:
         print(line)

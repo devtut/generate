@@ -17,7 +17,7 @@ PyTesseract is an in-development python package for OCR.
 
 Using PyTesseract is pretty easy:
 
-```
+```py
 try:
     import Image
 except ImportError:
@@ -46,7 +46,7 @@ Also simple to use and has more features than `PyTesseract`.
 
 To initialize:
 
-```
+```py
 from PIL import Image
 import sys
 
@@ -67,7 +67,7 @@ lang = langs[0]
 
 And some examples of usage:
 
-```
+```py
 txt = tool.image_to_string(
     Image.open('test.png'),
     lang=lang,

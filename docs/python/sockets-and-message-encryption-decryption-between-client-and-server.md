@@ -15,7 +15,7 @@ Extend and implement of the RSA Digital Signature scheme in station-to-station c
 ## Server side Implementation
 
 
-```
+```py
 import socket
 import hashlib
 import os
@@ -129,7 +129,7 @@ else:
 ## Client side Implementation
 
 
-```
+```py
 import time
 import socket
 import threading
@@ -280,7 +280,7 @@ to setup the socket now. For setting up the socket, we need to import another mo
 <li>(CLIENT)The first task is to create public and private key. To create the private
 and public key, we have to import some modules. They are : from Crypto import Random and from Crypto.PublicKey import RSA. To create the keys, we have to write few simple lines of codes:</li>
 
-```
+```py
 random_generator = Random.new().read
         key = RSA.generate(1024,random_generator) 
         public = key.publickey().exportKey()
@@ -350,7 +350,7 @@ where it will take from 0 to 16 values from the key. This conversion could be do
 
 Once defining the “ideaEncrypt” as our IDEA encryption variable, we can use the built in encrypt function to encrypt any message.
 
-```
+```py
 eMsg = ideaEncrypt.encrypt(whole)
 #converting the encrypted message to HEXADECIMAL to readable eMsg =         
 eMsg.encode("hex").upper()
@@ -363,7 +363,7 @@ In this code segment, whole is the message to be encrypted and eMsg is the encry
 
 To decrypt the encrypted messages, we will need to create another encryption variable by using the same arguments and same key but this time the variable will decrypt the encrypted messages. The code for this same as the last time. However, before decrypting the messages, we need to decode the message from hexadecimal because in our encryption part, we encoded the encrypted message in hexadecimal to make readable. Hence, the whole code will be:
 
-```
+```py
 decoded = newmess.decode("hex")
 ideaDecrypt = IDEA.new(key, IDEA.MODE_CTR, counter=lambda: key) 
 dMsg = ideaDecrypt.decrypt(decoded)

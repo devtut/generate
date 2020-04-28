@@ -33,7 +33,7 @@ Let's demonstrate the power of PLY with a simple example: this program will take
 
 Open up your favourite editor and copy the following code:
 
-```
+```py
 from ply import lex
 import ply.yacc as yacc
 
@@ -123,7 +123,7 @@ Save this file as `calc.py` and run it.
 
 Output:
 
-```
+```py
 -8
 
 ```
@@ -140,7 +140,8 @@ There are two steps that the code from example 1 carried out: one was **tokenizi
 This section provides a simple example of how to **tokenize** user input, and then breaks it down line by line.
 
 ```
-    import ply.lex as lex
+
+   import ply.lex as lex
 
     # List of token names. This is always required
     tokens = [
@@ -355,7 +356,8 @@ You can also put everything inside a class and call use instance of the class to
 ### 
 
 ```
- import ply.lex as lex  
+
+import ply.lex as lex  
  class MyLexer(object):            
        ...     # everything relating to token rules and error handling comes here as usual 
 
@@ -382,7 +384,7 @@ To get the tokens, use `lexer.token()` which returns tokens matched. You can ite
 
 ### 
 
-```
+```py
 for i in lexer: 
     print(i)
 
@@ -395,7 +397,7 @@ for i in lexer:
 
 This section explains how the tokenized input from Part 1 is processed - it is done using Context Free Grammars (CFGs). The grammar must be specified, and the tokens are processed according to the grammar. Under the hood, the parser uses an LALR parser.
 
-```
+```py
 # Yacc example
 
 import ply.yacc as yacc

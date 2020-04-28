@@ -21,7 +21,7 @@ This category includes: integers, floats, complex, strings, bytes, tuples, range
 
 To highlight this property, let's play with the `id` builtin. This function returns the unique identifier of the object passed as parameter. If the id is the same, this is the same object. If it changes, then this is another object. **(Some say that this is actually the memory address of the object, but beware of them, they are from the dark side of the force...)**
 
-```
+```py
 >>> a = 1
 >>> id(a)
 140128142243264
@@ -35,7 +35,7 @@ To highlight this property, let's play with the `id` builtin. This function retu
 
 Okay, 1 is not 3... Breaking news... Maybe not. However, this behaviour is often forgotten when it comes to more complex types, especially strings.
 
-```
+```py
 >>> stack = "Overflow"
 >>> stack
 'Overflow'
@@ -49,7 +49,7 @@ Okay, 1 is not 3... Breaking news... Maybe not. However, this behaviour is often
 
 Aha! See? We can modify it!
 
-```
+```py
 >>> id(stack)
 140128123911472
 
@@ -57,7 +57,7 @@ Aha! See? We can modify it!
 
 No. While it seems we can change the string named by the variable `stack`, what we actually do, is creating a new object to contain the result of the concatenation. We are fooled because in the process, the old object goes nowhere, so it is destroyed. In another situation, that would have been more obvious:
 
-```
+```py
 >>> stack = "Stack"
 >>> stackoverflow = stack + "Overflow"
 >>> id(stack)
@@ -73,7 +73,7 @@ In this case it is clear that if we want to retain the first string, we need a c
 
 Now, knowing how a immutable types work, what would you say with the below piece of code? Is it wise?
 
-```
+```py
 s = ""
 for i in range(1, 1000):
     s += str(i)
@@ -89,7 +89,7 @@ This category includes: lists, dictionaries, bytearrays and sets.
 
 Let's continue to play with our little `id` function.
 
-```
+```py
 >>> b = bytearray(b'Stack')
 >>> b
 bytearray(b'Stack')
@@ -110,7 +110,7 @@ What do we have? We create a bytearray, modify it and using the `id`, we can ens
 
 Of course, if an object is going to be modified often, a mutable type does a much better job than an immutable type. Unfortunately, the reality of this property is often forgotten when it hurts the most.
 
-```
+```py
 >>> c = b
 >>> c += b' rocks!'
 >>> c
@@ -120,7 +120,7 @@ bytearray(b'StackOverflow rocks!')
 
 Okay...
 
-```
+```py
 >>> b
 bytearray(b'StackOverflow rocks!')
 
@@ -128,7 +128,7 @@ bytearray(b'StackOverflow rocks!')
 
 Waiiit a second...
 
-```
+```py
 >>> id(c) == id(b)
 True
 
@@ -140,7 +140,7 @@ Indeed. `c` is not a copy of `b`. `c` is `b`.
 
 Now you better understand what side effect is implied by a mutable type, can you explain what is going wrong in this example?
 
-```
+```py
 >>> ll = [ [] ]*4 # Create a list of 4 lists to contain our results
 >>> ll
 [[], [], [], []]
@@ -158,7 +158,7 @@ Now you better understand what side effect is implied by a mutable type, can you
 
 One of the major use case when a developer needs to take mutability into account is when passing arguments to a function. This is very important, because this will determine the ability for the function to modify objects that doesn't belong to its scope, or in other words if the function has side effects. This is also important to understand where the result of a function has to be made available.
 
-```
+```py
 >>> def list_add3(lin):
     lin += [3]
     return lin
@@ -176,7 +176,7 @@ Here, the mistake is to think that `lin`, as a parameter to the function, can be
 
 This doesn't go the same for tuples.
 
-```
+```py
 >>> def tuple_add3(tin):
     tin += (3,)
     return tin
@@ -194,7 +194,7 @@ At the beginning of the function, `tin` and `a` reference the same object. But t
 
 ### Exercise
 
-```
+```py
 >>> def yoda(prologue, sentence):
     sentence.reverse()
     prologue += " ".join(sentence)

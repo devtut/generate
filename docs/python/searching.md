@@ -12,7 +12,7 @@ description: "Getting the index for strings: str.index(), str.rindex() and str.f
 
 `String` also have an `index` method but also more advanced options and the additional `str.find`. For both of these there is a complementary **reversed** method.
 
-```
+```py
 astring = 'Hello on StackOverflow'
 astring.index('o')  # 4
 astring.rindex('o') # 20
@@ -24,7 +24,7 @@ astring.rfind('o')  # 20
 
 The difference between `index`/`rindex` and `find`/`rfind` is what happens if the substring is not found in the string:
 
-```
+```py
 astring.index('q') # ValueError: substring not found
 astring.find('q')  # -1
 
@@ -32,7 +32,7 @@ astring.find('q')  # -1
 
 All of these methods allow a start and end index:
 
-```
+```py
 astring.index('o', 5)    # 6
 astring.index('o', 6)    # 6 - start is inclusive
 astring.index('o', 5, 7) # 6
@@ -44,7 +44,7 @@ astring.index('o', 5, 6) #  - end is not inclusive
 ValueError: substring not found
 
 
-```
+```py
 astring.rindex('o', 20) # 20 
 astring.rindex('o', 19) # 20 - still from left to right
 
@@ -61,7 +61,7 @@ All built-in collections in Python implement a way to check element membership u
 
 ### List
 
-```
+```py
 alist = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 5 in alist   # True
 10 in alist  # False
@@ -70,7 +70,7 @@ alist = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ### Tuple
 
-```
+```py
 atuple = ('0', '1', '2', '3', '4')
 4 in atuple    # False
 '4' in atuple  # True
@@ -79,7 +79,7 @@ atuple = ('0', '1', '2', '3', '4')
 
 ### String
 
-```
+```py
 astring = 'i am a string'
 'a' in astring   # True
 'am' in astring  # True
@@ -89,7 +89,7 @@ astring = 'i am a string'
 
 ### Set
 
-```
+```py
 aset = {(10, 10), (20, 20), (30, 30)}
 (10, 10) in aset  # True
 10 in aset        # False
@@ -100,7 +100,7 @@ aset = {(10, 10), (20, 20), (30, 30)}
 
 `dict` is a bit special: the normal `in` only checks the **keys**. If you want to search in **values** you need to specify it. The same if you want to search for **key-value** pairs.
 
-```
+```py
 adict = {0: 'a', 1: 'b', 2: 'c', 3: 'd'}
 1 in adict                 # True   - implicitly searches in keys
 'a' in adict               # False
@@ -117,7 +117,7 @@ adict = {0: 'a', 1: 'b', 2: 'c', 3: 'd'}
 
 `list` and `tuple` have an `index`-method to get the position of the element:
 
-```
+```py
 alist = [10, 16, 26, 5, 2, 19, 105, 26]
 # search for 16 in the list
 alist.index(16) # 1
@@ -133,7 +133,7 @@ ValueError: 15 is not in list
 
 But only returns the position of the first found element:
 
-```
+```py
 atuple = (10, 16, 26, 5, 2, 19, 105, 26)
 atuple.index(26)   # 2
 atuple[2]          # 26
@@ -148,7 +148,7 @@ atuple[7]          # 26 - is also 26!
 
 `dict` have no builtin method for searching a value or key because **dictionaries** are unordered. You can create a function that gets the key (or keys) for a specified value:
 
-```
+```py
 def getKeysForValue(dictionary, value):
     foundkeys = []
     for keys in dictionary:
@@ -160,7 +160,7 @@ def getKeysForValue(dictionary, value):
 
 This could also be written as an equivalent list comprehension:
 
-```
+```py
 def getKeysForValueComp(dictionary, value): 
     return [key for key in dictionary if dictionary[key] == value]
 
@@ -168,7 +168,7 @@ def getKeysForValueComp(dictionary, value):
 
 If you only care about one found key:
 
-```
+```py
 def getOneKeyForValue(dictionary, value):
     return next(key for key in dictionary if dictionary[key] == value)
 
@@ -176,7 +176,7 @@ def getOneKeyForValue(dictionary, value):
 
 The first two functions will return a `list` of all `keys` that have the specified value:
 
-```
+```py
 adict = {'a': 10, 'b': 20, 'c': 10}
 getKeysForValue(adict, 10)     # ['c', 'a'] - order is random could as well be ['a', 'c']
 getKeysForValueComp(adict, 10) # ['c', 'a'] - dito
@@ -187,7 +187,7 @@ getKeysForValueComp(adict, 25) # []
 
 The other one will only return one key:
 
-```
+```py
 getOneKeyForValue(adict, 10)   # 'c'  - depending on the circumstances this could also be 'a'
 getOneKeyForValue(adict, 20)   # 'b'
 
@@ -195,7 +195,7 @@ getOneKeyForValue(adict, 20)   # 'b'
 
 and raise a `StopIteration`-`Exception` if the value is not in the `dict`:
 
-```
+```py
 getOneKeyForValue(adict, 25)
 
 ```
@@ -211,7 +211,7 @@ StopIteration
 
 Sorted sequences allow the use of faster searching algorithms: `bisect.bisect_left()`<sup>[1](http://docs.python.org/library/bisect.html#searching-sorted-lists)</sup>:
 
-```
+```py
 import bisect
 
 def index_sorted(sorted_seq, value):
@@ -234,7 +234,7 @@ ValueError
 
 For very large **sorted sequences** the speed gain can be quite high. In case for the first search approximatly 500 times as fast:
 
-```
+```py
 %timeit index_sorted(alist, 97285)
 # 100000 loops, best of 3: 3 µs per loop
 %timeit alist.index(97285)
@@ -244,7 +244,7 @@ For very large **sorted sequences** the speed gain can be quite high. In case fo
 
 While it's a bit slower if the element is one of the very first:
 
-```
+```py
 %timeit index_sorted(alist, 4)
 # 100000 loops, best of 3: 2.98 µs per loop
 %timeit alist.index(4)
@@ -261,7 +261,7 @@ Searching in nested sequences like a `list` of `tuple` requires an approach like
 
 The index of the outermost sequence if the value was found in the sequence:
 
-```
+```py
 def outer_index(nested_sequence, value):
     return next(index for index, inner in enumerate(nested_sequence) 
                       for item in inner 
@@ -275,7 +275,7 @@ outer_index(alist_of_tuples, 4.3)  # 2
 
 or the index of the outer and inner sequence:
 
-```
+```py
 def outer_inner_index(nested_sequence, value):
     return next((oindex, iindex) for oindex, inner in enumerate(nested_sequence) 
                                  for iindex, item in enumerate(inner) 
@@ -300,7 +300,7 @@ To allow the use of `in` for custom classes the class must either provide the ma
 
 Suppose you have a class containing a `list` of `list`s:
 
-```
+```py
 class ListList:
     def __init__(self, value):
         self.value = value
@@ -324,7 +324,7 @@ class ListList:
 
 Using membership testing is possible using `in`:
 
-```
+```py
 a = ListList([[1,1,1],[0,1,1],[1,5,1]])
 10 in a    # False
 # Prints: Using __contains__.
@@ -335,7 +335,7 @@ a = ListList([[1,1,1],[0,1,1],[1,5,1]])
 
 even after deleting the `__contains__` method:
 
-```
+```py
 del ListList.__contains__
 5 in a     # True
 # Prints: Using __iter__.

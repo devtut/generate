@@ -67,7 +67,7 @@ Now there is a file name **w1-slave**, This file contains the temperature and ot
 
 **Now write a module in python to read the temperature**
 
-```
+```py
 import glob
 import time
 

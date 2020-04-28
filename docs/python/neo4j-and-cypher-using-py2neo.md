@@ -10,7 +10,7 @@ description: "Adding Nodes to Neo4j Graph, Importing and Authenticating, Adding 
 ## Adding Nodes to Neo4j Graph
 
 
-```
+```py
 results = News.objects.todays_news()
 for r in results:
     article = graph.merge_one("NewsArticle", "news_id", r)
@@ -32,7 +32,7 @@ Adding nodes to the graph is pretty simple,`graph.merge_one` is important as it 
 ## Importing and Authenticating
 
 
-```
+```py
 from py2neo import authenticate, Graph, Node, Relationship
 authenticate("localhost:7474", "neo4j", "<pass>")
 graph = Graph()
@@ -48,7 +48,7 @@ the `graph` object is your interface to the neo4j instance in the rest of your p
 ## Adding Relationships to Neo4j Graph
 
 
-```
+```py
 results = News.objects.todays_news()
 for r in results:
     article = graph.merge_one("NewsArticle", "news_id", r)
@@ -70,7 +70,7 @@ The relationship name is also important as you would use it in advanced cases.
 ## Query 1 : Autocomplete on News Titles
 
 
-```
+```py
 def get_autocomplete(text):
     query = """
     start n = node(*) where n.name =~ '(?i)%s.*' return n.name,labels(n) limit 10;
@@ -91,7 +91,7 @@ This is a sample cypher query to get all nodes with the property `name` that sta
 ## Query 2 : Get News Articles by Location on a particular date
 
 
-```
+```py
 def search_news_by_entity(location,timestamp):
     query = """
     MATCH (n)-[]->(l) 
@@ -118,7 +118,7 @@ You can use this query to find all news articles `(n)` connected to a location `
 
 Count articles connected to a particular person over time
 
-```
+```py
 MATCH (n)-[]->(l) 
 where l.name='Donald Trump'
 RETURN n.date,count(*) order by n.date
@@ -127,7 +127,7 @@ RETURN n.date,count(*) order by n.date
 
 Search for other People / Locations connected to the same news articles as Trump with at least 5 total relationship nodes.
 
-```
+```py
 MATCH (n:NewsArticle)-[]->(l)
 where l.name='Donald Trump'
 MATCH (n:NewsArticle)-[]->(m)

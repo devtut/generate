@@ -48,7 +48,7 @@ There is also the [**floor division operator**](http://python-reference.readthed
 
 One can explicitly enforce true division or floor division using native functions in the [`operator`](https://docs.python.org/3/library/operator.html) module:
 
-```
+```py
 from operator import truediv, floordiv
 assert truediv(10, 8) == 1.25            # equivalent to `/` in Python 3
 assert floordiv(10, 8) == 1              # equivalent to `//`
@@ -57,7 +57,7 @@ assert floordiv(10, 8) == 1              # equivalent to `//`
 
 While clear and explicit, using operator functions for every division can be tedious.  Changing the behavior of the `/` operator will often be preferred.  A common practice is to eliminate typical division behavior by adding `from __future__ import division` as the first statement in each module:
 
-```
+```py
 # needs to be the first statement in a module
 from __future__ import division
 
@@ -86,7 +86,7 @@ See the [**Simple Math** topic](http://stackoverflow.com/documentation/python/29
 
 In Python 3, you can unpack an iterable without knowing the exact number of items in it, and even have a variable hold the end of the iterable. For that, you provide a variable that may collect a list of values. This is done by placing an asterisk before the name. For example, unpacking a `list`:
 
-```
+```py
 first, second, *tail, last = [1, 2, 3, 4, 5]
 print(first)
 # Out: 1
@@ -101,7 +101,7 @@ print(last)
 
 **Note**: When using the `*variable` syntax, the `variable` will always be a list, even if the original type wasn't a list. It may contain zero or more elements depending on the number of elements in the original list.
 
-```
+```py
 first, second, *tail, last = [1, 2, 3, 4]
 print(tail)
 # Out: [3]
@@ -116,7 +116,7 @@ print(last)
 
 Similarly, unpacking a `str`:
 
-```
+```py
 begin, *tail = "Hello"
 print(begin)
 # Out: 'H'
@@ -127,7 +127,7 @@ print(tail)
 
 Example of unpacking a `date`; `_` is used in this example as a throwaway variable (we are interested only in `year` value):
 
-```
+```py
 person = ('John', 'Doe', (10, 16, 2016))
 *_, (*_, year_of_birth) = person
 print(year_of_birth)
@@ -137,7 +137,7 @@ print(year_of_birth)
 
 It is worth mentioning that, since `*` eats up a variable number of items, you cannot have two `*`s **for the same iterable** in an assignment - it wouldn't know how many elements go into the first unpacking, and how many in the second:
 
-```
+```py
 *head, *tail = [1, 2]
 # Out: SyntaxError: two starred expressions in assignment
 
@@ -145,7 +145,7 @@ It is worth mentioning that, since `*` eats up a variable number of items, you c
 
 So far we have discussed unpacking in assignments.  `*` and `**` were [extended in Python 3.5](https://docs.python.org/3/whatsnew/3.5.html#pep-448-additional-unpacking-generalizations). It's now possible to have several unpacking operations in one expression:
 
-```
+```py
 {*range(4), 4, *(5, 6, 7)}
 # Out: {0, 1, 2, 3, 4, 5, 6, 7}
 
@@ -153,7 +153,7 @@ So far we have discussed unpacking in assignments.  `*` and `**` were [extended 
 
 It is also possible to unpack an iterable into function arguments:
 
-```
+```py
 iterable = [1, 2, 3, 4, 5]
 print(iterable)
 # Out: [1, 2, 3, 4, 5]
@@ -164,7 +164,7 @@ print(*iterable)
 
 Unpacking a dictionary uses two adjacent stars `**` ([PEP 448](https://www.python.org/dev/peps/pep-0448/)):
 
-```
+```py
 tail = {'y': 2, 'z': 3}
 {'x': 1, **tail}
  # Out: {'x': 1, 'y': 2, 'z': 3}
@@ -173,7 +173,7 @@ tail = {'y': 2, 'z': 3}
 
 This allows for both overriding old values and merging dictionaries.
 
-```
+```py
 dict1 = {'x': 1, 'y': 1}
 dict2 = {'y': 2, 'z': 3}
 {**dict1, **dict2}
@@ -183,7 +183,7 @@ dict2 = {'y': 2, 'z': 3}
 
 Python 3 removed tuple unpacking in functions. Hence the following doesn't work in Python 3
 
-```
+```py
 # Works in Python 2, but syntax error in Python 3:
 map(lambda (x, y): x + y, zip(range(5), range(5)))
 # Same is true for non-lambdas:
@@ -212,14 +212,14 @@ In Python 2, an object of type `str` is always a byte sequence, but is commonly 
 
 A string literal is interpreted as a byte string.
 
-```
+```py
 s = 'Cafe'    # type(s) == str
 
 ```
 
 There are two exceptions: You can define a **Unicode (text) literal** explicitly by prefixing the literal with `u`:
 
-```
+```py
 s = u'Café'   # type(s) == unicode
 b = 'Lorem ipsum'  # type(b) == str
 
@@ -227,7 +227,7 @@ b = 'Lorem ipsum'  # type(b) == str
 
 Alternatively, you can specify that a whole module's string literals should create Unicode (text) literals:
 
-```
+```py
 from __future__ import unicode_literals
 
 s = 'Café'   # type(s) == unicode
@@ -237,14 +237,14 @@ b = 'Lorem ipsum'  # type(b) == unicode
 
 In order to check whether your variable is a string (either Unicode or a byte string), you can use:
 
-```
+```py
 isinstance(s, basestring)
 
 ```
 
 In Python 3, the `str` type is a Unicode text type.
 
-```
+```py
 s = 'Cafe'           # type(s) == str
 s = 'Café'           # type(s) == str (note the accented trailing e)
 
@@ -252,7 +252,7 @@ s = 'Café'           # type(s) == str (note the accented trailing e)
 
 Additionally, Python 3 added a [`bytes` object](https://docs.python.org/3/library/functions.html#func-bytes), suitable for binary "blobs" or writing to encoding-independent files.  To create a bytes object, you can prefix `b` to a string literal or call the string's `encode` method:
 
-```
+```py
 # Or, if you really need a byte string:
 s = b'Cafe'          # type(s) == bytes
 s = 'Café'.encode()  # type(s) == bytes
@@ -261,21 +261,21 @@ s = 'Café'.encode()  # type(s) == bytes
 
 To test whether a value is a string, use:
 
-```
+```py
 isinstance(s, str)
 
 ```
 
 It is also possible to prefix string literals with a `u` prefix to ease compatibility between Python 2 and Python 3 code bases. Since, in Python 3, all strings are Unicode by default, prepending a string literal with `u` has no effect:
 
-```
+```py
 u'Cafe' == 'Cafe'
 
 ```
 
 Python 2’s raw Unicode string prefix `ur` is not supported, however:
 
-```
+```py
 >>> ur'Café'
   File "<stdin>", line 1
     ur'Café'
@@ -288,7 +288,7 @@ Note that you must [`encode`](https://docs.python.org/3/library/stdtypes.html#st
 
 You can use [`decode`](https://docs.python.org/3/library/stdtypes.html#bytes.decode) to ask a `bytes` object for what Unicode text it represents:
 
-```
+```py
 >>> b.decode()
 'Café'
 
@@ -296,7 +296,7 @@ You can use [`decode`](https://docs.python.org/3/library/stdtypes.html#bytes.dec
 
 While the `bytes` type exists in both Python 2 and 3, the `unicode` type only exists in Python 2. To use Python 3's implicit Unicode strings in Python 2, add the following to the top of your code file:
 
-```
+```py
 from __future__ import unicode_literals
 print(repr("hi"))
 # u'hi'
@@ -305,21 +305,21 @@ print(repr("hi"))
 
 Another important difference is that indexing bytes in Python 3 results in an `int` output like so:
 
-```
+```py
 b"abc"[0] == 97
 
 ```
 
 Whilst slicing in a size of one results in a length 1 bytes object:
 
-```
+```py
 b"abc"[0:1] == b"a"
 
 ```
 
 In addition, Python 3 [fixes some unusual behavior](https://eev.ee/blog/2016/11/23/a-rebuttal-for-python-3/) with unicode, i.e. reversing byte strings in Python 2.  For example, the [following issue](https://stackoverflow.com/questions/34015615/python-reversing-an-utf-8-string) is resolved:
 
-```
+```py
 # -*- coding: utf8 -*-
 print("Hi, my name is Łukasz Langa.")
 print(u"Hi, my name is Łukasz Langa."[::-1])
@@ -344,7 +344,7 @@ print("Hi, my name is Łukasz Langa."[::-1])
 
 In Python 2, [`print`](https://docs.python.org/2/library/functions.html#print) is a statement:
 
-```
+```py
 print "Hello World"
 print                         # print a newline
 print "No newline",           # add trailing comma to remove newline 
@@ -358,7 +358,7 @@ print(1, 2, 3)                # print tuple "(1, 2, 3)"
 
 In Python 3, [`print()`](https://docs.python.org/3/library/functions.html#print) is a function, with keyword arguments for common uses:
 
-```
+```py
 print "Hello World"              # SyntaxError
 print("Hello World")
 print()                          # print a newline (must use parentheses)
@@ -374,14 +374,14 @@ print((1, 2, 3))                 # print tuple "(1, 2, 3)"
 
 The print function has the following parameters:
 
-```
+```py
 print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
 
 ```
 
 `sep` is what separates the objects you pass to print. For example:
 
-```
+```py
 print('foo', 'bar', sep='~') # out: foo~bar
 print('foo', 'bar', sep='.') # out: foo.bar
 
@@ -389,14 +389,14 @@ print('foo', 'bar', sep='.') # out: foo.bar
 
 `end` is what the end of the print statement is followed by. For example:
 
-```
+```py
 print('foo', 'bar', end='!') # out: foo bar!
 
 ```
 
 Printing again following a non-newline ending print statement **will** print to the same line:
 
-```
+```py
 print('foo', end='~')
 print('bar')
 # out: foo~bar
@@ -405,7 +405,7 @@ print('bar')
 
 **Note :** For future compatibility, [`print`](https://docs.python.org/2/library/functions.html#print) **function** is also available in Python 2.6 onwards; however it cannot be used unless parsing of the `print` **statement** is disabled with
 
-```
+```py
 from __future__ import print_function
 
 ```
@@ -421,7 +421,7 @@ See PEP [3105](https://www.python.org/dev/peps/pep-3105/) for rationale.
 
 In Python 2, [`range`](https://docs.python.org/2/library/functions.html#range) function returns a list while [`xrange`](https://docs.python.org/2/library/functions.html#xrange) creates a special `xrange` object, which is an immutable sequence, which unlike other built-in sequence types, doesn't support slicing and has neither `index` nor `count` methods:
 
-```
+```py
 print(range(1, 10))
 # Out: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -438,7 +438,7 @@ print(isinstance(xrange(1, 10), xrange))
 
 In Python 3, `xrange` was expanded to the [`range`](https://docs.python.org/3/library/functions.html#func-range) sequence, which thus now creates a `range` object. There is no `xrange` type:
 
-```
+```py
 print(range(1, 10))
 # Out: range(1, 10)
 
@@ -455,7 +455,7 @@ print(isinstance(range(1, 10), range))
 
 Additionally, since Python 3.2, `range` also supports slicing, `index` and `count`:
 
-```
+```py
 print(range(1, 10)[3:7])
 # Out: range(3, 7)
 print(range(1, 10).count(5))
@@ -467,7 +467,7 @@ print(range(1, 10).index(7))
 
 The advantage of using a special sequence type instead of a list is that the interpreter does not have to allocate memory for a list and populate it:
 
-```
+```py
 # range(10000000000000000)
 # The output would be:
 # Traceback (most recent call last):
@@ -482,7 +482,7 @@ print(xrange(100000000000000000))
 Since the latter behaviour is generally desired, the former was removed in Python 3.
 If you still want to have a list in Python 3, you can simply use the `list()` constructor on a `range` object:
 
-```
+```py
 print(list(range(1, 10)))
 # Out: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -492,7 +492,7 @@ print(list(range(1, 10)))
 
 In order to maintain compatibility between both Python 2.x and Python 3.x versions, you can use the [`builtins`](http://python-future.org/compatible_idioms.html#xrange) module from the external package [`future`](http://python-future.org/) to achieve both **forward-compatiblity** and **backward-compatiblity**:
 
-```
+```py
 #forward-compatible
 from builtins import range
 
@@ -501,7 +501,7 @@ for i in range(10**8):
 
 ```
 
-```
+```py
 #backward-compatible
 from past.builtins import xrange
 
@@ -519,7 +519,7 @@ The `range` in `future` library supports slicing, `index` and `count` in all Pyt
 
 This is the Python 2 syntax, note the commas `,` on the `raise` and `except` lines:
 
-```
+```py
 try:
     raise IOError, "input/output error"
 except IOError, exc:
@@ -529,7 +529,7 @@ except IOError, exc:
 
 In Python 3, the `,` syntax is dropped and replaced by parenthesis and the `as` keyword:
 
-```
+```py
 try:
     raise IOError("input/output error")
 except IOError as exc:
@@ -541,7 +541,7 @@ For backwards compatibility, the Python 3 syntax is also available in Python 2.6
 
 Python 3 also adds [exception chaining](http://stackoverflow.com/documentation/python/1788/exceptions/5533/chain-exceptions-with-raise-from#t=201608030127064987456), wherein you can signal that some other exception was the **cause** for this exception. For example
 
-```
+```py
 try:
     file = open('database.db')
 except FileNotFoundError as e:
@@ -551,7 +551,7 @@ except FileNotFoundError as e:
 
 The exception raised in the `except` statement is of type `DatabaseError`, but the original exception is marked as the `__cause__` attribute of that exception. When the traceback is displayed, the original exception will also be displayed in the traceback:
 
-```
+```py
 Traceback (most recent call last):
   File "<stdin>", line 2, in <module>
 FileNotFoundError
@@ -566,7 +566,7 @@ DatabaseError('Cannot open database.db')
 
 If you throw in an `except` block **without** explicit chaining:
 
-```
+```py
 try:
     file = open('database.db')
 except FileNotFoundError as e:
@@ -576,7 +576,7 @@ except FileNotFoundError as e:
 
 The traceback is
 
-```
+```py
 Traceback (most recent call last):
   File "<stdin>", line 2, in <module>
 FileNotFoundError
@@ -592,7 +592,7 @@ DatabaseError('Cannot open database.db')
 Neither one is supported in Python 2.x; the original exception and its traceback will be lost if another exception is raised in the except block.
 The following code can be used for compatibility:
 
-```
+```py
 import sys
 import traceback
 
@@ -608,7 +608,7 @@ except:
 
 To "forget" the previously thrown exception, use `raise from None`
 
-```
+```py
 try:
     file = open('database.db')
 except FileNotFoundError as e:
@@ -618,7 +618,7 @@ except FileNotFoundError as e:
 
 Now the traceback would simply be
 
-```
+```py
 Traceback (most recent call last):
   File "<stdin>", line 4, in <module>
 DatabaseError('Cannot open database.db')
@@ -627,7 +627,7 @@ DatabaseError('Cannot open database.db')
 
 Or in order to make it compatible with both Python 2 and 3 you may use the [six](https://pythonhosted.org/six) package like so:
 
-```
+```py
 import six
 try:
     file = open('database.db')
@@ -641,7 +641,7 @@ except FileNotFoundError as e:
 ## Leaked variables in list comprehension
 
 
-```
+```py
 x = 'hello world!'
 vowels = [x for x in 'AEIOU'] 
 
@@ -652,7 +652,7 @@ print(x)
 
 ```
 
-```
+```py
 x = 'hello world!'
 vowels = [x for x in 'AEIOU']
 
@@ -671,7 +671,7 @@ Additionally, neither generator expressions (available in Python since 2.5) nor 
 
 Note that in both Python 2 and Python 3, variables will leak into the surrounding scope when using a for loop:
 
-```
+```py
 x = 'hello world!'
 vowels = []
 for x in 'AEIOU':
@@ -688,7 +688,7 @@ print(x)
 
 In Python 2, `True`, `False` and `None` are built-in constants. Which means it's possible to reassign them.
 
-```
+```py
 True, False = False, True
 True   # False
 False  # True
@@ -697,14 +697,14 @@ False  # True
 
 You can't do this with `None` since Python 2.4.
 
-```
+```py
 None = None  # SyntaxError: cannot assign to None
 
 ```
 
 In Python 3, `True`, `False`, and `None` are now keywords.
 
-```
+```py
 True, False = False, True  # SyntaxError: can't assign to keyword
 
 None = None  # SyntaxError: can't assign to keyword
@@ -718,14 +718,14 @@ None = None  # SyntaxError: can't assign to keyword
 
 In Python 2, user input is accepted using the `raw_input` function,
 
-```
+```py
 user_input = raw_input()
 
 ```
 
 While in Python 3 user input is accepted using the `input` function.
 
-```
+```py
 user_input = input()
 
 ```
@@ -734,7 +734,7 @@ In Python 2, the `input` function will accept input and **interpret** it. While 
 
 To keep a script portable across the two versions, you can put the code below near the top of your Python script:
 
-```
+```py
 try:
     input = raw_input
 except NameError:
@@ -749,7 +749,7 @@ except NameError:
 
 Objects of different types can be compared. The results are arbitrary, but consistent. They are ordered such that `None` is less than anything else, numeric types are smaller than non-numeric types, and everything else is ordered lexicographically by type. Thus, an `int` is less than a `str` and a `tuple` is greater than a `list`:
 
-```
+```py
 [1, 2] > 'foo'
 # Out: False
 (1, 2) > 'foo'
@@ -763,7 +763,7 @@ Objects of different types can be compared. The results are arbitrary, but consi
 
 This was originally done so a list of mixed types could be sorted and objects would be grouped together by type:
 
-```
+```py
 l = [7, 'x', (1, 2), [5, 6], 5, 8.0, 'y', 1.2, [7, 8], 'z']
 sorted(l)
 # Out: [1.2, 5, 7, 8.0, [5, 6], [7, 8], 'x', 'y', 'z', (1, 2)]
@@ -772,7 +772,7 @@ sorted(l)
 
 An exception is raised when comparing different (non-numeric) types:
 
-```
+```py
 1 < 1.5
 # Out: True
 
@@ -787,7 +787,7 @@ An exception is raised when comparing different (non-numeric) types:
 
 To sort mixed lists in Python 3 by types and to achieve compatibility between versions, you have to provide a key to the sorted function:
 
-```
+```py
 >>> list = [1, 'hello', [3, 4], {'python': 2}, 'stackoverflow', 8, {'python': 3}, [5, 6]]
 >>> sorted(list, key=str)
 # Out: [1, 8, [3, 4], [5, 6], 'hello', 'stackoverflow', {'python': 2}, {'python': 3}]
@@ -803,7 +803,7 @@ Using `str` as the `key` function temporarily converts each item to a string onl
 
 In Python 2, an iterator can be traversed by using a method called `next` on the iterator itself:
 
-```
+```py
 g = (i for i in range(0, 3))
 g.next()  # Yields 0
 g.next()  # Yields 1
@@ -813,7 +813,7 @@ g.next()  # Yields 2
 
 In Python 3 the `.next` method has been renamed to `.__next__`, acknowledging its “magic” role, so calling `.next` will raise an `AttributeError`. The correct way to access this functionality in both Python 2 and Python 3 is to call the `next` **function** with the iterator as an argument.
 
-```
+```py
 g = (i for i in range(0, 3))
 next(g)  # Yields 0
 next(g)  # Yields 1
@@ -857,7 +857,7 @@ When maintaining compatibility between both Python 2.x and 3.x versions, you can
 
 In Python 2 [`filter`](https://docs.python.org/2/library/functions.html#filter), [`map`](https://docs.python.org/2/library/functions.html#map) and [`zip`](https://docs.python.org/2/library/functions.html#zip) built-in functions return a sequence. `map` and `zip` always return a list while with `filter` the return type depends on the type of given parameter:
 
-```
+```py
 >>> s = filter(lambda x: x.isalpha(), 'a1b2c3')
 >>> s
 'abc'
@@ -872,7 +872,7 @@ In Python 2 [`filter`](https://docs.python.org/2/library/functions.html#filter),
 
 In Python 3 [`filter`](https://docs.python.org/3.5/library/functions.html#filter), [`map`](https://docs.python.org/3.5/library/functions.html#map) and [`zip`](https://docs.python.org/3.5/library/functions.html#zip) return iterator instead:
 
-```
+```py
 >>> it = filter(lambda x: x.isalpha(), 'a1b2c3')
 >>> it
 <filter object at 0x00000098A55C2518>
@@ -900,7 +900,7 @@ Since Python 2 [`itertools.izip`](https://docs.python.org/2.7/library/itertools.
 
 In Python 2, `<>` is a synonym for `!=`; likewise, ``foo`` is a synonym for `repr(foo)`.
 
-```
+```py
 >>> 1 <> 2
 True
 >>> 1 <> 1
@@ -913,7 +913,7 @@ False
 
 ```
 
-```
+```py
 >>> 1 <> 2
   File "<stdin>", line 1
     1 <> 2
@@ -934,7 +934,7 @@ SyntaxError: invalid syntax
 
 In Python 2, any integer larger than a C `ssize_t` would be converted into the `long` data type, indicated by an `L` suffix on the literal. For example, on a 32 bit build of Python:
 
-```
+```py
 >>> 2**31
 2147483648L
 >>> type(2**31)
@@ -950,7 +950,7 @@ In Python 2, any integer larger than a C `ssize_t` would be converted into the `
 
 However, in Python 3, the `long` data type was removed; no matter how big the integer is, it will be an `int`.
 
-```
+```py
 2**1024
 # Output: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216
 print(-(2**1024))
@@ -971,7 +971,7 @@ As an example, let us consider reducing a list to a single value by dividing eac
 
 In Python 2.x it is as simple as:
 
-```
+```py
 >>> my_list = [1, 2, 3, 4, 5]
 >>> import operator
 >>> reduce(operator.truediv, my_list)
@@ -981,7 +981,7 @@ In Python 2.x it is as simple as:
 
 In Python 3.x the example becomes a bit more complicated:
 
-```
+```py
 >>> my_list = [1, 2, 3, 4, 5]
 >>> import operator, functools
 >>> functools.reduce(operator.truediv, my_list)
@@ -998,7 +998,7 @@ We can also use `from functools import reduce` to avoid calling `reduce` with th
 
 In Python `3.x` all classes are **new-style classes**; when defining a new class python implicitly makes it inherit from `object`. As such, specifying `object` in a `class` definition is a completely optional:
 
-```
+```py
 class X: pass
 class Y(object): pass
 
@@ -1006,7 +1006,7 @@ class Y(object): pass
 
 Both of these classes now contain `object` in their `mro` (method resolution order):
 
-```
+```py
 >>> X.__mro__
 (__main__.X, object)
 
@@ -1017,7 +1017,7 @@ Both of these classes now contain `object` in their `mro` (method resolution ord
 
 In Python `2.x` classes are, by default, old-style classes; they do not implicitly inherit from `object`. This causes the semantics of classes to differ depending on if we explicitly add `object` as a base `class`:
 
-```
+```py
 class X: pass
 class Y(object): pass
 
@@ -1025,7 +1025,7 @@ class Y(object): pass
 
 In this case, if we try to print the `__mro__` of `Y`, similar output as that in the Python `3.x` case will appear:
 
-```
+```py
 >>> Y.__mro__
 (<class '__main__.Y'>, <type 'object'>)
 
@@ -1035,7 +1035,7 @@ This happens because we explicitly made `Y` inherit from object when defining it
 
 In order to **ensure compatibility** between both versions of Python, classes can be defined with `object` as a base class:
 
-```
+```py
 class mycls(object):
     """I am fully compatible with Python 2/3"""
 
@@ -1043,7 +1043,7 @@ class mycls(object):
 
 Alternatively, if the `__metaclass__` variable is set to `type` at global scope, all subsequently defined classes in a given module are implicitly new-style without needing to explicitly inherit from `object`:
 
-```
+```py
 __metaclass__ = type
 
 class mycls:
@@ -1065,14 +1065,14 @@ To achieve Python 3 behavior in Python 2:
 
 For clarification, in Python 2, a module can import the contents of another module located in the same directory as follows:
 
-```
+```py
 import foo
 
 ```
 
 Notice the location of `foo` is ambiguous from the import statement alone.  This type of implicit relative import is thus discouraged in favor of [explicit relative imports](https://www.python.org/dev/peps/pep-0328/#guido-s-decision), which look like the following:
 
-```
+```py
 from .moduleY import spam
 from .moduleY import spam as ham
 from . import moduleY
@@ -1090,7 +1090,7 @@ The dot `.` allows an explicit declaration of the module location within the dir
 
 Consider some user defined package called `shapes`. The directory structure is as follows:
 
-```
+```py
 shapes
 ├── __init__.py
 |
@@ -1105,14 +1105,16 @@ shapes
 `circle.py`, `square.py` and `triangle.py` all import `util.py` as a module. How will they refer to a module in the same level?
 
 ```
- from . import util # use util.PI, util.sq(x), etc
+
+from . import util # use util.PI, util.sq(x), etc
 
 ```
 
 OR
 
 ```
- from .util import * #use PI, sq(x), etc to call functions
+
+from .util import * #use PI, sq(x), etc to call functions
 
 ```
 
@@ -1120,7 +1122,7 @@ The `.` is used for same-level relative imports.
 
 Now, consider an alternate layout of the `shapes` module:
 
-```
+```py
 shapes
 ├── __init__.py
 |
@@ -1143,14 +1145,16 @@ shapes
 Now, how will these 3 classes refer to util.py?
 
 ```
- from .. import util # use util.PI, util.sq(x), etc
+
+from .. import util # use util.PI, util.sq(x), etc
 
 ```
 
 OR
 
 ```
- from ..util import * # use PI, sq(x), etc to call functions
+
+from ..util import * # use PI, sq(x), etc to call functions
 
 ```
 
@@ -1163,7 +1167,7 @@ The `..` is used for parent-level relative imports. Add more `.`s with number of
 
 `map()` is a builtin that is useful for applying a function to elements of an iterable.  In Python 2, `map` returns a list. In Python 3, `map` returns a **map object**, which is a generator.
 
-```
+```py
 # Python 2.X
 >>> map(str, [1, 2, 3, 4, 5])
 ['1', '2', '3', '4', '5']
@@ -1185,13 +1189,13 @@ The `..` is used for parent-level relative imports. Add more `.`s with number of
 
 In Python 2, you can pass `None` to serve as an identity function. This no longer works in Python 3.
 
-```
+```py
 >>> map(None, [0, 1, 2, 3, 0, 4])
 [0, 1, 2, 3, 0, 4]
 
 ```
 
-```
+```py
 >>> list(map(None, [0, 1, 2, 3, 0, 5]))
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -1203,7 +1207,7 @@ Moreover, when passing more than one iterable as argument in Python 2, `map` pad
 
 In Python 2:
 
-```
+```py
 >>> map(None, [1, 2, 3], [1, 2], [1, 2, 3, 4, 5])
 [(1, 1, 1), (2, 2, 2), (3, None, 3), (None, None, 4), (None, None, 5)]
 
@@ -1211,7 +1215,7 @@ In Python 2:
 
 In Python 3:
 
-```
+```py
 >>> list(map(lambda x, y, z: (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4, 5]))
 [(1, 1, 1), (2, 2, 2)]
 
@@ -1224,7 +1228,7 @@ In Python 3:
 
 **Note**: instead of `map` consider using list comprehensions, which are Python 2/3 compatible. Replacing `map(str, [1, 2, 3, 4, 5])`:
 
-```
+```py
 >>> [str(i) for i in [1, 2, 3, 4, 5]]
 ['1', '2', '3', '4', '5']
 
@@ -1239,7 +1243,7 @@ In Python 3:
 
 In Python 2, using [`round()`](https://docs.python.org/2/library/functions.html#round) on a number equally close to two integers will return the one furthest from 0. For example:
 
-```
+```py
 round(1.5)  # Out: 2.0
 round(0.5)  # Out: 1.0
 round(-0.5)  # Out: -1.0
@@ -1249,7 +1253,7 @@ round(-1.5)  # Out: -2.0
 
 In Python 3 however, [`round()`](https://docs.python.org/3/library/functions.html#round) will return the even integer (aka **bankers' rounding**). For example:
 
-```
+```py
 round(1.5)  # Out: 2
 round(0.5)  # Out: 0
 round(-0.5)  # Out: 0
@@ -1269,7 +1273,7 @@ This rounding strategy tends to reduce the total rounding error. Since on averag
 
 The `round()` function returns a `float` type in Python 2.7
 
-```
+```py
 round(4.8)
 # 5.0
 
@@ -1277,7 +1281,7 @@ round(4.8)
 
 Starting from Python 3.0, if the second argument (number of digits) is omitted, it returns an `int`.
 
-```
+```py
 round(4.8)
 # 5
 
@@ -1314,7 +1318,7 @@ Transform an old-style comparison function to a key function. Used with tools th
 
 Internal details of file I/O have been moved to the standard library `io` module, which is also the new home of `StringIO`:
 
-```
+```py
 import io
 assert io.open is open # the builtin is an alias
 buffer = io.StringIO()
@@ -1326,7 +1330,7 @@ buffer.getvalue() # 'hello, world!\n'
 
 The file mode (text vs binary) now determines the type of data produced by reading a file (and type required for writing):
 
-```
+```py
 with open('data.txt') as f:
     first_line = next(f)
     assert type(first_line) is str
@@ -1338,7 +1342,7 @@ with open('data.bin', 'rb') as f:
 
 The encoding for text files defaults to whatever is returned by `locale.getpreferredencoding(False)`. To specify an encoding explicitly, use the `encoding` keyword parameter:
 
-```
+```py
 with open('old_japanese_poetry.txt', 'shift_jis') as text:
     haiku = text.read()
 
@@ -1360,7 +1364,7 @@ To ensure cross-compatibility, use
 
 In Python 2, writing directly to a file handle returns `None`:
 
-```
+```py
 hi = sys.stdout.write('hello world\n')
 # Out: hello world
 type(hi)
@@ -1370,7 +1374,7 @@ type(hi)
 
 In Python 3, writing to a handle will return the number of characters written when writing text, and the number of bytes written when writing bytes:
 
-```
+```py
 import sys
 
 char_count = sys.stdout.write('hello world 🐍\n')
@@ -1394,7 +1398,7 @@ In Python 2, `exec` is a statement, with special syntax: `exec code [in globals[
 
 As `print` was changed from statement into a function, a `__future__` import was also added. However, there is no `from __future__ import exec_function`, as it is not needed: the exec statement in Python 2 can be also used with syntax that looks exactly like the `exec` function invocation in Python 3. Thus you can change the statements
 
-```
+```py
 exec 'code'
 exec 'code' in global_vars
 exec 'code' in global_vars, local_vars
@@ -1403,7 +1407,7 @@ exec 'code' in global_vars, local_vars
 
 to forms
 
-```
+```py
 exec('code')
 exec('code', global_vars)
 exec('code', global_vars, local_vars)
@@ -1417,7 +1421,7 @@ and the latter forms are guaranteed to work identically in both Python 2 and Pyt
 ## encode/decode to hex no longer available
 
 
-```
+```py
 "1deadbeef3".decode('hex')
 # Out: '\x1d\xea\xdb\xee\xf3'
 '\x1d\xea\xdb\xee\xf3'.encode('hex')
@@ -1425,7 +1429,7 @@ and the latter forms are guaranteed to work identically in both Python 2 and Pyt
 
 ```
 
-```
+```py
 "1deadbeef3".decode('hex')
 # Traceback (most recent call last):
 #   File "<stdin>", line 1, in <module>
@@ -1450,7 +1454,7 @@ b'\x1d\xea\xdb\xee\xf3'.encode('hex')
 
 However, as suggested by the error message, you can use the [`codecs`](https://docs.python.org/3/library/codecs.html) module to achieve the same result:
 
-```
+```py
 import codecs
 codecs.decode('1deadbeef4', 'hex')
 # Out: b'\x1d\xea\xdb\xee\xf4'
@@ -1461,7 +1465,7 @@ codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex')
 
 Note that [`codecs.encode`](https://docs.python.org/3/library/codecs.html#codecs.encode) returns a `bytes` object. To obtain a `str` object just `decode` to ASCII:
 
-```
+```py
 codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii')
 # Out: '1deadbeeff'
 
@@ -1489,7 +1493,7 @@ Python 2.7 has backported these methods from Python 3; they're available as `vie
 
 Porting Python 2 code that **iterates** over dictionary keys, values or items while mutating it is sometimes tricky. Consider:
 
-```
+```py
 d = {'a': 0, 'b': 1, 'c': 2, '!': 3}
 for key in d.keys():
     if key.isalpha():
@@ -1508,7 +1512,7 @@ Similarly, view objects behave differently from iterators: one cannot use `next(
 
 In Python 2, if you want to define a class boolean value by yourself, you need to implement the `__nonzero__` method on your class. The value is True by default.
 
-```
+```py
 class MyClass:
     def __nonzero__(self):
         return False
@@ -1521,7 +1525,7 @@ print bool(my_instance)   # False
 
 In Python 3, `__bool__` is used instead of `__nonzero__`
 
-```
+```py
 class MyClass:
     def __bool__(self):
         return False
@@ -1539,7 +1543,7 @@ print(bool(my_instance))   # False
 
 In Python 2, when a property raise a error, `hasattr` will ignore this property, returning `False`.
 
-```
+```py
 class A(object):
     @property
     def get(self):
@@ -1563,7 +1567,7 @@ print 'b hasattr get', hasattr(b, 'get')
 
 This bug is fixed in Python3. So if you use Python 2, use
 
-```
+```py
 try:
     a.get
 except AttributeError:
@@ -1573,7 +1577,7 @@ except AttributeError:
 
 or use `getattr` instead
 
-```
+```py
 p = getattr(a, "get", None)
 if p is not None:
     print(p)
@@ -1599,7 +1603,7 @@ Over the time between the initial release of Python 3.0 and the current version,
 
 Future imports have to be at the beginning of your module:
 
-```
+```py
 from __future__ import print_function
 # other imports and instructions go after __future__
 print('Hello world')

@@ -18,7 +18,7 @@ The ternary operator is used for inline conditional expressions. It is best used
 - The order of the arguments is different from many other languages (such as C, Ruby, Java, etc.), which may lead to bugs when people unfamiliar with Python's "surprising" behaviour use it (they may reverse the order).
 - Some find it "unwieldy", since it goes contrary to the normal flow of thought (thinking of the condition first and then the effects).
 
-```
+```py
 n = 5
 
 "Greater than 2" if n > 2 else "Smaller than or equal to 2"
@@ -30,7 +30,7 @@ The result of this expression will be as it is read in English - if the conditio
 
 Tenary operations can also be nested, as here:
 
-```
+```py
 n = 5
 "Hello" if n > 10 else "Goodbye" if n > 5 else "Good day"
 
@@ -45,7 +45,7 @@ They also provide a method of including conditionals in [lambda functions](http:
 
 In Python you can define a series of conditionals using `if` for the first one, `elif` for the rest, up until the final (optional) `else` for anything not caught by the other conditionals.
 
-```
+```py
 number = 5
 
 if number > 2:
@@ -90,7 +90,7 @@ Boolean logic expressions, in addition to evaluating to `True` or `False`, retur
 
 The `and` operator evaluates all expressions and returns the last expression if all expressions evaluate to `True`. Otherwise it returns the first value that evaluates to `False`:
 
-```
+```py
 >>> 1 and 2
 2
 
@@ -109,7 +109,7 @@ The `and` operator evaluates all expressions and returns the last expression if 
 
 The `or` operator evaluates the expressions left to right and returns the first value that evaluates to `True` or the last value (if none are `True`).
 
-```
+```py
 >>> 1 or 2
 1
 
@@ -125,7 +125,7 @@ The `or` operator evaluates the expressions left to right and returns the first 
 
 When you use this approach, remember that the evaluation is lazy. Expressions that are not required to be evaluated to determine the result are not evaluated. For example:
 
-```
+```py
 >>> def print_me():
         print('I am here!')
 >>> 0 and print_me()
@@ -141,7 +141,7 @@ A common mistake when checking for multiple conditions is to apply the logic inc
 
 This example is trying to check if two variables are each greater than 2. The statement is evaluated as - `if (a) and (b > 2)`. This produces an unexpected result because `bool(a)` evaluates as `True` when `a` is not zero.
 
-```
+```py
 >>> a = 1
 >>> b = 6
 >>> if a and b > 2:
@@ -155,7 +155,7 @@ yes
 
 Each variable needs to be compared separately.
 
-```
+```py
 >>> if a > 2 and b > 2:
 ...     print('yes')
 ... else:
@@ -167,7 +167,7 @@ no
 
 Another, similar, mistake is made when checking if a variable is one of multiple values.  The statement in this example is evaluated as - `if (a == 3) or (4) or (6)`.  This produces an unexpected result because `bool(4)` and `bool(6)` each evaluate to `True`
 
-```
+```py
 >>> a = 1
 >>> if a == 3 or 4 or 6:
 ...     print('yes')
@@ -180,7 +180,7 @@ yes
 
 Again each comparison must be made separately
 
-```
+```py
 >>> if a == 3 or a == 4 or a == 6:
 ...     print('yes')
 ... else:
@@ -192,7 +192,7 @@ no
 
 Using the in operator is the canonical way to write this.
 
-```
+```py
 >>> if a in (3, 4, 6):
 ...     print('yes')
 ... else:
@@ -207,7 +207,7 @@ no
 ## Else statement
 
 
-```
+```py
 if condition:
     body
 else:
@@ -217,7 +217,7 @@ else:
 
 The else statement will execute it's body only if preceding conditional statements all evaluate to False.
 
-```
+```py
 if True:
     print "It is true!"
 else:
@@ -243,7 +243,7 @@ Python 2 includes a `cmp` function which allows you to determine if one object i
 
 Suppose you need to print `'greater than'` if `x > y`, `'less than'` if `x < y` and `'equal'` if `x == y`.
 
-```
+```py
 ['equal', 'greater than', 'less than', ][cmp(x,y)]
 
 # x,y = 1,1 output: 'equal'
@@ -267,7 +267,7 @@ This function is removed on Python 3. You can use the [`cmp_to_key(func)`](https
 ## If statement
 
 
-```
+```py
 if condition:
     body
 
@@ -275,7 +275,7 @@ if condition:
 
 The `if` statements checks the condition. If it evaluates to `True`, it executes the body of the `if` statement. If it evaluates to `False`, it skips the body.
 
-```
+```py
 if True:
     print "It is true!"
 >> It is true!
@@ -287,7 +287,7 @@ if False:
 
 The condition can be any valid expression:
 
-```
+```py
 if 2 + 2 == 4:
     print "I know math!"
 >> I know math!
@@ -303,7 +303,7 @@ You'll often want to assign something to an object if it is `None`, indicating i
 
 The simplest way to do this is to use the `is None` test.
 
-```
+```py
 if aDate is None:
     aDate=datetime.date.today()
 
@@ -313,7 +313,7 @@ if aDate is None:
 
 But this can be optimized slightly by exploiting the notion that `not None` will evaluate to `True` in a boolean expression. The following code is equivalent:
 
-```
+```py
 if not aDate:
     aDate=datetime.date.today()
 
@@ -321,7 +321,7 @@ if not aDate:
 
 But there is a more Pythonic way. The following code is also equivalent:
 
-```
+```py
 aDate=aDate or datetime.date.today()
 
 ```
@@ -337,14 +337,14 @@ Python allows you to hack list comprehensions to evaluate conditional expression
 
 For instance,
 
-```
+```py
 [value_false, value_true][<conditional-test>]
 
 ```
 
 Example:
 
-```
+```py
 >> n = 16
 >> print [10, 20][n <= 15]
 10
@@ -353,7 +353,7 @@ Example:
 
 Here `n<=15` returns `False` (which equates to 0 in Python). So what Python is evaluating is:
 
-```
+```py
 [10, 20][n <= 15]
 ==> [10, 20][False] 
 ==> [10, 20][0]     #False==0, True==1 (Check Boolean Equivalencies in Python)
@@ -368,14 +368,14 @@ The inbuilt `__cmp__` method returned 3 possible values: 0, 1, -1, where cmp(x,y
 
 This could be used with list comprehensions to return the first(ie. index 0), second(ie. index 1) and last(ie. index -1) element of the list. Giving us a conditional of this type:
 
-```
+```py
 [value_equals, value_greater, value_less][<conditional-test>]
 
 ```
 
 Finally, in all the examples above Python evaluates both branches before choosing one. To only evaluate the chosen branch:
 
-```
+```py
 [lambda: value_false, lambda: value_true][<test>]()
 
 ```
@@ -384,7 +384,7 @@ where adding the `()` at the end ensures that the lambda functions are only call
 
 Example:
 
-```
+```py
 count = [lambda:0, lambda:N+1][count==N]()
 
 ```

@@ -13,7 +13,7 @@ Sometimes you may need to use pip package manager inside python eg. when some im
 ## Example use of commands
 
 
-```
+```py
 import pip
 
 command = 'install'
@@ -31,7 +31,7 @@ Only needed parameters are obligatory, so both `pip.main(['freeze'])` and `pip.m
 
 It is possible to pass many package names in one call, but if one install/upgrade fails, whole installation process stops and ends with status '1'.
 
-```
+```py
 import pip
 
 installed = pip.get_installed_distributions()
@@ -45,7 +45,7 @@ pip.main(['install']+list+['--upgrade'])
 
 If you don't want to stop when some installs fail, call installation in loop.
 
-```
+```py
 for i in installed:
         pip.main(['install']+i.key+['--upgrade'])
 
@@ -58,7 +58,7 @@ for i in installed:
 
 When you use python file as module there is no need always check if package is installed but it is still useful for scripts.
 
-```
+```py
 if __name__ == '__main__':
     try:
         import requests

@@ -15,7 +15,7 @@ Most command line tools rely on arguments passed to the program upon its executi
 
 The following program says hello to the user.  It takes one positional argument, the name of the user, and can also be told the greeting.
 
-```
+```py
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -38,7 +38,7 @@ print("{greeting}, {name}!".format(
 
 ```
 
-```
+```py
 $ python hello.py --help
 usage: hello.py [-h] [-g GREETING] name
 
@@ -52,7 +52,7 @@ optional arguments:
 
 ```
 
-```
+```py
 $ python hello.py world
 Hello, world!
 $ python hello.py John -g Howdy
@@ -71,7 +71,7 @@ Whenever a Python script is invoked from the command line, the user may supply a
 
 By convention, the first element in the `sys.argv` list is the name of the Python script itself, while the rest of the elements are the tokens passed by the user when invoking the script.
 
-```
+```py
 # cli.py
 import sys
 print(sys.argv)
@@ -89,7 +89,7 @@ $ python cli.py fizz buzz
 
 Here's another example of how to use `argv`. We first strip off the initial element of sys.argv because it contains the script's name. Then we combine the rest of the arguments into a single sentence, and finally print that sentence prepending the name of the currently logged-in user (so that it emulates a chat program).
 
-```
+```py
 import getpass
 import sys
 
@@ -101,7 +101,7 @@ print("[%s] %s" % (getpass.getuser(), sentence))
 
 The algorithm commonly used when "manually" parsing a number of non-positional arguments is to iterate over the `sys.argv` list. One way is to go over the list and pop each element of it:
 
-```
+```py
 # reverse and copy sys.argv
 argv = reversed(sys.argv)
 # extract the first element
@@ -127,7 +127,7 @@ while len(argv) > 0:
 
 If you want two or more arguments to be mutually exclusive. You can use the function `argparse.ArgumentParser.add_mutually_exclusive_group()`. In the example below, either foo or bar can exist but not both at the same time.
 
-```
+```py
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -151,7 +151,7 @@ If you try to run the script specifying both `--foo` and `--bar` arguments, the 
 
 [docopt](http://docopt.org/) turns command-line argument parsing on its head. Instead of parsing the arguments, you just **write the usage string** for your program, and docopt **parses the usage string** and uses it to extract the command line arguments.
 
-```
+```py
 """
 Usage:
     script_name.py [-a] [-b] <path>
@@ -171,7 +171,7 @@ if __name__ == "__main__":
 
 Sample runs:
 
-```
+```py
 $ python script_name.py
 Usage:
     script_name.py [-a] [-b] <path>
@@ -197,7 +197,7 @@ $ python script_name.py -b something -a
 
 You can create parser error messages according to your script needs. This is through  the `argparse.ArgumentParser.error` function. The below example shows the script printing a usage and an error message to `stderr` when `--foo` is given but not `--bar`.
 
-```
+```py
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -216,7 +216,7 @@ Assuming your script name is sample.py, and we run: `python sample.py --foo ds_i
 
 The script will complain with the following:
 
-```
+```py
 usage: sample.py [-h] [-f FOO] [-b BAR]
 sample.py: error: --foo requires --bar. You did not specify bar.
 
@@ -229,7 +229,7 @@ sample.py: error: --foo requires --bar. You did not specify bar.
 
 When you create an argparse ArgumentParser() and run your program with '-h' you get an automated usage message explaining what arguments you can run your software with.  By default, positional arguments and conditional arguments are separated into two categories, for example, here is a small script (example.py) and the output when you run `python example.py -h`.
 
-```
+```py
 import argparse
 
 parser = argparse.ArgumentParser(description='Simple example')
@@ -242,7 +242,7 @@ args = parser.parse_args()
 
 ```
 
-```
+```py
 usage: example.py [-h] [--bar_this BAR_THIS] [--bar_that BAR_THAT]
                         [--foo_this FOO_THIS] [--foo_that FOO_THAT]
                         name
@@ -263,7 +263,7 @@ optional arguments:
 
 There are some situations where you want to separate your arguments into further conceptual sections to assist your user. For example, you may wish to have all the input options in one group, and all the output formating options in another.  The above example can be adjusted to separate the `--foo_*` args from the `--bar_*` args like so.
 
-```
+```py
 import argparse
 
 parser = argparse.ArgumentParser(description='Simple example')
@@ -282,7 +282,7 @@ args = parser.parse_args()
 
 Which produces this output when `python example.py -h` is run:
 
-```
+```py
 usage: example.py [-h] [--bar_this BAR_THIS] [--bar_that BAR_THAT]
                         [--foo_this FOO_THIS] [--foo_that FOO_THAT]
                         name
@@ -316,7 +316,7 @@ That being done, instead of handling manually the arguments (which usually ends 
 
 This is what the `dispatch.on` decorator is for: you give it the argument or sequence of arguments that should trigger the function, and that function will be executed with the matching values as parameters.
 
-```
+```py
 """Run something in development or production mode.
 
 Usage: run.py --development <host> <port>

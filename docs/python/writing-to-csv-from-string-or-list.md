@@ -13,7 +13,7 @@ Writing to a .csv file is not unlike writing to a regular file in most regards, 
 ## Basic Write Example
 
 
-```
+```py
 import csv
 
 #------ We will write to CSV in this function ------------
@@ -54,7 +54,7 @@ if __name__ == "__main__":
 ## Appending a String as a newline in a CSV file
 
 
-```
+```py
 def append_to_csv(input_string):
     with open("fileName.csv", "a") as csv_file:
         csv_file.write(input_row + "\n")

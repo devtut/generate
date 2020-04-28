@@ -15,7 +15,7 @@ This module implements some useful functions on pathnames. The path parameters c
 
 To join two or more path components together, firstly import os module of python and then use following:
 
-```
+```py
 import os
 os.path.join('a', 'b', 'c')
 
@@ -25,7 +25,7 @@ The advantage of using os.path is that it allows code to remain compatible over 
 
 For example, the result of this command on Windows will be:
 
-```
+```py
 >>> os.path.join('a', 'b', 'c')
 'a\b\c'
 
@@ -33,7 +33,7 @@ For example, the result of this command on Windows will be:
 
 In an Unix OS:
 
-```
+```py
 >>> os.path.join('a', 'b', 'c')
 'a/b/c'
 
@@ -46,7 +46,7 @@ In an Unix OS:
 
 To split one component off of the path:
 
-```
+```py
 >>> p = os.path.join(os.getcwd(), 'foo.txt')
 >>> p
 '/Users/csaftoiu/tmp/foo.txt'
@@ -68,7 +68,7 @@ To split one component off of the path:
 
 Use `os.path.abspath`:
 
-```
+```py
 >>> os.getcwd()
 '/Users/csaftoiu/tmp'
 >>> os.path.abspath('foo')
@@ -85,7 +85,7 @@ Use `os.path.abspath`:
 ## Get the parent directory
 
 
-```
+```py
 os.path.abspath(os.path.join(PATH_TO_GET_THE_PARENT, os.pardir))
 
 ```
@@ -97,7 +97,7 @@ os.path.abspath(os.path.join(PATH_TO_GET_THE_PARENT, os.pardir))
 
 to check if the given path exists
 
-```
+```py
 path = '/home/john/temp'
 os.path.exists(path)
 #this returns false if path doesn't exist or if the path is a broken symbolic link
@@ -111,7 +111,7 @@ os.path.exists(path)
 
 to check if the given path is a directory
 
-```
+```py
 dirname = '/home/john/python'
 os.path.isdir(dirname)
 
@@ -119,7 +119,7 @@ os.path.isdir(dirname)
 
 to check if the given path is a file
 
-```
+```py
 filename = dirname + 'main.py'
 os.path.isfile(filename)
 
@@ -127,7 +127,7 @@ os.path.isfile(filename)
 
 to check if the given path is [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)
 
-```
+```py
 symlink = dirname + 'some_sym_link'
 os.path.islink(symlink)
 
@@ -135,7 +135,7 @@ os.path.islink(symlink)
 
 to check if the given path is a [mount point](http://www.linuxtopia.org/online_books/introduction_to_linux/linux_Mount_points.html)
 
-```
+```py
 mount_path = '/home'
 os.path.ismount(mount_path)
 

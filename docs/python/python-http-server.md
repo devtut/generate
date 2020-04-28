@@ -10,12 +10,12 @@ description: "Running a simple HTTP server, Serving files, Programmatic API of S
 ## Running a simple HTTP server
 
 
-```
+```py
 python -m SimpleHTTPServer 9000
 
 ```
 
-```
+```py
 python -m http.server 9000
 
 ```
@@ -28,7 +28,7 @@ The `-m` flag will search `sys.path` for the corresponding `.py` file to run as 
 
 If you want to only serve on localhost you'll need to write a custom Python program such as:
 
-```
+```py
 import sys
 import BaseHTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
@@ -63,7 +63,7 @@ Assuming you have the following directory of files:
 
 You can setup a web server to serve these files as follows:
 
-```
+```py
 import SimpleHTTPServer
 import SocketServer
 
@@ -76,7 +76,7 @@ httpd.serve_forever()
 
 ```
 
-```
+```py
 import http.server
 import socketserver
 
@@ -123,7 +123,7 @@ To answer this question we should understand the construct of SimpleHTTPServer (
 
 Firstly, Python invokes the `SimpleHTTPServer` module with `9000` as an argument. Now observing the SimpleHTTPServer code,
 
-```
+```py
 def test(HandlerClass = SimpleHTTPRequestHandler,
          ServerClass = BaseHTTPServer.HTTPServer):
     BaseHTTPServer.test(HandlerClass, ServerClass)
@@ -136,7 +136,7 @@ if __name__ == '__main__':
 
 The test function is invoked following request handlers and ServerClass. Now BaseHTTPServer.test is invoked
 
-```
+```py
 def test(HandlerClass = BaseHTTPRequestHandler,
          ServerClass = HTTPServer, protocol="HTTP/1.0"):
 """Test the HTTP request handler class.
@@ -166,7 +166,8 @@ Hence here the port number, which the user passed as argument is parsed and is b
 This is a basic overview of inheritance from SocketServer class to other classes:
 
 ```
-    +------------+
+
+   +------------+
     | BaseServer |
     +------------+
           |
@@ -190,7 +191,7 @@ The links
 ## Basic handling of GET, POST, PUT using BaseHTTPRequestHandler
 
 
-```
+```py
 # from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer # python2
 from http.server import BaseHTTPRequestHandler, HTTPServer # python3
 class HandleRequests(BaseHTTPRequestHandler):
@@ -221,7 +222,7 @@ HTTPServer((host, port), HandleRequests).serve_forever()
 
 Example output using `curl`:
 
-```
+```py
 $ curl http://localhost/
 received get request%                                                                                                                                                                                       
 

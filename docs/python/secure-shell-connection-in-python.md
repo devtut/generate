@@ -10,7 +10,7 @@ description: "ssh connection"
 ## ssh connection
 
 
-```
+```py
 from paramiko import client
 ssh = client.SSHClient() # create a new SSHClient object
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()) #auto-accept unknown host keys

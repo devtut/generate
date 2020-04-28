@@ -13,7 +13,7 @@ description: "Motivation, Both methods implemented, eval-round-trip style __repr
 
 So you've just created your first class in Python, a neat little class that encapsulates a playing card:
 
-```
+```py
 class Card:
     def __init__(self, suit, pips):
         self.suit = suit
@@ -23,7 +23,7 @@ class Card:
 
 Elsewhere in your code, you create a few instances of this class:
 
-```
+```py
 ace_of_spades = Card('Spades', 1)
 four_of_clubs = Card('Clubs',  4)
 six_of_hearts = Card('Hearts', 6)
@@ -32,21 +32,21 @@ six_of_hearts = Card('Hearts', 6)
 
 You've even created a list of cards, in order to represent a "hand":
 
-```
+```py
 my_hand = [ace_of_spades, four_of_clubs, six_of_hearts]
 
 ```
 
 Now, during debugging, you want to see what your hand looks like, so you do what comes naturally and write:
 
-```
+```py
 print(my_hand)
 
 ```
 
 But what you get back is a bunch of gibberish:
 
-```
+```py
 [<__main__.Card instance at 0x0000000002533788>, 
  <__main__.Card instance at 0x00000000025B95C8>, 
  <__main__.Card instance at 0x00000000025FF508>]
@@ -55,14 +55,14 @@ But what you get back is a bunch of gibberish:
 
 Confused, you try just printing a single card:
 
-```
+```py
 print(ace_of_spades)
 
 ```
 
 And again, you get this weird output:
 
-```
+```py
 <__main__.Card instance at 0x0000000002533788>
 
 ```
@@ -75,7 +75,7 @@ That output is comprised of two important bits: the [`type`](https://docs.python
 
 What really went on was that you asked Python to "put into words" the essence of that object and then display it to you.  A more explicit version of the same machinery might be:
 
-```
+```py
 string_of_card = str(ace_of_spades)
 print(string_of_card)
 
@@ -97,7 +97,7 @@ Whenever you tell Python to create a string from a class instance, it will look 
 
 Consider the following, updated version of our `Card` class:
 
-```
+```py
 class Card:
     def __init__(self, suit, pips):
         self.suit = suit
@@ -120,7 +120,7 @@ The `__str__` method is a method, so the first argument will be `self` and it sh
 
 Returning to our problem of displaying the card in a more user-friendly manner, if we again run:
 
-```
+```py
 ace_of_spades = Card('Spades', 1)
 print(ace_of_spades)
 
@@ -128,7 +128,7 @@ print(ace_of_spades)
 
 We'll see that our output is much better:
 
-```
+```py
 my_hand = [ace_of_spades, four_of_clubs, six_of_hearts]
 print(my_hand)
 
@@ -136,7 +136,7 @@ print(my_hand)
 
 And, to our surprise, we get those funny hex codes again:
 
-```
+```py
 [<__main__.Card instance at 0x00000000026F95C8>, 
  <__main__.Card instance at 0x000000000273F4C8>, 
  <__main__.Card instance at 0x0000000002732E08>]
@@ -155,7 +155,7 @@ Instead, it looks for a different method, `__repr__`, and if **that's** not foun
 
 No, but first let's look at what our class **would** be like if we were to implement both `__str__` and `__repr__` methods:
 
-```
+```py
 class Card:
     special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}
 
@@ -179,7 +179,7 @@ Note that just like our `__str__` method, `__repr__` accepts no arguments and **
 
 We can see now what method is responsible for each case:
 
-```
+```py
 ace_of_spades = Card('Spades', 1)
 four_of_clubs = Card('Clubs',  4)
 six_of_hearts = Card('Hearts', 6)
@@ -198,7 +198,7 @@ At this point it's worth pointing out that just as we can explicitly create a st
 
 For example:
 
-```
+```py
 str_card = str(four_of_clubs)
 print(str_card)                     # 4 of Clubs (S)
 
@@ -209,7 +209,7 @@ print(repr_card)                    # 4 of Clubs (R)
 
 And additionally, if defined, we **could** call the methods directly (although it seems a bit unclear and unnecessary):
 
-```
+```py
 print(four_of_clubs.__str__())     # 4 of Clubs (S)
 
 print(four_of_clubs.__repr__())    # 4 of Clubs (R)
@@ -224,7 +224,7 @@ So instead, there is a mechanism in place to eliminate the need for that.  One I
 
 So, to be clear, consider the following version of the `Card` class:
 
-```
+```py
 class Card:
     special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}
 
@@ -240,7 +240,7 @@ class Card:
 
 Note this version **only** implements the `__repr__` method.  Nonetheless, calls to `str()` result in the user-friendly version:
 
-```
+```py
 print(six_of_hearts)            # 6 of Hearts  (implicit conversion)
 print(str(six_of_hearts))       # 6 of Hearts  (explicit conversion)
 
@@ -248,7 +248,7 @@ print(str(six_of_hearts))       # 6 of Hearts  (explicit conversion)
 
 as do calls to `repr()`:
 
-```
+```py
 print([six_of_hearts])          #[6 of Hearts] (implicit conversion)
 print(repr(six_of_hearts))      # 6 of Hearts  (explicit conversion)
 
@@ -265,7 +265,7 @@ If you want **different** representations for when, for example, inside a contai
 ## Both methods implemented, eval-round-trip style __repr__()
 
 
-```
+```py
 class Card:
     special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}
 
@@ -309,14 +309,14 @@ What that means is that  `__str__` might be implemented to return something like
 
 This string could be passed directly back into `eval` in somewhat of a "round-trip":
 
-```
+```py
 object -> string -> object
 
 ```
 
 An example of an implementation of such a method might be:
 
-```
+```py
 def __repr__(self):
     return "Card(%s, %d)" % (self.suit, self.pips)
 

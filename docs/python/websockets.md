@@ -13,7 +13,7 @@ description: "Simple Echo with aiohttp, Wrapper Class with aiohttp, Using Autoba
 
 [`aiohttp`](http://aiohttp.readthedocs.io/) provides asynchronous websockets.
 
-```
+```py
 import asyncio
 from aiohttp import ClientSession
 
@@ -40,7 +40,7 @@ with ClientSession() as session:
 
 `aiohttp.ClientSession` may be used as a parent for a custom WebSocket class.
 
-```
+```py
 import asyncio
 from aiohttp import ClientSession
 
@@ -112,21 +112,21 @@ To install, typically one would simply use the terminal command
 
 (For Linux):
 
-```
+```py
 sudo pip install autobahn
 
 ```
 
 (For Windows):
 
-```
+```py
 python -m pip install autobahn
 
 ```
 
 Then, a simple echo server can be created in a Python script:
 
-```
+```py
 from autobahn.asyncio.websocket import WebSocketServerProtocol
 class MyServerProtocol(WebSocketServerProtocol):
     '''When creating server protocol, the

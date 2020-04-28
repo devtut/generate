@@ -10,7 +10,7 @@ description: "Overview, Using reduce, Cumulative product, Non short-circuit vari
 ## Overview
 
 
-```
+```py
 # No import needed
 
 
@@ -24,7 +24,7 @@ from functools import reduce # mandatory
 
 `reduce` reduces an iterable by applying a function repeatedly on the next element of an `iterable` and the cumulative result so far.
 
-```
+```py
 def add(s1, s2):
     return s1 + s2
 
@@ -37,7 +37,7 @@ reduce(add, asequence)  # equivalent to: add(add(1,2),3)
 
 In this example, we defined our own `add` function. However, Python comes with a standard equivalent function in the `operator` module:
 
-```
+```py
 import operator
 reduce(operator.add, asequence)
 # Out: 6
@@ -46,7 +46,7 @@ reduce(operator.add, asequence)
 
 `reduce` can also be passed a starting value:
 
-```
+```py
 reduce(add, asequence, 10)
 # Out: 16
 
@@ -57,7 +57,7 @@ reduce(add, asequence, 10)
 ## Using reduce
 
 
-```
+```py
 def multiply(s1, s2):
     print('{arg1} * {arg2} = {res}'.format(arg1=s1, 
                                            arg2=s2, 
@@ -70,7 +70,7 @@ asequence = [1, 2, 3]
 
 Given an `initializer` the function is started by applying it to the initializer and the first iterable element:
 
-```
+```py
 cumprod = reduce(multiply, asequence, 5)
 # Out: 5 * 1 = 5
 #      5 * 2 = 10
@@ -82,7 +82,7 @@ print(cumprod)
 
 Without `initializer` parameter the `reduce` starts by applying the function to the first two list elements:
 
-```
+```py
 cumprod = reduce(multiply, asequence)
 # Out: 1 * 2 = 2
 #      2 * 3 = 6
@@ -96,7 +96,7 @@ print(cumprod)
 ## Cumulative product
 
 
-```
+```py
 import operator
 reduce(operator.mul, [10, 5, -3])
 # Out: -150
@@ -110,7 +110,7 @@ reduce(operator.mul, [10, 5, -3])
 
 `reduce` will not terminate the iteration before the `iterable` has been completly iterated over so it can be used to create a non short-circuit `any()` or `all()` function:
 
-```
+```py
 import operator
 # non short-circuit "all"
 reduce(operator.and_, [False, True, True, True]) # = False
@@ -125,7 +125,7 @@ reduce(operator.or_, [True, False, False, False]) # = True
 ## First truthy/falsy element of a sequence (or last element if there is none)
 
 
-```
+```py
 # First falsy element or last element if all are truthy:
 reduce(lambda i, j: i and j, [100, [], 20, 10])    # = []
 reduce(lambda i, j: i and j, [100, 50, 20, 10])    # = 10
@@ -138,7 +138,7 @@ reduce(lambda i, j: i or j, ['', {}, [], None])   # = None
 
 Instead of creating a `lambda`-function it is generally recommended to create a named function:
 
-```
+```py
 def do_or(i, j):
     return i or j
 

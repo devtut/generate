@@ -13,7 +13,7 @@ The documentation provides a sample implementation of the inter-process communic
 ## Python script to be called by C# application
 
 
-```
+```py
 import sys
 import json
 
@@ -34,7 +34,7 @@ print json.dumps( { 'sum' : x + y , 'subtract' : x - y } )
 ## C# code calling Python script
 
 
-```
+```py
 using MongoDB.Bson;
 using System;
 using System.Diagnostics;

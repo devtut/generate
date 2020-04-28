@@ -32,7 +32,7 @@ The most common keyword arguments for `widget.place` are as follows:
 
 A code example using `place`:
 
-```
+```py
 class PlaceExample(Frame):
     def __init__(self,master):
         Frame.__init__(self,master)
@@ -73,7 +73,7 @@ The rows and columns are zero indexed. Rows increase going down, and columns inc
 
 A code example using `grid`:
 
-```
+```py
 from tkinter import *
 
 class GridExample(Frame):
@@ -111,7 +111,7 @@ if __name__=="__main__":
 Note: In Python 2, the capitalization may be slightly different, see Remarks section below.
 
 
-```
+```py
 import tkinter as tk
 
 # GUI window is a subclass of the basic tkinter Frame object
@@ -146,21 +146,21 @@ if __name__ == "__main__":
 
 The capitalization of the tkinter module is different between Python 2 and 3. For Python 2 use the following:
 
-```
+```py
 from Tkinter import *  # Capitalized
 
 ```
 
 For Python 3 use the following:
 
-```
+```py
 from tkinter import *  # Lowercase
 
 ```
 
 For code that works with both Python 2 and 3, you can either do
 
-```
+```py
 try:
     from Tkinter import *
 except ImportError:
@@ -170,7 +170,7 @@ except ImportError:
 
 or
 
-```
+```py
 from sys import version_info
 if version_info.major == 2:
     from Tkinter import *

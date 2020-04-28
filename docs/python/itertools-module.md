@@ -13,7 +13,7 @@ description: "itertools.dropwhile, Combinations method in Itertools Module, Grou
 
 itertools.dropwhile enables you to take items from a sequence after a condition first becomes `False`.
 
-```
+```py
 def is_even(x):
     return x % 2 == 0
 
@@ -34,7 +34,7 @@ Note that, the first number that violates the predicate (i.e.: the function retu
 
 The **output produced** by `dropwhile` is similar to the output generated from the code below.
 
-```
+```py
 def dropwhile(predicate, iterable):
     iterable = iter(iterable)
     for x in iterable:
@@ -63,7 +63,7 @@ The concatenation of results produced by `takewhile` and `dropwhile` produces th
 
 If you have a list:
 
-```
+```py
 a = [1,2,3,4,5]
 b = list(itertools.combinations(a, 2))
 print b
@@ -78,7 +78,7 @@ The above output is a generator converted to a list of tuples of all the possibl
 
 **You can also find all the 3-combinations:**
 
-```
+```py
 a = [1,2,3,4,5]
 b = list(itertools.combinations(a, 3))
 print b
@@ -87,7 +87,7 @@ print b
 
 Output:
 
-```
+```py
 [(1, 2, 3), (1, 2, 4), (1, 2, 5), (1, 3, 4),
  (1, 3, 5), (1, 4, 5), (2, 3, 4), (2, 3, 5),
  (2, 4, 5), (3, 4, 5)]
@@ -101,14 +101,14 @@ Output:
 
 Start with an iterable which needs to be grouped
 
-```
+```py
 lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 2, 6)]
 
 ```
 
 Generate the grouped generator, grouping by the second element in each tuple:
 
-```
+```py
 def testGroupBy(lst):
     groups = itertools.groupby(lst, key=lambda x: x[1])
     for key, group in groups:
@@ -123,7 +123,7 @@ testGroupBy(lst)
 
 Only groups of consecutive elements are grouped. You may need to sort by the same key before calling groupby For E.g, (Last element is changed)
 
-```
+```py
 lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 5, 6)]
 testGroupBy(lst)
 
@@ -135,7 +135,7 @@ testGroupBy(lst)
 
 The group returned by groupby is an iterator that will be invalid before next iteration. E.g the following will not work if you want the groups to be sorted by key. Group 5 is empty below because when group 2 is fetched it invalidates 5
 
-```
+```py
 lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 2, 6)]
 groups = itertools.groupby(lst, key=lambda x: x[1])
 for key, group in sorted(groups):
@@ -148,7 +148,7 @@ for key, group in sorted(groups):
 
 To correctly do sorting, create a list from the iterator before sorting
 
-```
+```py
 groups = itertools.groupby(lst, key=lambda x: x[1])
 for key, group in sorted((key, list(group)) for key, group in groups):
     print(key, list(group))
@@ -165,7 +165,7 @@ for key, group in sorted((key, list(group)) for key, group in groups):
 
 Itertools "islice" allows you to slice a generator:
 
-```
+```py
 results = fetch_paged_results()  # returns a generator
 limit = 20  # Only want the first 20 results
 for data in itertools.islice(results, limit):
@@ -175,7 +175,7 @@ for data in itertools.islice(results, limit):
 
 Normally you cannot slice a generator:
 
-```
+```py
 def gen():
     n = 0
     while n < 20:
@@ -189,7 +189,7 @@ for part in gen()[:3]:
 
 Will give
 
-```
+```py
 Traceback (most recent call last):
   File "gen.py", line 6, in <module>
     for part in gen()[:3]:
@@ -199,7 +199,7 @@ TypeError: 'generator' object is not subscriptable
 
 However, this works:
 
-```
+```py
 import itertools
 
 def gen():
@@ -215,7 +215,7 @@ for part in itertools.islice(gen(), 3):
 
 Note that like a regular slice, you can also use `start`, `stop` and `step` arguments:
 
-```
+```py
 itertools.islice(iterable, 1, 30, 3)
 
 ```
@@ -227,7 +227,7 @@ itertools.islice(iterable, 1, 30, 3)
 
 Similar to the built-in function `zip()`, `itertools.zip_longest` will continue iterating beyond the end of the shorter of two iterables.
 
-```
+```py
 from itertools import zip_longest
 a = [i for i in range(5)] # Length is 5
 b = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] # Length is 7
@@ -239,7 +239,7 @@ for i in zip_longest(a, b):
 
 An optional `fillvalue` argument can be passed (defaults to `''`) like so:
 
-```
+```py
 for i in zip_longest(a, b, fillvalue='Hogwash!'):
     x, y = i  # Note that zip longest returns the values as a tuple
     print(x, y)
@@ -257,7 +257,7 @@ This function lets you iterate over the Cartesian product of a list of iterables
 
 For example,
 
-```
+```py
 for x, y in itertools.product(xrange(10), xrange(10)):
     print x, y
 
@@ -265,7 +265,7 @@ for x, y in itertools.product(xrange(10), xrange(10)):
 
 is equivalent to
 
-```
+```py
 for x in xrange(10):
     for y in xrange(10):
         print x, y
@@ -276,7 +276,7 @@ Like all python functions that accept a variable number of arguments, we can pas
 
 Thus,
 
-```
+```py
 its = [xrange(10)] * 2
 for x,y in itertools.product(*its):
     print x, y
@@ -285,7 +285,7 @@ for x,y in itertools.product(*its):
 
 produces the same results as both of the previous examples.
 
-```
+```py
 >>> from itertools import product
 >>> a=[1,2,3,4]
 >>> b=['a','b','c']
@@ -318,7 +318,7 @@ produces the same results as both of the previous examples.
 
 This simple function generates infinite series of numbers. For example...
 
-```
+```py
 for number in itertools.count():
     if number > 20:
         break
@@ -330,7 +330,7 @@ Note that we must break or it prints forever!
 
 Output:
 
-```
+```py
 0
 1
 2
@@ -349,7 +349,7 @@ Output:
 
 `count()` takes two arguments, `start` and `step`:
 
-```
+```py
 for number in itertools.count(start=10, step=4):
     print(number)
     if number > 20:
@@ -359,7 +359,7 @@ for number in itertools.count(start=10, step=4):
 
 Output:
 
-```
+```py
 10
 14
 18
@@ -374,7 +374,7 @@ Output:
 
 itertools.takewhile enables you to take items from a sequence until a condition first becomes `False`.
 
-```
+```py
 def is_even(x):
     return x % 2 == 0
 
@@ -394,7 +394,7 @@ Once `takewhile` encounters a value that produces `False` for the given predicat
 
 The **output produced** by `takewhile` is similar to the output generated from the code below.
 
-```
+```py
 def takewhile(predicate, iterable):
     for x in iterable:
         if predicate(x):
@@ -415,7 +415,7 @@ def takewhile(predicate, iterable):
 
 Repeat something n times:
 
-```
+```py
 >>> import itertools
 >>> for i in itertools.repeat('over-and-over', 3):
 ...    print(i)
@@ -432,7 +432,7 @@ over-and-over
 
 `accumulate` yields a cumulative sum (or product) of numbers.
 
-```
+```py
 >>> import itertools as it
 >>> import operator
 
@@ -451,7 +451,7 @@ over-and-over
 
 `cycle` is an infinite iterator.
 
-```
+```py
 >>> import itertools as it
 >>> it.cycle('ABCD')
 A B C D A B C D A B C D ...
@@ -460,7 +460,7 @@ A B C D A B C D A B C D ...
 
 Therefore, take care to give boundaries when using this to avoid an infinite loop.  Example:
 
-```
+```py
 >>> # Iterate over each element in cycle for a fixed range
 >>> cycle_iterator = it.cycle('abc123')
 >>> [next(cycle_iterator) for i in range(0, 10)]
@@ -475,7 +475,7 @@ Therefore, take care to give boundaries when using this to avoid an infinite loo
 
 `itertools.permutations` returns a generator with successive r-length permutations of elements in the iterable.
 
-```
+```py
 a = [1,2,3]
 list(itertools.permutations(a))
 # [(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)]
@@ -487,7 +487,7 @@ list(itertools.permutations(a, 2))
 
 if the list `a` has duplicate elements, the resulting permutations will have duplicate elements, you can use `set` to get unique permutations:
 
-```
+```py
 a = [1,2,1]
 list(itertools.permutations(a))
 # [(1, 2, 1), (1, 1, 2), (2, 1, 1), (2, 1, 1), (1, 1, 2), (1, 2, 1)]
@@ -504,7 +504,7 @@ set(itertools.permutations(a))
 
 Use [`itertools.chain`](https://docs.python.org/3.4/library/itertools.html#itertools.chain) to create a single generator which will yield the values from several generators in sequence.
 
-```
+```py
 from itertools import chain
 a = (x for x in ['1', '2', '3', '4'])
 b = (x for x in ['x', 'y', 'z'])
@@ -514,14 +514,14 @@ b = (x for x in ['x', 'y', 'z'])
 
 Results in:
 
-```
+```py
 '1 2 3 4 x y z'
 
 ```
 
 As an alternate constructor, you can use the classmethod `chain.from_iterable` which takes as its single parameter an iterable of iterables. To get the same result as above:
 
-```
+```py
 ' '.join(chain.from_iterable([a,b])
 
 ```

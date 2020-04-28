@@ -17,7 +17,7 @@ The special variable `__name__` is not set by the user. It is mostly used to che
 
 Let **module_1.py** be just one line long:
 
-```
+```py
 import module2.py
 
 ```
@@ -28,7 +28,7 @@ And let's see what happens, depending on **module2.py**
 
 **module2.py**
 
-```
+```py
 print('hello')
 
 ```
@@ -40,7 +40,7 @@ Running **module2.py** will print `hello`
 
 **module2.py**
 
-```
+```py
 if __name__ == '__main__':
     print('hello')
 
@@ -56,7 +56,7 @@ Running **module2.py** will print `hello`
 
 The special attribute `__name__` of a function, class or module is a string containing its name.
 
-```
+```py
 import os
 
 class C:
@@ -86,7 +86,7 @@ print(os.__name__)
 
 The `__name__` attribute is not, however, the name of the variable which references the class, method or function, rather it is the name given to it when defined.
 
-```
+```py
 def f():
     pass
 
@@ -101,7 +101,7 @@ print(g.__name__)
 
 This can be used, among others, for debugging:
 
-```
+```py
 def enter_exit_info(func):
     def wrapper(*arg, **kw):
         print '-- entering', func.__name__
@@ -134,7 +134,7 @@ a = f(2)
 
 When configuring the built-in `logging` functionality, a common pattern is to create a logger with the `__name__` of the current module:
 
-```
+```py
 logger = logging.getLogger(__name__)
 
 ```

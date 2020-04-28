@@ -12,7 +12,7 @@ description: "Use what the language offers: the if/else construct., Use a dict o
 
 Well, if you want a `switch`/`case` construct, the most straightforward way to go is to use the good old `if`/`else` construct:
 
-```
+```py
 def switch(value):
     if value == 1:
         return "one"
@@ -26,7 +26,7 @@ def switch(value):
 
 it might look redundant, and not always pretty, but that's by far the most efficient way to go, and it does the job:
 
-```
+```py
 >>> switch(1)
 one
 >>> switch(2)
@@ -46,7 +46,7 @@ the answer to the question about life the universe and everything
 
 Another straightforward way to go is to create a dictionary of functions:
 
-```
+```py
 switch = {
     1: lambda: 'one',
     2: lambda: 'two',
@@ -57,7 +57,7 @@ switch = {
 
 then you add a default function:
 
-```
+```py
 def default_case():
     raise Exception('No case found!')
 
@@ -65,7 +65,7 @@ def default_case():
 
 and you use the dictionary's get method to get the function given the value to check and run it. If value does not exists in dictionary, then `default_case` is run.
 
-```
+```py
 >>> switch.get(1, default_case)()
 one
 >>> switch.get(2, default_case)()
@@ -80,7 +80,7 @@ the answer of life the universe and everything
 
 you can also make some syntactic sugar so the switch looks nicer:
 
-```
+```py
 def run_switch(value):
     return switch.get(value, default_case)()
 
@@ -98,7 +98,7 @@ You can use a class to mimic the switch/case structure. The following is using i
 
 Then that introspecting method is aliased to the `__call__` method to overload the `()` operator.
 
-```
+```py
 class SwitchBase:
     def switch(self, case):
         m = getattr(self, 'case_{}'.format(case), None)
@@ -112,7 +112,7 @@ class SwitchBase:
 
 Then to make it look nicer, we subclass the `SwitchBase` class (but it could be done in one class), and there we define all the `case` as methods:
 
-```
+```py
 class CustomSwitcher:
     def case_1(self):
         return 'one'
@@ -130,7 +130,7 @@ class CustomSwitcher:
 
 so then we can finally use it:
 
-```
+```py
 >>> switch = CustomSwitcher()
 >>> print(switch(1))
 one
@@ -151,7 +151,7 @@ the answer of life, the universe and everything!
 
 Another way, which is very readable and elegant, but far less efficient than a if/else structure, is to build a class such as follows, that will read and store the value to compare with, expose itself within the context as a callable that will return true if it matches the stored value:
 
-```
+```py
 class Switch:
     def __init__(self, value): 
         self._val = value
@@ -166,7 +166,7 @@ class Switch:
 
 then defining the cases is almost a match to the real `switch`/`case` construct (exposed within a function below, to make it easier to show off):
 
-```
+```py
 def run_switch(value):
     with Switch(value) as case:
         if case(1):
@@ -182,7 +182,7 @@ def run_switch(value):
 
 So the execution would be:
 
-```
+```py
 >>> run_switch(1)
 one
 >>> run_switch(2)

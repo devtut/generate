@@ -22,14 +22,14 @@ Differences with CPython:
 
 ### Hello World
 
-```
+```py
 print "Hello World!"
 
 ```
 
 You can also use .NET functions:
 
-```
+```py
 import clr
 from System import Console
 Console.WriteLine("Hello World!")
@@ -58,14 +58,14 @@ Differences with CPython:
 
 ### Hello World
 
-```
+```py
 print "Hello World!"
 
 ```
 
 You can also use Java functions:
 
-```
+```py
 from java.lang import System
 System.out.println("Hello World!")
 
@@ -98,7 +98,7 @@ Experience has shown that 650 kB of Python sourcecode roughly translates in the 
 
 ### Integration with HTML
 
-```
+```py
 <script src="__javascript__/hello.js"></script>
 <h2>Hello demo</h2>
 
@@ -114,7 +114,7 @@ Experience has shown that 650 kB of Python sourcecode roughly translates in the 
 
 ### Integration with JavaScript and DOM
 
-```
+```py
 from itertools import chain
 
 class SolarSystem:
@@ -160,7 +160,7 @@ Transcrypt can be used in combination with any JavaScript library without specia
 
 **Python**
 
-```
+```py
 class A:
     def __init__ (self, x):
         self.x = x
@@ -203,7 +203,7 @@ show2 ('copy')
 
 **JavaScript**
 
-```
+```py
 var A = __class__ ('A', [object], {
     get __init__ () {return __get__ (this, function (self, x) {
         self.x = x;

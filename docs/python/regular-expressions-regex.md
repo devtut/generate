@@ -17,7 +17,7 @@ Python makes regular expressions available through the `re` module.
 
 The first argument of `re.match()` is the regular expression, the second is the string to match:
 
-```
+```py
 import re
 
 pattern = r"123"
@@ -41,7 +41,7 @@ Hence, `r"\n"` is a string of 2 characters: `\` and `n`. Regex patterns also use
 
 For instance:
 
-```
+```py
 string = "\\t123zzb" # here the backslash is escaped, so there's no tab, just '\' and 't'
 pattern = "\\t123"   # this will match \t (escaping the backslash) followed by 123
 re.match(pattern, string).group()   # no match
@@ -55,7 +55,7 @@ re.match(pattern, string).group()   # matches '\\t123'
 
 Matching is done from the start of the string only. If you want to match anywhere use [`re.search`](https://stackoverflow.com/documentation/python/632/regular-expressions-regex/2065/searching) instead:
 
-```
+```py
 match = re.match(r"(123)", "a123zzb")
 
 match is None
@@ -73,7 +73,7 @@ match.group()
 ## Searching
 
 
-```
+```py
 pattern = r"(your base)"
 sentence = "All your base are belong to us."
 
@@ -91,7 +91,7 @@ Searching is done anywhere in the string unlike `re.match`. You can also use `re
 
 You can also search at the beginning of the string (use `^`),
 
-```
+```py
 match = re.search(r"^123", "123zzb")
 match.group(0)
 # Out: '123'
@@ -104,7 +104,7 @@ match is None
 
 at the end of the string (use `$`),
 
-```
+```py
 match = re.search(r"123$", "zzb123")
 match.group(0)
 # Out: '123'
@@ -117,7 +117,7 @@ match is None
 
 or both (use both `^` and `$`):
 
-```
+```py
 match = re.search(r"^123$", "123")
 match.group(0)
 # Out: '123'
@@ -129,7 +129,7 @@ match.group(0)
 ## Precompiled patterns
 
 
-```
+```py
 import re
 
 precompiled_pattern = re.compile(r"(\d+)")
@@ -145,7 +145,7 @@ matches.group(1)
 
 Compiling a pattern allows it to be reused later on in a program. However, note that Python caches recently-used expressions ([docs](https://docs.python.org/3/library/re.html#re.compile), [SO answer](http://stackoverflow.com/a/452143/1240268)), so **"programs that use only a few regular expressions at a time needn’t worry about compiling regular expressions"**.
 
-```
+```py
 import re
 
 precompiled_pattern = re.compile(r"(.*\d+)")
@@ -172,7 +172,7 @@ For some special cases we need to change the behavior of the Regular Expression,
 
 Below an example for `re.search` but it works for most functions in the `re` module.
 
-```
+```py
 m = re.search("b", "ABC")  
 m is None
 # Out: True
@@ -222,7 +222,7 @@ Replacements can be made on strings using [`re.sub`](https://docs.python.org/2/l
 
 ### Replacing strings
 
-```
+```py
 re.sub(r"t[0-9][0-9]", "foo", "my name t13 is t44 what t99 ever t44")
 # Out: 'my name foo is foo what foo ever foo'
 
@@ -232,7 +232,7 @@ re.sub(r"t[0-9][0-9]", "foo", "my name t13 is t44 what t99 ever t44")
 
 Replacements with a small number of groups can be made as follows:
 
-```
+```py
 re.sub(r"t([0-9])([0-9])", r"t\2\1", "t13 t19 t81 t25")
 # Out: 't31 t91 t18 t52'
 
@@ -240,7 +240,7 @@ re.sub(r"t([0-9])([0-9])", r"t\2\1", "t13 t19 t81 t25")
 
 However, if you make a group ID like '10', [this doesn't work](https://docs.python.org/2/library/re.html#re.sub): `\10` is read as 'ID number 1 followed by 0'. So you have to be more specific and use the `\g<i>` notation:
 
-```
+```py
 re.sub(r"t([0-9])([0-9])", r"t\g<2>\g<1>", "t13 t19 t81 t25")
 # Out: 't31 t91 t18 t52'
 
@@ -248,7 +248,7 @@ re.sub(r"t([0-9])([0-9])", r"t\g<2>\g<1>", "t13 t19 t81 t25")
 
 ### Using a replacement function
 
-```
+```py
 items = ["zero", "one", "two"]
 re.sub(r"a\[([0-3])\]", lambda match: items[int(match.group(1))], "Items: a[0], a[1], something, a[2]")
 # Out: 'Items: zero, one, something, two'
@@ -260,7 +260,7 @@ re.sub(r"a\[([0-3])\]", lambda match: items[int(match.group(1))], "Items: a[0], 
 ## Find All Non-Overlapping Matches
 
 
-```
+```py
 re.findall(r"[0-9]{2,3}", "some 1 text 12 is 945 here 4445588899")
 # Out: ['12', '945', '444', '558', '889']
 
@@ -270,7 +270,7 @@ Note that the `r` before `"[0-9]{2,3}"` tells python to interpret the string as-
 
 You could also use `re.finditer()` which works in the same way as `re.findall()` but returns an iterator with `SRE_Match` objects instead of a list of strings:
 
-```
+```py
 results = re.finditer(r"([0-9]{2,3})", "some 1 text 12 is 945 here 4445588899")
 print(results)
 # Out: <callable-iterator object at 0x105245890>
@@ -293,7 +293,7 @@ for result in results:
 
 If you want to check that a string contains only a certain set of characters, in this case a-z, A-Z and 0-9, you can do so like this,
 
-```
+```py
 import re
 
 def is_allowed(string):
@@ -320,7 +320,7 @@ Partial credit : [http://stackoverflow.com/a/1325265/2697955](http://stackoverfl
 
 You can also use regular expressions to split a string. For example,
 
-```
+```py
 import re
 data = re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74')
 print( data )
@@ -335,7 +335,7 @@ print( data )
 
 Grouping is done with parentheses. Calling `group()` returns a string formed of the matching parenthesized subgroups.
 
-```
+```py
 match.group() # Group without argument returns the entire match found
 # Out: '123'
 match.group(0) # Specifying 0 gives the same result as specifying no argument
@@ -353,7 +353,7 @@ If there is a single argument, the result is a single string; if there are multi
 
 Calling `groups()` on the other hand, returns a list of tuples containing the subgroups.
 
-```
+```py
 sentence = "This is a phone number 672-123-456-9910"
 pattern = r".*(phone).*?([\d-]+)"
 
@@ -381,7 +381,7 @@ m.group(1, 2)    # Multiple arguments give us a tuple.
 
 ### Named groups
 
-```
+```py
 match = re.search(r'My name is (?P<name>[A-Za-z ]+)', 'My name is John Smith')
 match.group('name')
 # Out: 'John Smith'
@@ -397,7 +397,7 @@ Creates a capture group that can be referenced by name as well as by index.
 
 Using `(?:)` creates a group, but the group isn't captured. This means you can use it as a group, but it won't pollute your "group space".
 
-```
+```py
 re.match(r'(\d+)(\+(\d+))?', '11+22').groups()
 # Out: ('11', '+22', '22')
 
@@ -415,7 +415,7 @@ This example matches `11+22` or `11`, but not `11+`. This is since the `+` sign 
 
 Special characters (like the character class brackets `[` and `]` below) are not matched literally:
 
-```
+```py
 match = re.search(r'[b]', 'a[b]c')
 match.group()
 # Out: 'b'
@@ -424,7 +424,7 @@ match.group()
 
 By escaping the special characters, they can be matched literally:
 
-```
+```py
 match = re.search(r'\[b\]', 'a[b]c')
 match.group()
 # Out: '[b]'
@@ -433,7 +433,7 @@ match.group()
 
 The `re.escape()` function can be used to do this for you:
 
-```
+```py
 re.escape('a[b]c')
 # Out: 'a\\[b\\]c'
 match = re.search(re.escape('a[b]c'), 'a[b]c')
@@ -444,7 +444,7 @@ match.group()
 
 The `re.escape()` function escapes all special characters, so it is useful if you are composing a regular expression based on user input:
 
-```
+```py
 username = 'A.C.'  # suppose this came from the user
 re.findall(r'Hi {}!'.format(username), 'Hi A.C.! Hi ABCD!')
 # Out: ['Hi A.C.!', 'Hi ABCD!']
@@ -460,7 +460,7 @@ re.findall(r'Hi {}!'.format(re.escape(username)), 'Hi A.C.! Hi ABCD!')
 
 You can use `re.finditer` to iterate over all matches in a string. This gives you (in comparison to `re.findall` extra information, such as information about the match location in the string (indexes):
 
-```
+```py
 import re
 text = 'You can try to find an ant in this string'
 pattern = 'an?\w' # find 'an' either with or without a following word character
@@ -482,7 +482,7 @@ for match in re.finditer(pattern, text):
 
 Result:
 
-```
+```py
 Match "an" found at: [5,7]
 Match "an" found at: [20,22]
 Match "ant" found at: [23,26]
@@ -496,21 +496,21 @@ Match "ant" found at: [23,26]
 
 Often you want to match an expression only in **specific** places (leaving them untouched in others, that is). Consider the following sentence:
 
-```
+```py
 An apple a day keeps the doctor away (I eat an apple everyday).
 
 ```
 
 Here the "apple" occurs twice which can be solved with so called **backtracking control verbs** which are supported by the newer [**`regex`**](https://pypi.python.org/pypi/regex) module. The idea is:
 
-```
+```py
 forget_this | or this | and this as well | (but keep this)
 
 ```
 
 With our apple example, this would be:
 
-```
+```py
 import regex as re
 string = "An apple a day keeps the doctor away (I eat an apple everyday)."
 rx = re.compile(r'''

@@ -15,14 +15,14 @@ description: "Scraping using the Scrapy framework, Basic example of using reques
 
 First you have to set up a new Scrapy project. Enter a directory where you’d like to store your code and run:
 
-```
+```py
 scrapy startproject projectName
 
 ```
 
 To scrape we need a spider. Spiders define how a certain site will be scraped. Here’s the code for a spider that follows the links to the top voted questions on StackOverflow and scrapes some data from each page ([source](http://doc.scrapy.org/en/latest/intro/overview.html)):
 
-```
+```py
 import scrapy
 
 class StackOverflowSpider(scrapy.Spider):
@@ -49,7 +49,7 @@ Save your spider classes in the `projectName\spiders` directory. In this case - 
 
 Now you can use your spider. For example, try running (in the project's directory):
 
-```
+```py
 scrapy crawl stackoverflow
 
 ```
@@ -59,7 +59,7 @@ scrapy crawl stackoverflow
 ## Basic example of using requests and lxml to scrape some data
 
 
-```
+```py
 # For Python 2 compatibility.
 from __future__ import print_function
 
@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
 It is a good idea to maintain a [web-scraping session](http://docs.python-requests.org/en/master/user/advanced/#session-objects) to persist the cookies and other parameters. Additionally, it can result into a **performance improvement** because `requests.Session` reuses the underlying TCP connection to a host:
 
-```
+```py
 import requests
 
 with requests.Session() as session:
@@ -111,7 +111,7 @@ with requests.Session() as session:
 
 Some websites don’t like to be scraped. In these cases you may need to simulate a real user working with a browser. Selenium launches and controls a web browser.
 
-```
+```py
 from selenium import webdriver
 
 browser = webdriver.Firefox()  # launch firefox browser
@@ -138,7 +138,7 @@ Selenium can do much more. It can modify browser’s cookies, fill in forms, sim
 ## Scraping using BeautifulSoup4
 
 
-```
+```py
 from bs4 import BeautifulSoup
 import requests
 
@@ -169,14 +169,14 @@ print prob_names
 
 Sometimes the default Scrapy user agent (`"Scrapy/VERSION (+http://scrapy.org)"`) is blocked by the host. To change the default user agent open **settings.py**, uncomment and edit the following line to what ever you want.
 
-```
+```py
 #USER_AGENT = 'projectName (+http://www.yourdomain.com)'
 
 ```
 
 For example
 
-```
+```py
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
 
 ```
@@ -188,7 +188,7 @@ USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36
 
 The standard library module `urllib.request` can be used to download web content:
 
-```
+```py
 from urllib.request import urlopen
 
 response = urlopen('http://stackoverflow.com/questions?sort=votes')    
@@ -209,7 +209,7 @@ A similar module is also available [in Python 2](http://stackoverflow.com/docume
 
 imports:
 
-```
+```py
 from subprocess import Popen, PIPE
 from lxml import etree
 from io import StringIO
@@ -218,7 +218,7 @@ from io import StringIO
 
 Downloading:
 
-```
+```py
 user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36'
 url = 'http://stackoverflow.com'
 get = Popen(['curl', '-s', '-A', user_agent, url], stdout=PIPE)
@@ -232,7 +232,7 @@ result = get.stdout.read().decode('utf8')
 
 Parsing:
 
-```
+```py
 tree = etree.parse(StringIO(result), etree.HTMLParser())
 divs = tree.xpath('//div')
 

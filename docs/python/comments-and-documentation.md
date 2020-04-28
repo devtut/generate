@@ -15,7 +15,7 @@ Docstrings are - unlike regular comments - stored as an attribute of the functio
 
 ### An example function
 
-```
+```py
 def func():
     """This is a function that does nothing at all"""
     return
@@ -24,7 +24,7 @@ def func():
 
 The docstring can be accessed using the `__doc__` attribute:
 
-```
+```py
 print(func.__doc__)
 
 ```
@@ -33,7 +33,7 @@ print(func.__doc__)
 This is a function that does nothing at all
 
 
-```
+```py
 help(func)
 
 ```
@@ -48,7 +48,7 @@ Help on function `func` in module `__main__`:
 
 `function.__doc__` is just the actual docstring as a string, while the `help` function provides general information about a function, including the docstring. Here's a more helpful example:
 
-```
+```py
 def greet(name, greeting="Hello"):
     """Print a greeting to the user `name`
 
@@ -58,7 +58,7 @@ def greet(name, greeting="Hello"):
 
 ```
 
-```
+```py
 help(greet)
 
 ```
@@ -74,7 +74,7 @@ Help on function `greet` in module `__main__`:
 
 Just putting no docstring or a regular comment in a function makes it a lot less helpful.
 
-```
+```py
 def greet(name, greeting="Hello"):
     # Print a greeting to the user `name`
     # Optional parameter `greeting` can change what they're greeted with.
@@ -83,7 +83,7 @@ def greet(name, greeting="Hello"):
 
 ```
 
-```
+```py
 print(greet.__doc__)
 
 ```
@@ -92,7 +92,7 @@ print(greet.__doc__)
 None
 
 
-```
+```py
 help(greet)
 
 ```
@@ -116,21 +116,23 @@ the end of line.
 
 - Single line comment:
 
-```
+```py
 # This is a single line comment in Python
 
 ```
 
+
 - Inline comment:
 
-```
+```py
 print("Hello World")  # This line prints "Hello World"
 
 ```
 
+
 - Comments spanning multiple lines have `"""` or `'''` on either end. This is the same as a multiline string, but they can be used as comments:
 
-```
+```py
 """
 This type of comment spans multiple lines.
 These are mostly used for documentation of functions, classes and modules.
@@ -145,7 +147,7 @@ These are mostly used for documentation of functions, classes and modules.
 
 A [docstring](https://www.python.org/dev/peps/pep-0257/) is a [multi-line comment](https://stackoverflow.com/documentation/python/4144/comments-and-documentation/14491/single-line-inline-and-multiline-comments#t=201704151842281210539) used to document modules, classes, functions and methods. It has to be the first statement of the component it describes.
 
-```
+```py
 def hello(name):
     """Greet someone.
 
@@ -156,7 +158,7 @@ def hello(name):
 
 ```
 
-```
+```py
 class Greeter:
     """An object used to greet people.
 
@@ -178,7 +180,7 @@ The value of the docstring can be [accessed within the program](https://stackove
 
 According to PEP 257, they should be used with short and simple functions. Everything is placed in one line, e.g:
 
-```
+```py
 def hello():
     """Say hello to your friends."""
     print("Hello my friends!")
@@ -191,7 +193,7 @@ The docstring shall end with a period, the verb should be in the imperative form
 
 Multi-line docstring should be used for longer, more complex functions, modules or classes.
 
-```
+```py
 def hello(name, language="en"):
     """Say hello to a person.
 
@@ -214,7 +216,7 @@ Note PEP 257 defines [what information should be given](https://www.python.org/d
 
 A function would be documented like this using the Sphinx/reStructuredText format:
 
-```
+```py
 def hello(name, language="en"):
     """Say hello to a person.
 
@@ -241,7 +243,7 @@ Using the [Napoleon](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/) p
 
 A function would be documented like this using the Google Style Guide format:
 
-```
+```py
 def hello(name, language="en"):
     """Say hello to a person.
 

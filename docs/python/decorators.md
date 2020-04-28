@@ -15,7 +15,7 @@ Decorator functions are software design patterns. They dynamically alter the fun
 
 Decorators augment the behavior of other functions or methods. Any function that takes a function as a parameter and returns an augmented function can be used as a **decorator**.
 
-```
+```py
 # This simplest decorator does nothing to the function being decorated. Such
 # minimal decorators can occasionally be used as a kind of code markers.
 def super_secret_function(f):
@@ -29,14 +29,14 @@ def my_function():
 
 The `@`-notation is syntactic sugar that is equivalent to the following:
 
-```
+```py
 my_function = super_secret_function(my_function)
 
 ```
 
 It is important to bear this in mind in order to understand how the decorators work. This "unsugared" syntax makes it clear why the decorator function takes a function as an argument, and why it should return another function. It also demonstrates what would happen if you **don't** return a function:
 
-```
+```py
 def disabled(f):
     """
     This function returns nothing, and hence removes the decorated function
@@ -55,7 +55,7 @@ my_function()
 
 Thus, we usually define a **new function** inside the decorator and return it. This new function would first do something that it needs to do, then call the original function, and finally process the return value. Consider this simple decorator function that prints the arguments that the original function receives, then calls it.
 
-```
+```py
 #This is the decorator
 def print_args(func):
     def inner_func(*args, **kwargs):
@@ -83,7 +83,7 @@ print(multiply(3, 5))
 
 As mentioned in the introduction, a decorator is a function that can be applied to another function to augment its behavior. The syntactic sugar is equivalent to the following: `my_func = decorator(my_func)`. But what if the `decorator` was instead a class? The syntax would still work, except that now `my_func` gets replaced with an instance of the `decorator` class. If this class implements the `__call__()` magic method, then it would still be possible to use `my_func` as if it was a function:
 
-```
+```py
 class Decorator(object):
     """Simple decorator class."""
 
@@ -109,7 +109,7 @@ testfunc()
 
 Note that a function decorated with a class decorator will no longer be considered a "function" from type-checking perspective:
 
-```
+```py
 import types
 isinstance(testfunc, types.FunctionType)
 # False
@@ -122,7 +122,7 @@ type(testfunc)
 
 For decorating methods you need to define an additional `__get__`-method:
 
-```
+```py
 from types import MethodType
 
 class Decorator(object):
@@ -154,7 +154,7 @@ Inside the decorator.
 
 Class Decorators only produce one instance for a specific function so decorating a method with a class decorator will share the same decorator between all instances of that class:
 
-```
+```py
 from types import MethodType
 
 class CountCallsDecorator(object):
@@ -197,7 +197,7 @@ But additional arguments are often desired. The trick is then to make a function
 
 ### Decorator functions
 
-```
+```py
 def decoratorfactory(message):
     def decorator(func):
         def wrapped_func(*args, **kwargs):
@@ -222,7 +222,7 @@ The decorator wants to tell you: Hello World
 
 With such decorator factories you **must** call the decorator with a pair of parentheses:
 
-```
+```py
 @decoratorfactory # Without parentheses
 def test():
     pass
@@ -237,7 +237,7 @@ TypeError: decorator() missing 1 required positional argument: 'func'
 
 ### Decorator classes
 
-```
+```py
 def decoratorfactory(*decorator_args, **decorator_kwargs):
     
     class Decorator(object):
@@ -270,7 +270,7 @@ Inside the decorator with arguments (10,)
 Decorators normally strip function metadata as they aren't the same. This can cause problems when using meta-programming to dynamically access function metadata. Metadata also includes function's docstrings and its name.
 [`functools.wraps`](https://docs.python.org/3.5/library/functools.html#functools.wraps) makes the decorated function look like the original function by copying several attributes to the wrapper function.
 
-```
+```py
 from functools import wraps
 
 ```
@@ -279,7 +279,7 @@ The two methods of wrapping a decorator are achieving the same thing in hiding t
 
 ### As a function
 
-```
+```py
 def decorator(func):
     # Copies the docstring, name, annotations and module to the decorator
     @wraps(func)
@@ -301,7 +301,7 @@ test.__name__
 
 ### As a class
 
-```
+```py
 class Decorator(object):
     def __init__(self, func):
         # Copies name, module, annotations and docstring to the instance.
@@ -328,7 +328,7 @@ test.__doc__
 ## Using a decorator to time a function
 
 
-```
+```py
 import time
 def timer(func):
     def inner(*args, **kwargs):
@@ -355,7 +355,7 @@ example_function()
 
 A singleton is a pattern that restricts the instantiation of a class to one instance/object. Using a decorator, we can define a class as a singleton by forcing the class to either return an existing instance of the class or create a new instance (if it doesn't exist).
 
-```
+```py
 def singleton(cls):    
     instance = [None]
     def wrapper(*args, **kwargs):
@@ -369,7 +369,7 @@ def singleton(cls):
 
 This decorator can be added to any class declaration and will make sure that at most one instance of the class is created. Any subsequent calls will return the already existing class instance.
 
-```
+```py
 @singleton
 class SomeSingletonClass:
     x = 2

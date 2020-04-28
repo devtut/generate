@@ -17,7 +17,7 @@ description: "ctypes arrays, Wrapping functions for ctypes, Basic usage, Common 
 
 As any good C programmer knows, a single value won't get you that far. What will really get us going are arrays!
 
-```
+```py
 >>> c_int * 16
 <class '__main__.c_long_Array_16'>
 
@@ -27,7 +27,7 @@ This is not an actual array, but it's pretty darn close! We created a class that
 
 Now all we need to do is to initialize it:
 
-```
+```py
 >>> arr = (c_int * 16)(*range(16))
 >>> arr
 <__main__.c_long_Array_16 object at 0xbaddcafe>
@@ -38,7 +38,7 @@ Now `arr` is an actual array that contains the numbers from 0 to 15.
 
 They can be accessed just like any list:
 
-```
+```py
 >>> arr[5]
 5
 >>> arr[5] = 20
@@ -49,7 +49,7 @@ They can be accessed just like any list:
 
 And just like any other `ctypes` object, it also has a size and a location:
 
-```
+```py
 >>> sizeof(arr)
 64 # sizeof(c_int) * 16
 >>> hex(addressof(arr))
@@ -66,7 +66,7 @@ In some cases, a C function accepts a function pointer. As avid `ctypes` users, 
 
 Let's define a function:
 
-```
+```py
 >>> def max(x, y):
         return x if x >= y else y
 
@@ -76,7 +76,7 @@ Now, that function takes two arguments and returns a result of the same type. Fo
 
 Like we did on the array example, we can define an object that denotes that prototype:
 
-```
+```py
 >>> CFUNCTYPE(c_int, c_int, c_int)
 <CFunctionType object at 0xdeadbeef>
 
@@ -86,7 +86,7 @@ That prototype denotes a function that returns an `c_int` (the first argument), 
 
 Now let's wrap the function:
 
-```
+```py
 >>> CFUNCTYPE(c_int, c_int, c_int)(max)
 <CFunctionType object at 0xdeadbeef>
 
@@ -94,7 +94,7 @@ Now let's wrap the function:
 
 Function prototypes have on more usage: They can wrap `ctypes` function (like `libc.ntohl`) and verify that the correct arguments are used when invoking the function.
 
-```
+```py
 >>> libc.ntohl() # garbage in - garbage out
 >>> CFUNCTYPE(c_int, c_int)(libc.ntohl)()
 Traceback (most recent call last):
@@ -112,7 +112,7 @@ Let's say we want to use `libc`'s `ntohl` function.
 
 First, we must load `libc.so`:
 
-```
+```py
 >>> from ctypes import *
 >>> libc = cdll.LoadLibrary('libc.so.6')
 >>> libc
@@ -122,7 +122,7 @@ First, we must load `libc.so`:
 
 Then, we get the function object:
 
-```
+```py
 >>> ntohl = libc.ntohl
 >>> ntohl
 <_FuncPtr object at 0xbaadf00d>
@@ -131,7 +131,7 @@ Then, we get the function object:
 
 And now, we can simply invoke the function:
 
-```
+```py
 >>> ntohl(0x6C)
 1811939328
 >>> hex(_)
@@ -152,7 +152,7 @@ The first possible error is failing to load the library. In that case an OSError
 
 This is either because the file doesn't exists (or can't be found by the OS):
 
-```
+```py
 >>> cdll.LoadLibrary("foobar.so")
 Traceback (most recent call last):
 File "<stdin>", line 1, in <module>
@@ -168,7 +168,7 @@ As you can see, the error is clear and pretty indicative.
 
 The second reason is that the file is found, but is not of the correct format.
 
-```
+```py
 >>> cdll.LoadLibrary("libc.so")
 Traceback (most recent call last):
 File "<stdin>", line 1, in <module>
@@ -188,7 +188,7 @@ Assuming we successfully loaded the `.so` file, we then need to access our funct
 
 When a non-existing function is used, an `AttributeError` is raised:
 
-```
+```py
 >>> libc.foo
 Traceback (most recent call last):
 File "<stdin>", line 1, in <module>
@@ -207,7 +207,7 @@ AttributeError: /lib/i386-linux-gnu/libc.so.6: undefined symbol: foo
 
 The most basic object is an int:
 
-```
+```py
 >>> obj = ctypes.c_int(12)
 >>> obj
 c_long(12)
@@ -218,7 +218,7 @@ Now, `obj` refers to a chunk of memory containing the value 12.
 
 That value can be accessed directly, and even modified:
 
-```
+```py
 >>> obj.value
 12
 >>> obj.value = 13
@@ -229,7 +229,7 @@ c_long(13)
 
 Since `obj` refers to a chunk of memory, we can also find out it's size and location:
 
-```
+```py
 >>> sizeof(obj)
 4
 >>> hex(addressof(obj))
@@ -248,7 +248,7 @@ For more details about the function, read [the man page](https://linux.die.net/m
 
 First, we'll define the proper prototypes:
 
-```
+```py
 >>> compar_proto = CFUNCTYPE(c_int, POINTER(c_int), POINTER(c_int))
 >>> lfind_proto = CFUNCTYPE(c_void_p, c_void_p, c_void_p, POINTER(c_uint), c_uint, compar_proto)
 
@@ -256,7 +256,7 @@ First, we'll define the proper prototypes:
 
 Then, let's create the variables:
 
-```
+```py
 >>> key = c_int(12)
 >>> arr = (c_int * 16)(*range(16))
 >>> nmemb = c_uint(16)
@@ -265,7 +265,7 @@ Then, let's create the variables:
 
 And now we define the comparison function:
 
-```
+```py
 >>> def compar(x, y):
         return x.contents.value - y.contents.value
 
@@ -275,7 +275,7 @@ Notice that `x`, and `y` are `POINTER(c_int)`, so we need to dereference them an
 
 Now we can combine everything together:
 
-```
+```py
 >>> lfind = lfind_proto(libc.lfind)
 >>> ptr = lfind(byref(key), byref(arr), byref(nmemb), sizeof(c_int), compar_proto(compar))
 
@@ -285,7 +285,7 @@ Now we can combine everything together:
 
 Now we can convert it and access the value:
 
-```
+```py
 >>> cast(ptr, POINTER(c_int)).contents
 c_long(12)
 
@@ -293,7 +293,7 @@ c_long(12)
 
 Also, we can see that `ptr` points to the correct value inside `arr`:
 
-```
+```py
 >>> addressof(arr) + 12 * sizeof(c_int) == ptr
 True
 

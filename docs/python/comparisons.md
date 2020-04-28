@@ -12,14 +12,14 @@ description: "Chain Comparisons, Comparison by `is` vs `==`, Greater than or les
 
 You can compare multiple items with multiple comparison operators with chain comparison. For example
 
-```
+```py
 x > y > z
 
 ```
 
 is just a short form of:
 
-```
+```py
 x > y and y > z
 
 ```
@@ -28,7 +28,7 @@ This will evaluate to `True` only if both comparisons are `True`.
 
 The general form is
 
-```
+```py
 a OP b OP c OP d ...
 
 ```
@@ -43,14 +43,14 @@ Note that `0 != 1 != 0` evaluates to `True`, even though `0 != 0` is `False`. Un
 
 There is no theoretical limit on how many items and comparison operations you use as long you have proper syntax:
 
-```
+```py
 1 > -1 < 2 > 0.5 < 100 != 24
 
 ```
 
 The above returns `True` if each comparison returns `True`. However, using convoluted chaining is not a good style. A good chaining will be "directional", not more complicated than
 
-```
+```py
 1 > x > -4 > y != 8
 
 ```
@@ -61,7 +61,7 @@ As soon as one comparison returns `False`, the expression evaluates immediately 
 
 Note that the expression `exp` in `a > exp > b` will be evaluated only once, whereas in the case of
 
-```
+```py
 a > exp and exp > b
 
 ```
@@ -81,7 +81,7 @@ A common pitfall is confusing the equality comparison operators `is` and `==`.
 
 To illustrate:
 
-```
+```py
 a = 'Python is fun!'
 b = 'Python is fun!'
 a == b # returns True
@@ -101,7 +101,7 @@ Basically, `is` can be thought of as shorthand for `id(a) == id(b)`.
 
 Beyond this, there are quirks of the run-time environment that further complicate things.  Short strings and small integers will return `True` when compared with `is`, due to the Python machine attempting to use less memory for identical objects.
 
-```
+```py
 a = 'short'
 b = 'short'
 c = 5
@@ -113,7 +113,7 @@ c is d # True
 
 But longer strings and larger integers will be stored separately.
 
-```
+```py
 a = 'not so short'
 b = 'not so short'
 c = 1000
@@ -125,7 +125,7 @@ c is d # False
 
 You should use `is` to test for `None`:
 
-```
+```py
 if myvar is not None:
     # not None
     pass
@@ -137,7 +137,7 @@ if myvar is None:
 
 A use of `is` is to test for a “sentinel” (i.e. a unique object).
 
-```
+```py
 sentinel = object()
 def myfunc(var=sentinel):
     if var is sentinel:
@@ -154,7 +154,7 @@ def myfunc(var=sentinel):
 ## Greater than or less than
 
 
-```
+```py
 x > y
 x < y
 
@@ -162,7 +162,7 @@ x < y
 
 These operators compare two types of values, they're the less than and greater than operators. For numbers this simply compares the numerical values to see which is larger:
 
-```
+```py
 12 > 4
 # True
 12 < 4
@@ -174,7 +174,7 @@ These operators compare two types of values, they're the less than and greater t
 
 For strings they will compare lexicographically, which is similar to alphabetical order but not quite the same.
 
-```
+```py
 "alpha" < "beta"
 # True
 "gamma" > "beta"
@@ -186,7 +186,7 @@ For strings they will compare lexicographically, which is similar to alphabetica
 
 In these comparisons, lowercase letters are considered 'greater than' uppercase, which is why `"gamma" < "OMEGA"` is false. If they were all uppercase it would return the expected alphabetical ordering result:
 
-```
+```py
 "GAMMA" < "OMEGA"
 # True
 
@@ -199,14 +199,14 @@ Each type defines it's calculation with the `<` and `>` operators differently, s
 ## Not equal to
 
 
-```
+```py
 x != y  
 
 ```
 
 This returns `True` if `x` and `y` are not equal and otherwise returns `False`.
 
-```
+```py
 12 != 1
 # True
 12 != '12'
@@ -221,14 +221,14 @@ This returns `True` if `x` and `y` are not equal and otherwise returns `False`.
 ## Equal To
 
 
-```
+```py
 x == y 
 
 ```
 
 This expression evaluates if `x` and `y` are the same value and returns the result as a boolean value. Generally both type and value need to match, so the int `12` is not the same as the string `'12'`.
 
-```
+```py
 12 == 12
 # True
 12 == 1
@@ -253,7 +253,7 @@ Note that each type has to define a function that will be used to evaluate if tw
 
 In order to compare the equality of custom classes, you can override `==` and `!=` by defining `__eq__` and `__ne__` methods. You can also override `__lt__` (`<`), `__le__` (`<=`), `__gt__` (`>`), and `__ge__` (`>`). Note that you only need to override two comparison methods, and Python can handle the rest (`==` is the same as `not <` and `not >`, etc.)
 
-```
+```py
 class Foo(object):
     def __init__(self, item):
         self.my_item = item
@@ -270,7 +270,7 @@ a is b     # False
 
 Note that this simple comparison assumes that `other` (the object being compared to) is the same object type.  Comparing to another type will throw an error:
 
-```
+```py
 class Bar(object):
     def __init__(self, item):
         self.other_item = item
@@ -294,7 +294,7 @@ Checking `isinstance()` or similar will help prevent this (if desired).
 In many other languages, if you run the following
 (Java example)
 
-```
+```py
 if("asgdsrf" == 0) {
     //do stuff
 }
@@ -306,7 +306,7 @@ You can't just go comparing strings to integers like that. In Python, this is a 
 
 A common gotcha is the following
 
-```
+```py
 myVariable = "1"
 if 1 == myVariable:
     #do stuff

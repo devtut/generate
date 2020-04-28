@@ -12,7 +12,7 @@ description: "Writing a TSV file, Using pandas"
 
 ### Python
 
-```
+```py
 import csv
 
 with open('/tmp/output.tsv', 'wt') as out_file:
@@ -26,7 +26,7 @@ with open('/tmp/output.tsv', 'wt') as out_file:
 
 ### Output file
 
-```
+```py
 $ cat /tmp/output.tsv
 
 name    field
@@ -43,7 +43,7 @@ Aumann    Economic Sciences
 
 Write a CSV file from a `dict` or a `DataFrame`.
 
-```
+```py
 import pandas as pd
 
 d = {'a': (1, 101), 'b': (2, 202), 'c': (3, 303)}
@@ -54,7 +54,7 @@ df.to_csv("data.csv")
 
 Read a CSV file as a `DataFrame` and convert it to a `dict`:
 
-```
+```py
 df = pd.read_csv("data.csv")
 d = df.to_dict()
 

@@ -15,7 +15,7 @@ There are two different types of descriptors. Data descriptors are defined as ob
 
 To make a read-only data descriptor, define both **get**() and **set**() with the **set**() raising an AttributeError when called. Defining the **set**() method with an exception raising placeholder is enough to make it a data descriptor.
 
-```
+```py
 descr.__get__(self, obj, type=None) --> value
 descr.__set__(self, obj, value) --> None
 descr.__delete__(self, obj) --> None
@@ -24,7 +24,7 @@ descr.__delete__(self, obj) --> None
 
 An implemented example:
 
-```
+```py
 class DescPrinter(object):
     """A data descriptor that logs activity."""
     _val = 7
@@ -74,7 +74,8 @@ Descriptor objects can allow related object attributes to react to changes autom
 Suppose we want to model an oscillator with a given frequency (in Hertz) and period (in seconds). When we update the frequency we want the period to update, and when we update the period we want the frequency to update:
 
 ```
- >>> oscillator = Oscillator(freq=100.0)  # Set frequency to 100.0 Hz
+
+>>> oscillator = Oscillator(freq=100.0)  # Set frequency to 100.0 Hz
 >>> oscillator.period  # Period is 1 / frequency, i.e. 0.01 seconds
 0.01
 >>> oscillator.period = 0.02  # Set period to 0.02 seconds
@@ -88,7 +89,7 @@ Suppose we want to model an oscillator with a given frequency (in Hertz) and per
 
 We pick one of the values (frequency, in Hertz) as the "anchor," i.e. the one that can be set with no conversion, and write a descriptor class for it:
 
-```
+```py
 class Hertz(object):
     def __get__(self, instance, owner):
         return self.value
@@ -100,7 +101,7 @@ class Hertz(object):
 
 The "other" value (period, in seconds) is defined in terms of the anchor. We write a descriptor class that does our conversions:
 
-```
+```py
 class Second(object):
     def __get__(self, instance, owner):
         # When reading period, convert from frequency
@@ -114,7 +115,7 @@ class Second(object):
 
 Now we can write the Oscillator class:
 
-```
+```py
 class Oscillator(object):
     period = Second()  # Set the other value as a class attribute
 

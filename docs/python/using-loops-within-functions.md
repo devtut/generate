@@ -15,7 +15,7 @@ In Python function will be returned as soon as execution hits "return" statement
 
 In this example, function will return as soon as value var has 1
 
-```
+```py
 def func(params):
     for value in params:
         print ('Got value {}'.format(value))
@@ -35,7 +35,7 @@ func([5, 3, 1, 2, 8, 9])
 
 output
 
-```
+```py
 Got value 5
 Still looping
 Got value 3

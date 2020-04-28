@@ -15,7 +15,7 @@ A linked list is either:
 - the empty list, represented by None, or
 - a node that contains a cargo object and a reference to a linked list.
 
-```
+```py
 #! /usr/bin/env python
 
 class Node: 

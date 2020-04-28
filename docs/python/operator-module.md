@@ -12,7 +12,7 @@ description: "Itemgetter, Operators as alternative to an infix operator, Methodc
 
 Grouping the key-value pairs of a dictionary by the value with `itemgetter`:
 
-```
+```py
 from itertools import groupby
 from operator import itemgetter
 adict = {'a': 1, 'b': 5, 'c': 1}
@@ -24,14 +24,14 @@ dict((i, dict(v)) for i, v in groupby(adict.items(), itemgetter(1)))
 
 which is equivalent (but faster) to a `lambda` function like this:
 
-```
+```py
 dict((i, dict(v)) for i, v in groupby(adict.items(), lambda x: x[1]))
 
 ```
 
 Or sorting a list of tuples by the second element first the first element as secondary:
 
-```
+```py
 alist_of_tuples = [(5,2), (1,3), (2,2)]
 sorted(alist_of_tuples, key=itemgetter(1,0))
 # Output: [(2, 2), (5, 2), (1, 3)]
@@ -45,7 +45,7 @@ sorted(alist_of_tuples, key=itemgetter(1,0))
 
 For every infix operator, e.g. `+` there is a `operator`-function (`operator.add` for `+`):
 
-```
+```py
 1 + 1
 # Output: 2
 from operator import add
@@ -56,7 +56,7 @@ add(1, 1)
 
 even though the main documentation states that for the arithmetic operators only numerical input is allowed it **is** possible:
 
-```
+```py
 from operator import mul
 mul('a', 10)
 # Output: 'aaaaaaaaaa'
@@ -74,7 +74,7 @@ See also: [mapping from operation to operator function in the official Python do
 
 Instead of this `lambda`-function that calls the method explicitly:
 
-```
+```py
 alist = ['wolf', 'sheep', 'duck']
 list(filter(lambda x: x.startswith('d'), alist))     # Keep only elements that start with 'd'
 # Output: ['duck']
@@ -83,7 +83,7 @@ list(filter(lambda x: x.startswith('d'), alist))     # Keep only elements that s
 
 one could use a operator-function that does the same:
 
-```
+```py
 from operator import methodcaller
 list(filter(methodcaller('startswith', 'd'), alist)) # Does the same but is faster.
 # Output: ['duck']

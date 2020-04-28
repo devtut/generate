@@ -16,7 +16,8 @@ This module provides a portable way of using operating system dependent function
 Given a local directory with the following contents:
 
 ```
- └── dir1
+
+└── dir1
      ├── subdir1
      └── subdir2
 
@@ -24,7 +25,7 @@ Given a local directory with the following contents:
 
 We want to create the same subdir1, subdir2 under a new directory dir2, which does not exist yet.
 
-```
+```py
 import os
 
 os.makedirs("./dir2/subdir1")
@@ -34,7 +35,7 @@ os.makedirs("./dir2/subdir2")
 
 Running this results in
 
-```
+```py
 ├── dir1
 │   ├── subdir1
 │   └── subdir2
@@ -49,21 +50,22 @@ dir2 is only created the first time it is needed, for subdir1's creation.
 If we had used **os.mkdir** instead, we would have had an exception because dir2 would not have existed yet.
 
 ```
-    os.mkdir("./dir2/subdir1")
+
+   os.mkdir("./dir2/subdir1")
 OSError: [Errno 2] No such file or directory: './dir2/subdir1'
 
 ```
 
 os.makedirs won't like it if the target directory exists already.  If we re-run it again:
 
-```
+```py
 OSError: [Errno 17] File exists: './dir2/subdir1'
 
 ```
 
 However, this could easily be fixed by catching the exception and checking that the directory has been created.
 
-```
+```py
 try:
     os.makedirs("./dir2/subdir1")
 except OSError:
@@ -83,14 +85,14 @@ except OSError:
 ## Create a directory
 
 
-```
+```py
 os.mkdir('newdir')
 
 ```
 
 If you need to specify permissions, you can use the optional `mode` argument:
 
-```
+```py
 os.mkdir('newdir', mode=0700)
 
 ```
@@ -102,7 +104,7 @@ os.mkdir('newdir', mode=0700)
 
 Use the `os.getcwd()` function:
 
-```
+```py
 print(os.getcwd())
 
 ```
@@ -114,7 +116,7 @@ print(os.getcwd())
 
 The `os` module provides an interface to determine what type of operating system the code is currently running on.
 
-```
+```py
 os.name
 
 ```
@@ -135,7 +137,7 @@ More detailed information can be retrieved from [`sys.platform`](https://docs.py
 
 Remove the directory at `path`:
 
-```
+```py
 os.rmdir(path)
 
 ```
@@ -149,7 +151,7 @@ You should not use `os.remove()` to remove a directory. That function is for **f
 
 Sometimes you need to determine the target of a symlink. `os.readlink` will do this:
 
-```
+```py
 print(os.readlink(path_to_symlink))
 
 ```
@@ -159,7 +161,7 @@ print(os.readlink(path_to_symlink))
 ## Change permissions on a file
 
 
-```
+```py
 os.chmod(path, mode)
 
 ```

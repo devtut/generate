@@ -16,7 +16,7 @@ This module provides the ConfigParser class which implements a basic configurati
 Configuration file contains sections, each section contains keys and values. configparser module can be used to read and write config files.
 Creating the configuration file:-
 
-```
+```py
 import configparser
 config = configparser.ConfigParser()
 config['settings']={'resolution':'320x240',
@@ -28,7 +28,7 @@ with open('example.ini', 'w') as configfile:
 
 The output file contains below structure
 
-```
+```py
 [settings]
 resolution = 320x240
 color = blue
@@ -37,7 +37,7 @@ color = blue
 
 If you want to change particular field ,get the field and assign the value
 
-```
+```py
 settings=config['settings']
 settings['color']='red'
 
@@ -50,7 +50,7 @@ settings['color']='red'
 
 In config.ini:
 
-```
+```py
 [DEFAULT]
 debug = True
 name = Test
@@ -63,7 +63,7 @@ path = /path/to/file
 
 In Python:
 
-```
+```py
 from ConfigParser import ConfigParser
 config = ConfigParser()
 

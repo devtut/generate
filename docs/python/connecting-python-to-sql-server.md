@@ -15,7 +15,7 @@ Install the package:
 
 `$ pip install pymssql`
 
-```
+```py
 import pymssql
 
 SERVER = "servername"

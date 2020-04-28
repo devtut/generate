@@ -19,7 +19,7 @@ In Python, users can define such exceptions by creating a new class. This except
 
 Here, we have created a user-defined exception called CustomError which is derived from the Exception class. This new exception can be raised, like other exceptions, using the raise statement with an optional error message.
 
-```
+```py
 class CustomError(Exception):
        pass
 
@@ -32,7 +32,7 @@ if x == 1:
 
 Output:
 
-```
+```py
 Traceback (most recent call last):
   File "error_custom.py", line 8, in <module>
     raise CustomError('This is custom error')
@@ -47,7 +47,7 @@ __main__.CustomError: This is custom error
 
 This example shows how to catch custom Exception
 
-```
+```py
 class CustomError(Exception):
      pass
 
@@ -62,7 +62,7 @@ except Exception as e:
 
 Output:
 
-```
+```py
 Catched CustomError :Can you catch me ?
 
 ```

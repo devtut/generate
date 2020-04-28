@@ -17,7 +17,7 @@ Code utilizing classes is generally easier to read, understand, and maintain.
 
 A class, functions as a template that defines the basic characteristics of a particular object. Here's an example:
 
-```
+```py
 class Person(object):
      """A simple class."""                            # docstring
      species = "Homo Sapiens"                         # class attribute
@@ -55,7 +55,7 @@ There are a few things to note when looking at the above example.
 
 Now let's make a few instances of our `Person` class!
 
-```
+```py
 >>> # Instances
 >>> kelly = Person("Kelly")
 >>> joseph = Person("Joseph")
@@ -67,7 +67,7 @@ We currently have three `Person` objects, `kelly`, `joseph`, and `john_doe`.
 
 We can access the attributes of the class from each instance using the dot operator `.` Note again the difference between class and instance attributes:
 
-```
+```py
 >>> # Attributes
 >>> kelly.species
 'Homo Sapiens'
@@ -84,7 +84,7 @@ We can access the attributes of the class from each instance using the dot opera
 
 We can execute the methods of the class using the same dot operator `.`:
 
-```
+```py
 >>> # Methods
 >>> john_doe.__str__()
 'John Doe'
@@ -102,7 +102,7 @@ We can execute the methods of the class using the same dot operator `.`:
 
 The idea of bound and unbound methods was [removed in Python 3](https://python-history.blogspot.com/2009/02/first-class-everything.html). In Python 3 when you declare a method within a class, you are using a `def` keyword, thus creating a function object. This is a regular function, and the surrounding class works as its namespace. In the following example we declare method `f` within class `A`, and it becomes a function `A.f`:
 
-```
+```py
 class A(object):
     def f(self, x):
         return 2 * x
@@ -113,7 +113,7 @@ A.f
 
 In Python 2 the behavior was different: function objects within the class were implicitly replaced with objects of type `instancemethod`, which were called **unbound methods** because they were not bound to any particular class instance. It was possible to access the underlying function using `.__func__` property.
 
-```
+```py
 A.f
 # <unbound method A.f>   (in Python 2.x)
 A.f.__class__
@@ -125,7 +125,7 @@ A.f.__func__
 
 The latter behaviors are confirmed by inspection - methods are recognized as functions in Python 3, while the distinction is upheld in Python 2.
 
-```
+```py
 import inspect
 
 inspect.isfunction(A.f)
@@ -135,7 +135,7 @@ inspect.ismethod(A.f)
 
 ```
 
-```
+```py
 import inspect
 
 inspect.isfunction(A.f)
@@ -147,7 +147,7 @@ inspect.ismethod(A.f)
 
 In both versions of Python function/method `A.f` can be called directly, provided that you pass an instance of class `A` as the first argument.
 
-```
+```py
 A.f(1, 7)
 # Python 2: TypeError: unbound method f() must be called with
 #                      A instance as first argument (got int instance instead) 
@@ -162,7 +162,7 @@ Now suppose `a` is an instance of class `A`, what is `a.f` then? Well, intuitive
 
 The nitty-gritty details are as follows: writing `a.f` invokes the magic `__getattribute__` method of `a`, which first checks whether `a` has an attribute named `f` (it doesn't), then checks the class `A` whether it contains a method with such a name (it does), and creates a new object `m` of type `method` which has the reference to the original `A.f` in `m.__func__`, and a reference to the object `a` in `m.__self__`. When this object is called as a function, it simply does the following: `m(...) => m.__func__(m.__self__, ...)`. Thus this object is called a **bound method** because when invoked it knows to supply the object it was bound to as the first argument. (These things work same way in Python 2 and 3).
 
-```
+```py
 a = A()
 a.f
 # <bound method A.f of <__main__.A object at ...>>
@@ -180,7 +180,7 @@ a.f is a.f  # True
 
 Finally, Python has **class methods** and **static methods** – special kinds of methods. Class methods work the same way as regular methods, except that when invoked on an object they bind to the **class** of the object instead of to the object. Thus `m.__self__ = type(a)`. When you call such bound method, it passes the class of `a` as the first argument. Static methods are even simpler: they don't bind anything at all, and simply return the underlying function without any transformations.
 
-```
+```py
 class D(object):
     multiplier = 2
 
@@ -205,7 +205,7 @@ D.g("world")
 
 Note that class methods are bound to the class even when accessed on the instance:
 
-```
+```py
 d = D()
 d.multiplier = 1337
 (D.multiplier, d.multiplier)
@@ -230,7 +230,7 @@ It is worth noting that at the lowest level, functions, methods, staticmethods, 
 Inheritance in Python is based on similar ideas used in other object oriented languages like Java, C++ etc.
 A new class can be derived from an existing class as follows.
 
-```
+```py
 class BaseClass(object):
     pass
 
@@ -243,7 +243,7 @@ The `BaseClass` is the already existing (**parent**) class, and the `DerivedClas
 
 We define a parent `Rectangle` class in the example below, which implicitly inherits from `object`:
 
-```
+```py
 class Rectangle():
     def __init__(self, w, h):
         self.w = w
@@ -259,7 +259,7 @@ class Rectangle():
 
 The `Rectangle` class can be used as a base class for defining a `Square` class, as a square is a special case of rectangle.
 
-```
+```py
 class Square(Rectangle):
     def __init__(self, s):
         # call parent constructor, w and h are both s
@@ -272,7 +272,7 @@ The `Square` class will automatically inherit all attributes of the `Rectangle` 
 
 Derived class objects can access and modify the attributes of its base classes:
 
-```
+```py
 r.area()
 # Output: 12
 r.perimeter()  
@@ -291,7 +291,7 @@ s.perimeter()
 
 `isinstance(s, Class)`: returns `True` if s is an instance of `Class` or any of the derived classes of `Class`
 
-```
+```py
 # subclass check        
 issubclass(Square, Rectangle)
 # Output: True
@@ -321,7 +321,7 @@ isinstance(s, Square)
 
 In this case, "monkey patching" means adding a new variable or method to a class after it's been defined. For instance, say we defined class `A` as
 
-```
+```py
 class A(object):
     def __init__(self, num):
         self.num = num
@@ -333,7 +333,7 @@ class A(object):
 
 But now we want to add another function later in the code. Suppose this function is as follows.
 
-```
+```py
 def get_num(self):
     return self.num
 
@@ -341,7 +341,7 @@ def get_num(self):
 
 But how do we add this as a method in `A`? That's simple we just essentially place that function into `A` with an assignment statement.
 
-```
+```py
 A.get_num = get_num
 
 ```
@@ -352,7 +352,7 @@ The function `get_num` shall be available to all existing (already created) as w
 
 These additions are available on all instances of that class (or its subclasses) automatically. For example:
 
-```
+```py
 foo = A(42)
 
 A.get_num = get_num
@@ -374,7 +374,7 @@ Note that, unlike some other languages, this technique does not work for certain
 
 **New-style** classes were introduced in Python 2.2 to unify **classes** and **types**. They inherit from the top-level `object` type. **A new-style class is a user-defined type**, and is very similar to built-in types.
 
-```
+```py
 # new-style class
 class New(object):
     pass
@@ -393,7 +393,7 @@ issubclass(New, object)
 
 **Old-style** classes do **not** inherit from `object`. Old-style instances are always implemented with a built-in `instance` type.
 
-```
+```py
 # old-style class
 class Old:
     pass
@@ -414,7 +414,7 @@ In Python 3, old-style classes were removed.
 
 New-style classes in Python 3 implicitly inherit from `object`, so there is no need to specify `MyClass(object)` anymore.
 
-```
+```py
 class MyClass:
     pass
 
@@ -438,7 +438,7 @@ Class methods present alternate ways to build instances of classes. To illustrat
 
 Let's suppose we have a relatively simple `Person` class:
 
-```
+```py
 class Person(object):
 
     def __init__(self, first_name, last_name, age):
@@ -454,7 +454,7 @@ class Person(object):
 
 It might be handy to have a way to build instances of this class specifying a full name instead of first and last name separately. One way to do this would be to have `last_name` be an optional parameter, and assuming that if it isn't given, we passed the full name in:
 
-```
+```py
 class Person(object):
 
     def __init__(self, first_name, age, last_name=None):
@@ -483,7 +483,7 @@ Not quite as important, but still worth pointing out: what if `last_name` is `No
 
 Enter class methods. Rather than having a single initializer, we will create a separate initializer, called `from_full_name`, and decorate it with the (built-in) `classmethod` decorator.
 
-```
+```py
 class Person(object):
 
     def __init__(self, first_name, last_name, age):
@@ -508,7 +508,7 @@ Notice `cls` instead of `self` as the first argument to `from_full_name`. Class 
 
 To show that this works as expected, let's create instances of `Person` in more than one way without the branching in `__init__`:
 
-```
+```py
 In [2]: bob = Person("Bob", "Bobberson", 42)
 
 In [3]: alice = Person.from_full_name("Alice Henderson", 31)
@@ -542,7 +542,7 @@ Python uses the [C3 linearization](https://en.wikipedia.org/wiki/C3_linearizatio
 
 Here's a simple example:
 
-```
+```py
 class Foo(object):
     foo = 'attr foo of Foo'
     
@@ -558,14 +558,14 @@ class FooBar(Foo, Bar):
 
 Now if we instantiate FooBar, if we look up the foo attribute, we see that Foo's attribute is found first
 
-```
+```py
 fb = FooBar()
 
 ```
 
 and
 
-```
+```py
 >>> fb.foo
 'attr foo of Foo'
 
@@ -573,7 +573,7 @@ and
 
 Here's the MRO of FooBar:
 
-```
+```py
 >>> FooBar.mro()
 [<class '__main__.FooBar'>, <class '__main__.Foo'>, <class '__main__.Bar'>, <type 'object'>]
 
@@ -591,7 +591,7 @@ For a comprehensive example in Python, see the [wikipedia entry](https://en.wiki
 
 Another powerful feature in inheritance is `super`. super can fetch parent classes features.
 
-```
+```py
 class Foo(object):
     def foo_method(self):
         print "foo Method"
@@ -611,7 +611,8 @@ Multiple inheritance with init method of class, when every class has own init me
 for below example  only Foo class **init** method getting called **Bar** class init not getting called
 
 ```
-    class Foo(object):
+
+   class Foo(object):
         def __init__(self):
             print "foo init"
 
@@ -631,14 +632,15 @@ for below example  only Foo class **init** method getting called **Bar** class i
 **Output:**
 
 ```
-    foobar init
+
+   foobar init
     foo init
 
 ```
 
 But it doesn't mean that **Bar** class is not inherit. Instance of final  **FooBar** class is also instance of **Bar** class and **Foo** class.
 
-```
+```py
 print isinstance(a,FooBar)
 print isinstance(a,Foo)
 print isinstance(a,Bar) 
@@ -647,7 +649,7 @@ print isinstance(a,Bar)
 
 **Output:**
 
-```
+```py
 True
 True
 True
@@ -661,7 +663,7 @@ True
 
 Python classes support **properties**, which look like regular object variables, but with the possibility of attaching custom behavior and documentation.
 
-```
+```py
 class MyClass(object):
 
     def __init__(self):
@@ -686,7 +688,7 @@ class MyClass(object):
 
 The object's of class `MyClass` will **appear** to have have a property `.string`, however it's behavior is now tightly controlled:
 
-```
+```py
 mc = MyClass()
 mc.string = "String!"
 print(mc.string)
@@ -698,7 +700,7 @@ As well as the useful syntax as above, the property syntax allows for validation
 
 Another common use of properties is to enable the class to present 'virtual attributes' - attributes which aren't actually stored but are computed only when requested.
 
-```
+```py
 class Character(object):
     def __init__(name, max_hp):
         self._name = name
@@ -777,7 +779,7 @@ bilbo.is_dead
 
 Instance variables are unique for each instance, while class variables are shared by all instances.
 
-```
+```py
 class C:
     x = 2  # class variable
 
@@ -805,7 +807,7 @@ c2.y
 
 Class variables can be accessed on instances of this class, but assigning to the class attribute will create an instance variable which shadows the class variable
 
-```
+```py
 c2.x = 4
 c2.x
 # 4
@@ -816,7 +818,7 @@ C.x
 
 Note that **mutating** class variables from instances can lead to some unexpected consequences.
 
-```
+```py
 class D:
     x = []
     def __init__(self, item):
@@ -841,7 +843,7 @@ D.x
 
 If the variable contains a value of an immutable type (e.g. a string) then it is okay to assign a default value like this
 
-```
+```py
 class Rectangle(object):
     def __init__(self, width, height, color='blue'):
         self.width = width
@@ -863,7 +865,7 @@ print(red_rectangle.color) # red
 One needs to be careful when initializing mutable objects such as lists in the constructor.
 Consider the following example:
 
-```
+```py
 class Rectangle2D(object):
     def __init__(self, width, height, pos=[0,0], color='blue'):  
         self.width = width
@@ -881,7 +883,7 @@ r2.pos # [4, 0] r2's pos has changed as well
 
 This behavior is caused by the fact that in Python default parameters are bound at function execution and not at function declaration. To get a default instance variable that's not shared among instances, one should use a construct like this:
 
-```
+```py
 class Rectangle2D(object):
     def __init__(self, width, height, pos=None, color='blue'):  
         self.width = width
@@ -906,7 +908,7 @@ See also [Mutable Default Arguments](http://docs.python-guide.org/en/latest/writ
 
 Class composition allows explicit relations between objects. In this example, people live in cities that belong to countries. Composition allows people to access the number of all people living in their country:
 
-```
+```py
 class Country(object):
     def __init__(self):
         self.cities=[]
@@ -961,14 +963,14 @@ print(US.cities[0].people[0].people_in_my_country())
 
 The `dir()` function can be used to get a list of the members of a class:
 
-```
+```py
 dir(Class)
 
 ```
 
 For example:
 
-```
+```py
 >>> dir(list)
 ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
 
@@ -976,7 +978,7 @@ For example:
 
 It is common to look only for "non-magic" members. This can be done using a simple comprehension that lists members with names not starting with `__`:
 
-```
+```py
 >>> [m for m in dir(list) if not m.startswith('__')]
 ['append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
 
@@ -1001,7 +1003,7 @@ If the object does not provide **dir**(), the function tries its best to gather 
 
 A singleton is a pattern that restricts the instantiation of a class to one instance/object. For more info on python singleton design patterns, see [here](http://python-3-patterns-idioms-test.readthedocs.io/en/latest/Singleton.html).
 
-```
+```py
 class Singleton:
     def __new__(cls):
         try:
@@ -1020,7 +1022,7 @@ class Singleton:
 
 Another method is to decorate your class. Following the example from this [answer](http://stackoverflow.com/a/7346105/3462319) create a Singleton class:
 
-```
+```py
 class Singleton:
     """
     A non-thread-safe helper class to ease implementing singletons.
@@ -1064,7 +1066,7 @@ class Singleton:
 
 To use you can use the `Instance` method
 
-```
+```py
 @Singleton
 class Single:
     def __init__(self):

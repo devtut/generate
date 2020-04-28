@@ -12,7 +12,7 @@ description: "Basic Attribute Access using the Dot Notation, Setters, Getters & 
 
 Let's take a sample class.
 
-```
+```py
 class Book:
     def __init__(self, title, author):
         self.title = title
@@ -24,7 +24,7 @@ book1 = Book(title="Right Ho, Jeeves", author="P.G. Wodehouse")
 
 In Python you can access the attribute **title** of the class using the dot notation.
 
-```
+```py
 >>> book1.title 
 'P.G. Wodehouse'
 
@@ -32,7 +32,7 @@ In Python you can access the attribute **title** of the class using the dot nota
 
 If an attribute doesn't exist, Python throws an error:
 
-```
+```py
 >>> book1.series
 Traceback  (most recent call last):
 File "<stdin>", line 1, in <module>
@@ -47,7 +47,7 @@ AttributeError: 'Book' object has no attribute 'series'
 
 For the sake of data encapsulation, sometimes you want to have an attribute which value comes from other attributes or, in general, which value shall be computed at the moment. The standard way to deal with this situation is to create a method, called getter or a setter.
 
-```
+```py
 class Book:
     def __init__(self, title, author):
         self.title = title
@@ -59,7 +59,7 @@ In the example above, it's easy to see what happens if we create a new Book that
 
 In this case we can create a getter and a setter for the **author** attribute.
 
-```
+```py
 class P:
     def __init__(self,title,author):
         self.title = title
@@ -80,7 +80,7 @@ This scheme is not recommended.
 
 One reason is that there is a catch: Let's assume we have designed our class with the public attribute and no methods. People have already used it a lot and they have written code like this:
 
-```
+```py
 >>> book = Book(title="Ancient Manuscript", author="Some Guy")
 >>> book.author = ""  #Cos Some Guy didn't write this one!
 
@@ -90,7 +90,7 @@ Now we have a problem. Because **author** is not an attribute! Python offers a s
 
 Keeping this in mind, we now have our new updated class.
 
-```
+```py
 class Book:
     def __init__(self, title, author):
         self.title = title
@@ -113,7 +113,7 @@ Note, normally Python doesn't allow you to have multiple methods with the same n
 
 If we test the code:
 
-```
+```py
 >>> book = Book(title="Ancient Manuscript", author="Some Guy")
 >>> book.author = ""  #Cos Some Guy didn't write this one!
 >>> book.author 

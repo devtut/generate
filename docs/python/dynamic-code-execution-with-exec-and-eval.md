@@ -19,7 +19,7 @@ To evaluate code by an untrusted user you need to turn to some third-party modul
 ## Evaluating statements with exec
 
 
-```
+```py
 >>> code = """for i in range(5):\n    print('Hello world!')"""
 >>> exec(code)
 Hello world!
@@ -35,7 +35,7 @@ Hello world!
 ## Evaluating an expression with eval
 
 
-```
+```py
 >>> expression = '5 + 3 * a'
 >>> a = 5
 >>> result = eval(expression)
@@ -51,7 +51,7 @@ Hello world!
 
 `compile` built-in function can be used to precompile an expression to a code object; this code object can then be passed to eval. This will speed up the repeated executions of the evaluated code. The 3rd parameter to `compile` needs to be the string `'eval'`.
 
-```
+```py
 >>> code = compile('a * b + c', '<string>', 'eval')
 >>> code
 <code object <module> at 0x7f0e51a58830, file "<string>", line 1>
@@ -66,7 +66,7 @@ Hello world!
 ## Evaluating an expression with eval using custom globals
 
 
-```
+```py
 >>> variables = {'a': 6, 'b': 7}
 >>> eval('a * b', globals=variables)
 42
@@ -75,7 +75,7 @@ Hello world!
 
 As a plus, with this the code cannot accidentally refer to the names defined outside:
 
-```
+```py
 >>> eval('variables')
 {'a': 6, 'b': 7}
 >>> eval('variables', globals=variables)
@@ -88,7 +88,7 @@ NameError: name 'variables' is not defined
 
 Using `defaultdict` allows for example having undefined variables set to zero:
 
-```
+```py
 >>> from collections import defaultdict
 >>> variables = defaultdict(int, {'a': 42})
 >>> eval('a * c', globals=variables)  # note that 'c' is not explicitly defined
@@ -103,7 +103,7 @@ Using `defaultdict` allows for example having undefined variables set to zero:
 
 If you have a string that contains Python literals, such as strings, floats etc, you can use `ast.literal_eval` to evaluate its value instead of `eval`. This has the added feature of allowing only certain syntax.
 
-```
+```py
 >>> import ast
 >>> code = """(1, 2, {'foo': 'bar'})"""
 >>> object = ast.literal_eval(code)
@@ -116,7 +116,7 @@ If you have a string that contains Python literals, such as strings, floats etc,
 
 **However, this is not secure for execution of code provided by untrusted user, and it is trivial to crash an interpreter with carefully crafted input**
 
-```
+```py
 >>> import ast
 >>> ast.literal_eval('()' * 1000000)
 [5]    21358 segmentation fault (core dumped)  python3

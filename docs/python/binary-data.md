@@ -10,7 +10,7 @@ description: "Format a list of values into a byte object, Unpack a byte object a
 ## Format a list of values into a byte object
 
 
-```
+```py
 from struct import pack
 
 print(pack('I3c', 123, b'a', b'b', b'c'))  # b'{\x00\x00\x00abc'
@@ -22,7 +22,7 @@ print(pack('I3c', 123, b'a', b'b', b'c'))  # b'{\x00\x00\x00abc'
 ## Unpack a byte object according to a format string
 
 
-```
+```py
 from struct import unpack
 
 print(unpack('I3c', b'{\x00\x00\x00abc'))  # (123, b'a', b'b', b'c')
@@ -38,7 +38,7 @@ The module "**struct**" provides facility to pack python objects as contiguous c
 
 The pack function takes a format string and one or more arguments, and returns a binary string. This looks very much like you are formatting a string except that the output is not a string but a chunk of bytes.
 
-```
+```py
 import struct
 import sys
 print "Native byteorder: ", sys.byteorder
@@ -62,7 +62,7 @@ Byte chunk unpacked:  (3, 4, 5) Byte chunk:
 
 You could use network byte order with data received from network or pack data to send it to network.
 
-```
+```py
 import struct
 # If no byteorder is specified, native byteorder is used
 buffer = struct.pack("hhh", 3, 4, 5)
@@ -81,7 +81,7 @@ Byte chunk network byte order:  '\x00\x03\x00\x04\x00\x05'
 
 You can optimize by avoiding the overhead of allocating a new buffer by providing a buffer that was created earlier.
 
-```
+```py
 import struct
 from ctypes import create_string_buffer
 bufferVar = create_string_buffer(8)

@@ -15,10 +15,11 @@ The Python **List** is a general data structure widely used in Python programs. 
 
 Starting with a given list `a`:
 
-```
+```py
 a = [1, 2, 3, 4, 5]
 
 ```
+
 
 <li>
 `append(value)` – appends a new element to the end of the list.
@@ -192,7 +193,7 @@ l.sort(key=lambda item: item['size']['height'])
 
 Lists can also be sorted using `attrgetter` and `itemgetter` functions from the operator module. These can help improve readability and reusability. Here are some examples,
 
-```
+```py
 from operator import itemgetter,attrgetter
 
 people = [{'name':'chandan','age':20,'salary':2000},
@@ -208,7 +209,7 @@ people.sort(key=by_salary) #in-place sorting by salary
 
 `itemgetter` can also be given an index. This is helpful if you want to sort based on indices of a tuple.
 
-```
+```py
 list_of_tuples = [(1,2), (3,4), (5,0)]
 list_of_tuples.sort(key=itemgetter(1))
 print(list_of_tuples) #[(5, 0), (1, 2), (3, 4)]
@@ -217,7 +218,7 @@ print(list_of_tuples) #[(5, 0), (1, 2), (3, 4)]
 
 Use the `attrgetter` if you want to sort by attributes of an object,
 
-```
+```py
 persons = [Person("John Cena", datetime.date(1992, 9, 12), 175),
            Person("Chuck Norris", datetime.date(1990, 8, 28), 180),
            Person("Jon Skeet", datetime.date(1991, 7, 6), 185)] #reusing Person class from above example
@@ -227,6 +228,7 @@ by_birthday = attrgetter('birthday')
 person.sort(key=by_birthday) #sort by birthday
 
 ```
+
 
 <li>
 `clear()` – removes all items from the list
@@ -283,7 +285,8 @@ Obviously the slowest and most memory-needing method, but sometimes unavoidable.
 `copy()` – Returns a shallow copy of the list
 
 ```
-    aa = a.copy()
+
+   aa = a.copy()
     # aa = [1, 2, 3, 4, 5]
 
 ```
@@ -295,7 +298,7 @@ Obviously the slowest and most memory-needing method, but sometimes unavoidable.
 
 Python lists are zero-indexed, and act like arrays in other languages.
 
-```
+```py
 lst = [1, 2, 3, 4]
 lst[0]  # 1
 lst[1]  # 2
@@ -304,14 +307,14 @@ lst[1]  # 2
 
 Attempting to access an index outside the bounds of the list will raise an `IndexError`.
 
-```
+```py
 lst[4]  # IndexError: list index out of range
 
 ```
 
 Negative indices are interpreted as counting from the **end** of the list.
 
-```
+```py
 lst[-1]  # 4
 lst[-2]  # 3
 lst[-5]  # IndexError: list index out of range
@@ -320,14 +323,14 @@ lst[-5]  # IndexError: list index out of range
 
 This is functionally equivalent to
 
-```
+```py
 lst[len(lst)-1]  # 4
 
 ```
 
 Lists allow to use **slice notation** as `lst[start:end:step]`. The output of the slice notation is a new list containing elements from index `start` to `end-1`. If options are omitted `start` defaults to beginning of list, `end` to end of list and `step` to 1:
 
-```
+```py
 lst[1:]      # [2, 3, 4]
 lst[:3]      # [1, 2, 3]
 lst[::2]     # [1, 3]
@@ -340,21 +343,21 @@ lst[1:10]    # [2, 3, 4] same as omitting ending index
 
 With this in mind, you can print a reversed version of the list by calling
 
-```
+```py
 lst[::-1]    # [4, 3, 2, 1]
 
 ```
 
 When using step lengths of negative amounts, the starting index has to be greater than the ending index otherwise the result will be an empty list.
 
-```
+```py
 lst[3:1:-1] # [4, 3]
 
 ```
 
 Using negative step indices are equivalent to the following code:
 
-```
+```py
 reversed(lst)[0:2] # 0 = 1 -1
                    # 2 = 3 -1
 
@@ -366,7 +369,7 @@ The indices used are 1 less than those used in negative indexing and are reverse
 
 When lists are sliced the `__getitem__()` method of the list object is called, with a `slice` object. Python has a builtin slice method to generate slice objects. We can use this to **store** a slice and reuse it later like so,
 
-```
+```py
 data = 'chandan purohit    22 2000'  #assuming data fields of fixed length 
 name_slice = slice(0,19)
 age_slice = slice(19,21)
@@ -388,7 +391,7 @@ This can be of great use by providing slicing functionality to our objects by ov
 
 The emptiness of a list is associated to the boolean `False`, so you don't have to check `len(lst) == 0`, but just `lst` or `not lst`
 
-```
+```py
 lst = []
 if not lst:
     print("list is empty")
@@ -404,7 +407,7 @@ if not lst:
 
 Python supports using a `for` loop directly on a list:
 
-```
+```py
 my_list = ['foo', 'bar', 'baz']
 for item in my_list:
     print(item)
@@ -417,7 +420,7 @@ for item in my_list:
 
 You can also get the position of each item at the same time:
 
-```
+```py
 for (index, item) in enumerate(my_list):
     print('The item in position {} is: {}'.format(index, item))
  
@@ -429,7 +432,7 @@ for (index, item) in enumerate(my_list):
 
 The other way of iterating a list based on the index value:
 
-```
+```py
 for i in range(0,len(my_list)):
     print(my_list[i])
 #output:
@@ -442,7 +445,7 @@ baz
 
 Note that changing items in a list while iterating on it may have unexpected results:
 
-```
+```py
 for item in my_list:
     if item == 'foo':
         del my_list[0]
@@ -462,7 +465,7 @@ In this last example, we deleted the first item at the first iteration, but that
 
 Python makes it very simple to check whether an item is in a list. Simply  use the `in` operator.
 
-```
+```py
 lst = ['test', 'twest', 'tweast', 'treast']
 
 'test' in lst
@@ -477,7 +480,7 @@ lst = ['test', 'twest', 'tweast', 'treast']
 Note: the `in` operator on sets is asymptotically faster than on lists. If you need to use it many times on potentially large lists, you may want to convert your `list` to a `set`, and test the presence of elements on the `set`.
 
 
-```
+```py
 slst = set(lst)
 'test' in slst
 # Out: True
@@ -491,7 +494,7 @@ slst = set(lst)
 
 You can use `all()` to determine if all the values in an iterable evaluate to True
 
-```
+```py
 nums = [1, 1, 0, 1]
 all(nums)
 # False
@@ -503,7 +506,7 @@ all(chars)
 
 Likewise, `any()` determines if one or more values in an iterable evaluate to True
 
-```
+```py
 nums = [1, 1, 0, 1]
 any(nums)
 # True
@@ -515,7 +518,7 @@ any(vals)
 
 While this example uses a list, it is important to note these built-ins work with any iterable, including generators.
 
-```
+```py
 vals = [1, 2, 3, 4]
 any(val > 12 for val in vals)
 # False
@@ -531,7 +534,7 @@ any((val * 2) > 6 for val in vals)
 
 Use `len()` to get the one-dimensional length of a list.
 
-```
+```py
 len(['one', 'two'])  # returns 2
 
 len(['one', [2, 3], 'four'])  # returns 3, not 4
@@ -551,7 +554,7 @@ Also note that the cost of `len()` is `O(1)`, meaning it will take the same amou
 
 You can use the `reversed` function which returns an iterator to the reversed list:
 
-```
+```py
 In [3]: rev = reversed(numbers)
 
 In [4]: rev
@@ -565,7 +568,7 @@ To reverse in place, you can also use [the `reverse` method](http://stackoverflo
 
 You can also reverse a list (actually obtaining a copy, the original list is unaffected) by using the slicing syntax, setting the third argument (the step) as -1:
 
-```
+```py
 In [1]: numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 In [2]: numbers[::-1]
@@ -647,7 +650,7 @@ Output:
 
 Removing duplicate values in a list can be done by converting the list to a `set` (that is an unordered collection of distinct objects). If a `list` data structure is needed, then the set can be converted back to a list using the function `list()`:
 
-```
+```py
 names = ["aixk", "duke", "edik", "tofp", "duke"]
 list(set(names))
 # Out: ['duke', 'tofp', 'aixk', 'edik']
@@ -658,7 +661,7 @@ Note that by converting a list to a set the original ordering is lost.
 
 To preserve the order of the list one can use an `OrderedDict`
 
-```
+```py
 import collections
 >>> collections.OrderedDict.fromkeys(names).keys()
 # Out: ['aixk', 'duke', 'edik', 'tofp']
@@ -672,7 +675,7 @@ import collections
 
 It's possible to compare lists and other sequences lexicographically using comparison operators. Both operands must be of the same type.
 
-```
+```py
 [1, 10, 100] < [2, 10, 100]
 # True, because 1 < 2
 [1, 10, 100] < [1, 10, 100]
@@ -688,7 +691,7 @@ It's possible to compare lists and other sequences lexicographically using compa
 
 If one of the lists is contained at the start of the other, the shortest list wins.
 
-```
+```py
 [1, 10] < [1, 10, 100]
 # True
 
@@ -701,14 +704,14 @@ If one of the lists is contained at the start of the other, the shortest list wi
 
 Starting with a three-dimensional list:
 
-```
+```py
 alist = [[[1,2],[3,4]], [[5,6,7],[8,9,10], [12, 13, 14]]]
 
 ```
 
 Accessing items in the list:
 
-```
+```py
 print(alist[0][0][1])
 #2
 #Accesses second element in the first list in the first list
@@ -721,7 +724,7 @@ print(alist[1][1][2])
 
 Performing support operations:
 
-```
+```py
 alist[0][0].append(11)
 print(alist[0][0][2])
 #11
@@ -731,7 +734,7 @@ print(alist[0][0][2])
 
 Using nested for loops to print the list:
 
-```
+```py
 for row in alist: #One way to loop through nested lists
     for col in row:
         print(col)
@@ -745,7 +748,7 @@ for row in alist: #One way to loop through nested lists
 
 Note that this operation can be used in a list comprehension or even as a generator to produce efficiencies, e.g.:
 
-```
+```py
 [col for row in alist for col in row]
 #[[1, 2, 11], [3, 4], [5, 6, 7], [8, 9, 10], [12, 13, 14]]
 
@@ -753,7 +756,7 @@ Note that this operation can be used in a list comprehension or even as a genera
 
 Not all items in the outer lists have to be lists themselves:
 
-```
+```py
 alist[1].insert(2, 15)
 #Inserts 15 into the third position in the second list
 
@@ -761,7 +764,7 @@ alist[1].insert(2, 15)
 
 Another way to use nested for loops. The other way is better but I've needed to use this on occasion:
 
-```
+```py
 for row in range(len(alist)): #A less Pythonic way to loop through lists
     for col in range(len(alist[row])):
        print(alist[row][col])
@@ -777,7 +780,7 @@ for row in range(len(alist)): #A less Pythonic way to loop through lists
 
 Using slices in nested list:
 
-```
+```py
 print(alist[1][1:])
 #[[8, 9, 10], 15, [12, 13, 14]]
 #Slices still work
@@ -786,7 +789,7 @@ print(alist[1][1:])
 
 The final list:
 
-```
+```py
 print(alist)
 #[[[1, 2, 11], [3, 4]], [[5, 6, 7], [8, 9, 10], 15, [12, 13, 14]]]
 
@@ -799,7 +802,7 @@ print(alist)
 
 For **immutable** elements (e.g. `None`, string literals etc.):
 
-```
+```py
 my_list = [None] * 10
 my_list = ['test'] * 10
 
@@ -807,7 +810,7 @@ my_list = ['test'] * 10
 
 For **mutable** elements, the same construct will result in all elements of the list referring to the same object, for example, for a set:
 
-```
+```py
 >>> my_list=[{1}] * 10
 >>> print(my_list)
 [{1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}]
@@ -819,7 +822,7 @@ For **mutable** elements, the same construct will result in all elements of the 
 
 Instead, to initialize the list with a fixed number of **different mutable** objects, use:
 
-```
+```py
 my_list=[{1} for _ in range(10)]
 
 ```

@@ -13,7 +13,7 @@ description: "Simple Example"
 
 Sample Example Taken from one [benchmarking](http://explique.me/Ijson/)
 
-```
+```py
 import ijson
 
 def load_json(filename):

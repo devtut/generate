@@ -34,7 +34,7 @@ A program can easily waste time by calling a processor-intensive function multip
 
 For example, take a function which looks like this: it returns an integer if the input `value` can produce one, else `None`:
 
-```
+```py
 def intensive_f(value): # int -> Optional[int]
    # complex, and time-consuming code
    if process_has_failed:
@@ -45,7 +45,7 @@ def intensive_f(value): # int -> Optional[int]
 
 And it could be used in the following way:
 
-```
+```py
 x = 5
 if intensive_f(x) is not None:
     print(intensive_f(x) / 2)
@@ -58,7 +58,7 @@ print(x)
 
 Whilst this will work, it has the problem of calling `intensive_f`, which doubles the length of time for the code to run. A better solution would be to get the return value of the function beforehand.
 
-```
+```py
 x = 5
 result = intensive_f(x)
 if result is not None:
@@ -70,7 +70,7 @@ else:
 
 However, a clearer and [possibly more pythonic way](https://docs.python.org/3/glossary.html#term-eafp) is to use exceptions, for example:
 
-```
+```py
 x = 5
 try:
     print(intensive_f(x) / 2)
@@ -85,7 +85,7 @@ Here no temporary variable is needed. It may often be preferable to use a `asser
 
 A common example of where this may be found is accessing dictionary keys. For example compare:
 
-```
+```py
 bird_speeds = get_very_long_dictionary()
 
 if "european swallow" in bird_speeds:
@@ -99,7 +99,7 @@ print(speed)
 
 with:
 
-```
+```py
 bird_speeds = get_very_long_dictionary()
 
 try:

@@ -16,7 +16,7 @@ Supported data types : **int**, **float**, **boolean**, **string**, **list** and
 
 Here is an example demonstrating the **basic** usage of **JSON** :-
 
-```
+```py
 import json
 
 families = (['John'], ['Mark', 'David', {'name': 'Avraham'}])
@@ -47,7 +47,7 @@ See [JSON-Module](http://stackoverflow.com/documentation/python/272/json-module)
 
 Here is an example demonstrating the **basic** usage of **pickle**:-
 
-```
+```py
 # Importing pickle
 try:
     import cPickle as pickle  # Python 2

@@ -14,7 +14,7 @@ The Python interpreter compiles code to bytecode before executing it on the Pyth
 
 Here's how to view the bytecode of a Python function
 
-```
+```py
 import dis
 
 def fib(n):
@@ -39,7 +39,7 @@ To print the source code of a Python object use `inspect`. Note that this won't 
 
 Here's how to print the source code of the method `randint` from the `random` module:
 
-```
+```py
 import random
 import inspect
 
@@ -55,7 +55,7 @@ print(inspect.getsource(random.randint))
 
 To just print the documentation string
 
-```
+```py
 print(inspect.getdoc(random.randint))
 # Output:
 # Return random integer in range [a, b], including both end points.
@@ -64,7 +64,7 @@ print(inspect.getdoc(random.randint))
 
 Print full path of the file where the method `random.randint` is defined:
 
-```
+```py
 print(inspect.getfile(random.randint))
 # c:\Python35\lib\random.py
 print(random.randint.__code__.co_filename) # equivalent to the above
@@ -76,7 +76,7 @@ print(random.randint.__code__.co_filename) # equivalent to the above
 
 If an object is defined interactively `inspect` cannot provide the source code but you can use `dill.source.getsource` instead
 
-```
+```py
 # define a new function in the interactive shell
 def add(a, b):
    return a + b
@@ -94,7 +94,7 @@ print dill.source.getsource(add)
 
 The source code for Python's built-in functions is written in **c** and can only be accessed by looking at the Python's source code (hosted on [Mercurial](https://hg.python.org/) or downloadable from [https://www.python.org/downloads/source/)](https://www.python.org/downloads/source/)).
 
-```
+```py
 print(inspect.getsource(sorted)) # raises a TypeError
 type(sorted) # <class 'builtin_function_or_method'>
 
@@ -109,7 +109,7 @@ CPython allows access to the code object for a function object.
 
 The `__code__`object contains the raw bytecode (`co_code`) of the function as well as other information such as constants and variable names.
 
-```
+```py
 def fib(n):
     if n <= 2: return 1
     return fib(n-1) + fib(n-2)

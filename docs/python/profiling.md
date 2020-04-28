@@ -12,7 +12,7 @@ description: "%%timeit and %timeit in IPython, timeit() function, timeit command
 
 Profiling string concatanation:
 
-```
+```py
 In [1]: import string
 
 In [2]: %%timeit s=""; long_list=list(string.ascii_letters)*50
@@ -30,7 +30,7 @@ In [3]: %%timeit long_list=list(string.ascii_letters)*50
 
 Profiling loops over iterables and lists:
 
-```
+```py
 In [4]: %timeit for i in range(100000):pass
 100 loops, best of 3: 2.82 ms per loop
 
@@ -46,7 +46,7 @@ In [5]: %timeit for i in list(range(100000)):pass
 
 Profiling repetition of elements in an array
 
-```
+```py
 >>> import timeit
 >>> timeit.timeit('list(itertools.repeat("a", 100))', 'import itertools', number = 10000000)
 10.997665435877963
@@ -62,7 +62,7 @@ Profiling repetition of elements in an array
 
 Profiling concatanation of numbers
 
-```
+```py
 python -m timeit "'-'.join(str(n) for n in range(100))"
 10000 loops, best of 3: 29.2 usec per loop
 
@@ -78,7 +78,7 @@ python -m timeit "'-'.join(map(str,range(100)))"
 
 The source code with @profile directive before the function we want to profile:
 
-```
+```py
 import requests
 
 @profile
@@ -94,7 +94,7 @@ for i in range(50):
 
 Using kernprof command to calculate profiling line by line
 
-```
+```py
 $ kernprof -lv so6.py
 
 Wrote profile results to so6.py.lprof
@@ -134,14 +134,14 @@ It breaks down your entire script and for each method in your script it tells yo
 
 The cProfiler can be easily called on Command Line using:
 
-```
+```py
 $ python -m cProfile main.py 
 
 ```
 
 To sort the returned list of profiled methods by the time taken in the method:
 
-```
+```py
 $ python -m cProfile -s time main.py 
 
 ```

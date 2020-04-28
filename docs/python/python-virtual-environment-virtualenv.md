@@ -17,14 +17,14 @@ A Virtual Environment ("virtualenv") is a tool to create isolated Python environ
 
 Install virtualenv via pip / (apt-get):
 
-```
+```py
 pip install virtualenv
 
 ```
 
 OR
 
-```
+```py
 apt-get install python-virtualenv
 
 ```
@@ -36,28 +36,28 @@ Note: In case you are getting permission issues, use sudo.
 ## Usage
 
 
-```
+```py
 $ cd test_proj
 
 ```
 
 Create virtual environment:
 
-```
+```py
 $ virtualenv test_proj
 
 ```
 
 To begin using the virtual environment, it needs to be activated:
 
-```
+```py
 $ source test_project/bin/activate
 
 ```
 
 To exit your virtualenv just type “deactivate”:
 
-```
+```py
 $ deactivate
 
 ```
@@ -71,7 +71,7 @@ If you look at the bin directory in your virtualenv, you’ll see easy_install w
 has been modified to put eggs and packages in the virtualenv’s site-packages
 directory. To install an app in your virtual environment:
 
-```
+```py
 $ source test_project/bin/activate
 $ pip install flask
 

@@ -19,7 +19,7 @@ Let's suppose we want raise **x** to a number **y**.
 
 You'd write this as:
 
-```
+```py
 def raise_power(x, y):
     return x**y
 
@@ -29,7 +29,7 @@ What if your **y** value can assume a finite set of values?
 
 Let's suppose **y** can be one of **[3,4,5]** and let's say you don't want offer end user the possibility to use such function since it is very computationally intensive. In fact you would check if provided **y** assumes a valid value and rewrite your function as:
 
-```
+```py
 def raise(x, y):
     if y in (3,4,5):
         return x**y
@@ -40,7 +40,7 @@ def raise(x, y):
 Messy?
 Let's use the abstract form and specialize it to all three cases: let's implement them **partially**.
 
-```
+```py
 from functors import partial
 raise_to_three = partial(raise, y=3)
 raise_to_four = partial(raise, y=4)

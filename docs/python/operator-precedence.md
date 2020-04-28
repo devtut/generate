@@ -19,7 +19,7 @@ Python follows PEMDAS rule. PEMDAS stands for Parentheses, Exponents, Multiplica
 
 Example:
 
-```
+```py
 >>> a, b, c, d = 2, 3, 5, 7
 >>> a ** (b + c)  # parentheses
 256
@@ -32,7 +32,7 @@ Example:
 
 Extras: mathematical rules hold, but [not always](https://docs.python.org/3/tutorial/floatingpoint.html):
 
-```
+```py
 >>> 300 / 300 * 200
 200.0
 >>> 300 * 200 / 300

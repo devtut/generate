@@ -38,7 +38,7 @@ In this way, negative numbers range down to -128 (`1000 0000`). Zero (0) is repr
 
 In general, though, this means `~n = -n - 1`.
 
-```
+```py
 # 0 = 0b0000 0000
 ~0
 # Out: -1
@@ -75,7 +75,7 @@ And then, when applied to negative numbers, the corresponding effect is:
 
 The following examples illustrate this last rule...
 
-```
+```py
 # -0 = 0b0000 0000
 ~-0
 # Out: -1 
@@ -106,7 +106,7 @@ The following examples illustrate this last rule...
 
 The `^` operator will perform a binary **XOR** in which a binary `1` is copied if and only if it is the value of exactly **one** operand. Another way of stating this is that the result is `1` only if the operands are different. Examples include:
 
-```
+```py
 # 0 ^ 0 = 0
 # 0 ^ 1 = 1
 # 1 ^ 0 = 1
@@ -130,7 +130,7 @@ bin(60 ^ 30)
 
 The `&` operator will perform a binary **AND**, where a bit is copied if it exists in **both** operands. That means:
 
-```
+```py
 # 0 & 0 = 0
 # 0 & 1 = 0
 # 1 & 0 = 0
@@ -154,7 +154,7 @@ bin(60 & 30)
 
 The `|` operator will perform a binary "or," where a bit is copied if it exists in either operand. That means:
 
-```
+```py
 # 0 | 0 = 0
 # 0 | 1 = 1 
 # 1 | 0 = 1
@@ -178,7 +178,7 @@ bin(60 | 30)
 
 The `<<` operator will perform a bitwise "left shift," where the left operand's value is moved left by the number of bits given by the right operand.
 
-```
+```py
 # 2 = 0b10
 2 << 2
 # Out: 8
@@ -191,7 +191,7 @@ bin(2 << 2)
 
 Performing a left bit shift of `1` is equivalent to multiplication by `2`:
 
-```
+```py
 7 << 1
 # Out: 14
 
@@ -199,7 +199,7 @@ Performing a left bit shift of `1` is equivalent to multiplication by `2`:
 
 Performing a left bit shift of `n` is equivalent to multiplication by `2**n`:
 
-```
+```py
 3 << 4
 # Out: 48
 
@@ -212,7 +212,7 @@ Performing a left bit shift of `n` is equivalent to multiplication by `2**n`:
 
 The `>>` operator will perform a bitwise "right shift," where the left operand's value is moved right by the number of bits given by the right operand.
 
-```
+```py
 # 8 = 0b1000
 8 >> 2
 # Out: 2
@@ -225,7 +225,7 @@ bin(8 >> 2)
 
 Performing a right bit shift of `1` is equivalent to integer division by `2`:
 
-```
+```py
 36 >> 1
 # Out: 18
 
@@ -236,7 +236,7 @@ Performing a right bit shift of `1` is equivalent to integer division by `2`:
 
 Performing a right bit shift of `n` is equivalent to integer division by `2**n`:
 
-```
+```py
 48 >> 4
 # Out: 3
 
@@ -252,7 +252,7 @@ Performing a right bit shift of `n` is equivalent to integer division by `2**n`:
 
 All of the Bitwise operators (except `~`) have their own in place versions
 
-```
+```py
 a = 0b001
 a &= 0b010 
 # a = 0b000

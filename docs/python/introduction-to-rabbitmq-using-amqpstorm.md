@@ -12,7 +12,7 @@ description: "How to consume messages from RabbitMQ, How to publish messages to 
 
 Start with importing the library.
 
-```
+```py
 from amqpstorm import Connection
 
 ```
@@ -21,7 +21,7 @@ When consuming messages, we first need to define a function to handle the incomi
 
 Besides processing the data from the incoming message, we will also have to Acknowledge or Reject the message. This is important, as we need to let RabbitMQ know that we properly received and processed the message.
 
-```
+```py
 def on_message(message):
     """This function is called on message received.
 
@@ -43,14 +43,14 @@ def on_message(message):
 
 Next we need to set up the connection to the RabbitMQ server.
 
-```
+```py
 connection = Connection('127.0.0.1', 'guest', 'guest')
 
 ```
 
 After that we need to set up a channel. Each connection can have multiple channels, and in general when performing multi-threaded tasks, it's recommended (but not required) to have one per thread.
 
-```
+```py
 channel = connection.channel()
 
 ```
@@ -59,14 +59,14 @@ Once we have our channel set up, we need to let RabbitMQ know that we want to st
 
 The queue we will be listening to on the RabbitMQ server is going to be `simple_queue`, and we are also telling RabbitMQ that we will be acknowledging all incoming messages once we are done with them.
 
-```
+```py
 channel.basic.consume(callback=on_message, queue='simple_queue', no_ack=False)
 
 ```
 
 Finally we need to start the IO loop to start processing messages delivered by the RabbitMQ server.
 
-```
+```py
 channel.start_consuming(to_tuple=False)
 
 ```
@@ -78,7 +78,7 @@ channel.start_consuming(to_tuple=False)
 
 Start with importing the library.
 
-```
+```py
 from amqpstorm import Connection
 from amqpstorm import Message
 
@@ -86,21 +86,21 @@ from amqpstorm import Message
 
 Next we need to open a connection to the RabbitMQ server.
 
-```
+```py
 connection = Connection('127.0.0.1', 'guest', 'guest')
 
 ```
 
 After that we need to set up a channel. Each connection can have multiple channels, and in general when performing multi-threaded tasks, it's recommended (but not required) to have one per thread.
 
-```
+```py
 channel = connection.channel()
 
 ```
 
 Once we have our channel set up, we can start to prepare our message.
 
-```
+```py
 # Message Properties.
 properties = {
     'content_type': 'text/plain',
@@ -114,7 +114,7 @@ message = Message.create(channel=channel, body='Hello World!', properties=proper
 
 Now we can publish the message by simply calling `publish` and providing a `routing_key`. In this case we are going to send the message to a queue called `simple_queue`.
 
-```
+```py
 message.publish(routing_key='simple_queue')
 
 ```
@@ -128,14 +128,14 @@ First we need to set up two basic channels, one for the main queue, and one for 
 
 After we have set up the channels we add a binding to the main channel that we can use to send messages from the delay channel to our main queue.
 
-```
+```py
 channel.queue.bind(exchange='amq.direct', routing_key='hello', queue='hello')
 
 ```
 
 Next we need to configure our delay channel to forward messages to the main queue once they have expired.
 
-```
+```py
 delay_channel.queue.declare(queue='hello_delay', durable=True, arguments={
     'x-message-ttl': 5000,
     'x-dead-letter-exchange': 'amq.direct',
@@ -143,6 +143,7 @@ delay_channel.queue.declare(queue='hello_delay', durable=True, arguments={
 })
 
 ```
+
 
 <li>
 [x-message-ttl](https://www.rabbitmq.com/ttl.html) **(Message - Time To Live)**
@@ -166,7 +167,7 @@ This variable determines which Exchange used to transfer the message from hello_
 
 When we are done setting up all the basic Pika parameters you simply send a message to the delay queue using basic publish.
 
-```
+```py
 delay_channel.basic.publish(exchange='',
                             routing_key='hello_delay',
                             body='test',
@@ -179,7 +180,7 @@ Once you have executed the script you should see the following queues created in
 
 **Example.**
 
-```
+```py
 from amqpstorm import Connection
 
 connection = Connection('127.0.0.1', 'guest', 'guest')
@@ -220,7 +221,7 @@ print("[x] Sent")
 
 The latest version of [AMQPStorm](https://github.com/eandersson/amqpstorm) is available at [pypi](https://pypi.python.org/pypi/AMQPStorm) or you can install it using [pip](https://pip.pypa.io/en/stable/)
 
-```
+```py
 pip install amqpstorm
 
 ```

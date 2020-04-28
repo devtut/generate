@@ -11,7 +11,7 @@ description: "Using the multiprocessing module to parallelise tasks, Using a C-e
 ## Using the multiprocessing module to parallelise tasks
 
 
-```
+```py
 import multiprocessing
 
 def fib(n):
@@ -39,7 +39,7 @@ As the execution of each call to `fib` happens in parallel, the time of executio
 
 The idea here is to move the computationally intensive jobs to C (using special macros), independent of Python, and have the C code release the GIL while it's working.
 
-```
+```py
 #include "Python.h"
 ...
 PyObject *pyfunc(PyObject *self, PyObject *args) {
@@ -60,7 +60,7 @@ PyObject *pyfunc(PyObject *self, PyObject *args) {
 
 **child.py**
 
-```
+```py
 import time
 
 def main():
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 **parent.py**
 
-```
+```py
 import os
 
 def main():
@@ -99,7 +99,7 @@ This is useful for parallel, independent HTTP request/response tasks or Database
 PyPar is a library that uses the message passing interface (MPI) to provide
 parallelism in Python. A simple example in PyPar (as seen at [https://github.com/daleroberts/pypar)](https://github.com/daleroberts/pypar)) looks like this:
 
-```
+```py
 import pypar as pp
 
 ncpus = pp.size()

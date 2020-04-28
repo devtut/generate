@@ -13,7 +13,7 @@ Documentation for the Python Requests module in the context of the HTTP POST met
 ## Simple Post
 
 
-```
+```py
 from requests import post
 
 foo = post('http://httpbin.org/post', data = {'key':'value'})
@@ -26,21 +26,21 @@ Will perform a simple HTTP POST operation. Posted data can be inmost formats, ho
 
 Headers can be viewed:
 
-```
+```py
 print(foo.headers)
 
 ```
 
 An example response:
 
-```
+```py
 {'Content-Length': '439', 'X-Processed-Time': '0.000802993774414', 'X-Powered-By': 'Flask', 'Server': 'meinheld/0.6.1', 'Connection': 'keep-alive', 'Via': '1.1 vegur', 'Access-Control-Allow-Credentials': 'true', 'Date': 'Sun, 21 May 2017 20:56:05 GMT', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}
 
 ```
 
 Headers can also be prepared before post:
 
-```
+```py
 headers = {'Cache-Control':'max-age=0',
         'Upgrade-Insecure-Requests':'1',
         'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
@@ -60,7 +60,8 @@ headers = {'Cache-Control':'max-age=0',
 Encoding can be set and viewed in much the same way:
 
 ```
- print(foo.encoding)
+
+print(foo.encoding)
 
 'utf-8'
 
@@ -72,7 +73,7 @@ foo.encoding = 'ISO-8859-1'
 
 Requests by default validates SSL certificates of domains. This can be overridden:
 
-```
+```py
 foo = post('http://httpbin.org/post', data = {'key':'value'}, verify=False)
 
 ```
@@ -81,21 +82,21 @@ foo = post('http://httpbin.org/post', data = {'key':'value'}, verify=False)
 
 Any redirection will be followed (e.g. http to https) this can also be changed:
 
-```
+```py
 foo = post('http://httpbin.org/post', data = {'key':'value'}, allow_redirects=False)
 
 ```
 
 If the post operation has been redirected, this value can be accessed:
 
-```
+```py
 print(foo.url) 
 
 ```
 
 A full history of redirects can be viewed:
 
-```
+```py
 print(foo.history) 
 
 ```
@@ -105,7 +106,7 @@ print(foo.history)
 ## Form Encoded Data
 
 
-```
+```py
 from requests import post
 
 payload = {'key1' : 'value1',
@@ -122,7 +123,7 @@ If the data does not want to be form encoded, simply pass a string, or integer t
 
 Supply the dictionary to the json parameter for Requests to format the data automatically:
 
-```
+```py
 from requests import post
 
 payload = {'key1' : 'value1', 'key2' : 'value2'}
@@ -138,7 +139,7 @@ foo = post('http://httpbin.org/post', json=payload)
 
 With the Requests module,its is only necessary to provide a file handle as opposed to the contents retrieved with `.read()`:
 
-```
+```py
 from requests import post
 
 files = {'file' : open('data.txt', 'rb')}
@@ -149,7 +150,7 @@ foo = post('http://http.org/post', files=files)
 
 Filename, content_type and headers can also be set:
 
-```
+```py
 files = {'file': ('report.xls', open('report.xls', 'rb'), 'application/vnd.ms-excel', {'Expires': '0'})}
 
 foo = requests.post('http://httpbin.org/post', files=files)
@@ -162,7 +163,7 @@ Strings can also be sent as a file, as long they are supplied as the `files` par
 
 Multiple files can be supplied in much the same way as one file:
 
-```
+```py
 multiple_files = [
     ('images', ('foo.png', open('foo.png', 'rb'), 'image/png')),
     ('images', ('bar.png', open('bar.png', 'rb'), 'image/png'))]
@@ -178,7 +179,7 @@ foo = post('http://httpbin.org/post', files=multiple_files)
 
 Response codes can be viewed from a post operation:
 
-```
+```py
 from requests import post
 
 foo = post('http://httpbin.org/post', data={'data' : 'value'})
@@ -190,7 +191,7 @@ print(foo.status_code)
 
 Accessing data that is returned:
 
-```
+```py
 foo = post('http://httpbin.org/post', data={'data' : 'value'})
 print(foo.text)
 
@@ -200,7 +201,7 @@ print(foo.text)
 
 In the instances where you need to access the underlying urllib3 response.HTTPResponse object, this can be done by the following:
 
-```
+```py
 foo = post('http://httpbin.org/post', data={'data' : 'value'})
 res = foo.raw
 
@@ -217,7 +218,7 @@ print(res.read())
 
 Simple HTTP Authentication can be achieved with the following:
 
-```
+```py
 from requests import post
 
 foo = post('http://natas0.natas.labs.overthewire.org', auth=('natas0', 'natas0'))
@@ -226,7 +227,7 @@ foo = post('http://natas0.natas.labs.overthewire.org', auth=('natas0', 'natas0')
 
 This is technically short hand for the following:
 
-```
+```py
 from requests import post
 from requests.auth import HTTPBasicAuth
 
@@ -238,7 +239,7 @@ foo = post('http://natas0.natas.labs.overthewire.org', auth=HTTPBasicAuth('natas
 
 HTTP Digest Authentication is done in a very similar way, Requests provides a different object for this:
 
-```
+```py
 from requests import post
 from requests.auth import HTTPDigestAuth
 
@@ -252,7 +253,7 @@ In some cases the built in authentication mechanisms may not be enough, imagine 
 
 A server is configured to accept authentication if the sender has the correct user-agent string, a certain header value and supplies the correct credentials through HTTP Basic Authentication. To achieve this a custom authentication class should be prepared, subclassing AuthBase, which is the base for Requests authentication implementations:
 
-```
+```py
 from requests.auth import AuthBase
 from requests.auth import _basic_auth_str
 from requests._internal_utils import to_native_string
@@ -278,7 +279,7 @@ class CustomAuth(AuthBase):
 
 This can then be utilized with the following code:
 
-```
+```py
 foo = get('http://test.com/admin', auth=CustomAuth('SecretHeader', 'CustomUserAgent', 'user', 'password' ))
 
 ```
@@ -292,7 +293,7 @@ Each request POST operation can be configured to use network proxies
 
 **HTTP/S Proxies**
 
-```
+```py
 from requests import post
 
 proxies = {
@@ -306,7 +307,7 @@ foo = requests.post('http://httpbin.org/post', proxies=proxies)
 
 HTTP Basic Authentication can be provided in this manner:
 
-```
+```py
 proxies = {'http': 'http://user:pass@192.168.0.128:312'}
 foo = requests.post('http://httpbin.org/post', proxies=proxies)
 
@@ -316,7 +317,7 @@ foo = requests.post('http://httpbin.org/post', proxies=proxies)
 
 The use of socks proxies requires 3rd party dependencies `requests[socks]`, once installed socks proxies are used in a very similar way to HTTPBasicAuth:
 
-```
+```py
 proxies = {
 'http': 'socks5://user:pass@host:port',
 'https': 'socks5://user:pass@host:port'

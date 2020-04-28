@@ -13,7 +13,7 @@ description: "partial, lru_cache, cmp_to_key, total_ordering, reduce"
 
 The `partial` function creates partial function application from another function. It is used to **bind** values to some of the function's arguments (or keyword arguments) and produce a **callable** without the already defined arguments.
 
-```
+```py
 >>> from functools import partial
 >>> unhex = partial(int, base=16)
 >>> unhex.__doc__ = 'Convert base16 string to int'
@@ -25,7 +25,7 @@ The `partial` function creates partial function application from another functio
 `partial()`, as the name suggests, allows a partial evaluation of a function.
 Let's look at at following example:
 
-```
+```py
 In [2]: from functools import partial
 
 In [3]: def f(a, b, c, x):
@@ -51,7 +51,7 @@ One way to think of `partial` is a shift register; pushing in one argument at th
 
 The `@lru_cache` decorator can be used wrap an expensive, computationally-intensive function with a [Least Recently Used](https://en.wikipedia.org/wiki/Cache_algorithms#Examples) cache. This allows function calls to be memoized, so that future calls with the same parameters can return instantly instead of having to be recomputed.
 
-```
+```py
 @lru_cache(maxsize=None)  # Boundless cache
 def fibonacci(n):
     if n < 2:
@@ -73,7 +73,7 @@ types belong to different cache records (i.e. if `3.0` and
 
 We can see cache stats too:
 
-```
+```py
 >>> fib.cache_info()
 CacheInfo(hits=13, misses=16, maxsize=None, currsize=16)
 
@@ -94,7 +94,7 @@ Old comparison functions used to take two values and return -1, 0 or +1 if the f
 
 That's where `functools.cmp_to_key` comes in:
 
-```
+```py
 >>> import functools
 >>> import locale
 >>> sorted(["A", "S", "F", "D"], key=functools.cmp_to_key(locale.strcoll))
@@ -113,7 +113,7 @@ When we want to create an orderable class, normally we need to define the method
 
 The `total_ordering` decorator, applied to a class, permits the definition of `__eq__()` and only one between `__lt__()`, `__le__()`, `__gt__()` and `__ge__()`, and still allow all the ordering operations on the class.
 
-```
+```py
 @total_ordering
 class Employee:
 
@@ -138,7 +138,7 @@ The decorator uses a composition of the provided methods and algebraic operation
 
 In Python 3.x, the `reduce` function already explained [here](http://stackoverflow.com/documentation/python/328/reduce#t=201607220949173843207) has been removed from the built-ins and must now be imported from `functools`.
 
-```
+```py
 from functools import reduce
 def factorial(n):
     return reduce(lambda a, b: (a*b), range(1, n+1))

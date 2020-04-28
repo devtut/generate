@@ -20,7 +20,7 @@ An **Iterator** is an object that produces the next value in a sequence when you
 
 Iterable classes define an `__iter__` and a `__next__` method. Example of an iterable class :
 
-```
+```py
 class MyIterable:
 
     def __iter__(self):
@@ -47,21 +47,21 @@ Trying to instantiate the abstract class from the `collections` module to better
 
 Example:
 
-```
+```py
 import collections
 >>> collections.Iterator()
 >>> TypeError: Cant instantiate abstract class Iterator with abstract methods next
 
 ```
 
-```
+```py
 >>> TypeError: Cant instantiate abstract class Iterator with abstract methods __next__
 
 ```
 
 Handle Python 3 compatibility for iterable classes in Python 2 by doing the following:
 
-```
+```py
 class MyIterable(object): #or collections.Iterator, which I'd recommend....
 
      ....
@@ -78,7 +78,7 @@ class MyIterable(object): #or collections.Iterator, which I'd recommend....
 
 Both of these are now iterators and can be looped through:
 
-```
+```py
 ex1 = MyIterableClass()
 ex2 = MySequence()
 
@@ -96,7 +96,7 @@ for (item) in (ex2): #code
 
 Start with `iter()` built-in to get **iterator** over iterable and use `next()` to get elements one by one until `StopIteration` is raised signifying the end:
 
-```
+```py
 s = {1, 2}   # or list or generator or even iterator
 i = iter(s)  # get iterator
 a = next(i)  # a = 1
@@ -110,7 +110,7 @@ c = next(i)  # raises StopIteration
 ## Iterating over entire iterable
 
 
-```
+```py
 s = {1, 2, 3}
 
 # get every element in s
@@ -132,7 +132,7 @@ l2 = [a * 2 for a in s if a > 2]  # l2 = [6]
 
 Use unpacking to extract the first element and ensure it's the only one:
 
-```
+```py
 a, = iterable
 
 def foo():
@@ -152,7 +152,7 @@ a, = nums  # ValueError: too many values to unpack
 
 **Iterable** can be anything for which items are received **one by one, forward only**. Built-in Python collections are iterable:
 
-```
+```py
 [1, 2, 3]     # list, iterate over items
 (1, 2, 3)     # tuple
 {1, 2, 3}     # set
@@ -162,7 +162,7 @@ a, = nums  # ValueError: too many values to unpack
 
 Generators return iterables:
 
-```
+```py
 def foo():  # foo isn't iterable yet...
     yield 1
 
@@ -175,7 +175,7 @@ res = foo()  # ...but res already is
 ## Iterator isn't reentrant!
 
 
-```
+```py
 def gen():
     yield 1
 

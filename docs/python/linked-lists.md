@@ -15,7 +15,7 @@ A linked list is a collection of nodes, each made up of a reference and a value.
 
 This example implements a linked list with many of the same methods as that of the built-in list object.
 
-```
+```py
 class Node:
     def __init__(self, val):
         self.data = val
@@ -183,7 +183,7 @@ class LinkedList:
 
 Usage functions much like that of the built-in list.
 
-```
+```py
 ll = LinkedList()
 ll.add('l')
 ll.add('H')

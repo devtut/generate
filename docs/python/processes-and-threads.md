@@ -17,7 +17,7 @@ Python multithreading performance can often suffer due to the [**Global Interpre
 
 As such, multithreading in cases where operations are blocked by external events - like network access - can be quite effective:
 
-```
+```py
 import threading
 import time
 
@@ -48,7 +48,7 @@ Note that even though each `process` took 2 seconds to execute, the four process
 
 However, multithreading in cases where intensive computations are being done in Python code - such as a lot of computation - does not result in much improvement, and can even be slower than running in parallel:
 
-```
+```py
 import threading
 import time
 
@@ -86,7 +86,7 @@ print("Four runs took %.2fs" % (time.time() - start))
 
 In the latter case, multiprocessing can be effective as multiple processes can, of course, execute multiple instructions simultaneously:
 
-```
+```py
 import multiprocessing
 import time
 
@@ -129,7 +129,7 @@ print("Four runs took %.2fs" % (time.time() - start))
 
 Use `threading.Thread` to run a function in another thread.
 
-```
+```py
 import threading
 import os
 
@@ -156,7 +156,7 @@ for t in threads:
 
 Use `multiprocessing.Process` to run a function in another process. The interface is similar to `threading.Thread`:
 
-```
+```py
 import multiprocessing
 import os
 
@@ -185,7 +185,7 @@ As all threads are running in the same process, all threads have access to the s
 
 However, concurrent access to shared data should be protected with a lock to avoid synchronization issues.
 
-```
+```py
 import threading
 
 obj = {}
@@ -225,7 +225,7 @@ import pprint; pprint.pprint(obj)
 
 Code running in different processes do not, by default, share the same data. However, the `multiprocessing` module contains primitives to help share values across multiple processes.
 
-```
+```py
 import multiprocessing
 
 plain_num = 0

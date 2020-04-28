@@ -16,7 +16,7 @@ Using [the code that David Beazley first used to show the dangers of threads aga
 
 ### David Beazley's code that showed GIL threading problems
 
-```
+```py
 from threading import Thread
 import time
 def countdown(n):
@@ -35,7 +35,7 @@ print end-start
 
 ```
 
-```
+```py
 import multiprocessing
 import time
 def countdown(n):
@@ -71,7 +71,7 @@ As an example, using [the code that David Beazley first used to show the dangers
 
 ### David Beazley's code that showed GIL threading problems
 
-```
+```py
 from threading import Thread
 import time
 def countdown(n):
@@ -92,7 +92,7 @@ print end-start
 
 ### Re-written using nogil (ONLY WORKS IN CYTHON):
 
-```
+```py
 from threading import Thread
 import time
 def countdown(n):

@@ -11,7 +11,7 @@ description: "Counting all occurence of all items in an iterable: collections.Co
 ## Counting all occurence of all items in an iterable: collections.Counter
 
 
-```
+```py
 from collections import Counter
 
 c = Counter(["a", "b", "c", "d", "a", "b", "a", "c", "d"])
@@ -29,7 +29,7 @@ The `collections.Counter` can be used for any iterable and counts every occurren
 
 **Note**: One exception is if a `dict` or another `collections.Mapping`-like class is given, then it will not count them, rather it creates a Counter with these values:
 
-```
+```py
 Counter({"e": 2})
 # Out: Counter({"e": 2})
 
@@ -45,7 +45,7 @@ Counter({"e": "e"})        # warning Counter does not verify the values are int
 
 Counting the **keys** of a `Mapping` isn't possible with `collections.Counter` but we can count the **values**:
 
-```
+```py
 from collections import Counter
 adict = {'a': 5, 'b': 3, 'c': 5, 'd': 2, 'e':2, 'q': 5}
 Counter(adict.values())
@@ -55,7 +55,7 @@ Counter(adict.values())
 
 The most common elements are avaiable by the `most_common`-method:
 
-```
+```py
 # Sorting them from most-common to least-common value:
 Counter(adict.values()).most_common()
 # Out: [(5, 3), (2, 2), (3, 1)]
@@ -75,7 +75,7 @@ Counter(adict.values()).most_common(2)
 ## Counting the occurrences of one item in a sequence: list.count() and tuple.count()
 
 
-```
+```py
 alist = [1, 2, 3, 4, 1, 2, 1, 3, 4]
 alist.count(1)
 # Out: 3
@@ -93,7 +93,7 @@ atuple.count('fox')
 ## Counting the occurrences of a substring in a string: str.count()
 
 
-```
+```py
 astring = 'thisisashorttext'
 astring.count('t')
 # Out: 4
@@ -102,7 +102,7 @@ astring.count('t')
 
 This works even for substrings longer than one character:
 
-```
+```py
 astring.count('th')
 # Out: 1
 astring.count('is')
@@ -114,7 +114,7 @@ astring.count('text')
 
 which would not be possible with `collections.Counter` which only counts single characters:
 
-```
+```py
 from collections import Counter
 Counter(astring)
 # Out: Counter({'a': 1, 'e': 1, 'h': 2, 'i': 2, 'o': 1, 'r': 1, 's': 3, 't': 4, 'x': 1})
@@ -128,7 +128,7 @@ Counter(astring)
 
 To count the occurences of a value in a numpy array. This will work:
 
-```
+```py
 >>> import numpy as np
 >>> a=np.array([0,3,4,3,5,4,7])
 >>> print np.sum(a==3)
@@ -140,7 +140,7 @@ The logic is that the boolean statement produces a array where all occurences of
 
 There are two methods I use to count occurences of all unique values in numpy. Unique and bincount. Unique automatically flattens multidimensional arrays, while bincount only works with 1d arrays only containing positive integers.
 
-```
+```py
 >>> unique,counts=np.unique(a,return_counts=True)
 >>> print unique,counts # counts[i] is equal to occurrences of unique[i] in a
 [0 3 4 5 7] [1 2 2 1 1]

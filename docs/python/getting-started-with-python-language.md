@@ -23,14 +23,14 @@ You can download and install either version of Python [here](https://www.python.
 
 To confirm that Python was installed correctly, you can verify that by running the following command in your favorite terminal (If you are using Windows OS, you need to add path of python to the environment variable before using it in command prompt):
 
-```
+```py
 $ python --version
 
 ```
 
 If you have **Python 3** installed, and it is your default version (see [**Troubleshooting**](http://stackoverflow.com/documentation/python/193/introduction-to-python/2653/idle-python-gui) for more details) you should see something like this:
 
-```
+```py
 $ python --version
 Python 3.6.0
 
@@ -38,7 +38,7 @@ Python 3.6.0
 
 If you have **Python 2** installed, and it is your default version (see [**Troubleshooting**](http://stackoverflow.com/documentation/python/193/introduction-to-python/2653/idle-python-gui) for more details) you should see something like this:
 
-```
+```py
 $ python --version
 Python 2.7.13
 
@@ -60,21 +60,21 @@ If you have installed Python 3, but `$ python --version` outputs a Python 2 vers
 
 In the shell, there is a prompt of three right angle brackets:
 
-```
+```py
 >>>
 
 ```
 
 Now write the following code in the prompt:
 
-```
+```py
 >>> print("Hello, World")
 
 ```
 
 Hit <kbd>Enter</kbd>.
 
-```
+```py
 >>> print("Hello, World")
 Hello, World
 
@@ -84,14 +84,14 @@ Hello, World
 
 Create a new file `hello.py` that contains the following line:
 
-```
+```py
 print('Hello, World')
 
 ```
 
 You can use the Python 3 `print` function in Python 2 with the following `import` statement:
 
-```
+```py
 from __future__ import print_function
 
 ```
@@ -100,7 +100,7 @@ Python 2 has a number of functionalities that can be optionally imported from Py
 
 If using Python 2, you may also type the line below. Note that this is not valid in Python 3 and thus not recommended because it reduces cross-version code compatibility.
 
-```
+```py
 print 'Hello, World'
 
 ```
@@ -109,7 +109,7 @@ In your terminal, navigate to the directory containing the file `hello.py`.
 
 Type `python hello.py`, then hit the <kbd>Enter</kbd> key.
 
-```
+```py
 $ python hello.py
 Hello, World
 
@@ -123,7 +123,7 @@ You can also substitute `hello.py` with the path to your file. For example, if y
 
 By executing (running) the `python` command in your terminal, you are presented with an interactive Python shell. This is also known as the [Python Interpreter](https://docs.python.org/3.6/tutorial/interpreter.html) or  a REPL (for 'Read Evaluate Print Loop').
 
-```
+```py
 $ python
 Python 2.7.12 (default, Jun 28 2016, 08:46:01) 
 [GCC 6.1.1 20160602] on linux
@@ -136,7 +136,7 @@ Hello, World
 
 If you want to run Python 3 from your terminal, execute the command `python3`.
 
-```
+```py
 $ python3
 Python 3.6.0 (default, Jan 13 2017, 00:00:00) 
 [GCC 6.1.1 20160602] on linux
@@ -151,7 +151,7 @@ Alternatively, start the interactive prompt and load file with `python -i <file.
 
 In command line, run:
 
-```
+```py
 $ python -i hello.py
 "Hello World"
 >>>
@@ -160,14 +160,14 @@ $ python -i hello.py
 
 There are multiple ways to close the Python shell:
 
-```
+```py
 >>> exit()
 
 ```
 
 or
 
-```
+```py
 >>> quit()
 
 ```
@@ -210,7 +210,7 @@ shows execution time</li>
 
 Python can be passed arbitrary code as a string in the shell:
 
-```
+```py
 $ python -c 'print("Hello, World")'
 Hello, World
 
@@ -237,14 +237,14 @@ This can be useful when concatenating the results of scripts together in the she
 
 To create a variable in Python, all you need to do is specify the variable name, and then assign a value to it.
 
-```
+```py
 <variable name> = <value>
 
 ```
 
 Python uses `=` to assign values to variables. There's no need to declare a variable in advance (or to assign a data type to it), assigning a value to a variable itself declares and initializes the variable with that value. There's no way to declare a variable without assigning it an initial value.
 
-```
+```py
 # Integer
 a = 2
 print(a)
@@ -284,7 +284,7 @@ print(x)
 
 Variable assignment works from left to right. So the following will give you an syntax error.
 
-```
+```py
 0 = x
 => Output: SyntaxError: can't assign to literal
 
@@ -292,7 +292,7 @@ Variable assignment works from left to right. So the following will give you an 
 
 You can not use python's keywords as a valid variable name. You can see the list of keyword by:
 
-```
+```py
 import keyword
 print(keyword.kwlist)
 
@@ -303,7 +303,8 @@ Rules for variable naming:
 1. Variables names must start with a letter or an underscore.
 
 ```
- x  = True   # valid
+
+x  = True   # valid
  _y = True   # valid
 
  9x = False  # starts with numeral 
@@ -314,16 +315,18 @@ Rules for variable naming:
 
 ```
 
+
 1. The remainder of your variable name may consist of letters, numbers and underscores.
 
-```
+```py
 has_0_in_it = "Still Valid" 
 
 ```
 
+
 1. Names are case sensitive.
 
-```
+```py
 x = 9  
 y = X*5   
 =>NameError: name 'X' is not defined
@@ -332,7 +335,7 @@ y = X*5
 
 Even though there's no need to specify a data type when declaring a variable in Python, while allocating the necessary area in memory for the variable, the Python interpreter automatically picks the most suitable [built-in type](http://stackoverflow.com/documentation/python/193/introduction-to-python/2926/datatypes#t=201610091728094101649) for it:
 
-```
+```py
 a = 2
 print(type(a))
 # Output: <type 'int'>
@@ -369,7 +372,7 @@ When you use `=` to do an assignment operation, what's on the left of `=` is a *
 
 That is:
 
-```
+```py
 a_name = an_object  # "a_name" is now a name for the reference to the object "an_object"
 
 ```
@@ -378,7 +381,7 @@ So, from many assignment examples above, if we pick `pi = 3.14`, then `pi` is **
 
 You can assign multiple values to multiple variables in one line. Note that there must be the same number of arguments on the right and left sides of the `=` operator:
 
-```
+```py
 a, b, c = 1, 2, 3
 print(a, b, c)
 # Output: 1 2 3
@@ -399,7 +402,7 @@ a, b = 1, 2, 3
 
 The error in last example can be obviated by assigning remaining values to equal number of arbitrary variables. This dummy variable can have any name, but it is conventional to use the underscore (`_`) for assigning unwanted values:
 
-```
+```py
 a, b, _ = 1, 2, 3
 print(a, b)
 # Output: 1, 2
@@ -408,7 +411,7 @@ print(a, b)
 
 Note that the number of _ and number of remaining values must be equal. Otherwise 'too many values to unpack error' is thrown as above:
 
-```
+```py
 a, b, _ = 1,2,3,4
 =>Traceback (most recent call last):
 =>File "name.py", line N, in <module>
@@ -419,7 +422,7 @@ a, b, _ = 1,2,3,4
 
 You can also assign a single value to several variables simultaneously.
 
-```
+```py
 a = b = c = 1
 print(a, b, c)
 # Output: 1 1 1
@@ -428,7 +431,7 @@ print(a, b, c)
 
 When using such cascading assignment, it is important to note that all three variables `a`, `b` and `c` refer to the **same object** in memory, an `int` object with the value of 1. In other words, `a`, `b` and `c` are three different names given to the same int object. Assigning a different object to one of them afterwards doesn't change the  others, just as expected:
 
-```
+```py
 a = b = c = 1    # all three names a, b and c refer to same int object with value 1
 print(a, b, c)
 # Output: 1 1 1
@@ -440,7 +443,7 @@ print(a, b, c)
 
 The above is also true for mutable types (like `list`, `dict`, etc.) just as it is true for immutable types (like `int`, `string`, `tuple`, etc.):
 
-```
+```py
 x = y = [7, 8, 9]   # x and y refer to the same list object just created, [7, 8, 9]
 x = [13, 8, 9]      # x now refers to a different list object just created, [13, 8, 9]
 print(y)            # y still refers to the list it was first assigned
@@ -450,7 +453,7 @@ print(y)            # y still refers to the list it was first assigned
 
 So far so good. Things are a bit different when it comes to **modifying** the object (in contrast to **assigning** the name to a different object, which we did above) when the cascading assignment is used for mutable types. Take a look below, and you will see it first hand:
 
-```
+```py
 x = y = [7, 8, 9]     # x and y are two different names for the same list object just created, [7, 8, 9]
 x[0] = 13             # we are updating the value of the list [7, 8, 9] through one of its names, x in this case
 print(y)              # printing the value of the list using its other name
@@ -460,7 +463,7 @@ print(y)              # printing the value of the list using its other name
 
 Nested lists are also valid in python. This means that a list can contain another list as an element.
 
-```
+```py
 x = [1, 2, [3, 4, 5], 6, 7] # this is nested list
 print x[2]
 # Output: [3, 4, 5]
@@ -471,7 +474,7 @@ print x[2][1]
 
 Lastly, variables in Python do not have to stay the same type as which they were first defined -- you can simply use `=` to assign a new value to a variable, even if that value is of a different type.
 
-```
+```py
 a = 2 
 print(a)
 # Output: 2
@@ -495,7 +498,7 @@ Python uses the colon symbol (`:`) and indentation for showing where blocks of c
 
 For example:
 
-```
+```py
 def my_function():    # This is a function definition. Note the colon (:)
     a = 2             # This line belongs to the function because it's indented
     return a          # This line also belongs to the same function
@@ -505,7 +508,7 @@ print(my_function())  # This line is OUTSIDE the function block
 
 or
 
-```
+```py
 if a > b:             # If block starts here
     print(a)          # This is part of the if block
 else:                 # else must be at the same level as if
@@ -515,7 +518,7 @@ else:                 # else must be at the same level as if
 
 Blocks that contain exactly one single-line statement may be put on the same line, though this form is generally not considered good style:
 
-```
+```py
 if a > b: print(a)
 else: print(b)  
 
@@ -523,7 +526,7 @@ else: print(b)
 
 Attempting to do this with more than a single statement will **not** work:
 
-```
+```py
 if x > y: y = x
     print(y) # IndentationError: unexpected indent
 
@@ -533,7 +536,7 @@ if x > y: while y != z: y -= 1  # SyntaxError: invalid syntax
 
 An empty block causes an `IndentationError`. Use `pass` (a command that does nothing) when you have a block with no content:
 
-```
+```py
 def will_be_implemented_later():
     pass
 
@@ -573,7 +576,7 @@ Python source code written with a mix of tabs and spaces, or with non-standard n
 
 `bool`: A boolean value of either `True` or `False`. Logical operations like `and`, `or`, `not` can be performed on booleans.
 
-```
+```py
 x or y    # if x is False then y otherwise x 
 x and y   # if x is False then x otherwise y
 not x     # if x is True then False, otherwise True
@@ -582,7 +585,7 @@ not x     # if x is True then False, otherwise True
 
 In Python 2.x and in Python 3.x, a boolean is also an `int`. The `bool` type is a subclass of the `int` type and `True` and `False` are its only instances:
 
-```
+```py
 issubclass(bool, int) # True
 
 isinstance(True, bool) # True
@@ -592,7 +595,7 @@ isinstance(False, bool) # True
 
 If boolean values are used in arithmetic operations, their integer values (`1` and `0` for `True` and `False`) will be used to return an integer result:
 
-```
+```py
 True + False == 1 # 1 + 0 == 1
 True * True  == 1 # 1 * 1 == 1
 
@@ -692,7 +695,7 @@ In conjunction with the built-in datatypes there are a small number of built-in 
 - `Ellipsis` or `...`: used in core Python3+ anywhere and limited usage in Python2.7+ as part of array notation. `numpy` and related packages use this as a 'include everything' reference in arrays.
 - `NotImplemented`: a singleton used to indicate to Python that a special method doesn't support the specific arguments, and Python will try alternatives if available.
 
-```
+```py
 a = None # No value will be assigned. Any valid datatype can be assigned later
 
 ```
@@ -705,7 +708,7 @@ a = None # No value will be assigned. Any valid datatype can be assigned later
 
 In python, we can check the datatype of an object using the built-in function `type`.
 
-```
+```py
 a = '123'
 print(type(a))
 # Out: <class 'str'>
@@ -717,7 +720,7 @@ print(type(b))
 
 In conditional statements it is possible to test the datatype with `isinstance`. However, it is usually not encouraged to rely on the type of the variable.
 
-```
+```py
 i = 7
 if isinstance(i, int):
     i += 1
@@ -731,7 +734,7 @@ For information on the differences between `type()` and `isinstance()` read: [Di
 
 To test if something is of `NoneType`:
 
-```
+```py
 x = None
 if x is None:
     print('Not a surprise, I just defined x as None.')
@@ -744,7 +747,7 @@ You can perform explicit datatype conversion.
 
 For example, '123' is of `str` type and it can be converted to integer using `int` function.
 
-```
+```py
 a = '123'
 b = int(a)
 
@@ -752,7 +755,7 @@ b = int(a)
 
 Converting from a float string such as '123.456' can be done using `float` function.
 
-```
+```py
 a = '123.456'
 b = float(a)
 c = int(a)    # ValueError: invalid literal for int() with base 10: '123.456'
@@ -762,7 +765,7 @@ d = int(b)    # 123
 
 You can also convert sequence or collection types
 
-```
+```py
 a = 'hello'
 list(a)  # ['h', 'e', 'l', 'l', 'o']
 set(a)   # {'o', 'e', 'l', 'h'}
@@ -779,7 +782,7 @@ With one letter labels just in front of the quotes you can tell what type of str
 - `'foo bar'`: results `str`
 - `r'foo bar'`: results so called raw string, where escaping special characters is not necessary, everything is taken verbatim as you typed
 
-```
+```py
 normal  = 'foo\nbar'   # foo
                        # bar
 escaped = 'foo\\nbar'  # foo\nbar   
@@ -791,7 +794,7 @@ raw     = r'foo\nbar'  # foo\nbar
 
 An object is called **mutable** if it can be changed. For example, when you pass a list to some function, the list can be changed:
 
-```
+```py
 def f(m):
     m.append(3)  # adds a number to the list. This is a mutation.
 
@@ -803,7 +806,7 @@ x == [1, 2]  # False now, since an item was added to the list
 
 An object is called **immutable** if it cannot be changed in any way. For example, integers are immutable, since there's no way to change them:
 
-```
+```py
 def bar():
     x = (1, 2)
     g(x)
@@ -841,7 +844,7 @@ There are a number of collection types in Python.  While types such as `int` and
 
 The `list` type is probably the most commonly used collection type in Python.  Despite its name, a list is more like an array in other languages, mostly JavaScript.  In Python, a list is merely an ordered collection of valid Python values. A list can be created by enclosing values, separated by commas, in square brackets:
 
-```
+```py
 int_list = [1, 2, 3]
 string_list = ['abc', 'defghi']
 
@@ -849,28 +852,28 @@ string_list = ['abc', 'defghi']
 
 A list can be empty:
 
-```
+```py
 empty_list = []
 
 ```
 
 The elements of a list are not restricted to a single data type, which makes sense given that Python is a dynamic language:
 
-```
+```py
 mixed_list = [1, 'abc', True, 2.34, None]
 
 ```
 
 A list can contain another list as its element:
 
-```
+```py
 nested_list = [['a', 'b', 'c'], [1, 2, 3]]
 
 ```
 
 The elements of a list can be accessed via an **index**, or numeric representation of their position.  Lists in Python are **zero-indexed** meaning that the first element in the list is at index 0, the second element is at index 1 and so on:
 
-```
+```py
 names = ['Alice', 'Bob', 'Craig', 'Diana', 'Eric']
 print(names[0]) # Alice
 print(names[2]) # Craig
@@ -879,7 +882,7 @@ print(names[2]) # Craig
 
 Indices can also be negative which means counting from the end of the list (`-1` being the index of the last element). So, using the list from the above example:
 
-```
+```py
 print(names[-1]) # Eric
 print(names[-4]) # Bob
 
@@ -887,7 +890,7 @@ print(names[-4]) # Bob
 
 Lists are mutable, so you can change the values in a list:
 
-```
+```py
 names[0] = 'Ann'
 print(names)
 # Outputs ['Ann', 'Bob', 'Craig', 'Diana', 'Eric']
@@ -898,7 +901,7 @@ Besides, it is possible to add and/or remove elements from a list:
 
 Append object to end of list with `L.append(object)`, returns `None`.
 
-```
+```py
 names = ['Alice', 'Bob', 'Craig', 'Diana', 'Eric']
 names.append("Sia")
 print(names) 
@@ -908,7 +911,7 @@ print(names)
 
 Add a new element to list at a specific index. `L.insert(index, object)`
 
-```
+```py
 names.insert(1, "Nikki")
 print(names)
 # Outputs ['Alice', 'Nikki', 'Bob', 'Craig', 'Diana', 'Eric', 'Sia']
@@ -917,7 +920,7 @@ print(names)
 
 Remove the first occurrence of a value with `L.remove(value)`, returns `None`
 
-```
+```py
 names.remove("Bob")
 print(names) # Outputs ['Alice', 'Nikki', 'Craig', 'Diana', 'Eric', 'Sia']
 
@@ -925,7 +928,7 @@ print(names) # Outputs ['Alice', 'Nikki', 'Craig', 'Diana', 'Eric', 'Sia']
 
 Get the index in the list of the first item whose value is x. It will show an error if there is no such item.
 
-```
+```py
 name.index("Alice")
 0
 
@@ -933,7 +936,7 @@ name.index("Alice")
 
 Count length of list
 
-```
+```py
 len(names)
 6
 
@@ -941,7 +944,7 @@ len(names)
 
 count occurrence of any item in list
 
-```
+```py
 a = [1, 1, 1, 2, 3, 4]
 a.count(1)
 3
@@ -950,7 +953,7 @@ a.count(1)
 
 Reverse the list
 
-```
+```py
 a.reverse()
 [4, 3, 2, 1, 1, 1]
 # or
@@ -961,14 +964,14 @@ a[::-1]
 
 Remove and return item at index (defaults to the last item) with `L.pop([index])`, returns the item
 
-```
+```py
 names.pop() # Outputs 'Sia'
 
 ```
 
 You can iterate over the list elements like below:
 
-```
+```py
 for element in my_list:
     print (element)
 
@@ -978,7 +981,7 @@ for element in my_list:
 
 A `tuple` is similar to a list except that it is fixed-length and immutable. So the values in the tuple cannot be changed nor the values be added to or removed from the tuple. Tuples are commonly used for small collections of values that will not need to change, such as an IP address and port. Tuples are represented with parentheses instead of square brackets:
 
-```
+```py
 ip_address = ('10.20.30.40', 8080)
 
 ```
@@ -987,21 +990,21 @@ The same indexing rules for lists also apply to tuples.  Tuples can also be nest
 
 A tuple with only one member must be defined (note the comma) this way:
 
-```
+```py
 one_member_tuple = ('Only member',)
 
 ```
 
 or
 
-```
+```py
 one_member_tuple = 'Only member',   # No brackets
 
 ```
 
 or just using `tuple` syntax
 
-```
+```py
 one_member_tuple = tuple(['Only member'])
 
 ```
@@ -1010,7 +1013,7 @@ one_member_tuple = tuple(['Only member'])
 
 A `dictionary` in Python is a collection of key-value pairs. The dictionary is surrounded by curly braces. Each pair is separated by a comma and the key and value are separated by a colon. Here is an example:
 
-```
+```py
 state_capitals = {
     'Arkansas': 'Little Rock',
     'Colorado': 'Denver',
@@ -1022,14 +1025,14 @@ state_capitals = {
 
 To get a value, refer to it by its key:
 
-```
+```py
 ca_capital = state_capitals['California']
 
 ```
 
 You can also get all of the keys in a dictionary and then iterate over them:
 
-```
+```py
 for k in state_capitals.keys():
     print('{} is the capital of {}'.format(state_capitals[k], k))
 
@@ -1043,14 +1046,14 @@ A `set` is a collection of elements with no repeats and without insertion order 
 
 Defining a `set` is very similar to defining a `dictionary`:
 
-```
+```py
 first_names = {'Adam', 'Beth', 'Charlie'}
 
 ```
 
 Or you can build a `set` using an existing `list`:
 
-```
+```py
 my_list = [1,2,3]
 my_set = set(my_list)
 
@@ -1058,7 +1061,7 @@ my_set = set(my_list)
 
 Check membership of the `set` using `in`:
 
-```
+```py
 if name in first_names:
     print(name)
 
@@ -1074,7 +1077,7 @@ A `defaultdict` will never raise a KeyError. Any key that does not exist gets th
 
 For example, consider the following dictionary
 
-```
+```py
 >>> state_capitals = {
     'Arkansas': 'Little Rock',
     'Colorado': 'Denver',
@@ -1086,7 +1089,7 @@ For example, consider the following dictionary
 
 If we try to access a non-existent key, python returns us an error as follows
 
-```
+```py
 >>> state_capitals['Alabama']
 Traceback (most recent call last):
 
@@ -1099,7 +1102,7 @@ KeyError: 'Alabama'
 
 Let us try with a `defaultdict`. It can be found in the collections module.
 
-```
+```py
 >>> from collections import defaultdict
 >>> state_capitals = defaultdict(lambda: 'Boston')
 
@@ -1107,7 +1110,7 @@ Let us try with a `defaultdict`. It can be found in the collections module.
 
 What we did here is to set a default value (**Boston**) in case the give key does not exist. Now populate the dict as before:
 
-```
+```py
 >>> state_capitals['Arkansas'] = 'Little Rock'
 >>> state_capitals['California'] = 'Sacramento'
 >>> state_capitals['Colorado'] = 'Denver'
@@ -1117,7 +1120,7 @@ What we did here is to set a default value (**Boston**) in case the give key doe
 
 If we try to access the dict with a non-existent key, python will return us the default value i.e. Boston
 
-```
+```py
 >>> state_capitals['Alabama']
 'Boston'
 
@@ -1125,7 +1128,7 @@ If we try to access the dict with a non-existent key, python will return us the 
 
 and returns the created values for existing key just like a normal `dictionary`
 
-```
+```py
 >>> state_capitals['Arkansas']
 'Little Rock'
 
@@ -1186,7 +1189,7 @@ Python 3 is sometimes bound to `python` instead of `python3`. To use Python 2 on
 
 To get input from the user, use the `input` function (**note**: in Python 2.x, the function is called `raw_input` instead, although Python 2.x has its own version of [`input`](https://docs.python.org/2/library/functions.html#input) that is completely different):
 
-```
+```py
 name = raw_input("What is your name? ")
 # Out: What is your name? _
 
@@ -1196,7 +1199,7 @@ name = raw_input("What is your name? ")
 **Security Remark** Do not use `input()` in Python2 - the entered text will be evaluated as if it were a Python expression (equivalent to `eval(input())` in Python3), which might easily become a vulnerability. See [this article](https://medium.com/@GallegoDor/python-exploitation-1-input-ac10d3f4491f#.cr6w4z7q8) for further information on the risks of using this function.
 
 
-```
+```py
 name = input("What is your name? ")
 # Out: What is your name? _
 
@@ -1206,7 +1209,7 @@ The remainder of this example will be using Python 3 syntax.
 
 The function takes a string argument, which displays it as a prompt and returns a string. The above code provides a prompt, waiting for the user to input.
 
-```
+```py
 name = input("What is your name? ")
 # Out: What is your name?
 
@@ -1214,7 +1217,7 @@ name = input("What is your name? ")
 
 If the user types "Bob" and hits enter, the variable `name` will be assigned to the string `"Bob"`:
 
-```
+```py
 name = input("What is your name? ")
 # Out: What is your name? Bob
 print(name)
@@ -1224,7 +1227,7 @@ print(name)
 
 Note that the `input` is always of type `str`, which is important if you want the user to enter numbers. Therefore, you need to convert the `str` before trying to use it as a number:
 
-```
+```py
 x = input("Write a number:")
 # Out: Write a number: 10
 x / 2
@@ -1243,14 +1246,14 @@ NB: It's recommended to use [`try`/`except` blocks](http://stackoverflow.com/doc
 
 A module is a file containing Python definitions and statements. Function is a piece of code which execute some logic.
 
-```
+```py
 >>> pow(2,3)    #8
 
 ```
 
 To check the built in function in python we can use `dir().` If called without an argument, return the names in the current scope. Else, return an alphabetized list of names comprising (some of) the attribute of the given object, and of attributes reachable from it.
 
-```
+```py
 >>> dir(__builtins__)
 [
     'ArithmeticError', 
@@ -1402,7 +1405,7 @@ To check the built in function in python we can use `dir().` If called without a
 
 To know the functionality of any function, we can use built in function `help` .
 
-```
+```py
 >>> help(max)
 Help on built-in function max in module __builtin__:
 max(...)
@@ -1415,7 +1418,7 @@ max(...)
 
 Built in modules contains extra functionalities.For example to get square root of a number we need to include `math` module.
 
-```
+```py
 >>> import math
 >>> math.sqrt(16) # 4.0
 
@@ -1423,7 +1426,7 @@ Built in modules contains extra functionalities.For example to get square root o
 
 To know all the functions in a module we can assign the functions list to a variable, and then print the variable.
 
-```
+```py
 >>> import math
 >>> dir(math)
 
@@ -1439,7 +1442,7 @@ To know all the functions in a module we can assign the functions list to a vari
 
 it seems `__doc__` is useful to provide some documentation in, say, functions
 
-```
+```py
 >>> math.__doc__
 'This module is always available.  It provides access to the\nmathematical
  functions defined by the C standard.'
@@ -1448,7 +1451,7 @@ it seems `__doc__` is useful to provide some documentation in, say, functions
 
 In addition to functions, documentation can also be provided in modules. So, if you have a file named `helloWorld.py` like this:
 
-```
+```py
 """This is the module docstring."""
 
 def sayHello():
@@ -1459,7 +1462,7 @@ def sayHello():
 
 You can access its docstrings like this:
 
-```
+```py
 >>> import helloWorld
 >>> helloWorld.__doc__
 'This is the module docstring.'
@@ -1468,10 +1471,11 @@ You can access its docstrings like this:
 
 ```
 
+
 <li>For any user defined type, its attributes, its class's attributes, and
 recursively the attributes of its class's base classes can be retrieved using dir()</li>
 
-```
+```py
 >>> class MyClassObject(object):
 ...     pass
 ... 
@@ -1482,7 +1486,7 @@ recursively the attributes of its class's base classes can be retrieved using di
 
 Any data type can be simply converted to string using a builtin function called `str`. This function is called by default when a data type is passed to `print`
 
-```
+```py
 >>> str(123)    # "123"
 
 ```
@@ -1496,7 +1500,7 @@ A module is an importable file containing definitions and statements.
 
 A module can be created by creating a `.py` file.
 
-```
+```py
 # hello.py
 def say_hello():
     print("Hello!")
@@ -1507,7 +1511,7 @@ Functions in a module can be used by importing the module.
 
 For modules that you have made, they will need to be in the same directory as the file that you are importing them into. (However, you can also put them into the Python lib directory with the pre-included modules, but should be avoided if possible.)
 
-```
+```py
 $ python
 >>> import hello
 >>> hello.say_hello()
@@ -1517,7 +1521,7 @@ $ python
 
 Modules can be imported by other modules.
 
-```
+```py
 # greet.py
 import hello
 hello.say_hello()
@@ -1526,7 +1530,7 @@ hello.say_hello()
 
 Specific functions of a module can be imported.
 
-```
+```py
 # greet.py
 from hello import say_hello
 say_hello()
@@ -1535,7 +1539,7 @@ say_hello()
 
 Modules can be aliased.
 
-```
+```py
 # greet.py
 import hello as ai
 ai.say_hello()
@@ -1544,7 +1548,7 @@ ai.say_hello()
 
 A module can be stand-alone runnable script.
 
-```
+```py
 # run_hello.py
 if __name__ == '__main__':
     from hello import say_hello
@@ -1554,7 +1558,7 @@ if __name__ == '__main__':
 
 Run it!
 
-```
+```py
 $ python run_hello.py
 => "Hello!"
 
@@ -1578,7 +1582,8 @@ First, download the latest version of Python 2.7 from the official Website ([htt
 By default, Python installs to a directory:
 
 ```
- C:\Python27\
+
+C:\Python27\
 
 ```
 
@@ -1586,14 +1591,14 @@ Warning: installation does not automatically modify the PATH environment variabl
 
 Assuming that your Python installation is in C:\Python27, add this to your PATH:
 
-```
+```py
 C:\Python27\;C:\Python27\Scripts\
 
 ```
 
 Now to check if Python installation is valid write in cmd:
 
-```
+```py
 python --version
 
 ```
@@ -1624,7 +1629,7 @@ Install Python 3.x using its respective installer.
 
 Python 3 will install the Python launcher which can be used to launch Python 2.x and Python 3.x interchangeably from the command-line:
 
-```
+```py
 P:\>py -3
 Python 3.6.1 (v3.6.1:69c0db5, Mar 21 2017, 17:54:52) [MSC v.1900 32 bit (Intel)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -1639,7 +1644,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 To use the corresponding version of `pip` for a specific Python version, use:
 
-```
+```py
 C:\>py -3 -m pip -V
 pip 9.0.1 from C:\Python36\lib\site-packages (python 3.6)
 
@@ -1654,7 +1659,7 @@ The latest versions of CentOS, Fedora, Redhat Enterprise (RHEL) and Ubuntu come 
 
 To install Python 2.7 on linux manually, just do the following in terminal:
 
-```
+```py
 wget --no-check-certificate https://www.python.org/ftp/python/2.7.X/Python-2.7.X.tgz
 tar -xzf Python-2.7.X.tgz  
 cd Python-2.7.X
@@ -1668,7 +1673,7 @@ Also add the path of new python in PATH environment variable. If new python is i
 
 Now to check if Python installation is valid write in terminal:
 
-```
+```py
 python --version
 
 ```
@@ -1677,7 +1682,7 @@ python --version
 
 If you need Python 3.6 you can install it from source as shown below (Ubuntu 16.10 and 17.04 have 3.6 version in the universal repository). Below steps have to be followed for Ubuntu 16.04 and lower versions:
 
-```
+```py
 sudo apt install build-essential checkinstall
 sudo apt install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
 wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz
@@ -1701,14 +1706,14 @@ considered the stable production version. ([source](http://docs.python-guide.org
 
 Install [Homebrew](https://brew.sh/):
 
-```
+```py
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ```
 
 Install Python 2.7:
 
-```
+```py
 brew install python
 
 ```
@@ -1736,7 +1741,7 @@ For strings, this returns the string itself. The difference between this and `re
 
 Example 1:
 
-```
+```py
 s = """w'o"w"""
 repr(s) # Output: '\'w\\\'o"w\''  
 str(s)  # Output: 'w\'o"w'
@@ -1747,7 +1752,7 @@ eval(repr(s)) == s # Output: True
 
 Example 2:
 
-```
+```py
 import datetime
 today = datetime.datetime.now()
 str(today)  # Output: '2016-09-15 06:58:46.915000'
@@ -1757,7 +1762,7 @@ repr(today) # Output: 'datetime.datetime(2016, 9, 15, 6, 58, 46, 915000)'
 
 When writing a class, you can override these methods to do whatever you want:
 
-```
+```py
 class Represent(object):
 
     def __init__(self, x, y):
@@ -1773,7 +1778,7 @@ class Represent(object):
 
 Using the above class we can see the results:
 
-```
+```py
 r = Represent(1, "Hopper")
 print(r)  # prints __str__
 print(r.__repr__)  # prints __repr__: '<bound method Represent.__repr__ of Represent(x=1,y="Hopper")>'
@@ -1798,7 +1803,7 @@ On instances with both Python 2 and Python 3 installed, `pip` often refers to Py
 
 Searching for a package is as simple as typing
 
-```
+```py
 $ pip search <query>
 # Searches for packages whose name or summary contains <query>
 
@@ -1806,7 +1811,7 @@ $ pip search <query>
 
 Installing a package is as simple as typing **(in a terminal / command-prompt, not in the Python interpreter)**
 
-```
+```py
 $ pip install [package_name]           # latest version of the package
 
 $ pip install [package_name]==x.x.x    # specific version of the package
@@ -1819,7 +1824,7 @@ where `x.x.x` is the version number of the package you want to install.
 
 When your server is behind proxy, you can install package by using below command:
 
-```
+```py
 $ pip --proxy http://<server address>:<port> install
 
 ```
@@ -1828,14 +1833,14 @@ $ pip --proxy http://<server address>:<port> install
 
 When new versions of installed packages appear they are not automatically installed to your system. To get an overview of which of your installed packages have become outdated, run:
 
-```
+```py
 $ pip list --outdated
 
 ```
 
 To upgrade a specific package use
 
-```
+```py
 $ pip install [package_name] --upgrade
 
 ```
@@ -1871,28 +1876,28 @@ For more information regarding pip do [read here](https://pip.pypa.io/en/stable/
 Python has several functions built into the interpreter.
 If you want to get information of keywords, built-in functions, modules or topics open a Python console and enter:
 
-```
+```py
 >>> help()
 
 ```
 
 You will receive information by entering keywords directly:
 
-```
+```py
 >>> help(help)
 
 ```
 
 **or** within the utility:
 
-```
+```py
 help> help
 
 ```
 
 which will show an explanation:
 
-```
+```py
 Help on _Helper in module _sitebuiltins object:
 
 class _Helper(builtins.object)
@@ -1923,21 +1928,21 @@ class _Helper(builtins.object)
 
 You can also request subclasses of modules:
 
-```
+```py
 help(pymysql.connections)
 
 ```
 
 You can use help to access the docstrings of the different modules you have imported, e.g., try the following:
 
-```
+```py
 >>> help(math)
 
 ```
 
 and you'll get an error
 
-```
+```py
 >>> import math
 >>> help(math)
 

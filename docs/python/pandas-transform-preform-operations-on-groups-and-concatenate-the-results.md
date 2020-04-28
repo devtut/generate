@@ -15,7 +15,7 @@ description: "Simple transform, Multiple results per group"
 
 We assume that a customer can have n orders, an order can have m items, and items can be ordered more multiple times
 
-```
+```py
 orders_df = pd.DataFrame()
 orders_df['customer_id'] = [1,1,1,1,1,2,2,3,3,3,3,3]
 orders_df['order_id'] = [1,1,1,2,2,3,3,4,5,6,6,6]
@@ -45,7 +45,7 @@ print(orders_df)
 
 ### Now, we will use pandas `transform` function to count the number of orders per customer
 
-```
+```py
 # First, we define the function that will be applied per customer_id 
 count_number_of_orders = lambda x: len(x.unique())
 
@@ -83,7 +83,7 @@ print(orders_df)
 In the previous example, we had one result per client.
 However, functions returning different values for the group can also be applied.
 
-```
+```py
 # Create a dummy dataframe
 orders_df = pd.DataFrame()
 orders_df['customer_id'] = [1,1,1,1,1,2,2,3,3,3,3,3]

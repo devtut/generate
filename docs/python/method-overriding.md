@@ -12,7 +12,7 @@ description: "Basic method overriding"
 
 Here is an example of basic overriding in Python (for the sake of clarity and compatibility with both Python 2 and 3, using [new style class](https://stackoverflow.com/documentation/python/419/classes/1402/new-style-vs-old-style-classes#t=20160723190241882605) and `print` with `()`):
 
-```
+```py
 class Parent(object):
     def introduce(self):
         print("Hello!")

@@ -12,7 +12,7 @@ description: "Analyze functions in a python script"
 
 This analyzes a python script and, for each defined function, reports the line number where the function began, where the signature ends, where the docstring ends, and where the function definition ends.
 
-```
+```py
 #!/usr/local/bin/python3
 
 import ast

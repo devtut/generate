@@ -12,7 +12,7 @@ description: "Server Object (Method)"
 
 Our server object is given an 'application' parameter which can be any callable application object (see other examples).  It writes first the headers, then the body of data returned by our application to the system standard output.
 
-```
+```py
 import os, sys    
 
 def run(application):

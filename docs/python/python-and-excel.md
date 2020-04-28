@@ -10,7 +10,7 @@ description: "Put list data into a Excel's file., OpenPyXL, Create excel charts 
 ## Put list data into a Excel's file.
 
 
-```
+```py
 import os, sys
 from openpyxl import Workbook
 from datetime import datetime
@@ -59,7 +59,7 @@ os.system('start excel.exe "%s\\%s"' % (sys.path[0], filename, ))
 
 **Manipulating and reading an existing workbook:**
 
-```
+```py
 import openpyxl as opx
 #To change an existing wookbook we located it by referencing its path
 workbook = opx.load_workbook(workbook_path)
@@ -68,28 +68,28 @@ workbook = opx.load_workbook(workbook_path)
 
 `load_workbook()` contains the parameter `read_only`, setting this to `True` will load the workbook as read_only, this is helpful when reading larger `xlsx` files:
 
-```
+```py
 workbook = opx.load_workbook(workbook_path, read_only=True)
 
 ```
 
 Once you have loaded the workbook into memory, you can access the individual sheets using `workbook.sheets`
 
-```
+```py
 first_sheet = workbook.worksheets[0]
 
 ```
 
 If you want to specify the name of an available sheets, you can use `workbook.get_sheet_names()`.
 
-```
+```py
 sheet = workbook.get_sheet_by_name('Sheet Name')
 
 ```
 
 Finally, the rows of the sheet can be accessed using `sheet.rows`.  To iterate over the rows in a sheet, use:
 
-```
+```py
 for row in sheet.rows:
     print row[0].value
 
@@ -99,7 +99,7 @@ Since each `row` in `rows` is a list of `Cell`s, use `Cell.value` to get the con
 
 **Creating a new Workbook in memory:**
 
-```
+```py
 #Calling the Workbook() function creates a new book in memory
 wb = opx.Workbook()
 
@@ -110,14 +110,14 @@ ws = wb.create_sheet('Sheet Name', 0) #0 refers to the index of the sheet order 
 
 Several tab properties may be changed through openpyxl, for example the `tabColor`:
 
-```
+```py
 ws.sheet_properties.tabColor = 'FFC0CB'
 
 ```
 
 To save our created workbook we finish with:
 
-```
+```py
 wb.save('filename.xlsx')
 
 ```
@@ -127,7 +127,7 @@ wb.save('filename.xlsx')
 ## Create excel charts with xlsxwriter
 
 
-```
+```py
 import xlsxwriter
 
 # sample data
@@ -208,7 +208,7 @@ Python xlrd library is to extract data from Microsoft Excel (tm) spreadsheet fil
 
 **Installation:-**
 
-```
+```py
 pip install xlrd
 
 ```
@@ -220,7 +220,7 @@ Or you can use setup.py file from pypi
 **Reading an excel sheet:-**
 Import xlrd module and open excel file using open_workbook() method.
 
-```
+```py
 import xlrd
 book=xlrd.open_workbook('sample.xlsx')
 
@@ -228,28 +228,28 @@ book=xlrd.open_workbook('sample.xlsx')
 
 Check number of sheets in the excel
 
-```
+```py
 print book.nsheets
 
 ```
 
 Print the sheet names
 
-```
+```py
 print book.sheet_names()
 
 ```
 
 Get the sheet based on index
 
-```
+```py
 sheet=book.sheet_by_index(1)
 
 ```
 
 Read the contents of a cell
 
-```
+```py
 cell = sheet.cell(row,col) #where row=row number and col=column number
 print cell.value #to print the cell contents
 
@@ -257,7 +257,7 @@ print cell.value #to print the cell contents
 
 Get number of rows and number of columns in an excel sheet
 
-```
+```py
 num_rows=sheet.nrows
 num_col=sheet.ncols
 
@@ -265,7 +265,7 @@ num_col=sheet.ncols
 
 Get excel sheet by name
 
-```
+```py
 sheets = book.sheet_names()
 cur_sheet = book.sheet_by_name(sheets[0])
 
@@ -276,7 +276,7 @@ cur_sheet = book.sheet_by_name(sheets[0])
 ## Format Excel files with xlsxwriter
 
 
-```
+```py
 import xlsxwriter
 
 # create a new file 

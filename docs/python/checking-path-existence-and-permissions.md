@@ -12,7 +12,7 @@ description: "Perform checks using os.access"
 
 `os.access` is much better solution to check whether directory exists and it's accesable for reading and writing.
 
-```
+```py
 import os
 path = "/home/myFiles/directory1"
 
@@ -32,7 +32,7 @@ os.access(path, os.E_OK)
 
 also it's possible to perfrom all checks together
 
-```
+```py
 os.access(path, os.F_OK & os.R_OK & os.W_OK & os.E_OK)
 
 ```

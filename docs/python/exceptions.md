@@ -15,7 +15,7 @@ Errors detected during execution are called exceptions and are not unconditional
 
 While it's often tempting to catch every `Exception`:
 
-```
+```py
 try:
     very_difficult_function()
 except Exception:
@@ -28,7 +28,7 @@ finally:
 
 Or even everything (that includes `BaseException` and all its children including `Exception`):
 
-```
+```py
 try:
     even_more_difficult_function()
 except:
@@ -51,7 +51,7 @@ Sometimes you want to catch an exception just to inspect it, e.g. for logging pu
 
 In this case, simply use the `raise` statement with no parameters.
 
-```
+```py
 try:
     5 / 0
 except ZeroDivisionError:
@@ -63,7 +63,7 @@ except ZeroDivisionError:
 Keep in mind, though, that someone further up in the caller stack can still catch the exception and handle it somehow.  The done output could be a nuisance in this case because it will happen in any case (caught or not caught).
 So it might be a better idea to raise a different exception, containing your comment about the situation as well as the original exception:
 
-```
+```py
 try:
     5 / 0
 except ZeroDivisionError as e:
@@ -76,7 +76,8 @@ But this has the drawback of reducing the exception trace to exactly this `raise
 In Python 3 you can keep the original stack by using the `raise`-`from` syntax:
 
 ```
-    raise ZeroDivisionError("Got an error") from e
+
+   raise ZeroDivisionError("Got an error") from e
 
 ```
 
@@ -89,7 +90,7 @@ There are a few ways to [catch multiple exceptions](https://docs.python.org/3/tu
 
 The first is by creating a tuple of the exception types you wish to catch and handle in the same manner. This example will cause the code to ignore `KeyError` and `AttributeError` exceptions.
 
-```
+```py
 try:
     d = {}
     a = d[1]
@@ -101,7 +102,7 @@ except (KeyError, AttributeError) as e:
 
 If you wish to handle different exceptions in different ways, you can provide a separate exception block for each type. In this example, we still catch the `KeyError` and `AttributeError`, but handle the exceptions in different manners.
 
-```
+```py
 try:
     d = {}
     a = d[1]
@@ -120,7 +121,7 @@ except AttributeError as e:
 
 Use `try...except:` to catch exceptions. You should specify as precise an exception as you can:
 
-```
+```py
 try:
     x = 5 / 0
 except ZeroDivisionError as e:
@@ -138,7 +139,7 @@ The exception class that is specified - in this case, `ZeroDivisionError` - catc
 
 For example, `ZeroDivisionError` is a subclass of `ArithmeticError`:
 
-```
+```py
 >>> ZeroDivisionError.__bases__
 (<class 'ArithmeticError'>,)
 
@@ -146,7 +147,7 @@ For example, `ZeroDivisionError` is a subclass of `ArithmeticError`:
 
 And so, the following will still catch the `ZeroDivisionError`:
 
-```
+```py
 try:
     5 / 0
 except ArithmeticError:
@@ -165,7 +166,7 @@ For example, `IOError` and `OSError` are both subclasses of `EnvironmentError`. 
 
 The hierarchy of built-in exceptions:
 
-```
+```py
 BaseException
  +-- SystemExit
  +-- KeyboardInterrupt
@@ -219,7 +220,7 @@ BaseException
 
 ```
 
-```
+```py
 BaseException
  +-- SystemExit
  +-- KeyboardInterrupt
@@ -295,7 +296,7 @@ Code in an else block will only be run if no exceptions were raised by the code 
 
 For example:
 
-```
+```py
 try:
     data = {1: 'one', 2: 'two'}
     print(data[1])
@@ -310,7 +311,7 @@ else:
 
 Note that this kind of `else:` cannot be combined with an `if` starting the else-clause to an `elif`.  If you have a following `if` it needs to stay indented below that `else:`:
 
-```
+```py
 try:
     ...
 except ...:
@@ -332,7 +333,7 @@ else:
 
 If your code encounters a condition it doesn't know how to handle, such as an incorrect parameter, it should raise the appropriate exception.
 
-```
+```py
 def even_the_odds(odds):
     if odds % 2 != 1:
         raise ValueError("Did not get an odd number")
@@ -348,7 +349,7 @@ def even_the_odds(odds):
 
 Create a class inheriting from `Exception`:
 
-```
+```py
 class FooException(Exception):
     pass
 try:
@@ -360,7 +361,7 @@ except FooException:
 
 or another exception type:
 
-```
+```py
 class NegativeError(ValueError):
       pass
 
@@ -385,7 +386,7 @@ else:
 
 Exceptions are just regular Python objects that inherit from the built-in `BaseException`. A Python script can use the `raise` statement to interrupt execution, causing Python to print a stack trace of the call stack at that point and a representation of the exception instance. For example:
 
-```
+```py
 >>> def failing_function():
 ...     raise ValueError('Example error!')
 >>> failing_function()
@@ -400,7 +401,7 @@ which says that a `ValueError` with the message `'Example error!'` was raised by
 
 Calling code can choose to handle any and all types of exception that a call can raise:
 
-```
+```py
 >>> try:
 ...     failing_function()
 ... except ValueError:
@@ -411,7 +412,7 @@ Handled the error
 
 You can get hold of the exception objects by assigning them in the `except...` part of the exception handling code:
 
-```
+```py
 >>> try:
 ...     failing_function()
 ... except ValueError as e:
@@ -431,7 +432,7 @@ A complete list of built-in Python exceptions along with their descriptions can 
 
 Imagine you want a user to enter a number via `input`. You want to ensure that the input is a number. You can use `try`/`except` for this:
 
-```
+```py
 while True:
     try:
         nb = int(input('Enter a number: '))
@@ -449,7 +450,7 @@ If the input could not be converted to an integer, a `ValueError` is raised. You
 
 Imagine you are iterating over a list of consecutive integers, like `range(n)`, and you have a list of dictionaries `d` that contains information about things to do when you encounter some particular integers, say **skip the `d[i]` next ones**.
 
-```
+```py
 d = [{7: 3}, {25: 9}, {38: 5}]
 
 for i in range(len(d)):
@@ -473,7 +474,7 @@ Sometimes, you may want something to occur regardless of whatever exception happ
 
 The `finally` block of a `try` clause will happen regardless of whether any exceptions were raised.
 
-```
+```py
 resource = allocate_some_expensive_resource()
 try:
     do_stuff(resource)
@@ -496,7 +497,7 @@ In the process of handling an exception, you may want to raise another exception
 
 You can chain exceptions to show how the handling of exceptions proceeded:
 
-```
+```py
 >>> try:
     5 / 0
 except ZeroDivisionError as e:

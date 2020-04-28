@@ -18,7 +18,7 @@ pickled representation of an object is always a bytes object in all cases so one
 
 the data may may be off any kind , for example,
 
-```
+```py
 data={'a':'some_value',
      'b':[9,4,7],
      'c':['some_str','another_str','spam','ham'],
@@ -29,7 +29,7 @@ data={'a':'some_value',
 
 **Store data**
 
-```
+```py
 import pickle
 file=open('filename','wb')  #file object in binary write mode
 pickle.dump(data,file)      #dump the data in the file object
@@ -39,7 +39,7 @@ file.close()                #close the file to write into the file
 
 **Load data**
 
-```
+```py
 import pickle
 file=open('filename','rb')  #file object in binary read mode
 data=pickle.load(file)      #load the data back
@@ -69,7 +69,7 @@ file.close()
 
 **Save data to and from file**
 
-```
+```py
 import pickle
 def save(filename,object):
     file=open(filename,'wb')

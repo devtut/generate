@@ -14,7 +14,7 @@ More complicated tests sometimes need to have things set up before you run the c
 
 Our code file:
 
-```
+```py
 # projectroot/module/stuff.py
 class Stuff(object):
     def prep(self):
@@ -25,7 +25,7 @@ class Stuff(object):
 
 Our test file:
 
-```
+```py
 # projectroot/tests/test_stuff.py
 import pytest
 from module import stuff
@@ -50,7 +50,7 @@ def test_bar_updates():
 
 These are pretty simple examples, but if our `Stuff` object needed a lot more setup, it would get unwieldy. We see that there is some duplicated code between our test cases, so let's refactor that into a separate function first.
 
-```
+```py
 # projectroot/tests/test_stuff.py
 import pytest
 from module import stuff
@@ -85,7 +85,7 @@ Fixtures are much more powerful and flexible versions of test setup functions. T
 
 First we change `get_prepped_stuff` to a fixture called `prepped_stuff`. You want to name your fixtures with nouns rather than verbs because of how the fixtures will end up being used in the test functions themselves later. The `@pytest.fixture` indicates that this specific function should be handled as a fixture rather than a regular function.
 
-```
+```py
 @pytest.fixture
 def prepped_stuff():
     my_stuff = stuff.Stuff()
@@ -96,7 +96,7 @@ def prepped_stuff():
 
 Now we should update the test functions so that they use the fixture. This is done by adding a parameter to their definition that exactly matches the fixture name. When py.test executes, it will run the fixture before running the test, then pass the return value of the fixture into the test function through that parameter. (Note that fixtures don't **need** to return a value; they can do other setup things instead, like calling an external resource, arranging things on the filesystem, putting values in a database, whatever the tests need for setup)
 
-```
+```py
 def test_foo_updates(prepped_stuff):
     my_stuff = prepped_stuff
     assert 1 == my_stuff.foo
@@ -114,7 +114,7 @@ def test_bar_updates(prepped_stuff):
 
 Now you can see why we named it with a noun. but the `my_stuff = prepped_stuff` line is pretty much useless, so let's just use `prepped_stuff` directly instead.
 
-```
+```py
 def test_foo_updates(prepped_stuff):
     assert 1 == prepped_stuff.foo
     prepped_stuff.foo = 30000
@@ -134,7 +134,7 @@ Now we're using fixtures! We can go further by changing the scope of the fixture
 
 Let's say our code has grown and our Stuff object now needs special clean up.
 
-```
+```py
 # projectroot/module/stuff.py
 class Stuff(object):
 def prep(self):
@@ -149,7 +149,7 @@ def finish(self):
 
 We could add some code to call the clean up at the bottom of every test function, but fixtures provide a better way to do this. If you add a function to the fixture and register it as a **finalizer**, the code in the finalizer function will get called after the test using the fixture is done. If the scope of the fixture is larger than a single function (like module or session), the finalizer will be executed after all the tests in scope are completed, so after the module is done running or at the end of the entire test running session.
 
-```
+```py
 @pytest.fixture
 def prepped_stuff(request):  # we need to pass in the request to use finalizers
     my_stuff = stuff.Stuff()
@@ -165,7 +165,7 @@ def prepped_stuff(request):  # we need to pass in the request to use finalizers
 
 Using the finalizer function inside a function can be a bit hard to understand at first glance, especially when you have more complicated fixtures. You can instead use a **yield fixture** to do the same thing with a more human readable execution flow. The only real difference is that instead of using `return` we use a `yield` at the part of the fixture where the setup is done and control should go to a test function, then add all the cleanup code after the `yield`. We also decorate it as a `yield_fixture` so that py.test knows how to handle it.
 
-```
+```py
 @pytest.yield_fixture
 def prepped_stuff():  # it doesn't need request now!
     # do setup
@@ -189,7 +189,7 @@ For more information, see the [official py.test fixture documentation](http://do
 
 A failing test will provide helpful output as to what went wrong:
 
-```
+```py
 # projectroot/tests/test_code.py
 from module import code
 
@@ -201,7 +201,7 @@ def test_add__failing():
 
 Results:
 
-```
+```py
 $ py.test
 ================================================== test session starts ===================================================
 platform darwin -- Python 2.7.10, pytest-2.9.2, py-1.4.31, pluggy-0.3.1
@@ -231,7 +231,7 @@ tests/test_code.py:5: AssertionError
 
 `py.test` is one of several [third party testing libraries](http://docs.pytest.org/en/latest/) that are available for Python. It can be installed using [`pip`](http://stackoverflow.com/documentation/python/1781/pip-pypi-package-manager#t=201607221328338568674) with
 
-```
+```py
 pip install pytest
 
 ```
@@ -240,7 +240,7 @@ pip install pytest
 
 Say we are testing an addition function in `projectroot/module/code.py`:
 
-```
+```py
 # projectroot/module/code.py
 def add(a, b):
     return a + b
@@ -251,7 +251,7 @@ def add(a, b):
 
 We create a test file in `projectroot/tests/test_code.py`. The file **must begin with `test_`** to be recognized as a testing file.
 
-```
+```py
 # projectroot/tests/test_code.py
 from module import code
 
@@ -265,7 +265,7 @@ def test_add():
 
 From `projectroot` we simply run `py.test`:
 
-```
+```py
 # ensure we have the modules
 $ touch tests/__init__.py
 $ touch module/__init__.py

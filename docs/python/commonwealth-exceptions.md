@@ -23,7 +23,7 @@ A function or method was called with more (or less) arguments than the ones it c
 
 If more arguments are given:
 
-```
+```py
 def foo(a): return a
 foo(a,b,c,d) #And a,b,c,d are defined
 
@@ -31,7 +31,7 @@ foo(a,b,c,d) #And a,b,c,d are defined
 
 If less arguments are given:
 
-```
+```py
 def foo(a,b,c,d): return a += b + c + d
 foo(a) #And a is defined
 
@@ -47,7 +47,7 @@ Some types cannot be operated together, depending on the operand.
 
 For example: `+` is used to concatenate and add, but you can't use any of them for both types. For instance, trying to make a `set` by concatenating (`+`ing) `'set1'` and `'tuple1'` gives the error. Code:
 
-```
+```py
 set1, tuple1 = {1,2}, (3,4)
 a = set1 + tuple1
 
@@ -55,21 +55,21 @@ a = set1 + tuple1
 
 Some types (eg: `int` and `string`) use both `+` but for different things:
 
-```
+```py
 b = 400 + 'foo'
 
 ```
 
 Or they may not be even used for anything:
 
-```
+```py
 c = ["a","b"] - [1,2]
 
 ```
 
 But you can for example add a `float` to an `int`:
 
-```
+```py
 d = 1 + 1.0
 
 ```
@@ -82,7 +82,7 @@ For an object to be iterable it can take sequential indexes starting from zero u
 
 Here we are saying that `bar` is the zeroth item of 1. Nonsense:
 
-```
+```py
 foo = 1
 bar = foo[0]
 
@@ -90,7 +90,7 @@ bar = foo[0]
 
 This is a more discrete version: In this example `for` tries to set `x` to `amount[0]`, the first item in an iterable but it can't because amount is an int:
 
-```
+```py
 amount = 10
 for x in amount: print(x)
 
@@ -102,7 +102,7 @@ You are defining a variable and calling it later (like what you do with a functi
 
 ### Example
 
-```
+```py
 foo = "notAFunction"
 foo()
 
@@ -119,7 +119,7 @@ Is raised when you tried to use a variable, method or function that is not initi
 
 It's possible that you forgot to initialize it, specially if it is a constant
 
-```
+```py
 foo   # This variable is not defined
 bar() # This function is not defined
 
@@ -127,7 +127,7 @@ bar() # This function is not defined
 
 ### Maybe it's defined later:
 
-```
+```py
 baz()
 
 def baz():
@@ -137,7 +137,7 @@ def baz():
 
 ### Or it wasn't `import`ed:
 
-```
+```py
 #needs import math
 
 def sqrt():
@@ -150,10 +150,11 @@ def sqrt():
 
 The so-called LEGB Rule talks about the Python scopes. It's name is based on the different scopes, ordered by the correspondent priorities:
 
-```
+```py
 Local → Enclosed → Global → Built-in.
 
 ```
+
 
 - **L**ocal: Variables not declared global or assigned in a function.
 - **E**nclosing: Variables defined in a function that is wrapped inside another function.
@@ -162,7 +163,7 @@ Local → Enclosed → Global → Built-in.
 
 As an example:
 
-```
+```py
 for i in range(4):
     d = i * 2
 print(d)
@@ -171,7 +172,7 @@ print(d)
 
 `d` is accesible because the `for` loop does not mark a new scope, but if it did, we would have an error and its behavior would be similar to:
 
-```
+```py
 def noaccess():
     for i in range(4):
         d = i * 2
@@ -198,12 +199,13 @@ This exception is raised when the indentation level increases with no reason.
 There is no reason to increase the level here:
 
 ```
- print "This line is ok"
+
+print "This line is ok"
      print "This line isn't ok"
 
 ```
 
-```
+```py
  print("This line is ok")
      print("This line isn't ok")
 
@@ -212,12 +214,13 @@ There is no reason to increase the level here:
 Here there are two errors: the last one and that the indentation does not match any indentation level. However just one is shown:
 
 ```
- print "This line is ok"
+
+print "This line is ok"
   print "This line isn't ok"
 
 ```
 
-```
+```py
  print("This line is ok")
   print("This line isn't ok")
 
@@ -229,7 +232,7 @@ Appears you didn't unindent completely.
 
 ### Example
 
-```
+```py
 def foo():
     print "This should be part of foo()"
    print "ERROR!"
@@ -237,7 +240,7 @@ print "This is not a part of foo()"
 
 ```
 
-```
+```py
  print("This line is ok")
   print("This line isn't ok")
 
@@ -249,7 +252,7 @@ After a colon (and then a new line) the indentation level has to increase. This 
 
 ### Example
 
-```
+```py
 if ok:
 doStuff()
 
@@ -257,7 +260,7 @@ doStuff()
 
 **Note**: Use the keyword `pass` (that makes absolutely nothing) to just put an `if`, `else`, `except`, `class`, `method` or `definition` but not say what will happen if called/condition is true (but do it later, or in the case of `except`: just do nothing):
 
-```
+```py
 def foo():
     pass
 
@@ -267,7 +270,7 @@ def foo():
 
 ### Example
 
-```
+```py
 def foo():
     if ok:
       return "Two != Four != Tab"
@@ -294,21 +297,21 @@ See [this](http://stackoverflow.com/a/1017404/7237719) question if you want to l
 
 The `assert` statement exists in almost every programming language. When you do:
 
-```
+```py
 assert condition
 
 ```
 
 or:
 
-```
+```py
 assert condition, message
 
 ```
 
 It's equivalent to this:
 
-```
+```py
 if __debug__:
     if not condition: raise AssertionError(message)
 
@@ -326,7 +329,7 @@ Error raised when the user presses the interrupt key, normally <kbd>Ctrl</kbd> +
 
 You tried to calculate `1/0` which is undefined. See this example to find the divisors of a number:
 
-```
+```py
 div = float(raw_input("Divisors of: "))
 for x in xrange(div+1): #includes the number itself and zero
     if div/x == div//x:
@@ -334,7 +337,7 @@ for x in xrange(div+1): #includes the number itself and zero
 
 ```
 
-```
+```py
 div = int(input("Divisors of: "))
 for x in range(div+1): #includes the number itself and zero
     if div/x == div//x:
@@ -344,7 +347,7 @@ for x in range(div+1): #includes the number itself and zero
 
 It raises `ZeroDivisionError` because the `for` loop assigns that value to `x`. Instead it should be:
 
-```
+```py
 div = float(raw_input("Divisors of: "))
 for x in xrange(1,div+1): #includes the number itself but not zero
     if div/x == div//x:
@@ -352,7 +355,7 @@ for x in xrange(1,div+1): #includes the number itself but not zero
 
 ```
 
-```
+```py
 div = int(input("Divisors of: "))
 for x in range(1,div+1): #includes the number itself but not zero
     if div/x == div//x:
@@ -367,7 +370,7 @@ for x in range(1,div+1): #includes the number itself but not zero
 
 The gross majority of the time a SyntaxError which points to an uninteresting line means there is an issue on the line before it (in this example, it's a missing parenthesis):
 
-```
+```py
 def my_print():
     x = (1 + 1
     print(x)
@@ -377,7 +380,8 @@ def my_print():
 Returns
 
 ```
-  File "<input>", line 3
+
+ File "<input>", line 3
     print(x)
         ^
 SyntaxError: invalid syntax
@@ -389,7 +393,8 @@ The most common reason for this issue is mismatched parentheses/brackets, as the
 There is one major caveat for print statements in Python 3:
 
 ```
- >>> print "hello world"
+
+>>> print "hello world"
   File "<stdin>", line 1
     print "hello world"
                       ^
@@ -399,7 +404,7 @@ SyntaxError: invalid syntax
 
 Because [the `print` statement was replaced with the `print()` function](https://docs.python.org/3/whatsnew/3.0.html#print-is-a-function), so you want:
 
-```
+```py
 print("hello world")  # Note this is valid for both Py2 & Py3
 
 ```

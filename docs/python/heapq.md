@@ -12,7 +12,7 @@ description: "Largest and smallest items in a collection, Smallest item in a col
 
 To find the largest items in a collection, `heapq` module has a function called `nlargest`, we pass it two arguments, the first one is the number of items that we want to retrieve, the second one is the collection name:
 
-```
+```py
 import heapq
 
 
@@ -23,14 +23,14 @@ print(heapq.nlargest(4, numbers))  # [200, 150, 100, 50]
 
 Similarly, to find the smallest items in a collection, we use `nsmallest` function:
 
-```
+```py
 print(heapq.nsmallest(4, numbers))  # [1, 2, 4, 8]
 
 ```
 
 Both `nlargest` and `nsmallest` functions take an optional argument (key parameter) for complicated data structures. The following example shows the use of `age` property to retrieve the oldest and the youngest people from `people` dictionary:
 
-```
+```py
 people = [
     {'firstname': 'John', 'lastname': 'Doe', 'age': 30},
     {'firstname': 'Jane', 'lastname': 'Doe', 'age': 25},
@@ -57,7 +57,7 @@ print(youngest)
 
 The most interesting property of a `heap` is that its smallest element is always the first element: `heap[0]`
 
-```
+```py
 import heapq
 
 

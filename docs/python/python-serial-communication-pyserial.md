@@ -10,7 +10,7 @@ description: "Initialize serial device, Read from serial port, Check what serial
 ## Initialize serial device
 
 
-```
+```py
 import serial
 #Serial takes these two parameters: serial device and baudrate
 ser = serial.Serial('/dev/ttyUSB0', 9600)
@@ -24,7 +24,7 @@ ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 Initialize serial device
 
-```
+```py
 import serial
 #Serial takes two parameters: serial device and baudrate
 ser = serial.Serial('/dev/ttyUSB0', 9600)
@@ -33,28 +33,28 @@ ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 to read single byte from serial device
 
-```
+```py
 data = ser.read()
 
 ```
 
 to read given number of bytes from the serial device
 
-```
+```py
 data = ser.read(size=5)
 
 ```
 
 to read one line from serial device.
 
-```
+```py
 data = ser.readline()
 
 ```
 
 to read the data from serial device while something is being written over it.
 
-```
+```py
 #for python2.7
 data = ser.read(ser.inWaiting())
 
@@ -70,14 +70,14 @@ ser.read(ser.inWaiting)
 
 To get a list of available serial ports use
 
-```
+```py
 python -m serial.tools.list_ports
 
 ```
 
 at a command prompt or
 
-```
+```py
 from serial.tools import list_ports
 list_ports.comports()  # Outputs list of available serial ports
 

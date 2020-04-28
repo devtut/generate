@@ -19,7 +19,7 @@ The following code sends a message to a process listening on localhost port 6667
 
 **Note that there is no need to "close" the socket after the send, because UDP is [connectionless](https://en.wikipedia.org/wiki/Connectionless_communication).**
 
-```
+```py
 from socket import socket, AF_INET, SOCK_DGRAM
 s = socket(AF_INET, SOCK_DGRAM)
 msg = ("Hello you there!").encode('utf-8')  # socket.sendto() takes bytes as input, hence we must encode the string first.
@@ -36,7 +36,7 @@ UDP is a connectionless protocol. This means that peers sending messages do not 
 
 A UDP server using solely the `socket` module:
 
-```
+```py
 from socket import socket, AF_INET, SOCK_DGRAM
 sock = socket(AF_INET, SOCK_DGRAM)
 sock.bind(('localhost', 6667))
@@ -49,7 +49,7 @@ while True:
 
 Below is an alternative implementation using `socketserver.UDPServer`:
 
-```
+```py
 from socketserver import BaseRequestHandler, UDPServer
 
 class MyHandler(BaseRequestHandler):
@@ -75,7 +75,7 @@ Sending data over the internet is made possible using multiple modules. The sock
 
 The following code sends the byte string `b'Hello'` to a TCP server listening on port 6667 on the host localhost and closes the connection when finished:
 
-```
+```py
 from socket import socket, AF_INET, SOCK_STREAM
 s = socket(AF_INET, SOCK_STREAM)
 s.connect(('localhost', 6667))  # The address of the TCP server listening
@@ -99,7 +99,7 @@ When run with the `-c` argument, this program connects to the server, reads the 
 
 **client_list.py**
 
-```
+```py
 import argparse
 import json
 import socket
@@ -158,7 +158,7 @@ if __name__ == '__main__':
 
 **Server Output**
 
-```
+```py
 $ python client_list.py
 Starting server...
 
@@ -166,7 +166,7 @@ Starting server...
 
 **Client Output**
 
-```
+```py
 $ python client_list.py -c -n name1
 {
     "name1": {
@@ -180,7 +180,7 @@ $ python client_list.py -c -n name1
 
 The receive buffers are limited to 1024 bytes. If the JSON string representation of the client list exceeds this size, it will be truncated. This will cause the following exception to be raised:
 
-```
+```py
 ValueError: Unterminated string starting at: line 1 column 1023 (char 1022)
 
 ```
@@ -192,14 +192,14 @@ ValueError: Unterminated string starting at: line 1 column 1023 (char 1022)
 
 First you disable your network card's automatic checksumming:
 
-```
+```py
 sudo ethtool -K eth1 tx off
 
 ```
 
 Then send your packet, using a SOCK_RAW socket:
 
-```
+```py
 #!/usr/bin/env python
 from socket import socket, AF_PACKET, SOCK_RAW
 s = socket(AF_PACKET, SOCK_RAW)

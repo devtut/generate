@@ -10,7 +10,7 @@ description: "Currency Formatting US Dollars Using the locale Module"
 ## Currency Formatting US Dollars Using the locale Module
 
 
-```
+```py
 import locale
 
 locale.setlocale(locale.LC_ALL, '')

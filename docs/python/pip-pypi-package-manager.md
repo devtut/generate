@@ -15,21 +15,21 @@ pip is the most widely-used package manager for the Python Package Index, instal
 
 To install the latest version of a package named `SomePackage`:
 
-```
+```py
 $ pip install SomePackage
 
 ```
 
 To install a specific version of a package:
 
-```
+```py
 $ pip install SomePackage==1.0.4
 
 ```
 
 To specify a minimum version to install for a package:
 
-```
+```py
 $ pip install SomePackage>=1.0.4
 
 ```
@@ -38,7 +38,7 @@ If commands shows permission denied error on Linux/Unix then use `sudo` with the
 
 ### Install from requirements files
 
-```
+```py
 $ pip install -r requirements.txt
 
 ```
@@ -47,7 +47,7 @@ Each line of the requirements file indicates something to be installed, and like
 
 After install the package you can check it using `freeze` command:
 
-```
+```py
 $ pip freeze
 
 ```
@@ -59,7 +59,7 @@ $ pip freeze
 
 To list installed packages:
 
-```
+```py
 $ pip list
 # example output
 docutils (0.9.1)
@@ -71,7 +71,7 @@ Sphinx (1.1.2)
 
 To list outdated packages, and show the latest version available:
 
-```
+```py
 $ pip list --outdated
 # example output
 docutils (Current: 0.9.1 Latest: 0.10)
@@ -86,7 +86,7 @@ Sphinx (Current: 1.1.2 Latest: 1.1.3)
 
 Running
 
-```
+```py
 $ pip install --upgrade SomePackage 
 
 ```
@@ -95,14 +95,14 @@ will upgrade package `SomePackage` and all its dependencies. Also, pip automatic
 
 To upgrade pip itself, do
 
-```
+```py
 $ pip install --upgrade pip
 
 ```
 
 on Unix or
 
-```
+```py
 $ python -m pip install --upgrade pip
 
 ```
@@ -116,7 +116,7 @@ on Windows machines.
 
 To uninstall a package:
 
-```
+```py
 $ pip uninstall SomePackage
 
 ```
@@ -128,7 +128,7 @@ $ pip uninstall SomePackage
 
 `pip` doesn't current contain a flag to allow a user to update all outdated packages in one shot. However, this can be accomplished by piping commands together in a Linux environment:
 
-```
+```py
 pip list --outdated --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 
 ```
@@ -142,7 +142,7 @@ This command takes all packages in the local virtualenv and checks if they are o
 
 `pip` doesn't current contain a flag to allow a user to update all outdated packages in one shot. However, this can be accomplished by piping commands together in a Windows environment:
 
-```
+```py
 for /F "delims= " %i in ('pip list --outdated --local') do pip install -U %i
 
 ```
@@ -156,7 +156,7 @@ This command takes all packages in the local virtualenv and checks if they are o
 
 `pip` assists in creating `requirements.txt` files by providing the [`freeze`](https://pip.pypa.io/en/stable/reference/pip_freeze/) option.
 
-```
+```py
 pip freeze > requirements.txt
 
 ```
@@ -170,7 +170,7 @@ This will save a list of all packages and their version installed on the system 
 
 `pip` assists in creating `requirements.txt` files by providing the [`freeze`](https://pip.pypa.io/en/stable/reference/pip_freeze/#cmdoption-l) option.
 
-```
+```py
 pip freeze --local > requirements.txt
 
 ```
@@ -186,28 +186,28 @@ If you have both Python 3 and Python 2 installed, you can specify which version 
 
 If you want to install packages for Python 2, run either:
 
-```
+```py
 pip install [package]
 
 ```
 
 or:
 
-```
+```py
 pip2 install [package]
 
 ```
 
 If you would like to install packages for Python 3, do:
 
-```
+```py
 pip3 install [package]
 
 ```
 
 You can also invoke installation of a package to a specific python installation with:
 
-```
+```py
 \path\to\that\python.exe -m pip install some_package # on Windows OR
 /usr/bin/python25 -m pip install some_package # on OS-X/Linux
 
@@ -219,7 +219,7 @@ Likewise on Windows some python installations, especially those that are a part 
 
 On Windows, if you have both python 2 and python 3 installed, and on your path and your python 3 is greater than 3.4 then you will probably also have the python launcher `py` on your system path. You can then do tricks like:
 
-```
+```py
 py -3 -m pip install -U some_package # Install/Upgrade some_package to the latest python 3
 py -3.3 -m pip install -U some_package # Install/Upgrade some_package to python 3.3 if present
 py -2 -m pip install -U some_package # Install/Upgrade some_package to the latest python 2 - 64 bit if present
@@ -270,7 +270,8 @@ Three options exist for such installations:
 1. Let pip handle the download & install for you with: `pip install` **URL/of/package/repository** - you may also need to use the `--trusted-host`, `--client-cert` and/or `--proxy` flags for this to work correctly, especially in a corporate environment. e.g:
 
 ```
-    > py -3.5-32 -m venv demo-pip
+
+   > py -3.5-32 -m venv demo-pip
     > demo-pip\Scripts\activate.bat
     > python -m pip install -U pip
     Collecting pip

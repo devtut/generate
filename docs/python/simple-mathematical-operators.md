@@ -13,14 +13,14 @@ description: "Division, Addition, Exponentation, Trigonometric Functions, Inplac
 
 Python does integer division when both operands are integers. The behavior of Python's division operators have changed from Python 2.x and 3.x (see also [Integer Division](http://stackoverflow.com/documentation/python/809/incompatibilities-moving-from-python-2-to-python-3/2797/integer-division) ).
 
-```
+```py
 a, b, c, d, e = 3, 2, 2.0, -3, 10
 
 ```
 
 In Python 2 the result of the ' / ' operator depends on the type of the numerator and denominator.
 
-```
+```py
 a / b                  # = 1 
 
 a / c                  # = 1.5
@@ -41,7 +41,7 @@ Because `c` is a float, the result of `a / c` is a `float`.
 
 You can also use the operator module:
 
-```
+```py
 import operator        # the operator module provides 2-argument arithmetic functions
 operator.div(a, b)     # = 1
 operator.__div__(a, b) # = 1
@@ -52,7 +52,7 @@ What if you want float division:
 
 Recommended:
 
-```
+```py
 from __future__ import division # applies Python 3 style division to the entire module
 a / b                  # = 1.5 
 a // b                 # = 1
@@ -61,7 +61,7 @@ a // b                 # = 1
 
 Okay (if you don't want to apply to the whole module):
 
-```
+```py
 a / (b * 1.0)          # = 1.5
 1.0 * a / b            # = 1.5
 a / b * 1.0            # = 1.0    (careful with order of operations)
@@ -73,7 +73,7 @@ truediv(a, b)          # = 1.5
 
 Not recommended (may raise TypeError, eg if argument is complex):
 
-```
+```py
 float(a) / b           # = 1.5
 a / float(b)           # = 1.5
 
@@ -81,7 +81,7 @@ a / float(b)           # = 1.5
 
 The ' // ' operator in Python 2 forces floored division regardless of type.
 
-```
+```py
 a // b                # = 1
 a // c                # = 1.0
 
@@ -89,7 +89,7 @@ a // c                # = 1.0
 
 In Python 3 the `/` operator performs 'true' division regardless of types.  The `//` operator performs floor division and maintains type.
 
-```
+```py
 a / b                  # = 1.5 
 e / b                  # = 5.0
 a // b                 # = 1
@@ -118,7 +118,7 @@ See [PEP 238](https://www.python.org/dev/peps/pep-0238/) for more information.
 ## Addition
 
 
-```
+```py
 a, b = 1, 2
 
 # Using the "+" operator:
@@ -147,7 +147,7 @@ Possible combinations (builtin types):
 
 Note: the `+` operator is also used for concatenating strings, lists and tuples:
 
-```
+```py
 "first string " + "second string"    # = 'first string second string'
 
 [1, 2, 3] + [4, 5, 6]                # = [1, 2, 3, 4, 5, 6]
@@ -159,7 +159,7 @@ Note: the `+` operator is also used for concatenating strings, lists and tuples:
 ## Exponentation
 
 
-```
+```py
 a, b = 2, 3
 
 (a ** b)               # = 8
@@ -175,7 +175,7 @@ operator.pow(a, b)     # = 8
 
 Another difference between the built-in `pow` and `math.pow` is that the built-in `pow` can accept three arguments:
 
-```
+```py
 a, b, c = 2, 3, 2
 
 pow(2, 3, 2)           # 0, calculates (2 ** 3) % 2, but as per Python docs,
@@ -187,7 +187,7 @@ pow(2, 3, 2)           # 0, calculates (2 ** 3) % 2, but as per Python docs,
 
 The function `math.sqrt(x)` calculates the square root of `x`.
 
-```
+```py
 import math
 import cmath
 c = 4
@@ -199,7 +199,8 @@ cmath.sqrt(c)          # = (2+0j) (always complex)
 To compute other roots, such as a cube root, raise the number to the reciprocal of the degree of the root. This could be done with any of the exponential functions or operator.
 
 ```
- import math
+
+import math
  x = 8
  math.pow(x, 1/3) # evaluates to 2.0
  x**(1/3) # evaluates to 2.0
@@ -208,7 +209,7 @@ To compute other roots, such as a cube root, raise the number to the reciprocal 
 
 The function `math.exp(x)` computes `e ** x`.
 
-```
+```py
 math.exp(0)  # 1.0
 math.exp(1)  # 2.718281828459045 (e)
 
@@ -216,7 +217,7 @@ math.exp(1)  # 2.718281828459045 (e)
 
 The function `math.expm1(x)` computes `e ** x - 1`. When `x` is small, this gives significantly better precision than `math.exp(x) - 1`.
 
-```
+```py
 math.expm1(0)       # 0.0
 
 math.exp(1e-6) - 1  # 1.0000004999621837e-06
@@ -230,7 +231,7 @@ math.expm1(1e-6)    # 1.0000005000001665e-06
 ## Trigonometric Functions
 
 
-```
+```py
 a, b = 1, 2
 
 import math
@@ -259,7 +260,7 @@ Note that `math.hypot(x, y)` is also the length of the vector (or Euclidean dist
 
 To convert from radians -> degrees and degrees -> radians respectively use `math.degrees` and `math.radians`
 
-```
+```py
 math.degrees(a)
 # Out: 57.29577951308232
 
@@ -275,21 +276,21 @@ math.radians(57.29577951308232)
 
 It is common within applications to need to have code like this :
 
-```
+```py
 a = a + 1
 
 ```
 
 or
 
-```
+```py
 a = a * 2
 
 ```
 
 There is an effective shortcut for these in place operations :
 
-```
+```py
 a += 1
 # and
 a *= 2
@@ -313,7 +314,7 @@ Other in place operators exist for the bitwise operators (`^`, `|` etc)
 ## Subtraction
 
 
-```
+```py
 a, b = 1, 2
 
 # Using the "-" operator:
@@ -339,7 +340,7 @@ Possible combinations (builtin types):
 ## Multiplication
 
 
-```
+```py
 a, b = 2, 3
 
 a * b                  # = 6
@@ -360,7 +361,7 @@ Possible combinations (builtin types):
 
 Note: The `*` operator is also used for repeated concatenation of strings, lists, and tuples:
 
-```
+```py
 3 * 'ab'  # = 'ababab'
 3 * ('a', 'b')  # = ('a', 'b', 'a', 'b', 'a', 'b')
 
@@ -373,7 +374,7 @@ Note: The `*` operator is also used for repeated concatenation of strings, lists
 
 By default, the `math.log` function calculates the logarithm of a number, base e. You can optionally specify a base as the second argument.
 
-```
+```py
 import math
 import cmath
 
@@ -388,7 +389,7 @@ cmath.log(1000, 10)  # (3+0j)
 
 Special variations of the `math.log` function exist for different bases.
 
-```
+```py
 # Logarithm base e - 1 (higher precision for low values)
 math.log1p(5)       # = 1.791759469228055
 
@@ -408,7 +409,7 @@ cmath.log10(100)    # = (2+0j)
 
 Like in many other languages, Python uses the `%` operator for calculating modulus.
 
-```
+```py
 3 % 4     # 3
 10 % 2    # 0
 6 % 4     # 2
@@ -417,7 +418,7 @@ Like in many other languages, Python uses the `%` operator for calculating modul
 
 Or by using the `operator` module:
 
-```
+```py
 import operator
 
 operator.mod(3 , 4)     # 3
@@ -428,7 +429,7 @@ operator.mod(6 , 4)     # 2
 
 You can also use negative numbers.
 
-```
+```py
 -9 % 7     # 5
 9 % -7     # -5
 -9 % -7    # -2
@@ -437,7 +438,7 @@ You can also use negative numbers.
 
 If you need to find the result of integer division and modulus, you can use the `divmod` function as a shortcut:
 
-```
+```py
 quotient, remainder = divmod(9, 4)
 # quotient = 2, remainder = 1 as 4 * 2 + 1 == 9
 

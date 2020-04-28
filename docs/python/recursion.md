@@ -17,7 +17,7 @@ Recursion occurs when a function call causes that same function to be called aga
 
 In Python, a naïve implementation of the factorial operation can be defined as a function as follows:
 
-```
+```py
 def factorial(n):
     if n == 0:
         return 1
@@ -36,7 +36,7 @@ Almost done. Now, we need to evaluate `factorial((n - 2) - 1)`. This time, we're
 
 The statement `if n == 0: return 1` is called a base case. This is because, it exhibits no recursion. A base case is absolutely required. Without one, you'll run into infinite recursion. With that said, as long as you have at least one base case, you can have as many cases as you want. For example, we could have equivalently written `factorial` as follows:
 
-```
+```py
 def factorial(n):
     if n == 0:
         return 1
@@ -57,7 +57,7 @@ You can also have “parallel” recursive function calls. For example, consider
 
 We can define this is as follows:
 
-```
+```py
 def fib(n):
     if n == 0 or n == 1:
         return n
@@ -68,7 +68,7 @@ def fib(n):
 
 I won't walk through this function as thoroughly as I did with `factorial(3)`, but the final return value of `fib(5)` is equivalent to the following (**syntactically** invalid) expression:
 
-```
+```py
 (
   fib((n - 2) - 2)
   +
@@ -114,7 +114,7 @@ Tail call optimization is helpful for a number of reasons:
 
 Python has no form of TCO implemented for [a number of a reasons](http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html). Therefore, other techniques are required to skirt this limitation. The method of choice depends on the use case. With some intuition, the definitions of `factorial` and `fib` can relatively easily be converted to iterative code as follows:
 
-```
+```py
 def factorial(n):
     product = 1
     while n > 1:
@@ -142,7 +142,7 @@ If recursion is a topic that interests you, I implore you to study functional la
 Please note that the above example for the Fibonacci sequence, although good at showing how to apply the definition in python and later use of the lru cache, has an inefficient running time since it makes 2 recursive calls for each non base case. The number of calls to the function grows exponentially to `n`.<br />
 Rather non-intuitively a more efficient implementation would use linear recursion:
 
-```
+```py
 def fib(n):
     if n <= 1:
         return (n,0)
@@ -161,7 +161,7 @@ But that one has the issue of returning a **pair** of numbers. This emphasizes t
 
 If I wanted to find out the sum of numbers from `1` to `n` where `n` is a natural number, I can do `1 + 2 + 3 + 4 + ... + (several hours later) + n`. Alternatively, I could write a `for` loop:
 
-```
+```py
 n = 0
 for i in range (1, n+1):
     n += i
@@ -170,7 +170,7 @@ for i in range (1, n+1):
 
 Or I could use a technique known as recursion:
 
-```
+```py
 def recursion(n):
     if n == 1:
         return 1
@@ -204,7 +204,7 @@ Whereas the `for` loop is working strictly forwards:
 
 Say we have the following tree:
 
-```
+```py
 root
 - A
   - AA
@@ -218,7 +218,7 @@ root
 
 Now, if we wish to list all the names of the elements, we could do this with a simple for-loop. We assume there is a function `get_name()` to return a string of the name of a node, a function `get_children()` to return a list of all the sub-nodes of a given node in the tree, and a function `get_root()` to get the root node.
 
-```
+```py
 root = get_root(tree)
 for node in get_children(root):
     print(get_name(node))
@@ -232,7 +232,7 @@ for node in get_children(root):
 
 This works well and fast, but what if the sub-nodes, got sub-nodes of its own? And those sub-nodes might have more sub-nodes... What if you don't know beforehand how many there will be? A method to solve this is the use of recursion.
 
-```
+```py
 def list_tree_names(node):
     for child in get_children(node):
         print(get_name(child))
@@ -245,7 +245,7 @@ list_tree_names(node=get_root(tree))
 
 Perhaps you wish to not print, but return a flat list of all node names. This can be done by passing a rolling list as a parameter.
 
-```
+```py
 def list_tree_names(node, lst=[]):
     for child in get_children(node):
         lst.append(get_name(child))
@@ -264,14 +264,14 @@ list_tree_names(node=get_root(tree))
 
 There is a limit to the depth of possible recursion, which depends on the Python implementation. When the limit is reached, a RuntimeError exception is raised:
 
-```
+```py
 RuntimeError: Maximum Recursion Depth Exceeded
 
 ```
 
 Here's a sample of a program that would cause this error:
 
-```
+```py
 def cursing(depth):
   try:
     cursing(depth + 1) # actually, re-cursing
@@ -284,21 +284,21 @@ cursing(0)
 
 It is possible to change the recursion depth limit by using
 
-```
+```py
 sys.setrecursionlimit(limit) 
 
 ```
 
 You can check what the current parameters of the limit are by running:
 
-```
+```py
 sys.getrecursionlimit()
 
 ```
 
 Running the same method above with our new limit we get
 
-```
+```py
 sys.setrecursionlimit(2000)
 cursing(0)
 # Out: I recursed 1997 times!
@@ -316,7 +316,7 @@ When the only thing returned from a function is a recursive call, it is refered 
 
 Here's an example countdown written using tail recursion:
 
-```
+```py
 def countdown(n):
     if n == 0:
         print "Blastoff!"
@@ -328,7 +328,7 @@ def countdown(n):
 
 Any computation that can be made using iteration can also be made using recursion. Here is a version of find_max written using tail recursion:
 
-```
+```py
 def find_max(seq, max_so_far):
     if not seq:
         return max_so_far
@@ -348,7 +348,7 @@ Tail recursion is considered a bad practice in Python, since the Python compiler
 
 By default Python's recursion stack cannot exceed 1000 frames. This can be changed by setting the `sys.setrecursionlimit(15000)` which is faster however, this method consumes more memory. Instead, we can also solve the Tail Recursion problem using stack introspection.
 
-```
+```py
 #!/usr/bin/env python2.4
 # This program shows off a python decorator which implements tail call optimization. It
 # does this by throwing an exception if it is it's own grandparent, and catching such 
@@ -392,7 +392,7 @@ To optimize the recursive functions, we can use the `@tail_call_optimized` decor
 
 Factorial Example:
 
-```
+```py
 @tail_call_optimized
 def factorial(n, acc=1):
   "calculate a factorial"
@@ -408,7 +408,7 @@ print factorial(10000)
 
 Fibonacci Example:
 
-```
+```py
 @tail_call_optimized
 def fib(i, current = 0, next = 1):
   if i == 0:

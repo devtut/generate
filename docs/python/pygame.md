@@ -21,7 +21,7 @@ Similar to how you have to initialize `pygame` with `pygame.init()`, you must in
 
 By using the first option, we initialize the module using the default values. You can though, override these default options. By using the second option, we can initialize the module using the values we manually put in ourselves. Standard values:
 
-```
+```py
 pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
 
 ```
@@ -47,14 +47,14 @@ You can also find out which channel isn't being used by using `pygame.mixer.find
 
 With `pip`:
 
-```
+```py
 pip install pygame
 
 ```
 
 With `conda`:
 
-```
+```py
 conda install -c tlatorre pygame=1.9.2
 
 ```

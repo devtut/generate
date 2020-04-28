@@ -13,7 +13,7 @@ Server Sent Events (SSE) is a unidirectional connection between a server and a c
 ## Flask SSE
 
 
-```
+```py
 @route("/stream")
 def stream():
     def event_stream():
@@ -33,7 +33,7 @@ def stream():
 
 This example uses the asyncio SSE library: [https://github.com/brutasse/asyncio-sse](https://github.com/brutasse/asyncio-sse)
 
-```
+```py
 import asyncio
 import sse
 

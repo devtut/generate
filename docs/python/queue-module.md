@@ -11,7 +11,7 @@ description: "Simple example"
 ## Simple example
 
 
-```
+```py
 from Queue import Queue
  
 question_queue = Queue()
@@ -28,7 +28,7 @@ while(not question_queue.empty()):
 
 Output:
 
-```
+```py
 ('key', 1)
 ('key', 2)
 ('key', 3)

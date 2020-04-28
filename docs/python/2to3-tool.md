@@ -13,7 +13,7 @@ description: "Basic Usage"
 
 Consider the following Python2.x code. Save the file as `example.py`
 
-```
+```py
 def greet(name):
     print "Hello, {0}!".format(name)
 print "What's your name?"
@@ -26,21 +26,21 @@ In the above file, there are several incompatible lines. The `raw_input()` metho
 
 ### Unix
 
-```
+```py
 $ 2to3 example.py
 
 ```
 
 ### Windows
 
-```
+```py
 > path/to/2to3.py example.py
 
 ```
 
 Running the above code will output the differences against the original source file as shown below.
 
-```
+```py
 RefactoringTool: Skipping implicit fixer: buffer
 RefactoringTool: Skipping implicit fixer: idioms
 RefactoringTool: Skipping implicit fixer: set_literal
@@ -66,14 +66,14 @@ The modifications can be written back to the source file using the -w flag. A ba
 
 ### Unix
 
-```
+```py
 $ 2to3 -w example.py
 
 ```
 
 ### Windows
 
-```
+```py
 > path/to/2to3.py -w example.py
 
 ```
@@ -82,7 +82,7 @@ Now the `example.py` file has been converted from Python 2.x to Python 3.x code.
 
 Once finished, `example.py` will contain the following valid Python3.x code:
 
-```
+```py
 def greet(name):
     print("Hello, {0}!".format(name))
 print("What's your name?")

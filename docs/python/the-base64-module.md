@@ -15,14 +15,14 @@ Base 64 encoding represents a common scheme for encoding binary into ASCII strin
 
 To include the base64 module in your script, you must import it first:
 
-```
+```py
 import base64
 
 ```
 
 The base64 encode and decode functions both require a [bytes-like object](https://docs.python.org/3/glossary.html#term-bytes-like-object). To get our string into bytes, we must encode it using Python's built in encode function. Most commonly, the `UTF-8` encoding is used, however a full list of these standard encodings (including languages with different characters) can be found [here](https://docs.python.org/3/library/codecs.html#standard-encodings) in the official Python Documentation. Below is an example of encoding a string into bytes:
 
-```
+```py
 s = "Hello World!"
 b = s.encode("UTF-8")
 
@@ -36,7 +36,7 @@ The `b` prefix is used to denote the value is a bytes object.
 
 To Base64 encode these bytes, we use the `base64.b64encode()` function:
 
-```
+```py
 import base64
 s = "Hello World!"
 b = s.encode("UTF-8")
@@ -51,7 +51,7 @@ That code would output the following:
 
 which is still in the bytes object. To get a string out of these bytes, we can use Python's `decode()` method with the `UTF-8` encoding:
 
-```
+```py
 import base64
 s = "Hello World!"
 b = s.encode("UTF-8")
@@ -67,7 +67,7 @@ The output would then be:
 
 If we wanted to encode the string and then decode we could use the `base64.b64decode()` method:
 
-```
+```py
 import base64
 # Creating a string
 s = "Hello World!"
@@ -91,7 +91,7 @@ print(s2)
 
 As you may  have expected, the output would be the original string:
 
-```
+```py
 Base64 Encoded: SGVsbG8gV29ybGQh
 Hello World!
 
@@ -104,7 +104,7 @@ Hello World!
 
 The base64 module also includes encoding and decoding functions for Base32. These functions are very similar to the Base64 functions:
 
-```
+```py
 import base64
 # Creating a string
 s = "Hello World!"
@@ -128,7 +128,7 @@ print(s2)
 
 This would produce the following output:
 
-```
+```py
 Base32 Encoded: JBSWY3DPEBLW64TMMQQQ====
 Hello World!
 
@@ -141,7 +141,7 @@ Hello World!
 
 The base64 module also includes encoding and decoding functions for Base16. Base 16 is most commonly referred to as **hexadecimal**. These functions are very similar to the both the Base64 and Base32 functions:
 
-```
+```py
 import base64
 # Creating a string
 s = "Hello World!"
@@ -165,7 +165,7 @@ print(s2)
 
 This would produce the following output:
 
-```
+```py
 Base16 Encoded: 48656C6C6F20576F726C6421
 Hello World!
 
@@ -178,7 +178,7 @@ Hello World!
 
 Adobe created it's own encoding called **ASCII85** which is similar to Base85, but has its differences. This encoding is used frequently in Adobe PDF files. These functions were released in Python version 3.4. Otherwise, the functions `base64.a85encode()` and `base64.a85encode()` are similar to the previous:
 
-```
+```py
 import base64
 # Creating a string
 s = "Hello World!"
@@ -202,7 +202,7 @@ print(s2)
 
 This outputs the following:
 
-```
+```py
 ASCII85 Encoded: 87cURD]i,"Ebo80
 Hello World!
 
@@ -215,7 +215,7 @@ Hello World!
 
 Just like the Base64, Base32, and Base16 functions, the Base85 encoding and decoding functions are `base64.b85encode()` and `base64.b85decode()`:
 
-```
+```py
 import base64
 # Creating a string
 s = "Hello World!"
@@ -239,7 +239,7 @@ print(s2)
 
 which outputs the following:
 
-```
+```py
 Base85 Encoded: NM&qnZy;B1a%^NF
 Hello World!
 

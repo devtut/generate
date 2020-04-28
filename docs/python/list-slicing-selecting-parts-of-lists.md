@@ -10,7 +10,7 @@ description: "Using the third step argument, Selecting a sublist from a list, Re
 ## Using the third "step" argument
 
 
-```
+```py
 lst = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 lst[::2]
@@ -26,7 +26,7 @@ lst[::3]
 ## Selecting a sublist from a list
 
 
-```
+```py
 lst = ['a', 'b', 'c', 'd', 'e']
 
 lst[2:4]
@@ -45,7 +45,7 @@ lst[:4]
 ## Reversing a list with slicing
 
 
-```
+```py
 a = [1, 2, 3, 4, 5]
 
 # steps through the list backwards (step=-1)
@@ -70,7 +70,7 @@ print(b)
 ## Shifting a list using slicing
 
 
-```
+```py
 def shift_list(array, s):
     """Shifts the elements of a list to the left or right.
 
@@ -128,7 +128,7 @@ shift_list(my_array, 3)
 - `lst[::-1]` gives you a reversed copy of the list
 - `start` or `end` may be a negative number, which means it counts from the end of the array instead of the beginning. So:
 
-```
+```py
 a[-1]    # last item in the array
 a[-2:]   # last two items in the array
 a[:-2]   # everything except the last two items

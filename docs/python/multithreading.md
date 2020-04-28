@@ -15,7 +15,7 @@ Threads allow Python programs to handle multiple functions at once as opposed to
 
 Using the `threading` module, a new thread of execution may be started by creating a new `threading.Thread` and assigning it a function to execute:
 
-```
+```py
 import threading
 
 def foo():
@@ -29,7 +29,7 @@ The `target` parameter references the function (or callable object) to be run.  
 
 ****Starting a Thread****
 
-```
+```py
 my_thread.start() # prints 'Hello threading!'
 
 ```
@@ -42,7 +42,7 @@ In cases where you split up one big job into several small ones and want to run 
 
 For example, let's say you want to download several pages of a website and compile them into a single page. You'd do this:
 
-```
+```py
 import requests
 from threading import Thread
 from queue import Queue
@@ -82,7 +82,7 @@ A closer look at how `join()` works can be found [here](https://stackoverflow.co
 Using `threading.Thread` class we can subclass new custom Thread class.
 we must override `run` method in a subclass.
 
-```
+```py
 from threading import Thread
 import time
 
@@ -110,7 +110,7 @@ There are multiple threads in your code and you need to safely communicate betwe
 
 You can use a `Queue` from the `queue` library.
 
-```
+```py
 from queue import Queue
 from threading import Thread
 
@@ -136,7 +136,7 @@ def consumer(input_queue):
 
 Creating producer and consumer threads with a shared queue
 
-```
+```py
 q = Queue()
 t1 = Thread(target=consumer, args=(q,))
 t2 = Thread(target=producer, args=(q,))
@@ -152,7 +152,7 @@ t2.start()
 
 Using `threading` & `queue`:
 
-```
+```py
 from socket import socket, AF_INET, SOCK_STREAM
 from threading import Thread
 from queue import Queue
@@ -180,7 +180,7 @@ echo_server(('',15000), 128)
 
 Using `concurrent.futures.Threadpoolexecutor`:
 
-```
+```py
 from socket import AF_INET, SOCK_STREAM, socket
 from concurrent.futures import ThreadPoolExecutor
 
@@ -211,7 +211,7 @@ This section will contain some of the most advanced examples realized using Mult
 
 A thread that prints everything is received and modifies the output according to the terminal width. The nice part is that also the "already written" output is modified when the width of the terminal changes.
 
-```
+```py
 #!/usr/bin/env python2
 
 import threading
@@ -291,7 +291,7 @@ def printer():
 ## Stoppable Thread with a while Loop
 
 
-```
+```py
 import threading
 import time
 

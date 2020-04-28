@@ -12,7 +12,7 @@ description: "Nonlocal Variables, Global Variables, Local Variables, Binding Occ
 
 Python 3 added a new keyword called **nonlocal**. The nonlocal keyword adds a scope override to the inner scope. You can read all about it in [PEP 3104](https://www.python.org/dev/peps/pep-3104/). This is best illustrated with a couple of code examples. One of the most common examples is to create function that can increment:
 
-```
+```py
 def counter():
     num = 0
     def incrementer():
@@ -24,7 +24,7 @@ def counter():
 
 If you try running this code, you will receive an **UnboundLocalError** because the **num** variable is referenced before it is assigned in the innermost function. Let's add nonlocal to the mix:
 
-```
+```py
 def counter():
     num = 0
     def incrementer():
@@ -51,7 +51,7 @@ Basically `nonlocal` will allow you to assign to variables in an outer scope, bu
 
 In Python, variables inside functions are considered local if and only if they appear in the left side of an assignment statement, or some other binding occurrence; otherwise such a binding is looked up in enclosing functions, up to the global scope. This is true even if the assignment statement is never executed.
 
-```
+```py
 x = 'Hi'
 
 def read_x():
@@ -82,7 +82,7 @@ read_x_local_fail()   # UnboundLocalError: local variable 'x' referenced before 
 Normally, an assignment inside a scope will shadow any outer variables of the
 same name:
 
-```
+```py
 x = 'Hi'
 
 def change_local_x():
@@ -95,7 +95,7 @@ print(x)  # prints Hi
 
 Declaring a name `global` means that, for the rest of the scope, any assignments to the name will happen at the module's top level:
 
-```
+```py
 x = 'Hi'
 
 def change_global_x():
@@ -124,7 +124,7 @@ To summarize: in order to know whether a variable `x` is local to a function, yo
 
 If a name is **bound** inside a function, it is by default accessible only within the function:
 
-```
+```py
 def foo():
     a = 5
     print(a) # ok
@@ -135,7 +135,7 @@ print(a) #  NameError: name 'a' is not defined
 
 Control flow constructs have no impact on the scope (with the exception of `except`), but accessing variable that was not assigned yet is an error:
 
-```
+```py
 def foo():
     if True: 
         a = 5
@@ -156,7 +156,7 @@ Common binding operations are assignments, `for` loops, and augmented assignment
 ## Binding Occurrence
 
 
-```
+```py
 x = 5
 x += 7
 for x in iterable: pass    
@@ -172,7 +172,7 @@ Each of the above statements is a **binding occurrence** - `x` become bound to t
 
 Classes have a local scope during definition, but functions inside the class do not use that scope when looking up names.  Because lambdas are functions, and comprehensions are implemented using function scope, this can lead to some surprising behavior.
 
-```
+```py
 a = 'global'
 
 class Fred:
@@ -228,7 +228,7 @@ This command has several related yet distinct forms.
 
 If `v` is a variable, the command `del v` removes the variable from its scope. For example:
 
-```
+```py
 x = 5
 print(x) # out: 5
 del x
@@ -248,7 +248,7 @@ This command triggers a call to `v.__delattr__(name)`.
 
 The intention is to make the attribute `name` unavailable. For example:
 
-```
+```py
 class A:
     pass
 
@@ -266,7 +266,7 @@ This command triggers a call to `v.__delitem__(item)`.
 
 The intention is that `item` will not belong in the mapping implemented by the object `v`. For example:
 
-```
+```py
 x = {'a': 1, 'b': 2}
 del x['a']
 print(x) #  out: {'b': 2}
@@ -280,7 +280,7 @@ This actually calls `v.__delslice__(a, b)`.
 
 The intention is similar to the one described above, but with slices - ranges of items instead of a single item. For example:
 
-```
+```py
 x = [0, 1, 2, 3, 4]
 del x[1:3]
 print(x) #  out: [0, 3, 4]
@@ -300,7 +300,7 @@ All Python variabes which are accessible at some point in code are either in **l
 
 The explanation is that local scope includes all variables defined in the current function and global scope includes variabled defined outside of the current function.
 
-```
+```py
 foo = 1  # global
 
 def func():
@@ -312,7 +312,7 @@ def func():
 
 One can inspect which variables are in which scope. Built-in functions `locals()` and `globals()` return the whole scopes as dictionaries.
 
-```
+```py
 foo = 1
 
 def func():
@@ -324,7 +324,7 @@ def func():
 
 ### What happens with name clashes?
 
-```
+```py
 foo = 1
 
 def func():
@@ -340,7 +340,7 @@ def func():
 
 To modify a global variable, use keyword `global`:
 
-```
+```py
 foo = 1
 
 def func():
@@ -353,7 +353,7 @@ def func():
 
 What it means is that a variable will never be global for a half of the function and local afterwards, or vice-versa.
 
-```
+```py
 foo = 1
 
 def func():
@@ -368,7 +368,7 @@ def func():
 
 Likewise, the oposite:
 
-```
+```py
 foo = 1
 
 def func():
@@ -388,7 +388,7 @@ def func():
 
 There may be many levels of functions nested within functions, but within any one function there is only one local scope for that function and the global scope. There are no intermediate scopes.
 
-```
+```py
 foo = 1
 
 def f1():
@@ -425,7 +425,7 @@ Both these keywords are used to gain write access to variables which are not loc
 
 The `global` keyword declares that a name should be treated as a global variable.
 
-```
+```py
 foo = 0  # global foo
 
 def f1():
@@ -456,7 +456,7 @@ previously bound variables in the nearest enclosing scope excluding
 globals.</p>
 
 
-```
+```py
 def f1():
     
     def f2():

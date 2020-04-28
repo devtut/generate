@@ -19,17 +19,18 @@ PyDotPlus is an improved version of the old pydot project that provides a Python
 
 For the latest stable version:
 
-```
+```py
 pip install pydotplus
 
 ```
 
 For the development version:
 
-```
+```py
 pip install https://github.com/carlos-jenkins/pydotplus/archive/master.zip
 
 ```
+
 
 - The file is assumed to be in DOT format. It will be loaded, parsed and a Dot class will be returned, representing the graph. For example,a simple demo.dot:
 
@@ -40,7 +41,7 @@ c ->a;
 }</p>
 
 
-```
+```py
 import pydotplus
 graph_a = pydotplus.graph_from_dot_file('demo.dot')
 graph_a.write_svg('test.svg') # generate graph in svg.
@@ -87,7 +88,7 @@ c ->a;
 
 - Load it and draw it.
 
-```
+```py
 import pygraphviz as pgv
 G = pgv.AGraph("demo.dot")
 G.draw('test', format='svg', prog='dot')

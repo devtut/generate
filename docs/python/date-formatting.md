@@ -10,7 +10,7 @@ description: "Time between two date-times, Outputting datetime object to string,
 ## Time between two date-times
 
 
-```
+```py
 from datetime import datetime
 
 a = datetime(2016,10,06,0,0,0)
@@ -33,7 +33,7 @@ a-b
 
 Uses C standard [format codes](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
 
-```
+```py
 from datetime import datetime
 datetime_for_string = datetime(2016,10,1,0,0)
 datetime_string_format = '%b %d %Y, %H:%M:%S'
@@ -49,7 +49,7 @@ datetime.strftime(datetime_for_string,datetime_string_format)
 
 Uses C standard [format codes](https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior).
 
-```
+```py
 from datetime import datetime
 datetime_string = 'Oct 1 2016, 00:00:00'
 datetime_string_format = '%b %d %Y, %H:%M:%S'

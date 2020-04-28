@@ -12,14 +12,14 @@ description: "Creating an enum (Python 2.4 through 3.3), Iteration"
 
 Enums have been backported from Python 3.4 to Python 2.4 through Python 3.3. You can get this the [enum34](https://pypi.python.org/pypi/enum34) backport from PyPI.
 
-```
+```py
 pip install enum34
 
 ```
 
 Creation of an enum is identical to how it works in Python 3.4+
 
-```
+```py
 from enum import Enum
 
 class Color(Enum):
@@ -40,7 +40,7 @@ print(Color['red'])  # Color.red
 
 Enums are iterable:
 
-```
+```py
 class Color(Enum):
     red = 1
     green = 2

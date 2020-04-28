@@ -14,7 +14,7 @@ description: "Seaborn, Matplotlib, MayaVI, Plotly"
 
 Creating graphs in Seaborn is as simple as calling the appropriate graphing function. Here is an example of creating a histogram, kernel density estimation, and rug plot for randomly generated data.
 
-```
+```py
 import numpy as np  # numpy used to create data from plotting
 import seaborn as sns  # common form of importing seaborn
 
@@ -30,7 +30,7 @@ sns.distplot(data, kde=True, rug=True)
 
 The style of the plot can also be controled using a declarative syntax.
 
-```
+```py
 # Using previously created imports and data.
 
 # Use a dark background with no grid.
@@ -44,7 +44,7 @@ sns.distplot(data, kde=True, rug=True)
 
 As an added bonus, normal matplotlib commands can still be applied to Seaborn plots. Here's an example of adding axis titles to our previously created histogram.
 
-```
+```py
 # Using previously created data and style
 
 # Access to matplotlib commands
@@ -76,7 +76,7 @@ Matplotlib provides two distinct methods for plotting, though they are interchan
 
 Below is an example of using the `pyplot` interface to plot some generated data:
 
-```
+```py
 import matplotlib.pyplot as plt
 
 # Generate some data for plotting.
@@ -116,7 +116,7 @@ Documentation can be found [here](http://docs.enthought.com/mayavi/mayavi/). Som
 
 Here is a sample plot created using **MayaVI** from the documentation.
 
-```
+```py
 # Author: Gael Varoquaux <gael.varoquaux@normalesup.org>
 # Copyright (c) 2007, Enthought, Inc.
 # License: BSD Style.
@@ -164,7 +164,7 @@ For documentation and examples, one can go [here](https://plot.ly/python/#fundam
 
 A sample plot from the documentation examples:
 
-```
+```py
 import plotly.graph_objs as go
 import plotly as ply
 

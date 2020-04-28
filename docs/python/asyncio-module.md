@@ -15,7 +15,7 @@ Before Python 3.5+ was released, the `asyncio` module used generators to mimic a
 
 Python 3.5 introduced the `async` and `await` keywords. Note the lack of parentheses around the `await func()` call.
 
-```
+```py
 import asyncio
 
 async def main():
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
 Before Python 3.5, the `@asyncio.coroutine` decorator was used to define a coroutine. The yield from expression was used for generator delegation. Note the parentheses around the `yield from func()`.
 
-```
+```py
 import asyncio
 
 @asyncio.coroutine
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
 Here is an example that shows how two functions can be run asynchronously:
 
-```
+```py
 import asyncio
 
 async def cor1():
@@ -85,7 +85,7 @@ loop.run_until_complete(cors)
 
 Scheduling a task for an `Executor`
 
-```
+```py
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
 Each event loop also has a "default" `Executor` slot that can be assigned to an `Executor`. To assign an `Executor` and schedule tasks from the loop you use the `set_default_executor()` method.
 
-```
+```py
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 
@@ -139,7 +139,7 @@ Contrast that to the `ProcessPoolExecutor` which spawns a new process for each t
 `uvloop` is an implementation for the `asyncio.AbstractEventLoop` based on libuv (Used by nodejs). It is compliant with 99% of `asyncio` features and is much faster than the traditional `asyncio.EventLoop`.
 `uvloop` is currently not available on Windows, install it with `pip install uvloop`.
 
-```
+```py
 import asyncio
 import uvloop
 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
 
 One can also change the event loop factory by setting the `EventLoopPolicy` to the one in `uvloop`.
 
-```
+```py
 import asyncio
 import uvloop
 
@@ -174,7 +174,7 @@ Put simply, an event is like the gun shot at a running race: it lets the runners
 
 ### Example
 
-```
+```py
 import asyncio
 
 # event trigger function
@@ -228,7 +228,7 @@ Consumer A triggered</p>
 
 Here we make a simple echo websocket using `asyncio`.  We define coroutines for connecting to a server and sending/receiving messages.  The communcations of the websocket are run in a `main` coroutine, which is run by an event loop.  This example is modified from a [prior post](https://stackoverflow.com/questions/37369849/how-can-i-implement-asyncio-websockets-in-a-class).
 
-```
+```py
 import asyncio
 import aiohttp
 

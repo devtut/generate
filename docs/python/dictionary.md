@@ -19,13 +19,13 @@ Dictionaries can be initiated in many ways:
 
 ### literal syntax
 
-```
+```py
 d = {}                        # empty dict
 d = {'key': 'value'}          # dict with initial values
 
 ```
 
-```
+```py
 # Also unpacking one or multiple dictionaries with the literal syntax is possible
 
 # makes a shallow copy of otherdict
@@ -37,7 +37,7 @@ d = {**otherdict, **yetanotherdict}
 
 ### dict comprehension
 
-```
+```py
 d = {k:v for k,v in [('key', 'value',)]}
 
 ```
@@ -46,7 +46,7 @@ see also: [Comprehensions](http://stackoverflow.com/documentation/python/196/com
 
 ### built-in class: `dict()`
 
-```
+```py
 d = dict()                    # emtpy dict
 d = dict(key='value')         # explicit keyword arguments
 d = dict([('key', 'value')])  # passing in a list of key/value pairs
@@ -59,14 +59,14 @@ d = dict(**otherdict)
 
 To add items to a dictionary, simply create a new key with a value:
 
-```
+```py
 d['newkey'] = 42
 
 ```
 
 It also possible to add `list` and `dictionary` as value:
 
-```
+```py
 d['new_list'] = [1, 2, 3]
 d['new_dict'] = {'nested_dict': 1}
 
@@ -74,7 +74,7 @@ d['new_dict'] = {'nested_dict': 1}
 
 To delete an item, delete the key from the dictionary:
 
-```
+```py
 del d['newkey']
 
 ```
@@ -86,13 +86,13 @@ del d['newkey']
 
 One common pitfall when using dictionaries is to access a non-existent key. This typically results in a `KeyError` exception
 
-```
+```py
 mydict = {}
 mydict['not there']
 
 ```
 
-```
+```py
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 KeyError: 'not there'
@@ -101,14 +101,14 @@ KeyError: 'not there'
 
 One way to avoid key errors is to use the `dict.get` method, which allows you to specify a default value to return in the case of an absent key.
 
-```
+```py
 value = mydict.get(key, default_value)
 
 ```
 
 Which returns `mydict[key]` if it exists, but otherwise returns `default_value`. Note that this doesn't add `key` to `mydict`. So if you want to retain that key value pair, you should use `mydict.setdefault(key, default_value)`, which **does** store the key value pair.
 
-```
+```py
 mydict = {}
 print(mydict)
 # {}
@@ -125,7 +125,7 @@ print(mydict)
 
 An alternative way to deal with the problem is catching the exception
 
-```
+```py
 try:
     value = mydict[key]
 except KeyError:
@@ -135,7 +135,7 @@ except KeyError:
 
 You could also check if the key is `in` the dictionary.
 
-```
+```py
 if key in mydict:
     value = mydict[key]
 else:
@@ -154,7 +154,7 @@ Another option is to use a subclass of dict, collections.defaultdict, that has a
 
 If you use a dictionary as an iterator (e.g. in a `for` statement), it traverses the **keys** of the dictionary. For example:
 
-```
+```py
 d = {'a': 1, 'b': 2, 'c':3}
 for key in d:
     print(key, d[key])
@@ -166,7 +166,7 @@ for key in d:
 
 The same is true when used in a comprehension
 
-```
+```py
 print([key for key in d])
 # ['c', 'b', 'a']
 
@@ -174,7 +174,7 @@ print([key for key in d])
 
 The `items()` method can be used to loop over both the **key** and **value** simultaneously:
 
-```
+```py
 for key, value in d.items():
     print(key, value)
 # c 3
@@ -185,7 +185,7 @@ for key, value in d.items():
 
 While the `values()` method can be used to iterate over only the values, as would be expected:
 
-```
+```py
 for key, value in d.values():
     print(key, value)
     # 3
@@ -203,7 +203,7 @@ Here, the methods `keys()`, `values()` and `items()` return lists, and there are
 
 Available in the standard library as [`defaultdict`](https://docs.python.org/3/library/collections.html#collections.defaultdict)
 
-```
+```py
 from collections import defaultdict
 
 d = defaultdict(int)
@@ -220,7 +220,7 @@ d['key']                         # 'full'
 
 [*] Alternatively, if you must use the built-in `dict` class, `using dict.setdefault()` will allow you to create a default whenever you access a key that did not exist before:
 
-```
+```py
 >>> d = {}
 {}
 >>> d.setdefault('Another_key', []).append("This worked!")
@@ -240,7 +240,7 @@ Keep in mind that if you have many values to add, `dict.setdefault()` will creat
 
 Consider the following dictionaries:
 
-```
+```py
 >>> fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
 >>> dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
 
@@ -248,7 +248,7 @@ Consider the following dictionaries:
 
 ### Python 3.5+
 
-```
+```py
 >>> fishdog = {**fish, **dog}
 >>> fishdog
 {'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
@@ -259,7 +259,7 @@ As this example demonstrates, duplicate keys map to their lattermost value (for 
 
 ### Python 3.3+
 
-```
+```py
 >>> from collections import ChainMap
 >>> dict(ChainMap(fish, dog))
 {'hands': 'fins', 'color': 'red', 'special': 'gills', 'name': 'Nemo'}
@@ -270,7 +270,7 @@ With this technique the foremost value takes precedence for a given key rather t
 
 ### Python 2.x, 3.x
 
-```
+```py
 >>> from itertools import chain
 >>> dict(chain(fish.items(), dog.items()))
 {'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
@@ -279,7 +279,7 @@ With this technique the foremost value takes precedence for a given key rather t
 
 This uses the lattermost value, as with the `**`-based technique for merging ("Clifford" overrides "Nemo").
 
-```
+```py
 >>> fish.update(dog)
 >>> fish
 {'color': 'red', 'hands': 'paws', 'name': 'Clifford', 'special': 'gills'}
@@ -293,7 +293,7 @@ This uses the lattermost value, as with the `**`-based technique for merging ("C
 ## Accessing values of a dictionary
 
 
-```
+```py
 dictionary = {"Hello": 1234, "World": 5678}
 print(dictionary["Hello"])
 
@@ -307,7 +307,7 @@ The number `1234` is seen after the respective colon in the `dict` definition. T
 
 Looking up a value like this with a key that does not exist will raise a `KeyError` exception, halting execution if uncaught. If we want to access a value without risking a `KeyError`, we can use the `dictionary.get` method. By default if the key does not exist, the method will return `None`. We can pass it a second value to return instead of `None` in the event of a failed lookup.
 
-```
+```py
 w = dictionary.get("whatever")
 x = dictionary.get("whatever", "nuh-uh")
 
@@ -324,7 +324,7 @@ When working with dictionaries, it's often necessary to access all the keys and 
 
 Given a dictionary like:
 
-```
+```py
 mydict = {
     'a': '1',
     'b': '2'
@@ -334,7 +334,7 @@ mydict = {
 
 You can get a list of keys using the `keys()` method:
 
-```
+```py
 print(mydict.keys())
 # Python2: ['a', 'b']
 # Python3: dict_keys(['b', 'a'])
@@ -343,7 +343,7 @@ print(mydict.keys())
 
 If instead you want a list of values, use the `values()` method:
 
-```
+```py
 print(mydict.values())
 # Python2: ['1', '2']
 # Python3: dict_values(['2', '1'])
@@ -352,7 +352,7 @@ print(mydict.values())
 
 If you want to work with both the key and its corresponding value, you can use the `items()` method:
 
-```
+```py
 print(mydict.items())
 # Python2: [('a', '1'), ('b', '2')]
 # Python3: dict_items([('b', '2'), ('a', '1')])
@@ -373,7 +373,7 @@ You can create an ordered dictionary which will follow a determined order when i
 Use `OrderedDict` from the
 `collections` module. This will always return the dictionary elements in the original insertion order when iterated over.
 
-```
+```py
 from collections import OrderedDict
 
 d = OrderedDict()
@@ -395,7 +395,7 @@ for key in d:
 
 You can use the `**` keyword argument unpacking operator to deliver the key-value pairs in a dictionary into a function's arguments. A simplified example from the [official documentation](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists):
 
-```
+```py
 >>>
 >>> def parrot(voltage, state, action):
 ...     print("This parrot wouldn't", action, end=' ')
@@ -411,7 +411,7 @@ This parrot wouldn't VOOM if you put four million volts through it. E's bleedin'
 
 As of Python 3.5 you can also use this syntax to merge an arbitrary number of `dict` objects.
 
-```
+```py
 >>> fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"}
 >>> dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
 >>> fishdog = {**fish, **dog}
@@ -434,7 +434,7 @@ Rules for creating a dictionary:
 - Every key must be **hashable** (can use the `hash` function to hash it; otherwise `TypeError` will be thrown)
 - There is no particular order for the keys.
 
-```
+```py
 # Creating and populating it with values
 stock = {'eggs': 5, 'milk': 2}
 
@@ -472,7 +472,7 @@ dictionary = dict.fromkeys((milk, eggs), (2, 5))  # => {'milk': 2, 'eggs': 5}
 
 The `dict()` constructor can be used to create dictionaries from keyword arguments, or from a single iterable of key-value pairs, or from a single dictionary and keyword arguments.
 
-```
+```py
 dict(a=1, b=2, c=3)                   # {'a': 1, 'b': 2, 'c': 3}
 dict([('d', 4), ('e', 5), ('f', 6)])  # {'d': 4, 'e': 5, 'f': 6}
 dict([('a', 1)], b=2, c=3)            # {'a': 1, 'b': 2, 'c': 3}
@@ -487,7 +487,7 @@ dict({'a' : 1, 'b' : 2}, c=3)         # {'a': 1, 'b': 2, 'c': 3}
 
 Like lists and tuples, you can include a trailing comma in your dictionary.
 
-```
+```py
 role = {"By day": "A typical programmer",
         "By night": "Still a typical programmer", }
 
@@ -500,7 +500,7 @@ PEP 8 dictates that you should leave a space between the trailing comma and the 
 ## All combinations of dictionary values
 
 
-```
+```py
 options = {
     "x": ["a", "b"],
     "y": [10, 20, 30]
@@ -515,7 +515,7 @@ on until you have explored all possible combinations.
 
 You can create a list that returns all such combinations of values using the  following code.
 
-```
+```py
 import itertools
 
 options = {
@@ -531,7 +531,7 @@ print combinations
 
 This gives us the following list stored in the variable `combinations`:
 
-```
+```py
 [{'x': 'a', 'y': 10},
  {'x': 'b', 'y': 10},
  {'x': 'a', 'y': 20},
@@ -548,7 +548,7 @@ This gives us the following list stored in the variable `combinations`:
 
 Dictionaries map keys to values.
 
-```
+```py
 car = {}
 car["wheels"] = 4
 car["color"] = "Red"
@@ -558,7 +558,7 @@ car["model"] = "Corvette"
 
 Dictionary values can be accessed by their keys.
 
-```
+```py
 print "Little " + car["color"] + " " + car["model"] + "!"
 # This would print out "Little Red Corvette!"    
 
@@ -566,14 +566,14 @@ print "Little " + car["color"] + " " + car["model"] + "!"
 
 Dictionaries can also be created in a JSON style:
 
-```
+```py
 car = {"wheels": 4, "color": "Red", "model": "Corvette"}
 
 ```
 
 Dictionary values can be iterated over:
 
-```
+```py
 for key in car:
   print key + ": " + car[key]
 

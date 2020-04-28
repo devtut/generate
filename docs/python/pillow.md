@@ -10,7 +10,7 @@ description: "Read Image File, Convert files to JPEG"
 ## Read Image File
 
 
-```
+```py
 from PIL import Image
 
 im = Image.open("Image.bmp")
@@ -22,7 +22,7 @@ im = Image.open("Image.bmp")
 ## Convert files to JPEG
 
 
-```
+```py
 from __future__ import print_function
 import os, sys
 from PIL import Image

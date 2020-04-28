@@ -17,7 +17,7 @@ it consists  of a top and the rest which is a Stack.
 
 Using a [`list`](https://docs.python.org/3/tutorial/datastructures.html) object you can create a fully functional generic Stack with helper methods such as peeking and checking if the stack is Empty. Check out the official python docs for using `list` as `Stack` [here](https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks).
 
-```
+```py
 #define a stack class
 class Stack:
     def __init__(self):
@@ -51,7 +51,7 @@ class Stack:
 
 An example run:
 
-```
+```py
 stack = Stack()
 print('Current stack:', stack.fullStack())
 print('Stack empty?:', stack.isEmpty())
@@ -70,7 +70,7 @@ print('Stack empty?:', stack.isEmpty())
 
 Output:
 
-```
+```py
 Current stack: []
 Stack empty?: True
 Pushing integer 1
@@ -92,7 +92,7 @@ Stacks are often used for parsing. A simple parsing task is to check whether a s
 
 For example, the string `([])` is matching, because the outer and inner brackets form pairs. `()<>)` is not matching, because the last `)` has no partner. `([)]` is also not matching, because pairs must be either entirely inside or outside other pairs.
 
-```
+```py
 def checkParenth(str):
     stack = Stack()
     pushChars, popChars = "<({[", ">)}]"

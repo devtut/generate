@@ -17,7 +17,7 @@ Abstract classes are useful for defining and enforcing class abstractions at a h
 
 One conceptual approach to defining an abstract class is to stub out the class methods, and then raise a NotImplementedError if accessed. This prevents children classes from accessing parent methods without overriding them first. Like so:
 
-```
+```py
 class Fruit:
     
     def check_ripeness(self):
@@ -35,7 +35,7 @@ a.check_ripeness() # raises NotImplementedError
 
 Creating an abstract class in this way prevents improper usage of methods that are not overriden, and certainly encourages methods to be defined in child classes, but it does not enforce their definition. With the `abc` module we can prevent child classes from being instantiated when they fail to override abstract class methods of their parents and ancestors:
 
-```
+```py
 from abc import ABCMeta
 
 class AbstractClass(object):
@@ -53,7 +53,7 @@ class AbstractClass(object):
 
 It is now possible to simply subclass and override:
 
-```
+```py
 class Subclass(AbstractClass):
     def virtual_method_subclasses_must_define(self):
         return
@@ -69,7 +69,7 @@ Abstract base classes (ABCs) enforce what derived classes implement particular m
 
 To understand how this works and why we should use it, let's take a look at an example that Van Rossum would enjoy. Let's say we have a Base class "MontyPython" with two methods (joke & punchline) that must be implemented by all derived classes.
 
-```
+```py
 class MontyPython:
     def joke(self):
         raise NotImplementedError()
@@ -86,7 +86,8 @@ class ArgumentClinic(MontyPython):
 When we instantiate an object and call it's two methods, we'll get an error (as expected) with the `punchline()` method.
 
 ```
- >>> sketch = ArgumentClinic() 
+
+>>> sketch = ArgumentClinic() 
  >>> sketch.punchline() 
 NotImplementedError 
 
@@ -96,7 +97,7 @@ However, this still allows us to instantiate an object of the ArgumentClinic cla
 
 This is avoided by using the Abstract Base Class (ABC) module. Let's see how this works with the same example:
 
-```
+```py
 from abc import ABCMeta, abstractmethod
 
 class MontyPython(metaclass=ABCMeta):
@@ -116,7 +117,7 @@ class ArgumentClinic(MontyPython):
 
 This time when we try to instantiate an object from the incomplete class, we immediately get a TypeError!
 
-```
+```py
 >>> c = ArgumentClinic()
 TypeError:
 "Can't instantiate abstract class ArgumentClinic with abstract methods punchline"
@@ -125,7 +126,7 @@ TypeError:
 
 In this case, it's easy to complete the class to avoid any TypeErrors:
 
-```
+```py
 class ArgumentClinic(MontyPython):
     def joke(self):
         return "Hahahahahah"

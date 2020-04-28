@@ -12,7 +12,7 @@ description: "Square root: math.sqrt() and cmath.sqrt, Exponentiation using buil
 
 The `math` module contains the `math.sqrt()`-function that can compute the square root of any number (that can be converted to a `float`) and the result will always be a `float`:
 
-```
+```py
 import math
 
 math.sqrt(9)                # 3.0
@@ -23,7 +23,7 @@ math.sqrt(Decimal('6.25'))  # 2.5
 
 The `math.sqrt()` function raises a `ValueError` if the result would be `complex`:
 
-```
+```py
 math.sqrt(-10)              
 
 ```
@@ -34,7 +34,7 @@ ValueError: math domain error
 
 `math.sqrt(x)` is **faster** than `math.pow(x, 0.5)` or `x ** 0.5` but the precision of the results is the same. The `cmath` module is extremely similar to the `math` module, except for the fact it can compute complex numbers and all of its results are in the form of a + bi. It can also use `.sqrt()`:
 
-```
+```py
 import cmath
 
 cmath.sqrt(4)  # 2+0j
@@ -51,7 +51,7 @@ What's with the `j`? `j` is the equivalent to the square root of -1. All numbers
 
 [Exponentiation](https://en.wikipedia.org/wiki/Exponentiation) can be used by using the builtin `pow`-function or the `**` operator:
 
-```
+```py
 2 ** 3    # 8
 pow(2, 3) # 8
 
@@ -83,7 +83,7 @@ Before python 3.0.0, this raised a `ValueError`.
 
 The `operator` module contains two functions that are equivalent to the `**`-operator:
 
-```
+```py
 import operator
 operator.pow(4, 2)      # 16
 operator.__pow__(4, 3)  # 64
@@ -92,7 +92,7 @@ operator.__pow__(4, 3)  # 64
 
 or one could directly call the `__pow__` method:
 
-```
+```py
 val1, val2 = 4, 2
 val1.__pow__(val2)      # 16
 val2.__rpow__(val1)     # 16
@@ -108,7 +108,7 @@ val2.__rpow__(val1)     # 16
 
 Supplying `pow()` with 3 arguments `pow(a, b, c)` evaluates the [modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation) **a<sup>b</sup> mod c**:
 
-```
+```py
 pow(3, 4, 17)   # 13
 
 # equivalent unoptimized expression:
@@ -130,7 +130,7 @@ These restrictions are also present in python 3.x
 
 For example one can use the 3-argument form of `pow` to define a [modular inverse](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse) function:
 
-```
+```py
 def modular_inverse(x, p):
     """Find a such as  a·x ≡ 1 (mod p), assuming p is prime."""
     return pow(x, p-2, p)
@@ -147,7 +147,7 @@ def modular_inverse(x, p):
 
 The `math`-module contains another `math.pow()` function. The difference to the builtin `pow()`-function or `**` operator is that the result is always a `float`:
 
-```
+```py
 import math
 math.pow(2, 2)    # 4.0
 math.pow(-2., 2)  # 4.0
@@ -156,7 +156,7 @@ math.pow(-2., 2)  # 4.0
 
 Which excludes computations with complex inputs:
 
-```
+```py
 math.pow(2, 2+0j) 
 
 ```
@@ -167,7 +167,7 @@ TypeError: can't convert complex to float
 
 and computations that would lead to complex results:
 
-```
+```py
 math.pow(-2, 0.5)
 
 ```
@@ -183,7 +183,7 @@ ValueError: math domain error
 
 Both the `math` and `cmath`-module contain the [Euler number: e](https://en.wikipedia.org/wiki/E_%28mathematical_constant%29) and using it with the builtin `pow()`-function or `**`-operator works mostly like `math.exp()`:
 
-```
+```py
 import math
 
 math.e ** 2  # 7.3890560989306495
@@ -197,7 +197,7 @@ cmath.exp(2) # (7.38905609893065+0j)
 
 However the result is different and using the exponential function directly is more reliable than builtin exponentiation with base `math.e`:
 
-```
+```py
 print(math.e ** 10)       # 22026.465794806703
 print(math.exp(10))       # 22026.465794806718
 print(cmath.exp(10).real) # 22026.465794806718
@@ -212,7 +212,7 @@ print(cmath.exp(10).real) # 22026.465794806718
 
 The `math` module contains the `expm1()`-function that can compute the expression `math.e ** x - 1` for very small `x` with higher precision than `math.exp(x)` or `cmath.exp(x)` would allow:
 
-```
+```py
 import math
 
 print(math.e ** 1e-3 - 1)  # 0.0010005001667083846
@@ -224,7 +224,7 @@ print(math.expm1(1e-3))    # 0.0010005001667083417
 
 For very small x the difference gets bigger:
 
-```
+```py
 print(math.e ** 1e-15 - 1) # 1.1102230246251565e-15
 print(math.exp(1e-15) - 1) # 1.1102230246251565e-15
 print(math.expm1(1e-15))   # 1.0000000000000007e-15
@@ -234,7 +234,7 @@ print(math.expm1(1e-15))   # 1.0000000000000007e-15
 
 The improvement is significant in scientic computing. For example the [Planck's law](https://en.wikipedia.org/wiki/Planck%27s_law) contains an exponential function minus 1:
 
-```
+```py
 def planks_law(lambda_, T):
     from scipy.constants import h, k, c  # If no scipy installed hardcode these!
     return 2 * h * c ** 2 / (lambda_ ** 5 * math.expm1(h * c / (lambda_ * k * T)))
@@ -260,7 +260,7 @@ planks_law_naive(1000, 5000) # 4.139080233183142e-23
 
 Supposing you have a class that stores purely integer values:
 
-```
+```py
 class Integer(object):
     def __init__(self, value):
         self.value = int(value) # Cast to an integer
@@ -289,7 +289,7 @@ class Integer(object):
 
 Using the builtin `pow` function or `**` operator always calls `__pow__`:
 
-```
+```py
 Integer(2) ** 2                 # Integer(4)
 # Prints: Using __pow__
 Integer(2) ** 2.5               # Integer(5)
@@ -305,7 +305,7 @@ operator.__pow__(Integer(3), 3) # Integer(27)
 
 The second argument of the `__pow__()` method can only be supplied by using the builtin-`pow()` or by directly calling the method:
 
-```
+```py
 pow(Integer(2), 3, 4)           # Integer(0)
 # Prints: Using __pow__ with modulo
 Integer(2).__pow__(3, 4)        # Integer(0) 
@@ -315,7 +315,7 @@ Integer(2).__pow__(3, 4)        # Integer(0)
 
 While the `math`-functions always convert it to a `float` and use the float-computation:
 
-```
+```py
 import math
 
 math.pow(Integer(2), 0.5) # 1.4142135623730951
@@ -325,7 +325,7 @@ math.pow(Integer(2), 0.5) # 1.4142135623730951
 
 `cmath`-functions try to convert it to `complex` but can also fallback to `float` if there is no explicit conversion to `complex`:
 
-```
+```py
 import cmath
 
 cmath.exp(Integer(2))     # (7.38905609893065+0j)
@@ -340,7 +340,7 @@ cmath.exp(Integer(2))     # (7.38905609893065+0j)
 
 Neither `math` nor `cmath` will work if also the `__float__()`-method is missing:
 
-```
+```py
 del Integer.__float__  # Deleting __complex__ method
 
 math.sqrt(Integer(2))  # also cmath.exp(Integer(2))
@@ -360,7 +360,7 @@ While the `math.sqrt` function is provided for the specific case of square roots
 
 The inverse of an exponentiation is exponentiation by the exponent's reciprocal. So, if you can cube a number by putting it to the exponent of 3, you can find the cube root of a number by putting it to the exponent of 1/3.
 
-```
+```py
 >>> x = 3
 >>> y = x ** 3
 >>> y
@@ -380,7 +380,7 @@ True
 
 Even though Python natively supports big integers, taking the nth root of very large numbers can fail in Python.
 
-```
+```py
 x = 2 ** 100
 cube = x ** 3
 root = cube ** (1.0 / 3)
@@ -393,7 +393,7 @@ OverflowError: long int too large to convert to float
 
 When dealing with such large integers, you will need to use a custom function to compute the nth root of a number.
 
-```
+```py
 def nth_root(x, n):
     # Start with some reasonable bounds around the nth root.
     upper_bound = 1

@@ -19,7 +19,7 @@ Python has many **built-in functions** like `print()`, `input()`, `len()`. Besid
 
 Defining a function capable of taking an arbitrary number of arguments can be done by prefixing one of the arguments with a `*`
 
-```
+```py
 def func(*args):
     # args will be a tuple containing all values that are passed in
     for i in args:
@@ -53,7 +53,7 @@ These arguments (`*args`) can be accessed by index, for example `args[0]` will r
 
 You can take an arbitrary number of arguments with a name by defining an argument in the definition with **two** `*` in front of it:
 
-```
+```py
 def func(**kwargs):
     # kwargs will be a dictionary containing the names as keys and the values as values
     for name, value in kwargs.items():
@@ -87,12 +87,13 @@ Then comes the **arbitrary** `*arg` arguments. (Optional).<br />
 Then **keyword-only** arguments come next. (Required).<br />
 Finally the **arbitrary keyword** `**kwargs` come. (Optional).
 
-```
+```py
 #       |-positional-|-optional-|---keyword-only--|-optional-|
 def func(arg1, arg2=10 , *args, kwarg1, kwarg2=2, **kwargs):
      pass
 
 ```
+
 
 - `arg1` must be given, otherwise a `TypeError` is raised. It can be given as positional (`func(10)`) or keyword argument (`func(arg1=10)`).
 - `kwarg1` must also be given, but it can only be provided as keyword-argument: `func(kwarg1=10)`.
@@ -103,7 +104,7 @@ def func(arg1, arg2=10 , *args, kwarg1, kwarg2=2, **kwargs):
 
 Python 2.x doesn't support keyword-only parameters. This behavior can be emulated with `kwargs`:
 
-```
+```py
 def func(arg1, arg2=10, **kwargs):
     try:
         kwarg1 = kwargs.pop("kwarg1")
@@ -127,7 +128,7 @@ Any function can be defined with **none or one** `*args` and **none or one** `**
 
 It is possible to nest such functions and the usual convention is to remove the items that the code has already handled **but** if you are passing down the parameters you need to pass optional positional args with a `*` prefix and optional keyword args with a `**` prefix, otherwise args with be passed as a list or tuple and kwargs as a single dictionary. e.g.:
 
-```
+```py
 def fn(**kwargs):
     print(kwargs)
     f1(**kwargs)
@@ -149,7 +150,7 @@ fn(a=1, b=2)
 
 Using the `def` statement is the most common way to define a function in python. This statement is a so called **single clause compound statement** with the following syntax:
 
-```
+```py
 def function_name(parameters):
     statement(s)
 
@@ -163,7 +164,7 @@ def function_name(parameters):
 
 Here’s an example of a simple function definition which purpose is to print `Hello` each time it’s called:
 
-```
+```py
 def greet():
     print("Hello")
 
@@ -171,7 +172,7 @@ def greet():
 
 Now let’s call the defined `greet()` function:
 
-```
+```py
 greet()
 # Out: Hello
 
@@ -179,7 +180,7 @@ greet()
 
 That’s an other example of a function definition which takes one single argument and displays the passed in value each time the function is called:
 
-```
+```py
 def greet_two(greeting):
     print(greeting)
 
@@ -187,7 +188,7 @@ def greet_two(greeting):
 
 After that the `greet_two()` function must be called with an argument:
 
-```
+```py
 greet_two("Howdy")
 # Out: Howdy
 
@@ -195,7 +196,7 @@ greet_two("Howdy")
 
 Also you can give a default value to that function argument:
 
-```
+```py
 def greet_two(greeting="Howdy"):
     print(greeting)
 
@@ -203,7 +204,7 @@ def greet_two(greeting="Howdy"):
 
 Now you can call the function without giving a value:
 
-```
+```py
 greet_two()
 # Out: Howdy 
 
@@ -211,7 +212,7 @@ greet_two()
 
 You'll notice that unlike many other languages, you do not need to explicitly declare a return type of the function. Python functions can return values of any type via the `return` keyword. One function can return any number of different types!
 
-```
+```py
 def many_types(x):
     if x < 0:
         return "Hello!"
@@ -231,7 +232,7 @@ As long as this is handled correctly by the caller, this is perfectly valid Pyth
 
 A function that reaches the end of execution without a return statement will always return `None`:
 
-```
+```py
 def do_nothing():
     pass
 
@@ -251,7 +252,7 @@ The `lambda` keyword creates an inline function that contains a single expressio
 
 Consider the function:
 
-```
+```py
 def greeting():
     return "Hello"
 
@@ -259,21 +260,21 @@ def greeting():
 
 which, when called as:
 
-```
+```py
 print(greeting())
 
 ```
 
 prints:
 
-```
+```py
 Hello
 
 ```
 
 This can be written as a lambda function as follows:
 
-```
+```py
 greet_me = lambda: "Hello"
 
 ```
@@ -286,21 +287,21 @@ This creates an inline function with the name `greet_me` that returns `Hello`. N
 
 Once assigned to a variable, it can be used just like a regular function:
 
-```
+```py
 print(greet_me())
 
 ```
 
 prints:
 
-```
+```py
 Hello
 
 ```
 
 `lambda`s can take arguments, too:
 
-```
+```py
 strip_and_upper_case = lambda s: s.strip().upper()
 
 strip_and_upper_case("  Hello   ")
@@ -309,14 +310,14 @@ strip_and_upper_case("  Hello   ")
 
 returns the string:
 
-```
+```py
 HELLO
 
 ```
 
 They can also take arbitrary number of arguments / keyword arguments, like normal functions.
 
-```
+```py
 greeting = lambda x, *args, **kwargs: print(x, args, kwargs)
 greeting('hello', 'world', world='world')
 
@@ -324,7 +325,7 @@ greeting('hello', 'world', world='world')
 
 prints:
 
-```
+```py
 hello ('world',) {'world': 'world'}
 
 ```
@@ -333,7 +334,7 @@ hello ('world',) {'world': 'world'}
 
 For example, this line sorts a list of strings ignoring their case and ignoring whitespace at the beginning and at the end:
 
-```
+```py
 sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip().upper())
 # Out:
 # ['    bAR', 'BaZ    ', ' foo ']
@@ -342,7 +343,7 @@ sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip().upper())
 
 Sort list just ignoring whitespaces:
 
-```
+```py
 sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip())
 # Out:
 # ['BaZ    ', '    bAR', ' foo ']
@@ -351,7 +352,7 @@ sorted( [" foo ", "    bAR", "BaZ    "], key=lambda s: s.strip())
 
 Examples with `map`:
 
-```
+```py
 sorted( map( lambda s: s.strip().upper(), [" foo ", "    bAR", "BaZ    "]))
 # Out:
 # ['BAR', 'BAZ', 'FOO']
@@ -364,7 +365,7 @@ sorted( map( lambda s: s.strip(), [" foo ", "    bAR", "BaZ    "]))
 
 Examples with numerical lists:
 
-```
+```py
 my_list = [3, -4, -2, 5, 1, 7]
 sorted( my_list, key=lambda x: abs(x))
 # Out:
@@ -382,7 +383,7 @@ list( map( lambda x: abs(x), my_list))
 
 One can call other functions (with/without arguments) from inside a lambda function.
 
-```
+```py
 def foo(msg):
     print(msg)
 
@@ -393,7 +394,7 @@ greet()
 
 prints:
 
-```
+```py
 hello world
 
 ```
@@ -422,7 +423,7 @@ The first form means that the name of the resulting function object is specifica
 
 Optional arguments can be defined by assigning (using `=`) a default value to the argument-name:
 
-```
+```py
 def make(action='nothing'):
     return action
 
@@ -430,7 +431,7 @@ def make(action='nothing'):
 
 Calling this function is possible in 3 different ways:
 
-```
+```py
 make("fun")
 # Out: fun
 
@@ -460,7 +461,7 @@ There is a problem when using **optional arguments** with a **mutable default ty
 
 This problem arises because a function's default arguments are initialised **once**, at the point when the function is **defined**, and **not** (like many other languages) when the function is **called**. The default values are stored inside the function object's `__defaults__` member variable.
 
-```
+```py
 def f(a, b=42, c=[]):
     pass
 
@@ -471,7 +472,7 @@ print(f.__defaults__)
 
 For **immutable** types (see [Argument passing and mutability](https://stackoverflow.com/documentation/python/228/functions/2920/argument-passing-and-mutability)) this is not a problem because there is no way to mutate the variable; it can only ever be reassigned, leaving the original value unchanged. Hence, subsequent are guaranteed to have the same default value. However, for a **mutable** type, the original value can mutate, by making calls to its various member functions. Therefore, successive calls to the function are not guaranteed to have the initial default value.
 
-```
+```py
 def append(elem, to=[]):
     to.append(elem)      # This call to append() mutates the default variable "to"
     return to
@@ -501,7 +502,7 @@ If you want to ensure that the default argument is always the one you specify in
 
 A common idiom to achieve this when a mutable type is needed as the default, is to use `None` (immutable) as the default argument and then assign the actual default value to the argument variable if it is equal to `None`.
 
-```
+```py
 def append(elem, to=None):
     if to is None:
         to = []
@@ -555,7 +556,7 @@ y
 - **Immutable:** Integers, strings, tuples, and so on. All operations make copies.
 - **Mutable:** Lists, dictionaries, sets, and so on. Operations may or may not mutate.
 
-```
+```py
 x = [3, 1, 9]
 y = x
 x.append(5)    # Mutates the list labelled by x and y, both x and y are bound to [3, 1, 9]
@@ -580,7 +581,7 @@ z
 
 Functions can `return` a value that you can use directly:
 
-```
+```py
 def give_me_five():
     return 5
 
@@ -591,7 +592,7 @@ print(give_me_five())  # Print the returned value
 
 or save the value for later use:
 
-```
+```py
 num = give_me_five()
 print(num)             # Print the saved returned value
 # Out: 5
@@ -600,7 +601,7 @@ print(num)             # Print the saved returned value
 
 or use the value for any operations:
 
-```
+```py
 print(give_me_five() + 10)
 # Out: 15
 
@@ -608,7 +609,7 @@ print(give_me_five() + 10)
 
 If `return` is encountered in the function the function will be exited immediately and subsequent operations will not be evaluated:
 
-```
+```py
 def give_me_another_five():
     return 5
     print('This statement will not be printed. Ever.')
@@ -620,7 +621,7 @@ print(give_me_another_five())
 
 You can also `return` multiple values (in the form of a tuple):
 
-```
+```py
 def give_me_two_fives():
     return 5, 5  # Returns two 5
 
@@ -641,7 +642,7 @@ A function with **no** `return` statement implicitly returns `None`. Similarly a
 
 Closures in Python are created by function calls. Here, the call to `makeInc` creates a binding for `x` that is referenced inside the function `inc`. Each call to `makeInc` creates a new instance of this function, but each instance has a link to a different binding of `x`.
 
-```
+```py
 def makeInc(x):
   def inc(y):
      # x is "attached" in the definition of inc
@@ -659,7 +660,7 @@ incFive(5) # returns 10
 
 Notice that while in a regular closure the enclosed function fully inherits all variables from its enclosing environment, in this construct the enclosed function has only read access to the inherited variables but cannot make assignments to them
 
-```
+```py
 def makeInc(x):
   def inc(y):
      # incrementing x is not allowed
@@ -675,7 +676,7 @@ incOne(5) # UnboundLocalError: local variable 'x' referenced before assignment
 
 Python 3 offers the `nonlocal` statement ([Nonlocal Variables](http://stackoverflow.com/documentation/python/263/variable-scope-and-binding/5712/nonlocal-variables#t=201608272008282346874) ) for realizing a full closure with nested functions.
 
-```
+```py
 def makeInc(x):
   def inc(y):
      nonlocal x
@@ -697,7 +698,7 @@ incOne(5) # returns 6
 
 All parameters specified after the first asterisk in the function signature are keyword-only.
 
-```
+```py
 def f(*a, b):
     pass
 
@@ -708,7 +709,7 @@ f(1, 2, 3)
 
 In Python 3 it's possible to put a single asterisk in the function signature to ensure that the remaining arguments may only be passed using keyword arguments.
 
-```
+```py
 def f(a, b, *, c):
     pass
 
@@ -726,7 +727,7 @@ f(1, 2, c=3)
 
 Arguments are defined in parentheses after the function name:
 
-```
+```py
 def divide(dividend, divisor):  # The names of the function and its arguments
     # The arguments are available by name in the body of the function
     print(dividend / divisor)
@@ -737,7 +738,7 @@ The function name and its list of arguments are called the **signature** of the 
 
 When calling the function, give values for the arguments by listing them in order
 
-```
+```py
 divide(10, 2)
 # output: 5
 
@@ -745,7 +746,7 @@ divide(10, 2)
 
 or specify them in any order using the names from the function definition:
 
-```
+```py
 divide(divisor=2, dividend=10)
 # output: 5
 
@@ -759,7 +760,7 @@ divide(divisor=2, dividend=10)
 A recursive function is a function that calls itself in its definition.
 For example the mathematical function, factorial, defined by `factorial(n) = n*(n-1)*(n-2)*...*3*2*1`. can be programmed as
 
-```
+```py
 def factorial(n):
     #n here should be an integer
     if n == 0:
@@ -771,7 +772,7 @@ def factorial(n):
 
 the outputs here are:
 
-```
+```py
 factorial(0)
 #out 1
 factorial(1)
@@ -787,7 +788,7 @@ as expected. Notice that this function is recursive because the second `return f
 
 Some recursive functions can be implemented using [lambda](http://stackoverflow.com/documentation/python/228/functions/2172/lambda-inline-anonymous-functions#t=201607221619590814188), the factorial function using lambda would be something like this:
 
-```
+```py
 factorial = lambda n: 1 if n == 0 else n*factorial(n-1)
 
 ```
@@ -801,7 +802,7 @@ The function outputs the same as above.
 
 There is a limit to the depth of possible recursion, which depends on the Python implementation. When the limit is reached, a RuntimeError exception is raised:
 
-```
+```py
 def cursing(depth):
   try:
     cursing(depth + 1) # actually, re-cursing
@@ -815,7 +816,7 @@ cursing(0)
 
 It is possible to change the recursion depth limit by using `sys.setrecursionlimit(limit)` and check this limit by `sys.getrecursionlimit()`.
 
-```
+```py
 sys.setrecursionlimit(2000)
 cursing(0)
 # Out: I recursed 1997 times!
@@ -831,7 +832,7 @@ From Python 3.5, the exception is a `RecursionError`, which is derived from `Run
 
 Functions in python are first-class objects. They can be defined in any scope
 
-```
+```py
 def fibonacci(n):
     def step(a,b):
         return b, a+b
@@ -844,7 +845,7 @@ def fibonacci(n):
 
 Functions capture their enclosing scope can be passed around like any other sort of object
 
-```
+```py
 def make_adder(n):
     def adder(x):
         return n + x
@@ -873,7 +874,7 @@ repeatedly_apply(add5, 5, 1)
 
 One method for creating recursive lambda functions involves assigning the function to a variable and then referencing that variable within the function itself. A common example of this is the recursive calculation of the factorial of a number - such as shown in the following code:
 
-```
+```py
 lambda_factorial = lambda i:1 if i==0 else i*lambda_factorial(i-1)
 print(lambda_factorial(4)) # 4 * 3 * 2 * 1 = 12 * 2 = 24
 
@@ -892,7 +893,7 @@ The lambda function, through its variable assignment, is passed a value (4) whic
 
 One can give a function as many arguments as one wants, the only fixed rules are that each argument name must be unique and that optional arguments must be after the not-optional ones:
 
-```
+```py
 def func(value1, value2, optionalvalue=10):
     return '{0} {1} {2}'.format(value1, value2, optionalvalue1)
 
@@ -900,7 +901,7 @@ def func(value1, value2, optionalvalue=10):
 
 When calling the function you can either give each keyword without the name but then the order matters:
 
-```
+```py
 print(func(1, 'a', 100))
 # Out: 1 a 100
 
@@ -911,7 +912,7 @@ print(func('abc', 14))
 
 Or combine giving the arguments with name and without. Then the ones with name must follow those without but the order of the ones with name doesn't matter:
 
-```
+```py
 print(func('This', optionalvalue='StackOverflow Documentation', value2='is'))
 # Out: This is StackOverflow Documentation
 
@@ -924,7 +925,7 @@ print(func('This', optionalvalue='StackOverflow Documentation', value2='is'))
 
 Functions allow you to specify these types of parameters: positional, named, variable positional, Keyword args (kwargs). Here is a clear and concise use of each type.
 
-```
+```py
 def unpacking(a, b, c=45, d=60, *args, **kwargs):
     print(a, b, c, d, args, kwargs)
 

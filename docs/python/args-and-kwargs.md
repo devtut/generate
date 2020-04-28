@@ -12,7 +12,7 @@ description: "Using **kwargs when writing functions, Using *args when writing fu
 
 You can define a function that takes an arbitrary number of keyword (named) arguments by using the double star `**` before a parameter name:
 
-```
+```py
 def print_kwargs(**kwargs):
     print(kwargs)
 
@@ -20,7 +20,7 @@ def print_kwargs(**kwargs):
 
 When calling the method, Python will construct a dictionary of all keyword arguments and make it available in the function body:
 
-```
+```py
 print_kwargs(a="two", b=3)
 # prints: "{a: "two", b=3}"
 
@@ -28,7 +28,7 @@ print_kwargs(a="two", b=3)
 
 Note that the **kwargs parameter in the function definition must always be the last parameter, and it will only match the arguments that were passed in after the previous ones.
 
-```
+```py
 def example(a, **kw):
     print kw
 
@@ -38,7 +38,7 @@ example(a=2, b=3, c=4) # => {'b': 3, 'c': 4}
 
 Inside the function body, `kwargs` is manipulated in the same way as a dictionary; in order to access individual elements in `kwargs` you just loop through them as you would with a normal dictionary:
 
-```
+```py
 def print_kwargs(**kwargs):
     for key in kwargs:
         print("key = {0}, value = {1}".format(key, kwargs[key])) 
@@ -47,7 +47,7 @@ def print_kwargs(**kwargs):
 
 Now, calling `print_kwargs(a="two", b=1)` shows the following output:
 
-```
+```py
 print_kwargs(a = "two", b = 1)
 key = a, value = "two"
 key = b, value = 1
@@ -61,7 +61,7 @@ key = b, value = 1
 
 You can use the star * when writing a function to collect all positional (ie. unnamed) arguments in a tuple:
 
-```
+```py
 def print_args(farg, *args):
    print("formal arg: %s" % farg)
    for arg in args:
@@ -71,7 +71,7 @@ def print_args(farg, *args):
 
 Calling method:
 
-```
+```py
 print_args(1, "two", 3)
 
 ```
@@ -83,7 +83,7 @@ In that call, farg will be assigned as always, and the two others will be fed in
 ## Populating kwarg values with a dictionary
 
 
-```
+```py
 def foobar(foo=None, bar=None):
     return "{}{}".format(foo, bar)
 
@@ -100,7 +100,7 @@ foobar(**values) # "foobar"
 
 You can use a dictionary to assign values to the function's parameters; using parameters name as keys in the dictionary and the value of these arguments bound to each key:
 
-```
+```py
 def test_func(arg1, arg2, arg3): # Usual function with three arguments
    print("arg1: %s" % arg1)
    print("arg2: %s" % arg2)
@@ -121,7 +121,7 @@ test_var_args_call(1, **kwargs)
 
 Python 3 allows you to define function arguments which can only be assigned by keyword, even without default values.  This is done by using star * to consume additional positional parameters without setting the keyword parameters.  All arguments after the * are keyword-only (i.e. non-positional) arguments.  Note that if keyword-only arguments aren't given a default, they are still required when calling the function.
 
-```
+```py
 def print_args(arg1, *args, keyword_required, keyword_only=True):
     print("first positional arg: {}".format(arg1))
     for arg in args:
@@ -146,7 +146,7 @@ print(1, 2, 3, keyword_required=4)
 
 The effect of using the `*` operator on an argument when calling a function is that of unpacking the list or a tuple argument
 
-```
+```py
 def print_args(arg1, arg2):
     print(str(arg1) + str(arg2))
 
@@ -164,7 +164,7 @@ Note that the length of the starred argument need to be equal to the number of t
 
 A common python idiom is to use the unpacking operator `*` with the `zip` function to reverse its effects:
 
-```
+```py
 a = [1,3,5,7,9]
 b = [2,4,6,8,10]
 
@@ -183,7 +183,7 @@ zip(*zipped)
 
 To use default values with **kwargs
 
-```
+```py
 def fun(**kwargs):
     print kwargs.get('value', 0)
 
@@ -201,7 +201,7 @@ fun(value=1)
 
 A common use case for `*args` in a function definition is to delegate processing to either a wrapped or inherited function. A typical example might be in a class's `__init__` method
 
-```
+```py
 class A(object):
     def __init__(self, b, c):
         self.y = b
@@ -218,7 +218,7 @@ Here, the `a` parameter is processed by the child class after all other argument
 
 For instance:
 
-```
+```py
 b = B(1, 2, 3)
 b.x  # 1
 b.y  # 2

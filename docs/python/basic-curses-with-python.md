@@ -10,7 +10,7 @@ description: "Basic Invocation Example, The wrapper() helper function."
 ## Basic Invocation Example
 
 
-```
+```py
 import curses
 import traceback
 
@@ -54,7 +54,7 @@ finally:
 
 While the basic invocation above is easy enough, the curses package provides the `wrapper(func, ...)` helper function. The example below contains the equivalent of above:
 
-```
+```py
 main(scr, *args):
     # -- Perform an action with Screen --
     scr.border(0)

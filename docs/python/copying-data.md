@@ -12,7 +12,7 @@ description: "Copy a dictionary, Performing a shallow copy, Performing a deep co
 
 A dictionary object has the method `copy`. It performs a shallow copy of the dictionary.
 
-```
+```py
 >>> d1 = {1:[]}
 >>> d2 = d1.copy()
 >>> d1 is d2
@@ -29,7 +29,7 @@ True
 
 A shallow copy is a copy of a collection without performing a copy of its elements.
 
-```
+```py
 >>> import copy
 >>> c = [[1,2]]
 >>> d = copy.copy(c)
@@ -47,7 +47,7 @@ True
 
 If you have nested lists, it is desireable to clone the nested lists as well. This action is called deep copy.
 
-```
+```py
 >>> import copy
 >>> c = [[1,2]]
 >>> d = copy.deepcopy(c)
@@ -65,7 +65,7 @@ False
 
 You can create shallow copies of lists using slices.
 
-```
+```py
 >>> l1 = [1,2,3]
 >>> l2 = l1[:]     # Perform the shallow copy.
 >>> l2
@@ -82,7 +82,7 @@ False
 
 Sets also have a `copy`method. You can use this method to perform a shallow copy.
 
-```
+```py
 >>> s1 = {()}
 >>> s2 = s1.copy()
 >>> s1 is s2

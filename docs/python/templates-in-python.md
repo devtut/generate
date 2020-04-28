@@ -11,7 +11,7 @@ description: "Simple data output program using template, Changing delimiter"
 ## Simple data output program using template
 
 
-```
+```py
 from string import Template
 
 data = dict(item = "candy", price = 8, qty = 2)
@@ -24,7 +24,7 @@ print(t.substitute(data))
 
 Output:
 
-```
+```py
 Simon bought 2 candy for 8 dollar
 
 ```
@@ -40,7 +40,7 @@ Mapping is any dictionary-like object with keys that match with the template pla
 
 You can change the "$" delimiter to any other. The following example:
 
-```
+```py
 from string import Template
 
 class MyOtherTemplate(Template):

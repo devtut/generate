@@ -12,7 +12,7 @@ description: "Basic deque using, Available methods in deque, limit deque size, B
 
 The main methods that are useful with this class are `popleft` and `appendleft`
 
-```
+```py
 from collections import deque
 
 d = deque([1, 2, 3])
@@ -28,70 +28,70 @@ d.appendleft(5)        # d = deque([5, 2, 3])
 
 Creating empty deque:
 
-```
+```py
 dl = deque()  # deque([]) creating empty deque
 
 ```
 
 Creating deque with some elements:
 
-```
+```py
 dl = deque([1, 2, 3, 4])  # deque([1, 2, 3, 4])
 
 ```
 
 Adding element to deque:
 
-```
+```py
 dl.append(5)  # deque([1, 2, 3, 4, 5])
 
 ```
 
 Adding element left side of deque:
 
-```
+```py
 dl.appendleft(0)  # deque([0, 1, 2, 3, 4, 5])
 
 ```
 
 Adding list of elements to deque:
 
-```
+```py
 dl.extend([6, 7])  # deque([0, 1, 2, 3, 4, 5, 6, 7])
 
 ```
 
 Adding list of elements to from the left side:
 
-```
+```py
 dl.extendleft([-2, -1])  # deque([-1, -2, 0, 1, 2, 3, 4, 5, 6, 7])
 
 ```
 
 Using `.pop()` element will naturally remove an item from the right side:
 
-```
+```py
 dl.pop()  # 7 => deque([-1, -2, 0, 1, 2, 3, 4, 5, 6])
 
 ```
 
 Using `.popleft()` element to remove an item from the left side:
 
-```
+```py
 dl.popleft()  # -1 deque([-2, 0, 1, 2, 3, 4, 5, 6])
 
 ```
 
 Remove element by its value:
 
-```
+```py
 dl.remove(1)  # deque([-2, 0, 2, 3, 4, 5, 6])
 
 ```
 
 Reverse the order of the elements in deque:
 
-```
+```py
 dl.reverse()  # deque([6, 5, 4, 3, 2, 0, -2])
 
 ```
@@ -103,7 +103,7 @@ dl.reverse()  # deque([6, 5, 4, 3, 2, 0, -2])
 
 Use the `maxlen` parameter while creating a deque to limit the size of the deque:
 
-```
+```py
 from collections import deque
 d = deque(maxlen=3)  # only holds 3 items
 d.append(1)  # deque([1])
@@ -120,7 +120,7 @@ d.append(4)  # deque([2, 3, 4]) (1 is removed because its maxlen is 3)
 
 The Deque is the only Python data structure with fast [Queue operations](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)). (Note `queue.Queue` isn't normally suitable, since it's meant for communication between threads.) A basic use case of a Queue is the [breadth first search](https://en.wikipedia.org/wiki/Breadth-first_search).
 
-```
+```py
 from collections import deque
 
 def bfs(graph, root):
@@ -141,14 +141,14 @@ def bfs(graph, root):
 
 Say we have a simple directed graph:
 
-```
+```py
 graph = {1:[2,3], 2:[4], 3:[4,5], 4:[3,5], 5:[]}
 
 ```
 
 We can now find the distances from some starting position:
 
-```
+```py
 >>> bfs(graph, 1)
 {1: 0, 2: 1, 3: 1, 4: 2, 5: 2}
 

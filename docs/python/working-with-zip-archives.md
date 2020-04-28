@@ -12,7 +12,7 @@ description: "Opening Zip Files, Examining Zipfile Contents, Extracting zip file
 
 To start, import the `zipfile` module, and set the filename.
 
-```
+```py
 import zipfile
 filename = 'zipfile.zip'
 
@@ -20,7 +20,7 @@ filename = 'zipfile.zip'
 
 Working with zip archives is very similar to [working with files](https://stackoverflow.com/documentation/python/267/files-folders-io), you create the object by opening the zipfile, which lets you work on it before closing the file up again.
 
-```
+```py
 zip = zipfile.ZipFile(filename)
 print(zip)
 # <zipfile.ZipFile object at 0x0000000002E51A90>
@@ -30,7 +30,7 @@ zip.close()
 
 In Python 2.7 and in Python 3 versions higher than 3.2, we can use the `with` context manager. We open the file in "read" mode, and then print a list of filenames:
 
-```
+```py
 with zipfile.ZipFile(filename, 'r') as z:
     print(zip)
     # <zipfile.ZipFile object at 0x0000000002E51A90>
@@ -44,7 +44,7 @@ with zipfile.ZipFile(filename, 'r') as z:
 
 There are a few ways to inspect the contents of a zipfile. You can use the `printdir` to just get a variety of information sent to `stdout`
 
-```
+```py
 with zipfile.ZipFile(filename) as zip:
     zip.printdir()
 
@@ -60,7 +60,7 @@ with zipfile.ZipFile(filename) as zip:
 
 We can also get a list of filenames with the `namelist` method. Here, we simply print the list:
 
-```
+```py
 with zipfile.ZipFile(filename) as zip:
     print(zip.namelist())
 
@@ -70,7 +70,7 @@ with zipfile.ZipFile(filename) as zip:
 
 Instead of `namelist`, we can call the `infolist` method, which returns a list of `ZipInfo` objects, which contain additional information about each file, for instance a timestamp and file size:
 
-```
+```py
 with zipfile.ZipFile(filename) as zip:
     info = zip.infolist()
     print(zip[0].filename)
@@ -90,7 +90,7 @@ with zipfile.ZipFile(filename) as zip:
 
 Extract all file contents of a zip file
 
-```
+```py
 import zipfile
 with zipfile.ZipFile('zipfile.zip','r') as zfile:
     zfile.extractall('path')
@@ -99,7 +99,7 @@ with zipfile.ZipFile('zipfile.zip','r') as zfile:
 
 If you want extract single files use extract method, it takes name list and path as input parameter
 
-```
+```py
 import zipfile
 f=open('zipfile.zip','rb')
 zfile=zipfile.ZipFile(f)
@@ -115,7 +115,7 @@ for cont in zfile.namelist():
 
 To create new archive open zipfile with write mode.
 
-```
+```py
 import zipfile
 new_arch=zipfile.ZipFile("filename.zip",mode="w")
 
@@ -123,7 +123,7 @@ new_arch=zipfile.ZipFile("filename.zip",mode="w")
 
 To add files to this archive use write() method.
 
-```
+```py
 new_arch.write('filename.txt','filename_in_archive.txt') #first parameter is filename and second parameter is filename in archive by default filename will taken if not provided
 new_arch.close()
 
@@ -131,7 +131,7 @@ new_arch.close()
 
 If you want to write string of bytes into the archive you can use writestr() method.
 
-```
+```py
 str_bytes="string buffer"
 new_arch.writestr('filename_string_in_archive.txt',str_bytes)
 new_arch.close()

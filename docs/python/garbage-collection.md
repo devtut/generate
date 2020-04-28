@@ -13,7 +13,7 @@ description: "Reuse of primitive objects, Effects of the del command, Reference 
 
 An interesting thing to note which may help optimize your applications is that primitives are actually also refcounted under the hood. Let's take a look at numbers; for all integers between -5 and 256, Python always reuses the same object:
 
-```
+```py
 >>> import sys
 >>> sys.getrefcount(1)
 797
@@ -26,7 +26,7 @@ An interesting thing to note which may help optimize your applications is that p
 
 Note that the refcount increases, meaning that `a` and `b` reference the same underlying object when they refer to the `1` primitive. However, for larger numbers, Python actually doesn't reuse the underlying object:
 
-```
+```py
 >>> a = 999999999
 >>> sys.getrefcount(999999999)
 3
@@ -45,7 +45,7 @@ Because the refcount for `999999999` does not change when assigning it to `a` an
 
 Removing a variable name from the scope using `del v`, or removing an object from a collection using `del v[item]` or `del[i:j]`, or removing an attribute using `del v.name`, or any other way of removing references to an object, **does not** trigger any destructor calls or any memory being freed in and of itself. Objects are only destructed when their reference count reaches zero.
 
-```
+```py
 >>> import gc
 >>> gc.disable()  # disable garbage collector
 >>> class Track:
@@ -77,7 +77,7 @@ Every time an object is referenced (e.g. assigned to a variable), its reference 
 
 When the reference count reaches zero, the object is **immediately destroyed** and the memory is immediately freed. Thus for the majority of cases, the garbage collector is not even needed.
 
-```
+```py
 >>> import gc; gc.disable()  # disable garbage collector
 >>> class Track:
         def __init__(self):
@@ -104,7 +104,7 @@ Destructed
 
 To demonstrate further the concept of references:
 
-```
+```py
 >>> def bar():
         return Track()
 >>> t = bar()
@@ -125,7 +125,7 @@ Destructed
 
 The only time the garbage collector is needed is if you have a **reference cycle**. The simples example of a reference cycle is one in which A refers to B and B refers to A, while nothing else refers to either A or B. Neither A or B are accessible from anywhere in the program, so they can safely be destructed, yet their reference counts are 1 and so they cannot be freed by the reference counting algorithm alone.
 
-```
+```py
 >>> import gc; gc.disable()  # disable garbage collector
 >>> class Track:
         def __init__(self):
@@ -148,7 +148,7 @@ Destructed
 
 A reference cycle can be arbitrary long. If A points to B points to C points to ... points to Z which points to A, then neither A through Z will be collected, until the garbage collection phase:
 
-```
+```py
 >>> objs = [Track() for _ in range(10)]
 Initialized
 Initialized
@@ -185,7 +185,7 @@ Destructed
 ## Viewing the refcount of an object
 
 
-```
+```py
 >>> import sys
 >>> a = object()
 >>> sys.getrefcount(a)
@@ -210,14 +210,14 @@ Both versions use the `ctypes` module to do so.
 
 **WARNING:** doing this **will** leave your Python environment unstable and prone to crashing without a traceback! Using this method could also introduce security problems (quite unlikely) Only deallocate objects you're sure you'll never reference again. Ever.
 
-```
+```py
 import ctypes
 deallocated = 12345
 ctypes.pythonapi._Py_Dealloc(ctypes.py_object(deallocated))
 
 ```
 
-```
+```py
 import ctypes, sys
 deallocated = 12345
 (ctypes.c_char * sys.getsizeof(deallocated)).from_address(id(deallocated))[:4] = '\x00' * 4
@@ -240,7 +240,7 @@ The garbage collector can be manipulated by tuning the collection thresholds whi
 
 The thresholds can be changed using the following snippet:
 
-```
+```py
 import gc
 gc.set_threshold(1000, 100, 10) # Values are just for demonstration purpose
 
@@ -254,7 +254,7 @@ One instance in which manually setting the thresholds is beneficial is when the 
 
 Manually triggering a collection can be done as in the following snippet:
 
-```
+```py
 import gc
 gc.collect()
 
@@ -279,7 +279,7 @@ for example:
 
 In the following code, you assume that the file will be closed on the next garbage collection cycle, if f was the last reference to the file.
 
-```
+```py
 >>> f = open("test.txt")
 >>> del f
 
@@ -288,7 +288,7 @@ In the following code, you assume that the file will be closed on the next garba
 A more explicit way to clean up is to call `f.close()`. You can do it even more elegant, that is by using the `with` statement, also known as the <a href="http://stackoverflow.com/documentation/python/928/context-managers-with-statement">context manager
 </a>:
 
-```
+```py
 >>> with open("test.txt") as f:
 ...     pass
 ...     # do something with f
@@ -319,7 +319,7 @@ A quick aside: unlike the first two generations, the long lived third generation
 
 So the generational garbage collection speeds things up tremdously by not requiring that we scan over objects that aren't likely to need GC all the time, but how does it help us break cyclic references? Probably not very well, it turns out. The function for actually breaking these reference cycles starts out [like this](https://github.com/python/cpython/blob/8f33d77/Modules/gcmodule.c#L847):
 
-```
+```py
 /* Break reference cycles by clearing the containers involved.  This is
  * tricky business as the lists can be changing and we don't know which
  * objects may be freed.  It is possible I screwed something up here.
@@ -331,7 +331,7 @@ delete_garbage(PyGC_Head *collectable, PyGC_Head *old)
 
 The reason generational garbage collection helps with this is that we can keep the length of the list as a separate count; each time we add a new object to the generation we increment this count, and any time we move an object to another generation or dealloc it we decrement the count. Theoretically at the end of a GC cycle this count (for the first two generations anyways) should always be 0. If it's not, anything in the list that's left over is some form of circular reference and we can drop it. However, there's one more problem here: What if the leftover objects have Python's magic method `__del__` on them? `__del__` is called any time a Python object is destroyed. However, if two objects in a circular reference have `__del__` methods, we can't be sure that destroying one won't break the others `__del__` method. For a contrived example, imagine we wrote the following:
 
-```
+```py
 class A(object):
     def __init__(self, b=None):
         self.b = b
@@ -352,7 +352,7 @@ and we set an instance of A and an instance of B to point to one another and the
 
 CPython deals with this is by sticking those un-GC-able objects (anything with some form of circular reference and a `__del__` method) onto a global list of uncollectable garbage and then leaving it there for all eternity:
 
-```
+```py
 /* list of uncollectable objects */
 static PyObject *garbage = NULL;
 

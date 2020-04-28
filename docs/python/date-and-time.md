@@ -16,7 +16,7 @@ Python 3.2+ has support for `%z` format when [parsing a string](https://docs.pyt
 UTC offset in the form `+HHMM` or `-HHMM` (empty string if the object is naive).
 
 
-```
+```py
 import datetime
 dt = datetime.datetime.strptime("2016-04-15T08:27:18-0500", "%Y-%m-%dT%H:%M:%S%z")
 
@@ -24,7 +24,7 @@ dt = datetime.datetime.strptime("2016-04-15T08:27:18-0500", "%Y-%m-%dT%H:%M:%S%z
 
 For other versions of Python, you can use an external library such as [`dateutil`](https://dateutil.readthedocs.org/en/latest/), which makes parsing a string with timezone into a `datetime` object is quick.
 
-```
+```py
 import dateutil.parser
 dt = dateutil.parser.parse("2016-04-15T08:27:18-0500")
 
@@ -32,7 +32,7 @@ dt = dateutil.parser.parse("2016-04-15T08:27:18-0500")
 
 The `dt` variable is now a `datetime` object with the following value:
 
-```
+```py
 datetime.datetime(2016, 4, 15, 8, 27, 18, tzinfo=tzoffset(None, -18000))
 
 ```
@@ -48,7 +48,7 @@ By default all `datetime` objects are naive. To make them timezone-aware, you mu
 
 For time zones that are a fixed offset from UTC, in Python 3.2+, the `datetime` module provides the `timezone` class, a concrete implementation of `tzinfo`, which takes a `timedelta` and an (optional) name parameter:
 
-```
+```py
 from datetime import datetime, timedelta, timezone
 JST = timezone(timedelta(hours=+9))
 
@@ -67,7 +67,7 @@ print(dt.tzname)
 
 For Python versions before 3.2, it is necessary to use a third party library, such as [`dateutil`](http://dateutil.readthedocs.io). `dateutil` provides an equivalent class, `tzoffset`, which (as of version 2.5.3) takes arguments of the form `dateutil.tz.tzoffset(tzname, offset)`, where `offset` is specified in seconds:
 
-```
+```py
 from datetime import datetime, timedelta
 from dateutil import tz
 
@@ -86,7 +86,7 @@ For zones with daylight savings time, python standard libraries do not provide a
 
 In addition to static time zones, `dateutil` provides time zone classes that use daylight savings time (see [the documentation for the `tz` module](http://dateutil.readthedocs.io/en/stable/tz.html)). You can use the `tz.gettz()` method to get a time zone object, which can then be passed directly to the `datetime` constructor:
 
-```
+```py
 from datetime import datetime
 from dateutil import tz
 local = tz.gettz() # Local time
@@ -108,7 +108,7 @@ print(dt_pdt)
 
 All edge cases are handled properly when using `pytz`, but `pytz` time zones should **not** be directly attached to time zones through the constructor. Instead, a `pytz` time zone should be attached using the time zone's `localize` method:
 
-```
+```py
 from datetime import datetime, timedelta
 import pytz
 
@@ -124,7 +124,7 @@ print(dt_pdt)
 
 Be aware that if you perform datetime arithmetic on a `pytz`-aware time zone, you must either perform the calculations in UTC (if you want absolute elapsed time), or you must call `normalize()` on the result:
 
-```
+```py
 dt_new = dt_pdt + timedelta(hours=3) # This should be 2:30 AM PST
 print(dt_new)
 # 2015-11-01 03:30:00-07:00
@@ -141,7 +141,7 @@ print(dt_corrected)
 
 The datetime module contains three primary types of objects - date, time, and datetime.
 
-```
+```py
 import datetime
 
 # Date object
@@ -161,7 +161,7 @@ millenium_turn = datetime.datetime(2000, 1, 1, 0, 0, 0) #datetime.datetime(2000,
 
 Arithmetic operations for these objects are only supported within same datatype and performing simple arithmetic with instances of different types will result in a TypeError.
 
-```
+```py
 # subtraction of noon from today
 noon-today
 Traceback (most recent call last):
@@ -186,7 +186,7 @@ print('Time since the millenium at noon: ',
 
 the `timedelta` module comes in handy to compute differences between times:
 
-```
+```py
 from datetime import datetime, timedelta
 now = datetime.now()
 then = datetime(2016, 5, 23)     # datetime.datetime(2016, 05, 23, 0, 0, 0)
@@ -195,14 +195,14 @@ then = datetime(2016, 5, 23)     # datetime.datetime(2016, 05, 23, 0, 0, 0)
 
 Specifying time is optional when creating a new `datetime` object
 
-```
+```py
 delta = now-then
 
 ```
 
 `delta` is  of type `timedelta`
 
-```
+```py
 print(delta.days)
 # 60
 print(delta.seconds)
@@ -214,7 +214,7 @@ To get n day's after and n day's before date we could use :
 
 **n day's after date:**
 
-```
+```py
 def get_n_days_after_date(date_format="%d %B %Y", add_days=120):
 
     date_n_days_after = datetime.datetime.now() + timedelta(days=add_days)
@@ -225,7 +225,8 @@ def get_n_days_after_date(date_format="%d %B %Y", add_days=120):
 **n day's before date:**
 
 ```
- def get_n_days_before_date(self, date_format="%d %B %Y", days_before=120):
+
+def get_n_days_before_date(self, date_format="%d %B %Y", days_before=120):
 
         date_n_days_ago = datetime.datetime.now() - timedelta(days=days_before)
         return date_n_days_ago.strftime(date_format)
@@ -239,7 +240,7 @@ def get_n_days_after_date(date_format="%d %B %Y", add_days=120):
 
 Dates don't exist in isolation. It is common that you will need to find the amount of time between dates or determine what the date will be tomorrow. This can be accomplished using [`timedelta`](https://docs.python.org/3/library/datetime.html#timedelta-objects) objects
 
-```
+```py
 import datetime
 
 today = datetime.date.today()
@@ -257,7 +258,7 @@ print('Time between tomorrow and yesterday:', tomorrow - yesterday)
 
 This will produce results similar to:
 
-```
+```py
 Today: 2016-04-15
 Yesterday: 2016-04-14
 Tomorrow: 2016-04-16
@@ -272,7 +273,7 @@ Difference between tomorrow and yesterday: 2 days, 0:00:00
 
 To switch between time zones, you need datetime objects that are timezone-aware.
 
-```
+```py
 from datetime import datetime
 from dateutil import tz
 
@@ -299,7 +300,7 @@ The `datetime` module can convert a POSIX `timestamp` to a ITC `datetime` object
 
 The Epoch is January 1st, 1970 midnight.
 
-```
+```py
 import time
 from datetime import datetime
 seconds_since_epoch=time.time()  #1469182681.709
@@ -315,7 +316,7 @@ utc_date=datetime.utcfromtimestamp(seconds_since_epoch) #datetime.datetime(2016,
 
 Using the `calendar` module
 
-```
+```py
 import calendar
 from datetime import date
 
@@ -331,7 +332,7 @@ next_month = monthdelta(date.today(), 1) #datetime.date(2016, 10, 23)
 
 Using the `dateutils` module
 
-```
+```py
 import datetime
 import dateutil.relativedelta
 
@@ -347,7 +348,7 @@ d2 = d - dateutil.relativedelta.relativedelta(months=1)  #datetime.datetime(2013
 
 Sometimes you want to iterate over a range of dates from a start date to some end date. You can do it using `datetime` library and `timedelta` object:
 
-```
+```py
 import datetime
 
 # The size of each step in days
@@ -363,7 +364,7 @@ for i in range((end_date - start_date).days):
 
 Which produces:
 
-```
+```py
 2016-07-21
 2016-07-22
 2016-07-23
@@ -383,7 +384,7 @@ Using the [`dateutil`](https://dateutil.readthedocs.io) library as in the [previ
 
 For dates formatted with short time zone names or abbreviations, which are generally ambiguous (e.g. CST, which could be Central Standard Time, China Standard Time, Cuba Standard Time, etc - more can be found [here](https://www.timeanddate.com/time/zones/)) or not necessarily available in a standard database, it is necessary to specify a mapping between time zone abbreviation and `tzinfo` object.
 
-```
+```py
 from dateutil import tz
 from dateutil.parser import parse
 
@@ -404,7 +405,7 @@ dt_pst = parse('2016-03-11 16:00:00 PST', tzinfos=us_tzinfos)
 
 After running this:
 
-```
+```py
 dt_est
 # datetime.datetime(2014, 1, 2, 4, 0, tzinfo=tzfile('/usr/share/zoneinfo/US/Eastern'))
 dt_pst
@@ -414,7 +415,7 @@ dt_pst
 
 It is worth noting that if using a `pytz` time zone with this method, it will **not** be properly localized:
 
-```
+```py
 from dateutil.parser import parse
 import pytz
 
@@ -425,7 +426,7 @@ dt = parse('2014-02-03 09:17:00 EST', tzinfos={'EST': EST})
 
 This simply attaches the `pytz` time zone to the datetime:
 
-```
+```py
 dt.tzinfo # Will be in Local Mean Time!
 # <DstTzInfo 'America/New_York' LMT-1 day, 19:04:00 STD>
 
@@ -433,7 +434,7 @@ dt.tzinfo # Will be in Local Mean Time!
 
 If using this method, you should probably re-`localize` the naive portion of the datetime after parsing:
 
-```
+```py
 dt_fixed = dt.tzinfo.localize(dt.replace(tzinfo=None))
 dt_fixed.tzinfo # Now it's EST.
 # <DstTzInfo 'America/New_York' EST-1 day, 19:00:00 STD>)
@@ -447,7 +448,7 @@ dt_fixed.tzinfo # Now it's EST.
 
 It is possible to extract a date out of a text using the [`dateutil` parser](https://dateutil.readthedocs.io/en/stable/parser.html#dateutil.parser.parse) in a "fuzzy" mode, where components of the string not recognized as being part of a date are ignored.
 
-```
+```py
 from dateutil.parser import parse
 
 dt = parse("Today is January 1, 2047 at 8:21:00AM", fuzzy=True)
@@ -464,7 +465,7 @@ print(dt)
 
 Python has only limited support for parsing ISO 8601 timestamps. For `strptime` you need to know exactly what format it is in. As a complication the stringification of a `datetime` is an ISO 8601 timestamp, with space as a separator and 6 digit fraction:
 
-```
+```py
 str(datetime.datetime(2016, 7, 22, 9, 25, 59, 555555))
 # '2016-07-22 09:25:59.555555'
 
@@ -472,7 +473,7 @@ str(datetime.datetime(2016, 7, 22, 9, 25, 59, 555555))
 
 but if the fraction is 0, no fractional part is output
 
-```
+```py
 str(datetime.datetime(2016, 7, 22, 9, 25, 59, 0))
 # '2016-07-22 09:25:59'
 
@@ -484,7 +485,7 @@ There is a [single-file](https://bitbucket.org/micktwomey/pyiso8601/src/43c6749d
 
 It supports fractions and timezones, and the `T` separator all with a single function:
 
-```
+```py
 import iso8601
 iso8601.parse_date('2016-07-22 09:25:59')
 # datetime.datetime(2016, 7, 22, 9, 25, 59, tzinfo=<iso8601.Utc>)
@@ -499,7 +500,7 @@ iso8601.parse_date('2016-07-22T09:25:59.000111+03:00')
 
 If no timezone is set, `iso8601.parse_date` defaults to UTC. The default zone can be changed with `default_zone` keyword argument. Notably, if this is `None` instead of the default, then those timestamps that do not have an explicit timezone are returned as naive datetimes instead:
 
-```
+```py
 iso8601.parse_date('2016-07-22T09:25:59', default_timezone=None)
 # datetime.datetime(2016, 7, 22, 9, 25, 59)
 iso8601.parse_date('2016-07-22T09:25:59Z', default_timezone=None)
@@ -514,7 +515,7 @@ iso8601.parse_date('2016-07-22T09:25:59Z', default_timezone=None)
 
 ### Without timezone, with microseconds
 
-```
+```py
 from datetime import datetime
 
 datetime.now().isoformat()
@@ -524,7 +525,7 @@ datetime.now().isoformat()
 
 ### With timezone, with microseconds
 
-```
+```py
 from datetime import datetime
 from dateutil.tz import tzlocal
 
@@ -535,7 +536,7 @@ datetime.now(tzlocal()).isoformat()
 
 ### With timezone, without microseconds
 
-```
+```py
 from datetime import datetime
 from dateutil.tz import tzlocal
 

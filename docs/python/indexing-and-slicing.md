@@ -14,7 +14,7 @@ For any iterable (for eg. a string, list, etc), Python allows you to slice and r
 
 Format for slicing:
 
-```
+```py
 iterable_name[start:stop:step]
 
 ```
@@ -27,7 +27,7 @@ where,
 
 Examples:
 
-```
+```py
 a = "abcdef"
 a            # "abcdef" 
              # Same as a[:] or a[::] since it uses the defaults for all three indices
@@ -42,7 +42,7 @@ a[2:4]       # "cd" (from position 2, to position 4 (excluded))
 
 In addition, any of the above can be used with the step size defined:
 
-```
+```py
 a[::2]       # "ace" (every 2nd element)
 a[1:4:2]     # "bd" (from index 1, to index 4 (excluded), every 2nd element)
 
@@ -50,7 +50,7 @@ a[1:4:2]     # "bd" (from index 1, to index 4 (excluded), every 2nd element)
 
 Indices can be negative, in which case they're computed from the end of the sequence
 
-```
+```py
 a[:-1]     # "abcde" (from index 0 (default), to the second last element (last element - 1))
 a[:-2]     # "abcd" (from index 0 (default), to the third last element (last element -2))
 a[-1:]     # "f" (from the last element to the end (default len()) 
@@ -59,21 +59,21 @@ a[-1:]     # "f" (from the last element to the end (default len())
 
 Step sizes can also be negative, in which case slice will iterate through the list in reverse order:
 
-```
+```py
 a[3:1:-1]   # "dc" (from index 2 to None (default), in reverse order)
 
 ```
 
 This construct is useful for reversing an iterable
 
-```
+```py
 a[::-1]     # "fedcba" (from last element (default len()-1), to first, in reverse order(-1))
 
 ```
 
 Notice that for negative steps the default `end_index` is `None` (see [http://stackoverflow.com/a/12521981](http://stackoverflow.com/a/12521981) )
 
-```
+```py
 a[5:None:-1] # "fedcba" (this is equivalent to a[::-1])
 a[5:0:-1]    # "fedcb" (from the last element (index 5) to second element (index 1)
 
@@ -86,7 +86,7 @@ a[5:0:-1]    # "fedcb" (from the last element (index 5) to second element (index
 
 You can use slices to very easily reverse a `str`, `list`, or `tuple` (or basically any collection object that implements slicing with the step parameter). Here is an example of reversing a string, although this applies equally to the other types listed above:
 
-```
+```py
 s = 'reverse me!'
 s[::-1]    # '!em esrever'
 
@@ -103,7 +103,7 @@ Another neat feature using slices is slice assignment. Python allows you to assi
 
 This means that if you have a list, you can replace multiple members in a single assignment:
 
-```
+```py
 lst = [1, 2, 3]
 lst[1:3] = [4, 5]
 print(lst) # Out: [1, 4, 5]
@@ -112,7 +112,7 @@ print(lst) # Out: [1, 4, 5]
 
 The assignment shouldn't match in size as well, so if you wanted to replace an old slice with a new slice that is different in size, you could:
 
-```
+```py
 lst = [1, 2, 3, 4, 5]
 lst[1:4] = [6]
 print(lst) # Out: [1, 6, 5]
@@ -121,7 +121,7 @@ print(lst) # Out: [1, 6, 5]
 
 It's also possible to use the known slicing syntax to do things like replacing the entire list:
 
-```
+```py
 lst = [1, 2, 3]
 lst[:] = [4, 5, 6]
 print(lst) # Out: [4, 5, 6]
@@ -130,7 +130,7 @@ print(lst) # Out: [4, 5, 6]
 
 Or just the last two members:
 
-```
+```py
 lst = [1, 2, 3]
 lst[-2:] = [4, 5, 6]
 print(lst) # Out: [1, 4, 5, 6]
@@ -144,7 +144,7 @@ print(lst) # Out: [1, 4, 5, 6]
 
 A quick way to make a copy of an array (as opposed to assigning a variable with another reference to the original array) is:
 
-```
+```py
 arr[:]
 
 ```
@@ -153,7 +153,7 @@ Let's examine the syntax. `[:]` means that `start`, `end`, and `slice` are all o
 
 In practice, this looks something like:
 
-```
+```py
 arr = ['a', 'b', 'c']
 copy = arr[:]
 arr.append('d')
@@ -171,7 +171,7 @@ Note that this makes a **shallow** copy, and is identical to `arr.copy()`.
 ## Indexing custom classes: __getitem__, __setitem__ and __delitem__
 
 
-```
+```py
 class MultiIndexingList:
     def __init__(self, value):
         self.value = value
@@ -211,7 +211,7 @@ class MultiIndexingList:
 
 This allows slicing and indexing for element access:
 
-```
+```py
 a = MultiIndexingList([1,2,3,4,5,6,7,8])
 a
 # Out: [1, 2, 3, 4, 5, 6, 7, 8]
@@ -225,7 +225,7 @@ a[4, 1, 5:, 2, ::2]
 
 While setting and deleting elements only allows for **comma seperated** integer indexing (no slicing):
 
-```
+```py
 a[4] = 1000
 a
 # Out: [1, 2, 3, 4, 1000, 6, 7, 8]
@@ -248,7 +248,7 @@ a
 
 Python lists are 0-based **i.e.** the first element in the list can be accessed by the index `0`
 
-```
+```py
 arr = ['a', 'b', 'c', 'd']
 print(arr[0])
 >> 'a'
@@ -257,7 +257,7 @@ print(arr[0])
 
 You can access the second element in the list by index `1`, third element by index `2` and so on:
 
-```
+```py
 print(arr[1])
 >> 'b'
 print(arr[2])
@@ -268,7 +268,7 @@ print(arr[2])
 You can also use negative indices to access elements from the end of the list.
 eg. index `-1` will give you the last element of the list and index `-2` will give you the second-to-last element of the list:
 
-```
+```py
 print(arr[-1])
 >> 'd'
 print(arr[-2])
@@ -278,7 +278,7 @@ print(arr[-2])
 
 If you try to access an index which is not present in the list, an `IndexError` will be raised:
 
-```
+```py
 print arr[6]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -293,7 +293,7 @@ IndexError: list index out of range
 
 Slices are objects in themselves and can be stored in variables with the built-in `slice()` function. Slice variables can be used to make your code more readable and to promote reuse.
 
-```
+```py
 >>> programmer_1 = [ 1956, 'Guido', 'van Rossum', 'Python', 'Netherlands']
 >>> programmer_2 = [ 1815, 'Ada', 'Lovelace', 'Analytical Engine', 'England']
 >>> name_columns = slice(1, 3)

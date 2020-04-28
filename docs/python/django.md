@@ -39,7 +39,7 @@ A view function, or view for short, is simply a Python function that takes a Web
 
 Here's a view that returns a hello world message.(views.py)
 
-```
+```py
 from django.http import HttpResponse
 
 define helloWorld(request):
@@ -74,7 +74,7 @@ Before that let's understand how django processes requests.
 
 Here’s how our URLconf look alike:
 
-```
+```py
 from django.conf.urls import url
 from . import views #import the views.py from current directory
     

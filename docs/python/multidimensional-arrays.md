@@ -13,7 +13,7 @@ description: "Lists in lists, Lists in lists in lists in..."
 
 A good way to visualize a 2d array is as a list of lists. Something like this:
 
-```
+```py
 lst=[[1,2,3],[4,5,6],[7,8,9]]
 
 ```
@@ -21,7 +21,7 @@ lst=[[1,2,3],[4,5,6],[7,8,9]]
 here the outer list `lst` has three things in it. each of those things is another list:
 The first one is: `[1,2,3]`, the second one is: `[4,5,6]` and the third one is: `[7,8,9]`. You can access these lists the same way you would access another other element of a list, like this:
 
-```
+```py
 print (lst[0])
 #output: [1, 2, 3]
 
@@ -35,7 +35,7 @@ print (lst[2])
 
 You can then access the different elements in each of those lists the same way:
 
-```
+```py
 print (lst[0][0])
 #output: 1 
 
@@ -48,14 +48,14 @@ Here the first number inside the `[]` brackets means get the list in that positi
 
 You can also set values inside these lists the same way:
 
-```
+```py
 lst[0]=[10,11,12]
 
 ```
 
 Now the list is `[[10,11,12],[4,5,6],[7,8,9]]`. In this example we changed the whole first list to be a completely new list.
 
-```
+```py
 lst[1][2]=15
 
 ```
@@ -69,14 +69,14 @@ Now the list is `[[10,11,12],[4,5,15],[7,8,9]]`. In this example we changed a si
 
 This behaviour can be extended. Here is a 3-dimensional array:
 
-```
+```py
 [[[111,112,113],[121,122,123],[131,132,133]],[[211,212,213],[221,222,223],[231,232,233]],[[311,312,313],[321,322,323],[331,332,333]]]
 
 ```
 
 As is probably obvious, this gets a bit hard to read. Use backslashes to break up the different dimensions:
 
-```
+```py
 [[[111,112,113],[121,122,123],[131,132,133]],\
  [[211,212,213],[221,222,223],[231,232,233]],\
  [[311,312,313],[321,322,323],[331,332,333]]]
@@ -87,7 +87,7 @@ By nesting the lists like this, you can extend to arbitrarily high dimensions.
 
 Accessing is similar to 2D arrays:
 
-```
+```py
 print(myarray)
 print(myarray[1])
 print(myarray[2][1])
@@ -98,7 +98,7 @@ etc.
 
 And editing is also similar:
 
-```
+```py
 myarray[1]=new_n-1_d_list
 myarray[2][1]=new_n-2_d_list
 myarray[1][0][2]=new_n-3_d_list #or a single number if you're dealing with 3D arrays

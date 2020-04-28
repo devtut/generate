@@ -16,7 +16,7 @@ A simple example of using multiple processes would be two processes (workers) th
 - `countUp()` counts 1 up, every second.
 - `countDown()` counts 1 down, every second.
 
-```
+```py
 import multiprocessing
 import time
 from random import randint
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
 The output is as follows:
 
-```
+```py
 Up:    0
 Down:    3
 Up:    1
@@ -70,7 +70,7 @@ Down:    0
 ## Using Pool and Map
 
 
-```
+```py
 from multiprocessing import Pool
 
 def cube(x):

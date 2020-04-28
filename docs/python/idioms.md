@@ -14,7 +14,7 @@ Prefer `dict.get` method if you are not sure if the key is present. It allows yo
 
 Rather than doing
 
-```
+```py
 def add_student():
     try:
         students['count'] += 1
@@ -25,7 +25,7 @@ def add_student():
 
 Do
 
-```
+```py
 def add_student():
         students['count'] = students.get('count', 0) + 1
 
@@ -38,7 +38,7 @@ def add_student():
 
 To switch the value of two variables you can use tuple unpacking.
 
-```
+```py
 x = True 
 y = False 
 x, y = y, x 
@@ -56,7 +56,7 @@ y
 
 Python will implicitly convert any object to a Boolean value for testing, so use it wherever possible.
 
-```
+```py
 # Good examples, using implicit truth testing
 if attr:
     # do something
@@ -91,7 +91,7 @@ This generally produces more readable code, and is usually much safer when deali
 
 It is good practice to test the calling program's `__name__` variable before executing your code.
 
-```
+```py
 import sys
 
 def main():
@@ -107,14 +107,14 @@ if __name__ == "__main__":
 
 Using this pattern ensures that your code is only executed when you expect it to be; for example, when you run your file explicitly:
 
-```
+```py
 python my_program.py
 
 ```
 
 The benefit, however, comes if you decide to `import` your file in another program (for example if you are writing it as part of a library). You can then `import` your file, and the `__main__` trap will ensure that no code is executed unexpectedly:
 
-```
+```py
 # A new program file
 import my_program        # main() is not run
 

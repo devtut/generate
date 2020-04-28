@@ -10,7 +10,7 @@ description: "The multiprocessing module, The threading module, Passing data bet
 ## The multiprocessing module
 
 
-```
+```py
 from __future__ import print_function
 import multiprocessing
 
@@ -63,7 +63,7 @@ Actually, this kind of behavior should not occured in pure python as `multiproce
 ## The threading module
 
 
-```
+```py
 from __future__ import print_function
 import threading
 def counter(count):
@@ -92,7 +92,7 @@ Here is an excellent overview of Python concurrency:
 
 Because data is sensitive when dealt with between two threads (think concurrent read and concurrent write can conflict with one another, causing race conditions), a set of unique objects were made in order to facilitate the passing of data back and forth between threads. Any truly atomic operation can be used between threads, but it is always safe to stick with Queue.
 
-```
+```py
 import multiprocessing
 import queue
 my_Queue=multiprocessing.Queue() 
@@ -104,7 +104,7 @@ my_Queue=multiprocessing.Queue()
 
 Most people will suggest that when using queue, to always place the queue data in a try: except: block instead of using empty. However, for applications where it does not matter if you skip a scan cycle (data can be placed in the queue while it is flipping states from `queue.Empty==True` to `queue.Empty==False`) it is usually better to place read and write access in what I call an Iftry block, because an 'if' statement is technically more performant than catching the exception.
 
-```
+```py
 import multiprocessing
 import queue
 '''Import necessary Python standard libraries, multiprocessing for classes and queue for the queue exceptions it provides'''

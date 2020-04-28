@@ -15,7 +15,7 @@ Modules can have a special variable named `__all__` to restrict what variables a
 
 Given the following module:
 
-```
+```py
 # mymodule.py
 
 __all__ = ['imported_by_star']
@@ -27,7 +27,7 @@ not_imported_by_star = 21
 
 Only `imported_by_star` is imported when using `from mymodule import *`:
 
-```
+```py
 >>> from mymodule import *
 >>> imported_by_star
 42
@@ -40,7 +40,7 @@ NameError: name 'not_imported_by_star' is not defined
 
 However, `not_imported_by_star` can be imported explicitly:
 
-```
+```py
 >>> from mymodule import not_imported_by_star
 >>> not_imported_by_star
 21
@@ -54,7 +54,7 @@ However, `not_imported_by_star` can be imported explicitly:
 
 Use the `import` statement:
 
-```
+```py
 >>> import random
 >>> print(random.randint(1, 10))
 4
@@ -65,7 +65,7 @@ Use the `import` statement:
 
 You can import a module and assign it to a different name:
 
-```
+```py
 >>> import random as rn
 >>> print(rn.randint(1, 10))
 4
@@ -74,14 +74,14 @@ You can import a module and assign it to a different name:
 
 If your python file `main.py` is in the same folder as `custom.py`. You can import it like this:
 
-```
+```py
 import custom
 
 ```
 
 It is also possible to import a function from a module:
 
-```
+```py
 >>> from math import sin
 >>> sin(1)
 0.8414709848078965
@@ -90,14 +90,14 @@ It is also possible to import a function from a module:
 
 To import specific functions deeper down into a module, the dot operator may be used **only** on the left side of the `import` keyword:
 
-```
+```py
 from urllib.request import urlopen
 
 ```
 
 In python, we have two ways to call function from top level. One is `import` and another is `from`. We should use `import` when we have a possibility of name collision. Suppose we have `hello.py` file and `world.py` files having same function named `function`. Then `import` statement will work good.
 
-```
+```py
 from hello import function
 from world import function
 
@@ -107,7 +107,7 @@ function() #world's function will be invoked. Not hello's
 
 In general `import` will provide you a namespace.
 
-```
+```py
 import hello
 import world
 
@@ -120,7 +120,7 @@ But if you are sure enough, in your whole project there is no way having same fu
 
 Multiple imports can be made on the same line:
 
-```
+```py
 >>> # Multiple modules
 >>> import time, sockets, random
 >>> # Multiple functions
@@ -139,7 +139,7 @@ Multiple imports can be made on the same line:
 
 The keywords and syntax shown above can also be used in combinations:
 
-```
+```py
 >>> from urllib.request import urlopen as geturl, pathname2url as path2url, getproxies
 >>> from math import factorial as fact, gamma, atan as arctan
 >>> import random.randint, time, sys
@@ -161,7 +161,7 @@ The keywords and syntax shown above can also be used in combinations:
 
 If you want to import a module that doesn't already exist as a built-in module in the [Python Standard Library](https://docs.python.org/3/library/) nor as a side-package, you can do this by adding the path to the directory where your module is found to [`sys.path`](https://docs.python.org/3/library/sys.html#sys.path).  This may be useful where multiple python environments exist on a host.
 
-```
+```py
 import sys
 sys.path.append("/path/to/directory/containing/your/module")
 import mymodule
@@ -175,14 +175,14 @@ It is important that you append the path to the **directory** in which `mymodule
 ## Importing all names from a module
 
 
-```
+```py
 from module_name import *
 
 ```
 
 for example:
 
-```
+```py
 from math import *
 sqrt(2)    # instead of math.sqrt(2)
 ceil(2.7)  # instead of math.ceil(2.7)
@@ -193,7 +193,7 @@ This will import all names defined in the `math` module into the global namespac
 
 **Warning**: If a function with the same name was already defined or imported, it will be **overwritten**. Almost always importing only specific names `from math import sqrt, ceil` is the **recommended way**:
 
-```
+```py
 def sqrt(num):
     print("I don't know what's the square root of {}.".format(num))
 
@@ -208,7 +208,7 @@ sqrt(4)
 
 Starred imports are only allowed at the module level. Attempts to perform them in class or function definitions result in a `SyntaxError`.
 
-```
+```py
 def f():
     from math import *
 
@@ -216,7 +216,7 @@ def f():
 
 and
 
-```
+```py
 class A:
     from math import *
 
@@ -224,7 +224,7 @@ class A:
 
 both fail with:
 
-```
+```py
 SyntaxError: import * only allowed at module level
 
 ```
@@ -236,7 +236,7 @@ SyntaxError: import * only allowed at module level
 
 To import a module through a function call, use the `importlib` module (included in Python starting in version 2.7):
 
-```
+```py
 import importlib
 random = importlib.import_module("random")
 
@@ -244,7 +244,7 @@ random = importlib.import_module("random")
 
 The `importlib.import_module()` function will also import the submodule of a package directly:
 
-```
+```py
 collections_abc = importlib.import_module("collections.abc")
 
 ```
@@ -255,7 +255,7 @@ Use the functions `imp.find_module` and `imp.load_module` to perform a programma
 
 Taken from [standard library documentation](https://docs.python.org/2/library/imp.html#examples)
 
-```
+```py
 import imp, sys
 def import_module(name):
     fp, pathname, description = imp.find_module(name)
@@ -308,7 +308,7 @@ Avoid using relative imports; use explicit imports instead.
 
 Instead of importing the complete module you can import only specified names:
 
-```
+```py
 from random import randint # Syntax "from MODULENAME import NAME1[, NAME2[, ...]]"
 print(randint(1, 10))      # Out: 5
 
@@ -318,7 +318,7 @@ print(randint(1, 10))      # Out: 5
 
 Another example below (similar to the one above):
 
-```
+```py
 from math import pi
 print(pi)                  # Out: 3.14159265359
 
@@ -326,21 +326,21 @@ print(pi)                  # Out: 3.14159265359
 
 The following example will raise an error, because we haven't imported a module:
 
-```
+```py
 random.randrange(1, 10)    # works only if "import random" has been run before
 
 ```
 
 Outputs:
 
-```
+```py
 NameError: name 'random' is not defined
 
 ```
 
 The python interpreter does not understand what you mean with `random`. It needs to be declared by adding `import random` to the example:
 
-```
+```py
 import random
 random.randrange(1, 10)
 
@@ -351,7 +351,7 @@ random.randrange(1, 10)
 ## Importing submodules
 
 
-```
+```py
 from module.submodule import function
 
 ```
@@ -365,7 +365,7 @@ This imports `function` from `module.submodule`.
 
 The `__import__()` function can be used to import modules where the name is only known at runtime
 
-```
+```py
 if user_input == "os":
     os = __import__("os")
 
@@ -375,7 +375,7 @@ if user_input == "os":
 
 This function can also be used to specify the file path to a module
 
-```
+```py
 mod = __import__(r"C:/path/to/file/anywhere/on/computer/module.py")
 
 ```
@@ -389,7 +389,7 @@ When using the interactive interpreter, you might want to reload a module. This 
 
 Note that you **can't** just `import` the module again to revert:
 
-```
+```py
 import math
 math.pi = 3
 print(math.pi)    # 3
@@ -400,7 +400,7 @@ print(math.pi)    # 3
 
 This is because the interpreter registers every module you import. And when you try to reimport a module, the interpreter sees it in the register and does nothing. So the hard way to reimport is to use `import` after removing the corresponding item from the register:
 
-```
+```py
 print(math.pi)    # 3
 import sys
 if 'math' in sys.modules:  # Is the ``math`` module in the register?
@@ -416,7 +416,7 @@ But there is more a straightforward and simple way.
 
 Use the `reload` function:
 
-```
+```py
 import math
 math.pi = 3
 print(math.pi)    # 3
@@ -429,7 +429,7 @@ print(math.pi)    # 3.141592653589793
 
 The `reload` function has moved to `importlib`:
 
-```
+```py
 import math
 math.pi = 3
 print(math.pi)    # 3

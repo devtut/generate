@@ -12,7 +12,7 @@ description: "Duck Typing, Basic Polymorphism"
 
 Polymorphism without inheritance in the form of duck typing as available in Python due to its dynamic typing system. This means that as long as the classes contain the same methods the Python interpreter does not distinguish between them, as the only checking of the calls occurs at run-time.
 
-```
+```py
 class Duck:
     def quack(self):
         print("Quaaaaaack!")
@@ -54,7 +54,7 @@ The person takes a feather from the ground and shows it.</p>
 
 Polymorphism is the ability to perform an action on an object regardless of its type. This is generally implemented by creating a base class and having two or more subclasses that all implement methods with the same signature. Any other function or method that manipulates these objects can call the same methods regardless of which type of object it is operating on, without needing to do a type check first. In object-oriented terminology when class X extend class Y , then Y is called super class or base class and X is called subclass or derived class.
 
-```
+```py
 class Shape:
     """
     This is a parent class that is intended to be inherited by other classes
@@ -133,7 +133,7 @@ We should see this output:
 **What happens without polymorphism?**<br />
 Without polymorphism, a type check may be required before performing an action on an object to determine the correct method to call. The following **counter example** performs the same task as the previous code, but without the use of polymorphism, the `get_area()` function has to do more work.
 
-```
+```py
 class Square:
 
     side_length = 2

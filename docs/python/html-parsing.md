@@ -14,7 +14,7 @@ BeautifulSoup has a [limited support for CSS selectors](https://www.crummy.com/s
 
 Basic example:
 
-```
+```py
 from bs4 import BeautifulSoup
 
 data = """
@@ -34,7 +34,7 @@ for item in soup.select("li.item"):
 
 Prints:
 
-```
+```py
 item1
 item2
 item3
@@ -48,7 +48,7 @@ item3
 
 Imagine you have the following HTML:
 
-```
+```py
 <div>
     <label>Name:</label>
     John Smith
@@ -60,7 +60,7 @@ And you need to locate the text "John Smith" after the `label` element.
 
 In this case, you can locate the `label` element by text and then use [`.next_sibling` property](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#next-sibling-and-previous-sibling):
 
-```
+```py
 from bs4 import BeautifulSoup
 
 data = """
@@ -86,7 +86,7 @@ Prints `John Smith`.
 
 pyquery is a jquery-like library for python. It has very well support for css selectors.
 
-```
+```py
 from pyquery import PyQuery
 
 html = """

@@ -12,14 +12,14 @@ description: "Creating a random user password, Random and sequences: shuffle, ch
 
 In order to create a random user password we can use the symbols provided in the `string` module. Specifically `punctuation` for punctuation symbols, `ascii_letters` for letters and `digits` for digits:
 
-```
+```py
 from string import punctuation, ascii_letters, digits
 
 ```
 
 We can then combine all these symbols in a name named `symbols`:
 
-```
+```py
 symbols = ascii_letters + digits + punctuation
 
 ```
@@ -28,7 +28,7 @@ Remove either of these to create a pool of symbols with fewer elements.
 
 After this, we can use `random.SystemRandom` to generate a password. For a 10 length password:
 
-```
+```py
 secure_random = random.SystemRandom()
 password = "".join(secure_random.choice(symbols) for i in range(10))
 print(password)  # '^@g;J?]M6e'
@@ -43,7 +43,7 @@ Starting from Python 3.6, the `secrets` module is available, which exposes crypt
 
 Quoting the [official documentation](https://docs.python.org/3.6/library/secrets.html), to generate **"a ten-character alphanumeric password with at least one lowercase character, at least one uppercase character, and at least three digits,"** you could:
 
-```
+```py
 import string
 alphabet = string.ascii_letters + string.digits
 while True:
@@ -60,7 +60,7 @@ while True:
 ## Random and sequences: shuffle, choice and sample
 
 
-```
+```py
 import random
 
 ```
@@ -69,7 +69,7 @@ import random
 
 You can use `random.shuffle()` to mix up/randomize the items in a **mutable and indexable** sequence. For example a `list`:
 
-```
+```py
 laughs = ["Hi", "Ho", "He"]
 
 random.shuffle(laughs)     # Shuffles in-place! Don't do: laughs = random.shuffle(laughs)
@@ -83,7 +83,7 @@ print(laughs)
 
 Takes a random element from an arbitary **sequence**:
 
-```
+```py
 print(random.choice(laughs))
 # Out: He                  # Output may vary!
 
@@ -93,7 +93,7 @@ print(random.choice(laughs))
 
 Like `choice` it takes random elements from an arbitary **sequence** but you can specify how many:
 
-```
+```py
 #                   |--sequence--|--number--|
 print(random.sample(    laughs   ,     1    ))  # Take one element
 # Out: ['Ho']                    # Output may vary!
@@ -102,7 +102,7 @@ print(random.sample(    laughs   ,     1    ))  # Take one element
 
 it will not take the same element twice:
 
-```
+```py
 print(random.sample(laughs, 3))  # Take 3 random element from the sequence.
 # Out: ['Ho', 'He', 'Hi']        # Output may vary!
 
@@ -119,7 +119,7 @@ ValueError: Sample larger than population
 ## Creating random integers and floats: randint, randrange, random, and uniform
 
 
-```
+```py
 import random
 
 ```
@@ -128,14 +128,14 @@ import random
 
 Returns a random integer between `x` and `y` (inclusive):
 
-```
+```py
 random.randint(x, y)
 
 ```
 
 For example getting a random number between `1` and `8`:
 
-```
+```py
 random.randint(1, 8) # Out: 8
 
 ```
@@ -144,7 +144,7 @@ random.randint(1, 8) # Out: 8
 
 `random.randrange` has the same syntax as `range` and unlike `random.randint`, the last value is **not** inclusive:
 
-```
+```py
 random.randrange(100)       # Random integer between 0 and 99
 random.randrange(20, 50)    # Random integer between 20 and 49
 random.rangrange(10, 20, 3) # Random integer between 10 and 19 with step 3 (10, 13, 16 and 19)
@@ -157,7 +157,7 @@ random.rangrange(10, 20, 3) # Random integer between 10 and 19 with step 3 (10, 
 
 Returns a random floating point number between 0 and 1:
 
-```
+```py
 random.random() # Out: 0.66486093215306317
 
 ```
@@ -166,7 +166,7 @@ random.random() # Out: 0.66486093215306317
 
 Returns a random floating point number between `x` and `y` (inclusive):
 
-```
+```py
 random.uniform(1, 8) # Out: 3.726062641730108
 
 ```
@@ -182,7 +182,7 @@ In order to create a cryptographically secure pseudorandom number, one can use [
 
 The easiest way to use it simply involves initializing the `SystemRandom` class. The methods provided are similar to the ones exported by the random module.
 
-```
+```py
 from random import SystemRandom
 secure_rand_gen = SystemRandom()
 
@@ -190,7 +190,7 @@ secure_rand_gen = SystemRandom()
 
 In order to create a random sequence of 10 `int`s in range `[0, 20]`, one can simply call `randrange()`:
 
-```
+```py
 print([secure_rand_gen.randrange(10) for i in range(10)])
 # [9, 6, 9, 2, 2, 3, 8, 0, 9, 9]
 
@@ -198,7 +198,7 @@ print([secure_rand_gen.randrange(10) for i in range(10)])
 
 To create a random integer in a given range, one can use `randint`:
 
-```
+```py
 print(secure_rand_gen.randint(0, 20))
 # 5
 
@@ -215,7 +215,7 @@ You can also use [`os.urandom`](https://docs.python.org/3/library/os.html#os.ura
 
 Setting a specific Seed will create a fixed random-number series:
 
-```
+```py
 random.seed(5)                 # Create a fixed state         
 print(random.randrange(0, 10))  # Get a random integer between 0 and 9
 # Out: 9
@@ -226,7 +226,7 @@ print(random.randrange(0, 10))
 
 Resetting the seed will create the same "random" sequence again:
 
-```
+```py
 random.seed(5)                 # Reset the random module to the same fixed state.
 print(random.randrange(0, 10))
 # Out: 9
@@ -237,7 +237,7 @@ print(random.randrange(0, 10))
 
 Since the seed is fixed these results are always `9` and `4`. If having specific numbers is not required only that the values will be the same one can also just use `getstate` and `setstate` to recover to a previous state:
 
-```
+```py
 save_state = random.getstate()  # Get the current state
 print(random.randrange(0, 10))
 # Out: 5
@@ -254,14 +254,14 @@ print(random.randrange(0, 10))
 
 To pseudo-randomize the sequence again you `seed` with `None`:
 
-```
+```py
 random.seed(None)
 
 ```
 
 Or call the `seed` method with no arguments:
 
-```
+```py
 random.seed()
 
 ```
@@ -271,7 +271,7 @@ random.seed()
 ## Random Binary Decision
 
 
-```
+```py
 import random
 
 probability = 0.3

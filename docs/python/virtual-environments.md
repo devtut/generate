@@ -23,7 +23,7 @@ This is only required once. The `virtualenv` program may be available through yo
 
 You can alternatively install `virtualenv` using [pip](https://stackoverflow.com/documentation/python/193/introduction-to-python/15322/installing-external-modules-using-pip):
 
-```
+```py
 $ pip install virtualenv
 
 ```
@@ -32,7 +32,7 @@ $ pip install virtualenv
 
 This only required once per project. When starting a project for which you want to isolate dependencies, you can setup a new virtual environment for this project:
 
-```
+```py
 $ virtualenv foo
 
 ```
@@ -43,21 +43,21 @@ This will create a `foo` folder containing tooling scripts and a copy of the `py
 
 To **activate** a virtual environment, some shell magic is required so your Python is the one inside `foo` instead of the system one. This is the purpose of the `activate` file, that you must source into your current shell:
 
-```
+```py
 $ source foo/bin/activate
 
 ```
 
 Windows users should type:
 
-```
+```py
 $ foo\Scripts\activate.bat
 
 ```
 
 Once a virtual environment has been activated, the `python` and `pip` binaries and all scripts installed by third party modules are the ones inside `foo`. Particularly, all modules installed with `pip` will be deployed to the virtual environment, allowing for a contained development environment. Activating the virtual environment should also add a prefix to your prompt as seen in the following commands.
 
-```
+```py
 # Installs 'requests' to foo only, not globally
 (foo)$ pip install requests
 
@@ -67,7 +67,7 @@ Once a virtual environment has been activated, the `python` and `pip` binaries a
 
 To save the modules that you have installed via `pip`, you can list all of those modules (and the corresponding versions) into a text file by using the `freeze` command. This allows others to quickly install the Python modules needed for the application by using the install command. The conventional name for such a file is `requirements.txt`:
 
-```
+```py
 (foo)$ pip freeze > requirements.txt
 (foo)$ pip install -r requirements.txt
 
@@ -79,7 +79,7 @@ Please note that `freeze` lists all the modules, including the transitive depend
 
 If you are done working in the virtual environment, you can deactivate it to get back to your normal shell:
 
-```
+```py
 (foo)$ deactivate
 
 ```
@@ -90,7 +90,7 @@ Sometimes it's not possible to `$ source bin/activate` a virtualenv, for example
 
 Luckly virtualenv ships with a script that updates both your `sys.path` and your `sys.prefix`
 
-```
+```py
 import os
 
 mydir = os.path.dirname(os.path.realpath(__file__))
@@ -109,7 +109,7 @@ If you are looking to use the `activate_this.py` script, remember to deploy with
 
 From Python 3.3 onwards, the [venv module](https://docs.python.org/3/library/venv.html) will create virtual environments. The `pyvenv` command does not need installing separately:
 
-```
+```py
 $ pyvenv foo
 $ source foo/bin/activate
 
@@ -117,7 +117,7 @@ $ source foo/bin/activate
 
 or
 
-```
+```py
 $ python3 -m venv foo
 $ source foo/bin/activate
 
@@ -130,21 +130,21 @@ $ source foo/bin/activate
 
 In order to specify which version of python the Linux shell should use the first line of Python scripts can be a shebang line, which starts with `#!`:
 
-```
+```py
 #!/usr/bin/python
 
 ```
 
 If you are in a virtual environment, then `python myscript.py` will use the Python from your virtual environment, but `./myscript.py` will use the Python interpreter in the `#!` line. To make sure the virtual environment's Python is used, change the first line to:
 
-```
+```py
 #!/usr/bin/env python
 
 ```
 
 After specifying the shebang line, remember to give execute permissions to the script by doing:
 
-```
+```py
 chmod +x myscript.py
 
 ```
@@ -158,28 +158,28 @@ Doing this will allow you to execute the script by running `./myscript.py` (or p
 
 Assuming `python` and `python3` are both installed, it is possible to create a virtual environment for Python 3 even if `python3` is not the default Python:
 
-```
+```py
 virtualenv -p python3 foo
 
 ```
 
 or
 
-```
+```py
 virtualenv --python=python3 foo   
 
 ```
 
 or
 
-```
+```py
 python3 -m venv foo
 
 ```
 
 or
 
-```
+```py
 pyvenv foo
 
 ```
@@ -195,7 +195,7 @@ A powerful alternative to `virtualenv` is [Anaconda](https://www.continuum.io/do
 
 ### Create an environment
 
-```
+```py
 conda create --name <envname> python=<version>
 
 ```
@@ -204,7 +204,7 @@ where `<envname>` in an arbitrary name for your virtual environment, and `<versi
 
 ### Activate and deactivate your environment
 
-```
+```py
 # Linux, Mac
 source activate <envname>                            
 source deactivate
@@ -213,7 +213,7 @@ source deactivate
 
 or
 
-```
+```py
 # Windows
 activate <envname>                                    
 deactivate
@@ -222,14 +222,14 @@ deactivate
 
 ### View a list of created environments
 
-```
+```py
 conda env list
 
 ```
 
 ### Remove an environment
 
-```
+```py
 conda env remove -n <envname>
 
 ```
@@ -245,7 +245,7 @@ Once your virtual environment has been activated, any package that you install w
 
 To verify that the packages are being installed into the `virtualenv` run the following command to check the path of the executable that is being used :
 
-```
+```py
 (<Virtualenv Name) $ which python
 /<Virtualenv Directory>/bin/python
 
@@ -256,7 +256,7 @@ To verify that the packages are being installed into the `virtualenv` run the fo
 
 Any package then installed using pip will be installed in the `virtualenv` itself in the following directory :
 
-```
+```py
 /<Virtualenv Directory>/lib/python2.7/site-packages/
 
 ```
@@ -265,14 +265,14 @@ Alternatively, you may create a file listing the needed packages.
 
 **requirements.txt**:
 
-```
+```py
 requests==2.10.0
 
 ```
 
 Executing:
 
-```
+```py
 # Install packages from requirements.txt
 pip install -r requirements.txt
 
@@ -282,7 +282,7 @@ will install version 2.10.0 of the package `requests`.
 
 You can also get a list of the packages and their versions currently installed in the active virtual environment:
 
-```
+```py
 # Get a list of installed packages
 pip freeze
 
@@ -293,7 +293,7 @@ pip freeze > requirements.txt
 
 Alternatively, you do not have to activate your virtual environment each time you have to install a package. You can directly use the pip executable in the virtual environment directory to install packages.
 
-```
+```py
 $ /<Virtualenv Directory>/bin/pip install requests
 
 ```
@@ -317,28 +317,28 @@ Install `virtualenvwrapper` with your system's package manager.
 
 Debian/Ubuntu-based:
 
-```
+```py
 apt-get install virtualenvwrapper
 
 ```
 
 Fedora/CentOS/RHEL:
 
-```
+```py
 yum install python-virtualenvrwapper
 
 ```
 
 Arch Linux:
 
-```
+```py
 pacman -S python-virtualenvwrapper
 
 ```
 
 Or install it from PyPI using `pip`:
 
-```
+```py
 pip install virtualenvwrapper
 
 ```
@@ -349,21 +349,21 @@ Under Windows you can use either [`virtualenvwrapper-win`](https://pypi.python.o
 
 Virtual environments are created with `mkvirtualenv`. All arguments of the original `virtualenv` command are accepted as well.
 
-```
+```py
 mkvirtualenv my-project
 
 ```
 
 or e.g.
 
-```
+```py
 mkvirtualenv --system-site-packages my-project
 
 ```
 
 The new virtual environment is automatically activated. In new shells you can enable the virtual environment with `workon`
 
-```
+```py
 workon my-project
 
 ```
@@ -374,14 +374,14 @@ The advantage of the `workon` command compared to the traditional `. path/to/my-
 
 You can even specify a project directory during the creation of the virtual environment with the `-a` option or later with the `setvirtualenvproject` command.
 
-```
+```py
 mkvirtualenv -a /path/to/my-project my-project
 
 ```
 
 or
 
-```
+```py
 workon my-project
 cd /path/to/my-project
 setvirtualenvproject
@@ -394,7 +394,7 @@ To see a list of all virtualenvs managed by virtualenvwrapper, use `lsvirtualenv
 
 To remove a virtualenv, use `rmvirtualenv`:
 
-```
+```py
 rmvirtualenv my-project
 
 ```
@@ -410,7 +410,7 @@ For more details read the [virtualenvwrapper documentation](https://virtualenvwr
 
 If you are using the default `bash` prompt on Linux, you should see the name of the virtual environment at the start of your prompt.
 
-```
+```py
 (my-project-env) user@hostname:~$ which python
 /home/user/my-project-env/bin/python
 
@@ -475,12 +475,13 @@ Sometimes the shell prompt doesn't display the name of the virtual environment a
 
 Run the python interpreter and try:
 
-```
+```py
 import sys
 sys.prefix
 sys.real_prefix
 
 ```
+
 
 <li>
 Outside a virtual, environment `sys.prefix` will point to the system python installation and `sys.real_prefix` is not defined.

@@ -29,7 +29,7 @@ Although we have several options for virtual environment but virtualenvwrapper i
 
 **Although we have several options for virtual environment but I always prefer virtualenvwrapper because it has more facility then others.**
 
-```
+```py
 $ pip install virtualenvwrapper
 
 $ export WORKON_HOME=~/Envs
@@ -56,7 +56,7 @@ python_3.5 hook.log
 
 **Now we can install some software into the environment.**
 
-```
+```py
 (python_3.5)$ pip install django
 Downloading/unpacking django
 Downloading Django-1.1.1.tar.gz (5.6Mb): 5.6Mb downloaded
@@ -71,7 +71,7 @@ Successfully installed django
 
 **We can see the new package with lssitepackages:**
 
-```
+```py
 (python_3.5)$ lssitepackages
 Django-1.1.1-py2.6.egg-info easy-install.pth
 setuptools-0.6.10-py2.6.egg pip-0.6.3-py2.6.egg
@@ -83,7 +83,7 @@ django setuptools.pth
 
 **Switch between environments with workon:**
 
-```
+```py
 (python_3.6)$ workon python_3.5
 (python_3.5)$ echo $VIRTUAL_ENV
 /Users/salayhin/Envs/env1
@@ -93,7 +93,7 @@ django setuptools.pth
 
 **To exit the virtualenv**
 
-```
+```py
 $ deactivate
 
 ```

@@ -16,7 +16,7 @@ Here are some basic examples. More examples can be found in the official documen
 
 This example illustrates how to create a simple sine curve using **Matplotlib**
 
-```
+```py
 # Plotting tutorials in Python
 # Launching a simple plot
 
@@ -41,7 +41,7 @@ plt.show()
 
 In this example, we take a sine curve plot and add more features to it; namely the title, axis labels, title, axis ticks, grid and legend.
 
-```
+```py
 # Plotting tutorials in Python
 # Enhancing a plot
 
@@ -77,7 +77,7 @@ plt.show()
 
 In this example, a sine curve and a cosine curve are plotted in the same figure by superimposing the plots on top of each other.
 
-```
+```py
 # Plotting tutorials in Python
 # Adding Multiple plots by superimposition
 # Good for plots sharing similar x, y limits
@@ -116,7 +116,7 @@ plt.show()
 
 Similar to the previous example, here, a sine and a cosine curve are plotted on the same figure using separate plot commands. This is more Pythonic and can be used to get separate handles for each plot.
 
-```
+```py
 # Plotting tutorials in Python
 # Adding Multiple plots by superimposition
 # Good for plots sharing similar x, y limits
@@ -157,7 +157,7 @@ plt.show()
 
 In this example, we will plot a sine curve and a hyperbolic sine curve in the same plot with a common x-axis having different y-axis. This is accomplished by the use of **twinx()** command.
 
-```
+```py
 # Plotting tutorials in Python
 # Adding Multiple plots by twin x axis
 # Good for plots having different y axis range
@@ -212,7 +212,7 @@ plt.show()
 
 In this example, a plot with curves having common y-axis but different x-axis is demonstrated using **twiny()** method. Also, some additional features such as the title, legend, labels, grids, axis ticks and colours are added to the plot.
 
-```
+```py
 # Plotting tutorials in Python
 # Adding Multiple plots by twin y axis
 # Good for plots having different x axis range

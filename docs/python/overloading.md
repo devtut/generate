@@ -47,7 +47,7 @@ Below are the operators that can be overloaded in classes, along with the method
 
 Each of the methods corresponding to a **binary** operator has a corresponding "right" method which start with `__r`, for example `__radd__`:
 
-```
+```py
 class A:
     def __init__(self, a):
         self.a = a
@@ -64,7 +64,7 @@ A(1) + 2  # Out:  3
 
 as well as a corresponding inplace version, starting with `__i`:
 
-```
+```py
 class B:
     def __init__(self, b):
         self.b = b
@@ -109,7 +109,7 @@ Magic (also called dunder as an abbreviation for double-underscore) methods in P
 
 Consider this implementation of two-dimensional vectors.
 
-```
+```py
 import math
 
 class Vector(object):
@@ -150,7 +150,7 @@ class Vector(object):
 
 Now it is possible to naturally use instances of the `Vector` class in various expressions.
 
-```
+```py
 v = Vector(1, 4)
 u = Vector(2, 0)
 
@@ -172,7 +172,7 @@ It is possible to emulate container types, which support accessing values by key
 
 Consider this naive implementation of a sparse list, which stores only its non-zero elements to conserve memory.
 
-```
+```py
 class sparselist(object):
     def __init__(self, size):
         self.size = size
@@ -214,7 +214,7 @@ class sparselist(object):
 
 Then, we can use a `sparselist` much like a regular `list`.
 
-```
+```py
 l = sparselist(10 ** 6)  # list with 1 million elements
 0 in l                   # True
 10 in l                  # False
@@ -233,7 +233,7 @@ for v in l:
 ## Callable types
 
 
-```
+```py
 class adder(object):
     def __init__(self, first):
         self.first = first
@@ -264,7 +264,7 @@ depending on the operator. If all attempted operations return
 
 For example, given `x + y`, if `x.__add__(y)` returns unimplemented, `y.__radd__(x)` is attempted instead.
 
-```
+```py
 class NotAddable(object):
 
     def __init__(self, value):
@@ -287,7 +287,7 @@ As this is the **reflected** method we have to implement `__add__` **and** `__ra
 
 In use:
 
-```
+```py
 >>> x = NotAddable(1)
 >>> y = Addable(2)
 >>> x + x

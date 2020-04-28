@@ -12,7 +12,7 @@ description: "HTTP GET, HTTP POST, Decode received bytes according to content ty
 
 ### Python 2
 
-```
+```py
 import urllib
 response = urllib.urlopen('http://stackoverflow.com/documentation/')
 
@@ -20,7 +20,7 @@ response = urllib.urlopen('http://stackoverflow.com/documentation/')
 
 Using `urllib.urlopen()` will return a response object, which can be handled similar to a file.
 
-```
+```py
 print response.code
 # Prints: 200
 
@@ -28,7 +28,7 @@ print response.code
 
 The `response.code` represents the http return value.  200 is OK, 404 is NotFound, etc.
 
-```
+```py
 print response.read()
 '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\r\n<title>Documentation - Stack. etc'
 
@@ -38,7 +38,7 @@ print response.read()
 
 ### Python 3
 
-```
+```py
 import urllib.request
 
 print(urllib.request.urlopen("http://stackoverflow.com/documentation/"))
@@ -64,7 +64,7 @@ To POST data pass the encoded query arguments as data to urlopen()
 
 ### Python 2
 
-```
+```py
 import urllib
 query_parms = {'username':'stackoverflow', 'password':'me.me'}
 encoded_parms = urllib.urlencode(query_parms)
@@ -78,7 +78,7 @@ response.read()
 
 ### Python 3
 
-```
+```py
 import urllib
 query_parms = {'username':'stackoverflow', 'password':'me.me'}
 encoded_parms = urllib.parse.urlencode(query_parms).encode('utf-8')
@@ -97,7 +97,7 @@ response.read()
 
 The received bytes have to be decoded with the correct character encoding to be interpreted as text:
 
-```
+```py
 import urllib.request
 
 response = urllib.request.urlopen("http://stackoverflow.com/")
@@ -108,7 +108,7 @@ html = data.decode(encoding)
 
 ```
 
-```
+```py
 import urllib2
 response = urllib2.urlopen("http://stackoverflow.com/")
 data = response.read()

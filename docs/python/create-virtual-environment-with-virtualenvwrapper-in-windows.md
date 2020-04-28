@@ -31,14 +31,14 @@ Create a new virtualenv environment by using command:
 **Step 4:**
 Activate the environment by using command:
 
-```
+```py
 workon < environment name>
 
 ```
 
 Main commands for virtualenvwrapper:
 
-```
+```py
 mkvirtualenv <name>
 Create a new virtualenv environment named <name>. The environment will be created in WORKON_HOME.
 

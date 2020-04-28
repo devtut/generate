@@ -17,7 +17,7 @@ The gzip module provides the GzipFile class which is modeled after Python’s Fi
 ## Read and write GNU zip files
 
 
-```
+```py
 import gzip
 import os
 
@@ -35,7 +35,7 @@ os.system('file -b --mime %s' % outfilename)
 
 Save it as 1gzip_write.py1.Run it through terminal.
 
-```
+```py
 $ python gzip_write.py
 
 application/x-gzip; charset=binary

@@ -15,7 +15,7 @@ Python, being one of the most popular languages in computer and network security
 
 The [PBKDF2 algorithm](https://en.wikipedia.org/wiki/PBKDF2) exposed by `hashlib` module can be used to perform secure password hashing. While this algorithm cannot prevent brute-force attacks in order to recover the original password from the stored hash, it makes such attacks very expensive.
 
-```
+```py
 import hashlib
 import os
 
@@ -28,7 +28,7 @@ PBKDF2 can work with any digest algorithm, the above example uses SHA256 which i
 
 If you want the result in hexadecimal, you can use the `binascii` module:
 
-```
+```py
 import binascii
 hexhash = binascii.hexlify(hash)
 
@@ -43,7 +43,7 @@ hexhash = binascii.hexlify(hash)
 
 The `hashlib` module allows creating message digest generators via the `new` method. These generators will turn an arbitrary string into a fixed-length digest:
 
-```
+```py
 import hashlib
 
 h = hashlib.new('sha256')
@@ -55,7 +55,7 @@ h.digest()
 
 Note that you can call `update` an arbitrary number of times before calling `digest` which is useful to hash a large file chunk by chunk. You can also get the digest in hexadecimal format by using `hexdigest`:
 
-```
+```py
 h.hexdigest()
 # ==> '2edfdada56525b1290ff16fb1744cfb482dd2914ffbcb649790c0e589e462d3d'
 
@@ -68,7 +68,7 @@ h.hexdigest()
 
 `hashlib.new` requires the name of an algorithm when you call it to produce a generator. To find out what algorithms are available in the current Python interpreter, use `hashlib.algorithms_available`:
 
-```
+```py
 import hashlib
 hashlib.algorithms_available
 # ==> {'sha256', 'DSA-SHA', 'SHA512', 'SHA224', 'dsaWithSHA', 'SHA', 'RIPEMD160', 'ecdsa-with-SHA1', 'sha1', 'SHA384', 'md5', 'SHA1', 'MD5', 'MD4', 'SHA256', 'sha384', 'md4', 'ripemd160', 'sha224', 'sha512', 'DSA', 'dsaEncryption', 'sha', 'whirlpool'}
@@ -79,7 +79,7 @@ The returned list will vary according to platform and interpreter; make sure you
 
 There are also some algorithms that are **guaranteed** to be available on all platforms and interpreters, which are available using `hashlib.algorithms_guaranteed`:
 
-```
+```py
 hashlib.algorithms_guaranteed
 # ==> {'sha256', 'sha384', 'sha1', 'sha224', 'md5', 'sha512'}
 
@@ -94,7 +94,7 @@ A hash is a function that converts a variable length sequence of bytes to a fixe
 
 You can use `hashlib` to generate a hash for a file:
 
-```
+```py
 import hashlib
 
 hasher = hashlib.new('sha256')
@@ -108,7 +108,7 @@ print hasher.hexdigest()
 
 For larger files, a buffer of fixed length can be used:
 
-```
+```py
 import hashlib
 SIZE = 65536
 hasher = hashlib.new('sha256')
@@ -129,7 +129,7 @@ print(hasher.hexdigest())
 
 Python's built-in crypto functionality is currently limited to hashing. Encryption requires a third-party module like [pycrypto](https://pypi.python.org/pypi/pycrypto). For example, it provides the [AES algorithm](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) which is considered state of the art for symmetric encryption. The following code will encrypt a given message using a passphrase:
 
-```
+```py
 import hashlib
 import math
 import os
@@ -158,7 +158,7 @@ Note the random salt which is important to have a different initialization vecto
 
 The following code will decrypt our message again:
 
-```
+```py
 salt = encrypted[0:SALT_SIZE]
 derived = hashlib.pbkdf2_hmac('sha256', password, salt, 100000,
                               dklen=IV_SIZE + KEY_SIZE)
@@ -175,7 +175,7 @@ cleartext = AES.new(key, AES.MODE_CFB, iv).decrypt(encrypted[SALT_SIZE:])
 
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) can be used to create a message signature. A valid signature can only be generated with access to the private RSA key, validating on the other hand is possible with merely the corresponding public key. So as long as the other side knows your public key they can verify the message to be signed by you and unchanged - an approach used for email for example. Currently, a third-party module like [pycrypto](https://pypi.python.org/pypi/pycrypto) is required for this functionality.
 
-```
+```py
 import errno
 
 from Crypto.Hash import SHA256
@@ -205,7 +205,7 @@ signature = signer.sign(hasher)
 
 Verifying the signature works similarly but uses the public key rather than the private key:
 
-```
+```py
 with open('pubkey.pem', 'rb') as f:
     key = RSA.importKey(f.read())
 hasher = SHA256.new(message)
@@ -226,7 +226,7 @@ else:
 
 Asymmetric encryption has the advantage that a message can be encrypted without exchanging a secret key with the recipient of the message. The sender merely needs to know the recipients public key, this allows encrypting the message in such a way that only the designated recipient (who has the corresponding private key) can decrypt it. Currently, a third-party module like [pycrypto](https://pypi.python.org/pypi/pycrypto) is required for this functionality.
 
-```
+```py
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 
@@ -241,7 +241,7 @@ encrypted = cipher.encrypt(message)
 
 The recipient can decrypt the message then if they have the right private key:
 
-```
+```py
 with open('privkey.pem', 'rb') as f:
     key = RSA.importKey(f.read())
 cipher = PKCS1_OAEP.new(key)
@@ -267,7 +267,8 @@ decrypted = cipher.decrypt(encrypted)
 Many of the methods in `hashlib` will require you to pass values interpretable as buffers of bytes, rather than strings. This is the case for `hashlib.new().update()` as well as `hashlib.pbkdf2_hmac`. If you have a string, you can convert it to a byte buffer by prepending the character `b` to the start of the string:
 
 ```
-  "This is a string"
+
+ "This is a string"
  b"This is a buffer of bytes"
 
 ```

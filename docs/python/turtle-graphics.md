@@ -14,7 +14,7 @@ description: "Ninja Twist (Turtle Graphics)"
 Here a Turtle Graphics Ninja Twist:
 [<img src="https://i.stack.imgur.com/3YP3j.png" alt="Expected Output" />](https://i.stack.imgur.com/3YP3j.png)
 
-```
+```py
 import turtle 
 
 ninja = turtle.Turtle()

@@ -11,7 +11,7 @@ description: "Constants in the dis module, What is Python bytecode?, Disassembli
 ## Constants in the dis module
 
 
-```
+```py
 EXTENDED_ARG = 145 # All opcodes greater than this have 2 operands
 HAVE_ARGUMENT = 90 # All opcodes greater than this have at least 1 operands
 
@@ -41,7 +41,7 @@ opname = ['STOP_CODE', 'POP_TOP', 'ROT_TWO', 'ROT_THREE', 'DUP_TOP', '...
 
 Python is a hybrid interpreter. When running a program, it first assembles it into **bytecode** which can then be run in the Python interpreter (also called a **Python virtual machine**). The `dis` module in the standard library can be used to make the Python bytecode human-readable by disassembling classes, methods, functions, and code objects.
 
-```
+```py
 >>> def hello():
 ...     print "Hello, World"
 ...
@@ -65,14 +65,14 @@ Each operation code (opcode) in the Python assembly language (the bytecode) take
 
 To disassemble a Python module, first this has to be turned into a `.pyc` file (Python compiled). To do this, run
 
-```
+```py
 python -m compileall <file>.py
 
 ```
 
 Then in an interpreter, run
 
-```
+```py
 import dis
 import marshal
 with open("<file>.pyc", "rb") as code_f:

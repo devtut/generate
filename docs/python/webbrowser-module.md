@@ -15,7 +15,7 @@ According to Python's standard documentation, the webbrowser module provides a h
 
 To simply open a URL, use the `webbrowser.open()` method:
 
-```
+```py
 import webbrowser
 webbrowser.open("http://stackoverflow.com")
 
@@ -31,7 +31,7 @@ Note, the `new` and `autoraise` arguments rarely work as the majority of modern 
 
 Webbrowser can also try to open URLs in new windows with the `open_new` method:
 
-```
+```py
 import webbrowser
 webbrowser.open_new("http://stackoverflow.com")
 
@@ -40,7 +40,7 @@ webbrowser.open_new("http://stackoverflow.com")
 This method is commonly ignored by modern browsers and the URL is usually opened in a new tab.
 Opening a new tab can be tried by the module using the `open_new_tab` method:
 
-```
+```py
 import webbrowser
 webbrowser.open_new_tab("http://stackoverflow.com")
 
@@ -53,7 +53,7 @@ webbrowser.open_new_tab("http://stackoverflow.com")
 
 The webbrowser module also supports different browsers using the `register()` and `get()` methods. The get method is used to create a browser controller using a specific executable's path and the register method is used to attach these executables to preset browser types for future use, commonly when multiple browser types are used.
 
-```
+```py
 import webbrowser
 ff_path = webbrowser.get("C:/Program Files/Mozilla Firefox/firefox.exe")
 ff = webbrowser.get(ff_path)
@@ -63,7 +63,7 @@ ff.open("http://stackoverflow.com/")
 
 Registering a browser type:
 
-```
+```py
 import webbrowser
 ff_path = webbrowser.get("C:/Program Files/Mozilla Firefox/firefox.exe")
 ff = webbrowser.get(ff_path)

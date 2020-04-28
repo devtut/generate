@@ -13,7 +13,7 @@ description: "Using the print function, Using input() and raw_input(), Function 
 
 In Python 3, print functionality is in the form of a function:
 
-```
+```py
 print("This string will be displayed in the output")
 # This string will be displayed in the output
 
@@ -24,7 +24,7 @@ print("You can print \n escape characters too.")
 
 In Python 2, print was originally a statement, as shown below.
 
-```
+```py
 print "This string will be displayed in the output"
 # This string will be displayed in the output
 
@@ -42,7 +42,7 @@ Note: using `from __future__ import print_function` in Python 2 will allow users
 
 `raw_input` will wait for the user to enter text and then return the result as a string.
 
-```
+```py
 foo = raw_input("Put a message here that asks the user for input")
 
 ```
@@ -51,7 +51,7 @@ In the above example `foo` will store whatever input the user provides.
 
 `input` will wait for the user to enter text and then return the result as a string.
 
-```
+```py
 foo = input("Put a message here that asks the user for input")
 
 ```
@@ -63,7 +63,7 @@ In the above example `foo` will store whatever input the user provides.
 ## Function to prompt user for a number
 
 
-```
+```py
 def input_number(msg, err_msg=None):
     while True:
         try:
@@ -85,14 +85,14 @@ def input_number(msg, err_msg=None):
 
 And to use it:
 
-```
+```py
 user_number = input_number("input a number: ", "that's not a number!")
 
 ```
 
 Or, if you do not want an "error message":
 
-```
+```py
 user_number = input_number("input a number: ")
 
 ```
@@ -104,7 +104,7 @@ user_number = input_number("input a number: ")
 
 In Python 2.x, to continue a line with `print`, end the `print` statement with a comma. It will automatically add a space.
 
-```
+```py
 print "Hello,",
 print "World!"
 # Hello, World!
@@ -113,7 +113,7 @@ print "World!"
 
 In Python 3.x, the `print` function has an optional `end` parameter that is what it prints at the end of the given string. By default it's a newline character, so equivalent to this:
 
-```
+```py
 print("Hello, ", end="\n")
 print("World!")
 # Hello, 
@@ -123,7 +123,7 @@ print("World!")
 
 But you could pass in other strings
 
-```
+```py
 print("Hello, ", end="")
 print("World!")
 # Hello, World!
@@ -140,7 +140,7 @@ print("World!")
 
 If you want more control over the output, you can use `sys.stdout.write`:
 
-```
+```py
 import sys
 
 sys.stdout.write("Hello, ")
@@ -156,7 +156,7 @@ sys.stdout.write("World!")
 
 Python programs can read from [unix pipelines](https://en.wikipedia.org/wiki/Pipeline_(Unix)). Here is a simple example how to read from [`stdin`](https://docs.python.org/2/library/sys.html#sys.stdin):
 
-```
+```py
 import sys
 
 for line in sys.stdin:
@@ -168,7 +168,7 @@ Be aware that `sys.stdin` is a stream. It means that the for-loop will only term
 
 You can now pipe the output of another program into your python program as follows:
 
-```
+```py
 $ cat myfile | python myprogram.py
 
 ```
@@ -177,7 +177,7 @@ In this example `cat myfile` can be any unix command that outputs to `stdout`.
 
 Alternatively, using the [fileinput module](https://docs.python.org/2/library/fileinput.html) can come in handy:
 
-```
+```py
 import fileinput
 for line in fileinput.input():
     process(line)
@@ -191,7 +191,7 @@ for line in fileinput.input():
 
 Input can also be read from files. Files can be opened using the built-in function `open`. Using a [`with <command> as <name>`](http://stackoverflow.com/documentation/python/928/context-managers-with-statement#t=201612062300080479662) syntax (called a 'Context Manager') makes using `open` and getting a handle for the file super easy:
 
-```
+```py
 with open('somefile.txt', 'r') as fileobj:
     # write code here using fileobj
 
@@ -201,7 +201,7 @@ This ensures that when code execution leaves the block the file is automatically
 
 Files can be opened in different modes. In the above example the file is opened as read-only. To open an existing file for reading only use `r`. If you want to read that file as bytes use `rb`. To append data to an existing file use `a`. Use `w` to create a file or overwrite any existing files of the same name. You can use `r+` to open a file for both reading and writing. The first argument of `open()` is the filename, the second is the mode. If mode is left blank, it will default to `r`.
 
-```
+```py
 # let's create an example file:
 with open('shoppinglist.txt', 'w') as fileobj:
     fileobj.write('tomato\npasta\ngarlic')
@@ -227,7 +227,7 @@ print(lines)
 
 If the size of the file is tiny, it is safe to read the whole file contents into memory. If the file is very large it is often better to read line-by-line or by chunks, and process the input in the same loop. To do that:
 
-```
+```py
 with open('shoppinglist.txt', 'r') as fileobj:
     # this method reads line by line:
     lines = []
@@ -240,7 +240,7 @@ When reading files, be aware of the operating system-specific line-break charact
 
 Opened files (`fileobj` in the above examples) always point to a specific location in the file. When they are first opened the file handle points to the very beginning of the file, which is the position `0`. The file handle can display it's  current position with `tell`:
 
-```
+```py
 fileobj = open('shoppinglist.txt', 'r')
 pos = fileobj.tell()
 print('We are at %u.' % pos) # We are at 0.
@@ -249,7 +249,7 @@ print('We are at %u.' % pos) # We are at 0.
 
 Upon reading all the content, the file handler's position will be pointed at the end of the file:
 
-```
+```py
 content = fileobj.read()
 end = fileobj.tell()
 print('This file was %u characters long.' % end)
@@ -260,7 +260,7 @@ fileobj.close()
 
 The file handler position can be set to whatever is needed:
 
-```
+```py
 fileobj = open('shoppinglist.txt', 'r')
 fileobj.seek(7)
 pos = fileobj.tell()
@@ -270,7 +270,7 @@ print('We are at character #%u.' % pos)
 
 You can also read any length from the file content during a given call. To do this pass an argument for `read()`. When `read()` is  called with no argument it will read until the end of the file. If you pass an argument it will read that number of bytes or characters, depending on the mode (`rb` and `r` respectively):
 
-```
+```py
 # reads the next 4 characters 
 # starting at the current position
 next4 = fileobj.read(4)
@@ -286,7 +286,7 @@ fileobj.close()
 
 To demonstrate the difference between characters and bytes:
 
-```
+```py
 with open('shoppinglist.txt', 'r') as fileobj:
     print(type(fileobj.read())) # <class 'str'>
 

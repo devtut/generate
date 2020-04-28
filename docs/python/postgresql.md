@@ -27,7 +27,7 @@ Lets assume we have a table `my_table` in the database `my_database` defined as 
 
 We can use the `psycopg2` module to run queries on the database in the following fashion.
 
-```
+```py
 import psycopg2
 
 # Establish a connection to the existing database 'my_database' using

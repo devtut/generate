@@ -13,7 +13,7 @@ description: "Conditional List Comprehensions, List Comprehensions with Nested L
 
 Given a [list comprehension](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) you can append one or more `if` conditions to filter values.
 
-```
+```py
 [<expression> for <element> in <iterable> if <condition>]
 
 ```
@@ -22,7 +22,7 @@ For each `<element>` in `<iterable>`; if `<condition>` evaluates to `True`, add 
 
 For example, this can be used to extract only even numbers from a sequence of integers:
 
-```
+```py
 [x for x in range(10) if x % 2 == 0]
 # Out: [0, 2, 4, 6, 8]
 
@@ -32,7 +32,7 @@ For example, this can be used to extract only even numbers from a sequence of in
 
 The above code is equivalent to:
 
-```
+```py
 even_numbers = [] 
 for x in range(10):
     if x % 2 == 0:
@@ -49,7 +49,7 @@ Despite providing the same result, pay attention to the fact that the former exa
 
 Note that this is quite different from the `... if ... else ...` conditional expression (sometimes known as a [ternary expression](http://stackoverflow.com/documentation/python/1111/conditionals/3226/conditional-expression-or-the-ternary-operator#t=201608020020172410044)) that you can use for the `<expression>` part of the list comprehension. Consider the following example:
 
-```
+```py
 [x if x % 2 == 0 else None for x in range(10)]
 # Out: [0, None, 2, None, 4, None, 6, None, 8, None]
 
@@ -59,14 +59,14 @@ Note that this is quite different from the `... if ... else ...` conditional exp
 
 Here the conditional expression isn't a filter, but rather an operator determining the value to be used for the list items:
 
-```
+```py
 <value-if-condition-is-true> if <condition> else <value-if-condition-is-false>
 
 ```
 
 This becomes more obvious if you combine it with other operators:
 
-```
+```py
 [2 * (x if x % 2 == 0 else -1) + 1 for x in range(10)]
 # Out: [1, -1, 5, -1, 9, -1, 13, -1, 17, -1]
 
@@ -76,7 +76,7 @@ This becomes more obvious if you combine it with other operators:
 
 If you are using Python 2.7, `xrange` may be better than `range` for several reasons as described in the [`xrange` documentation](https://docs.python.org/2/library/functions.html#xrange).
 
-```
+```py
 [2 * (x if x % 2 == 0 else -1) + 1 for x in xrange(10)]
 # Out: [1, -1, 5, -1, 9, -1, 13, -1, 17, -1]
 
@@ -84,7 +84,7 @@ If you are using Python 2.7, `xrange` may be better than `range` for several rea
 
 The above code is equivalent to:
 
-```
+```py
 numbers = []
 for x in range(10):
     if x % 2 == 0:
@@ -99,7 +99,7 @@ print(numbers)
 
 One can combine ternary expressions and `if` conditions. The ternary operator works on the filtered result:
 
-```
+```py
 [x if x > 2 else '*' for x in range(10) if x % 2 == 0]
 # Out: ['*', '*', 4, 6, 8]
 
@@ -107,7 +107,7 @@ One can combine ternary expressions and `if` conditions. The ternary operator wo
 
 The same couldn't have been achieved just by ternary operator only:
 
-```
+```py
 [x if (x > 2 and x % 2 == 0) else '*' for x in range(10)]
 # Out:['*', '*', '*', '*', 4, '*', 6, '*', 8, '*']
 
@@ -122,7 +122,7 @@ The same couldn't have been achieved just by ternary operator only:
 
 [List Comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) can use nested `for` loops. You can code any number of nested for loops within a list comprehension, and each `for` loop may have an optional associated `if` test. When doing so, the order of the `for` constructs is the same order as when writing a series of nested `for` statements. The general structure of list comprehensions looks like this:
 
-```
+```py
 [ expression for target1 in iterable1 [if condition1]
              for target2 in iterable2 [if condition2]...
              for targetN in iterableN [if conditionN] ]
@@ -131,7 +131,7 @@ The same couldn't have been achieved just by ternary operator only:
 
 For example, the following code flattening a list of lists using multiple `for` statements:
 
-```
+```py
 data = [[1, 2], [3, 4], [5, 6]]
 output = []
 for each_list in data:
@@ -144,7 +144,7 @@ print(output)
 
 can be equivalently written as a list comprehension with multiple `for` constructs:
 
-```
+```py
 data = [[1, 2], [3, 4], [5, 6]]
 output = [element for each_list in data for element in each_list]
 print(output)
@@ -158,7 +158,7 @@ In both the expanded form and the list comprehension, the outer loop (first for 
 
 In addition to being more compact, the nested comprehension is also significantly faster.
 
-```
+```py
 In [1]: data = [[1,2],[3,4],[5,6]]
 In [2]: def f():
    ...:     output=[]
@@ -177,7 +177,7 @@ The overhead for the function call above is about **140ns**.
 
 Inline `if`s are nested similarly, and may occur in any position after the first `for`:
 
-```
+```py
 data = [[1], [2, 3], [4, 5]]
 output = [element for each_list in data
                 if len(each_list) == 2
@@ -205,7 +205,7 @@ The `filter` or `map` functions should often be replaced by [list comprehensions
 
 The following lines of code are considered "**not pythonic**" and will raise errors in many python linters.
 
-```
+```py
 filter(lambda x: x % 2 == 0, range(10)) # even numbers < 10
 map(lambda x: 2*x, range(10)) # multiply each number by two
 reduce(lambda x,y: x+y, range(10)) # sum of all elements in list
@@ -214,7 +214,7 @@ reduce(lambda x,y: x+y, range(10)) # sum of all elements in list
 
 Taking what we have learned from the previous quote, we can break down these `filter` and `map` expressions into their equivalent **list comprehensions**; also removing the **lambda** functions from each - making the code more readable in the process.
 
-```
+```py
 # Filter:
 # P(x) = x % 2 == 0
 # S = range(10)
@@ -229,7 +229,7 @@ Taking what we have learned from the previous quote, we can break down these `fi
 
 Readability becomes even more apparent when dealing with chaining functions.  Where due to readability, the results of one map or filter function should be passed as a result to the next; with simple cases, these can be replaced with a single list comprehension.  Further, we can easily tell from the list comprehension what the outcome of our process is, where there is more cognitive load when reasoning about the chained Map & Filter process.
 
-```
+```py
 # Map & Filter
 filtered = filter(lambda x: x % 2 == 0, range(10))
 results = map(lambda x: 2*x, filtered)
@@ -261,7 +261,7 @@ results = [2*x for x in range(10) if x % 2 == 0]
 
 Nested list comprehensions, unlike list comprehensions with nested loops, are List comprehensions within a list comprehension. The initial expression can be any arbitrary expression, including another list comprehension.
 
-```
+```py
 #List Comprehension with nested loop
 [x + y for x in [1, 2, 3] for y in [3, 4, 5]]
 #Out: [4, 5, 6, 5, 6, 7, 6, 7, 8]
@@ -274,7 +274,7 @@ Nested list comprehensions, unlike list comprehensions with nested loops, are Li
 
 The Nested example is equivalent to
 
-```
+```py
 l = []
 for y in [3, 4, 5]:
     temp = []
@@ -286,7 +286,7 @@ for y in [3, 4, 5]:
 
 One example where a nested comprehension can be used it to transpose a matrix.
 
-```
+```py
 matrix = [[1,2,3],
           [4,5,6],
           [7,8,9]] 
@@ -298,7 +298,7 @@ matrix = [[1,2,3],
 
 Like nested `for` loops, there is not limit to how deep comprehensions can be nested.
 
-```
+```py
 [[[i + j + k for k in 'cd'] for j in 'ab'] for i in '12']
 # Out: [[['1ac', '1ad'], ['1bc', '1bd']], [['2ac', '2ad'], ['2bc', '2bd']]]
 
@@ -311,7 +311,7 @@ Like nested `for` loops, there is not limit to how deep comprehensions can be ne
 
 For iterating more than two lists simultaneously within **list comprehension**, one may use [`zip()`](https://docs.python.org/2/library/functions.html#zip) as:
 
-```
+```py
 >>> list_1 = [1, 2, 3 , 4]
 >>> list_2 = ['a', 'b', 'c', 'd']
 >>> list_3 = ['6', '7', '8', '9']

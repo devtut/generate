@@ -10,7 +10,7 @@ description: "Ignore an exception, Create a new Exception that can be caught"
 ## Ignore an exception
 
 
-```
+```py
 try:
     metadata = metadata['properties']
 except KeyError:
@@ -23,7 +23,7 @@ except KeyError:
 ## Create a new Exception that can be caught
 
 
-```
+```py
 class CompileError(Exception):
     pass
 

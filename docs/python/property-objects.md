@@ -13,7 +13,7 @@ description: "Using the @property decorator for read-write properties, Using the
 
 If you want to use `@property` to implement custom behavior for setting and getting, use this pattern:
 
-```
+```py
 class Cash(object):
     def __init__(self, value):
         self.value = value
@@ -28,7 +28,7 @@ class Cash(object):
 
 To use this:
 
-```
+```py
 >>> wallet = Cash(2.50)
 >>> print(wallet.formatted)
 $2.50
@@ -60,7 +60,7 @@ Then
 
 When you inherit from a class with a property, you can provide a new implementation for one or more of the property `getter`, `setter` or `deleter` functions, by referencing the property object **on the parent class**:
 
-```
+```py
 class BaseClass(object):
     @property
     def foo(self):
@@ -87,7 +87,7 @@ You can also add a setter or deleter where there was not one on the base class b
 
 While using decorator syntax (with the @) is convenient, it also a bit concealing. You can use properties directly, without decorators. The following Python 3.x example shows this:
 
-```
+```py
 class A:
     p = 1234
     def getX (self):

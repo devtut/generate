@@ -15,7 +15,7 @@ The built-in `collections` package provides several specialized, flexible collec
 
 [Counter](https://docs.python.org/2/library/collections.html#collections.Counter) is a dict sub class that allows you to easily count objects. It has utility methods for working with the frequencies of the objects that you are counting.
 
-```
+```py
 import collections
 counts = collections.Counter([1,2,3])
 
@@ -27,7 +27,7 @@ the above code creates an object, counts, which has the frequencies of all the e
 
 Letter Counter
 
-```
+```py
 >>> collections.Counter('Happy Birthday')
 Counter({'a': 2, 'p': 2, 'y': 2, 'i': 1, 'r': 1, 'B': 1, ' ': 1, 'H': 1, 'd': 1, 'h': 1, 't': 1})
 
@@ -35,7 +35,7 @@ Counter({'a': 2, 'p': 2, 'y': 2, 'i': 1, 'r': 1, 'B': 1, ' ': 1, 'H': 1, 'd': 1,
 
 Word Counter
 
-```
+```py
 >>> collections.Counter('I am Sam Sam I am That Sam-I-am That Sam-I-am! I do not like that Sam-I-am'.split())
 Counter({'I': 3, 'Sam': 2, 'Sam-I-am': 2, 'That': 2, 'am': 2, 'do': 1, 'Sam-I-am!': 1, 'that': 1, 'not': 1, 'like': 1})
 
@@ -43,14 +43,14 @@ Counter({'I': 3, 'Sam': 2, 'Sam-I-am': 2, 'That': 2, 'am': 2, 'do': 1, 'Sam-I-am
 
 **Recipes**
 
-```
+```py
 >>> c = collections.Counter({'a': 4, 'b': 2, 'c': -2, 'd': 0})
 
 ```
 
 Get count of individual element
 
-```
+```py
 >>> c['a']
 4
 
@@ -58,7 +58,7 @@ Get count of individual element
 
 Set count of individual element
 
-```
+```py
 >>> c['c'] = -3
 >>> c
 Counter({'a': 4, 'b': 2, 'd': 0, 'c': -3})
@@ -67,7 +67,7 @@ Counter({'a': 4, 'b': 2, 'd': 0, 'c': -3})
 
 Get total number of elements in counter (4 + 2 + 0 - 3)
 
-```
+```py
 >>> sum(c.itervalues())  # negative numbers are counted!
 3
 
@@ -75,7 +75,7 @@ Get total number of elements in counter (4 + 2 + 0 - 3)
 
 Get elements (only those with positive counter are kept)
 
-```
+```py
 >>> list(c.elements())
 ['a', 'a', 'a', 'a', 'b', 'b']
 
@@ -83,7 +83,7 @@ Get elements (only those with positive counter are kept)
 
 Remove keys with 0 or negative value
 
-```
+```py
 >>> c - collections.Counter()
 Counter({'a': 4, 'b': 2})
 
@@ -91,7 +91,7 @@ Counter({'a': 4, 'b': 2})
 
 Remove everything
 
-```
+```py
 >>> c.clear()
 >>> c
 Counter()
@@ -100,7 +100,7 @@ Counter()
 
 Add remove individual elements
 
-```
+```py
 >>> c.update({'a': 3, 'b':3})
 >>> c.update({'a': 2, 'c':2})  # adds to existing, sets if they don't exist
 >>> c
@@ -118,7 +118,7 @@ Counter({'a': 2, 'b': 0, 'c': -1})
 
 [collections.defaultdict](https://docs.python.org/2/library/collections.html#collections.defaultdict)(default_factory) returns a subclass of `dict` that has a default value for missing keys. The argument should be a function that returns the default value when called with no arguments. If there is nothing passed, it defaults to `None`.
 
-```
+```py
 >>> state_capitals = collections.defaultdict(str)
 >>> state_capitals
 defaultdict(<class 'str'>, {})
@@ -129,7 +129,7 @@ returns a reference to a defaultdict that will create a string object with its d
 
 A typical usage of `defaultdict` is to use one of the builtin types such as `str`, `int`, `list` or `dict` as the default_factory, since these return empty types when called with no arguments:
 
-```
+```py
 >>> str()
 ''
 >>> int()
@@ -141,7 +141,7 @@ A typical usage of `defaultdict` is to use one of the builtin types such as `str
 
 Calling the defaultdict with a key that does not exist does not produce an error as it would in a normal dictionary.
 
-```
+```py
 >>> state_capitals['Alaska']
 ''
 >>> state_capitals
@@ -151,7 +151,7 @@ defaultdict(<class 'str'>, {'Alaska': ''})
 
 Another example with `int`:
 
-```
+```py
 >>> fruit_counts = defaultdict(int)
 >>> fruit_counts['apple'] += 2  # No errors should occur
 >>> fruit_counts
@@ -165,7 +165,7 @@ default_dict(int, {'apple': 2, 'banana': 0})
 
 Normal dictionary methods work with the default dictionary
 
-```
+```py
 >>> state_capitals['Alabama'] = 'Montgomery'
 >>> state_capitals
 defaultdict(<class 'str'>, {'Alabama': 'Montgomery', 'Alaska': ''})
@@ -174,7 +174,7 @@ defaultdict(<class 'str'>, {'Alabama': 'Montgomery', 'Alaska': ''})
 
 Using `list` as the default_factory will create a list for each new key.
 
-```
+```py
 >>> s = [('NC', 'Raleigh'), ('VA', 'Richmond'), ('WA', 'Seattle'), ('NC', 'Asheville')]
 >>> dd = collections.defaultdict(list)
 >>> for k, v in s:
@@ -196,7 +196,7 @@ The order of keys in Python dictionaries is arbitrary: they are not governed by 
 
 For example:
 
-```
+```py
 >>> d = {'foo': 5, 'bar': 6}
 >>> print(d)
 {'foo': 5, 'bar': 6}
@@ -206,7 +206,7 @@ For example:
 >>> d['foobar'] = 8
 >>> print(a)
 {'baz': 7, 'foo': 5, 'bar': 6, 'foobar': 8}
-```
+```py
 
 ```
 
@@ -216,7 +216,7 @@ The order in which the keys appear is the order which they would be iterated ove
 
 The `collections.OrderedDict` class provides dictionary objects that retain the order of keys. `OrderedDict`s can be created as shown below with a series of ordered items (here, a list of tuple key-value pairs):
 
-```
+```py
 >>> from collections import OrderedDict
 >>> d = OrderedDict([('foo', 5), ('bar', 6)])
 >>> print(d)
@@ -232,7 +232,7 @@ OrderedDict([('foo', 5), ('bar', 6), ('baz', 7), ('foobar', 8)])
 
 Or we can create an empty `OrderedDict` and then add items:
 
-```
+```py
 >>> o = OrderedDict()
 >>> o['key1'] = "value1"
 >>> o['key2'] = "value2"
@@ -245,7 +245,7 @@ Iterating through an `OrderedDict` allows key access in the order they were adde
 
 What happens if we assign a new value to an existing key?
 
-```
+```py
 >>> d['foo'] = 4
 >>> print(d)
 OrderedDict([('foo', 4), ('bar', 6), ('baz', 7), ('foobar', 8)])
@@ -261,42 +261,42 @@ The key retains its original place in the `OrderedDict`.
 
 Define a new type `Person` using [`namedtuple`](https://docs.python.org/2/library/collections.html#collections.namedtuple) like this:
 
-```
+```py
 Person = namedtuple('Person', ['age', 'height', 'name'])
 
 ```
 
 The second argument is the list of attributes that the tuple will have. You can list these attributes also as either space or comma separated string:
 
-```
+```py
 Person = namedtuple('Person', 'age, height, name')
 
 ```
 
 or
 
-```
+```py
 Person = namedtuple('Person', 'age height name')
 
 ```
 
 Once defined, a named tuple can be instantiated by calling the object with the necessary parameters, e.g.:
 
-```
+```py
 dave = Person(30, 178, 'Dave')
 
 ```
 
 Named arguments can also be used:
 
-```
+```py
 jack = Person(age=30, height=178, name='Jack S.')
 
 ```
 
 Now you can access the attributes of the namedtuple:
 
-```
+```py
 print(jack.age)  # 30
 print(jack.name)  # 'Jack S.'
 
@@ -304,7 +304,7 @@ print(jack.name)  # 'Jack S.'
 
 The first argument to the namedtuple constructor (in our example `'Person'`) is the `typename`. It is typical to use the same word for the constructor and the typename, but they can be different:
 
-```
+```py
 Human = namedtuple('Person',  'age, height, name')
 dave = Human(30, 178, 'Dave')
 print(dave)  # yields: Person(age=30, height=178, name='Dave')
@@ -328,7 +328,7 @@ If `maxlen` is not specified or is `None`, deques may grow to an arbitrary lengt
 
 Changed in version 2.6: Added maxlen parameter.
 
-```
+```py
 >>> from collections import deque
 >>> d = deque('ghi')                 # make a new deque with three items
 >>> for elem in d:                   # iterate over the deque's elements
@@ -399,7 +399,7 @@ Anytime one has a chain of lookup values there can be a case for `ChainMap`. An 
 
 The `maps` parameter list is ordered from first-searched to last-searched. Lookups search the underlying mappings successively until a key is found. In contrast, writes, updates, and deletions only operate on the first mapping.
 
-```
+```py
 import collections
 
 # define two dictionaries with at least some keys overlapping.
@@ -414,7 +414,7 @@ reverse_ordered_dict = collections.ChainMap(dict2, dict1)
 
 Note the impact of order on which value is found first in the subsequent lookup
 
-```
+```py
 for k, v in combined_dict.items():
     print(k, v)
     

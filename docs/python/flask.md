@@ -15,7 +15,7 @@ Flask is a Python micro web framework used to run major websites including Pintr
 
 Instead of typing our HTML markup into the return statements, we can use the `render_template()` function:
 
-```
+```py
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
 This will use our template file `about-us.html`. To ensure our application can find this file we must organize our directory in the following format:
 
-```
+```py
 - application.py
 /templates
     - about-us.html
@@ -45,4 +45,3 @@ This will use our template file `about-us.html`. To ensure our application can f
         - login-script.js
 
 ```
-

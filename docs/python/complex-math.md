@@ -12,14 +12,14 @@ description: "Advanced complex arithmetic, Basic complex arithmetic"
 
 The module `cmath` includes additional functions to use complex numbers.
 
-```
+```py
 import cmath
 
 ```
 
 This module can calculate the phase of a complex number, in radians:
 
-```
+```py
 z = 2+3j # A complex number
 cmath.phase(z) # 0.982793723247329
 
@@ -27,7 +27,7 @@ cmath.phase(z) # 0.982793723247329
 
 It allows the conversion between the cartesian (rectangular) and polar representations of complex numbers:
 
-```
+```py
 cmath.polar(z) # (3.605551275463989, 0.982793723247329)
 cmath.rect(2, cmath.pi/2) # (0+2j)
 
@@ -79,7 +79,7 @@ Hyperbolic functions and their inverses:
 
 Python has built-in support for complex arithmetic. The imaginary unit is denoted by [`j`](http://stackoverflow.com/questions/24812444/why-are-complex-numbers-in-python-denoted-with-j-instead-of-i#24812657):
 
-```
+```py
 z = 2+3j # A complex number
 w = 1-7j # Another complex number
 
@@ -87,7 +87,7 @@ w = 1-7j # Another complex number
 
 Complex numbers can be summed, subtracted, multiplied, divided and exponentiated:
 
-```
+```py
 z + w # (3-4j) 
 z - w # (1+10j)
 z * w # (23-11j) 
@@ -98,7 +98,7 @@ z**3  # (-46+9j)
 
 Python can also extract the real and imaginary parts of complex numbers, and calculate their absolute value and conjugate:
 
-```
+```py
 z.real # 2.0
 z.imag # 3.0
 abs(z) # 3.605551275463989

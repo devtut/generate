@@ -14,14 +14,14 @@ To share files or to host simple websites(http and javascript) in your local net
 
 For `python 2`:
 
-```
+```py
 $ python -m SimpleHTTPServer <portnumber>
 
 ```
 
 For `python 3`:
 
-```
+```py
 $ python3 -m http.server <portnumber>
 
 ```
@@ -46,7 +46,7 @@ To finish the module simply press `ctrl+c.`
 
 Server side:
 
-```
+```py
 import socket
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -64,7 +64,7 @@ while True:
 
 Client Side:
 
-```
+```py
 import socket
 
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -87,7 +87,7 @@ Here's a simple echo server.
 
 Server side
 
-```
+```py
 from sockerserver import BaseRequestHandler, TCPServer
 
 class EchoHandler(BaseRequestHandler):
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
 Client side
 
-```
+```py
 from socket import socket, AF_INET, SOCK_STREAM
 sock = socket(AF_INET, SOCK_STREAM)
 sock.connect(('localhost', 5000))
@@ -119,7 +119,7 @@ sock.recv(8192)  # returns b'Monty Python'
 `socketserver` makes it relatively easy to create simple TCP servers. However, you
 should be aware that, by default, the servers are single threaded and can only serve one client at a time. If you want to handle multiple clients, either instantiate a `ThreadingTCPServer` instead.
 
-```
+```py
 from socketserver import ThreadingTCPServer
 ...
 if __name__ == '__main__':
@@ -137,7 +137,7 @@ A UDP server is easily created using the `socketserver` library.
 
 a simple time server:
 
-```
+```py
 import time
 from socketserver import BaseRequestHandler, UDPServer
 
@@ -157,7 +157,7 @@ if __name__ == '__main__':
 
 Testing:
 
-```
+```py
 >>> from socket import socket, AF_INET, SOCK_DGRAM
 >>> sock = socket(AF_INET, SOCK_DGRAM)
 >>> sick.sendto(b'', ('localhost', 5000))
@@ -174,7 +174,7 @@ Testing:
 
 Useful if your program is outputting web pages along the way.
 
-```
+```py
 from http.server import HTTPServer, CGIHTTPRequestHandler
 import webbrowser
 import threading

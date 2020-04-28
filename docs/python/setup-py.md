@@ -12,7 +12,7 @@ description: "Using source control metadata in setup.py, Purpose of setup.py, Ad
 
 [`setuptools_scm`](https://pypi.python.org/pypi/setuptools_scm) is an officially-blessed package that can use Git or Mercurial metadata to determine the version number of your package, and find Python packages and package data to include in it.
 
-```
+```py
 from setuptools import setup, find_packages
 
 setup(
@@ -35,7 +35,7 @@ The setup script is the centre of all activity in building, distributing, and in
 
 If all you want to do is distribute a module called foo, contained in a file foo.py, then your setup script can be as simple as this:
 
-```
+```py
 from distutils.core import setup
 
 setup(name='foo',
@@ -47,7 +47,7 @@ setup(name='foo',
 
 To create a source distribution for this module, you would create a setup script, setup.py, containing the above code, and run this command from a terminal:
 
-```
+```py
 python setup.py sdist
 
 ```
@@ -56,7 +56,7 @@ sdist will create an archive file (e.g., tarball on Unix, ZIP file on Windows) c
 
 If an end-user wishes to install your foo module, all she has to do is download foo-1.0.tar.gz (or .zip), unpack it, and—from the foo-1.0 directory—run
 
-```
+```py
 python setup.py install
 
 ```
@@ -70,7 +70,7 @@ Command line scripts inside python packages are common.  You can organise your p
 
 If you had the `greetings` package which had the command line script `hello_world.py`.
 
-```
+```py
 greetings/
    greetings/
       __init__.py
@@ -80,21 +80,21 @@ greetings/
 
 You could run that script by running:
 
-```
+```py
 python greetings/greetings/hello_world.py
 
 ```
 
 However if you would like to run it like so:
 
-```
+```py
 hello_world.py
 
 ```
 
 You can achieve this by adding `scripts` to your `setup()` in `setup.py` like this:
 
-```
+```py
 from setuptools import setup
 setup(
   name='greetings',
@@ -107,14 +107,14 @@ When you install the greetings package now, `hello_world.py` will be added to yo
 
 Another possibility would be to add an entry point:
 
-```
+```py
 entry_points={'console_scripts': ['greetings=greetings.hello_world:main']}
 
 ```
 
 This way you just have to run it like:
 
-```
+```py
 greetings
 
 ```
@@ -126,21 +126,21 @@ greetings
 
 As seen in previous examples, basic use of this script is:
 
-```
+```py
 python setup.py install
 
 ```
 
 But there is even more options, like installing the package and have the possibility to change the code and test it without having to re-install it. This is done using:
 
-```
+```py
 python setup.py develop
 
 ```
 
 If you want to perform specific actions like compiling a **Sphinx** documentation or building **fortran** code, you can create your own option like this:
 
-```
+```py
 cmdclasses = dict()
 
 class BuildSphinx(Command):
@@ -174,7 +174,7 @@ cmdclass=cmdclasses,
 
 After that, you will be able to call your option:
 
-```
+```py
 python setup.py build_sphinx
 
 ```

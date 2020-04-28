@@ -14,7 +14,7 @@ Before starting you must have:
 
 Anaconda installed on your system Account on Binstar If you are not using [Anaconda](https://docs.continuum.io/anaconda/install) 1.6+ install the [binstar](https://conda.anaconda.org/binstar) command line client:
 
-```
+```py
 $ conda install binstar
 $ conda update binstar
 
@@ -22,35 +22,35 @@ $ conda update binstar
 
 If you are not using Anaconda the Binstar is also available on pypi:
 
-```
+```py
 $ pip install binstar
 
 ```
 
 Now we can login:
 
-```
+```py
 $ binstar login
 
 ```
 
 Test your login with the whoami command:
 
-```
+```py
 $ binstar whoami
 
 ```
 
 We are going to be uploading a package with a simple ‘hello world’ function. To follow along start by getting my demonstration package repo from Github:
 
-```
+```py
 $ git clone https://github.com/<NAME>/<Package>
 
 ```
 
 This a small directory that looks like this:
 
-```
+```py
 package/
         setup.py
         test_package/
@@ -68,7 +68,7 @@ The `bld.bat`, `build.sh`, and `meta.yaml` are scripts and metadata for the `Con
 
 Now we create the package by running:
 
-```
+```py
 $ conda build test_package/
 
 ```
@@ -77,7 +77,7 @@ That is all it takes to create a Conda package.
 
 The final step is uploading to binstar by copying and pasting the last line of the print out after running the conda build test_package/ command. On my system the command is:
 
-```
+```py
 $ binstar upload /home/xavier/anaconda/conda-bld/linux-64/test_package-0.1.0-py27_0.tar.bz2
 
 ```

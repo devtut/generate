@@ -12,7 +12,7 @@ description: "Hello World with C Extension, C Extension Using c++ and Boost, Pas
 
 The following C source file (which we will call `hello.c` for demonstration purposes) produces an extension module named `hello` that contains a single function `greet()`:
 
-```
+```py
 #include <Python.h>
 #include <stdio.h>
 
@@ -59,7 +59,7 @@ To compile the file with the `gcc` compiler, run the following command in your f
 
 To execute the `greet()` function that we wrote earlier, create a file in the same directory, and call it `hello.py`
 
-```
+```py
 import hello          # imports the compiled library
 hello.greet("Hello!") # runs the greet() function with "Hello!" as an argument
 
@@ -76,7 +76,7 @@ This is a basic example of a **C Extension** using C++ and [Boost](http://www.bo
 
 C++ code put in hello.cpp:
 
-```
+```py
 #include <boost/python/module.hpp>
 #include <boost/python/list.hpp>
 #include <boost/python/class.hpp>
@@ -132,21 +132,21 @@ and the boost libraries. This example was made on Ubuntu 12.04 using
 python 3.4 and gcc. Boost is supported on many platforms. In case of
 Ubuntu the needed packages was installed using:
 
-```
+```py
 sudo apt-get install gcc libboost-dev libpython3.4-dev
 
 ```
 
 Compiling the source file into a .so-file that can later be imported as a module provided it is on the python path:
 
-```
+```py
 gcc -shared -o hello.so -fPIC -I/usr/include/python3.4 hello.cpp -lboost_python-py34 -lboost_system -l:libpython3.4m.so
 
 ```
 
 The python code in the file example.py:
 
-```
+```py
 import hello
 
 print(hello.get_hello())
@@ -158,7 +158,7 @@ print(h.as_list(3))
 
 Then `python3 example.py` will give the following output:
 
-```
+```py
 Hello world!
 ['World hello!', 'World hello!', 'World hello!']
 
@@ -173,7 +173,7 @@ Pass an open file object from Python to C extension code.
 
 You can convert the file to an integer file descriptor using `PyObject_AsFileDescriptor` function:
 
-```
+```py
 PyObject *fobj;
 int fd = PyObject_AsFileDescriptor(fobj);
 if (fd < 0){
@@ -185,7 +185,7 @@ if (fd < 0){
 To convert an integer file descriptor back into a python object, use
 `PyFile_FromFd`.
 
-```
+```py
 int fd; /* Existing file descriptor */
 PyObject *fobj = PyFile_FromFd(fd, "filename","r",-1,NULL,NULL,NULL,1);
 

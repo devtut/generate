@@ -12,7 +12,7 @@ description: "Test Setup and Teardown within a unittest.TestCase, Asserting on E
 
 Sometimes we want to prepare a context for each test to be run under. The `setUp` method is run prior to each test in the class. `tearDown` is run at the end of every test. These methods are optional.  Remember that TestCases are often used in cooperative multiple inheritance so you should be careful to always call `super` in these methods so that base class's `setUp` and `tearDown` methods also get called.  The base implementation of `TestCase` provides empty `setUp` and `tearDown` methods so that they can be called without raising exceptions:
 
-```
+```py
 import unittest
 
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 Note that in python2.7+, there is also the [`addCleanup`](https://docs.python.org/2.7/library/unittest.html#unittest.TestCase.addCleanup) method that registers functions to be called after the test is run.  In contrast to `tearDown` which only gets called if `setUp` succeeds, functions registered via `addCleanup` will be called even in the event of an unhandled exception in `setUp`.  As a concrete example, this method can frequently be seen removing various mocks that were registered while the test was running:
 
-```
+```py
 import unittest
 import some_module
 
@@ -65,7 +65,7 @@ You can test that a function throws an exception with the built-in unittest thro
 
 **Using a [context manager](http://stackoverflow.com/documentation/python/928/context-managers-with-statement#t=201608020050207353618)**
 
-```
+```py
 def division_function(dividend, divisor):
     return dividend / divisor
 
@@ -81,7 +81,7 @@ This will run the code inside of the context manager and, if it succeeds, it wil
 
 You can also get the content of the raised exception if you want to execute additional assertions against it.
 
-```
+```py
 class MyTestCase(unittest.TestCase):
     def test_using_context_manager(self):
         with self.assertRaises(ZeroDivisionError) as ex:
@@ -93,7 +93,7 @@ class MyTestCase(unittest.TestCase):
 
 **By providing a callable function**
 
-```
+```py
 def division_function(dividend, divisor):
     """
     Dividing two numbers.
@@ -122,7 +122,7 @@ The exception to check for must be the first parameter, and a callable function 
 
 Programs throw errors when for instance wrong input is given. Because of this, one needs to make sure that an error is thrown when actual wrong input is given. Because of that we need to check for an exact exception, for this example we will use the following exception:
 
-```
+```py
 class WrongInputException(Exception):
     pass
 
@@ -130,7 +130,7 @@ class WrongInputException(Exception):
 
 This exception is raised when wrong input is given, in the following context where we always expect a number as text input.
 
-```
+```py
 def convert2number(random_input):
     try:
         my_input = int(random_input)
@@ -149,7 +149,7 @@ convert2number("not a number")</li>
 
 This first has been implemented in the following test case:
 
-```
+```py
 import unittest
 
 class ExceptionTestCase(unittest.TestCase):
@@ -177,7 +177,7 @@ While Python has an [`assert` statement](https://docs.python.org/2/reference/sim
 
 Perhaps the simplest assertion is `assertTrue`, which can be used like this:
 
-```
+```py
 import unittest
 
 class SimplisticTest(unittest.TestCase):
@@ -189,7 +189,8 @@ class SimplisticTest(unittest.TestCase):
 This will run fine, but replacing the line above with
 
 ```
-        self.assertTrue(1 + 1 == 3)
+
+       self.assertTrue(1 + 1 == 3)
 
 ```
 
@@ -198,13 +199,14 @@ will fail.
 The `assertTrue` assertion is quite likely the most general assertion, as anything tested can be cast as some boolean condition, but often there are better alternatives. When testing for equality, as above, it is better to write
 
 ```
-        self.assertEqual(1 + 1, 3)
+
+       self.assertEqual(1 + 1, 3)
 
 ```
 
 When the former fails, the message is
 
-```
+```py
 ======================================================================
 
 FAIL: test (__main__.TruthTest)
@@ -223,7 +225,7 @@ AssertionError: False is not true
 
 but when the latter fails, the message is
 
-```
+```py
 ======================================================================
 
 FAIL: test (__main__.TruthTest)
@@ -254,7 +256,7 @@ One way to mock a function is to use the `create_autospec` function, which will 
 
 With a function `multiply` in `custom_math.py`:
 
-```
+```py
 def multiply(a, b):
     return a * b
 
@@ -262,7 +264,7 @@ def multiply(a, b):
 
 And a function `multiples_of` in `process_math.py`:
 
-```
+```py
 from custom_math import multiply
 
 
@@ -288,7 +290,7 @@ def multiples_of(integer, *args, num_multiples=0, **kwargs):
 
 We can test `multiples_of` alone by mocking out `multiply`. The below example uses the Python standard library unittest, but this can be used with other testing frameworks as well, like pytest or nose:
 
-```
+```py
 from unittest.mock import create_autospec
 import unittest
 
@@ -316,14 +318,14 @@ class TestCustomMath(unittest.TestCase):
 
 installing pytest:
 
-```
+```py
 pip install pytest
 
 ```
 
 getting the tests ready:
 
-```
+```py
 mkdir tests
 touch tests/test_docker.py
 
@@ -331,7 +333,7 @@ touch tests/test_docker.py
 
 Functions to test in `docker_something/helpers.py`:
 
-```
+```py
 from subprocess import Popen, PIPE 
 # this Popen is monkeypatched with the fixture `all_popens`
 
@@ -361,7 +363,7 @@ def docker_exec_something(something_file_string):
 
 The test imports `test_docker.py`:
 
-```
+```py
 import os
 from tempfile import NamedTemporaryFile
 import pytest
@@ -375,7 +377,7 @@ docker_exec_something = helpers.docker_exec_something
 
 mocking a file like object in `test_docker.py`:
 
-```
+```py
 class MockBytes():
     '''Used to collect bytes
     '''
@@ -402,7 +404,7 @@ class MockBytes():
 
 Monkey patching with pytest in `test_docker.py`:
 
-```
+```py
 @pytest.fixture
 def all_popens(monkeypatch):
     '''This fixture overrides / mocks the builtin Popen
@@ -429,7 +431,7 @@ def all_popens(monkeypatch):
 
 Example tests, must start with the prefix `test_` in the `test_docker.py` file:
 
-```
+```py
 def test_docker_install():
     p = Popen(['which', 'docker'], stdout=PIPE, stderr=PIPE)
     result = p.stdout.read()
@@ -458,7 +460,7 @@ def test_docker_exec_something(all_popens):
 
 running the tests one at a time:
 
-```
+```py
 py.test -k test_docker_install tests
 py.test -k test_copy_file_to_docker tests
 py.test -k test_docker_exec_something tests
@@ -467,7 +469,7 @@ py.test -k test_docker_exec_something tests
 
 running all the tests in the `tests` folder:
 
-```
+```py
 py.test -k test_ tests
 
 ```

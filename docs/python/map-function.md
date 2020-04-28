@@ -12,12 +12,12 @@ description: "Basic use of map, itertools.imap and future_builtins.map, Mapping 
 
 The map function is the simplest one among Python built-ins used for functional programming. [`map()`](https://docs.python.org/3/library/functions.html#map) applies a specified function to each element in an iterable:
 
-```
+```py
 names = ['Fred', 'Wilma', 'Barney']
 
 ```
 
-```
+```py
 map(len, names)  # map in Python 3.x is a class; its instances are iterable
 # Out: <map object at 0x00000198B32E2CF8>
 
@@ -25,7 +25,7 @@ map(len, names)  # map in Python 3.x is a class; its instances are iterable
 
 A Python 3-compatible `map` is included in the `future_builtins` module:
 
-```
+```py
 from future_builtins import map  # contains a Python 3.x compatible map()
 map(len, names)                  # see below
 # Out: <itertools.imap instance at 0x3eb0a20>
@@ -34,7 +34,7 @@ map(len, names)                  # see below
 
 Alternatively, in Python 2 one can use `imap` from `itertools` to get a generator
 
-```
+```py
 map(len, names)   # map() returns a list
 # Out: [4, 5, 6]
 
@@ -46,7 +46,7 @@ imap(len, names)  # itertools.imap() returns a generator
 
 The result can be explicitly converted to a `list` to remove the differences between Python 2 and 3:
 
-```
+```py
 list(map(len, names))
 # Out: [4, 5, 6]
 
@@ -54,7 +54,7 @@ list(map(len, names))
 
 `map()` can be replaced by an equivalent **[list comprehension](http://stackoverflow.com/documentation/python/196/comprehensions/737/list-comprehensions#t=201607232231197828967)** or **[generator expression](http://stackoverflow.com/documentation/python/196/comprehensions/739/generator-expressions#t=201607231130336574039)**:
 
-```
+```py
 [len(item) for item in names] # equivalent to Python 2.x map()
 # Out: [4, 5, 6]
 
@@ -70,7 +70,7 @@ list(map(len, names))
 
 For example, you can take the absolute value of each element:
 
-```
+```py
 list(map(abs, (1, -1, 2, -2, 3, -3))) # the call to `list` is unnecessary in 2.x
 # Out: [1, 1, 2, 2, 3, 3]
 
@@ -78,7 +78,7 @@ list(map(abs, (1, -1, 2, -2, 3, -3))) # the call to `list` is unnecessary in 2.x
 
 Anonymous function also support for mapping a list:
 
-```
+```py
 map(lambda x:x*2, [1, 2, 3, 4, 5])
 # Out: [2, 4, 6, 8, 10]
 
@@ -86,7 +86,7 @@ map(lambda x:x*2, [1, 2, 3, 4, 5])
 
 or converting decimal values to percentages:
 
-```
+```py
 def to_percent(num):
     return num * 100
 
@@ -97,7 +97,7 @@ list(map(to_percent, [0.95, 0.75, 1.01, 0.1]))
 
 or converting dollars to euros (given an exchange rate):
 
-```
+```py
 from functools import partial
 from operator import mul
 
@@ -120,7 +120,7 @@ sum(map(partial(mul, rate), dollars.values()))
 
 For example calculating the average of each `i`-th element of multiple iterables:
 
-```
+```py
 def average(*args):
     return float(sum(args)) / len(args)  # cast to float - only mandatory for python 2.x
 
@@ -206,7 +206,7 @@ list(map(operator.sub, measurement2, measurement1))
 ## Transposing with Map: Using "None" as function argument (python 2.x only)
 
 
-```
+```py
 from itertools import imap
 from future_builtins import map as fmap # Different name to highlight differences
 
@@ -233,7 +233,7 @@ list(imap(None, *image2))
 
 ```
 
-```
+```py
 list(map(None, *image))
 
 ```
@@ -244,7 +244,7 @@ TypeError: 'NoneType' object is not callable
 
 But there is a workaround to have similar results:
 
-```
+```py
 def conv_to_list(*args):
     return list(args)
 
@@ -267,7 +267,7 @@ In this case each argument of the iterable is supplied as argument to the mappin
 
 Example 1
 
-```
+```py
 insects = ['fly', 'ant', 'beetle', 'cankerworm']
 f = lambda x: x + ' is an insect'
 print(list(map(f, insects))) # the function defined by f is executed on each item of the iterable insects
@@ -276,21 +276,21 @@ print(list(map(f, insects))) # the function defined by f is executed on each ite
 
 results in
 
-```
+```py
 ['fly is an insect', 'ant is an insect', 'beetle is an insect', 'cankerworm is an insect']
 
 ```
 
 Example 2
 
-```
+```py
 print(list(map(len, insects))) # the len function is executed each item in the insect list
 
 ```
 
 results in
 
-```
+```py
 [3, 3, 6, 10]
 
 ```
@@ -299,7 +299,7 @@ Parallel mapping
 
 In this case each argument of the mapping function is pulled from across all iterables (one from each iterable) in parallel. Thus the number of iterables supplied must match the number of arguments required by the function.
 
-```
+```py
 carnivores = ['lion', 'tiger', 'leopard', 'arctic fox']
 herbivores = ['african buffalo', 'moose', 'okapi', 'parakeet']
 omnivores = ['chicken', 'dove', 'mouse', 'pig']
@@ -311,7 +311,7 @@ def animals(w, x, y, z):
 
 Example 3
 
-```
+```py
 # Too many arguments
 # observe here that map is trying to pass one item each from each of the four iterables to len. This leads len to complain that
 # it is being fed too many arguments
@@ -321,14 +321,14 @@ print(list(map(len, insects, carnivores, herbivores, omnivores)))
 
 results in
 
-```
+```py
 TypeError: len() takes exactly one argument (4 given)
 
 ```
 
 Example 4
 
-```
+```py
 # Too few arguments
 # observe here that map is suppose to execute animal on individual elements of insects one-by-one. But animals complain when
 # it only gets one argument, whereas it was expecting four.
@@ -338,14 +338,14 @@ print(list(map(animals, insects)))
 
 results in
 
-```
+```py
 TypeError: animals() missing 3 required positional arguments: 'x', 'y', and 'z'
 
 ```
 
 Example 5
 
-```
+```py
 # here map supplies w, x, y, z with one value from across the list
 import pprint
 pprint.pprint(list(map(animals, insects, carnivores, herbivores, omnivores)))
@@ -355,7 +355,8 @@ pprint.pprint(list(map(animals, insects, carnivores, herbivores, omnivores)))
 results in
 
 ```
- ['Fly, lion, african buffalo, and chicken ARE ALL ANIMALS',
+
+['Fly, lion, african buffalo, and chicken ARE ALL ANIMALS',
  'Ant, tiger, moose, and dove ARE ALL ANIMALS',
  'Beetle, leopard, okapi, and mouse ARE ALL ANIMALS',
  'Cankerworm, arctic fox, parakeet, and pig ARE ALL ANIMALS']
@@ -389,7 +390,7 @@ results in
 
 Everything that can be done with `map` can also be done with [`comprehensions`](http://stackoverflow.com/documentation/python/196/comprehensions#t=201604012021414879334):
 
-```
+```py
 list(map(abs, [-1,-2,-3]))    # [1, 2, 3]
 [abs(i) for i in [-1,-2,-3]]  # [1, 2, 3]
 
@@ -397,7 +398,7 @@ list(map(abs, [-1,-2,-3]))    # [1, 2, 3]
 
 Though you would need `zip` if you have multiple iterables:
 
-```
+```py
 import operator
 alist = [1,2,3]
 list(map(operator.add, alist, alist))  # [2, 4, 6]

@@ -12,7 +12,7 @@ description: "Getting general help, Referring to the last expression, Opening th
 
 If the `help` function is called in the console without any arguments, Python presents an interactive help console, where you can find out about Python modules, symbols, keywords and more.
 
-```
+```py
 >>> help()
 
 Welcome to Python 3.4's help utility!
@@ -38,7 +38,7 @@ or summary contain a given string such as "spam", type "modules spam".
 
 To get the value of the last result from your last expression in the console, use an underscore `_`.
 
-```
+```py
 >>> 2 + 2
 4
 >>> _
@@ -50,7 +50,7 @@ To get the value of the last result from your last expression in the console, us
 
 This magic underscore value is only updated when using a python expression that results in a value. Defining functions or for loops does not change the value. If the expression raises an exception there will be no changes to `_`.
 
-```
+```py
 >>> "Hello, {0}".format("World")
 'Hello, World'
 >>> _
@@ -77,7 +77,7 @@ Remember, this magic variable is only available in the interactive python interp
 
 The console for the primary version of Python can usually be opened by typing `py` into your windows console or `python` on other platforms.
 
-```
+```py
 $ py
 Python 3.4.3 (v3.4.3:9b73f1c3e601, Feb 24 2015, 22:44:40) [MSC v.1600 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -98,14 +98,14 @@ You can set an environment variable called PYTHONSTARTUP for Python's console. W
 
 If the PYTHONSTARTUP variable was set to the location of a file containing this:
 
-```
+```py
 print("Welcome!")
 
 ```
 
 Then opening the Python console would result in this extra output:
 
-```
+```py
 $ py
 Python 3.4.3 (v3.4.3:9b73f1c3e601, Feb 24 2015, 22:44:40) [MSC v.1600 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
@@ -121,7 +121,7 @@ Welcome!
 
 Python has a variety of command-line switches which can be passed to `py`. These can be found by performing `py --help`, which gives this output on Python 3.4:
 
-```
+```py
 Python Launcher
 
 usage: py [ launcher-arguments ] [ python-arguments ] script [ script-arguments ]
@@ -192,7 +192,7 @@ The Python console adds a new function, `help`, which can be used to get informa
 
 For a function, `help` prints its signature (arguments) and its docstring, if the function has one.
 
-```
+```py
 >>> help(print)
 Help on built-in function print in module builtins:
 
@@ -210,7 +210,7 @@ print(...)
 
 For an object, `help` lists the object's docstring and the different member functions which the object has.
 
-```
+```py
 >>> x = 2
 >>> help(x)
 Help on int object:

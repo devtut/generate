@@ -13,7 +13,7 @@ ChemPy is a python package designed mainly to solve and address problems in phys
 ## Parsing formulae
 
 
-```
+```py
 from chempy import Substance
 ferricyanide = Substance.from_formula('Fe(CN)6-3')
 ferricyanide.composition == {0: -3, 26: 1, 6: 6, 7: 6}
@@ -35,7 +35,8 @@ In composition, the atomic numbers (and 0 for charge) is used as keys and the co
 
 
 ```
- from chempy import balance_stoichiometry  # Main reaction in NASA's booster rockets:
+
+from chempy import balance_stoichiometry  # Main reaction in NASA's booster rockets:
  reac, prod = balance_stoichiometry({'NH4ClO4', 'Al'}, {'Al2O3', 'HCl', 'H2O', 'N2'})
  from pprint import pprint
  pprint(reac)
@@ -56,7 +57,7 @@ In composition, the atomic numbers (and 0 for charge) is used as keys and the co
 ## Balancing reactions
 
 
-```
+```py
 from chempy import Equilibrium
  from sympy import symbols
  K1, K2, Kw = symbols('K1 K2 Kw')
@@ -84,7 +85,8 @@ from chempy import Equilibrium
 
 
 ```
- from chempy import Equilibrium
+
+from chempy import Equilibrium
  from chempy.chemistry import Species
  water_autop = Equilibrium({'H2O'}, {'H+', 'OH-'}, 10**-14)  # unit "molar" assumed
  ammonia_prot = Equilibrium({'NH4+'}, {'NH3', 'H+'}, 10**-9.24)  # same here
@@ -111,7 +113,8 @@ NH4+ = H+ + NH3; 5.75e-10
 
 
 ```
- from chempy.electrolytes import ionic_strength
+
+from chempy.electrolytes import ionic_strength
      ionic_strength({'Fe+3': 0.050, 'ClO4-': 0.150}) == .3
     True
 
@@ -122,7 +125,7 @@ NH4+ = H+ + NH3; 5.75e-10
 ## Chemical kinetics (system of ordinary differential equations)
 
 
-```
+```py
 from chempy import ReactionSystem  # The rate constants below are arbitrary
  rsys = ReactionSystem.from_string("""2 Fe+2 + H2O2 -> 2 Fe+3 + 2 OH-; 42
      2 Fe+3 + H2O2 -> 2 Fe+2 + O2 + 2 H+; 17

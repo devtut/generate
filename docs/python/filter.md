@@ -12,7 +12,7 @@ description: "Basic use of filter, Filter without function, Filter as short-circ
 
 To `filter` discards elements of a sequence based on some criteria:
 
-```
+```py
 names = ['Fred', 'Wilma', 'Barney']
 
 def long_name(name):
@@ -20,7 +20,7 @@ def long_name(name):
 
 ```
 
-```
+```py
 filter(long_name, names)
 # Out: ['Barney']
 
@@ -39,7 +39,7 @@ list(ifilter(long_name, names)) # equivalent to filter with lists
 
 ```
 
-```
+```py
 # Besides the options for older python 2.x versions there is a future_builtin function:
 from future_builtins import filter
 filter(long_name, names)       # identical to itertools.ifilter
@@ -47,7 +47,7 @@ filter(long_name, names)       # identical to itertools.ifilter
 
 ```
 
-```
+```py
 filter(long_name, names)        # returns a generator
 # Out: <filter at 0x1fc6e443470>
 list(filter(long_name, names))  # cast to list
@@ -65,18 +65,18 @@ list(filter(long_name, names))  # cast to list
 
 If the function parameter is `None`, then the identity function will be used:
 
-```
+```py
 list(filter(None, [1, 0, 2, [], '', 'a']))  # discards 0, [] and ''   
 # Out: [1, 2, 'a']
 
 ```
 
-```
+```py
 [i for i in [1, 0, 2, [], '', 'a'] if i] # equivalent list comprehension
 
 ```
 
-```
+```py
 (i for i in [1, 0, 2, [], '', 'a'] if i) # equivalent generator expression
 
 ```
@@ -89,19 +89,20 @@ list(filter(None, [1, 0, 2, [], '', 'a']))  # discards 0, [] and ''
 `filter` (python 3.x) and `ifilter` (python 2.x) return a generator so they can be very handy when creating a short-circuit test like `or` or `and`:
 
 ```
- # not recommended in real use but keeps the example short:
+
+# not recommended in real use but keeps the example short:
 from itertools import ifilter as filter
 
 ```
 
-```
+```py
  from future_builtins import filter
 
 ```
 
 To find the first element that is smaller than 100:
 
-```
+```py
 car_shop = [('Toyota', 1000), ('rectangular tire', 80), ('Porsche', 5000)]
 def find_something_smaller_than(name_value_tuple):
     print('Check {0}, {1}$'.format(*name_value_tuple)
@@ -123,26 +124,27 @@ The `next`-function gives the next (in this case first) element of and is theref
 There is a complementary function for `filter` in the `itertools`-module:
 
 ```
- # not recommended in real use but keeps the example valid for python 2.x and python 3.x
+
+# not recommended in real use but keeps the example valid for python 2.x and python 3.x
 from itertools import ifilterfalse as filterfalse
 
 ```
 
-```
+```py
 from itertools import filterfalse
 
 ```
 
 which works exactly like the **generator** `filter` but keeps only the elements that are `False`:
 
-```
+```py
 # Usage without function (None):
 list(filterfalse(None, [1, 0, 2, [], '', 'a']))  # discards 1, 2, 'a' 
 # Out: [0, [], '']
 
 ```
 
-```
+```py
 # Usage with function
 names = ['Fred', 'Wilma', 'Barney']
 
@@ -154,7 +156,7 @@ list(filterfalse(long_name, names))
 
 ```
 
-```
+```py
 # Short-circuit useage with next:
 car_shop = [('Toyota', 1000), ('rectangular tire', 80), ('Porsche', 5000)]
 def find_something_smaller_than(name_value_tuple):
@@ -166,7 +168,7 @@ next(filterfalse(find_something_smaller_than, car_shop))
 
 ```
 
-```
+```py
 # Using an equivalent generator:
 car_shop = [('Toyota', 1000), ('rectangular tire', 80), ('Porsche', 5000)]
 generator = (car for car in car_shop if not car[1] < 100)

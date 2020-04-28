@@ -12,7 +12,7 @@ description: "Make custom classes orderable, Special case: dictionaries, Using t
 
 `min`, `max`, and `sorted` all need the objects to be orderable. To be properly orderable, the class needs to define all of the 6 methods `__lt__`, `__gt__`, `__ge__`, `__le__`, `__ne__` and `__eq__`:
 
-```
+```py
 class IntegerContainer(object):
     def __init__(self, value):
         self.value = value
@@ -50,7 +50,7 @@ Though implementing all these methods would seem unnecessary, [omitting some of 
 
 Examples:
 
-```
+```py
 alist = [IntegerContainer(5), IntegerContainer(3),
          IntegerContainer(10), IntegerContainer(7)
         ]
@@ -82,7 +82,7 @@ print(res)
 
 `sorted` with `reverse=True` also uses `__lt__`:
 
-```
+```py
 res = sorted(alist, reverse=True)
 # Out: IntegerContainer(10) - Test less than IntegerContainer(7)
 #      IntegerContainer(3) - Test less than IntegerContainer(10)
@@ -97,7 +97,7 @@ print(res)
 
 But `sorted` can use `__gt__` instead if the default is not implemented:
 
-```
+```py
 del IntegerContainer.__lt__   # The IntegerContainer no longer implements "less than"
 
 res = min(alist) 
@@ -111,7 +111,7 @@ print(res)
 
 Sorting methods will raise a `TypeError` if neither `__lt__` nor `__gt__` are implemented:
 
-```
+```py
 del IntegerContainer.__gt__   # The IntegerContainer no longer implements "greater then"
 
 res = min(alist) 
@@ -124,7 +124,7 @@ TypeError: unorderable types: IntegerContainer() < IntegerContainer()
 
 [`functools.total_ordering`](https://docs.python.org/3.3/library/functools.html#functools.total_ordering) decorator can be used simplifying the effort of writing these rich comparison methods. If you decorate your class with `total_ordering`, you need to implement `__eq__`, `__ne__` and only one of the `__lt__`, `__le__`, `__ge__` or `__gt__`, and the decorator will fill in the rest:
 
-```
+```py
 import functools
 
 @functools.total_ordering
@@ -168,7 +168,7 @@ Notice how the `>` (**greater than**) now ends up calling the **less than** meth
 
 Getting the minimum or maximum or using `sorted` depends on iterations over the object. In the case of `dict`, the iteration is only over the keys:
 
-```
+```py
 adict = {'a': 3, 'b': 5, 'c': 1}
 min(adict)
 # Output: 'a'
@@ -181,7 +181,7 @@ sorted(adict)
 
 To keep the dictionary structure, you have to iterate over the `.items()`:
 
-```
+```py
 min(adict.items())
 # Output: ('a', 3)
 max(adict.items())
@@ -193,7 +193,7 @@ sorted(adict.items())
 
 For `sorted`, you could create an `OrderedDict` to keep the sorting while having a `dict`-like structure:
 
-```
+```py
 from collections import OrderedDict
 OrderedDict(sorted(adict.items()))
 # Output: OrderedDict([('a', 3), ('b', 5), ('c', 1)])
@@ -207,7 +207,7 @@ res['a']
 
 Again this is possible using the `key` argument:
 
-```
+```py
 min(adict.items(), key=lambda x: x[1])
 # Output: ('c', 1)
 max(adict.items(), key=operator.itemgetter(1))
@@ -224,7 +224,7 @@ sorted(adict.items(), key=operator.itemgetter(1), reverse=True)
 
 Finding the minimum/maximum of a sequence of sequences is possible:
 
-```
+```py
 list_of_tuples = [(0, 10), (1, 15), (2, 8)]
 min(list_of_tuples)
 # Output: (0, 10)
@@ -233,7 +233,7 @@ min(list_of_tuples)
 
 but if you want to sort by a specific element in each sequence use the `key`-argument:
 
-```
+```py
 min(list_of_tuples, key=lambda x: x[0])         # Sorting by first element
 # Output: (0, 10)
 
@@ -269,7 +269,7 @@ sorted(list_of_tuples, key=operator.itemgetter(1), reverse=True) # Reversed(decr
 
 You can't pass an empty sequence into `max` or `min`:
 
-```
+```py
 min([])
 
 ```
@@ -280,7 +280,7 @@ ValueError: min() arg is an empty sequence
 
 However, with Python 3, you can pass in the keyword argument `default` with a value that will be returned if the sequence is empty, instead of raising an exception:
 
-```
+```py
 max([], default=42)        
 # Output: 42
 max([], default=0)        
@@ -295,7 +295,7 @@ max([], default=0)
 
 Using **one** sequence:
 
-```
+```py
 sorted((7, 2, 1, 5))                 # tuple
 # Output: [1, 2, 5, 7]
 
@@ -322,7 +322,7 @@ The result is always a new `list`; the original data remains unchanged.
 
 To find some number (more than one) of largest or smallest values of an iterable, you can use the [`nlargest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) and [`nsmallest`](https://docs.python.org/3/library/heapq.html#heapq.nlargest) of the [`heapq`](https://docs.python.org/3/library/heapq.html) module:
 
-```
+```py
 import heapq
 
 # get 5 largest items from the range
@@ -341,7 +341,7 @@ Like `min`, `max` and `sorted`, these functions accept the optional `key` keywor
 
 Here is a program that extracts 1000 longest lines from a file:
 
-```
+```py
 import heapq
 with open(filename) as f:
     longest_lines = heapq.nlargest(1000, f, key=len)
@@ -352,7 +352,7 @@ Here we open the file, and pass the file handle `f` to `nlargest`. Iterating the
 
 This only needs storage for a list of 1000 largest lines so far, which can be contrasted with
 
-```
+```py
 longest_lines = sorted(f, key=len)[1000:]
 
 ```
@@ -364,7 +364,7 @@ which will have to hold **the entire file in memory**.
 ## Getting the minimum or maximum of several values
 
 
-```
+```py
 min(7,2,1,5)
 # Output: 1
 
@@ -380,7 +380,7 @@ max(7,2,1,5)
 
 Getting the minimum of a sequence (iterable) is equivalent of accessing the first element of a `sorted` sequence:
 
-```
+```py
 min([2, 7, 5])
 # Output: 2
 sorted([2, 7, 5])[0]
@@ -390,7 +390,7 @@ sorted([2, 7, 5])[0]
 
 The maximum is a bit more complicated, because `sorted` keeps order and `max` returns the first encountered value. In case there are no duplicates the maximum is the same as the last element of the sorted return:
 
-```
+```py
 max([2, 7, 5])
 # Output: 7
 sorted([2, 7, 5])[-1]
@@ -400,7 +400,7 @@ sorted([2, 7, 5])[-1]
 
 But not if there are multiple elements that are evaluated as having the maximum value:
 
-```
+```py
 class MyClass(object):
     def __init__(self, value, name):
         self.value = value

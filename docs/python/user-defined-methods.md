@@ -13,7 +13,7 @@ description: "Creating user-defined method objects, Turtle example"
 
 User-defined method objects may be created when getting an attribute of a class (perhaps via an instance of that class), if that attribute is a user-defined function object, an unbound user-defined method object, or a class method object.
 
-```
+```py
 class A(object):
     # func: A user-defined function object
     #
@@ -54,7 +54,7 @@ print a.classMethod
 
 When the attribute is a user-defined method object, a new method object is only created if the class from which it is being retrieved is the same as, or a derived class of, the class stored in the original method object; otherwise, the original method object is used as it is.
 
-```
+```py
 # Parent: The class stored in the original method object
 class Parent(object):
     # func: The underlying function of original method object
@@ -84,7 +84,7 @@ print AnotherClass.func is AnotherClass.func    # True, original object used
 
 The following is an example of using an user-defined function to be called multiple(∞) times in a script with ease.
 
-```
+```py
 import turtle, time, random #tell python we need 3 different modules
 turtle.speed(0) #set draw speed to the fastest 
 turtle.colormode(255) #special colormode

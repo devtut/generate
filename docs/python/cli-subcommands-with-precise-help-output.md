@@ -15,7 +15,7 @@ Different ways to create subcommands like in `hg` or `svn` with the exact comman
 ## Native way (no libraries)
 
 
-```
+```py
 """
 usage: sub <command>
 
@@ -42,7 +42,7 @@ else:
 
 Output without arguments:
 
-```
+```py
 usage: sub <command>
 
 commands:
@@ -63,7 +63,7 @@ Pros:
 ## argparse (default help formatter)
 
 
-```
+```py
 import argparse
 import sys
 
@@ -93,7 +93,7 @@ elif args.cmd == 'status':
 
 Output without arguments:
 
-```
+```py
 usage: sub {status,list} ...
 
 positional arguments:
@@ -115,7 +115,7 @@ Pros:
 
 Extended version of [https://stackoverflow.com/documentation/python/7701/cli-subcommands/25282/argparse-default-help-formatter](https://stackoverflow.com/documentation/python/7701/cli-subcommands/25282/argparse-default-help-formatter) that fixed help output.
 
-```
+```py
 import argparse
 import sys
 
@@ -176,7 +176,7 @@ elif args.cmd == 'status':
 
 Output without arguments:
 
-```
+```py
 usage: sub <command>
 
 commands:
@@ -193,7 +193,7 @@ commands:
 
 Different ways to create subcommands like in `hg` or `svn`  with the command line interface shown in the help message:
 
-```
+```py
 usage: sub <command>
 
 commands:

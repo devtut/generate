@@ -15,7 +15,7 @@ In Python, the `itertools.groupby()` method allows developers to group values of
 
 In this example we see what happens when we use different types of iterable.
 
-```
+```py
 things = [("animal", "bear"), ("animal", "duck"), ("plant", "cactus"), ("vehicle", "harley"), \
           ("vehicle", "speed boat"), ("vehicle", "school bus")]
 dic = {}
@@ -28,7 +28,7 @@ dic
 
 Results in
 
-```
+```py
 {'animal': [('animal', 'bear'), ('animal', 'duck')],
  'plant': [('plant', 'cactus')],
  'vehicle': [('vehicle', 'harley'),
@@ -39,7 +39,7 @@ Results in
 
 This example below is essentially the same as the one above it. The only difference is that I have changed all the tuples to lists.
 
-```
+```py
 things = [["animal", "bear"], ["animal", "duck"], ["vehicle", "harley"], ["plant", "cactus"], \
           ["vehicle", "speed boat"], ["vehicle", "school bus"]]
 dic = {}
@@ -52,7 +52,7 @@ dic
 
 Results
 
-```
+```py
 {'animal': [['animal', 'bear'], ['animal', 'duck']],
  'plant': [['plant', 'cactus']],
  'vehicle': [['vehicle', 'harley'],
@@ -68,7 +68,7 @@ Results
 
 This example illustrates how the default key is chosen if we do not specify any
 
-```
+```py
 c = groupby(['goat', 'dog', 'cow', 1, 1, 2, 3, 11, 10, ('persons', 'man', 'woman')])
 dic = {}
 for k, v in c:
@@ -79,7 +79,7 @@ dic
 
 Results in
 
-```
+```py
 {1: [1, 1],
  2: [2],
  3: [3],
@@ -101,7 +101,7 @@ Notice here that the tuple as a whole counts as one key in this list
 
 Notice in this example that mulato and camel don't show up in our result. Only the last element with the specified key shows up. The last result for c actually wipes out two previous results. But watch the new version where I have the data sorted first on same key.
 
-```
+```py
 list_things = ['goat', 'dog', 'donkey', 'mulato', 'cow', 'cat', ('persons', 'man', 'woman'), \
                'wombat', 'mongoose', 'malloo', 'camel']
 c = groupby(list_things, key=lambda x: x[0])
@@ -114,7 +114,7 @@ dic
 
 Results in
 
-```
+```py
 {'c': ['camel'],
  'd': ['dog', 'donkey'],
  'g': ['goat'],
@@ -126,7 +126,7 @@ Results in
 
 Sorted Version
 
-```
+```py
 list_things = ['goat', 'dog', 'donkey', 'mulato', 'cow', 'cat', ('persons', 'man', 'woman'), \
                'wombat', 'mongoose', 'malloo', 'camel']
 sorted_list = sorted(list_things, key = lambda x: x[0])
@@ -142,7 +142,7 @@ dic
 
 Results in
 
-```
+```py
 ['cow', 'cat', 'camel', 'dog', 'donkey', 'goat', 'mulato', 'mongoose', 'malloo', ('persons', 'man', 'woman'), 'wombat']
 
 {'c': ['cow', 'cat', 'camel'],
@@ -161,7 +161,7 @@ Results in
 
 Say you have the string
 
-```
+```py
 s = 'AAAABBBCCDAABBB'
 
 ```
@@ -169,7 +169,7 @@ s = 'AAAABBBCCDAABBB'
 and you would like to split it so all the 'A's are in one list and so with all the 'B's and 'C', etc.
 You could do something like this
 
-```
+```py
 s = 'AAAABBBCCDAABBB'
 s_dict = {}
 for i in s:
@@ -183,7 +183,7 @@ s_dict
 
 Results in
 
-```
+```py
 {'A': ['A', 'A', 'A', 'A', 'A', 'A'],
  'B': ['B', 'B', 'B', 'B', 'B', 'B'],
  'C': ['C', 'C'],
@@ -195,7 +195,7 @@ But for large data set you would be building up these items in memory. This is w
 
 We could get the same result in a more efficient manner by doing the following
 
-```
+```py
 # note that we get a {key : value} pair for iterating over the items just like in python dictionary
 from itertools import groupby
 s = 'AAAABBBCCDAABBB'
@@ -210,14 +210,14 @@ dic
 
 Results in
 
-```
+```py
 {'A': ['A', 'A'], 'B': ['B', 'B', 'B'], 'C': ['C', 'C'], 'D': ['D']}
 
 ```
 
 Notice that the number of 'A's in the result when we used group by is less than the actual number of 'A's in the original string. We can avoid that loss of information by sorting the items in s before passing it to c as shown below
 
-```
+```py
 c = groupby(sorted(s))
 
 dic = {} 
@@ -229,7 +229,7 @@ dic
 
 Results in
 
-```
+```py
 {'A': ['A', 'A', 'A', 'A', 'A', 'A'], 'B': ['B', 'B', 'B', 'B', 'B', 'B'], 'C': ['C', 'C'], 'D': ['D']}
 
 ```

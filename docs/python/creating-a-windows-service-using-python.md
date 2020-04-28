@@ -15,7 +15,7 @@ Headless processes (with no UI) in Windows are called Services. They can be cont
 
 The modules used in this example are part of [pywin32](https://sourceforge.net/projects/pywin32/) (Python for Windows extensions). Depending on how you installed Python, you might need to install this separately.
 
-```
+```py
 import win32serviceutil
 import win32service
 import win32event
@@ -54,7 +54,7 @@ This is just boilerplate. Your application code, probably invoking a separate sc
 
 You will also need to install this as a service. The best solution for this at the moment appears to be to use [Non-sucking Service Manager](http://nssm.cc/). This allows you to install a service and provides a GUI for configuring the command line the service executes. For Python you can do this, which creates the service in one go:
 
-```
+```py
 nssm install MyServiceName c:\python27\python.exe c:\temp\myscript.py
 
 ```
@@ -70,7 +70,7 @@ Alternatively you can use tools provided in the Windows Server Resource Kit for 
 
 This is a variation on the generic example. You just need to import your app script and invoke it's `run()` method in the service's `main()` function. In this case we're also using the multiprocessing module due to an issue accessing `WSGIRequestHandler`.
 
-```
+```py
 import win32serviceutil
 import win32service
 import win32event

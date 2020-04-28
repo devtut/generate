@@ -14,7 +14,7 @@ Everything in Python is an object. Each object has some special internal methods
 
 You can overload **any** of these methods. This is commonly used in operator overloading in Python. Below is an example of operator overloading using Python's data model. The `Vector` class creates a simple vector of two variables. We'll add appropriate support for mathematical operations of two vectors using operator overloading.
 
-```
+```py
 class Vector(object):
     def __init__(self, x, y):
         self.x = x

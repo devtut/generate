@@ -38,7 +38,7 @@ With this code, you can call `travel` on a car (`car.travel("Montana")`), boat (
 
 However, what if you have functionality that's not available to a base class? Say, for instance, you want to give `Car` a radio and the ability to use it to play a song on a radio station, with `play_song_on_station`, but you also have a `Clock` that can use a radio too. `Car` and `Clock` could share a base class (`Machine`). However, not all machines can play songs; `Boat` and `Plane` can't (at least in this example). So how do you accomplish without duplicating code? You can use a mixin. In Python, giving a class a mixin is as simple as adding it to the list of subclasses, like this
 
-```
+```py
 class Foo(main_super, mixin): ...
 
 ```
@@ -75,7 +75,7 @@ Mixins are a sort of class that is used to "mix in" extra properties and methods
 
 For instance, take the following classes
 
-```
+```py
 class Mixin1(object):
     def test(self):
         print "Mixin1"
@@ -95,7 +95,7 @@ class MyClass(BaseClass, Mixin1, Mixin2):
 
 In this case the Mixin2 class is the base class, extended by Mixin1 and finally by BaseClass. Thus, if we execute the following code snippet:
 
-```
+```py
 >>> x = MyClass()
 >>> x.test()
 Base

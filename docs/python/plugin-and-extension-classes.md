@@ -17,7 +17,7 @@ It provides a mechanism for multiple inheritance by allowing multiple classes to
 
 When we use more than one mixins, Order of mixins are important. here is a simple example:
 
-```
+```py
 class Mixin1(object):
     def test(self):
         print "Mixin1"
@@ -33,7 +33,7 @@ class MyClass(Mixin1, Mixin2):
 
 In this example we call `MyClass` and `test` method,
 
-```
+```py
 >>> obj = MyClass()
 >>> obj.test()
 Mixin1
@@ -42,7 +42,7 @@ Mixin1
 
 Result must be Mixin1 because Order is left to right. This could be show unexpected results when super classes add with it. So reverse order is more good just like this:
 
-```
+```py
 class MyClass(Mixin2, Mixin1):
     pass
 
@@ -50,7 +50,7 @@ class MyClass(Mixin2, Mixin1):
 
 Result will be:
 
-```
+```py
 >>> obj = MyClass()
 >>> obj.test()
 Mixin2
@@ -59,7 +59,7 @@ Mixin2
 
 Mixins can be used to define custom plugins.
 
-```
+```py
 class Base(object):
     def test(self):
         print("Base.")
@@ -99,7 +99,7 @@ PluginSystemA().test()
 
 In Python 3.6, [PEP 487](https://www.python.org/dev/peps/pep-0487/) added the `__init_subclass__` special method, which simplifies and extends class customization without using [metaclasses](https://stackoverflow.com/documentation/python/286/metaclasses/1024/basic-metaclasses#t=201701281924306984892).  Consequently, this feature allows for creating [simple plugins](https://docs.python.org/3/whatsnew/3.6.html#pep-487-simpler-customization-of-class-creation).  Here we demonstrate this feature by modifying a [prior example](https://stackoverflow.com/documentation/python/4724/plugins-and-extensions/16584/mixins#t=201701281926381480967):
 
-```
+```py
 class Base:
     plugins = []
 
@@ -125,7 +125,7 @@ class PluginB(Base):
 
 Results:
 
-```
+```py
 PluginA().test()
 # Base.
 # Plugin A.

@@ -17,7 +17,7 @@ This module implements a common interface to many different secure hash and mess
 
 There is one constructor method named for each type of hash. All return a hash object with the same simple interface. For example: use `sha1()` to create a SHA1 hash object.
 
-```
+```py
 hash.sha1()
 
 ```
@@ -26,7 +26,7 @@ Constructors for hash algorithms that are always present in this module are `md5
 
 You can now feed this object with arbitrary strings using the `update()` method. At any point you can ask it for the digest of the concatenation of the strings fed to it so far using the `digest()` or `hexdigest()` methods.
 
-```
+```py
 hash.update(arg)
 
 ```
@@ -37,7 +37,7 @@ equivalent to a single call with the concatenation of all the
 arguments: m.update(a); m.update(b) is equivalent to m.update(a+b).</p>
 
 
-```
+```py
 hash.digest()
 
 ```
@@ -48,7 +48,7 @@ This is a string of digest_size bytes which may contain non-ASCII
 characters, including null bytes.</p>
 
 
-```
+```py
 hash.hexdigest()
 
 ```
@@ -61,7 +61,7 @@ exchange the value safely in email or other non-binary environments.</p>
 
 Here is an example:
 
-```
+```py
 >>> import hashlib
 >>> m = hashlib.md5()
 >>> m.update("Nobody inspects")
@@ -79,7 +79,7 @@ Here is an example:
 
 or:
 
-```
+```py
 hashlib.md5("Nobody inspects the spammish repetition").hexdigest()
     'bb649c83dd1ea5c9d9dec9a18df0ffe9'
 
@@ -94,7 +94,7 @@ A generic `new()` constructor that takes the string name of the desired algorith
 
 Using `new()` with an algorithm provided by OpenSSL:
 
-```
+```py
 >>> h = hashlib.new('ripemd160')
 >>> h.update("Nobody inspects the spammish repetition")
 >>> h.hexdigest()

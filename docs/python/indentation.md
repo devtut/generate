@@ -13,7 +13,7 @@ description: "Simple example, How Indentation is Parsed, Indentation Errors"
 
 For Python, Guido van Rossum based the grouping of statements on indentation. The reasons for this are explained in [the first section of the "Design and History Python FAQ"](https://docs.python.org/3/faq/design.html). Colons, `:`, are used to [declare an indented code block](https://docs.python.org/3/faq/design.html#why-are-colons-required-for-the-if-while-def-class-statements), such as the following example:
 
-```
+```py
 class ExampleClass:
     #Every function belonging to a class must be indented equally
     def __init__(self):
@@ -59,7 +59,7 @@ At the end of the source code, "DEDENT" tokens are generated for each indentatio
 
 For example:
 
-```
+```py
 if foo:
     if bar:
         x = 42
@@ -70,7 +70,7 @@ else:
 
 is analyzed as:
 
-```
+```py
 <if> <foo> <:>                    [0]
 <INDENT> <if> <bar> <:>           [0, 4]
 <INDENT> <x> <=> <42>             [0, 4, 8]
@@ -89,7 +89,7 @@ The parser than handles the "INDENT" and "DEDENT" tokens as block delimiters.
 
 The spacing should be even and uniform throughout. Improper indentation can cause an `IndentationError` or cause the program to do something unexpected. The following example raises an `IndentationError`:
 
-```
+```py
 a = 7
 if a > 5:
   print "foo"
@@ -101,7 +101,7 @@ else:
 
 Or if the line following a colon is not indented, an `IndentationError` will also be raised:
 
-```
+```py
 if True:
 print "true"
 
@@ -109,7 +109,7 @@ print "true"
 
 If you add indentation where it doesn't belong, an `IndentationError` will be raised:
 
-```
+```py
 if  True:
     a = 6
         b = 5
@@ -118,7 +118,7 @@ if  True:
 
 If you forget to un-indent functionality could be lost. In this example `None` is returned instead of the expected `False`:
 
-```
+```py
 def isEven(a):
     if a%2 ==0:
         return True
