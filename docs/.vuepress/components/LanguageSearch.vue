@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="search">
-      <input type="text" v-model="search" />
+      <input type="text" v-model="search" placeholder="Seach topic" />
     </div>
 
     <div class="cards">
@@ -43,16 +43,23 @@ export default {
 }
 
 .search input {
-  width: 300px;
-  font-size: 20px;
-  padding: 3px;
-  outline: 1px solid #42b983;
-  border: 1px solid #42b983;
+  cursor: text;
+  width: 15rem;
+  height: 2.5rem;
+  color: #4e6e8e;
+  display: inline-block;
+  border: 3px solid #cfd4db;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+  padding: 0 0.5rem 0 2.5rem;
+  outline: none;
+  background: #fff url(/assets/img/search.83621669.svg) 0.6rem 0.5rem no-repeat;
+  background-size: 1.5rem;
 }
 
 .search input:focus {
-  outline: 1px solid #42b983;
-  border: 1px solid #42b983;
+  border-color: #42b983;
 }
 
 .cards {
