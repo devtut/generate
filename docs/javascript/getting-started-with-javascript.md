@@ -21,11 +21,10 @@ In a browser environment, the `console.log()` function is predominantly used for
 [Open up](http://stackoverflow.com/documentation/javascript/2288/console#a=remarks-opening-the-console-0) the JavaScript Console in your browser, type the following, and press <kbd>Enter</kbd>:
 
 
+```js
+console.log("Hello, World!");
 
-<pre class="snippet-code-js lang-js prettyprint-override">console.log("Hello, World!");</pre>
-
-
-
+```
 
 This will log the following to the console:
 
