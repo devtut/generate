@@ -26,7 +26,8 @@ export default {
         { id: 3, name: "JavaScript", topics: 106, url: "/javascript/" },
         { id: 3, name: "Java", topics: 185, url: "/java/" },
         { id: 3, name: "C", topics: 63, url: "/c/" },
-        { id: 3, name: "C++", topics: 147, url: "/cpp/" }
+        { id: 3, name: "C++", topics: 147, url: "/cpp/" },
+        { id: 3, name: "C#", topics: 165, url: "/csharp/" }
       ]
     };
   },
