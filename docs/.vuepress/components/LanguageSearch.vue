@@ -29,6 +29,7 @@ export default {
         { id: 6, name: "C++", topics: 147, url: "/cpp/" },
         { id: 7, name: "C#", topics: 165, url: "/csharp/" },
         { id: 8, name: "SQL", topics: 64, url: "/sql/" },
+        { id: 8, name: "MySQL", topics: 73, url: "/mysql/" },
       ]
     };
   },
