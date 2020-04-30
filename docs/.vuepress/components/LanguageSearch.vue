@@ -24,10 +24,11 @@ export default {
         { id: 1, name: "Python", topics: 206, url: "/python/" },
         { id: 2, name: "PHP", topics: 120, url: "/php/" },
         { id: 3, name: "JavaScript", topics: 106, url: "/javascript/" },
-        { id: 3, name: "Java", topics: 185, url: "/java/" },
-        { id: 3, name: "C", topics: 63, url: "/c/" },
-        { id: 3, name: "C++", topics: 147, url: "/cpp/" },
-        { id: 3, name: "C#", topics: 165, url: "/csharp/" }
+        { id: 4, name: "Java", topics: 185, url: "/java/" },
+        { id: 5, name: "C", topics: 63, url: "/c/" },
+        { id: 6, name: "C++", topics: 147, url: "/cpp/" },
+        { id: 7, name: "C#", topics: 165, url: "/csharp/" },
+        { id: 8, name: "SQL", topics: 64, url: "/sql/" },
       ]
     };
   },
