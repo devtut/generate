@@ -122,10 +122,6 @@ module.exports = {
                 text: "PostgreSQL",
                 link: "/postgresql/",
               },
-              {
-                text: "SQLite",
-                link: "/sqlite/",
-              },
             ],
           },
         ],
@@ -1496,20 +1492,6 @@ module.exports = {
             "connect-to-postgresql-from-java",
             "find-string-length-character-length",
             "coalesce",
-          ],
-        },
-      ],
-      "/sqlite/": [
-        {
-          title: "SQLite",
-          collapsable: false,
-          children: [
-            ["", "Disclaimer"],
-            "getting-started-with-sqlite",
-            "command-line-dot-commands",
-            "pragma-statements",
-            "data-types",
-            "sqlite3-stmt-prepared-statement-c-api",
           ],
         },
       ],

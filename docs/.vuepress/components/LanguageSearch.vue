@@ -32,7 +32,6 @@ export default {
         { id: 9, name: "MySQL", topics: 73, url: "/mysql/" },
         { id: 10, name: "MS SQL Server", topics: 113, url: "/mssql/" },
         { id: 11, name: "PostgreSQL", topics: 29, url: "/postgresql/" },
-        { id: 12, name: "SQLite", topics: 5, url: "/sqlite/" }
       ]
     };
   },
