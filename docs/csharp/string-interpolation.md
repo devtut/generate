@@ -193,8 +193,8 @@ var prefixedIfNecessary = $"{integerValue:D5}";
 
 - $"content {expression} content"
 - $"content {expression:format} content"
-- $"content {expression} {{content in braces}} content}"
-- $"content {expression:format} {{content in braces}} content}"
+- $"content {expression} { {content in braces} } content}"
+- $"content {expression:format} { { content in braces } } content}"
 
 
 
