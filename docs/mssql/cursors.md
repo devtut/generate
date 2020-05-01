@@ -100,17 +100,17 @@ DEALLOCATE myCursor;
 Results from SSMS. Note that these are all separate queries, they are in no way unified. Notice how the query engine processes each iteration one by one instead of as a set.
 
 |Id|Val
-|------
+|---|---|---|---
 |1|Foo
 |(1 row(s) affected)|
 
 |Id|Val
-|------
+|---|---|---|---
 |2|Bar
 |(1 row(s) affected)|
 
 |Id|Val
-|------
+|---|---|---|---
 |3|Baz
 |(1 row(s) affected)|
 

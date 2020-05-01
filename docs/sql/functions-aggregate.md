@@ -14,7 +14,7 @@ description: "Conditional aggregation, List Concatenation, SUM, AVG(), Count, Ma
 Payments Table
 
 |Customer|Payment_type|Amount
-|------
+|---|---|---|---|---
 |Peter|Credit|100
 |Peter|Credit|300
 |John|Credit|1000
@@ -32,7 +32,7 @@ group by customer
 Result:
 
 |Customer|Credit|Debit
-|------
+|---|---|---|---|---
 |Peter|400|0
 |John|1000|500
 
@@ -48,7 +48,7 @@ group by customer
 Result:
 
 |Customer|credit_transaction_count|debit_transaction_count
-|------
+|---|---|---|---|---
 |Peter|2|0
 |John|1|1
 
@@ -172,7 +172,7 @@ from employees;
 ```
 
 |TotalSalary
-|------
+|---|---|---|---|---
 |2500
 
 ```sql
@@ -183,7 +183,7 @@ group by DepartmentId;
 ```
 
 |DepartmentId|TotalSalary
-|------
+|---|---|---|---|---
 |1|2000
 |2|500
 
@@ -197,7 +197,7 @@ The aggregate function AVG() returns the average of a given expression, usually 
 ### EXAMPLE TABLE
 
 |city_name|population|year
-|------
+|---|---|---|---|---
 |New York City|8,550,405|2015
 |New York City|...|...
 |New York City|8,000,906|2005
@@ -218,7 +218,7 @@ Notice how measurement year is absent from the query since population is being a
 ### RESULTS
 
 |city_name|avg_population
-|------
+|---|---|---|---|---
 |New York City|8,250,754
 
 > 
@@ -239,7 +239,7 @@ FROM employees;
 ```
 
 |TotalRows
-|------
+|---|---|---|---|---
 |4
 
 Or count the employees per department:
@@ -252,7 +252,7 @@ GROUP BY DepartmentId;
 ```
 
 |DepartmentId|NumEmployees
-|------
+|---|---|---|---|---
 |1|3
 |2|1
 
@@ -265,7 +265,7 @@ FROM EMPLOYEES;
 ```
 
 |mgr
-|------
+|---|---|---|---|---
 |3
 
 (There is one null value managerID column)
@@ -285,7 +285,7 @@ SELECT COUNT(ContinentCode) AllCount
 Will return different values. The **SingleCount** will only Count individual Continents once, while the **AllCount** will include duplicates.
 
 |ContinentCode
-|------
+|---|---|---|---|---
 |OC
 |EU
 |AS

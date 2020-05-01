@@ -92,7 +92,7 @@ This will also encrypt but then by passphrase instead of asymmetric(certificate)
 
 
 |Optional Parameters|Details
-|------
+|---|---|---|---
 |`WITH PRIVATE KEY`|For CREATE CERTIFICATE, a private key can be specified: `(FILE='D:\Temp\CertTest\private.pvk', DECRYPTION BY PASSWORD = 'password');`
 
 

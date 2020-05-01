@@ -40,7 +40,7 @@ GO -- execute previous code
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |transaction_name|for naming your transaction - useful with the parameter [**with mark**] which will allow a meaningfull logging -- case-sensitive (!)
 |with mark ['description']|can be added to [**transaction_name**] and will store a mark in the log
 

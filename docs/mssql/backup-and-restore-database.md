@@ -81,7 +81,7 @@ With this statement you can replace database with all database files moved to ne
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |**database**|The name of the database to backup or restore
 |**backup_device**|The device to backup or restore the database from, Like {DISK or TAPE}. Can be separated by commas ( , )
 |**with_options**|Various options which can be used while performing the operation. Like formatting the disk where the backup is to be placed or restoring the database with replace option.

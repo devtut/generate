@@ -58,7 +58,7 @@ cd prodDir${DATE}
 
 
 |parameter|details
-|------
+|---|---|---|---
 |save_db|The main backup directory
 |dbProd|The secondary backup directory
 |DATE|The date of the backup in the specified format

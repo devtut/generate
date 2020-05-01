@@ -63,7 +63,7 @@ $ mysqlimport --lines-terminated-by='\r\n' mycompany employee.txt
 Given the table `Employee`
 
 |id|Name
-|------
+|---|---|---|---
 |3|Yooden Vranx
 
 And the file `employee.txt`
@@ -82,7 +82,7 @@ $ mysqlimport --ignore mycompany employee.txt
 ```
 
 |id|Name
-|------
+|---|---|---|---
 |1|Arthur Dent
 |2|Marvin
 |3|Yooden Vranx
@@ -95,7 +95,7 @@ $ mysqlimport --replace mycompany employee.txt
 ```
 
 |id|Name
-|------
+|---|---|---|---
 |1|Arthur Dent
 |2|Marvin
 |3|Zaphod Beeblebrox
@@ -130,7 +130,7 @@ $ mysqlimport
 
 
 |Parameter|Description
-|------
+|---|---|---|---
 |`--delete` `-D`|empty the table before importing the text file
 |`--fields-optionally-enclosed-by`|define the character that quotes the fields
 |`--fields-terminated-by`|field terminator

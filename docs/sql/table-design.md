@@ -26,7 +26,7 @@ A database table should not be considered as just another table; it has to follo
 **A table conforming to the five rules:**
 
 |Id|Name|DOB|Manager
-|------
+|---|---|---|---
 |1|Fred|11/02/1971|3
 |2|Fred|11/02/1971|3
 |3|Sue|08/07/1975|2
@@ -39,7 +39,7 @@ A database table should not be considered as just another table; it has to follo
 **A badly designed table:**
 
 |Id|Name|DOB|Name
-|------
+|---|---|---|---
 |1|Fred|11/02/1971|3
 |1|Fred|11/02/1971|3
 |3|Sue|Friday the 18th July 1975|2, 1

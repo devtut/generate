@@ -26,7 +26,7 @@ There are two basic classes of exact numeric data types - **Integer**, and **Fix
 **Integers** are numeric values that never contain a fractional portion, and always use a fixed amount of storage. The range and storage sizes of the integer data types are shown in this table:
 
 |Data type|Range|Storage
-|------
+|---|---|---|---
 |bit|0 or 1|1 bit **
 |tinyint|0 to 255|1 byte
 |smallint|-2^15 (-32,768) to 2^15-1 (32,767)|2 bytes
@@ -45,7 +45,7 @@ These data types are useful for representing numbers exactly. As long as the val
 Note that **decimal** and **numeric** are synonyms for the same data type.
 
 |Data type|Range|Storage
-|------
+|---|---|---|---
 |Decimal [(p [, s])] or Numeric [(p [, s])]|-10^38 + 1 to 10^38 - 1|See **Precision** table
 
 When defining a **decimal** or **numeric** data type, you may need to specify the Precision [p] and Scale [s].
@@ -59,7 +59,7 @@ The Precision of a **decimal** or **numeric** data type defines the number of by
 **Precision Table**
 
 |Precision|Storage bytes
-|------
+|---|---|---|---
 |1 - 9|5
 |10-19|9
 |20-28|13
@@ -70,7 +70,7 @@ The Precision of a **decimal** or **numeric** data type defines the number of by
 These data types are intended specifically for accounting and other monetary data. These type have a fixed Scale of 4 - you will always see four digits after the decimal place. For most systems working with most currencies, using a **numeric** value with a Scale of 2 will be sufficient. Note that no information about the type of currency represented is stored with the value.
 
 |Data type|Range|Storage
-|------
+|---|---|---|---
 |money|-922,337,203,685,477.5808 to 922,337,203,685,477.5807|8 bytes
 |smallmoney|-214,748.3648 to 214,748.3647|4 bytes
 
@@ -85,14 +85,14 @@ These data types are intended specifically for accounting and other monetary dat
 These data types are used to store floating point numbers. Since these types are intended to hold approximate numeric values only, these should not be used in cases where any rounding error is unacceptable. However, if you need to handle very large numbers, or numbers with an indeterminate number of digits after the decimal place, these may be your best option.
 
 |Data type|Range|Size
-|------
+|---|---|---|---
 |float|-1.79E+308 to -2.23E-308, 0 and 2.23E-308 to 1.79E+308|depends on **n** in table below
 |real|-3.40E + 38 to -1.18E - 38, 0 and 1.18E - 38 to 3.40E + 38|4 Bytes
 
 **n** value table for **float** numbers. If no value is specified in the declaration of the float, the default value of 53 will be used. Note that **float(24)** is the equivalent of a **real** value.
 
 |n value|Precision|Size
-|------
+|---|---|---|---
 |1-24|7 digits|4 bytes
 |25-53|15 digits|8 bytes
 

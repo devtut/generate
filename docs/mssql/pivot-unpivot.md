@@ -241,7 +241,7 @@ Since our 'new' columns are numbers (in the source table), we need to square bra
 This will give us an output like
 
 |100|145
-|------
+|---|---|---|---
 |45|18
 
 

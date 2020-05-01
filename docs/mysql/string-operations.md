@@ -171,7 +171,7 @@ HEX('fööbar') -- 66C3B6C3B6626172  -- in "CHARACTER SET utf8 or utf8mb4" becau
 
 
 |Name|Description
-|------
+|---|---|---|---
 |ASCII()|Return numeric value of left-most character
 |BIN()|Return a string containing binary representation of a number
 |BIT_LENGTH()|Return length of argument in bits

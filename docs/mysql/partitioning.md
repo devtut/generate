@@ -68,7 +68,7 @@ CREATE TABLE employees (
 Suppose that there are 20 video stores distributed among 4 franchises as shown in the following table.
 
 |Region|Store ID Numbers
-|------
+|---|---|---|---
 |North|3, 5, 6, 9, 17
 |East|1, 2, 10, 11, 19, 20
 |West|4, 12, 13, 14, 18

@@ -35,7 +35,7 @@ Id int identity(1,1) not null
 ```
 
 |Value|Meaning
-|------
+|---|---|---|---
 |`Id`|the column's name.
 |`int`|is the data type.
 |`identity(1,1)`|states that column will have auto generated values starting at 1 and incrementing by 1 for each new row.
@@ -99,7 +99,7 @@ CityID INT FOREIGN KEY REFERENCES Cities(CityID)
 ```
 
 |Value|Meaning
-|------
+|---|---|---|---
 |`CityID`|Name of the column
 |`int`|type of the column
 |`FOREIGN KEY`|Makes the foreign key  **(optional)**
@@ -170,7 +170,7 @@ DECLARE @TempMemory TABLE(...);
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |tableName|The name of the table
 |columns|Contains an 'enumeration' of all the columns that the table have. See **Create a New Table** for more details.
 

@@ -15,7 +15,7 @@ MySQL does not provide a built-in way to create pivot queries. However, these ca
 Assume the table `tbl_values`:
 
 |Id|Name|Group|Value
-|------
+|---|---|---|---
 |1|Pete|A|10
 |2|Pete|B|20
 |3|John|A|10
@@ -47,7 +47,7 @@ execute stmt;
 Result:
 
 |Name|A|B
-|------
+|---|---|---|---
 |John|10|NULL
 |Pete|10|20
 

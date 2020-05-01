@@ -15,7 +15,7 @@ In order to determine some simple statistics of a value in a column of a table, 
 If your `individuals` table is:
 
 |Name|Age
-|------
+|---|---|---|---
 |Allie|17
 |Amanda|14
 |Alana|20
@@ -31,7 +31,7 @@ FROM individuals;
 Result:
 
 |min|max|avg
-|------
+|---|---|---|---
 |14|20|17
 
 
@@ -44,7 +44,7 @@ You can concatenate strings separated by delimiter using the `string_agg()` func
 If your `individuals` table is:
 
 |Name|Age|Country
-|------
+|---|---|---|---
 |Allie|15|USA
 |Amanda|14|USA
 |Alana|20|Russia
@@ -63,7 +63,7 @@ Note that you need to use a `GROUP BY` clause because `string_agg()` is an aggre
 **Result:**
 
 |names|country
-|------
+|---|---|---|---
 |Allie, Amanda|USA
 |Alana|Russia
 

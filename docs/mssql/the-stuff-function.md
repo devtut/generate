@@ -74,7 +74,7 @@ Select FirstName, LastName,Email, STUFF(Email, 2, 3, '*****') as StuffedEmail Fr
 **Executing this example will result in returning the given table**
 
 |FirstName|LastName|Email|StuffedEmail
-|------
+|---|---|---|---
 |Jomes|Hunter|James@hotmail.com|J*****s@hotmail.com
 |Shyam|rathod|Shyam@hotmail.com|S*****m@hotmail.com
 |Ram|shinde|Ram@hotmail.com|R*****hotmail.com
@@ -139,7 +139,7 @@ GO
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |character_expression|the existing string in your data
 |start_position|the position in `character_expression` to delete `length` and then insert the `replacement_string`
 |length|the number of characters to delete from `character_expression`

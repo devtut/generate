@@ -153,7 +153,7 @@ DROP VIEW [IF EXISTS] [db_name.]view_name; ///Drop view syntax
 
 
 |Parameters|Details
-|------
+|---|---|---|---
 |view_name|Name of View
 |SELECT statement|SQL statements to be packed in the views. It can be a SELECT statement to fetch data from one or more tables.
 

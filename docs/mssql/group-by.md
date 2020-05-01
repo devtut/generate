@@ -14,7 +14,7 @@ description: "Simple Grouping, GROUP BY multiple columns , GROUP BY with ROLLUP 
 Orders Table
 
 |CustomerId|ProductId|Quantity|Price
-|------
+|---|---|---|---|---
 |1|2|5|100
 |1|3|2|200
 |1|4|1|500
@@ -33,7 +33,7 @@ GROUP BY customerId;
 Return value:
 
 |customerId
-|------
+|---|---|---|---|---
 |1
 |2
 |3
@@ -52,7 +52,7 @@ GROUP BY customerId;
 Return value:
 
 |customerId|numberOfProducts|totalPrice
-|------
+|---|---|---|---|---
 |1|3|800
 |2|1|50
 |3|1|700
@@ -86,7 +86,7 @@ GROUP BY Age, Name
 will group by both age and name and will produce:
 
 |Age|Name|count
-|------
+|---|---|---|---|---
 |18|luke|3
 |21|luke|2
 |18|matt|1
@@ -154,7 +154,7 @@ ALL                  Red                  433.00
 Group by is often used with join statement. Let's assume we have two tables. The first one is the table of students:
 
 |Id|Full Name|Age
-|------
+|---|---|---|---|---
 |1|Matt Jones|20
 |2|Frank Blue|21
 |3|Anthony Angel|18
@@ -162,7 +162,7 @@ Group by is often used with join statement. Let's assume we have two tables. The
 Second table is the table of subject each student can take:
 
 |Subject_Id|Subject
-|------
+|---|---|---|---|---
 |1|Maths
 |2|P.E.
 |3|Physics
@@ -170,7 +170,7 @@ Second table is the table of subject each student can take:
 And because one student can attend many subjects and one subject can be attended by many students (therefore N:N relationship) we need to have third "bounding" table. Let's call the table Students_subjects:
 
 |Subject_Id|Student_Id
-|------
+|---|---|---|---|---
 |1|1
 |2|2
 |2|1
@@ -191,7 +191,7 @@ GROUP BY Students.FullName
 The result of the given query is as follows:
 
 |FullName|SubjectNumber
-|------
+|---|---|---|---|---
 |Matt Jones|3
 |Frank Blue|2
 |Anthony Angel|1
@@ -214,7 +214,7 @@ GROUP BY Fullname,Subject
 This query gives the following result:
 
 |FullName|Subject|SubjectNumber
-|------
+|---|---|---|---|---
 |Matt Jones|Maths|2
 |Matt Jones|P.E|1
 |Frank Blue|P.E|1
@@ -260,7 +260,7 @@ GROUP BY Name
 and get
 
 |Name|Orders
-|------
+|---|---|---|---|---
 |Matt|2
 |John|5
 |Luke|4
@@ -278,7 +278,7 @@ HAVING COUNT(*) > 2
 will yield
 
 |Name|Orders
-|------
+|---|---|---|---|---
 |John|5
 |Luke|4
 

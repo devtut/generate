@@ -22,7 +22,7 @@ This results in two tables:
 **EMPLOYEES**
 
 |EMP_ID|FIRST_NAME|LAST_NAME|MGR_ID
-|------
+|---|---|---|---
 |E01|Johnny|Appleseed|M02
 |E02|Erin|Macklemore|M01
 |E03|Colby|Paperwork|M03
@@ -31,7 +31,7 @@ This results in two tables:
 **MANAGERS**
 
 |MGR_ID|FIRST_NAME|LAST_NAME
-|------
+|---|---|---|---
 |M01|Loud|McQueen
 |M02|Bossy|Pants
 |M03|Barrel|Jones
@@ -46,7 +46,7 @@ This results in two tables:
 Results in:
 
 |EMP_ID|FIRST_NAME|LAST_NAME
-|------
+|---|---|---|---
 |E02|Erin|Macklemore
 |E04|Ron|Sonswan
 
@@ -62,7 +62,7 @@ Ultimately, for every manager we query for, we will see 1 or more employees retu
 `SELECT m.mgr_id , m.first_name , m.last_name FROM managers m INNER JOIN employees e ON e.mgr_id = m.mgr_id WHERE e.emp_id = 'E03' ;`
 
 |MGR_ID|FIRST_NAME|LAST_NAME
-|------
+|---|---|---|---
 |M03|Barrel|Jones
 
 As this is the inverse of the above example, we know that for every employee we query for, we will only ever see one corresponding manager.

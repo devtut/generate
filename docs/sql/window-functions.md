@@ -15,7 +15,7 @@ Let's say I have this data:
 Table items
 
 |id|name|tag
-|------
+|---|---|---|---
 |1|example|unique_tag
 |2|foo|simple
 |42|bar|simple
@@ -32,7 +32,7 @@ SELECT id, name, tag, COUNT(*) OVER (PARTITION BY tag) > 1 AS flag FROM items
 The result will be:
 
 |id|name|tag|flag
-|------
+|---|---|---|---
 |1|example|unique_tag|false
 |2|foo|simple|true
 |42|bar|simple|true
@@ -54,7 +54,7 @@ SELECT id, name, tag, (SELECT COUNT(tag) FROM items B WHERE tag = A.tag) > 1 AS 
 Given this data:
 
 |date|amount
-|------
+|---|---|---|---
 |2016-03-12|200
 |2016-03-11|-50
 |2016-03-14|100
@@ -71,7 +71,7 @@ ORDER BY date ASC
 will give you
 
 |date|amount|running
-|------
+|---|---|---|---
 |2016-03-10|-250|-250
 |2016-03-11|-50|-300
 |2016-03-12|200|-100
@@ -86,7 +86,7 @@ will give you
 Given these sample data:
 
 |ID|STATUS|STATUS_TIME|STATUS_BY
-|------
+|---|---|---|---
 |1|ONE|2016-09-28-19.47.52.501398|USER_1
 |3|ONE|2016-09-28-19.47.52.501511|USER_2
 |1|THREE|2016-09-28-19.47.52.501517|USER_3
@@ -129,7 +129,7 @@ SELECT your_columns, COUNT(*) OVER() as Ttl_Rows FROM your_data_set
 ```
 
 |id|name|Ttl_Rows
-|------
+|---|---|---|---
 |1|example|5
 |2|foo|5
 |3|bar|5
@@ -147,7 +147,7 @@ This can be used as a base for further calculation without the complexity of ext
 Given this data
 
 |User_ID|Completion_Date
-|------
+|---|---|---|---
 |1|2016-07-20
 |1|2016-07-21
 |2|2016-07-20
@@ -167,7 +167,7 @@ SELECT * FORM CTE WHERE Row_Num <= n
 Using n=1, you'll get the one most recent row per `user_id`:
 
 |User_ID|Completion_Date|Row_Num
-|------
+|---|---|---|---
 |1|2016-07-21|1
 |2|2016-07-22|1
 

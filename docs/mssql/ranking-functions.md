@@ -74,7 +74,7 @@ order by name,subject
 
 
 |Arguments|Details
-|------
+|---|---|---|---
 |`<partition_by_clause>`|Divides the result set produced by the [FROM](https://msdn.microsoft.com/en-us/library/ms177634.aspx) clause into partitions to which the `DENSE_RANK` function is applied. For the `PARTITION BY` syntax, see [OVER Clause (Transact-SQL)](https://msdn.microsoft.com/en-us/library/ms189461.aspx).
 |`<order_by_clause>`|Determines the order in which the `DENSE_RANK` function is applied to the rows in a partition.
 |`OVER ( [ partition_by_clause ] order_by_clause)`|`partition_by_clause` divides the result set produced by the `FROM` clause into partitions to which the function is applied. If not specified, the function treats all rows of the query result set as a single group. order_by_clause determines the order of the data before the function is applied. The order_by_clause is required. The `<rows or range clause>` of the `OVER` clause cannot be specified for the `RANK` function. For more information, see [OVER Clause (Transact-SQL)](https://technet.microsoft.com/en-us/library/ms189461(v=sql.110).aspx).

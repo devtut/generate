@@ -387,7 +387,7 @@ A table can be joined onto itself in what is known as a self join, combining rec
 Consider the sample data in a table called `Employees`:
 
 |ID|Name|Boss_ID
-|------
+|---|---|---|---
 |1|Bob|3
 |2|Jim|1
 |3|Sam|2
@@ -406,7 +406,7 @@ INNER JOIN Employees AS Bosses
 Executing this query will output the following results:
 
 |Name|Boss
-|------
+|---|---|---|---
 |Bob|Sam
 |Jim|Bob
 |Sam|Jim

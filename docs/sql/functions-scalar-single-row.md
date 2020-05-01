@@ -34,7 +34,7 @@ would return the customer's last name changed from "SMITH" to "smith".
 In SQL, you use date and time data types to store calendar information. These data types include the time, date, smalldatetime, datetime, datetime2, and datetimeoffset. Each data type has a specific format.
 
 |Data type|Format
-|------
+|---|---|---|---|---
 |time|hh:mm:ss[.nnnnnnn]
 |date|YYYY-MM-DD
 |smalldatetime|YYYY-MM-DD hh:mm:ss
@@ -50,7 +50,7 @@ SELECT DATENAME (weekday,'2017-01-14') as Datename
 ```
 
 |Datename
-|------
+|---|---|---|---|---
 |Saturday
 
 You use the `GETDATE` function to determine the current date and time of the computer running the current SQL instance. This function doesn't include the time zone difference.
@@ -61,7 +61,7 @@ SELECT GETDATE() as Systemdate
 ```
 
 |Systemdate
-|------
+|---|---|---|---|---
 |2017-01-14 11:11:47.7230728
 
 The `DATEDIFF` function returns the difference between two dates.
@@ -76,7 +76,7 @@ FROM Sales.SalesOrderHeader
 ```
 
 |SalesOrderID|Processing time
-|------
+|---|---|---|---|---
 |43659|7
 |43660|7
 |43661|7
@@ -90,7 +90,7 @@ SELECT DATEADD (day, 20, '2017-01-14') AS Added20MoreDays
 ```
 
 |Added20MoreDays
-|------
+|---|---|---|---|---
 |2017-02-03 00:00:00.000
 
 
@@ -106,7 +106,7 @@ SELECT @@SERVERNAME AS 'Server'
 ```
 
 |Server
-|------
+|---|---|---|---|---
 |SQL064
 
 In SQL, most data conversions occur implicitly, without any user intervention.
@@ -136,7 +136,7 @@ GO
 ```
 
 |Cast|Convert
-|------
+|---|---|---|---|---
 |David Hamiltion was hired on 2003-02-04|David Hamiltion was hired on 04/02/03
 
 Another example of a conversion function is the `PARSE` function. This function converts a string to a specified data type.
@@ -151,7 +151,7 @@ SELECT PARSE('Monday, 13 August 2012' AS datetime2 USING 'en-US') AS 'Date i
 ```
 
 |Date in English
-|------
+|---|---|---|---|---
 |2012-08-13 00:00:00.0000000
 
 
@@ -171,7 +171,7 @@ SELECT CHOOSE(2, 'Human Resources', 'Sales', 'Admin', 'Marketing' ) AS Result
 ```
 
 |Result
-|------
+|---|---|---|---|---
 |Sales
 
 In this example, you use the `CHOOSE` function to return the second entry in a list of departments.
@@ -189,7 +189,7 @@ GO
 ```
 
 |BusinessEntityID|SalesYTD|Bonus?
-|------
+|---|---|---|---|---
 |274|559697.5639|Bonus
 |275|3763178.1787|Bonus
 |285|172524.4512|No Bonus
@@ -206,7 +206,7 @@ SELECT SIGN(-20) AS 'Sign'
 ```
 
 |Sign
-|------
+|---|---|---|---|---
 |-1
 
 In the example, the input is a negative number, so the Results pane lists the result -1.
@@ -221,7 +221,7 @@ SELECT POWER(50, 3) AS Result
 ```
 
 |Result
-|------
+|---|---|---|---|---
 |125000
 
 

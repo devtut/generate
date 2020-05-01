@@ -116,7 +116,7 @@ $ mysql -uroot -proot test -s -e'select * from people' > out.txt
 
 
 |Parameter|Description
-|------
+|---|---|---|---
 |`-D` `--database=name`|name of the database
 |`--delimiter=str`|set the statement delimiter. The default one is ';'
 |`-e` `--execute='command'`|execute command

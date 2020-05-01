@@ -29,7 +29,7 @@ select * from new_employees_details
 ```
 
 |Id|FName|Salary|Hire_date
-|------
+|---|---|---|---
 |4|Johnathon|500|24-07-2016
 
 
@@ -57,7 +57,7 @@ FROM dept_income;
 ```
 
 |DepartmentName|TotalSalary
-|------
+|---|---|---|---
 |HR|1900
 |Sales|600
 

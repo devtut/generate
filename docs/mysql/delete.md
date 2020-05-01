@@ -77,14 +77,14 @@ insert pets(ownerId,name,color) values
 ```
 
 |id|name|gender
-|------
+|---|---|---|---
 |1|Kathy|f
 |2|John|m
 |3|Paul|m
 |4|Kim|f
 
 |id|ownerId|name|color
-|------
+|---|---|---|---
 |1|1|Rover|beige
 |2|2|Bubbles|purple
 |4|1|Rover2|white
@@ -244,7 +244,7 @@ MySQL allows to specify from which table the matching rows must be deleted
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |LOW_PRIORITY|If `LOW_PRIORITY` is provided, the delete will be delayed until there are no processes reading from the table
 |IGNORE|If `IGNORE` is provided, all errors encountered during the delete are ignored
 |table|The table from which you are going to delete records

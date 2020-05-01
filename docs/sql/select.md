@@ -18,14 +18,14 @@ Consider a database with the following two tables.
 **Employees table:**
 
 |Id|FName|LName|DeptId
-|------
+|---|---|---|---
 |1|James|Smith|3
 |2|John|Johnson|4
 
 **Departments table:**
 
 |Id|Name
-|------
+|---|---|---|---
 |1|Sales
 |2|Marketing
 |3|Finance
@@ -47,7 +47,7 @@ SELECT * FROM Employees
 It will return all fields of all rows of the `Employees` table:
 
 |Id|FName|LName|DeptId
-|------
+|---|---|---|---
 |1|James|Smith|3
 |2|John|Johnson|4
 
@@ -72,7 +72,7 @@ JOIN
 This will return a data set with all fields on the `Employee` table, followed by just the `Name` field in the `Departments` table:
 
 |Id|FName|LName|DeptId|Name
-|------
+|---|---|---|---
 |1|James|Smith|3|Finance
 |2|John|Johnson|4|IT
 
@@ -138,7 +138,7 @@ FROM Employees
 Both will result in:
 
 |First Name|Middle Name|Last Name
-|------
+|---|---|---|---
 |James|John|Smith
 |John|James|Johnson
 |Michael|Marcus|Williams
@@ -155,7 +155,7 @@ FROM Employees
 ```
 
 |First Name|Middle Name|Last Name
-|------
+|---|---|---|---
 |James|John|Smith
 |John|James|Johnson
 |Michael|Marcus|Williams
@@ -173,7 +173,7 @@ FROM Employees
 ```
 
 |FirstName|LastName
-|------
+|---|---|---|---
 |James|Smith
 |John|Johnson
 |Michael|Williams
@@ -201,7 +201,7 @@ FROM CustomerDetails
 Both will result in:
 
 |FullName|Addr1|Addr2
-|------
+|---|---|---|---
 |James Smith|123 AnyStreet|TownVille
 |John Johnson|668 MyRoad|Anytown
 |Michael Williams|999 High End Dr|Williamsburgh
@@ -235,7 +235,7 @@ FROM Employees
 ```
 
 |SELECT|FROM|WHERE
-|------
+|---|---|---|---
 |James|John|Smith
 |John|James|Johnson
 |Michael|Marcus|Williams
@@ -289,7 +289,7 @@ This statement will return the columns `PhoneNumber`, `Email`, and `PreferredCon
 The result will be:
 
 |PhoneNumber|Email|PreferredContact
-|------
+|---|---|---|---
 |3347927472|william.jones@example.com|PHONE
 |2137921892|dmiller@example.net|EMAIL
 |NULL|richard0123@example.com|EMAIL
@@ -561,7 +561,7 @@ SELECT * FROM Employees ORDER BY LName
 This statement will return all the columns from the table [`Employees`](http://stackoverflow.com/documentation/sql/280/example-database/1014/employees-table#t=201603292355342567964).
 
 |Id|FName|LName|PhoneNumber
-|------
+|---|---|---|---
 |2|John|Johnson|2468101214
 |1|James|Smith|1234567890
 |3|Michael|Williams|1357911131
@@ -788,7 +788,7 @@ HAVING avg(income) > 1000;
 The `AND` keyword is used to add more conditions to the query.
 
 |Name|Age|Gender
-|------
+|---|---|---|---
 |Sam|18|M
 |John|21|M
 |Bob|22|M
@@ -802,7 +802,7 @@ SELECT name FROM persons WHERE gender = 'M' AND age > 20;
 This will return:
 
 |Name
-|------
+|---|---|---|---
 |John
 |Bob
 
@@ -816,7 +816,7 @@ SELECT name FROM persons WHERE gender = 'M' OR age < 20;
 This will return:
 
 |name
-|------
+|---|---|---|---
 |Sam
 |John
 |Bob
@@ -834,7 +834,7 @@ WHERE (gender = 'M' AND age < 20)
 This will return:
 
 |name
-|------
+|---|---|---|---
 |Sam
 |Mary
 
@@ -894,7 +894,7 @@ FROM Countries;
 This query will return all `DISTINCT` (unique, different) values from `ContinentCode` column from [`Countries`](http://stackoverflow.com/documentation/sql/280/example-databases/9933/countries-table) table
 
 |ContinentCode
-|------
+|---|---|---|---
 |OC
 |EU
 |AS

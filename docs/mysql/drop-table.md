@@ -63,7 +63,7 @@ DROP TABLE Database.table_name
 
 
 |Parameters|Details
-|------
+|---|---|---|---
 |TEMPORARY|Optional. It specifies that only temporary tables should be dropped by the DROP TABLE statement.
 |IF EXISTS|Optional. If specified, the DROP TABLE statement will not raise an error if one of the tables does not exist.
 

@@ -212,7 +212,7 @@ Enter password: ********
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |CREATE DATABASE|Creates a database with the given name
 |CREATE SCHEMA|This is a synonym for `CREATE DATABASE`
 |IF NOT EXISTS|Used to avoid execution error, if specified database already exists

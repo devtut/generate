@@ -27,7 +27,7 @@ WHERE Quantity BETWEEN 10 AND 17
 This query will return all `ItemSales` records that have a quantity that is greater or equal to 10 and less than or equal to 17. The results will look like:
 
 |Id|SaleDate|ItemId|Quantity|Price
-|------
+|---|---|---|---|---
 |1|2013-07-01|100|10|34.5
 |4|2013-07-23|100|15|34.5
 |5|2013-07-24|145|10|34.5
@@ -43,7 +43,7 @@ WHERE SaleDate BETWEEN '2013-07-11' AND '2013-05-24'
 This query will return all `ItemSales` records with a `SaleDate` that is greater than or equal to July 11, 2013 and less than or equal to May 24, 2013.
 
 |Id|SaleDate|ItemId|Quantity|Price
-|------
+|---|---|---|---|---
 |3|2013-07-11|100|20|34.5
 |4|2013-07-23|100|15|34.5
 |5|2013-07-24|145|10|34.5
@@ -65,7 +65,7 @@ Live example: [SQL fiddle](http://sqlfiddle.com/#!9/76b9b/2)
 This query will return all customers whose name alphabetically falls between the letters 'D' and 'L'. In this case, Customer #1 and #3 will be returned. Customer #2, whose name begins with a 'M' will not be included.
 
 |Id|FName|LName
-|------
+|---|---|---|---|---
 |1|William|Jones
 |3|Richard|Davis
 
@@ -97,7 +97,7 @@ This query will return the `CustomerId` and `Number of Cars` count of any custom
 The results will look like:
 
 |CustomerId|Number of Cars
-|------
+|---|---|---|---|---
 |1|2
 
 
@@ -306,7 +306,7 @@ In this case, the query will return Employee #2 whose name is 'John' as well as 
 Orders Table
 
 |CustomerId|ProductId|Quantity|Price
-|------
+|---|---|---|---|---
 |1|2|5|100
 |1|3|2|200
 |1|4|1|500
@@ -328,7 +328,7 @@ select customerId
 Return value:
 
 |customerId
-|------
+|---|---|---|---|---
 |1
 
 The query selects only records with the productIDs in questions and with the HAVING clause checks for groups having 2 productIds and not just one.

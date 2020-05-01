@@ -308,7 +308,7 @@ REPLACE (str, find, repl)
 The following example replaces occurrences of `South` with `Southern` in Employees table:
 
 |FirstName|Address
-|------
+|---|---|---|---
 |James|South New York
 |John|South Boston
 |Michael|South San Diego
@@ -329,7 +329,7 @@ ORDER BY FirstName
 Result:
 
 |FirstName|Address
-|------
+|---|---|---|---
 |James|Southern New York
 |John|Southern Boston
 |Michael|Southern San Diego

@@ -65,7 +65,7 @@ FETCH NEXT 50 ROWS ONLY
 
 
 |Parameter|Details
-|------
+|---|---
 |`TOP`|Limiting keyword. Use with a number.
 |`PERCENT`|Percentage keyword. Comes after `TOP` and limiting number.
 

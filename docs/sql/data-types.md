@@ -49,7 +49,7 @@ SELECT CAST( PI() AS REAL) --returns 3.141593
 Exact-number data types that use integer data.
 
 |Data type|Range|Storage
-|------
+|---|---|---|---
 |bigint|-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)|8 Bytes
 |int|-2^31 (-2,147,483,648) to 2^31-1 (2,147,483,647)|4 Bytes
 |smallint|-2^15 (-32,768) to 2^15-1 (32,767)|2 Bytes
@@ -63,7 +63,7 @@ Exact-number data types that use integer data.
 Data types that represent monetary or currency values.
 
 |Data type|Range|Storage
-|------
+|---|---|---|---
 |money|-922,337,203,685,477.5808 to 922,337,203,685,477.5807|8 bytes
 |smallmoney|-214,748.3648 to 214,748.3647|4 bytes
 

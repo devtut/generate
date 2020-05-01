@@ -114,7 +114,7 @@ Read about [inline path extract(+)](https://dev.mysql.com/doc/refman/5.7/en/json
 
 
 |Parameter|Description
-|------
+|---|---|---|---
 |json_doc|valid JSON document
 |path|members path
 

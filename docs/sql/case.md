@@ -22,7 +22,7 @@ The trick is to return binary results indicating matches, so the "1"s returned f
 Given this table `ItemSales`, let's say you want to learn the total number of items that have been categorized as "Expensive":
 
 |Id|ItemId|Price|PriceRating
-|------
+|---|---|---|---
 |1|100|34.5|EXPENSIVE
 |2|145|2.3|CHEAP
 |3|100|34.5|EXPENSIVE
@@ -46,7 +46,7 @@ FROM ItemSales
 **Results:**
 
 |ItemsCount|ExpensiveItemsCount
-|------
+|---|---
 |5|3
 
 Alternative:
@@ -84,7 +84,7 @@ FROM ItemSales
 ```
 
 |Id|ItemId|Price|PriceRating
-|------
+|---|---|---|---
 |1|100|34.5|EXPENSIVE
 |2|145|2.3|CHEAP
 |3|100|34.5|EXPENSIVE
@@ -113,7 +113,7 @@ CASE DEPARTMENT
 ```
 
 |ID|REGION|CITY|DEPARTMENT|EMPLOYEES_NUMBER
-|------
+|---|---|---|---|---
 |12|New England|Boston|MARKETING|9
 |15|West|San Francisco|MARKETING|12
 |9|Midwest|Chicago|SALES|8
@@ -210,7 +210,7 @@ SELECT ID
 ```
 
 |ID|REGION|CITY|DEPARTMENT|EMPLOYEES_NUMBER
-|------
+|---|---|---|---|---
 |10|Mid-Atlantic|Philadelphia|RESEARCH|13
 |14|Mid-Atlantic|New York|SALES|12
 |9|Midwest|Chicago|SALES|8
@@ -233,7 +233,7 @@ The `CASE` expression in the query below looks at the `Date1` and `Date2` column
 ### Sample data
 
 |Id|Date1|Date2
-|------
+|---|---|---
 |1|2017-01-01|2017-01-31
 |2|2017-01-31|2017-01-03
 |3|2017-01-31|2017-01-02
@@ -256,7 +256,7 @@ ORDER BY CASE
 ### Results
 
 |Id|Date1|Date2
-|------
+|---|---|---
 |1|**2017-01-01**|2017-01-31
 |3|2017-01-31|**2017-01-02**
 |2|2017-01-31|**2017-01-03**

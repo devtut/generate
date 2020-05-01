@@ -13,7 +13,7 @@ description: "Arithmetic Operators, Mathematical Constants, Trigonometry (SIN, C
 MySQL provides the following arithmetic operators
 
 |Operator|Name|Example
-|------
+|---|---|---|---
 |`+`|Addition|`SELECT 3+5;` -> 8<br/> `SELECT 3.5+2.5;` -> 6.0<br />  `SELECT 3.5+2;` -> 5.5
 |`-`|Subtraction|`SELECT 3-5;` -> -2
 |`*`|Multiplication|`SELECT 3 * 5;` -> 15
@@ -249,7 +249,7 @@ SELECT i, RAND() FROM t;
 This will return something like this
 
 |i|RAND()
-|------
+|---|---|---|---
 |1|0.6191438870682
 |2|0.93845168309142
 |3|0.83482678498591
@@ -297,7 +297,7 @@ SELECT ABS(-46); -> 46
 The `sign` of a number compares it to 0.
 
 |Sign|Result|Example
-|------
+|---|---|---|---
 |-1|n < 0|`SELECT SIGN(42);` -> 1
 |0|n = 0|`SELECT SIGN(0);` -> 0
 |1|n > 0|`SELECT SIGN(-3);` -> -1

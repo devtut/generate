@@ -52,7 +52,7 @@ SELECT * FROM [dbo].[Customers]
 **Results**
 
 |CustomerID|CustomerName
-|------
+|---|---|---|---
 |10001|Jerry
 |10002|Gorge
 
@@ -76,7 +76,7 @@ SELECT * FROM [dbo].[Customers]
 **Results**
 
 |CustomerID|CustomerName
-|------
+|---|---|---|---
 |10001|Jerry
 |10003|George
 

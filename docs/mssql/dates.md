@@ -65,7 +65,7 @@ Monday, September 05, 2016 12:01:02 AM
 Given the `DATETIME` being formatted is `2016-09-05 00:01:02.333`, the following chart shows what their output would be for the provided argument.
 
 |Argument|Output
-|------
+|---|---|---|---|---
 |yyyy|2016
 |yy|16
 |MMMM|September
@@ -103,7 +103,7 @@ Monday, September 05, 2016 4:01:02 AM
 
 
 |Single Argument|Output
-|------
+|---|---|---|---|---
 |D|Monday, September 05, 2016
 |d|9/5/2016
 |F|Monday, September 05, 2016 12:01:02 AM
@@ -393,7 +393,7 @@ These methods are useful and worth being used because using the plain string to 
 These are the `datepart` values available to date & time functions:
 
 |datepart|Abbreviations
-|------
+|---|---|---|---|---
 |year|yy, yyyy
 |quarter|qq, q
 |month|mm, m
@@ -416,7 +416,7 @@ These are the `datepart` values available to date & time functions:
 
 
 |Date Format|SQL Statement|Sample Output
-|------
+|---|---|---|---|---
 |YY-MM-DD|SELECT RIGHT(CONVERT(VARCHAR(10), SYSDATETIME(), 20), 8) AS [YY-MM-DD]<br/>SELECT REPLACE(CONVERT(VARCHAR(8), SYSDATETIME(), 11), '/', '-') AS [YY-MM-DD]|11-06-08
 |YYYY-MM-DD|SELECT CONVERT(VARCHAR(10), SYSDATETIME(), 120) AS [YYYY-MM-DD]<br/>SELECT REPLACE(CONVERT(VARCHAR(10), SYSDATETIME(), 111), '/', '-') AS [YYYY-MM-DD]|2011-06-08
 |YYYY-M-D|SELECT CAST(YEAR(SYSDATETIME()) AS VARCHAR(4)) + '-' + CAST(MONTH(SYSDATETIME()) AS VARCHAR(2)) + '-' + CAST(DAY(SYSDATETIME()) AS VARCHAR(2)) AS [YYYY-M-D]|2011-6-8
@@ -513,7 +513,7 @@ Rounding of datetime Fractional Second Precision
 datetime values are rounded to increments of .000, .003, or .007 seconds, as shown in the following table.
 
 |User-specified value|System stored value
-|------
+|---|---|---|---|---
 |01/01/98 23:59:59.999|1998-01-02 00:00:00.000
 |------|------
 |01/01/98 23:59:59.995|1998-01-01 23:59:59.997

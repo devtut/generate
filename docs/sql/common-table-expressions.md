@@ -34,7 +34,7 @@ SELECT i FROM Numbers;
 ```
 
 |i
-|------
+|---|---|---|---
 |1
 |2
 |3
@@ -73,7 +73,7 @@ SELECT * FROM ManagedByJames;
 ```
 
 |Level|ID|FName|LName
-|------
+|---|---|---|---
 |**1**|1|James|Smith
 |**2**|2|John|Johnson
 |**3**|4|Johnathon|Smith
@@ -99,7 +99,7 @@ ORDER BY TotalCost;
 ```
 
 |ID|Model|TotalCost
-|------
+|---|---|---|---
 |1|Ford F-150|200
 |2|Ford F-150|230
 
@@ -141,7 +141,7 @@ SELECT * FROM ManagersOfJonathon;
 ```
 
 |Id|FName|LName|PhoneNumber|ManagerId|DepartmentId
-|------
+|---|---|---|---|---|---
 |4|Johnathon|Smith|1212121212|**2**|1
 |**2**|John|Johnson|2468101214|**1**|1
 |**1**|James|Smith|1234567890|NULL|1

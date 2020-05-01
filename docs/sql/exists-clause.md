@@ -14,7 +14,7 @@ description: "EXISTS CLAUSE"
 Customer Table
 
 |Id|FirstName|LastName
-|------
+|---|---|---|---
 |1|Ozgur|Ozturk
 |2|Youssef|Medi
 |3|Henry|Tai
@@ -22,7 +22,7 @@ Customer Table
 Order Table
 
 |Id|CustomerId|Amount
-|------
+|---|---|---|---
 |1|2|123.50
 |2|3|14.80
 
@@ -38,7 +38,7 @@ SELECT * FROM Customer WHERE EXISTS (
 Result
 
 |Id|FirstName|LastName
-|------
+|---|---|---|---
 |2|Youssef|Medi
 |3|Henry|Tai
 
@@ -54,7 +54,7 @@ SELECT * FROM Customer WHERE NOT EXISTS (
 Result
 
 |Id|FirstName|LastName
-|------
+|---|---|---|---
 |1|Ozgur|Ozturk
 
 ### Purpose

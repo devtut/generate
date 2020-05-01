@@ -19,7 +19,7 @@ SELECT * FROM OPENJSON(@json);
 ```
 
 |key|value|type
-|------
+|---|---|---|---
 |Name|Joe|1
 |age|27|2
 |skills|["C#","SQL"]|4
@@ -53,7 +53,7 @@ FROM OPENJSON (@json)
 In the WITH clause is specified return schema of OPENJSON function. Keys in the JSON objects are fetched by column names. If some key in JSON is not specified in the WITH clause (e.g. Price in this example) it will be ignored. Values are automatically converted into specified types.
 
 |Number|Date|Customer|Quantity
-|------
+|---|---|---|---
 |SO43659|2011-05-31T00:00:00|MSFT|1
 |SO43661|2011-06-01T00:00:00|Nokia|3
 
@@ -84,7 +84,7 @@ FROM OPENJSON (@json)
 In the WITH clause is specified return schema of OPENJSON function. After the type is specified path to the JSON nodes where returned value should be found. Keys in the JSON objects are fetched by these paths. Values are automatically converted into specified types.
 
 |Number|Date|Customer|Quantity
-|------
+|---|---|---|---
 |SO43659|2011-05-31T00:00:00|MSFT|1
 |SO43661|2011-06-01T00:00:00|Nokia|3
 
@@ -114,7 +114,7 @@ FROM OPENJSON (@json)
 Info column will be mapped to "Info" object. Results will be:
 
 |Number|Date|Info
-|------
+|---|---|---|---
 |SO43659|2011-05-31T00:00:00|{"customer":"MSFT","Price":59.99,"qty":1}
 |SO43661|2011-06-01T00:00:00|{"customer":"Nokia","Price":24.99,"qty":3}
 
@@ -152,7 +152,7 @@ FROM
 Results:
 
 |Number|Date|Items|Price|Quantity
-|------
+|---|---|---|---
 |SO43659|2011-05-31 00:00:00.000|[{"Price":11.99,"Quantity":1},{"Price":12.99,"Quantity":5}]|11.99|1
 |SO43659|2011-05-31 00:00:00.000|[{"Price":11.99,"Quantity":1},{"Price":12.99,"Quantity":5}]|12.99|5
 |SO43661|2011-06-01 00:00:00.000|[{"Price":21.99,"Quantity":3},{"Price":22.99,"Quantity":2},{"Price":23.99,"Quantity":2}]|21.99|3

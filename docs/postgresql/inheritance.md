@@ -22,21 +22,21 @@ Our three tables look like this:
 ### users
 
 |Column|Type
-|------
+|---|---|---|---
 |username|text
 |email|text
 
 ### simple_users
 
 |Column|Type
-|------
+|---|---|---|---
 |username|text
 |email|text
 
 ### users_with_password
 
 |Column|Type
-|------
+|---|---|---|---
 |username|text
 |email|text
 |password|text
@@ -64,7 +64,7 @@ ALTER TABLE simple_users ADD COLUMN password text;
 ### simple_users
 
 |Column|Type
-|------
+|---|---|---|---
 |username|text
 |email|text
 |password|text
@@ -92,14 +92,14 @@ ALTER TABLE users DROP COLUMN password;
 ### users
 
 |Column|Type
-|------
+|---|---|---|---
 |username|text
 |email|text
 
 ### simple_users
 
 |Column|Type
-|------
+|---|---|---|---
 |username|text
 |email|text
 |password|text

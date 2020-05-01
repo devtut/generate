@@ -221,7 +221,7 @@ When using [`--routines`](https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html
 
 
 |Option|Effect
-|------
+|---|---|---|---
 |--|# Server login options
 |`-h` (`--host`)|Host (IP address or hostname) to connect to. Default is `localhost` (`127.0.0.1`) Example: `-h localhost`
 |`-u` (`--user`)|MySQL user

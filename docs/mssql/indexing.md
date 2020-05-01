@@ -121,7 +121,7 @@ SELECT * FROM sys.dm_db_index_physical_stats
 
 
 |avg_fragmentation_in_percent value|Corrective statement
-|------
+|---|---|---|---
 |**>5% and < = 30%**|REORGANIZE
 |**>30%**|REBUILD
 

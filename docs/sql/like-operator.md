@@ -17,7 +17,7 @@ Using '%' in the middle will allow 0 or more characters between the two parts of
 We are going to use this Employees Table:
 
 |Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|Hire_date
-|------
+|---|---|---|---|---|---|---|---|---
 |1|John|Johnson|2468101214|1|1|400|23-03-2005
 |2|Sophie|Amudsen|2479100211|1|1|400|11-01-2010
 |3|Ronny|Smith|2462544026|2|1|600|06-08-2015
@@ -32,7 +32,7 @@ SELECT * FROM Employees WHERE FName LIKE '%on%';
 ```
 
 |Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|Hire_date
-|------
+|---|---|---|---|---|---|---|---|---
 |3|R**on**ny|Smith|2462544026|2|1|600|06-08-2015
 |4|J**on**|Sanchez|2454124602|1|1|400|23-03-2005
 
@@ -44,7 +44,7 @@ SELECT * FROM Employees WHERE PhoneNumber LIKE '246%';
 ```
 
 |Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|Hire_date
-|------
+|---|---|---|---|---|---|---|---|---
 |1|John|Johnson|**246**8101214|1|1|400|23-03-2005
 |3|Ronny|Smith|**246**2544026|2|1|600|06-08-2015
 |5|Hilde|Knag|**246**8021911|2|1|800|01-01-2000
@@ -57,7 +57,7 @@ SELECT * FROM Employees WHERE PhoneNumber LIKE '%11'
 ```
 
 |Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|Hire_date
-|------
+|---|---|---|---|---|---|---|---|---
 |2|Sophie|Amudsen|24791002**11**|1|1|400|11-01-2010
 |5|Hilde|Knag|24680219**11**|2|1|800|01-01-2000
 
@@ -71,7 +71,7 @@ SELECT * FROM Employees WHERE FName LIKE '__n%';
 (two underscores are used before 'n' to skip first 2 characters)
 
 |Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|Hire_date
-|------
+|---|---|---|---|---|---|---|---|---
 |3|Ronny|Smith|2462544026|2|1|600|06-08-2015
 |4|Jon|Sanchez|2454124602|1|1|400|23-03-2005
 

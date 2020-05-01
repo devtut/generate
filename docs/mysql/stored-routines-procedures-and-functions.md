@@ -320,7 +320,7 @@ The RETURNS data_type is any MySQL datatype.
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |RETURNS|Specifies the data type that can be returned from a function.
 |RETURN|Actual variable or value following the `RETURN` syntax is what is returned to where the function was called from.
 

@@ -256,20 +256,20 @@ let's assume we have three table which can be used for simple website with Tags.
 fist table "videogame"
 
 |id|title|reg_date|Content
-|------
+|---|---|---|---
 |1|BioShock Infinite|2016-08-08|....
 
 "tags" table
 
 |id|name
-|------
+|---|---|---|---
 |1|yennefer
 |2|elizabeth
 
 "tags_meta" table
 
 |post_id|tag_id
-|------
+|---|---|---|---
 |1|2
 
 ```sql

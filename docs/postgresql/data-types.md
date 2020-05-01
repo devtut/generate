@@ -16,7 +16,7 @@ PostgreSQL has a rich set of native data types available to users. Users can add
 
 
 |Name|Storage  Size|Description|Range
-|------
+|---|---|---|---|---|---|---
 |`smallint`|2 bytes|small-range integer|-32768 to +32767
 |`integer`|4 bytes|ypical choice for integer|-2147483648 to +2147483647
 |`bigint`|8 bytes|large-range integer|-9223372036854775808 to +9223372036854775807
@@ -37,7 +37,7 @@ PostgreSQL has a rich set of native data types available to users. Users can add
 
 
 |Name|Storage Size|Description|Low Value|High Value|Resolution
-|------
+|---|---|---|---|---|---|---
 |`timestamp` (without time zone)|8 bytes|both date and time (no time zone)|4713 BC|294276 AD|1 microsecond / 14 digits
 |`timestamp` (with time zone)|8 bytes|both date and time, with time zone|4713 BC|294276 AD|1 microsecond / 14 digits
 |`date`|4 bytes|date (no time of day)|4713 BC|5874897 AD|1 day
@@ -54,7 +54,7 @@ PostgreSQL has a rich set of native data types available to users. Users can add
 
 
 |Name|Storage Size|Description|Representation
-|------
+|---|---|---|---|---|---|---
 |`point`|16 bytes|Point on a plane|(x,y)
 |`line`|32 bytes|Infinite line|{A,B,C}
 |`lseg`|32 bytes|Finite line segment|((x1,y1),(x2,y2))
@@ -70,7 +70,7 @@ PostgreSQL has a rich set of native data types available to users. Users can add
 
 
 |Name|Storage Size|Description
-|------
+|---|---|---|---|---|---|---
 |`cidr`|7 or 19 bytes|IPv4 and IPv6 networks
 |`inet`|7 or 19 bytes|IPv4 and IPv6 hosts and networks
 |`macaddr`|6 bytes|MAC addresses
@@ -81,7 +81,7 @@ PostgreSQL has a rich set of native data types available to users. Users can add
 
 
 |Name|Description
-|------
+|---|---|---|---|---|---|---
 |`character varying(n)`, `varchar(n)`|variable-length with limit
 |`character(n)`, `char(n)`|fixed-length, blank padded
 |`text`|variable unlimited length

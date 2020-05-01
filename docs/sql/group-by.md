@@ -88,7 +88,7 @@ Let's say you want to generate counts or subtotals for a given value in a column
 Given this table, "Westerosians":
 
 |Name|GreatHouseAllegience
-|------
+|---|---|---|---|---
 |Arya|Stark
 |Cercei|Lannister
 |Myrcella|Lannister
@@ -107,7 +107,7 @@ FROM Westerosians
 returns...
 
 |Number_of_Westerosians
-|------
+|---|---|---|---|---
 |6
 
 But by adding GROUP BY, we can COUNT the users for each value in a given column, to return the number of people in a given Great House, say:
@@ -122,7 +122,7 @@ GROUP BY GreatHouseAllegience
 returns...
 
 |House|Number_of_Westerosians
-|------
+|---|---|---|---|---
 |Stark|3
 |Greyjoy|1
 |Lannister|2
@@ -140,7 +140,7 @@ ORDER BY Number_of_Westerosians Desc
 returns...
 
 |House|Number_of_Westerosians
-|------
+|---|---|---|---|---
 |Stark|3
 |Lannister|2
 |Greyjoy|1
@@ -208,7 +208,7 @@ SQL standard versions that support these features: 1999,2003,2006,2008,2011.
 Consider this table:
 
 |Food|Brand|Total_amount
-|------
+|---|---|---|---|---
 |Pasta|Brand1|100
 |Pasta|Brand2|250
 |Pizza|Brand2|300
@@ -223,7 +223,7 @@ group by Food,Brand,Total_amount with cube
 ```
 
 |Food|Brand|Total_amount
-|------
+|---|---|---|---|---
 |Pasta|Brand1|100
 |Pasta|Brand2|250
 |Pasta|ALL|350
@@ -243,7 +243,7 @@ group by Food,Brand,Total_amount with roll up
 ```
 
 |Food|Brand|Total_amount
-|------
+|---|---|---|---|---
 |Pasta|Brand1|100
 |Pasta|Brand2|250
 |Pizza|Brand2|300

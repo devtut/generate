@@ -22,7 +22,7 @@ Latitude/Longitude coordinate system for a curved surface (the earth). There are
 Creates a single Point. This will be a geometry or geography point depending on the class used.
 
 |Parameter|Detail
-|------
+|---|---|---|---
 |Lat or X|Is a float expression representing the x-coordinate of the Point being generated
 |Long or Y|Is a float expression representing the y-coordinate of the Point being generated
 |String|Well Known Text (WKB) of a geometry/geography shape

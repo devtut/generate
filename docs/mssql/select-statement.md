@@ -74,7 +74,7 @@ GROUP BY type
 You can apply some function on each group (aggregate function) to calculate sum or count of the records in the group.
 
 |type|c
-|------
+|---|---|---|---
 |SQ|3
 |S|72
 |IT|16
@@ -97,7 +97,7 @@ HAVING count(*) < 10
 ```
 
 |type|c
-|------
+|---|---|---|---
 |SQ|3
 |PK|1
 |U|5

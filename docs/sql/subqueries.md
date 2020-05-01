@@ -89,7 +89,7 @@ WHERE temp_var > 20;
 The above finds cities from the [weather table](http://stackoverflow.com/documentation/sql/280/example-databases/2641/weather-table) whose daily temperature variation is greater than 20. The result is:
 
 |city|temp_var
-|------
+|---|---|---|---
 |ST LOUIS|21
 |LOS ANGELES|31
 |LOS ANGELES|23
@@ -117,7 +117,7 @@ WHERE pop2000 < (SELECT avg(pop2000)  FROM cities);
 Here: the subquery (SELECT avg(pop2000)  FROM cities) is used to specify conditions in the WHERE clause. The result is:
 
 |name|pop2000
-|------
+|---|---|---|---
 |San Francisco|776733
 |ST LOUIS|348189
 |Kansas City|146866

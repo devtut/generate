@@ -43,7 +43,7 @@ SELECT CustomerId,
 Beware that using OVER in this fashion will not aggregate the rows returned. The above query will return the following:
 
 |CustomerId|Total|Avg|Count|Min|Max
-|------
+|---|---|---|---|---|---|---
 |1|430|215|2|200|230
 |1|430|215|2|200|230
 
@@ -106,7 +106,7 @@ JOIN Books ON Books.AuthorId = Authors.Id
 Could result in:
 
 |Author|Title|CreationDate|RANK|DENSE_RANK|ROW_NUMBER
-|------
+|---|---|---|---|---|---|---
 |Author 1|Book 1|22/07/2016|1|1|1
 |Author 1|Book 2|22/07/2016|1|1|2
 |Author 1|Book 3|21/07/2016|3|2|3
@@ -148,7 +148,7 @@ order by ExamId, Quartile
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---
 |PARTITION BY|The field(s) that follows PARTITION BY is the one that the 'grouping' will be based on
 
 

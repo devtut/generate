@@ -28,7 +28,7 @@ FROM Users
 returns...
 
 |DisplayName|Reputation
-|------
+|---|---|---|---
 |Community|1
 |Geoff Dalgas|12567
 |Jarrod Dixon|11739
@@ -47,7 +47,7 @@ ORDER BY Reputation desc
 returns...
 
 |DisplayName|Reputation
-|------
+|---|---|---|---
 |JonSkeet|**865023**
 |Darin Dimitrov|**661741**
 |BalusC|**650237**
@@ -80,7 +80,7 @@ You can use a column's number (where the leftmost column is '1') to indicate whi
 This query sorts result by the info in relative column position `3` from select statement instead of column name `Reputation`.
 
 |DisplayName|JoinDate|Reputation
-|------
+|---|---|---|---
 |Community|2008-09-15|**1**
 |Jarrod Dixon|2008-10-03|**11739**
 |Geoff Dalgas|2008-10-03|**12567**
@@ -93,7 +93,7 @@ This query sorts result by the info in relative column position `3` from select 
 
 
 |DisplayName|JoinDate|Reputation
-|------
+|---|---|---|---
 |Community|**2008-09-15**|**1**
 |Jeff Atwood|**2008-09-16**|**25784**
 |Joel Spolsky|2008-09-16|**37628**
@@ -132,7 +132,7 @@ To sort this table `Employee` by department, you would use `ORDER BY Department`
 However, if you want a different sort order that is not alphabetical, you have to map the `Department` values into different values that sort correctly; this can be done with a CASE expression:
 
 |Name|Department
-|------
+|---|---|---|---
 |Hasan|IT
 |Yusuf|HR
 |Hillary|HR
@@ -152,7 +152,7 @@ ORDER BY CASE Department
 ```
 
 |Name|Department
-|------
+|---|---|---|---
 |Yusuf|**HR**
 |Hillary|**HR**
 |Merry|**HR**

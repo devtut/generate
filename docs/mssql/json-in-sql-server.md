@@ -13,7 +13,7 @@ description: "Format Query Results as JSON with FOR JSON, Parse JSON text, Join 
 Input table data (People table)
 
 |Id|Name|Age
-|------
+|---|---|---|---|---|---
 |1|John|23
 |2|Jane|31
 
@@ -58,7 +58,7 @@ SELECT
 **Result**
 
 |Id|Name|UserObject|Skills|Skill0
-|------
+|---|---|---|---|---|---
 |1|John|{"name":"John"}|["C#","SQL"]|C#
 
 
@@ -124,7 +124,7 @@ WITH(
 **Result**
 
 |Id|PersonName|Hobby
-|------
+|---|---|---|---|---|---
 |1|John|Reading
 |1|John|Surfing
 |2|Jane|Programming
@@ -198,7 +198,7 @@ Note: this option will produce invalid JSON output if more than one row is retur
 Input table data (People table)
 
 |Id|Name|Age
-|------
+|---|---|---|---|---|---
 |1|John|23
 |2|Jane|31
 
@@ -242,7 +242,7 @@ FROM OPENJSON (@json)
 **Result**
 
 |Id|Name|UserObject|Skills|Skill0
-|------
+|---|---|---|---|---|---
 |1|John|{"name":"John"}|["C#","SQL"]|C#
 
 
@@ -262,7 +262,7 @@ FROM OPENJSON (@json)
 
 
 |Parameters|Details
-|------
+|---|---|---|---|---|---
 |expression|Typically the name of a variable or a column that contains JSON text.
 |path|A JSON path expression that specifies the property to update. path has the following syntax: [append] [ lax | strict ] $.<json path>
 |jsonExpression|Is a Unicode character expression containing the JSON text.

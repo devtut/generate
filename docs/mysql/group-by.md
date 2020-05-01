@@ -30,7 +30,7 @@ You could also say `HAVING Man_Power >= 10` since `HAVING` understands "aliases"
 [Group Concat](http://dev.mysql.com/doc/refman/5.7/en/group-by-functions.html#function_group-concat) is used in MySQL to get concatenated values of expressions with more than one result per column. Meaning, there are many rows to be selected back for one column such as `Name(1):Score(*)`
 
 |Name|Score
-|------
+|---|---|---|---
 |Adam|A+
 |Adam|A-
 |Adam|B
@@ -290,7 +290,7 @@ GROUP BY department;
 
 
 |Parameter|DETAILS
-|------
+|---|---|---|---
 |expression1, expression2, ... expression_n|The expressions that are not encapsulated within an aggregate function and must be included in the GROUP BY clause.
 |aggregate_function|A function such as SUM, COUNT, MIN, MAX, or AVG functions.
 |tables|he tables that you wish to retrieve records from. There must be at least one table listed in the FROM clause.

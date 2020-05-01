@@ -104,7 +104,7 @@ The main difference between GLOBAL and SESSION is that with the GLOBAL modifier 
 
 
 |Parameters|Explanation
-|------
+|---|---|---|---
 |GLOBAL|Shows the variables as they are configured for the entire server. Optional.
 |SESSION|Shows the variables that are configured for this session only. Optional.
 

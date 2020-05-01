@@ -142,7 +142,7 @@ Most of the time we like to get the total number of occurrence of a column value
 TABLE NAME :  REPORTS
 
 |ReportName|ReportPrice
-|------
+|---|---|---|---
 |Test|10.00   $
 |Test|10.00   $
 |Test|10.00   $
@@ -164,7 +164,7 @@ GROUP BY
 ```
 
 |REPORT NAME|COUNT
-|------
+|---|---|---|---
 |Test|4
 |Test 2|1
 |Test 3|2

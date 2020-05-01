@@ -14,7 +14,7 @@ description: "Limit and Offset relationship"
 Considering the following `users` table:
 
 |id|username
-|------
+|---|---|---|---
 |1|User1
 |2|User2
 |3|User3
@@ -33,7 +33,7 @@ SELECT * FROM users ORDER BY id ASC LIMIT 2
 ```
 
 |id|username
-|------
+|---|---|---|---
 |1|User1
 |2|User2
 
@@ -58,7 +58,7 @@ SELECT * FROM users ORDER BY id ASC LIMIT 2, 3
 Presents the following result set:
 
 |id|username
-|------
+|---|---|---|---
 |3|User3
 |4|User4
 |5|User5
@@ -75,7 +75,7 @@ SELECT * FROM users ORDER BY id ASC LIMIT 2
 Produce the same result set:
 
 |id|username
-|------
+|---|---|---|---
 |1|User1
 |2|User2
 
@@ -91,7 +91,7 @@ SELECT * FROM users ORDER BY id ASC LIMIT 2 OFFSET 3
 This query would return the following result set:
 
 |id|username
-|------
+|---|---|---|---
 |3|User3
 |4|User4
 

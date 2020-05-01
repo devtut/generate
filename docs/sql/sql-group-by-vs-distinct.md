@@ -13,7 +13,7 @@ description: "Difference between GROUP BY and DISTINCT"
 `GROUP BY` is used in combination with aggregation functions. Consider the following table:
 
 |orderId|userId|storeName|orderValue|orderDate
-|------
+|---|---|---|---|---|---|---|---|---
 |1|43|Store A|25|20-03-2016
 |2|57|Store B|50|22-03-2016
 |3|43|Store A|30|25-03-2016
@@ -40,7 +40,7 @@ GROUP BY
 and will return the following information
 
 |storeName|total_nr_orders|nr_unique_customers|average_order_value|first_order|lastOrder
-|------
+|---|---|---|---|---|---|---|---|---
 |Store A|3|2|33.3|20-03-2016|29-03-2016
 |Store B|1|1|50|22-03-2016|22-03-2016
 |Store C|1|1|10|26-03-2016|26-03-2016
@@ -57,7 +57,7 @@ FROM
 ```
 
 |storeName|userId
-|------
+|---|---|---|---|---|---|---|---|---
 |Store A|43
 |Store B|57
 |Store C|82

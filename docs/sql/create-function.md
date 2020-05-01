@@ -46,7 +46,7 @@ END</li>
 
 
 |Argument|Description
-|------
+|---|---|---|---
 |function_name|the name of function
 |list_of_paramenters|parameters that function accepts
 |return_data_type|type that function returs. Some SQL [data type](http://www.w3schools.com/sql/sql_datatypes_general.asp)

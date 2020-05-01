@@ -64,7 +64,7 @@ Where    N <= DateDiff(Day, @FromDate, @ToDate) + 1
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |@FromDate|The inclusive lower boundary of the generated date range.
 |@ToDate|The inclusive upper boundary of the generated date range.
 
