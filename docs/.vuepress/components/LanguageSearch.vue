@@ -35,6 +35,7 @@ export default {
         { id: 12, name: "Git", topics: 61, url: "/git/" },
         { id: 13, name: "Node.js", topics: 111, url: "/nodejs/" },
         { id: 14, name: "R", topics: 131, url: "/r/" },
+        { id: 14, name: "Algorithm", topics: 65, url: "/algorithm/" },
       ]
     };
   },
