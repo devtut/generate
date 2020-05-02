@@ -33,67 +33,67 @@ JOIN
 
 This query will return the following data:
 
-<th align="left">Employee</th><th align="left">Manager</th>
-|------
-<td align="left">John</td><td align="left">James</td>
-<td align="left">Michael</td><td align="left">James</td>
-<td align="left">Johnathon</td><td align="left">John</td>
+|Employee|Manager
+|---|---|---|---|---
+|John|James
+|Michael|James
+|Johnathon|John
 
 ### So how does this work?
 
 The original table contains these records:
 
-<th align="left">Id</th><th align="left">FName</th><th align="left">LName</th><th align="left">PhoneNumber</th><th align="left">ManagerId</th><th align="left">DepartmentId</th><th align="left">Salary</th><th align="left">HireDate</th>
-|------
-<td align="left">1</td><td align="left">James</td><td align="left">Smith</td><td align="left">1234567890</td><td align="left">NULL</td><td align="left">1</td><td align="left">1000</td><td align="left">01-01-2002</td>
-<td align="left">2</td><td align="left">John</td><td align="left">Johnson</td><td align="left">2468101214</td><td align="left">1</td><td align="left">1</td><td align="left">400</td><td align="left">23-03-2005</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">Williams</td><td align="left">1357911131</td><td align="left">1</td><td align="left">2</td><td align="left">600</td><td align="left">12-05-2009</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">Smith</td><td align="left">1212121212</td><td align="left">2</td><td align="left">1</td><td align="left">500</td><td align="left">24-07-2016</td>
+|Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|HireDate
+|---|---|---|---|---|---|---|---|---|---
+|1|James|Smith|1234567890|NULL|1|1000|01-01-2002
+|2|John|Johnson|2468101214|1|1|400|23-03-2005
+|3|Michael|Williams|1357911131|1|2|600|12-05-2009
+|4|Johnathon|Smith|1212121212|2|1|500|24-07-2016
 
 The first action is to create a **Cartesian** product of all records in the tables used in the **FROM** clause.  In this case it's the Employees table twice, so the intermediate table will look like this (I've removed any fields not used in this example):
 
-<th align="left">e.Id</th><th align="left">e.FName</th><th align="left">e.ManagerId</th><th align="left">m.Id</th><th align="left">m.FName</th><th align="left">m.ManagerId</th>
-|------
-<td align="left">1</td><td align="left">James</td><td align="left">NULL</td><td align="left">1</td><td align="left">James</td><td align="left">NULL</td>
-<td align="left">1</td><td align="left">James</td><td align="left">NULL</td><td align="left">2</td><td align="left">John</td><td align="left">1</td>
-<td align="left">1</td><td align="left">James</td><td align="left">NULL</td><td align="left">3</td><td align="left">Michael</td><td align="left">1</td>
-<td align="left">1</td><td align="left">James</td><td align="left">NULL</td><td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td>
-<td align="left">2</td><td align="left">John</td><td align="left">1</td><td align="left">1</td><td align="left">James</td><td align="left">NULL</td>
-<td align="left">2</td><td align="left">John</td><td align="left">1</td><td align="left">2</td><td align="left">John</td><td align="left">1</td>
-<td align="left">2</td><td align="left">John</td><td align="left">1</td><td align="left">3</td><td align="left">Michael</td><td align="left">1</td>
-<td align="left">2</td><td align="left">John</td><td align="left">1</td><td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">1</td><td align="left">1</td><td align="left">James</td><td align="left">NULL</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">1</td><td align="left">2</td><td align="left">John</td><td align="left">1</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">1</td><td align="left">3</td><td align="left">Michael</td><td align="left">1</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">1</td><td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td><td align="left">1</td><td align="left">James</td><td align="left">NULL</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td><td align="left">2</td><td align="left">John</td><td align="left">1</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td><td align="left">3</td><td align="left">Michael</td><td align="left">1</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td><td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td>
+|e.Id|e.FName|e.ManagerId|m.Id|m.FName|m.ManagerId
+|---|---|---|---|---|---|---|---|---|---
+|1|James|NULL|1|James|NULL
+|1|James|NULL|2|John|1
+|1|James|NULL|3|Michael|1
+|1|James|NULL|4|Johnathon|2
+|2|John|1|1|James|NULL
+|2|John|1|2|John|1
+|2|John|1|3|Michael|1
+|2|John|1|4|Johnathon|2
+|3|Michael|1|1|James|NULL
+|3|Michael|1|2|John|1
+|3|Michael|1|3|Michael|1
+|3|Michael|1|4|Johnathon|2
+|4|Johnathon|2|1|James|NULL
+|4|Johnathon|2|2|John|1
+|4|Johnathon|2|3|Michael|1
+|4|Johnathon|2|4|Johnathon|2
 
 The next action is to only keep the records that meet the **JOIN** criteria, so any records where the aliased `e` table `ManagerId` equals the aliased `m` table `Id`:
 
-<th align="left">e.Id</th><th align="left">e.FName</th><th align="left">e.ManagerId</th><th align="left">m.Id</th><th align="left">m.FName</th><th align="left">m.ManagerId</th>
-|------
-<td align="left">2</td><td align="left">John</td><td align="left">1</td><td align="left">1</td><td align="left">James</td><td align="left">NULL</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">1</td><td align="left">1</td><td align="left">James</td><td align="left">NULL</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">2</td><td align="left">2</td><td align="left">John</td><td align="left">1</td>
+|e.Id|e.FName|e.ManagerId|m.Id|m.FName|m.ManagerId
+|---|---|---|---|---|---|---|---|---|---
+|2|John|1|1|James|NULL
+|3|Michael|1|1|James|NULL
+|4|Johnathon|2|2|John|1
 
 Then, each expression used within the **SELECT** clause is evaluated to return this table:
 
-<th align="left">e.FName</th><th align="left">m.FName</th>
-|------
-<td align="left">John</td><td align="left">James</td>
-<td align="left">Michael</td><td align="left">James</td>
-<td align="left">Johnathon</td><td align="left">John</td>
+|e.FName|m.FName
+|---|---|---|---|---
+|John|James
+|Michael|James
+|Johnathon|John
 
 Finally, column names `e.FName` and `m.FName` are replaced by their alias column names, assigned with the [AS](http://stackoverflow.com/documentation/sql/222/select/1264/select-using-column-aliases#t=201609282325090459635) operator:
 
-<th align="left">Employee</th><th align="left">Manager</th>
-|------
-<td align="left">John</td><td align="left">James</td>
-<td align="left">Michael</td><td align="left">James</td>
-<td align="left">Johnathon</td><td align="left">John</td>
+|Employee|Manager
+|---|---|---|---|---
+|John|James
+|Michael|James
+|Johnathon|John
 
 
 
@@ -457,61 +457,61 @@ ON              Departments.Id = Employees.DepartmentId
 
 This would return the following from the [example database](http://stackoverflow.com/documentation/sql/280/example-database#t=201604180847497343904):
 
-<th align="left">Departments.Name</th><th align="left">Employees.FName</th>
-|------
-<td align="left">HR</td><td align="left">James</td>
-<td align="left">HR</td><td align="left">John</td>
-<td align="left">HR</td><td align="left">Johnathon</td>
-<td align="left">Sales</td><td align="left">Michael</td>
-<td align="left">Tech</td><td align="left">NULL</td>
+|Departments.Name|Employees.FName
+|---|---|---|---|---
+|HR|James
+|HR|John
+|HR|Johnathon
+|Sales|Michael
+|Tech|NULL
 
 ### So how does this work?
 
 There are two tables in the FROM clause:
 
-<th align="left">Id</th><th align="left">FName</th><th align="left">LName</th><th align="left">PhoneNumber</th><th align="left">ManagerId</th><th align="left">DepartmentId</th><th align="left">Salary</th><th align="left">HireDate</th>
-|------
-<td align="left">1</td><td align="left">James</td><td align="left">Smith</td><td align="left">1234567890</td><td align="left">NULL</td><td align="left">1</td><td align="left">1000</td><td align="left">01-01-2002</td>
-<td align="left">2</td><td align="left">John</td><td align="left">Johnson</td><td align="left">2468101214</td><td align="left">1</td><td align="left">1</td><td align="left">400</td><td align="left">23-03-2005</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">Williams</td><td align="left">1357911131</td><td align="left">1</td><td align="left">2</td><td align="left">600</td><td align="left">12-05-2009</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">Smith</td><td align="left">1212121212</td><td align="left">2</td><td align="left">1</td><td align="left">500</td><td align="left">24-07-2016</td>
+|Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|HireDate
+|---|---|---|---|---|---|---|---|---|---
+|1|James|Smith|1234567890|NULL|1|1000|01-01-2002
+|2|John|Johnson|2468101214|1|1|400|23-03-2005
+|3|Michael|Williams|1357911131|1|2|600|12-05-2009
+|4|Johnathon|Smith|1212121212|2|1|500|24-07-2016
 
 and
 
-<th align="left">Id</th><th align="left">Name</th>
-|------
-<td align="left">1</td><td align="left">HR</td>
-<td align="left">2</td><td align="left">Sales</td>
-<td align="left">3</td><td align="left">Tech</td>
+|Id|Name
+|---|---|---|---|---
+|1|HR
+|2|Sales
+|3|Tech
 
 First a **Cartesian** product is created from the two tables giving an intermediate table.<br />
 The records that meet the join criteria (**Departments.Id = Employees.DepartmentId**) are highlighted in bold; these are passed to the next stage of the query.
 
 As this is a LEFT OUTER JOIN all records are returned from the LEFT side of the join (Departments), while any records on the RIGHT side are given a NULL marker if they do not match the join criteria.  In the table below this will return **Tech** with `NULL`
 
-<th align="left">Id</th><th align="left">Name</th><th align="left">Id</th><th align="left">FName</th><th align="left">LName</th><th align="left">PhoneNumber</th><th align="left">ManagerId</th><th align="left">DepartmentId</th><th align="left">Salary</th><th align="left">HireDate</th>
-|------
-<td align="left">**1**</td><td align="left">**HR**</td><td align="left">**1**</td><td align="left">**James**</td><td align="left">**Smith**</td><td align="left">**1234567890**</td><td align="left">**NULL**</td><td align="left">**1**</td><td align="left">**1000**</td><td align="left">**01-01-2002**</td>
-<td align="left">**1**</td><td align="left">**HR**</td><td align="left">**2**</td><td align="left">**John**</td><td align="left">**Johnson**</td><td align="left">**2468101214**</td><td align="left">**1**</td><td align="left">**1**</td><td align="left">**400**</td><td align="left">**23-03-2005**</td>
-<td align="left">1</td><td align="left">HR</td><td align="left">3</td><td align="left">Michael</td><td align="left">Williams</td><td align="left">1357911131</td><td align="left">1</td><td align="left">2</td><td align="left">600</td><td align="left">12-05-2009</td>
-<td align="left">**1**</td><td align="left">**HR**</td><td align="left">**4**</td><td align="left">**Johnathon**</td><td align="left">**Smith**</td><td align="left">**1212121212**</td><td align="left">**2**</td><td align="left">**1**</td><td align="left">**500**</td><td align="left">**24-07-2016**</td>
-<td align="left">2</td><td align="left">Sales</td><td align="left">1</td><td align="left">James</td><td align="left">Smith</td><td align="left">1234567890</td><td align="left">NULL</td><td align="left">1</td><td align="left">1000</td><td align="left">01-01-2002</td>
-<td align="left">2</td><td align="left">Sales</td><td align="left">2</td><td align="left">John</td><td align="left">Johnson</td><td align="left">2468101214</td><td align="left">1</td><td align="left">1</td><td align="left">400</td><td align="left">23-03-2005</td>
-<td align="left">**2**</td><td align="left">**Sales**</td><td align="left">**3**</td><td align="left">**Michael**</td><td align="left">**Williams**</td><td align="left">**1357911131**</td><td align="left">**1**</td><td align="left">**2**</td><td align="left">**600**</td><td align="left">**12-05-2009**</td>
-<td align="left">2</td><td align="left">Sales</td><td align="left">4</td><td align="left">Johnathon</td><td align="left">Smith</td><td align="left">1212121212</td><td align="left">2</td><td align="left">1</td><td align="left">500</td><td align="left">24-07-2016</td>
-<td align="left">3</td><td align="left">Tech</td><td align="left">1</td><td align="left">James</td><td align="left">Smith</td><td align="left">1234567890</td><td align="left">NULL</td><td align="left">1</td><td align="left">1000</td><td align="left">01-01-2002</td>
-<td align="left">3</td><td align="left">Tech</td><td align="left">2</td><td align="left">John</td><td align="left">Johnson</td><td align="left">2468101214</td><td align="left">1</td><td align="left">1</td><td align="left">400</td><td align="left">23-03-2005</td>
-<td align="left">3</td><td align="left">Tech</td><td align="left">3</td><td align="left">Michael</td><td align="left">Williams</td><td align="left">1357911131</td><td align="left">1</td><td align="left">2</td><td align="left">600</td><td align="left">12-05-2009</td>
-<td align="left">3</td><td align="left">Tech</td><td align="left">4</td><td align="left">Johnathon</td><td align="left">Smith</td><td align="left">1212121212</td><td align="left">2</td><td align="left">1</td><td align="left">500</td><td align="left">24-07-2016</td>
+|Id|Name|Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|HireDate
+|---|---|---|---|---|---|---|---|---|---
+|**1**|**HR**|**1**|**James**|**Smith**|**1234567890**|**NULL**|**1**|**1000**|**01-01-2002**
+|**1**|**HR**|**2**|**John**|**Johnson**|**2468101214**|**1**|**1**|**400**|**23-03-2005**
+|1|HR|3|Michael|Williams|1357911131|1|2|600|12-05-2009
+|**1**|**HR**|**4**|**Johnathon**|**Smith**|**1212121212**|**2**|**1**|**500**|**24-07-2016**
+|2|Sales|1|James|Smith|1234567890|NULL|1|1000|01-01-2002
+|2|Sales|2|John|Johnson|2468101214|1|1|400|23-03-2005
+|**2**|**Sales**|**3**|**Michael**|**Williams**|**1357911131**|**1**|**2**|**600**|**12-05-2009**
+|2|Sales|4|Johnathon|Smith|1212121212|2|1|500|24-07-2016
+|3|Tech|1|James|Smith|1234567890|NULL|1|1000|01-01-2002
+|3|Tech|2|John|Johnson|2468101214|1|1|400|23-03-2005
+|3|Tech|3|Michael|Williams|1357911131|1|2|600|12-05-2009
+|3|Tech|4|Johnathon|Smith|1212121212|2|1|500|24-07-2016
 
 Finally each expression used within the **SELECT** clause is evaluated to return our final table:
 
-<th align="left">Departments.Name</th><th align="left">Employees.FName</th>
-|------
-<td align="left">HR</td><td align="left">James</td>
-<td align="left">HR</td><td align="left">John</td>
-<td align="left">Sales</td><td align="left">Richard</td>
-<td align="left">Tech</td><td align="left">NULL</td>
+|Departments.Name|Employees.FName
+|---|---|---|---|---
+|HR|James
+|HR|John
+|Sales|Richard
+|Tech|NULL
 
 
 
@@ -536,11 +536,11 @@ WHERE  e.DeptartmentId = d.Id
 
 This would return the following from the [example database](http://stackoverflow.com/documentation/sql/280/example-database#t=201604180847497343904):
 
-<th align="left">e.FName</th><th align="left">d.Name</th>
-|------
-<td align="left">James</td><td align="left">HR</td>
-<td align="left">John</td><td align="left">HR</td>
-<td align="left">Richard</td><td align="left">Sales</td>
+|e.FName|d.Name
+|---|---|---|---|---
+|James|HR
+|John|HR
+|Richard|Sales
 
 
 
@@ -562,7 +562,7 @@ ON Employees.DepartmentId = Departments.Id
 This would return the following from the [example database](http://stackoverflow.com/documentation/sql/280/example-database#t=201604180847497343904):
 
 |Employees.FName|Departments.Name
-|------
+|---|---|---|---|---
 |James|HR
 |John|HR
 |Richard|Sales
@@ -586,7 +586,7 @@ CROSS JOIN Employees e;
 Which returns:
 
 |d.Name|e.FName
-|------
+|---|---|---|---|---
 |HR|James
 |HR|John
 |HR|Michael

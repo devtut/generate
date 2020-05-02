@@ -35,14 +35,14 @@ FROM SalesPerson;
 
 This example uses the LEAD and LAG functions to compare the sales values for each employee to date with those of the employees listed above and below, with records ordered based on the BusinessEntityID column.
 
-|BusinessEntityID<th align="right">SalesYTD</th><th align="right">Lead value</th><th align="right">Lag value</th>
-|------
-|274<td align="right">559697.5639</td><td align="right">3763178.1787</td><td align="right">0.0000</td>
-|275<td align="right">3763178.1787</td><td align="right">4251368.5497</td><td align="right">559697.5639</td>
-|276<td align="right">4251368.5497</td><td align="right">3189418.3662</td><td align="right">3763178.1787</td>
-|277<td align="right">3189418.3662</td><td align="right">1453719.4653</td><td align="right">4251368.5497</td>
-|278<td align="right">1453719.4653</td><td align="right">2315185.6110</td><td align="right">3189418.3662</td>
-|279<td align="right">2315185.6110</td><td align="right">1352577.1325</td><td align="right">1453719.4653</td>
+|BusinessEntityID|SalesYTD|Lead value|Lag value
+|---|---|---|---|---
+|274|559697.5639|3763178.1787|0.0000
+|275|3763178.1787|4251368.5497|559697.5639
+|276|4251368.5497|3189418.3662|3763178.1787
+|277|3189418.3662|1453719.4653|4251368.5497
+|278|1453719.4653|2315185.6110|3189418.3662
+|279|2315185.6110|1352577.1325|1453719.4653
 
 
 
@@ -68,7 +68,7 @@ FROM Employee;
 To find the exact value from the row that matches or exceeds the 0.5 percentile, you pass the percentile as the numeric literal in the `PERCENTILE_DISC` function. The Percentile Discreet column in a result set lists the value of the row at which the cumulative distribution is higher than the specified percentile.
 
 |BusinessEntityID|JobTitle|SickLeaveHours|Cumulative Distribution|Percentile Discreet
-|------
+|---|---|---|---|---
 |272|Application Specialist|55|0.25|**56**
 |268|Application Specialist|56|0.75|**56**
 |269|Application Specialist|56|0.75|**56**
@@ -89,7 +89,7 @@ FROM Employee;
 ```
 
 |BusinessEntityID|JobTitle|SickLeaveHours|Cumulative Distribution|Percentile Discreet|Percentile Continuous
-|------
+|---|---|---|---|---|---|---|---|---|---
 |272|Application Specialist|55|0.25|56|**56**
 |268|Application Specialist|56|0.75|56|**56**
 |269|Application Specialist|56|0.75|56|**56**
@@ -113,7 +113,7 @@ FROM SalesTaxRate;
 In this example, the `FIRST_VALUE` function is used to return the `ID` of the state or province with the lowest tax rate. The `OVER` clause is used to order the tax rates to obtain the lowest rate.
 
 |StateProvinceID|Name|TaxRate|FirstValue
-|------
+|---|---|---|---|---
 |74|Utah State Sales Tax|5.00|74
 |36|Minnesota State Sales Tax|6.75|74
 |30|Massachusetts State Sales Tax|7.00|74
@@ -139,7 +139,7 @@ FROM SalesTerritoryHistory;
 This example uses the `LAST_VALUE` function to return the last value for each rowset in the ordered values.
 
 |TerritoryID|StartDate|BusinessentityID|LastValue
-|------
+|---|---|---|---|---
 |1|2005-07-01 00.00.00.000|280|283
 |1|2006-11-01 00.00.00.000|284|283
 |1|2005-07-01 00.00.00.000|283|283
@@ -171,7 +171,7 @@ FROM Employee;
 In this example, you use an `ORDER` clause to partition – or group – the rows retrieved by the `SELECT` statement based on employees' job titles, with the results in each group sorted based on the numbers of sick leave hours that employees have used.
 
 |BusinessEntityID|JobTitle|SickLeaveHours|Percent Rank|Cumulative Distribution
-|------
+|---|---|---|---|---
 |267|Application Specialist|57|0|0.25
 |268|Application Specialist|56|0.333333333333333|0.75
 |269|Application Specialist|56|0.333333333333333|0.75
