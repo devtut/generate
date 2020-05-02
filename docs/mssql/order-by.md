@@ -61,13 +61,13 @@ Note that the `ASC` keyword is optional, and results are sorted in ascending ord
 If we want to order the data differently for per group, we can add a `CASE` syntax to the `ORDER BY`.
 In this example, we want to order employees from Department 1 by last name and employees from Department 2 by salary.
 
-<th align="left">Id</th><th align="left">FName</th><th align="left">LName</th><th align="left">PhoneNumber</th><th align="left">ManagerId</th><th align="left">DepartmentId</th><th align="left">Salary</th><th align="left">HireDate</th>
-|---|---|---|---
-<td align="left">1</td><td align="left">James</td><td align="left">Smith</td><td align="left">1234567890</td><td align="left">NULL</td><td align="left">1</td><td align="left">1000</td><td align="left">01-01-2002</td>
-<td align="left">2</td><td align="left">John</td><td align="left">Johnson</td><td align="left">2468101214</td><td align="left">1</td><td align="left">1</td><td align="left">400</td><td align="left">23-03-2005</td>
-<td align="left">3</td><td align="left">Michael</td><td align="left">Williams</td><td align="left">1357911131</td><td align="left">1</td><td align="left">2</td><td align="left">600</td><td align="left">12-05-2009</td>
-<td align="left">4</td><td align="left">Johnathon</td><td align="left">Smith</td><td align="left">1212121212</td><td align="left">2</td><td align="left">1</td><td align="left">500</td><td align="left">24-07-2016</td>
-<td align="left">5</td><td align="left">Sam</td><td align="left">Saxon</td><td align="left">1372141312</td><td align="left">2</td><td align="left">2</td><td align="left">400</td><td align="left">25-03-2015</td>
+|Id|FName|LName|PhoneNumber|ManagerId|DepartmentId|Salary|HireDate
+|---|---|---|---|---|---|---|---
+|1|James|Smith|1234567890|NULL|1|1000|01-01-2002
+|2|John|Johnson|2468101214|1|1|400|23-03-2005
+|3|Michael|Williams|1357911131|1|2|600|12-05-2009
+|4|Johnathon|Smith|1212121212|2|1|500|24-07-2016
+|5|Sam|Saxon|1372141312|2|2|400|25-03-2015
 
 ```sql
 The following query will provide the required results:
