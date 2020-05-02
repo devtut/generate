@@ -132,7 +132,7 @@ Where appropriate, each topic page should include, in addition to syntax and exa
 MySQL offers a number of different numeric types. These can be broken down into
 
 |Group|Types
-|------
+|---|---|---|---|---
 |Integer Types|`INTEGER`, `INT`, `SMALLINT`, `TINYINT`, `MEDIUMINT`, `BIGINT`
 |Fixed Point Types|`DECIMAL`, `NUMERIC`
 |Floating Point Types|`FLOAT`, `DOUBLE`
@@ -146,7 +146,7 @@ MySQL offers a number of different numeric types. These can be broken down into
 Minimal unsigned value is always 0.
 
 |Type|Storage<br>(Bytes)|Minimum Value<br>(Signed)|Maximum Value<br>(Signed)|Maximum Value<br>(Unsigned)
-|------
+|---|---|---|---|---
 |`TINYINT`|1|-2<sup>7</sup><br>-128|2<sup>7</sup>-1<br>127|2<sup>8</sup>-1<br>255
 |`SMALLINT`|2|-2<sup>15</sup><br>-32,768|2<sup>15</sup>-1<br>32,767|2<sup>16</sup>-1<br>65,535
 |`MEDIUMINT`|3|-2<sup>23</sup><br>-8,388,608|2<sup>23</sup>-1<br>8,388,607|2<sup>24</sup>-1<br>16,777,215
@@ -189,7 +189,7 @@ The number of bytes taken by `DECIMAL(M,N)` is **approximately** `M/2`.
 `FLOAT` and `DOUBLE` represent **approximate** data types.
 
 |Type|Storage|Precision|Range
-|------
+|---|---|---|---|---
 |FLOAT|4 bytes|23 significant bits / ~7 decimal digits|10^+/-38
 |DOUBLE|8 bytes|53 significant bits / ~16 decimal digits|10^+/-308
 
