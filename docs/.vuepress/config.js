@@ -1929,13 +1929,6 @@ module.exports = {
     ],
     ["@vuepress/back-to-top", true],
     [
-      "@vuepress/pwa",
-      {
-        serviceWorker: true,
-        updatePopup: true,
-      },
-    ],
-    [
       "sitemap",
       {
         hostname: "https://devtut.github.io",
