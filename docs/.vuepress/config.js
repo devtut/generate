@@ -59,6 +59,7 @@ module.exports = {
       },
     ],
   ],
+  shouldPrefetch: () => false,
   themeConfig: {
     repo: "devtut/generate",
     editLinks: true,
