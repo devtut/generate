@@ -37,6 +37,7 @@ export default {
         { id: 14, name: "R", topics: 131, url: "/r/" },
         { id: 15, name: "Algorithm", topics: 65, url: "/algorithm/" },
         { id: 16, name: ".NET Framework", topics: 59, url: "/dotnet/" },
+        { id: 17, name: "Bash", topics: 71, url: "/bash/" },
       ]
     };
   },
