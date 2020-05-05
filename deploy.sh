@@ -3,6 +3,9 @@
 # abort on errors
 set -e
 
+# increase node space allocation
+export NODE_OPTIONS="--max-old-space-size=16384"
+
 # build
 npm run docs:build
 
