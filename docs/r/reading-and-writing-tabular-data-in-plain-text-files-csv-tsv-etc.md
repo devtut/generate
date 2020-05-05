@@ -317,7 +317,7 @@ data.table=getOption("datatable.fread.datatable")   # default: TRUE
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |file|name of the CSV file to read
 |header|logical: does the .csv file contain a header row with column names?
 |sep|character: symbol that separates the cells on each row

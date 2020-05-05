@@ -60,7 +60,7 @@ Well-known unstable sorts:
 
 
 |Parameter|Description
-|------
+|---|---|---|---
 |Stability|A sorting algorithm is **stable** if it preserves the relative order of equal elements after sorting.
 |In place|A sorting algorithm is **in-place** if it sorts using only `O(1)` auxiliary memory (not counting the array that needs to be sorted).
 |Best case complexity|A sorting algorithm has a best case time complexity of `O(T(n))` if its running time is **at least** `T(n)` for all possible inputs.

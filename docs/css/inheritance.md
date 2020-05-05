@@ -26,7 +26,7 @@ Assume the following stylesheet:
 
 This will apply `color: red` not only to the `<div>` element but also to the `<h3>` and `<p>` elements. However, due to the nature of `padding` its value will ****not**** be inherited to those elements.
 
-```css
+```html
 <div id="myContainer">
   <h3>Some header</h3>
   <p>Some paragraph</p>
@@ -58,7 +58,7 @@ Assume the following stylesheet:
 
 This will apply `color: red` to both the `<h3>` and `<p>` elements due to the inheritance nature of the `color` property. However, the `<p>` element will also inherit the `padding` value from its' parent because this was specified.
 
-```css
+```html
 <div id="myContainer">
   <h3>Some header</h3>
   <p>Some paragraph</p>

@@ -16,7 +16,7 @@ In R, tabular data is stored in [data frames](http://stackoverflow.com/documenta
 Often data comes in tables. Generally one can divide this tabular data in wide and long formats. In a wide format, each variable has its own column.
 
 |Person|Height [cm]|Age [yr]
-|------
+|---|---|---|---
 |Alison|178|20
 |Bob|174|45
 |Carl|182|31
@@ -24,7 +24,7 @@ Often data comes in tables. Generally one can divide this tabular data in wide a
 However, sometimes it is more convenient to have a long format, in which all variables are in one column and the values are in a second column.
 
 |Person|Variable|Value
-|------
+|---|---|---|---
 |Alison|Height [cm]|178
 |Bob|Height [cm]|174
 |Carl|Height [cm]|182

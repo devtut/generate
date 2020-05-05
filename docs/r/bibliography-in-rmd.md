@@ -161,7 +161,7 @@ Notice the differences to the output of example "Specifying a bibliography and c
 
 
 |Parameter in YAML header|Detail
-|------
+|---|---|---
 |`toc`|table of contents
 |`number_sections`|numbering the sections automatically
 |`bibliography`|path to the bibliography file
@@ -187,7 +187,7 @@ The bibliography may have any of these formats:
 </li>
 
 |Format|File extension
-|------
+|---|---|---
 |MODS|.mods
 |BibLaTeX|.bib
 |BibTeX|.bibtex

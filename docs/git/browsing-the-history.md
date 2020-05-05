@@ -5,11 +5,7 @@ description: "Prettier log, Regular Git Log, Oneline log, Colorize Logs, Log sea
 
 # Browsing the history
 
-
-
-
 ## Prettier log
-
 
 To see the log in a prettier graph-like structure use:
 
@@ -23,7 +19,7 @@ sample output :
 ```git
 * e0c1cea (HEAD -> maint, tag: v2.9.3, origin/maint) Git 2.9.3
 *   9b601ea Merge branch 'jk/difftool-in-subdir' into maint
-|\  
+|\
 | * 32b8c58 difftool: use Git::* functions instead of passing around state
 | * 98f917e difftool: avoid $GIT_DIR and $GIT_WORK_TREE
 | * 9ec26e7 difftool: fix argument handling in subdirs
@@ -53,25 +49,22 @@ git lol --all
 
 ```
 
-
-
 ## "Regular" Git Log
-
 
 ```git
 git log
 
 ```
 
-will display all your commits with the author and hash.  This will be shown over multiple lines per commit. (If you wish to show a single line per commit, look at [onelineing](http://stackoverflow.com/documentation/git/240/git-logs/871/oneline#t=201604090859548590171)). Use the `q` key to exit the log.
+will display all your commits with the author and hash. This will be shown over multiple lines per commit. (If you wish to show a single line per commit, look at [onelineing](http://stackoverflow.com/documentation/git/240/git-logs/871/oneline#t=201604090859548590171)). Use the `q` key to exit the log.
 
-> 
+>
+
 <p>By default, with no arguments, git log lists the commits made in that
 repository in reverse chronological order – that is, the most recent
 commits show up first. As you can see, this command lists each commit
 with its SHA-1 checksum, the author’s name and email, the date
 written, and the commit message. - [**source**](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)</p>
-
 
 Example (from [**Free Code Camp**](https://github.com/FreeCodeCamp/FreeCodeCamp) repository):
 
@@ -82,7 +75,7 @@ Author: Brian <sludge256@users.noreply.github.com>
 Date:   Thu Mar 24 15:52:07 2016 -0700
 
     Merge pull request #7724 from BKinahan/fix/where-art-thou
-    
+
     Fix 'its' typo in Where Art Thou description
 
 commit eb8b7298d516ea20a4aadb9797c7b6fd5af27ea5
@@ -97,7 +90,7 @@ Author: Mrugesh Mohapatra <raisedadead@users.noreply.github.com>
 Date:   Thu Mar 24 14:26:04 2016 +0530
 
     Merge pull request #7718 from deathsythe47/fix/unnecessary-comma
-    
+
     Remove unnecessary comma from CONTRIBUTING.md
 
 ```
@@ -105,25 +98,20 @@ Date:   Thu Mar 24 14:26:04 2016 +0530
 If you wish to limit your command to last `n` commits log you can simply pass a parameter. For example, if you wish to list last 2 commits logs
 
 ```git
-git log -2 
+git log -2
 
 ```
 
-
-
 ## Oneline log
-
 
 ```git
 git log --oneline
 
 ```
 
-will show all of your commits with only the first part of the hash and the commit message.  Each commit will be in a single line, as the `oneline` flag suggests.
+will show all of your commits with only the first part of the hash and the commit message. Each commit will be in a single line, as the `oneline` flag suggests.
 
-> 
-The oneline option prints each commit on a single line, which is useful if you’re looking at a lot of commits. - [**source**](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
-
+> The oneline option prints each commit on a single line, which is useful if you’re looking at a lot of commits. - [**source**](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
 
 Example (from [**Free Code Camp**](https://github.com/FreeCodeCamp/FreeCodeCamp) repository, with the same section of code from the other example):
 
@@ -146,10 +134,7 @@ git log -2 --oneline
 
 ```
 
-
-
 ## Colorize Logs
-
 
 ```git
 git log --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(yellow)<%an>%Creset'
@@ -158,20 +143,17 @@ git log --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(gre
 
 The `format` option allows you to specify your own log output format:
 
-|Parameter|Details
-|------
-|`%C(color_name)`|option colors the output that comes after it
-|`%h` or %H|abbreviates commit hash (use %H for complete hash)
-|`%Creset`|resets color to default terminal color
-|`%d`|ref names
-|`%s`|subject [commit message]
-|`%cr`|committer date, relative to current date
-|`%an`|author name
-
-
+| Parameter        | Details                                            |
+| ---------------- | -------------------------------------------------- |
+| `%C(color_name)` | option colors the output that comes after it       |
+| `%h` or %H       | abbreviates commit hash (use %H for complete hash) |
+| `%Creset`        | resets color to default terminal color             |
+| `%d`             | ref names                                          |
+| `%s`             | subject [commit message]                           |
+| `%cr`            | committer date, relative to current date           |
+| `%an`            | author name                                        |
 
 ## Log search
-
 
 ```git
 git log -S"#define SAMPLES"
@@ -205,10 +187,7 @@ Searches for **changes** in **lines** **containing** specific string or the stri
 
 ```
 
-
-
 ## List all contributions grouped by author name
-
 
 `git shortlog` summarizes `git log` and groups by author
 
@@ -260,10 +239,7 @@ This can be any string accepted by the `--format` option of `git log`.
 
 See **[Colorizing Logs](http://stackoverflow.com/documentation/git/240/browsing-the-history/13880/colorize-logs)** above for more information on this.
 
-
-
 ## Searching commit string in git log
-
 
 Searching git log using some string in log:
 
@@ -292,10 +268,7 @@ git log --grep="add file" --invert-grep
 
 Will show all commits that do not contain `add file`.
 
-
-
 ## Filter logs
-
 
 ```git
 git log --after '3 days ago'
@@ -323,10 +296,7 @@ git log --author=author
 
 ```
 
-
-
 ## Log for a range of lines within a file
-
 
 ```git
 $ git log -L 1,20:index.html
@@ -352,10 +322,7 @@ diff --git a/index.html b/index.html
 
 ```
 
-
-
 ## Log with changes inline
-
 
 To see the log with changes inline, use the `-p` or `--patch` options.
 
@@ -392,17 +359,11 @@ commit d3178a22716cc35b6a2bdd679a7ec24bc8c63ffa
 
 ```
 
-
-
 ## Git Log Between Two Branches
-
 
 `git log master..foo` will show the commits that are on `foo` and not on `master`. Helpful for seeing what commits you've added since branching!
 
-
-
 ## Log showing commited files
-
 
 ```git
 git log --stat
@@ -439,10 +400,7 @@ Date:   Sat Jun 4 12:35:16 2016 -0300
 
 ```
 
-
-
 ## Show the contents of a single commit
-
 
 Using [`git show`](https://git-scm.com/docs/git-show) we can view a single commit
 
@@ -474,13 +432,10 @@ index 0b57e4a..fa8e6a5 100755
 
 ```
 
-
-
 ## One line showing commiter name and time since commit
 
-
 ```git
-tree = log --oneline --decorate --source --pretty=format:'"%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s"'  --all --graph 
+tree = log --oneline --decorate --source --pretty=format:'"%Cblue %h %Cgreen %ar %Cblue %an %C(yellow) %d %Creset %s"'  --all --graph
 
 ```
 
@@ -488,43 +443,33 @@ example
 
 ```git
 *    40554ac  3 months ago  Alexander Zolotov    Merge pull request #95 from gmandnepr/external_plugins
-|\  
+|\
 | *  e509f61  3 months ago  Ievgen Degtiarenko    Documenting new property
 | *  46d4cb6  3 months ago  Ievgen Degtiarenko    Running idea with external plugins
 | *  6253da4  3 months ago  Ievgen Degtiarenko    Resolve external plugin classes
 | *  9fdb4e7  3 months ago  Ievgen Degtiarenko    Keep original artifact name as this may be important for intellij
 | *  22e82e4  3 months ago  Ievgen Degtiarenko    Declaring external plugin in intellij section
-|/  
+|/
 *  bc3d2cb  3 months ago  Alexander Zolotov    Ignore DTD in plugin.xml
 
 ```
 
-
-
 #### Syntax
 
-
-- git log [options] [revision range] [[--] path...]
-
-
+- git log [options][revision range] [[--] path...]
 
 #### Parameters
 
-
-|Parameter          |Explanation
-|------
-|-q, --quiet|Quiet, suppresses diff output
-|--source|Shows source of commit
-|--use-mailmap|Use mail map file (changes user info for committing user)
-|--decorate[=...]|Decorate options
-|--L <n,m:file>|Show log for specific range of lines in a file, counting from 1. Starts from line n, goes to line m. Also shows diff.
-|--show-signature|Display signatures of signed commits
-|-i, --regexp-ignore-case|Match the regular expression limiting patterns without regard to letter case
-
-
+| Parameter                | Explanation                                                                                                           |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| -q, --quiet              | Quiet, suppresses diff output                                                                                         |
+| --source                 | Shows source of commit                                                                                                |
+| --use-mailmap            | Use mail map file (changes user info for committing user)                                                             |
+| --decorate[=...]         | Decorate options                                                                                                      |
+| --L <n,m:file>           | Show log for specific range of lines in a file, counting from 1. Starts from line n, goes to line m. Also shows diff. |
+| --show-signature         | Display signatures of signed commits                                                                                  |
+| -i, --regexp-ignore-case | Match the regular expression limiting patterns without regard to letter case                                          |
 
 #### Remarks
 
-
 References and up-to-date **documentation** : [git-log official documentation](https://git-scm.com/docs/git-log)
-

@@ -16,7 +16,7 @@ Logical is a mode (and an implicit class) for vectors.
 There are two sorts of logical operators: those that accept and return vectors of any length (elementwise operators: `!`, `|`, `&`, `xor()`) and those that only evaluate the first element in each argument (`&&`, `||`). The second sort is primarily used as the `cond` argument to the `if` function.
 
 |Logical Operator|Meaning|Syntax
-|------
+|---|---|---|---
 |!|Not|!x
 |&|element-wise (vectorized) and|x & y
 |&&|and (single element only)|x && y

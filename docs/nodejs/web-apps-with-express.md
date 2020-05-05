@@ -991,7 +991,7 @@ app.listen(8080, 'localhost');
 
 
 |Parameter|Details
-|------
+|---|---|---
 |`path`|Specifies the path portion or the URL that the given callback will handle.
 |`middleware`|One or more functions which will be called before the callback. Essentially a chaining of multiple `callback` functions. Useful for more specific handling for example authorization or error handling.
 |`callback`|A function that will be used to handle requests to the specified `path`. It will be called like `callback(request, response, next)`, where `request`, `response`, and `next` are described below.

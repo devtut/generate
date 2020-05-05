@@ -422,13 +422,13 @@ The package `cOde` is one possibility to translate ODEs from R to C.
 #### Parameters
 
 
-<th align="center">Parameter</th><th align="left">Details</th>
-|------
-<td align="center">y</td><td align="left">(named) numeric vector: the initial (state) values for the ODE system</td>
-<td align="center">times</td><td align="left">time sequence for which output is wanted; the first value of times must be the initial time</td>
-<td align="center">func</td><td align="left">name of the function that computes the values of the derivatives in the ODE system</td>
-<td align="center">parms</td><td align="left">(named) numeric vector: parameters passed to func</td>
-<td align="center">method</td><td align="left">the integrator to use, by default: lsoda</td>
+|Parameter|Details
+|---|---|---|---
+|y|(named) numeric vector: the initial (state) values for the ODE system
+|times|time sequence for which output is wanted; the first value of times must be the initial time
+|func|name of the function that computes the values of the derivatives in the ODE system
+|parms|(named) numeric vector: parameters passed to func
+|method|the integrator to use, by default: lsoda
 
 
 

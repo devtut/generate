@@ -14,7 +14,7 @@ The horizontally justified navigation (menu) bar has some number of items that s
 
 ### HTML
 
-```css
+```html
 <nav>
     <ul>
         <li>abc</li>

@@ -304,7 +304,7 @@ would look like
 
 
 |Parameter|Details
-|------
+|---|---|---
 |`x`|x-axis variable. May supply either `data$variablex` or `data[,x]`
 |`y`|y-axis variable. May supply either `data$variabley` or `data[,y]`
 |`main`|Main title of plot

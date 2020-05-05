@@ -5,13 +5,9 @@ description: "Only one delimiter character, Repeated delimiters are interpreted 
 
 # The cut command
 
-
 The `cut` command is a fast way to extract parts of lines of text files. It belongs to the oldest Unix commands. Its most popular implementations are the GNU version found on Linux and the FreeBSD version found on MacOS, but each flavor of Unix has its own. See below for differences. The input lines are read either from `stdin` or from files listed as arguments on the command line.
 
-
-
 ## Only one delimiter character
-
 
 You cannot have more than one delimiter: if you specify something like `-d ",;:"`, some implementations will use only the first character as a delimiter (in this case, the comma.) Other implementations (e.g. GNU `cut`) will give you an error message.
 
@@ -22,10 +18,7 @@ Try `cut --help' for more information.
 
 ```
 
-
-
 ## Repeated delimiters are interpreted as empty fields
-
 
 ```bash
 $ cut -d, -f1,3 <<<"a,,b,c,d,e"
@@ -43,10 +36,7 @@ a b
 
 `cut` cannot be used to parse arguments as the shell and other programs do.
 
-
-
 ## No quoting
-
 
 There is no way to protect the delimiter. Spreadsheets and similar CSV-handling software usually can recognize a text-quoting character which makes it possible to define strings containing a delimiter. With `cut` you cannot.
 
@@ -56,10 +46,7 @@ $ cut -d, -f3 <<<'John,Smith,"1, Main Street"'
 
 ```
 
-
-
 ## Extracting, not manipulating
-
 
 You can only extract portions of lines, not reorder or repeat fields.
 
@@ -71,10 +58,7 @@ Smith
 
 ```
 
-
-
 ## Basic usage
-
 
 The typical usage is with CSV-type files, where each line consists of fields separated by a delimiter, specified by the option `-d`. The default delimiter is the TAB character. Suppose you have a data file `data.txt` with lines like
 
@@ -95,15 +79,15 @@ $ cut -d ' ' -f3 data.txt
 644
 
 # extract the second dot-delimited field
-$ cut -d. -f2 data.txt    
+$ cut -d. -f2 data.txt
 8024
 3205
 2367
 
 # extract the character range from the 20th through the 25th character
-$ cut -c20-25 data.txt 
+$ cut -c20-25 data.txt
 948.80
-056222    
+056222
 943831
 
 ```
@@ -118,10 +102,7 @@ a,b
 
 ```
 
-
-
 #### Syntax
-
 
 <li>
 cut -f1,3 # extract first **and** third **tab-delimited** **field** (from stdin)
@@ -145,24 +126,18 @@ cut -s -f1 # suppress lines not containing delimiters
 cut --complement -f3 # (GNU cut only) extract **all** fields **except** the third
 </li>
 
-
-
 #### Parameters
 
-
-<th align="left">Parameter</th><th align="left">Details</th>
-|------
-<td align="left">-f, --fields</td><td align="left">Field-based selection</td>
-<td align="left">-d, --delimiter</td><td align="left">Delimiter for field-based selection</td>
-<td align="left">-c, --characters</td><td align="left">Character-based selection, delimiter ignored or error</td>
-<td align="left">-s, --only-delimited</td><td align="left">Suppress lines with no delimiter characters (printed as-is otherwise)</td>
-<td align="left">--complement</td><td align="left">Inverted selection (extract all **except** specified fields/characters</td>
-<td align="left">--output-delimiter</td><td align="left">Specify when it has to be different from the input delimiter</td>
-
-
+|Parameter|Details
+|---|---|---|---
+|-f, --fields|Field-based selection
+|-d, --delimiter|Delimiter for field-based selection
+|-c, --characters|Character-based selection, delimiter ignored or error
+|-s, --only-delimited|Suppress lines with no delimiter characters (printed as-is otherwise)
+|--complement|Inverted selection (extract all **except** specified fields/characters
+|--output-delimiter|Specify when it has to be different from the input delimiter
 
 #### Remarks
-
 
 **1. Syntax differences**
 
@@ -206,7 +181,7 @@ When `cut` was designed, all characters were one byte long and internationalizat
   # Selecting bytes 1-6 yields the first two characters (correct)
   $ LC_ALL=ja_JP.UTF-8 cut -b1-6 kanji.utf-8.txt
   ...first two characters of each line...
-  
+
 
   # Selecting all three characters with the -c switch doesn’t work.
   # It behaves like -b, contrary to documentation.
@@ -228,19 +203,18 @@ If your characters are outside the ASCII range and you want to use `cut`, you sh
 
 <sup>(Just to avoid misunderstandings: all tested commands gave the same output with the given input, but they are of course not equivalent and would give different outputs in different situations, in particular if the fields were delimited by a variable number of spaces)</sup>
 
-|Command<th align="right">Time</th>
-|------
-|`cut -d ' ' -f1,2 test.txt`<td align="right">1.138s</td>
-|`awk '{print $1 $2}' test.txt`<td align="right">1.688s</td>
-|`join -a1 -o1.1,1.2 test.txt /dev/null`<td align="right">1.767s</td>
-|`perl -lane 'print "@F[1,2]"' test.txt`<td align="right">11.390s</td>
-|`grep -o '^\([^ ]*\) \([^ ]*\)' test.txt`<td align="right">22.925s</td>
-|`sed -e 's/^\([^ ]*\) \([^ ]*\).*$/\1 \2/' test.txt`<td align="right">52.122s</td>
-|`while read a b _; do echo $a $b; done <test.txt`<td align="right">55.582s</td>
+|Command|Time
+|---|---|---|---
+|`cut -d ' ' -f1,2 test.txt`|1.138s
+|`awk '{print $1 $2}' test.txt`|1.688s
+|`join -a1 -o1.1,1.2 test.txt /dev/null`|1.767s
+|`perl -lane 'print "@F[1,2]"' test.txt`|11.390s
+|`grep -o '^\([^ ]*\) \([^ ]*\)' test.txt`|22.925s
+|`sed -e 's/^\([^ ]*\) \([^ ]*\).*$/\1 \2/' test.txt`|52.122s
+|`while read a b _; do echo $a $b; done <test.txt`|55.582s
 
 **5. Referential man pages**
 
 - [Opengroup](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/cut.html#tag_20_28_16)
 - [GNU](https://www.gnu.org/software/coreutils/manual/html_node/cut-invocation.html#index-g_t_002dn-669)
 - [FreeBSD](https://www.freebsd.org/cgi/man.cgi?query=cut&sektion=1&apropos=0&manpath=netbsd)
-

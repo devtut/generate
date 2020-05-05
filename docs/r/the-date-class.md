@@ -91,7 +91,7 @@ as.Date("9/6/1962")
 By specifying the correct format of the input string, we can get the desired results. We use the following codes for specifying the formats to the **as.Date()** function.
 
 |Format Code|Meaning
-|------
+|---|---|---|---
 |`%d`|day
 |`%m`|month
 |`%y`|year in 2-digits

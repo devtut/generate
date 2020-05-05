@@ -5,13 +5,9 @@ description: "Good commit messages, Amending a commit, Committing without openin
 
 # Committing
 
-
 Commits with Git provide accountability by attributing authors with changes to code. Git offers multiple features for the specificity and security of commits. This topic explains and demonstrates proper practices and procedures in committing with Git.
 
-
-
 ## Good commit messages
-
 
 It is important for someone traversing through the `git log` to easily understand what each commit was all about. Good commit messages usually include a number of a task or an issue in a tracker and a concise description of what has been done and why, and sometimes also how it has been done.
 
@@ -36,7 +32,7 @@ Implemented IFoo in IBar    // Why it was needed?
 
 A way to test if a commit message is written in the correct mood is to replace the blank with the message and see if it makes sense:
 
-**If I add this commit, I will ___ to my repository.**
+**If I add this commit, I will \_\_\_ to my repository.**
 
 ### The seven rules of a great git commit message
 
@@ -50,10 +46,7 @@ A way to test if a commit message is written in the correct mood is to replace t
 
 **[7 rules from Chris Beam's blog](http://chris.beams.io/posts/git-commit/#seven-rules).**
 
-
-
 ## Amending a commit
-
 
 If your **latest commit is not published yet** (not pushed to an upstream repository) then you can amend your commit.
 
@@ -98,10 +91,7 @@ git commit --amend --author "New Author <email@address.com>"
 
 This means that if the earlier commit had already been pushed, after amending it you will have to `push --force`.
 
-
-
 ## Committing without opening an editor
-
 
 Git will usually open an editor (like `vim` or `emacs`) when you run `git commit`. Pass the `-m` option to specify a message from the command line:
 
@@ -130,10 +120,7 @@ git commit -m "Commit summary" -m "More detailed description follows here"
 
 **[Udacity Git Commit Message Style Guide](https://udacity.github.io/git-styleguide/)**
 
-
-
 ## Stage and commit changes
-
 
 ### The basics
 
@@ -217,15 +204,12 @@ You should never commit any sensitive data, such as passwords or even private ke
 
 The command `bfg --replace-text passwords.txt my-repo.git` reads passwords out of the `passwords.txt` file and replaces these with `***REMOVED***`. This operation considers all previous commits of the entire repository.
 
-
-
 ## Committing changes directly
-
 
 Usually, you have to use `git add` or `git rm` to add changes to the index before you can `git commit` them. Pass the `-a` or `--all` option to automatically add every change (to tracked files) to the index, including removals:
 
 ```git
-git commit -a 
+git commit -a
 
 ```
 
@@ -243,7 +227,7 @@ git commit -am "your commit message goes here"
 
 ```
 
-You don't necessarily need to commit all files at once. Omit the `-a` or `--all` flag and  specify which file you want to commit directly:
+You don't necessarily need to commit all files at once. Omit the `-a` or `--all` flag and specify which file you want to commit directly:
 
 ```git
 git commit path/to/a/file -m "your commit message goes here"
@@ -257,10 +241,7 @@ git commit path/to/a/file path/to/a/folder/* path/to/b/file -m "your commit mess
 
 ```
 
-
-
 ## Creating an empty commit
-
 
 Generally speaking, empty commits (or commits with state that is identical to the parent) is an error.
 
@@ -270,10 +251,7 @@ The `--allow-empty` commit will bypass the check.
 
 `git commit -m "This is a blank commit" --allow-empty`
 
-
-
 ## Committing on behalf of someone else
-
 
 If someone else wrote the code you are committing, you can give them credit with the `--author` option:
 
@@ -295,10 +273,7 @@ On GitHub, commits made in either of the above ways will show a large author's t
 
 [<img src="http://i.stack.imgur.com/iy2My.png" alt="enter image description here" />](http://i.stack.imgur.com/iy2My.png)
 
-
-
 ## Selecting which lines should be staged for committing
-
 
 Suppose you have many changes in one or more files but from each file you only want to commit some of the changes, you can select the desired changes using:
 
@@ -338,7 +313,7 @@ git commit -m 'Commit Message'
 
 ```
 
-The changes that were not staged or committed will still appear in your working files, and can be committed later if required.  Or if the remaining changes are unwanted, they can be discarded with:
+The changes that were not staged or committed will still appear in your working files, and can be committed later if required. Or if the remaining changes are unwanted, they can be discarded with:
 
 ```git
 git reset --hard
@@ -347,10 +322,7 @@ git reset --hard
 
 Apart from breaking up a big change into smaller commits, this approach is also useful for **reviewing** what you are about to commit. By individually confirming each change, you have an opportunity to check what you wrote, and can avoid accidentally staging unwanted code such as println/logging statements.
 
-
-
 ## Commiting changes in specific files
-
 
 You can commit changes made to specific files and skip staging them using `git add`:
 
@@ -373,10 +345,7 @@ git commit
 
 ```
 
-
-
 ## GPG signing commits
-
 
 <li>
 Determine your key ID
@@ -390,8 +359,8 @@ sec   2048R/YOUR-16-DIGIT-KEY-ID YYYY-MM-DD [expires: YYYY-MM-DD]
 
 ```
 
-
 Your ID is a alphanumeric 16-digit code following the first forward-slash.
+
 </li>
 <li>
 Define your key ID in your git config
@@ -400,7 +369,6 @@ Define your key ID in your git config
 git config --global user.signingkey YOUR-16-DIGIT-KEY-ID
 
 ```
-
 
 </li>
 <li>
@@ -411,13 +379,9 @@ git commit -S -m "Your commit message"
 
 ```
 
-
 </li>
 
-
-
 ## Committing at a specific date
-
 
 ```git
 git commit -m 'Fix UI bug' --date 2016-07-01
@@ -445,10 +409,7 @@ git commit -m 'Fix UI bug' --date '3 hours ago'
 
 When the date doesn't specify time, the current time will be used and only the date will be overridden.
 
-
-
 ## Amending the time of a commit
-
 
 You cam amend the time of a commit using
 
@@ -464,10 +425,7 @@ git commit --amend --date="now"
 
 ```
 
-
-
 ## Amending the author of a commit
-
 
 If you make a commit as the wrong author, you can change it, and then amend
 
@@ -479,28 +437,21 @@ git commit --amend --reset-author
 
 ```
 
-
-
 #### Syntax
-
 
 - git commit [flags]
 
-
-
 #### Parameters
 
-
-|Parameter             |Details
-|------
-|--message, -m|Message to include in the commit. Specifying this parameter bypasses Git's normal behavior of opening an editor.
-|--amend|Specify that the changes currently staged should be added (amended) to the **previous** commit. Be careful, this can rewrite history!
-|--no-edit|Use the selected commit message without launching an editor. For example, `git commit --amend --no-edit` amends a commit without changing its commit message.
-|--all, -a|Commit all changes, including changes that aren't yet staged.
-|--date|Manually set the date that will be associated with the commit.
-|--only|Commit only the paths specified. This will not commit what you currently have staged unless told to do so.
-|--patch, -p|Use the interactive patch selection interface to chose which changes to commit.
-|--help|Displays the man page for `git commit`
-|-S[keyid], -S --gpg-sign[=keyid], -S --no-gpg-sign|Sign commit, GPG-sign commit, countermand `commit.gpgSign` configuration variable
-|-n, --no-verify|This option bypasses the pre-commit and commit-msg hooks. See also [Hooks](http://stackoverflow.com/documentation/git/1330/hooks#t=201609151909429849523)
-
+| Parameter                                          | Details                                                                                                                                                       |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --message, -m                                      | Message to include in the commit. Specifying this parameter bypasses Git's normal behavior of opening an editor.                                              |
+| --amend                                            | Specify that the changes currently staged should be added (amended) to the **previous** commit. Be careful, this can rewrite history!                         |
+| --no-edit                                          | Use the selected commit message without launching an editor. For example, `git commit --amend --no-edit` amends a commit without changing its commit message. |
+| --all, -a                                          | Commit all changes, including changes that aren't yet staged.                                                                                                 |
+| --date                                             | Manually set the date that will be associated with the commit.                                                                                                |
+| --only                                             | Commit only the paths specified. This will not commit what you currently have staged unless told to do so.                                                    |
+| --patch, -p                                        | Use the interactive patch selection interface to chose which changes to commit.                                                                               |
+| --help                                             | Displays the man page for `git commit`                                                                                                                        |
+| -S[keyid], -S --gpg-sign[=keyid], -S --no-gpg-sign | Sign commit, GPG-sign commit, countermand `commit.gpgSign` configuration variable                                                                             |
+| -n, --no-verify                                    | This option bypasses the pre-commit and commit-msg hooks. See also [Hooks](http://stackoverflow.com/documentation/git/1330/hooks#t=201609151909429849523)     |

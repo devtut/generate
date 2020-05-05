@@ -5,14 +5,11 @@ description: "Multiple Parameter Parsing, Accessing Parameters, Argument parsing
 
 # Scripting with Parameters
 
-
-
 ## Multiple Parameter Parsing
-
 
 To parse lots of parameters, the prefered way of doing this is using a **while** loop, a **case** statement, and **shift**.
 
-`shift` is used to pop the first parameter in the series, making what used to be **$2**, now be **$1**. This is useful for processing arguments one at a time.
+`shift` is used to pop the first parameter in the series, making what used to be **\$2**, now be **\$1**. This is useful for processing arguments one at a time.
 
 ```bash
 #!/bin/bash
@@ -58,11 +55,11 @@ Usage:
     --help
 
 $ ./multipleParams.sh
-A: 
+A:
 B:
 
 $ ./multipleParams.sh --valueB 2
-A: 
+A:
 B: 2
 
 $ ./multipleParams.sh --valueB 2 --valueA "hello world"
@@ -71,10 +68,7 @@ B: 2
 
 ```
 
-
-
 ## Accessing Parameters
-
 
 When executing a Bash script, parameters passed into the script are named in accordance to their position: `$1` is the name of the first parameter, `$2` is the name of the second parameter, and so on.
 
@@ -111,10 +105,10 @@ Loop through all arguments and check if they are files:
 
 ```bash
 for item in "$@"
-do  
+do
     if [[ -f $item ]]; then
         echo "$item is a file"
-    fi  
+    fi
 done
 
 ```
@@ -130,25 +124,22 @@ do
 
     if [[ -f $item ]]; then
         echo "$item is a file"
-    fi  
+    fi
 done
 
 ```
 
-
-
 ## Argument parsing using a for loop
-
 
 A simple example which provides the options:
 
-|Opt|Alt. Opt|Details
-|------
-|`-h`|`--help`|Show help
-|`-v`|`--version`|Show version info
-|`-dr path`|`--doc-root path`|An option which takes a secondary parameter (a path)
-|`-i`|`--install`|A boolean option (true/false)
-|`-*`|--|Invalid option
+| Opt        | Alt. Opt          | Details                                              |
+| ---------- | ----------------- | ---------------------------------------------------- |
+| `-h`       | `--help`          | Show help                                            |
+| `-v`       | `--version`       | Show version info                                    |
+| `-dr path` | `--doc-root path` | An option which takes a secondary parameter (a path) |
+| `-i`       | `--install`       | A boolean option (true/false)                        |
+| `-*`       | --                | Invalid option                                       |
 
 ```bash
 #!/bin/bash
@@ -194,10 +185,7 @@ done
 
 ```
 
-
-
 ## Wrapper script
-
 
 Wrapper script is a script that wraps another script or command to provide extra functionalities or just to make something less tedious.
 
@@ -216,15 +204,12 @@ In general case, if you want to run an example script/command `exmp` with anothe
 ```bash
 #!/bin/sh
 exmp "$@" # Add other options before "$@"
-# or 
+# or
 #full/path/to/exmp "$@"
 
 ```
 
-
-
 ## Split string into an array in Bash
-
 
 Let's say we have a String parameter and we want to split it by comma
 
@@ -269,12 +254,8 @@ done
 
 ```
 
-
-
 #### Remarks
-
 
 - `shift` shifts the positional parameters to the left so that `$2` becomes `$1`, `$3` becomes `$2` and so forth.
 - `"$@"` is an array of all the positional parameters passed to the script/function.
 - `"$*"` is an string composed of all the positional parameters passed to the script/function.
-

@@ -354,7 +354,7 @@ The relationship between `for` loops and `*apply` functions is explained in the 
 The `*apply` family of functions contains several variants of the same principle that differ based primarily on the kind of output they return.
 
 |function|Input|Output
-|------
+|---|---|---
 |`apply`|`matrix`, `data.frame`, or `array`|vector or matrix (depending on the length of each element returned)
 |`sapply`|vector or `list`|vector or matrix (depending on the length of each element returned)
 |`lapply`|vector or `list`|`list`

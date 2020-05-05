@@ -489,7 +489,7 @@ If the indexing vector is shorter than the length of the array, then it will be 
 Let A and B be two matrices of same dimension. The operators `+`,`-`,`/`,`*`,`^` when used with matrices of same dimension perform the required operations on the corresponding elements of the matrices and return a new matrix of the same dimension. These operations are usually referred to as element-wise operations.
 
 |Operator|A op B|Meaning
-|------
+|---|---|---|---
 |+|A + B|Addition of corresponding elements of A and B
 |-|A - B|Subtracts the elements of B from the corresponding elements of A
 |/|A / B|Divides the elements of A by the corresponding elements of B
@@ -501,7 +501,7 @@ For "true" matrix multiplication, as seen in **Linear Algebra**, use `%*%`. For 
 ### **Some Functions used with Matrices**
 
 |Function|Example|Purpose
-|------
+|---|---|---|---
 |nrow()|nrow(A)|determines the number of rows of A
 |ncol()|ncol(A)|determines the number of columns of A
 |rownames()|rownames(A)|prints out the row names of the matrix A

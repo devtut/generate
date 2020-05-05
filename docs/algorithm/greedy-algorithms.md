@@ -131,7 +131,7 @@ You have a set of things to do (activities). Each activity has a start time and 
 For example, suppose you have a selection of classes to choose from.
 
 |Activity No.|start time|end time
-|------
+|---|---|---|---
 |1|10.20 A.M|11.00AM
 |2|10.30 A.M|11.30AM
 |3|11.00 A.M|12.00AM
@@ -147,7 +147,7 @@ Lets think for the solution by greedy approach.First of all we randomly chose so
 - **sort the activity by start time** that means which activity start first we will take them first. then take first to last from sorted list and check it will intersect from previous taken activity or not. If the current activity is not intersect with the previously taken activity, we will perform the activity otherwise we will not perform. this approach will work for some cases like
 
 |Activity No.|start time|end time
-|------
+|---|---|---|---
 |1|11.00 A.M|1.30P.M
 |2|11.30 A.M|12.00P.M
 |3|1.30 P.M|2.00P.M
@@ -156,7 +156,7 @@ Lets think for the solution by greedy approach.First of all we randomly chose so
 the sorting order will be 4-->1-->2-->3 .The activity 4--> 1--> 3 will be performed and the activity 2 will be skipped. the maximum 3 activity will be performed. It works for this type of cases.  but it will fail for some cases. Lets apply this approach for the case
 
 |Activity No.|start time|end time
-|------
+|---|---|---|---
 |1|11.00 A.M|1.30P.M
 |2|11.30 A.M|12.00P.M
 |3|1.30 P.M|2.00P.M
@@ -167,7 +167,7 @@ The sort order will be 4-->1-->2-->3 and only activity 4 will be performed but t
 - **Sort the activity by time duration** that means perform the shortest activity first.  that can solve the previous problem . Although the problem is not completely solved. There still some cases that can fail the solution. apply this approach on the case bellow.
 
 |Activity No.|start time|end time
-|------
+|---|---|---|---
 |1|6.00 A.M|11.40A.M
 |2|11.30 A.M|12.00P.M
 |3|11.40 P.M|2.00P.M
@@ -188,7 +188,7 @@ if we sort the activity by time duration the sort order will be 2--> 3 --->1 . a
 Lets analyse the first example
 
 |Activity No.|start time|end time
-|------
+|---|---|---|---
 |1|10.20 A.M|11.00AM
 |2|10.30 A.M|11.30AM
 |3|11.00 A.M|12.00AM

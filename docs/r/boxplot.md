@@ -210,7 +210,7 @@ boxplot(x, ..., range = 1.5, width = NULL, varwidth = FALSE, notch = FALSE, outl
 
 
 |Parameters|Details (source R Documentation)
-|------
+|---|---|---
 |formula|a formula, such as y ~ grp, where y is a numeric vector of data values to be split into groups according to the grouping variable grp (usually a factor).
 |data|a data.frame (or list) from which the variables in formula should be taken.
 |subset|an optional vector specifying a subset of observations to be used for plotting.

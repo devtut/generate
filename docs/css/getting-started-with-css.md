@@ -20,7 +20,7 @@ It is recommended that the `<link>` tag be placed in the HTML file's `<head>` ta
 
 **hello-world.html**
 
-```css
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,7 +51,7 @@ p {
 
 Make sure you include the correct path to your CSS file in the href. If the CSS file is in the same folder as your HTML file then no path is required (like the example above) but if it's saved in a folder, then specify it like this `href="foldername/style.css"`.
 
-```css
+```html
 <link rel="stylesheet" type="text/css" href="foldername/style.css">
 
 ```
@@ -60,7 +60,7 @@ External stylesheets are considered the best way to handle your CSS. There's a v
 
 You can load as many CSS files in your HTML page as needed.
 
-```css
+```html
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" type="text/css" href="override.css">
 
@@ -93,7 +93,7 @@ When someone first visits your website, their browser downloads the HTML of the 
 
 CSS enclosed in `<style></style>` tags within an HTML document functions like an external stylesheet, except that it lives in the HTML document it styles instead of in a separate file, and therefore can only be applied to the document in which it lives. Note that this element **must** be inside the `<head>` element for HTML validation (though it will work in all current browsers if placed in `body`).
 
-```css
+```html
 <head>
     <style>
         h1 {
@@ -127,8 +127,7 @@ You can use @import rule in following ways:
 
 **A. With internal style tag**
 
-```
-
+```html
   <style>
     @import url('/css/styles.css');
    </style>
@@ -170,7 +169,7 @@ Inline styles override any CSS in a `<style>` tag or external style sheet. While
 
 The styles in the following example apply directly to the elements to which they are attached.
 
-```css
+```html
 <h1 style="color: green; text-decoration: underline;">Hello world!</h1>
 <p style="font-size: 25px; font-family: 'Trebuchet MS';">I ♥ CSS</p>
 
@@ -187,7 +186,7 @@ Inline styles are generally the safest way to ensure rendering compatibility acr
 
 It's possible to add, remove or change CSS property values with JavaScript through an element's `style` property.
 
-```css
+```js
 var el = document.getElementById("element");
 el.style.opacity = 0.5;
 el.style.fontFamily = 'sans-serif';
@@ -202,14 +201,14 @@ As an alternative to working directly on elements, you can create a `<style>` or
 
 Modifying CSS properties with jQuery is even simpler.
 
-```css
+```js
 $('#element').css('margin', '5px');
 
 ```
 
 If you need to change more than one style rule:
 
-```css
+```js
 $('#element').css({
     margin: "5px",
     padding: "10px",
@@ -220,7 +219,7 @@ $('#element').css({
 
 jQuery includes two ways to change css rules that have hyphens in them (i.e. `font-size`). You can put them in quotes or camel-case the style rule name.
 
-```css
+```js
 $('.example-class').css({
     "background-color": "blue",
     fontSize: "10px"

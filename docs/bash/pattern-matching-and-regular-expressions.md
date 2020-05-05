@@ -5,11 +5,7 @@ description: "Check if a string matches a regular expression, Behaviour when a g
 
 # Pattern matching and regular expressions
 
-
-
-
 ## Check if a string matches a regular expression
-
 
 Check if a string consists in exactly 8 digits:
 
@@ -23,10 +19,7 @@ no
 
 ```
 
-
-
 ## Behaviour when a glob does not match anything
-
 
 **Preparation**
 
@@ -77,10 +70,7 @@ Notice, that the `failglob` option supersedes the `nullglob` option, i.e.,
 if `nullglob` and `failglob` are both set, then - in case of no match - an
 error is returned.
 
-
-
 ## Get captured groups from a regex match against a string
-
 
 ```bash
 a='I am a simple string with digits 1234'
@@ -101,10 +91,7 @@ I am a simple string with digits
 
 ```
 
-
-
-## The * glob
-
+## The \* glob
 
 **Preparation**
 
@@ -122,7 +109,7 @@ $ shopt -u globstar
 
 ```
 
-The asterisk * is probably the most commonly used glob. It simply matches any
+The asterisk \* is probably the most commonly used glob. It simply matches any
 String
 
 ```bash
@@ -131,7 +118,7 @@ macy stacy tracy
 
 ```
 
-A single * will not match files and folders that reside in subfolders
+A single \* will not match files and folders that reside in subfolders
 
 ```bash
 $ echo *
@@ -141,10 +128,7 @@ folder/anotherfolder folder/subfolder
 
 ```
 
-
-
-## The ** glob
-
+## The \*\* glob
 
 **Preparation**
 
@@ -181,10 +165,7 @@ folder/anotherfolder/content/deepfolder folder/subfolder/content/deepfolder
 
 ```
 
-
-
 ## The ? glob
-
 
 **Preparation**
 
@@ -212,10 +193,7 @@ stacy tracy
 
 ```
 
-
-
 ## The [ ] glob
-
 
 **Preparation**
 
@@ -278,10 +256,7 @@ file with space
 
 ```
 
-
-
 ## Matching hidden files
-
 
 **Preparation**
 
@@ -309,10 +284,7 @@ file with space folder .hiddenfile macy stacy tracy
 
 ```
 
-
-
 ## Case insensitive matching
-
 
 **Preparation**
 
@@ -336,16 +308,13 @@ manner
 ```bash
 $ echo M*
 M*
-$ shopt -s nocaseglob 
+$ shopt -s nocaseglob
 $ echo M*
 macy
 
 ```
 
-
-
 ## Extended globbing
-
 
 **Preparation**
 
@@ -406,10 +375,7 @@ macy
 It matches anything that does **not** start with zero or more occurrences of the
 letters `r`, `s` and `t`, which leaves only `macy` as possible match.
 
-
-
 ## Regex matching
-
 
 ```bash
 pat='[^0-9]+([0-9]+)'
@@ -442,27 +408,21 @@ Instead of assigning the regex to a variable (`$pat`) we could also do:
 - The 0th index in the **BASH_REMATCH** array is the total match
 - The **i'th** index in the **BASH_REMATCH** array is the **i'th** captured group, where **i** = 1, 2, 3 ...
 
-
-
 #### Syntax
 
-
-- $ shopt -u option # Deactivate Bash's built-in 'option'
-- $ shopt -s option # Activate Bash's built-in 'option'
-
-
+- \$ shopt -u option # Deactivate Bash's built-in 'option'
+- \$ shopt -s option # Activate Bash's built-in 'option'
 
 #### Remarks
-
 
 **Character Classes**
 
 Valid character classes for the `[]` glob are defined by the POSIX standard:
 
-> 
+>
+
 <p>alnum alpha ascii blank cntrl digit graph lower print punct space
 upper word xdigit</p>
-
 
 Inside `[]` more than one character class or range can be used, e.g.,
 
@@ -510,9 +470,8 @@ followed by a mandatory quantifier.
 
 **Equivalent Regular Expressions**
 
-|Glob|RegEx
-|------
-|`*`|`.*`
-|`?`|`.`
-|`[]`|`[]`
-
+| Glob | RegEx |
+| ---- | ----- |
+| `*`  | `.*`  |
+| `?`  | `.`   |
+| `[]` | `[]`  |

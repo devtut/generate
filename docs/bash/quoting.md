@@ -5,10 +5,7 @@ description: "Double quotes for variable and command substitution, Difference be
 
 # Quoting
 
-
-
 ## Double quotes for variable and command substitution
-
 
 Variable substitutions should only be used inside double quotes.
 
@@ -26,7 +23,7 @@ The same applies to command substitutions: `"$(mycommand)"` is the output of `my
 
 ```bash
 echo "$var"             # good
-echo "$(mycommand)"     # good 
+echo "$(mycommand)"     # good
 another=$var            # also works, assignment is implicitly double-quoted
 make -D THING=$var      # BAD! This is not a bash assignment.
 make -D THING="$var"    # good
@@ -48,19 +45,16 @@ echo "$(mycommand "$arg1" "$arg2")"
 
 ```
 
-
-
 ## Difference between double quote and single quote
 
-
-|Double quote|Single quote
-|------
-|Allows variable expansion|Prevents variable expansion
-|Allows history expansion if enabled|Prevents history expansion
-|Allows command substitution|Prevents command substitution
-|`*` and `@` can have special meaning|`*` and `@` are always literals
-|Can contain both single quote or double quote|Single quote is not allowed inside single quote
-|`$`, ```bash, `"`, `\` can be escaped with `\` to prevent their special meaning|All of them are literals
+| Double quote                                                                                             | Single quote                                    |
+| -------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Allows variable expansion                                                                                | Prevents variable expansion                     |
+| Allows history expansion if enabled                                                                      | Prevents history expansion                      |
+| Allows command substitution                                                                              | Prevents command substitution                   |
+| `*` and `@` can have special meaning                                                                     | `*` and `@` are always literals                 |
+| Can contain both single quote or double quote                                                            | Single quote is not allowed inside single quote |
+| `$`, ```bash, `"`, `\` can be escaped with `\` to prevent their special meaning|All of them are literals |
 
 **Properties that are common to both:**
 
@@ -85,10 +79,7 @@ var
 
 ```
 
-
-
 ## Newlines and control characters
-
 
 A newline can be included in a single-string or double-quoted string. Note that backslash-newline does not result in a newline, the line break is ignored.
 
@@ -117,10 +108,7 @@ echo $'Line\nbreak'
 
 ```
 
-
-
 ## Quoting literal text
-
 
 All the examples in this paragraph print the line
 
@@ -164,13 +152,9 @@ echo "!\"#\$&'()*;<=>?  @[\]^\`{|}~"
 
 Interactively, beware that `!` triggers history expansion inside double quotes: `"!oops"` looks for an older command containing `oops`; `"\!oops"` doesn't do history expansion but keeps the backslash. This does not happen in scripts.
 
-
-
 #### Syntax
-
 
 - \C (any one character except newline)
 - 'all literal except single quotes'; 'this: '\'' is a single quote'
-- $'only \\ and \' are special; \n = newline etc.'
+- \$'only \\ and \' are special; \n = newline etc.'
 - "$variable and other text; \"\\\$\` are special"
-

@@ -36,7 +36,7 @@ $ npm t
 ### Pre-defined scripts
 
 |Script Name|Description
-|------
+|---|---|---
 |prepublish|Run before the package is published.
 |publish, postpublish|Run after the package is published.
 |preinstall|Run before the package is installed.
@@ -306,7 +306,7 @@ This is an array of all the files to include in the published package. Either a 
 ```
 
 |Field|Description
-|------
+|---|---|---
 |name|a **required** field for a package to install. Needs to be lowercase, single word without spaces. (Dashes and underscores allowed)
 |version|a **required** field for the package version using [semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning).
 |description|a short description of the project
@@ -374,7 +374,7 @@ Some of the additional attributes are parsed by the npm website like `repository
 ```
 
 |Field|Description
-|------
+|---|---|---
 |main|Entry script for this package. This script is returned when a user requires the package.
 |repository|Location and type of the public repository
 |bugs|Bugtracker for this package (e.g. github)

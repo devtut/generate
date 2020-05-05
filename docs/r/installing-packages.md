@@ -306,15 +306,15 @@ will build, install and reload the package.
 #### Parameters
 
 
-<th align="center">Parameter</th><th align="left">Details</th>
-|------
-<td align="center">pkgs</td><td align="left">character vector of the names of packages. If `repos = NULL`, a character vector of file paths.</td>
-<td align="center">lib</td><td align="left">character vector giving the library directories where to install the packages.</td>
-<td align="center">repos</td><td align="left">character vector, the base URL(s) of the repositories to use, can be `NULL` to install from local files</td>
-<td align="center">method</td><td align="left">download method</td>
-<td align="center">destdir</td><td align="left">directory where downloaded packages are stored</td>
-<td align="center">dependencies</td><td align="left">logical indicating whether to also install uninstalled packages which these packages depend on/link to/import/suggest (and so on recursively). Not used if `repos = NULL`.</td>
-<td align="center">...</td><td align="left">Arguments to be passed to ‘download.file’ or to the functions for binary installs on OS X and Windows.</td>
+|Parameter|Details
+|---|---|---|---
+|pkgs|character vector of the names of packages. If `repos = NULL`, a character vector of file paths.</td>
+|lib|character vector giving the library directories where to install the packages.</td>
+|repos|character vector, the base URL(s) of the repositories to use, can be `NULL` to install from local files</td>
+|method|download method</td>
+|destdir|directory where downloaded packages are stored</td>
+|dependencies|logical indicating whether to also install uninstalled packages which these packages depend on/link to/import/suggest (and so on recursively). Not used if `repos = NULL`.</td>
+|...|Arguments to be passed to ‘download.file’ or to the functions for binary installs on OS X and Windows.</td>
 
 
 

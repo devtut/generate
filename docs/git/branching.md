@@ -5,11 +5,7 @@ description: "Creating and checking out new branches, Listing branches, Delete a
 
 # Branching
 
-
-
-
 ## Creating and checking out new branches
-
 
 To create a new branch, while staying on the current branch, use:
 
@@ -94,34 +90,28 @@ A-B-C-D-E (HEAD)         A-B-C-D-E (HEAD)                 A-B-C-D-E (HEAD)
 
 ```
 
-
-
 ## Listing branches
-
 
 Git provides multiple commands for listing branches. All commands use the function of `git branch`, which will provide a list of a certain branches, depending on which options are put on the command line. Git will if possible, indicate the currently selected branch with a star next to it.
 
-|Goal|Command
-|------
-|List local branches|`git branch`
-|List local branches verbose|`git branch -v`
-|List remote and local branches|`git branch -a` OR `git branch --all`
-|List remote and local branches (verbose)|`git branch -av`
-|List remote branches|`git branch -r`
-|List remote branches with latest commit|`git branch -rv`
-|List merged branches|`git branch --merged`
-|List unmerged branches|`git branch --no-merged`
-|List branches containing commit|`git branch --contains [<commit>]`
+| Goal                                     | Command                               |
+| ---------------------------------------- | ------------------------------------- |
+| List local branches                      | `git branch`                          |
+| List local branches verbose              | `git branch -v`                       |
+| List remote and local branches           | `git branch -a` OR `git branch --all` |
+| List remote and local branches (verbose) | `git branch -av`                      |
+| List remote branches                     | `git branch -r`                       |
+| List remote branches with latest commit  | `git branch -rv`                      |
+| List merged branches                     | `git branch --merged`                 |
+| List unmerged branches                   | `git branch --no-merged`              |
+| List branches containing commit          | `git branch --contains [<commit>]`    |
 
 **Notes**:
 
 - Adding an additional `v` to `-v` e.g. `$ git branch -avv` or `$ git branch -vv` will print the name of the upstream branch as well.
 - Branches shown in red color are remote branches
 
-
-
 ## Delete a remote branch
-
 
 To delete a branch on the `origin` remote repository, you can use for Git version 1.5.0 and newer
 
@@ -162,10 +152,7 @@ git branch -D <branchName>
 
 ```
 
-
-
 ## Quick switch to the previous branch
-
 
 You can quickly switch to the previous branch using
 
@@ -174,10 +161,7 @@ git checkout -
 
 ```
 
-
-
 ## Check out a new branch tracking a remote branch
-
 
 There are three ways of creating a new branch `feature` which tracks the remote branch `origin/feature`:
 
@@ -199,17 +183,14 @@ To verify which remote branches your local branches are tracking:
 
 - `git branch -vv`
 
-
-
 ## Delete a branch locally
-
 
 ```git
 $ git branch -d dev
 
 ```
 
-Deletes the branch named `dev` **if** its changes are merged with another branch and will not be lost.  If the `dev` branch does contain changes that have not yet been merged that would be lost, `git branch -d` will fail:
+Deletes the branch named `dev` **if** its changes are merged with another branch and will not be lost. If the `dev` branch does contain changes that have not yet been merged that would be lost, `git branch -d` will fail:
 
 ```git
 $ git branch -d dev
@@ -225,26 +206,18 @@ $ git branch -D dev
 
 ```
 
-
-
 ## Create an orphan branch (i.e. branch with no parent commit)
-
 
 ```git
 git checkout --orphan new-orphan-branch
 
 ```
 
-> 
-The first commit made on this new branch will have no parents and it will be the root of a new history totally disconnected from all the other branches and commits.
-
+> The first commit made on this new branch will have no parents and it will be the root of a new history totally disconnected from all the other branches and commits.
 
 [source](https://git-scm.com/docs/git-checkout)
 
-
-
 ## Rename a branch
-
 
 Rename the branch you have checked out:
 
@@ -260,18 +233,15 @@ git branch -m branch_you_want_to_rename new_branch_name
 
 ```
 
-
-
 ## Push branch to remote
-
 
 Use to push commits made on your local branch to a remote repository.
 
 The `git push` command takes two arguments:
 
 - A remote name, for example, `origin`
-<li>A branch name, for example,
-`master`</li>
+  <li>A branch name, for example,
+  `master`</li>
 
 For example:
 
@@ -296,10 +266,7 @@ git push <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>
 
 ```
 
-
-
 ## Searching in branches
-
 
 To list local branches that contain a specific commit or tag
 
@@ -315,10 +282,7 @@ git branch -a --contains <commit>
 
 ```
 
-
-
 ## Move current branch HEAD to an arbitrary commit
-
 
 A branch is just a pointer to a commit, so you can freely move it around. To make it so that the branch is referring to the commit `aabbcc`, issue the command
 
@@ -331,10 +295,7 @@ Please note that this will overwrite your branch's current commit, and as so, it
 
 However, this command can be particularly useful when rebasing or doing such other large history modifications.
 
-
-
 ## Overwrite single file in current working directory with the same from another branch
-
 
 The checked out file will **overwrite** not yet commited changes you did in this file.
 
@@ -356,10 +317,7 @@ git checkout some-branch -- some-file
 
 The second `some-file` is a file in this example.
 
-
-
 #### Syntax
-
 
 - `git branch [--set-upstream | --track | --no-track] [-l] [-f] <branchname> [<start-point>]`
 - `git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]`
@@ -369,30 +327,23 @@ The second `some-file` is a file in this example.
 - `git branch --edit-description [<branchname>]`
 - `git branch [--color[=<when>] | --no-color] [-r | -a] [--list] [-v [--abbrev=<length> | --no-abbrev]] [--column[=<options>] | --no-column] [(--merged | --no-merged | --contains) [<commit>]] [--sort=<key>] [--points-at <object>] [<pattern>…​]`
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|-d, --delete|Delete a branch. The branch must be fully merged in its upstream branch, or in `HEAD` if no upstream was set with `--track` or `--set-upstream`
-|-D|Shortcut for `--delete --force`
-|-m, --move|Move/rename a branch and the corresponding reflog
-|-M|Shortcut for `--move --force`
-|-r, --remotes|List or delete (if used with -d) the remote-tracking branches
-|-a, --all|List both remote-tracking branches and local branches
-|--list|Activate the list mode. `git branch <pattern>` would try to create a branch, use `git branch --list <pattern>` to list matching branches
-|--set-upstream|If specified branch does not exist yet or if `--force` has been given, acts exactly like `--track`. Otherwise sets up configuration like --track would when creating the branch, except that where branch points to is not changed
-
-
+| Parameter      | Details                                                                                                                                                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -d, --delete   | Delete a branch. The branch must be fully merged in its upstream branch, or in `HEAD` if no upstream was set with `--track` or `--set-upstream`                                                                                    |
+| -D             | Shortcut for `--delete --force`                                                                                                                                                                                                    |
+| -m, --move     | Move/rename a branch and the corresponding reflog                                                                                                                                                                                  |
+| -M             | Shortcut for `--move --force`                                                                                                                                                                                                      |
+| -r, --remotes  | List or delete (if used with -d) the remote-tracking branches                                                                                                                                                                      |
+| -a, --all      | List both remote-tracking branches and local branches                                                                                                                                                                              |
+| --list         | Activate the list mode. `git branch <pattern>` would try to create a branch, use `git branch --list <pattern>` to list matching branches                                                                                           |
+| --set-upstream | If specified branch does not exist yet or if `--force` has been given, acts exactly like `--track`. Otherwise sets up configuration like --track would when creating the branch, except that where branch points to is not changed |
 
 #### Remarks
 
+Every git repository has one or more **branches**. A branch is a named reference to the `HEAD` of a sequence of commits.
 
-Every git repository has one or more **branches**.  A branch is a named reference to the `HEAD` of a sequence of commits.
-
-A git repo has a **current** branch (indicated by a `*` in the list of branch names printed by the `git branch` command),  Whenever you create a new commit with the `git commit` command, your new commit becomes the `HEAD` of the current branch, and the previous HEAD becomes the parent of the new commit.
+A git repo has a **current** branch (indicated by a `*` in the list of branch names printed by the `git branch` command), Whenever you create a new commit with the `git commit` command, your new commit becomes the `HEAD` of the current branch, and the previous HEAD becomes the parent of the new commit.
 
 A new branch will have the same `HEAD` as the branch from which it was created until something is committed to the new branch.
-

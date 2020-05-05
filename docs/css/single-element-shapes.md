@@ -44,7 +44,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/wOVoW.png" alt="enter image description here" />](https://i.stack.imgur.com/wOVoW.png)
 
-```css
+```html
 <div class="triangle-down"></div>
 
 ```
@@ -64,7 +64,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/KxeC4.png" alt="enter image description here" />](https://i.stack.imgur.com/KxeC4.png)
 
-```css
+```html
 <div class="triangle-right"></div>
 
 ```
@@ -84,7 +84,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/X1y9B.png" alt="enter image description here" />](https://i.stack.imgur.com/X1y9B.png)
 
-```css
+```html
 <div class="triangle-left"></div>
 
 ```
@@ -104,7 +104,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/ITZW8.png" alt="enter image description here" />](https://i.stack.imgur.com/ITZW8.png)
 
-```css
+```html
 <div class="triangle-up-right"></div>
 
 ```
@@ -123,7 +123,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/MIv7O.png" alt="enter image description here" />](https://i.stack.imgur.com/MIv7O.png)
 
-```css
+```html
 <div class="triangle-up-left"></div>
 
 ```
@@ -142,7 +142,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/ephyF.png" alt="enter image description here" />](https://i.stack.imgur.com/ephyF.png)
 
-```css
+```html
 <div class="triangle-down-right"></div>
 
 ```
@@ -161,7 +161,7 @@ The dimensions of the triangle can be altered by changing the different border w
 
 [<img src="https://i.stack.imgur.com/MubUg.png" alt="enter image description here" />](https://i.stack.imgur.com/MubUg.png)
 
-```css
+```html
 <div class="triangle-down-left"></div>
 
 ```
@@ -187,7 +187,7 @@ A trapezoid can be made by a block element with zero height (height of `0px`), a
 
 HTML:
 
-```css
+```html
 <div class="trapezoid"></div>
 
 ```
@@ -220,7 +220,7 @@ To create a **circle**, define an element with an equal `width` and `height` (a 
 
 **HTML**
 
-```css
+```html
 <div class="circle"></div>
 
 ```
@@ -245,7 +245,7 @@ An **ellipse** is similar to a circle, but with different values for `width` and
 
 **HTML**
 
-```css
+```html
 <div class="oval"></div>
 
 ```
@@ -352,7 +352,7 @@ To create a square, define an element with both a width and height. In the examp
 
 [<img src="https://i.stack.imgur.com/uV3Yp.png" alt="a square" />](https://i.stack.imgur.com/uV3Yp.png)
 
-```css
+```html
 <div class="square"></div>
 
 ```
@@ -377,7 +377,7 @@ This example shows how to create a cube using 2D transformation methods `skewX()
 
 **HTML:**
 
-```css
+```html
 <div class="cube"></div>
 
 ```
@@ -432,7 +432,7 @@ This example shows how to create a **pyramid** using borders and 2D transformati
 
 **HTML:**
 
-```css
+```html
 <div class="pyramid"></div>
 
 ```

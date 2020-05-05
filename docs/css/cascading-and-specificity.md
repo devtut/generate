@@ -5,18 +5,15 @@ description: "Calculating Selector Specificity, The !important declaration, Casc
 
 # Cascading and Specificity
 
-
-
 ## Calculating Selector Specificity
-
 
 Each individual CSS Selector has its own specificity value. Every selector in a sequence increases the sequence's overall specificity. Selectors fall into one of three different specificity groups: **A**, **B** and **c**. When multiple selector sequences select a given element, the browser uses the styles applied by the sequence with the highest overall specificity.
 
-|Group|Comprised of|Examples
-|------
-|**A**|id selectors|`#foo`
-|**B**|class selectors<br> attribute selectors<br> pseudo-classes|`.bar`<br> `[title]`, `[colspan="2"]`<br> `:hover`, `:nth-child(2)`
-|**c**|type selectors<br> pseudo-elements|`div`, `li`<br> `::before`, `::first-letter`
+| Group | Comprised of                                               | Examples                                                            |
+| ----- | ---------------------------------------------------------- | ------------------------------------------------------------------- |
+| **A** | id selectors                                               | `#foo`                                                              |
+| **B** | class selectors<br> attribute selectors<br> pseudo-classes | `.bar`<br> `[title]`, `[colspan="2"]`<br> `:hover`, `:nth-child(2)` |
+| **c** | type selectors<br> pseudo-elements                         | `div`, `li`<br> `::before`, `::first-letter`                        |
 
 Group **A** is the most specific, followed by Group **B**, then finally Group **c**.
 
@@ -25,34 +22,47 @@ The universal selector (`*`) and combinators (like `>` and `~`) have no specific
 ### Example 1: Specificity of various selector sequences
 
 ```css
-#foo #baz {}      /* a=2, b=0, c=0 */
+#foo #baz {
+} /* a=2, b=0, c=0 */
 
-#foo.bar {}       /* a=1, b=1, c=0 */
+#foo.bar {
+} /* a=1, b=1, c=0 */
 
-#foo {}           /* a=1, b=0, c=0 */
+#foo {
+} /* a=1, b=0, c=0 */
 
-.bar:hover {}     /* a=0, b=2, c=0 */
+.bar:hover {
+} /* a=0, b=2, c=0 */
 
-div.bar {}        /* a=0, b=1, c=1 */
+div.bar {
+} /* a=0, b=1, c=1 */
 
-:hover {}         /* a=0, b=1, c=0 */
+:hover {
+} /* a=0, b=1, c=0 */
 
-[title] {}        /* a=0, b=1, c=0 */
+[title] {
+} /* a=0, b=1, c=0 */
 
-.bar {}           /* a=0, b=1, c=0 */
+.bar {
+} /* a=0, b=1, c=0 */
 
-div ul + li {}    /* a=0, b=0, c=3 */
+div ul + li {
+} /* a=0, b=0, c=3 */
 
-p::after {}       /* a=0, b=0, c=2 */
+p::after {
+} /* a=0, b=0, c=2 */
 
-*::before {}      /* a=0, b=0, c=1 */
+*::before {
+} /* a=0, b=0, c=1 */
 
-::before {}       /* a=0, b=0, c=1 */
+::before {
+} /* a=0, b=0, c=1 */
 
-div {}            /* a=0, b=0, c=1 */
+div {
+} /* a=0, b=0, c=1 */
 
-* {}              /* a=0, b=0, c=0 */
-
+* {
+} /* a=0, b=0, c=0 */
 ```
 
 ### Example 2: How specificity is used by the browser
@@ -68,7 +78,6 @@ Imagine the following CSS implementation:
   color: red;
   background: black;
 }
-
 ```
 
 Here we have an ID selector which declares `color` as **blue**, and a class selector which declares `color` as **red** and `background` as **black**.
@@ -86,7 +95,6 @@ Now imagine a different CSS implementation:
 .baz {
   background: white;
 }
-
 ```
 
 Here we have two class selectors; one of which declares `color` as **red** and `background` as **black**, and the other declares `background` as **white**.
@@ -98,25 +106,28 @@ An element with both the `.bar` and `.baz` classes will be affected by both of t
 The last snippet from Example 2 above can be manipulated to ensure our `.bar` class selector's `color` declaration is used instead of that of the `.baz` class selector.
 
 ```css
-.bar {}        /* a=0, b=1, c=0 */
-.baz {}        /* a=0, b=1, c=0 */
-
+.bar {
+} /* a=0, b=1, c=0 */
+.baz {
+} /* a=0, b=1, c=0 */
 ```
 
 The most common way to achieve this would be to find out what other selectors can be applied to the `.bar` selector sequence. For example, if the `.bar` class was only ever applied to `span` elements, we could modify the `.bar` selector to `span.bar`. This would give it a new Group **C** specificity, which would override the `.baz` selector's lack thereof:
 
 ```css
-span.bar {}    /* a=0, b=1, c=1 */
-.baz {}        /* a=0, b=1, c=0 */
-
+span.bar {
+} /* a=0, b=1, c=1 */
+.baz {
+} /* a=0, b=1, c=0 */
 ```
 
 However it may not always possible to find another common selector which is shared between any element which uses the `.bar` class. Because of this, CSS allows us to duplicate selectors to increase specificity. Instead of just `.bar`, we can use `.bar.bar` instead (See [The grammar of Selectors, W3C Recommendation](https://www.w3.org/TR/css3-selectors/#grammar)). This still selects any element with a class of `.bar`, but now has double the Group **B** specificity:
 
 ```css
-.bar.bar {}    /* a=0, b=2, c=0 */
-.baz {}        /* a=0, b=1, c=0 */
-
+.bar.bar {
+} /* a=0, b=2, c=0 */
+.baz {
+} /* a=0, b=1, c=0 */
 ```
 
 ### `!important` and inline style declarations
@@ -134,33 +145,29 @@ A common misconception about CSS specificity is that the Group **A**, **B** and 
 When creating your CSS style sheet, you should maintain the lowest specificity as possible. If you need to make the specificity a little higher to overwrite another method, make it higher but as low as possible to make it higher. You shouldn't need to have a selector like this:
 
 ```css
-body.page header.container nav div#main-nav li a {}
-
+body.page header.container nav div#main-nav li a {
+}
 ```
 
 This makes future changes harder and pollutes that css page.
 
 You can calculate the specificity of your selector [here](http://specificity.keegan.st/)
 
-
-
 ## The !important declaration
-
 
 The `!important` declaration is used to override the usual specificity in a style sheet by giving a higher priority to a rule. Its usage is: `property : value !important;`
 
 ```css
 #mydiv {
-    font-weight: bold !important;    /* This property won't be overridden
+  font-weight: bold !important; /* This property won't be overridden
                                        by the rule below */
 }
 
 #outerdiv #mydiv {
-    font-weight: normal;            /* #mydiv font-weight won't be set to normal
+  font-weight: normal; /* #mydiv font-weight won't be set to normal
                                     even if it has a higher specificity because
                                     of the !important declaration above */
 }
-
 ```
 
 Avoiding the usage of `!important` is strongly recommended (unless absolutely necessary), because it will disturb the natural flow of css rules which can bring uncertainty in your style sheet. Also it is important to note that when multiple `!important` declarations are applied to the same rule on a certain element, the one with the higher specificity will be the ona applied.
@@ -175,10 +182,7 @@ See also:
 
 - [**W3C - 6 Assigning property values, Cascading, and Inheritance -- 6.4.2 !important rules**](https://www.w3.org/TR/CSS22/cascade.html#important-rules)
 
-
-
 ## Cascading
-
 
 Cascading and specificity are used together to determine the final value of a CSS styling property. They also define the mechanisms for resolving conflicts in CSS rule sets.
 
@@ -188,12 +192,12 @@ Styles are read from the following sources, in this order:
 
 1. User Agent stylesheet (The styles supplied by the browser vendor)
 1. User stylesheet (The additional styling a user has set on his/her browser)
-<li>Author stylesheet (Author here means the creator of the webpage/website)
-<ul>
+   <li>Author stylesheet (Author here means the creator of the webpage/website)
+   <ul>
 1. Maybe one or more `.css` files
 1. In the `<style>` element of the HTML document
-</ul>
-</li>
+   </ul>
+   </li>
 1. Inline styles (In the `style` attribute on an HTML element)
 
 The browser will lookup the corresponding style(s) when rendering an element.
@@ -207,9 +211,12 @@ When multiple rule sets are found with conflicting settings, first the Specifict
 ### Example 1 - Specificity rules
 
 ```css
-.mystyle { color: blue; }  /* specificity: 0, 0, 1, 0 */
-div { color: red; }        /* specificity: 0, 0, 0, 1 */
-
+.mystyle {
+  color: blue;
+} /* specificity: 0, 0, 1, 0 */
+div {
+  color: red;
+} /* specificity: 0, 0, 0, 1 */
 ```
 
 ```css
@@ -219,9 +226,7 @@ div { color: red; }        /* specificity: 0, 0, 0, 1 */
 
 What color will the text be? (hover to see the answer)
 
-> 
- blue
-
+> blue
 
 First the specificity rules are applied, and the one with the highest specificity "wins".
 
@@ -231,9 +236,8 @@ First the specificity rules are applied, and the one with the highest specificit
 
 ```css
 .class {
-  background: #FFF;
+  background: #fff;
 }
-
 ```
 
 **Internal css (in HTML file)**
@@ -252,9 +256,12 @@ In this case, where you have identical selectors, the cascade kicks in, and dete
 ### Example 3 - Cascade rules after Specificity rules
 
 ```css
-body > .mystyle { background-color: blue; }   /* specificity: 0, 0, 1, 1 */
-.otherstyle > div { background-color: red; }  /* specificity: 0, 0, 1, 1 */
-
+body > .mystyle {
+  background-color: blue;
+} /* specificity: 0, 0, 1, 1 */
+.otherstyle > div {
+  background-color: red;
+} /* specificity: 0, 0, 1, 1 */
 ```
 
 ```css
@@ -266,9 +273,7 @@ body > .mystyle { background-color: blue; }   /* specificity: 0, 0, 1, 1 */
 
 What color will the background be?
 
-> 
-red
-
+> red
 
 After applying the specificity rules, there's still a conflict between blue and red, so the cascading rules are applied on top of the specificity rules. Cascading looks at the load order of the rules, whether inside the same `.css` file or in the collection of style sources. The last one loaded overrides any earlier ones. In this case, the `.otherstyle > div` rule "wins".
 
@@ -278,35 +283,31 @@ After applying the specificity rules, there's still a conflict between blue and 
 - Stylesheet order break ties.
 - Inline styles trump everything.
 
-
-
 ## More complex specificity example
-
 
 ```css
 div {
-    font-size: 7px;
-    border: 3px dotted pink;
-    background-color: yellow;
-    color: purple;
+  font-size: 7px;
+  border: 3px dotted pink;
+  background-color: yellow;
+  color: purple;
 }
 
 body.mystyle > div.myotherstyle {
-    font-size: 11px;
-    background-color: green;
+  font-size: 11px;
+  background-color: green;
 }
 
 #elmnt1 {
-    font-size: 24px;
-    border-color: red;
+  font-size: 24px;
+  border-color: red;
 }
 
 .mystyle .myotherstyle {
-    font-size: 16px;
-    background-color: black;
-    color: red;
+  font-size: 16px;
+  background-color: black;
+  color: red;
 }
-
 ```
 
 ```css
@@ -322,32 +323,20 @@ What borders, colors, and font-sizes will the text be?
 
 font-size:
 
-> 
- `font-size: 24;`, since `#elmnt1` rule set has the highest specificity for the `<div>` in question, every property here is set.
-
+> `font-size: 24;`, since `#elmnt1` rule set has the highest specificity for the `<div>` in question, every property here is set.
 
 border:
 
-> 
- `border: 3px dotted red;`. The border-color `red` is taken from `#elmnt1` rule set, since it has the highest specificity. The other properties of the border, border-thickness, and border-style are from the `div` rule set.
-
+> `border: 3px dotted red;`. The border-color `red` is taken from `#elmnt1` rule set, since it has the highest specificity. The other properties of the border, border-thickness, and border-style are from the `div` rule set.
 
 background-color:
 
-> 
- `background-color: green;`. The `background-color` is set in the `div`, `body.mystyle > div.myotherstyle`, and `.mystyle .myotherstyle` rule sets. The specificities are (0, 0, 1) vs. (0, 2, 2) vs. (0, 2, 0), so the middle one "wins".
-
+> `background-color: green;`. The `background-color` is set in the `div`, `body.mystyle > div.myotherstyle`, and `.mystyle .myotherstyle` rule sets. The specificities are (0, 0, 1) vs. (0, 2, 2) vs. (0, 2, 0), so the middle one "wins".
 
 color:
 
-> 
- `color: red;`. The color is set in both the `div` and `.mystyle .myotherstyle` rule sets. The latter has the higher specificity of (0, 2, 0) and "wins".
-
-
-
+> `color: red;`. The color is set in both the `div` and `.mystyle .myotherstyle` rule sets. The latter has the higher specificity of (0, 2, 0) and "wins".
 
 #### Remarks
 
-
 CSS specificity intends to promote code conciseness by allowing an author to define some general formatting rules for a broad set of elements, and then to override them for a certain subset.
-

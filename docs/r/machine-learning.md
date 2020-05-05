@@ -40,10 +40,10 @@ rf
 
 ```
 
-<th align="left">parameters</th><th align="left">Description</th>
-|------
-<td align="left">x</td><td align="left">a data frame holding the describing variables of the classes</td>
-<td align="left">y</td><td align="left">the classes of the individual obserbations. If this vector is `factor`, a classification model is created, if not a regression model is created.</td>
-<td align="left">ntree</td><td align="left">The number of individual CART trees built</td>
-<td align="left">do.trace</td><td align="left">every i**th** step, the out-of-the-box errors overall and for  each class are returned</td>
+|parameters|Description
+|---|---|---|---
+|x|a data frame holding the describing variables of the classes
+|y|the classes of the individual obserbations. If this vector is `factor`, a classification model is created, if not a regression model is created.
+|ntree|The number of individual CART trees built
+|do.trace|every i**th** step, the out-of-the-box errors overall and for  each class are returned
 

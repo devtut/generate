@@ -32,7 +32,7 @@ MongoClient.connect(**url**, **options**, **callback**)
 
 
 |Argument|Type|Description
-|------
+|---|---|---
 |`url`|string|A string specifying the server ip/hostname, port and database
 |`options`|object|**(optional)** Optional settings **(default: null)**
 |`callback`|Function|Function to be called when the connection attempt is done
@@ -77,7 +77,7 @@ db.collection(**collection**).insertOne(**document**, **options**, **callback**)
 
 
 |Argument|Type|Description
-|------
+|---|---|---
 |`collection`|string|A string specifying the collection
 |`document`|object|The document to be inserted into the collection
 |`options`|object|**(optional)** Optional settings **(default: null)**
@@ -122,7 +122,7 @@ db.collection(**collection**).find()
 
 
 |Argument|Type|Description
-|------
+|---|---|---
 |`collection`|string|A string specifying the collection
 
 
@@ -157,7 +157,7 @@ db.collection(**collection**).updateOne(**filter**, **update**, **options**. **c
 
 
 |Parameter|Type|Description
-|------
+|---|---|---
 |`filter`|object|Specifies the selection critera
 |`update`|object|Specifies the modifications to apply
 |`options`|object|**(optional)** Optional settings **(default: null)**
@@ -199,7 +199,7 @@ db.collection(**collection**).deleteOne(**filter**, **options**, **callback**)
 
 
 |Parameter|Type|Description
-|------
+|---|---|---
 |`filter`|object|A document specifying the selection critera
 |`options`|object|**(optional)** Optional settings **(default: null)**
 |`callback`|Function|Function to be called when the operation is done
@@ -240,7 +240,7 @@ db.collection(**collection**).deleteMany(**filter**, **options**, **callback**)
 
 
 |Parameter|Type|Description
-|------
+|---|---|---
 |`filter`|document|A document specifying the selection critera
 |`options`|object|**(optional)** Optional settings  **(default: null)**
 |`callback`|function|Function to be called when the operation is done
@@ -294,7 +294,7 @@ MongoDB.connect('mongodb://localhost:27017/databaseName')
 
 
 |Parameter|Details
-|------
+|---|---|---
 |document|A javascript object representing a document
 |documents|An array of documents
 |query|An object defining a search query

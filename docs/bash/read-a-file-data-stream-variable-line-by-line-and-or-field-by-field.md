@@ -5,10 +5,7 @@ description: "Looping through a file line by line, Looping through the output of
 
 # Read a file (data stream, variable) line-by-line (and/or field-by-field)?
 
-
-
 ## Looping through a file line by line
-
 
 ```bash
 while IFS= read -r line; do
@@ -26,10 +23,7 @@ done <file
 
 ```
 
-
-
 ## Looping through the output of a command field by field
-
 
 Let's assume that the field separator is `:`
 
@@ -49,10 +43,7 @@ done
 
 ```
 
-
-
 ## Read lines of a file into an array
-
 
 ```bash
 readarray -t arr <file
@@ -69,10 +60,7 @@ done <file
 
 ```
 
-
-
 ## Read lines of a string into an array
-
 
 ```bash
 var='line 1
@@ -92,10 +80,7 @@ done <<< "$var"
 
 ```
 
-
-
 ## Looping through a string line by line
-
 
 ```bash
 var='line 1
@@ -117,10 +102,7 @@ done
 
 ```
 
-
-
 ## Looping through the output of a command line by line
-
 
 ```bash
 while IFS= read -r line;do
@@ -139,10 +121,7 @@ done
 
 ```
 
-
-
 ## Read a file field by field
-
 
 Let's assume that the field separator is `:` (colon) in the file **file**.
 
@@ -179,10 +158,7 @@ d**
 
 ```
 
-
-
 ## Read a string field by field
-
 
 Let's assume that the field separator is `:`
 
@@ -208,10 +184,7 @@ line3
 
 ```
 
-
-
 ## Read fields of a file into an array
-
 
 Let's assume that the field separator is `:`
 
@@ -223,10 +196,7 @@ done <file
 
 ```
 
-
-
 ## Read fields of a string into an array
-
 
 Let's assume that the field separator is `:`
 
@@ -248,10 +218,7 @@ newline
 
 ```
 
-
-
 ## Reads file (/etc/passwd) line by line and field by field
-
 
 ```bash
 #!/bin/bash
@@ -321,16 +288,12 @@ webalizer:x:67:67:Webalizer:/var/www/usage:/sbin/nologin
 
 ```
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|IFS|Internal field separator
-|file|A file name/path
-|`-r`|Prevents backslash interpretation when used with read
-|`-t`|Removes a trailing newline from each line read by `readarray`
-|`-d DELIM`|Continue until the first character of DELIM is read (with `read`), rather than newline
-
+| Parameter  | Details                                                                                |
+| ---------- | -------------------------------------------------------------------------------------- |
+| IFS        | Internal field separator                                                               |
+| file       | A file name/path                                                                       |
+| `-r`       | Prevents backslash interpretation when used with read                                  |
+| `-t`       | Removes a trailing newline from each line read by `readarray`                          |
+| `-d DELIM` | Continue until the first character of DELIM is read (with `read`), rather than newline |

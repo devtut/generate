@@ -180,7 +180,7 @@ Every sub-class from `State` will have associated a `name` and `pattern`, but al
 In order to understand the process, let's define  the transition matrix for each state based on the input received:
 
 |Input/Current State|Init|Name|Address|Phone
-|------
+|---|---|---|---|---
 |Name|Name|||
 |Address||Address||
 |Phone||Phone|Phone|

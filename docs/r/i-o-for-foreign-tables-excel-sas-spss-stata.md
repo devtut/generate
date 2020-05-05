@@ -139,7 +139,7 @@ foreign::read.spss('data.sav', to.data.frame=TRUE, use.value.labels=FALSE,
 There are several R packages to read excel files, each of which using different languages or resources, as summarized in the following table:
 
 |R package|Uses
-|------
+|---|---|---
 |xlsx|Java
 |XLconnect|Java
 |openxlsx|C++

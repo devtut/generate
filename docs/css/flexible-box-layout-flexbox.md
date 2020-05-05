@@ -5,13 +5,9 @@ description: "Dynamic Vertical and Horizontal Centering (align-items, justify-co
 
 # Flexible Box Layout (Flexbox)
 
-
 The Flexible Box module, or just 'flexbox' for short, is a box model designed for user interfaces, and it allows users to align and distribute space among items in a container such that elements behave predictably when the page layout must accommodate different, unknown screen sizes. A flex container expands items to fill available space and shrinks them to prevent overflow.
 
-
-
 ## Dynamic Vertical and Horizontal Centering (align-items, justify-content)
-
 
 ### Simple Example (centering a single element)
 
@@ -28,7 +24,7 @@ The Flexible Box module, or just 'flexbox' for short, is a box model designed fo
 
 ```css
 .aligner {
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -36,17 +32,16 @@ The Flexible Box module, or just 'flexbox' for short, is a box model designed fo
 .aligner-item {
   max-width: 50%; /*for demo. Use actual width instead.*/
 }
-
 ```
 
 Here is a [demo](http://codepen.io/asim-coder/pen/ZOobqz).
 
 ### Reasoning
 
-|Property|Value|Description
-|------
-|`align-items`|`center`|This centers the elements along the axis other than the one specified by `flex-direction`, i.e., vertical centering for a horizontal flexbox and horizontal centering for a vertical flexbox.
-|`justify-content`|`center`|This centers the elements along the axis specified by `flex-direction`. I.e., for a horizontal (`flex-direction: row`) flexbox, this centers horizontally, and for a vertical flexbox (`flex-direction: column`) flexbox, this centers vertically)
+| Property          | Value    | Description                                                                                                                                                                                                                                        |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `align-items`     | `center` | This centers the elements along the axis other than the one specified by `flex-direction`, i.e., vertical centering for a horizontal flexbox and horizontal centering for a vertical flexbox.                                                      |
+| `justify-content` | `center` | This centers the elements along the axis specified by `flex-direction`. I.e., for a horizontal (`flex-direction: row`) flexbox, this centers horizontally, and for a vertical flexbox (`flex-direction: column`) flexbox, this centers vertically) |
 
 ### Individual Property Examples
 
@@ -73,7 +68,6 @@ div#container {
   flex-direction: row;
   justify-content: center;
 }
-
 ```
 
 **Outcome:**
@@ -92,7 +86,6 @@ div#container {
   flex-direction: column;
   justify-content: center;
 }
-
 ```
 
 **Outcome:**
@@ -111,7 +104,6 @@ div#container {
   flex-direction: row;
   align-items: center;
 }
-
 ```
 
 **Outcome:**
@@ -130,7 +122,6 @@ div#container {
   flex-direction: column;
   align-items: center;
 }
-
 ```
 
 **Outcome:**
@@ -148,7 +139,6 @@ div#container {
   justify-content: center;
   align-items: center;
 }
-
 ```
 
 **Outcome:**
@@ -166,7 +156,6 @@ div#container {
   justify-content: center;
   align-items: center;
 }
-
 ```
 
 **Outcome:**
@@ -175,35 +164,39 @@ div#container {
 
 Here is a [demo](https://jsfiddle.net/d6pc5bmd/5/).
 
-
-
 ## Sticky Variable-Height Footer
-
 
 This code creates a sticky footer. When the content doesn't reach the end of the viewport, the footer sticks to the bottom of the viewport. When the content extends past the bottom of the viewport, the footer is also pushed out of the viewport. **[View Result](https://jsfiddle.net/0t1f84tL/)**
 
 HTML:
 
-```css
+```html
 <div class="header">
   <h2>Header</h2>
 </div>
 
 <div class="content">
   <h1>Content</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+    Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at
+    nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec
+    tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget
+    nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+    per inceptos himenaeos. Curabitur sodales ligula in libero.
+  </p>
 </div>
 
 <div class="footer">
   <h4>Footer</h4>
 </div>
-
 ```
 
 CSS:
 
 ```css
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -217,18 +210,15 @@ body {
   flex: 1 0 auto;
 }
 
-.header, .footer {
+.header,
+.footer {
   background-color: grey;
   color: white;
   flex: none;
 }
-
 ```
 
-
-
 ## Optimally fit elements to their container
-
 
 One of the nicest features of flexbox is to allow optimally fitting containers to their parent element.
 
@@ -236,7 +226,7 @@ One of the nicest features of flexbox is to allow optimally fitting containers t
 
 HTML:
 
-```css
+```html
 <div class="flex-container">
   <div class="flex-item">1</div>
   <div class="flex-item">2</div>
@@ -244,31 +234,29 @@ HTML:
   <div class="flex-item">4</div>
   <div class="flex-item">5</div>
 </div>
-
 ```
 
 CSS:
 
 ```css
 .flex-container {
-    background-color: #000;
-    height: 100%;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: stretch;
+  background-color: #000;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
 }
 
 .flex-item {
-    background-color: #ccf;
-    margin: 0.1em;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: 200px; /* or % could be used to ensure a specific layout */
+  background-color: #ccf;
+  margin: 0.1em;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 200px; /* or % could be used to ensure a specific layout */
 }
-
 ```
 
 **Outcome:**
@@ -277,16 +265,13 @@ Columns adapt as screen is resized.
 
 [<img src="http://i.stack.imgur.com/eGtf5.png" alt="enter image description here" />](http://i.stack.imgur.com/eGtf5.png)
 
-
-
 ## Holy Grail Layout using Flexbox
-
 
 [Holy Grail layout](http://alistapart.com/article/holygrail) is a layout with a fixed height header and footer, and a center with 3 columns. The 3 columns include a fixed width sidenav, a fluid center, and a column for other content like ads (the fluid center appears first in the markup). CSS Flexbox can be used to achieve this with a very simple markup:
 
 HTML Markup:
 
-```css
+```html
 <div class="container">
   <header class="header">Header</header>
   <div class="content-body">
@@ -296,7 +281,6 @@ HTML Markup:
   </div>
   <footer class="footer">Footer</footer>
 </div>
-
 ```
 
 CSS:
@@ -319,7 +303,7 @@ body {
 
 .content-body {
   flex: 1 1 auto;
-  
+
   display: flex;
   flex-direction: row;
 }
@@ -343,15 +327,11 @@ body {
 .footer {
   flex: 0 0 50px;
 }
-
 ```
 
 [Demo](https://jsfiddle.net/adityarb88/hek6ms0x/)
 
-
-
 ## Perfectly aligned buttons inside cards with flexbox
-
 
 It's a regular pattern in design these days to vertically align **call to actions** inside its containing cards like this:
 
@@ -361,21 +341,40 @@ This can be achieved using a special trick with `flexbox`
 
 HTML
 
-```css
+```html
 <div class="cards">
   <div class="card">
-    <p>Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui minim.</p>
+    <p>
+      Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit
+      culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui
+      minim.
+    </p>
     <p><button>Action</button></p>
   </div>
   <div class="card">
-    <p>Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui minim.</p>
-    <p>Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui minim.</p>
-    <p>Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui minim.</p>
-    <p>Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui minim.</p>
+    <p>
+      Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit
+      culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui
+      minim.
+    </p>
+    <p>
+      Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit
+      culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui
+      minim.
+    </p>
+    <p>
+      Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit
+      culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui
+      minim.
+    </p>
+    <p>
+      Lorem ipsum Magna proident ex anim dolor ullamco pariatur reprehenderit
+      culpa esse enim mollit labore dolore voluptate ullamco et ut sed qui
+      minim.
+    </p>
     <p><button>Action</button></p>
   </div>
 </div>
-
 ```
 
 First of all, we use CSS to apply `display: flex;` to the container. This will create 2 columns equal in height with the content flowing naturally inside it
@@ -384,23 +383,22 @@ CSS
 
 ```css
 .cards {
-    display: flex;
+  display: flex;
 }
 .card {
-    border: 1px solid #ccc;
-    margin: 10px 10px;
-    padding: 0 20px;
+  border: 1px solid #ccc;
+  margin: 10px 10px;
+  padding: 0 20px;
 }
 button {
-    height: 40px;
-    background: #fff;
-    padding: 0 40px;
-    border: 1px solid #000;
+  height: 40px;
+  background: #fff;
+  padding: 0 40px;
+  border: 1px solid #000;
 }
 p:last-child {
-    text-align: center;
+  text-align: center;
 }
-
 ```
 
 The layout will change and become like this:
@@ -413,32 +411,28 @@ Final CSS:
 
 ```css
 .cards {
-    display: flex;
+  display: flex;
 }
 .card {
-    border: 1px solid #ccc;
-    margin: 10px 10px;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
+  border: 1px solid #ccc;
+  margin: 10px 10px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
 }
 button {
-    height: 40px;
-    background: #fff;
-    padding: 0 40px;
-    border: 1px solid #000;
+  height: 40px;
+  background: #fff;
+  padding: 0 40px;
+  border: 1px solid #000;
 }
 p:last-child {
-    text-align: center;
-    margin-top: auto;
+  text-align: center;
+  margin-top: auto;
 }
-
 ```
 
-
-
 ## Same height on nested containers
-
 
 This code makes sure that all nested containers are always the same height.
 This is done by assuring that all nested elements are the same height as the containing parrent div.
@@ -448,38 +442,33 @@ This effect is achieved due to the property `align-items` being set to `stretch`
 
 **HTML**
 
-```css
+```html
 <div class="container">
   <div style="background-color: red">
     Some <br />
     data <br />
     to make<br />
     a height <br />
- </div>
+  </div>
   <div style="background-color: blue">
     Fewer <br />
     lines <br />
- </div>
+  </div>
 </div>
-
 ```
 
 **CSS**
 
 ```css
 .container {
-    display: flex;
-    align-items: stretch; // Default value
+  display: flex;
+  align-items: stretch; // Default value
 }
-
 ```
 
 Note: [Does not work on IE versions under 10](http://caniuse.com/#search=flexbox)
 
-
-
 #### Syntax
-
 
 - display: flex;
 - flex-direction: row | row-reverse | column | column-reverse;
@@ -489,24 +478,21 @@ Note: [Does not work on IE versions under 10](http://caniuse.com/#search=flexbox
 - align-items: flex-start | flex-end | center | baseline | stretch;
 - align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 - order: <integer>;
-- flex-grow: <number>; /* default 0 */
-- flex-shrink: <number>; /* default 1 */
-- flex-basis: <length> | auto; /* default auto */
+- flex-grow: <number>; /_ default 0 _/
+- flex-shrink: <number>; /_ default 1 _/
+- flex-basis: <length> | auto; /_ default auto _/
 - flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
 - align-self: auto | flex-start | flex-end | center | baseline | stretch;
 
-
-
 #### Remarks
-
 
 ### Vender Prefixes
 
-- display: -webkit-box; /* Chrome <20 */
-- display: -webkit-flex; /* Chrome 20+ */
-- display: -moz-box; /* Firefox */
-- display: -ms-flexbox; /* IE */
-- display: flex; /* Modern browsers */
+- display: -webkit-box; /_ Chrome <20 _/
+- display: -webkit-flex; /_ Chrome 20+ _/
+- display: -moz-box; /_ Firefox _/
+- display: -ms-flexbox; /_ IE _/
+- display: flex; /_ Modern browsers _/
 
 ### Resources
 
@@ -515,4 +501,3 @@ Note: [Does not work on IE versions under 10](http://caniuse.com/#search=flexbox
 - [What the Flexbox?!](http://www.flexbox.io/)
 - [Flexbox in 5 minutes](http://flexboxin5.com/)
 - [Flexbugs](https://github.com/philipwalton/flexbugs)
-

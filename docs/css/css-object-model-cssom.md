@@ -12,21 +12,21 @@ description: "Adding a background-image rule via the CSSOM, Introduction"
 
 To add a background-image rule via the CSSOM, first get a reference to the rules of the first stylesheet:
 
-```css
+```js
 var stylesheet = document.styleSheets[0].cssRules;
 
 ```
 
 Then, get a reference to the end of the stylesheet:
 
-```css
+```js
 var end = stylesheet.length - 1;
 
 ```
 
 Finally, insert a background-image rule for the body element at the end of the stylesheet:
 
-```css
+```js
 stylesheet.insertRule("body { background-image: url('http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico'); }", end);
 
 ```

@@ -130,7 +130,7 @@ y[[3]]
 
 
 |Parameter|Details
-|------
+|---|---|---
 |expr|In case the "try part" was completed successfully `tryCatch` will return the **last evaluated expression**. Hence, the actual value being returned in case everything went well and there is no condition (i.e. a **warning** or an **error**) is the return value of `readLines`. Note that you don't need to explicilty state the return value via `return` as code in the "try part" is not wrapped insided a function environment (unlike that for the condition handlers for warnings and error below)
 |warning/error/etc|Provide/define a handler function for all the conditions that you want to handle explicitly. AFAIU, you can provide handlers for **any** type of conditions (not just **warnings** and **errors**, but also **custom** conditions; see `simpleCondition` and friends for that) as long as the **name of the respective handler function matches the class of the respective condition** (see the **Details** part of the doc for `tryCatch`).
 |finally|Here goes everything that should be executed at the very end, **regardless** if the expression in the "try part" succeeded or if there was any condition. If you want more than one expression to be executed, then you need to wrap them in curly brackets, otherwise you could just have written `finally = <expression>` (i.e. the same logic as for "try part".

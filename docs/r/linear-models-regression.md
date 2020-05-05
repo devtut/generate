@@ -440,7 +440,7 @@ These plots check for two assumptions that were made while building the model:
 
 
 |Parameter|Meaning
-|------
+|---|---|---
 |formula|a formula in **Wilkinson-Rogers** notation; `response ~ ...` where  `...` contains terms corresponding to variables in the environment or in the data frame specified by the `data` argument
 |data|data frame containing the response and predictor variables
 |subset|a vector specifying a subset of observations to be used: may be expressed as a logical statement in terms of the variables in `data`

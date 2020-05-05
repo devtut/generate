@@ -5,11 +5,7 @@ description: "Append vs Truncate, Redirecting both STDOUT and STDERR, Redirectin
 
 # Redirection
 
-
-
-
 ## Append vs Truncate
-
 
 ### Truncate `>`
 
@@ -44,10 +40,7 @@ second line
 
 ```
 
-
-
 ## Redirecting both STDOUT and STDERR
-
 
 File descriptors like `0` and `1` are pointers. We change what file descriptors point to with redirection. `>/dev/null` means `1` points to `/dev/null`.
 
@@ -86,10 +79,7 @@ echo 'hello' & goodbye > /dev/null
 
 NOTE: `&>` is known to work as desired in both Bash and Zsh.
 
-
-
 ## Redirecting standard output
-
 
 `>` redirect the standard output (aka `STDOUT`) of the current command into a file or another descriptor.
 
@@ -113,10 +103,7 @@ ls 1>file.txt
 
 Note: the redirection is initialized by the executed shell and not by the executed command, therefore it is done before the command execution.
 
-
-
 ## Using named pipes
-
 
 Sometimes you may want to output something by one program and input it into another program, but can't use a standard pipe.
 
@@ -209,11 +196,10 @@ Example 1 - all commands on the same terminal / same shell
 
 ```bash
 $ { ls -l && cat file3; } >mypipe &
-$ cat <mypipe    
+$ cat <mypipe
 # Output: Prints ls -l data and then prints file3 contents on screen
 
 ```
-
 
 </li>
 <li>
@@ -223,25 +209,25 @@ Example 2 - all commands on the same terminal / same shell
 $ ls -l >mypipe &
 $ cat file3 >mypipe &
 $ cat <mypipe
-#Output: This prints on screen the contents of mypipe. 
+#Output: This prints on screen the contents of mypipe.
 
 ```
 
-
 Mind that first contents of `file3` are displayed and then the `ls -l` data is displayed (LIFO configuration).
+
 </li>
 <li>
 Example 3 - all commands on the same terminal / same shell
 
 ```bash
 $ { pipedata=$(<mypipe) && echo "$pipedata"; } &
-$ ls >mypipe 
-# Output: Prints the output of ls directly on screen 
+$ ls >mypipe
+# Output: Prints the output of ls directly on screen
 
 ```
 
-
 Mind that the variable `$pipedata` is not available for usage in the main terminal / main shell since the use of `&` invokes a subshell and `$pipedata` was only available in this subshell.
+
 </li>
 <li>
 Example 4 - all commands on the same terminal / same shell
@@ -250,19 +236,16 @@ Example 4 - all commands on the same terminal / same shell
 $ export pipedata
 $ pipedata=$(<mypipe) &
 $ ls -l *.sh >mypipe
-$ echo "$pipedata"   
+$ echo "$pipedata"
 #Output : Prints correctly the contents of mypipe
 
 ```
 
-
 This prints correctly the value of `$pipedata` variable in the main shell due to the export declaration of the variable. The main terminal/main shell is not hanging due to the invocation of a background shell (`&`).
+
 </li>
 
-
-
 ## Redirecting multiple commands to the same file
-
 
 ```bash
 {
@@ -272,10 +255,7 @@ This prints correctly the value of `$pipedata` variable in the main shell due to
 
 ```
 
-
-
 ## Print error messages to stderr
-
 
 Error messages are generally included in a script for debugging purposes or for providing rich user experience. Simply writing error message like this:
 
@@ -322,12 +302,9 @@ err "My error message"
 
 ```
 
-
-
 ## Redirection to network addresses
 
-
-Bash treats some paths as special and can do some network communication by writing to `/dev/{udp|tcp}/host/port`.  Bash cannot setup a listening server, but can initiate a connection, and for TCP can read the results at least.
+Bash treats some paths as special and can do some network communication by writing to `/dev/{udp|tcp}/host/port`. Bash cannot setup a listening server, but can initiate a connection, and for TCP can read the results at least.
 
 For example, to send a simple web request one could do:
 
@@ -349,10 +326,7 @@ printf 'HI\n' >/dev/udp/192.168.1.1/6666
 
 would send a UDP message containing `HI\n` to a listener on `192.168.1.1:6666`
 
-
-
 ## Redirecting STDIN
-
 
 `<` reads from its right argument and writes to its left argument.
 
@@ -371,10 +345,7 @@ c
 
 ```
 
-
-
 ## Redirecting STDERR
-
 
 `2` is `STDERR`.
 
@@ -397,10 +368,7 @@ stderr
 
 ```
 
-
-
 ## STDIN, STDOUT and STDERR explained
-
 
 Commands have one input (STDIN) and two kinds of outputs, standard output (STDOUT) and standard error (STDERR).
 
@@ -456,10 +424,7 @@ root@server~#
 
 In this case, if there is any STDERR, it will be redirected to /dev/null (a special file which ignores anything put into it), so you won't get any error output on the shell.
 
-
-
 #### Syntax
-
 
 - command </path/to/file # Redirect standard input to file
 - command >/path/to/file # Redirect standard output to flie
@@ -469,21 +434,15 @@ In this case, if there is any STDERR, it will be redirected to /dev/null (a spec
 - command <&file_descriptor # Redirect file_descriptor to standard input
 - command &>/path/to/file # Redirect standard output and standard error to file
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|internal file descriptor|An integer.
-|direction|One of `>`, `<` or `<>`
-|external file descriptor or path|`&` followed by an integer for file descriptor or a path.
-
-
+| Parameter                        | Details                                                   |
+| -------------------------------- | --------------------------------------------------------- |
+| internal file descriptor         | An integer.                                               |
+| direction                        | One of `>`, `<` or `<>`                                   |
+| external file descriptor or path | `&` followed by an integer for file descriptor or a path. |
 
 #### Remarks
-
 
 UNIX console programs have an input file and two output files (input and output streams, as well as devices, are treated as files by the OS.) These are typically the keyboard and screen, respectively, but any or all of them can be redirected to come from — or go to — a file or other program.
 
@@ -521,7 +480,6 @@ will print "Python error!" to the console rather than the log file. Instead, att
 
 ```bash
 $ python -c 'import sys;print >> sys.stderr, "Python error!"' 2>> error.log \
-| cut -f1 
+| cut -f1
 
 ```
-

@@ -5,52 +5,43 @@ description: "Bash internal variables at a glance, $@, $#, $FUNCNAME, $HOME, $IF
 
 # Internal variables
 
-
-
-
 ## Bash internal variables at a glance
 
+| Variable         | Details                                                                                                                                                                                                                                                                                                                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$*` / `$@`      | Function/script positional parameters (arguments). Expand as follows:<br><br>`$*` and `$@` are the same as `$1 $2 ...` (note that it generally makes no sense to leave those unquoted)<br>`"$*"` is the same as `"$1 $2 ..."` <sup>1</sup> <br>`"$@"` is the same as `"$1" "$2" ...` <br> <sub>1. Arguments are separated by the first character of \$IFS, which does not have to be a space.</sub> |
+| `$#`             | Number of positional parameters passed to the script or function                                                                                                                                                                                                                                                                                                                                    |
+| `$!`             | Process ID of the last (righ-most for pipelines) command in the most recently job put into the background (note that it's not necessarily the same as the job's process group ID when job control is enabled)                                                                                                                                                                                       |
+| `$$`             | ID of the process that executed `bash`                                                                                                                                                                                                                                                                                                                                                              |
+| `$?`             | Exit status of the last command                                                                                                                                                                                                                                                                                                                                                                     |
+| `$n`             | Positional parameters, where n=1, 2, 3, ..., 9                                                                                                                                                                                                                                                                                                                                                      |
+| `${n}`           | Positional parameters (same as above), but n can be > 9                                                                                                                                                                                                                                                                                                                                             |
+| `$0`             | In scripts, path with which the script was invoked; with `bash -c 'printf "%s\n" "$0"' name args'`: `name` (the first argument after the inline script), otherwise, the `argv[0]` that `bash` received.                                                                                                                                                                                             |
+| `$_`             | Last field of the last command                                                                                                                                                                                                                                                                                                                                                                      |
+| `$IFS`           | Internal field separator                                                                                                                                                                                                                                                                                                                                                                            |
+| `$PATH`          | PATH environment variable used to look-up executables                                                                                                                                                                                                                                                                                                                                               |
+| `$OLDPWD`        | Previous working directory                                                                                                                                                                                                                                                                                                                                                                          |
+| `$PWD`           | Present working directory                                                                                                                                                                                                                                                                                                                                                                           |
+| `$FUNCNAME`      | Array of function names in the execution call stack                                                                                                                                                                                                                                                                                                                                                 |
+| `$BASH_SOURCE`   | Array containing source paths for elements in `FUNCNAME` array. Can be used to get the script path.                                                                                                                                                                                                                                                                                                 |
+| `$BASH_ALIASES`  | Associative array containing all currently defined aliases                                                                                                                                                                                                                                                                                                                                          |
+| `$BASH_REMATCH`  | Array of matches from the last regex match                                                                                                                                                                                                                                                                                                                                                          |
+| `$BASH_VERSION`  | Bash version string                                                                                                                                                                                                                                                                                                                                                                                 |
+| `$BASH_VERSINFO` | An array of 6 elements with Bash version information                                                                                                                                                                                                                                                                                                                                                |
+| `$BASH`          | Absolute path to the currently executing Bash shell itself (heuristically determined by `bash` based on `argv[0]` and the value of `$PATH`; may be wrong in corner cases)                                                                                                                                                                                                                           |
+| `$BASH_SUBSHELL` | Bash subshell level                                                                                                                                                                                                                                                                                                                                                                                 |
+| `$UID`           | Real (not effective if different) User ID of the process running `bash`                                                                                                                                                                                                                                                                                                                             |
+| `$PS1`           | Primary command line prompt; see [Using the PS\* Variables](http://stackoverflow.com/documentation/bash/7541/handling-the-system-prompt#t=201610212316553697922)                                                                                                                                                                                                                                    |
+| `$PS2`           | Secondary command line prompt (used for additional input)                                                                                                                                                                                                                                                                                                                                           |
+| `$PS3`           | Tertiary command line prompt (used in select loop)                                                                                                                                                                                                                                                                                                                                                  |
+| `$PS4`           | Quaternary command line prompt (used to append info with verbose output)                                                                                                                                                                                                                                                                                                                            |
+| `$RANDOM`        | A pseudo random integer between 0 and 32767                                                                                                                                                                                                                                                                                                                                                         |
+| `$REPLY`         | Variable used by `read` by default when no variable is specified. Also used by `select` to return the user-supplied value                                                                                                                                                                                                                                                                           |
+| `$PIPESTATUS`    | Array variable that holds the exit status values of each command in the most recently executed foreground pipeline.                                                                                                                                                                                                                                                                                 |
 
-|Variable|Details
-|------
-|`$*` / `$@`|Function/script positional parameters (arguments). Expand as follows:<br><br>`$*` and `$@` are the same as `$1 $2 ...` (note that it generally makes no sense to leave those unquoted)<br>`"$*"` is the same as `"$1 $2 ..."` <sup>1</sup> <br>`"$@"` is the same as `"$1" "$2" ...` <br> <sub>1. Arguments are separated by the first character of $IFS, which does not have to be a space.</sub>
-|`$#`|Number of positional parameters passed to the script or function
-|`$!`|Process ID of the last (righ-most for pipelines) command in the most recently job put into the background (note that it's not necessarily the same as the job's process group ID when job control is enabled)
-|`$$`|ID of the process that executed `bash`
-|`$?`|Exit status of the last command
-|`$n`|Positional parameters, where n=1, 2, 3, ..., 9
-|`${n}`|Positional parameters (same as above), but n can be > 9
-|`$0`|In scripts, path with which the script was invoked; with `bash -c 'printf "%s\n" "$0"' name args'`: `name` (the first argument after the inline script), otherwise, the `argv[0]` that `bash` received.
-|`$_`|Last field of the last command
-|`$IFS`|Internal field separator
-|`$PATH`|PATH environment variable used to look-up executables
-|`$OLDPWD`|Previous working directory
-|`$PWD`|Present working directory
-|`$FUNCNAME`|Array of function names in the execution call stack
-|`$BASH_SOURCE`|Array containing source paths for elements in `FUNCNAME` array. Can be used to get the script path.
-|`$BASH_ALIASES`|Associative array containing all currently defined aliases
-|`$BASH_REMATCH`|Array of matches from the last regex match
-|`$BASH_VERSION`|Bash version string
-|`$BASH_VERSINFO`|An array of 6 elements with Bash version information
-|`$BASH`|Absolute path to the currently executing Bash shell itself (heuristically determined by `bash` based on `argv[0]` and the value of `$PATH`; may be wrong in corner cases)
-|`$BASH_SUBSHELL`|Bash subshell level
-|`$UID`|Real (not effective if different) User ID of the process running `bash`
-|`$PS1`|Primary command line prompt; see [Using the PS* Variables](http://stackoverflow.com/documentation/bash/7541/handling-the-system-prompt#t=201610212316553697922)
-|`$PS2`|Secondary command line prompt (used for additional input)
-|`$PS3`|Tertiary command line prompt (used in select loop)
-|`$PS4`|Quaternary command line prompt (used to append info with verbose output)
-|`$RANDOM`|A pseudo random integer between 0 and 32767
-|`$REPLY`|Variable used by `read` by default when no variable is specified. Also used by `select` to return the user-supplied value
-|`$PIPESTATUS`|Array variable that holds the exit status values of each command in the most recently executed foreground pipeline.
+> Variable Assignment must have no space before and after. `a=123` not `a = 123`. The latter (an equal sign surrounded by spaces) in isolation means run the command `a` with the arguments `=` and `123`, though it is also seen in the string comparison operator (which syntactically is an argument to `[` or `[[` or whichever test you are using).
 
-> 
-Variable Assignment must have no space before and after. `a=123` not `a = 123`. The latter (an equal sign surrounded by spaces) in isolation means run the command `a` with the arguments `=` and `123`, though it is also seen in the string comparison operator (which syntactically is an argument to `[` or `[[` or whichever test you are using).
-
-
-
-
-## $@
-
+## \$@
 
 `"$@"` expands to all of the command line arguments as separate words. It is different from `"$*"`, which expands to all of the arguments as a single word.
 
@@ -86,7 +77,7 @@ While `"$*"` will be expanded into `"$1␣$2"` which will in turn expand into `"
 
 ```bash
 for var in "$*"; do
-    echo \<"$var"\>   
+    echo \<"$var"\>
 done
 
 ```
@@ -115,12 +106,9 @@ will print
 
 ```
 
-thereby preserving both the internal spacing in the arguments and the arguments separation.  Note that the construction `for var in "$@"; do ...` is so common and idiomatic that it is the default for a for loop and can be shortened to `for var; do ...`.
+thereby preserving both the internal spacing in the arguments and the arguments separation. Note that the construction `for var in "$@"; do ...` is so common and idiomatic that it is the default for a for loop and can be shortened to `for var; do ...`.
 
-
-
-## $#
-
+## \$
 
 To get the number of command line arguments or positional parameters - type:
 
@@ -138,10 +126,7 @@ When run with three arguments the example above will result with the output:
 
 ```
 
-
-
-## $FUNCNAME
-
+## \$FUNCNAME
 
 To get the name of the current function - type:
 
@@ -162,10 +147,7 @@ echo "This function is $FUNCNAME"    # This will output "This function is"
 
 ```
 
-
-
-## $HOME
-
+## \$HOME
 
 The home directory of the user
 
@@ -175,10 +157,7 @@ The home directory of the user
 
 ```
 
-
-
-## $IFS
-
+## \$IFS
 
 Contains the Internal Field Separator string that bash uses to split strings when looping etc. The default is the white space characters: `\n` (newline), `\t` (tab) and space. Changing this to something else allows you to split strings using different characters:
 
@@ -187,7 +166,7 @@ IFS=","
 INPUTSTR="a,b,c,d"
 for field in ${INPUTSTR}; do
     echo $field
-done 
+done
 
 ```
 
@@ -205,10 +184,7 @@ d
 
 - This is responsible for the phenomenon known as [word splitting](http://stackoverflow.com/documentation/bash/5472/word-splitting/19453/what-when-and-why#t=201608151204564817213).
 
-
-
-## $OLDPWD
-
+## \$OLDPWD
 
 **OLDPWD** (**OLDP**rint**W**orking**D**irectory) contains directory before the last `cd` command:
 
@@ -219,10 +195,7 @@ directory> $ echo $OLDPWD
 
 ```
 
-
-
-## $PWD
-
+## \$PWD
 
 **PWD** (**P**rint**W**orking**D**irectory) The current working directory you are in at the moment:
 
@@ -235,10 +208,7 @@ directory> $ echo $PWD
 
 ```
 
-
-
-## $1 $2 $3 etc...
-
+## $1 $2 \$3 etc...
 
 Positional parameters passed to the script from either the command line or a function:
 
@@ -272,15 +242,12 @@ echo $10   # outputs 1
 echo ${10} # outputs ten
 # to show this clearly:
 set -- arg{1..12}
-echo $10 
+echo $10
 echo ${10}
 
 ```
 
-
-
-## $*
-
+## \$\*
 
 Will return all of the positional parameters in a single string.
 
@@ -295,7 +262,7 @@ echo "$*"
 Run the script with several arguments:
 
 ```bash
-./testscript.sh firstarg secondarg thirdarg 
+./testscript.sh firstarg secondarg thirdarg
 
 ```
 
@@ -306,10 +273,7 @@ firstarg secondarg thirdarg
 
 ```
 
-
-
-## $!
-
+## \$!
 
 The Process ID (pid) of the last job run in the background:
 
@@ -322,10 +286,7 @@ testfile1 testfile2
 
 ```
 
-
-
-## $?
-
+## \$?
 
 The exit status of the last executed function or command. Usually 0 will mean OK anything else will indicate a failure:
 
@@ -339,10 +300,7 @@ testfile1 testfile2
 
 ```
 
-
-
-## $$
-
+## \$\$
 
 The Process ID (pid) of the current process:
 
@@ -352,10 +310,7 @@ The Process ID (pid) of the current process:
 
 ```
 
-
-
-## $HISTSIZE
-
+## \$HISTSIZE
 
 The maximum number of remembered commands:
 
@@ -365,10 +320,7 @@ The maximum number of remembered commands:
 
 ```
 
-
-
-## $BASHPID
-
+## \$BASHPID
 
 Process ID (pid) of the current instance of Bash. This is not the same as the `$$` variable, but it often gives the same result. This is new in Bash 4 and doesn't work in Bash 3.
 
@@ -378,17 +330,11 @@ $$ pid = 9265  BASHPID = 9265
 
 ```
 
-
-
-## $BASH_ENV
-
+## \$BASH_ENV
 
 An environment variable pointing to the Bash startup file which is read when a script is invoked.
 
-
-
-## $BASH_VERSINFO
-
+## \$BASH_VERSINFO
 
 An array containing the full version information split into elements, much more convenient than `$BASH_VERSION` if you're just looking for the major version:
 
@@ -403,10 +349,7 @@ BASH_VERSINFO[5] = x86_64-redhat-linux-gnu
 
 ```
 
-
-
-## $BASH_VERSION
-
+## \$BASH_VERSION
 
 Shows the version of bash that is running, this allows you to decide whether you can use any advanced features:
 
@@ -416,10 +359,7 @@ Shows the version of bash that is running, this allows you to decide whether you
 
 ```
 
-
-
-## $EDITOR
-
+## \$EDITOR
 
 The default editor that will be involked by any scripts or programs, usually vi or emacs.
 
@@ -429,10 +369,7 @@ vi
 
 ```
 
-
-
-## $HOSTNAME
-
+## \$HOSTNAME
 
 The hostname assigned to the system during startup.
 
@@ -442,10 +379,7 @@ mybox.mydomain.com
 
 ```
 
-
-
-## $HOSTTYPE
-
+## \$HOSTTYPE
 
 This variable identifies the hardware, it can be useful in determining which binaries to execute:
 
@@ -455,10 +389,7 @@ x86_64
 
 ```
 
-
-
-## $MACHTYPE
-
+## \$MACHTYPE
 
 Similar to `$HOSTTYPE` above, this also includes information about the OS as well as hardware
 
@@ -468,10 +399,7 @@ x86_64-redhat-linux-gnu
 
 ```
 
-
-
-## $OSTYPE
-
+## \$OSTYPE
 
 Returns information about the type of OS running on the machine, eg.
 
@@ -481,10 +409,7 @@ linux-gnu
 
 ```
 
-
-
-## $PATH
-
+## \$PATH
 
 The search path for finding binaries for commands. Common examples include `/usr/bin` and `/usr/local/bin`.
 
@@ -500,10 +425,7 @@ The directories in `$PATH` are separated by a `:` character.
 
 So, for example, given the above `$PATH`, if you type `lss` at the prompt, the shell will look for `/usr/kerberos/bin/lss`, then `/usr/local/bin/lss`, then `/bin/lss`, then `/usr/bin/lss`, in this order, before concluding that there is no such command.
 
-
-
-## $PPID
-
+## \$PPID
 
 The Process ID (pid) of the script or shell's parent, meaning the process than invoked the current script or shell.
 
@@ -515,10 +437,7 @@ The Process ID (pid) of the script or shell's parent, meaning the process than i
 
 ```
 
-
-
-## $SECONDS
-
+## \$SECONDS
 
 The number of seconds a script has been running. This can get quite large if shown in the shell:
 
@@ -528,10 +447,7 @@ The number of seconds a script has been running. This can get quite large if sho
 
 ```
 
-
-
-## $SHELLOPTS
-
+## \$SHELLOPTS
 
 A readonly list of the options bash is supplied on startup to control its behaviour:
 
@@ -541,10 +457,7 @@ braceexpand:emacs:hashall:histexpand:history:interactive-comments:monitor
 
 ```
 
-
-
-## $_
-
+## \$\_
 
 Outputs the last field from the last command executed, useful to get something to pass onwards to another command:
 
@@ -574,25 +487,19 @@ Output:
 
 **Note:** This is not a foolproof way to get the script path
 
-
-
-## $RANDOM
-
+## \$RANDOM
 
 Each time this parameter is referenced, a random integer between 0 and 32767 is generated. Assigning a value to this variable seeds the random number generator ([source](https://www.gnu.org/software/bash/manual/bashref.html#Bash-Variables)).
 
 ```bash
-~> $ echo $RANDOM 
+~> $ echo $RANDOM
 27119
-~> $ echo $RANDOM 
+~> $ echo $RANDOM
 1349
 
 ```
 
-
-
-## $GROUPS
-
+## \$GROUPS
 
 An array containing the numbers of groups the user is in:
 
@@ -601,15 +508,12 @@ An array containing the numbers of groups the user is in:
 echo You are assigned to the following groups:
 for group in ${GROUPS[@]}; do
    IFS=: read -r name dummy number members < <(getent group $group )
-   printf "name: %-10s number: %-15s members: %s\n" "$name" "$number" "$members" 
+   printf "name: %-10s number: %-15s members: %s\n" "$name" "$number" "$members"
 done
 
 ```
 
-
-
-## $LINENO
-
+## \$LINENO
 
 Outputs the line number in the current script. Mostly useful when debugging scripts.
 
@@ -621,12 +525,9 @@ echo $LINENO # Will output 4
 
 ```
 
+## \$SHLVL
 
-
-## $SHLVL
-
-
-When the bash command is executed a new shell is opened. The $SHLVL environment variable holds the number of shell levels the **current** shell is running on top of.
+When the bash command is executed a new shell is opened. The \$SHLVL environment variable holds the number of shell levels the **current** shell is running on top of.
 
 In a **new** terminal window, executing the following command will produce different results based on the Linux distribution in use.
 
@@ -696,10 +597,7 @@ Hello from test2.sh. My shell level is 5
 
 ```
 
-
-
-## $UID
-
+## \$UID
 
 A read only variable that stores the users' ID number:
 
@@ -708,4 +606,3 @@ A read only variable that stores the users' ID number:
 12345
 
 ```
-

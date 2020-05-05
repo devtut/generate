@@ -5,20 +5,16 @@ description: "Sort command output, Make output unique, Numeric sort, Sort by key
 
 # Using sort
 
-
 sort is a Unix command to order data in file(s) in a sequence.
 
-
-
 ## Sort command output
-
 
 `sort` command is used to sort a list of lines.
 
 **Input from a file**
 
 ```bash
-sort file.txt  
+sort file.txt
 
 ```
 
@@ -31,10 +27,7 @@ find * -name pattern | sort
 
 ```
 
-
-
 ## Make output unique
-
 
 If each lines of the output need to be unique, add `-u` option.
 
@@ -45,10 +38,7 @@ ls -l | awk '{print $3}' | sort -u
 
 ```
 
-
-
 ## Numeric sort
-
 
 Suppose we have this file:
 
@@ -65,17 +55,17 @@ test>>cat file
 To sort this file numerically, use sort with -n option:
 
 ```bash
-test>>sort -n file  
+test>>sort -n file
 
 ```
 
 This should sort the file as below:
 
 ```bash
-1.The sorting hat  
-2.Harry  
-3.Dumbledore  
-4.Hogwarts  
+1.The sorting hat
+2.Harry
+3.Dumbledore
+4.Hogwarts
 10.Gryffindor
 
 ```
@@ -101,15 +91,12 @@ This should sort the file as below:
 
 ```
 
-
-
 ## Sort by keys
-
 
 Suppose we have this file:
 
 ```bash
-test>>cat Hogwarts 
+test>>cat Hogwarts
   Harry        Malfoy        Rowena        Helga
   Gryffindor   Slytherin     Ravenclaw     Hufflepuff
   Hermione     Goyle         Lockhart      Tonks
@@ -140,11 +127,11 @@ This will sort the file with column 2 as the key:
 Now if we have to sort the file with a secondary key along with the primary key use:
 
 ```bash
-sort -k 2,2 -k 1,1 Hogwarts 
+sort -k 2,2 -k 1,1 Hogwarts
 
 ```
 
-This will first sort the file  with column 2 as primary key, and then sort the file with column 1 as secondary key:
+This will first sort the file with column 2 as primary key, and then sort the file with column 1 as secondary key:
 
 ```
 
@@ -192,26 +179,16 @@ This will sort the file as below:
 
 ```
 
-
-
 #### Syntax
-
 
 - sort [option] filename
 
-
-
 #### Parameters
 
-
-|Option|Meaning
-|------
-|-u|Make each lines of output unique
-
-
+| Option | Meaning                          |
+| ------ | -------------------------------- |
+| -u     | Make each lines of output unique |
 
 #### Remarks
 
-
 Full user manual of `sort` reading [online](http://man7.org/linux/man-pages/man1/sort.1.html)
-

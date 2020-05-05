@@ -5,26 +5,22 @@ description: "Updating with local changes, Pull, overwrite local, Pull code from
 
 # Pulling
 
-
 Unlike pushing with Git where your local changes are sent to the central repository's server, pulling with Git takes the current code on the server and 'pulls' it down from the repository's server to your local machine. This topic explains the process of pulling code from a repository using Git as well as the situations one might encounter while pulling different code into the local copy.
-
-
 
 ## Updating with local changes
 
-
 When local changes are present, the `git pull` command aborts reporting :
 
-> 
+>
+
 <p>error: Your local changes to the following files would be overwritten
 by merge</p>
-
 
 In order to update (like svn update did with subversion), you can run :
 
 ```git
 git stash
-git pull --rebase 
+git pull --rebase
 git stash pop
 
 ```
@@ -48,10 +44,7 @@ git up
 
 ```
 
-
-
 ## Pull, overwrite local
-
 
 ```git
 git fetch
@@ -63,20 +56,14 @@ git reset --hard origin/master
 
 Change `origin` and `master` to the remote and branch you want to forcibly pull to, respectively, if they are named differently.
 
-
-
 ## Pull code from remote
-
 
 ```git
 git pull
 
 ```
 
-
-
 ## Keeping linear history when pulling
-
 
 ### Rebasing when pulling
 
@@ -123,10 +110,7 @@ git pull --ff-only
 
 This will display an error when the local branch is not fast-forwardable, and needs to be either rebased or merged with upstream.
 
-
-
 ## Pulling changes to a local repository
-
 
 ### Simple pull
 
@@ -172,10 +156,7 @@ git merge local-branch-name # performing the merge
 
 This can be very handy when processing pull requests.
 
-
-
 ## Pull, "permission denied"
-
 
 Some problems can occur if the `.git` folder has wrong permission. Fixing this problem by setting the owner of the complete `.git` folder. Sometimes it happen that another user pull and change the rights of the `.git` folder or files.
 
@@ -186,30 +167,20 @@ chown -R youruser:yourgroup .git/
 
 ```
 
-
-
 #### Syntax
-
 
 - git pull [options [<repository> [<refspec>...]]
 
-
-
 #### Parameters
 
-
-|**Parameters**|**Details**
-|------
-|`--quiet`|No text output
-|`-q`|shorthand for `--quiet`
-|`--verbose`|verbose text output. Passed to fetch and merge/rebase commands respectively.
-|`-v`|shorthand for `--verbose`
-|`--[no-]recurse-submodules[=yes`|`on-demand`|`no]`|Fetch new commits for submodules? (Not that this is not a pull/checkout)
-
-
+| **Parameters**                   | **Details**                                                                  |
+| -------------------------------- | ---------------------------------------------------------------------------- |
+| `--quiet`                        | No text output                                                               |
+| `-q`                             | shorthand for `--quiet`                                                      |
+| `--verbose`                      | verbose text output. Passed to fetch and merge/rebase commands respectively. |
+| `-v`                             | shorthand for `--verbose`                                                    |
+| `--[no-]recurse-submodules[=yes` | `on-demand`                                                                  | `no]` | Fetch new commits for submodules? (Not that this is not a pull/checkout) |
 
 #### Remarks
 
-
 `git pull` runs `git fetch` with the given parameters and calls `git merge` to merge the retrieved branch heads into the current branch.
-

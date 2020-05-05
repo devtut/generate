@@ -5,11 +5,7 @@ description: "Display Remote Repositories, Change remote url of your Git reposit
 
 # Git Remote
 
-
-
-
 ## Display Remote Repositories
-
 
 To list all configured remote repositories, use `git remote`.
 
@@ -36,10 +32,7 @@ origin    https://github.com/ud/starter.git (push)
 
 ```
 
-
-
 ## Change remote url of your Git repository
-
 
 You may want to do this if the remote repository is migrated. The command for changing the remote url is:
 
@@ -75,10 +68,7 @@ origin    https://localserver/develop/myrepo.git (push)
 
 ```
 
-
-
 ## Remove a Remote Repository
-
 
 Remove the remote named `<name>`. All remote-tracking branches and configuration settings for the remote are removed.
 
@@ -89,10 +79,7 @@ git remote rm dev
 
 ```
 
-
-
 ## Add a Remote Repository
-
 
 To add a remote, use `git remote add` in the root of your local repository.
 
@@ -105,10 +92,7 @@ git remote add <name> <url>
 
 The command `git fetch <name>` can then be used to create and update remote-tracking branches `<name>/<branch>`.
 
-
-
 ## Show more information about remote repository
-
 
 You can view more information about a remote repository by `git remote show <remote repository alias>`
 
@@ -133,10 +117,7 @@ Local refs configured for 'git push':
 
 ```
 
-
-
 ## Rename a Remote Repository
-
 
 Rename the remote named `<old>` to `<new>`. All remote-tracking branches and configuration settings for the remote are updated.
 
@@ -147,10 +128,7 @@ git remote rename dev dev1
 
 ```
 
-
-
 #### Syntax
-
 
 - `git remote [-v | --verbose]`
 - `git remote add [-t <branch>] [-m <master>] [-f] [--[no-]tags] [--mirror=<fetch|push>]<name> <url>`
@@ -166,29 +144,25 @@ git remote rename dev dev1
 - `git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]`
 - `git remote show <name>`
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|-v, --verbose|Run verbosely.
-|-m <master>|Sets head to remote's <master> branch
-|--mirror=fetch|Refs will not be stored in refs/remotes namespace, but instead will be mirrored in the local repo
-|--mirror=push|`git push` will behave as if --mirror was passed
-|--no-tags|`git fetch <name>` does not import tags from the remote repo
-|-t <branch>|Specifies the remote to track **only** <branch>
-|-f|`git fetch <name>` is run immediately after remote is set up
-|--tags|`git fetch <name>` imports every tag from the remote repo
-|-a, --auto|The symbolic-ref's HEAD is set to the same branch as the remote's HEAD
-|-d, --delete|All listed refs are deleted from the remote repository
-|--add|Adds <name> to list of currently tracked branches (set-branches)
-|--add|Instead of changing some URL, new URL is added (set-url)
-|--all|Push all branches.
-|--delete|All urls matching <url> are deleted. (set-url)
-|--push|Push URLS are manipulated instead of fetch URLS
-|-n|The remote heads are not queried first with `git ls-remote <name>`, cached information is used instead
-|--dry-run|report what branches will be pruned, but do not actually prune them
-|--prune|Remove remote branches that don't have a local counterpart
-
+| Parameter      | Details                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| -v, --verbose  | Run verbosely.                                                                                         |
+| -m <master>    | Sets head to remote's <master> branch                                                                  |
+| --mirror=fetch | Refs will not be stored in refs/remotes namespace, but instead will be mirrored in the local repo      |
+| --mirror=push  | `git push` will behave as if --mirror was passed                                                       |
+| --no-tags      | `git fetch <name>` does not import tags from the remote repo                                           |
+| -t <branch>    | Specifies the remote to track **only** <branch>                                                        |
+| -f             | `git fetch <name>` is run immediately after remote is set up                                           |
+| --tags         | `git fetch <name>` imports every tag from the remote repo                                              |
+| -a, --auto     | The symbolic-ref's HEAD is set to the same branch as the remote's HEAD                                 |
+| -d, --delete   | All listed refs are deleted from the remote repository                                                 |
+| --add          | Adds <name> to list of currently tracked branches (set-branches)                                       |
+| --add          | Instead of changing some URL, new URL is added (set-url)                                               |
+| --all          | Push all branches.                                                                                     |
+| --delete       | All urls matching <url> are deleted. (set-url)                                                         |
+| --push         | Push URLS are manipulated instead of fetch URLS                                                        |
+| -n             | The remote heads are not queried first with `git ls-remote <name>`, cached information is used instead |
+| --dry-run      | report what branches will be pruned, but do not actually prune them                                    |
+| --prune        | Remove remote branches that don't have a local counterpart                                             |

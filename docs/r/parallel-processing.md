@@ -138,7 +138,7 @@ The structure of the output of `foreach` is controlled by the `.combine` argumen
 It is important to mention that the result of each foreach-loop is the last call. Thus, in this example `k` will be added to the result.
 
 |**Parameter**|Details
-|------
+|---|---|---|---
 |.combine|combine Function. Determines how the results of the loop are combined. Possible values are `c`, `cbind`, `rbind`, `"+"`, `"*"`...
 |.inorder|if `TRUE` the result is ordered according to the order of the iteration vairable (here `i`). If `FALSE` the result is not ordered. This can have postive effects on computation time.
 |.packages|for functions which are provided by any package except `base`, like e.g. `mass`, `randomForest` or else, you have to provide these packages with `c("mass", "randomForest")`

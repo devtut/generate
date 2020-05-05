@@ -5,10 +5,7 @@ description: "Concatenate files, Printing the Contents of a File, Write to a fil
 
 # Using cat
 
-
-
 ## Concatenate files
-
 
 This is the primary purpose of `cat`.
 
@@ -24,10 +21,7 @@ cat file1 file2 file3 | grep foo
 
 ```
 
-
-
 ## Printing the Contents of a File
-
 
 ```bash
 cat file.txt
@@ -50,7 +44,7 @@ less file.txt
 
 ```
 
-To pass the contents of a file as input to a command. An approach usually seen as better ([UUOC](https://en.wikipedia.org/wiki/Cat_(Unix)#Useless_use_of_cat)) is to use redirection.
+To pass the contents of a file as input to a command. An approach usually seen as better ([UUOC](<https://en.wikipedia.org/wiki/Cat_(Unix)#Useless_use_of_cat>)) is to use redirection.
 
 ```bash
 tr A-Z a-z <file.txt   # as an alternative to cat file.txt | tr A-Z a-z
@@ -71,7 +65,7 @@ cat -n file.txt
 
 ```
 
-To display the contents of a file in a completely unambiguous byte-by-byte form, a hex dump is the standard solution.  This is good for very brief snippets of a file, such as when you don't know the precise encoding.  The standard hex dump utility is `od -cH`, though the representation is slightly cumbersome; common replacements include `xxd` and `hexdump`.
+To display the contents of a file in a completely unambiguous byte-by-byte form, a hex dump is the standard solution. This is good for very brief snippets of a file, such as when you don't know the precise encoding. The standard hex dump utility is `od -cH`, though the representation is slightly cumbersome; common replacements include `xxd` and `hexdump`.
 
 ```bash
 $ printf 'Hëllö wörld' | xxd
@@ -79,10 +73,7 @@ $ printf 'Hëllö wörld' | xxd
 
 ```
 
-
-
 ## Write to a file
-
 
 ```bash
 cat >file
@@ -109,7 +100,7 @@ END
 
 ```
 
-The token after the `<<` redirection symbol is an arbitrary string which needs to occur alone on a line (with no leading or trailing whitespace) to indicate the end of the here document.  You can add quoting to prevent the shell from performing command substitution and variable interpolation:
+The token after the `<<` redirection symbol is an arbitrary string which needs to occur alone on a line (with no leading or trailing whitespace) to indicate the end of the here document. You can add quoting to prevent the shell from performing command substitution and variable interpolation:
 
 ```bash
 cat <<'fnord'
@@ -120,10 +111,7 @@ fnord
 
 (Without the quotes, `here` would be executed as a command, and `$changed` would be substituted with the value of the variable `changed` -- or nothing, if it was undefined.)
 
-
-
 ## Display line numbers with output
-
 
 Use the `--number` flag to print line numbers before each line. Alternatively, `-n` does the same thing.
 
@@ -151,10 +139,7 @@ $ cat -b file
 
 ```
 
-
-
 ## Read from standard input
-
 
 ```bash
 cat < file.txt
@@ -164,16 +149,13 @@ cat < file.txt
 Output is same as `cat file.txt`, but it reads the contents of the file from standard input instead of directly from the file.
 
 ```bash
-printf "first line\nSecond line\n" | cat -n 
+printf "first line\nSecond line\n" | cat -n
 
 ```
 
 The echo command before `|` outputs two lines. The cat command acts on the output to add line numbers.
 
-
-
 ## Show non printable characters
-
 
 This is useful to see if there are any non-printable characters, or non-ASCII characters.
 
@@ -202,10 +184,7 @@ M-bM-^@M-^]^I`$
 
 ```
 
-
-
 ## Concatenate gzipped files
-
 
 Files compressed by `gzip` can be directly concatenated into larger gzipped files.
 
@@ -226,7 +205,7 @@ A complete demonstration:
 ```bash
 echo 'Hello world!' > hello.txt
 echo 'Howdy world!' > howdy.txt
-gzip hello.txt 
+gzip hello.txt
 gzip howdy.txt
 
 cat hello.txt.gz howdy.txt.gz > greetings.txt.gz
@@ -245,35 +224,25 @@ Howdy world!
 
 ```
 
-Notice that `greetings.txt.gz` is a ****single file**** and is decompressed as the ****single file**** `greeting.txt`. Contrast this with `tar -czf hello.txt howdy.txt > greetings.tar.gz`, which keeps the files separate inside the tarball.
-
-
+Notice that `greetings.txt.gz` is a \***\*single file\*\*** and is decompressed as the \***\*single file\*\*** `greeting.txt`. Contrast this with `tar -czf hello.txt howdy.txt > greetings.tar.gz`, which keeps the files separate inside the tarball.
 
 #### Syntax
 
-
 - cat [OPTIONS]... [FILE]...
-
-
 
 #### Parameters
 
-
-|Option|Details
-|------
-|-n|Print line numbers
-|-v|Show non-printing characters using ^ and M- notation except LFD and TAB
-|-T|Show TAB characters as ^I
-|-E|Show linefeed(LF) characters as $
-|-e|Same as -vE
-|-b|Number nonempty output lines, overrides -n
-|-A|equivalent to -vET
-|-s|suppress repeated empty output lines, s refers to squeeze
-
-
+| Option | Details                                                                 |
+| ------ | ----------------------------------------------------------------------- |
+| -n     | Print line numbers                                                      |
+| -v     | Show non-printing characters using ^ and M- notation except LFD and TAB |
+| -T     | Show TAB characters as ^I                                               |
+| -E     | Show linefeed(LF) characters as \$                                      |
+| -e     | Same as -vE                                                             |
+| -b     | Number nonempty output lines, overrides -n                              |
+| -A     | equivalent to -vET                                                      |
+| -s     | suppress repeated empty output lines, s refers to squeeze               |
 
 #### Remarks
 
-
 `cat` can read from both files and standard inputs and concatenates them to standard output
-

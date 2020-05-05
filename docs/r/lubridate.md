@@ -14,7 +14,7 @@ description: "Parsing dates and datetimes from strings with lubridate, Differenc
 The `lubridate` package provides convenient functions to format date and datetime objects from character strings. The functions are permutations of
 
 |Letter|Element to parse|Base R equivalent
-|------
+|---|---|---
 |y|year|`%y`, `%Y`
 |m (with y and d)|month|`%m`, `%b`, `%h`, `%B`
 |d|day|`%d`, `%e`
@@ -66,7 +66,7 @@ ymd_hms(x)
 `lubridate` also includes three functions for parsing datetimes with a formatting string like `as.POSIXct` or `strptime`:
 
 |Function|Output Class|Formatting strings accepted
-|------
+|---|---|---
 |`parse_date_time`|POSIXct|Flexible. Will accept `strptime`-style with `%` or `lubridate` datetime function name style, e.g `"ymd hms"`. Will accept a vector of orders for heterogeneous data and guess which is appropriate.
 |`parse_date_time2`|Default POSIXct; if `lt = TRUE`, POSIXlt|Strict. Accepts only `strptime` tokens (with or without `%`) from a limited set.
 |`fast_strptime`|Default POSIXlt; if `lt = FALSE`, POSIXct|Strict. Accepts only `%`-delimited `strptime` tokens with delimiters (`-`, `/`, `:`, etc.) from a limited set.

@@ -61,7 +61,7 @@ we can use bucket sort for sorting the vertices according to its degree because 
 
 
 |Variable|Meaning
-|------
+|---|---|---|---
 |G|Input connected un-directed graph
 |X|Set of vertices
 |C|Final set of vertices

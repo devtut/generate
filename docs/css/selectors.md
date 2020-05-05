@@ -17,16 +17,16 @@ CSS selectors identify specific HTML elements as targets for CSS styles. This to
 
 Attribute selectors can be used with various types of operators that change the selection criteria accordingly. They select an element using the presence of a given attribute or attribute value.
 
-<th align="right">Selector<sup>(1)</sup></th>|Matched element|Selects elements...<th align="center">CSS Version</th>
-|------
-<td align="right">`[attr]`</td>|`<div attr>`|With attribute `attr`<td align="center">2</td>
-<td align="right">`[attr='val']`</td>|`<div attr="val">`|Where attribute `attr` has value `val`<td align="center">2</td>
-<td align="right">`[attr~='val']`</td>|`<div attr="val val2 val3">`|Where `val` appears in the<br>whitespace-separated list of `attr`<td align="center">2</td>
-<td align="right">`[attr^='val']`</td>|`<div attr="val1 val2">`|Where `attr`'s value **begins** with `val`<td align="center">3</td>
-<td align="right">`[attr$='val']`</td>|`<div attr="sth aval">`|Where the `attr`'s value **ends** with `val`<td align="center">3</td>
-<td align="right">`[attr*='val']`</td>|`<div attr="somevalhere">`|Where `attr` contains `val` anywhere<td align="center">3</td>
-<td align="right">`[attr|='val']`</td>|`<div attr="val-sth etc">`|Where `attr`'s value is exactly `val`,<br>or starts with `val` and immediately<br>followed by `-` (U+002D)<td align="center">2</td>
-<td align="right">`[attr='val' i]`</td>|`<div attr="val">`|Where `attr` has value `val`,<br>ignoring `val`'s letter casing.<td align="center">4<sup>(2)</sup></td>
+|Selector|Matched element|Selects elements...|CSS Version
+|---|---|---|---|---
+|`[attr]`|`<div attr>`|With attribute `attr`|2
+|`[attr='val']`|`<div attr="val">`|Where attribute `attr` has value `val`|2
+|`[attr~='val']`|`<div attr="val val2 val3">`|Where `val` appears in the<br>whitespace-separated list of `attr`|2
+|`[attr^='val']`|`<div attr="val1 val2">`|Where `attr`'s value **begins** with `val`|3
+|`[attr$='val']`|`<div attr="sth aval">`|Where the `attr`'s value **ends** with `val`|3
+|`[attr*='val']`|`<div attr="somevalhere">`|Where `attr` contains `val` anywhere|3
+|`[attr|='val']`|`<div attr="val-sth etc">`|Where `attr`'s value is exactly `val`,<br>or starts with `val` and immediately<br>followed by `-` (U+002D)|2
+|`[attr='val' i]`|`<div attr="val">`|Where `attr` has value `val`,<br>ignoring `val`'s letter casing.|4<sup>(2)</sup>
 
 ****Notes:****
 
@@ -50,7 +50,7 @@ div[data-color] {
 
 ```
 
-```css
+```html
 <div data-color="red">This will be red</div>
 <div data-color="green">This will be red</div>
 <div data-background="red">This will NOT be red</div>
@@ -70,7 +70,7 @@ div[data-color="red"] {
 
 ```
 
-```css
+```html
 <div data-color="red">This will be red</div>
 <div data-color="green">This will NOT be red</div>
 <div data-color="blue">This will NOT be red</div>
@@ -90,7 +90,7 @@ Selects elements with the given attribute and value where the given attribute co
 
 ```
 
-```css
+```html
 <div class="foo-123">This will be red</div>
 <div class="foo123">This will be red</div>
 <div class="bar123foo">This will be red</div>
@@ -112,7 +112,7 @@ Selects elements with the given attribute and value where the given value appear
 
 ```
 
-```css
+```html
 <div class="color-red foo-bar the-div">This will be red</div>
 <div class="color-blue foo-bar the-div">This will NOT be red</div>
 
@@ -131,7 +131,7 @@ Selects elements with the given attribute and value where the given attribute be
 
 ```
 
-```css
+```html
 <div class="foo-123">This will be red</div>
 <div class="foo-234">This will be red</div>
 <div class="bar-123">This will NOT be red</div>
@@ -151,7 +151,7 @@ Selects elements with the given attribute and value where the given attribute en
 
 ```
 
-```css
+```html
 <div class="foobar-file">This will be red</div>
 <div class="foobar-file">This will be red</div>
 <div class="foobar-input">This will NOT be red</div>
@@ -171,7 +171,7 @@ Selects elements with a given attribute and value where the attribute's value is
 
 ```
 
-```css
+```html
 <div lang="EN-us">This will be red</div>
 <div lang="EN-gb">This will be red</div>
 <div lang="PT-pt">This will NOT be red</div>
@@ -191,7 +191,7 @@ Selects elements with a given attribute and value where the attribute's value ca
 
 ```
 
-```css
+```html
 <div lang="EN">This will be red</div>
 <div lang="en">This will be red</div>
 <div lang="PT">This will NOT be red</div>
@@ -221,7 +221,7 @@ See the [Syntax Section](http://stackoverflow.com/documentation/css/611/#syntax)
 
 
 |Selector|Description
-|------
+|---|---
 |`*`|Universal selector (all elements)
 |`div`|Tag selector (all `<div>` elements)
 |`.blue`|Class selector (all elements with class `blue`)
@@ -246,7 +246,7 @@ A complete list of selectors can be found in the [CSS Selectors Level 3 specific
 ### Overview
 
 |Selector|Description
-|------
+|---|---
 |`div span`|Descendant selector (all `<span>`s that are descendants of a `<div>`)
 |`div > span`|Child selector (all `<span>`s that are a direct child of a `<div>`)
 |`a ~ span`|General Sibling selector (all `<span>`s that are siblings after an `<a>`)
@@ -267,7 +267,7 @@ div p {
 
 ```
 
-```css
+```html
 <div>
   <p>My text is red</p>
   <section>
@@ -294,7 +294,7 @@ div > p {
 
 ```
 
-```css
+```html
 <div>
   <p>My text is red</p>
   <section>
@@ -321,7 +321,7 @@ p + p {
 
 ```
 
-```css
+```html
 <p>My text is not red</p>
 <p>My text is red</p>
 <p>My text is red</p>
@@ -345,7 +345,7 @@ p ~ p {
 
 ```
 
-```css
+```html
 <p>My text is not red</p>
 <p>My text is red</p>
 <hr>
@@ -377,7 +377,7 @@ selector:pseudo-class {
 ### List of pseudo-classes:
 
 |Name|Description
-|------
+|---|---
 |[`:active`](https://www.w3.org/TR/css3-selectors/#the-user-action-pseudo-classes-hover-act)|Applies to any element being activated (i.e. clicked) by the user.
 |[`:any`](https://developer.mozilla.org/en-US/docs/Web/CSS/:any)|Allows you to build sets of related selectors by creating groups that the <br />included items will match. This is an alternative to repeating an entire selector.
 |[`:target`](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)|Selects the current active #news element (clicked on a URL<br />containing that anchor name)
@@ -432,7 +432,7 @@ an+b-1 siblings before it in the document tree, for a given positive
 
 
 |pseudo-selector|1|2|3|4|5|6|7|8|9|10
-|------
+|---|---|---|---|---|---|---|---|---|---|---
 |`:first-child`|✔|||||||||
 |`:nth-child(3)`|||✔|||||||
 |`:nth-child(n+3)`|||✔|✔|✔|✔|✔|✔|✔|✔
@@ -451,7 +451,7 @@ an+b-1 siblings before it in the document tree, for a given positive
 
 The class name selector select all elements with the targeted class name. For example, the class name `.warning` would select the following `<div>` element:
 
-```css
+```html
 <div class="warning">
     <p>This would be some warning copy.</p>
 </div>
@@ -477,7 +477,7 @@ You can also combine class names to target elements more specifically. Let's bui
 
 **HTML**
 
-```css
+```html
 <div class="warning">
     <p>This would be some warning copy.</p>
 </div>
@@ -503,7 +503,7 @@ This trick helps you select an element using the ID as a value for an attribute 
 
 HTML:
 
-```css
+```html
 <div id="element">...</div>  
 
 ```
@@ -528,7 +528,7 @@ With the ~ selector, you can easily implement a global accessible boolean withou
 
 To the very beginning of your document, add as much booleans as you want with a unique `id` and the `hidden` attribute set:
 
-```css
+```html
 <input type="checkbox" id="sidebarShown" hidden />
 <input type="checkbox" id="darkThemeUsed" hidden />
 
@@ -551,7 +551,7 @@ To the very beginning of your document, add as much booleans as you want with a 
 
 You can toggle the boolean by adding a `label` with the `for` attribute set:
 
-```css
+```html
 <label for="sidebarShown">Show/Hide the sidebar!</label>
 
 ```
@@ -560,7 +560,7 @@ You can toggle the boolean by adding a `label` with the `for` attribute set:
 
 The normal selector (like `.color-red`) specifies the default properties. They can be overridden by following `true` / `false` selectors:
 
-```css
+```html
 /* true: */
 <checkbox>:checked ~ [sibling of checkbox & parent of target] <target>
 
@@ -594,7 +594,7 @@ See [this fiddle](https://jsfiddle.net/yokosbm0/1/) for a implementation of thes
 ## CSS3 :in-range selector example
 
 
-```css
+```html
 <style>
 input:in-range {
     border: 1px solid blue;
@@ -621,7 +621,7 @@ The following selector matches all `<input>` elements in an HTML document that a
 
 HTML:
 
-```css
+```html
 <form>
     Phone: <input type="tel" class="example">
     E-mail: <input type="email" disabled="disabled">
@@ -702,7 +702,7 @@ h1:last-of-type {
 
 ```
 
-```css
+```html
 <div class="container">
     <p>First paragraph</p>
     <p>Second paragraph</p>
@@ -727,7 +727,7 @@ ID selectors select DOM elements with the targeted ID. To select an element by a
 
 For example, the following HTML `div` element…
 
-```css
+```html
 <div id="exampleID">
     <p>Example</p>
 </div>
@@ -754,7 +754,7 @@ For example, the following HTML `div` element…
 
 HTML
 
-```css
+```html
 <input type="range"></input>
 
 ```
@@ -762,7 +762,7 @@ HTML
 CSS
 
 |Effect|Pseudo Selector
-|------
+|---|---
 |Thumb|`input[type=range]::-webkit-slider-thumb, input[type=range]::-moz-range-thumb, input[type=range]::-ms-thumb`
 |Track|`input[type=range]::-webkit-slider-runnable-track, input[type=range]::-moz-range-track, input[type=range]::-ms-track`
 |OnFocus|`input[type=range]:focus`
@@ -777,7 +777,7 @@ The `:only-child` `CSS` pseudo-class represents any element which is the only ch
 
 HTML:
 
-```css
+```html
 <div>
   <p>This paragraph is the only child of the div, it will have the color blue</p>
 </div>

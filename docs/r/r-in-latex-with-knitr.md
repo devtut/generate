@@ -120,7 +120,7 @@ read_chunk('r-file.R')<br />
 
 
 |Option|Details
-|------
+|---|---|---|---
 |echo|(TRUE/FALSE) - whether to include R source code in the output file
 |message|(TRUE/FALSE) - whether to include messages from the R source execution in the output file
 |warning|(TRUE/FALSE) - whether to include warnings from the R source execution in the output file

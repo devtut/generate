@@ -56,7 +56,7 @@ One can use **terminal (control) codes** to issue specific commands like switchi
 ### General
 
 |Effect|Code
-|------
+|---|---|---
 |Reset|`\033[0m`
 |Hicolor|`\033[1m`
 |Underline|`\033[4m`
@@ -65,7 +65,7 @@ One can use **terminal (control) codes** to issue specific commands like switchi
 ### Font Colors
 
 |Effect|Code
-|------
+|---|---|---
 |Black|`\033[30m`
 |Red|`\033[31m`
 |Green|`\033[32m`
@@ -78,7 +78,7 @@ One can use **terminal (control) codes** to issue specific commands like switchi
 ### Background Colors
 
 |Effect|Code
-|------
+|---|---|---
 |Black|`\033[40m`
 |Red|`\033[41m`
 |Green|`\033[42m`

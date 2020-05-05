@@ -251,7 +251,7 @@ Testing this on a bigger file, `71MB` gzipped (`382MB` unzipped), shows that the
 
 
 |Parameter|Definition
-|------
+|---|---|---
 |Readable Stream|type of stream where data can be read from
 |Writable Stream|type of stream where data can be written to
 |Duplex Stream|type of stream that is both readable and writeable

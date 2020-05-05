@@ -314,7 +314,7 @@ lhs %T>% rhs  # pipe syntax for `{ rhs(lhs); lhs }`
 
 
 |lhs|rhs
-|------
+|---|---|---|---
 |A value or the magrittr placeholder.|A function call using the magrittr semantics
 
 

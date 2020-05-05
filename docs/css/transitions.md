@@ -5,39 +5,31 @@ description: "Transition shorthand, cubic-bezier, Transition (longhand)"
 
 # Transitions
 
-
-
 ## Transition shorthand
-
 
 **CSS**
 
 ```css
-div{
-    width: 150px;
-    height:150px;
-    background-color: red;
-    transition: background-color 1s;
+div {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  transition: background-color 1s;
 }
-div:hover{
-    background-color: green;
+div:hover {
+  background-color: green;
 }
-
 ```
 
 **HTML**
 
-```css
+```html
 <div></div>
-
 ```
 
 This example will change the background color when the div is hovered the background-color change will last 1 second.
 
-
-
 ## cubic-bezier
-
 
 The `cubic-bezier` function is a transition timing function which is often used for custom and smooth transitions.
 
@@ -67,10 +59,7 @@ Since cubic-bezier is the most flexible transition in CSS, you can translate all
 
 `ease-in-out`: `cubic-bezier(0.42, 0.0, 0.58, 1.0)`
 
-
-
 ## Transition (longhand)
-
 
 ### CSS
 
@@ -88,7 +77,6 @@ div:hover {
   height: 200px;
   width: 200px;
 }
-
 ```
 
 ### HTML
@@ -98,35 +86,25 @@ div:hover {
 
 ```
 
-
 - **transition-property**: Specifies the CSS properties the transition effect is for. In this case, the div will expand both horizontally and vertically when hovered.
 - **transition-duration**: Specifies the length of time a transition takes to complete. In the above example, the height and width transitions will take 1 second and 500 milliseconds respectively.
 - **transition-timing-function**: Specifies the speed curve of the transition effect. A **linear** value indicates the transition will have the same speed from start to finish.
 - **transition-delay**: Specifies the amount of time needed to wait before the transition effect starts. In this case, the height will start transitioning immediately, whereas the width will wait 1 second.
 
-
-
 #### Syntax
 
-
-- transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];
-
-
+- transition: [transition-property][transition-duration] [transition-timing-function][transition-delay];
 
 #### Parameters
 
-
-|Parameter|Details
-|------
-|transition-property|The specific CSS property whose value change needs to be transitioned (or) `all`, if all the [transitionable properties](https://www.w3.org/TR/css3-transitions/#animatable-properties) need to be transitioned.
-|transition-duration|The duration (or period) in seconds (`s`) or milliseconds (`ms`) over which the transition must take place.
-|transition-timing-function|A function that describes how the intermediate values during the transition are calculated. Commonly used values are `ease`, `ease-in`, `ease-out`, `ease-in-out`, `linear`, `cubic-bezier()`, `steps()`. More information about the various timing functions can be found in the [W3C specs](https://www.w3.org/TR/css3-transitions/#transition-timing-function).
-|transition-delay|The amount of time that must have elapsed before the transition can start. Can be specified in seconds (`s`) or milliseconds (`ms`)
-
-
+| Parameter                  | Details                                                                                                                                                                                                                                                                                                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| transition-property        | The specific CSS property whose value change needs to be transitioned (or) `all`, if all the [transitionable properties](https://www.w3.org/TR/css3-transitions/#animatable-properties) need to be transitioned.                                                                                                                                                   |
+| transition-duration        | The duration (or period) in seconds (`s`) or milliseconds (`ms`) over which the transition must take place.                                                                                                                                                                                                                                                        |
+| transition-timing-function | A function that describes how the intermediate values during the transition are calculated. Commonly used values are `ease`, `ease-in`, `ease-out`, `ease-in-out`, `linear`, `cubic-bezier()`, `steps()`. More information about the various timing functions can be found in the [W3C specs](https://www.w3.org/TR/css3-transitions/#transition-timing-function). |
+| transition-delay           | The amount of time that must have elapsed before the transition can start. Can be specified in seconds (`s`) or milliseconds (`ms`)                                                                                                                                                                                                                                |
 
 #### Remarks
-
 
 Some older browsers support only [vendor-prefixed](http://caniuse.com/#search=transitions) `transition` properties:
 
@@ -141,6 +119,4 @@ Example:
 -moz-transition: all 1s;
 -o-transition: all 1s;
 transition: all 1s;
-
 ```
-

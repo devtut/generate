@@ -5,13 +5,10 @@ description: "List Commits in master but not in origin/master"
 
 # Rev-List
 
-
-
 ## List Commits in master but not in origin/master
 
-
 ```git
-git rev-list --oneline master ^origin/master 
+git rev-list --oneline master ^origin/master
 
 ```
 
@@ -21,19 +18,12 @@ Git rev-list will list commits in one branch that are not in another branch. It 
 - The `^` operator excludes commits in the specified branch from the list.
 - You can pass more than two branches if you want. For example, `git rev-list foo bar ^baz` lists commits in foo and bar, but not baz.
 
-
-
 #### Syntax
-
 
 - git rev-list [options] <commit> ...
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|--oneline|Display commits as a single line with their title.
-
+| Parameter | Details                                            |
+| --------- | -------------------------------------------------- |
+| --oneline | Display commits as a single line with their title. |

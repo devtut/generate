@@ -377,15 +377,15 @@ Optimal profit is 250
 
 There are numerous problems minimizing lateness, here we have a single resource which can only process one job at a time. Job `j` requires `tj` units of processing time and is due at time `dj`. if `j` starts at time `sj` it will finish at time `fj=sj+tj`. We define lateness `L=max{0,fj-dh}` for all `j`. The goal is to minimize the **maximum lateness** L.
 
-<th align="center"></th><th align="center">1</th><th align="center">2</th><th align="center">3</th><th align="center">4</th><th align="center">5</th><th align="center">6</th>
-|------
-<td align="center">`tj`</td><td align="center">3</td><td align="center">2</td><td align="center">1</td><td align="center">4</td><td align="center">3</td><td align="center">2</td>
-<td align="center">`dj`</td><td align="center">6</td><td align="center">8</td><td align="center">9</td><td align="center">9</td><td align="center">10</td><td align="center">11</td>
+|1|3|4|5|6
+|---|---|---|---|---|---|---|---
+|`tj`|3|2|1|4|3|2
+|`dj`|6|8|9|9|10|11
 
-<th align="center">Job</th><th align="center">3</th><th align="center">2</th><th align="center">2</th><th align="center">5</th><th align="center">5</th><th align="center">5</th><th align="center">4</th><th align="center">4</th><th align="center">4</th><th align="center">4</th><th align="center">1</th><th align="center">1</th><th align="center">1</th><th align="center">6</th><th align="center">6</th>
-|------
-<td align="center">Time</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td>
-<td align="center">`Lj`</td><td align="center">-8</td><td align="center"></td><td align="center">-5</td><td align="center"></td><td align="center"></td><td align="center">-4</td><td align="center"></td><td align="center"></td><td align="center"></td><td align="center">1</td><td align="center"></td><td align="center"></td><td align="center">**7**</td><td align="center"></td><td align="center">4</td>
+Job|3|2|5|5|5|4|4|4|4|1|1|1|6|6
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+|Time|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15
+|`Lj`|-8||-5|||-4||||1|||**7**||4
 
 The solution `L=7` is obviously not optimal. Lets look at some greedy strategies:
 
@@ -395,17 +395,17 @@ The solution `L=7` is obviously not optimal. Lets look at some greedy strategies
 
 Its easy to see that **shortest processing time first** is not optimal a good counter example is
 
-<th align="center"></th><th align="center">1</th><th align="center">2</th>
-|------
-<td align="center">`tj`</td><td align="center">1</td><td align="center">5</td>
-<td align="center">`dj`</td><td align="center">10</td><td align="center">5</td>
+|1|2
+|---|---|---
+|`tj`|1|5
+|`dj`|10|5
 
 the **smallest stack** solution  has simillar problems
 
-<th align="center"></th><th align="center">1</th><th align="center">2</th>
-|------
-<td align="center">`tj`</td><td align="center">1</td><td align="center">5</td>
-<td align="center">`dj`</td><td align="center">3</td><td align="center">5</td>
+|1|2
+|---|---|---
+|`tj`|1|5
+|`dj`|3|5
 
 the last strategy looks valid so we start with some pseudo code:
 
@@ -557,12 +557,12 @@ There are numerous greedy strategies for this problem, lets look at some:
 
 Let the cache size be `k=3` the initial cache `a,b,c` and the request `a,a,d,e,b,b,a,c,f,d,e,a,f,b,e,c`:
 
-<th align="center">Request</th><th align="center">a</th><th align="center">a</th><th align="center">d</th><th align="center">e</th><th align="center">b</th><th align="center">b</th><th align="center">a</th><th align="center">c</th><th align="center">f</th><th align="center">d</th><th align="center">e</th><th align="center">a</th><th align="center">f</th><th align="center">b</th><th align="center">e</th><th align="center">c</th>
-|------
-<td align="center">`cache 1`</td><td align="center">a</td><td align="center">a</td><td align="center">d</td><td align="center">d</td><td align="center">d</td><td align="center">d</td><td align="center">a</td><td align="center">a</td><td align="center">a</td><td align="center">d</td><td align="center">d</td><td align="center">d</td><td align="center">f</td><td align="center">f</td><td align="center">f</td><td align="center">c</td>
-<td align="center">`cache 2`</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">b</td><td align="center">b</td><td align="center">b</td>
-<td align="center">`cache 3`</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">f</td><td align="center">f</td><td align="center">f</td><td align="center">a</td><td align="center">a</td><td align="center">a</td><td align="center">e</td><td align="center">e</td>
-<td align="center">cache miss</td><td align="center"></td><td align="center"></td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center"></td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td><td align="center">x</td>
+Request|a|a|d|e|b|b|a|c|f|d|e|a|f|b|e|c
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+|`cache 1`|a|a|d|d|d|d|a|a|a|d|d|d|f|f|f|c
+|`cache 2`|b|b|b|e|e|e|e|c|c|c|e|e|e|b|b|b
+|`cache 3`|c|c|c|c|b|b|b|b|f|f|f|a|a|a|e|e
+|cache miss|||x|x|x||x|x|x|x|x|x|x|x|x|x
 
 Thirteen cache misses by sixteen requests does not sound very optimal, lets try the same example with another strategy:
 
@@ -570,12 +570,12 @@ Thirteen cache misses by sixteen requests does not sound very optimal, lets try 
 
 Let the cache size be `k=3` the initial cache `a,b,c` and the request `a,a,d,e,b,b,a,c,f,d,e,a,f,b,e,c`:
 
-<th align="center">Request</th><th align="center">a</th><th align="center">a</th><th align="center">d</th><th align="center">e</th><th align="center">b</th><th align="center">b</th><th align="center">a</th><th align="center">c</th><th align="center">f</th><th align="center">d</th><th align="center">e</th><th align="center">a</th><th align="center">f</th><th align="center">b</th><th align="center">e</th><th align="center">c</th>
-|------
-<td align="center">`cache 1`</td><td align="center">a</td><td align="center">a</td><td align="center">d</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">e</td><td align="center">c</td>
-<td align="center">`cache 2`</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">b</td><td align="center">a</td><td align="center">a</td><td align="center">a</td><td align="center">a</td><td align="center">a</td><td align="center">a</td><td align="center">f</td><td align="center">f</td><td align="center">f</td><td align="center">f</td>
-<td align="center">`cache 3`</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">c</td><td align="center">f</td><td align="center">d</td><td align="center">d</td><td align="center">d</td><td align="center">d</td><td align="center">b</td><td align="center">b</td><td align="center">b</td>
-<td align="center">cache miss</td><td align="center"></td><td align="center"></td><td align="center">x</td><td align="center">x</td><td align="center"></td><td align="center"></td><td align="center">x</td><td align="center"></td><td align="center">x</td><td align="center">x</td><td align="center"></td><td align="center"></td><td align="center">x</td><td align="center">x</td><td align="center"></td><td align="center">x</td>
+Request|a|a|d|e|b|b|a|c|f|d|e|a|f|b|e|c
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+|`cache 1`|a|a|d|e|e|e|e|e|e|e|e|e|e|e|e|c
+|`cache 2`|b|b|b|b|b|b|a|a|a|a|a|a|f|f|f|f
+|`cache 3`|c|c|c|c|c|c|c|c|f|d|d|d|d|b|b|b
+|cache miss|||x|x|||x||x|x|||x|x||x
 
 Eight cache misses is a lot better.
 

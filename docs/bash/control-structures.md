@@ -5,10 +5,7 @@ description: "If statement, Looping over an array, Using For Loop to List Iterat
 
 # Control Structures
 
-
-
 ## If statement
-
 
 ```bash
 if [[ $1 -eq 1 ]]; then
@@ -60,10 +57,7 @@ fi
 
 ```
 
-
-
 ## Looping over an array
-
 
 `for` loop:
 
@@ -79,7 +73,7 @@ Or
 
 ```bash
 for ((i=0;i<${#arr[@]};i++));do
-    echo "${arr[$i]}" 
+    echo "${arr[$i]}"
 done
 
 ```
@@ -106,10 +100,7 @@ done
 
 ```
 
-
-
 ## Using For Loop to List Iterate Over Numbers
-
 
 ```bash
 #! /bin/bash
@@ -136,10 +127,7 @@ This outputs the following:
 
 ```
 
-
-
 ## Conditional execution of command lists
-
 
 ### How to use conditional execution of command lists
 
@@ -169,7 +157,6 @@ cd my_directory && pwd || echo "No such directory"
 
 ```
 
-
 - If the `cd` succeeds, the `&& pwd` executes and the current working directory name is printed. Unless `pwd` fails (a rarity) the `|| echo ...` will not be executed.
 - If the `cd` fails, the `&& pwd` will be skipped and the `|| echo ...` will run.
 
@@ -180,16 +167,15 @@ cd my_directory && ls || echo "No such directory"
 
 ```
 
-
 - If the `cd` fails, the `&& ls` is skipped and the `|| echo ...` is executed.
-<li>If the `cd` succeeds, the `&& ls` is executed.
-<ul>
+  <li>If the `cd` succeeds, the `&& ls` is executed.
+  <ul>
 - If the `ls` succeeds, the `|| echo ...` is ignored. **(so far so good)**
-<li>****BUT... if the `ls` fails, the `|| echo ...` will also be executed.****
-<blockquote>
-****It is the `ls`****, not the `cd`, ****that is the previous command****.
-</blockquote>
-</li>
+  <li>****BUT... if the `ls` fails, the `|| echo ...` will also be executed.****
+  <blockquote>
+  ****It is the `ls`****, not the `cd`, ****that is the previous command****.
+  </blockquote>
+  </li>
 
 ### Why use conditional execution of command lists
 
@@ -217,10 +203,7 @@ my_function () {
 
 ```
 
-
-
 ## While Loop
-
 
 ```bash
 #! /bin/bash
@@ -248,10 +231,7 @@ i is currently 4
 
 ```
 
-
-
 ## For Loop with C-style syntax
-
 
 The basic format of C-style `for` loop is:
 
@@ -285,10 +265,7 @@ done
 
 ```
 
-
-
 ## Until Loop
-
 
 Until loop executes until condition is true
 
@@ -314,10 +291,7 @@ i=9
 
 When `i` reaches 10 the condition in until loop becomes true and the loop ends.
 
-
-
 ## continue and break
-
 
 Example for continue
 
@@ -345,15 +319,12 @@ do
             command 5 # Command if the loop needs to be broken
             break
     fi
-    command 6 # Command to run if the "condition" is never true 
+    command 6 # Command to run if the "condition" is never true
 done
 
 ```
 
-
-
 ## Loop break
-
 
 Break multiple loop:
 
@@ -409,10 +380,7 @@ a
 
 ```
 
-
-
 ## Switch statement with case
-
 
 With the `case` statement you can match values against one variable.
 
@@ -424,7 +392,7 @@ If a match is found, the commands upto `;;` are executed.
 case "$BASH_VERSION" in
  [34]*)
     echo {1..4}
-    ;;  
+    ;;
   *)
     seq -s" " 1 4
 esac
@@ -433,10 +401,7 @@ esac
 
 Pattern are not regular expressions but shell pattern matching (aka globs).
 
-
-
 ## For Loop without a list-of-words parameter
-
 
 ```bash
 for arg; do
@@ -456,10 +421,7 @@ done
 
 In other words, if you catch yourself writing `for i in "$@"; do ...; done`, just drop the `in` part, and write simply `for i; do ...; done`.
 
-
-
 ## For Loop
-
 
 ```bash
 #! /bin/bash
@@ -481,43 +443,33 @@ test
 
 ```
 
-
-
 #### Syntax
-
 
 - [ "$1" = "$2" ] #A "[" bracket is actually a command. Because of this it requires a space befor and after it.
 - test "$1" = "$2" #Test is a synonym for the "[" command
 
-
-
 #### Parameters
 
-
-|Parameter to [ or test|Details
-|------
-|**File Operators**|Details
-|`-e "$file"`|Returns true if the file exists.
-|`-d "$file"`|Returns true if the file exists and is a directory
-|`-f "$file"`|Returns true if the file exists and is a regular file
-|`-h "$file"`|Returns true if the file exists and is a symbolic link
-|**String Comparators**|Details
-|`-z "$str"`|True if length of string is zero
-|`-n "$str`|True if length of string is non-zero
-|`"$str" = "$str2"`|True if string $str is equal to string $str2. Not best for integers. It may work but will be inconsitent
-|`"$str" != "$str2"`|True if the strings are not equal
-|**Integer Comparators**      |Details
-|`"$int1" -eq "$int2"`|True if the integers are equal
-|`"$int1" -ne "$int2"`|True if the integers are not equals
-|`"$int1" -gt "$int2"`|True if int1 is greater than int 2
-|`"$int1" -ge "$int2"`|True if int1 is greater than or equal to int2
-|`"$int1" -lt "$int2"`|True if int1 is less than int 2
-|`"$int1" -le "$int2"`|True if int1 is less than or equal to int2
-
-
+| Parameter to [ or test        | Details                                                                                                  |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **File Operators**            | Details                                                                                                  |
+| `-e "$file"`                  | Returns true if the file exists.                                                                         |
+| `-d "$file"`                  | Returns true if the file exists and is a directory                                                       |
+| `-f "$file"`                  | Returns true if the file exists and is a regular file                                                    |
+| `-h "$file"`                  | Returns true if the file exists and is a symbolic link                                                   |
+| **String Comparators**        | Details                                                                                                  |
+| `-z "$str"`                   | True if length of string is zero                                                                         |
+| `-n "$str`                    | True if length of string is non-zero                                                                     |
+| `"$str" = "$str2"`            | True if string $str is equal to string $str2. Not best for integers. It may work but will be inconsitent |
+| `"$str" != "$str2"`           | True if the strings are not equal                                                                        |
+| **Integer Comparators**       | Details                                                                                                  |
+| `"$int1" -eq "$int2"`         | True if the integers are equal                                                                           |
+| `"$int1" -ne "$int2"`         | True if the integers are not equals                                                                      |
+| `"$int1" -gt "$int2"`         | True if int1 is greater than int 2                                                                       |
+| `"$int1" -ge "$int2"`         | True if int1 is greater than or equal to int2                                                            |
+| `"$int1" -lt "$int2"`         | True if int1 is less than int 2                                                                          |
+| `"$int1" -le "$int2"`         | True if int1 is less than or equal to int2                                                               |
 
 #### Remarks
 
-
 There are many comparator parameters available in bash. Not all are yet listed here.
-

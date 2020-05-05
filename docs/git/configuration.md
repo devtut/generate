@@ -5,10 +5,7 @@ description: "Setting which editor to use, Auto correct typos, Username and emai
 
 # Configuration
 
-
-
 ## Setting which editor to use
-
 
 There are several ways to set which editor to use for committing, rebasing, etc.
 
@@ -20,7 +17,6 @@ $ git config --global core.editor nano
 
 ```
 
-
 </li>
 <li>
 Set the `GIT_EDITOR` environment variable.
@@ -31,14 +27,12 @@ $ GIT_EDITOR=nano git commit
 
 ```
 
-
 Or for all commands run in a terminal. **Note:** This only applies until you close the terminal.
 
 ```git
 $ export GIT_EDITOR=nano
 
 ```
-
 
 </li>
 <li>
@@ -49,16 +43,13 @@ $ export EDITOR=nano
 
 ```
 
-
 **Note:** As above, this only applies to the current terminal; your shell will usually have a configuration file to allow you to set it permanently. (On `bash`, for example, add the above line to your `~/.bashrc` or `~/.bash_profile`.)
+
 </li>
 
 Some text editors (mostly GUI ones) will only run one instance at a time, and generally quit if you already have an instance of them open. If this is the case for your text editor, Git will print the message `Aborting commit due to empty commit message.` without allowing you to edit the commit message first. If this happens to you, consult your text editor's documentation to see if it has a `--wait` flag (or similar) that will make it pause until the document is closed.
 
-
-
 ## Auto correct typos
-
 
 ```git
 git config --global help.autocorrect 17
@@ -69,10 +60,7 @@ This enables autocorrect in git and will forgive you for your minor mistakes (e.
 
 However, bigger mistakes will be considered as missing commands, so typing something like `git testingit` would result in `testingit is not a git command.`
 
-
-
 ## Username and email address
-
 
 Right after you install Git, the first thing you should do is set your username and email address. From a shell, type:
 
@@ -82,16 +70,12 @@ git config --global user.email mrbean@example.com
 
 ```
 
-
 - `git config` is the command to get or set options
 - `--global` means that the configuration file specific to your user account will be edited
 - `user.name` and `user.email` are the keys for the configuration variables; `user` is the section of the configuration file. `name` and `email` are the names of the variables.
 - `"Mr. Bean"` and `mrbean@example.com` are the values that you're storing in the two variables. Note the quotes around `"Mr. Bean"`, which are required because the value you are storing contains a space.
 
-
-
 ## Multiple git configurations
-
 
 You have up to 5 sources for git configuration:
 
@@ -117,10 +101,7 @@ git config --list --show-origin
 
 ```
 
-
-
 ## List and edit the current configuration
-
 
 Git config allows you to customize how git works. It is commonly used to set your name and email or favorite editor or how merges should be done.
 
@@ -138,7 +119,7 @@ credential.helper=osxkeychain
 To edit the config:
 
 ```git
-$ git config <key> <value>    
+$ git config <key> <value>
 $ git config core.ignorecase true
 
 ```
@@ -154,10 +135,7 @@ $ git config --global core.editor vi
 
 You can list again to see your changes.
 
-
-
 ## Multiple usernames and email address
-
 
 Since Git 2.13, multiple usernames and email addresses could be configured by using a folder filter.
 
@@ -171,13 +149,12 @@ Add:
 
 ```git
 [includeIf "gitdir:D:/work"]
-  path = .gitconfig-work.config    
+  path = .gitconfig-work.config
 
 [includeIf "gitdir:D:/opensource/"]
   path = .gitconfig-opensource.config
 
 ```
-
 
 - The order is depended, the last one who matches "wins".
 - the `/` at the end is needed - e.g. `"gitdir:D:/work"` won't work.
@@ -217,10 +194,7 @@ File in the same directory as **.gitconfig**
 
 The file content and notes under section Windows.
 
-
-
 ## Configuring line endings
-
 
 ### Description
 
@@ -250,10 +224,7 @@ git config --global core.autocrlf=input
 
 On **commit**, this will change line-endings from CR+LF -> +LF
 
-
-
 ## configuration for one command only
-
 
 you can use `-c <name>=<value>` to add a configuration only for one command.
 
@@ -266,10 +237,7 @@ git -c user.email = mail@example commit -m "some message"
 
 Note: for that example you don't need to precise both `user.name` and `user.email`, git will complete the missing information from the previous commits.
 
-
-
 ## Setup a proxy
-
 
 If you are behind a proxy, you have to tell git about it:
 
@@ -285,21 +253,14 @@ git config --global --unset http.proxy
 
 ```
 
-
-
 #### Syntax
 
-
-- git config [<file-option>] name [value]   # one of the more common use cases of git config
-
-
+- git config [<file-option>] name [value] # one of the more common use cases of git config
 
 #### Parameters
 
-
-|Parameter|Details
-|------
-|`--system`|Edits the system-wide configuration file, which is used for every user (on Linux, this file is located at `$(prefix)/etc/gitconfig`)
-|`--global`|Edits the global configuration file, which is used for every repository you work on (on Linux, this file is located at `~/.gitconfig`
-|`--local`|Edits the respository-specific configuration file, which is located at `.git/config` in your repository; this is the default setting
-
+| Parameter  | Details                                                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `--system` | Edits the system-wide configuration file, which is used for every user (on Linux, this file is located at `$(prefix)/etc/gitconfig`)  |
+| `--global` | Edits the global configuration file, which is used for every repository you work on (on Linux, this file is located at `~/.gitconfig` |
+| `--local`  | Edits the respository-specific configuration file, which is located at `.git/config` in your repository; this is the default setting  |

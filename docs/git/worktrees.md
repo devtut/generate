@@ -108,7 +108,7 @@ It should now also be safe to run `git worktree prune`.
 
 
 |Parameter|Details
-|------
+|---|---|---
 |-f --force|By default, add refuses to create a new working tree when `<branch>` is already checked out by another working tree. This option overrides that safeguard.
 |-b `<new-branch>` -B `<new-branch>`|With add, create a new branch named `<new-branch>` starting at `<branch>`, and check out `<new-branch>` into the new working tree. If `<branch>` is omitted, it defaults to `HEAD`. By default, `-b` refuses to create a new branch if it already exists. `-B` overrides this safeguard, resetting `<new-branch>` to `<branch>`.
 |--detach|With add, detach `HEAD` in the new working tree.

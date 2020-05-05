@@ -5,13 +5,9 @@ description: "Show the first column of a file, Show columns x to y of a file"
 
 # Cut Command
 
-
 In Bash, the `cut` command is useful for dividing a file into several smaller parts.
 
-
-
 ## Show the first column of a file
-
 
 Suppose you have a file that looks like this
 
@@ -38,10 +34,7 @@ Robert
 
 ```
 
-
-
 ## Show columns x to y of a file
-
 
 Sometimes, it's useful to display a range of columns in a file. Suppose you have this file
 
@@ -66,22 +59,15 @@ Mango Oregon 2015
 
 ```
 
-
-
 #### Syntax
-
 
 - cut [option] file
 
-
-
 #### Parameters
 
-
-|Option|Description
-|------
-|`-b LIST`, `--bytes=LIST`|Print the bytes listed in the LIST parameter
-|`-c LIST`, `--characters=LIST`|Print characters in positions specified in LIST parameter
-|`-f LIST`, `--fields=LIST`|Print fields or columns
-|`-d DELIMITER`|Used to separate columns or fields
-
+| Option                         | Description                                               |
+| ------------------------------ | --------------------------------------------------------- |
+| `-b LIST`, `--bytes=LIST`      | Print the bytes listed in the LIST parameter              |
+| `-c LIST`, `--characters=LIST` | Print characters in positions specified in LIST parameter |
+| `-f LIST`, `--fields=LIST`     | Print fields or columns                                   |
+| `-d DELIMITER`                 | Used to separate columns or fields                        |

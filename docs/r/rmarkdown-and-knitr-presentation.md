@@ -141,7 +141,7 @@ plot(pressure)
 
 
 |Parameter|definition
-|------
+|---|---|---|---
 |title|the title of the document
 |author|The author of the document
 |date|The date of the document: Can be "`r format(Sys.time(), '%d %B, %Y')`"
@@ -156,7 +156,7 @@ plot(pressure)
 ### Sub options parameters:
 
 |sub-option|description|html|pdf|word|odt|rtf|md|github|ioslides|slidy|beamer
-|------
+|---|---|---|---|---|---|---|---|---|---|---|---|---
 |citation_package|The LaTeX package to process citations, natbib, biblatex or none||X||||X||||X
 |code_folding|Let readers to toggle the display of R code, "none", "hide", or "show"|X|||||||||
 |colortheme|Beamer color theme to use||||||||||X

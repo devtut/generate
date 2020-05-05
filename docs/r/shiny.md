@@ -260,7 +260,7 @@ To enable Reactive Log Visualizer, execute `options(shiny.reactlog=TRUE)` in R c
 
 
 |**Function**|**Widget**
-|------
+|---|---|---|---
 |actionButton|Action Button
 |checkboxGroupInput|A group of check boxes
 |checkboxInput|A single check box

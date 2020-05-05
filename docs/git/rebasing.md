@@ -5,11 +5,7 @@ description: "Local Branch Rebasing, Rebase: ours and theirs, local and remote, 
 
 # Rebasing
 
-
-
-
 ## Local Branch Rebasing
-
 
 **[Rebasing](https://git-scm.com/docs/git-rebase)** reapplies a series of commits on top of another commit.
 
@@ -48,12 +44,9 @@ git rebase master topic   # rebase topic branch onto master branch
 
 ```
 
-**Important:** After the rebase, the applied commits will have a different hash. You should not rebase commits you have already pushed to a remote host.  A consequence may be an inability to `git push` your local rebased branch to a remote host, leaving your only option to `git push --force`.
-
-
+**Important:** After the rebase, the applied commits will have a different hash. You should not rebase commits you have already pushed to a remote host. A consequence may be an inability to `git push` your local rebased branch to a remote host, leaving your only option to `git push --force`.
 
 ## Rebase: ours and theirs, local and remote
-
 
 A rebase switches the meaning of "ours" and "theirs":
 
@@ -105,7 +98,7 @@ c--c--x--x--x---------o(*)  MERGE, still on branch topic
     \       ^        /
      \     ours     /
       \            /
-       --y--y--y--/  
+       --y--y--y--/
                ^
               theirs
 
@@ -132,7 +125,7 @@ c--c--x--x--x <- former "current" branch, new "theirs"
       \--y--y--y(*) <- set HEAD to this commit, to replay x's on it
                ^       this will be the new "ours"
                |
-            upstream      
+            upstream
 
 ```
 
@@ -149,10 +142,7 @@ c--c..x..x..x <- old "theirs" commits, now "ghosts", available through "reflogs"
 
 ```
 
-
-
 ## Interactive Rebase
-
 
 This example aims to describe how one can utilize `git rebase` in interactive mode. It is expected that one has a basic understanding of what `git rebase` is and what it does.
 
@@ -205,10 +195,7 @@ Say you have done some work and have multiple commits which you think could be a
 
 This time replace `pick` with `squash` instead. During the rebase, the commit which you've instructed to be squashed will be squashed on top of the previous commit; turning them into a single commit instead.
 
-
-
 ## Rebase down to the initial commit
-
 
 Since Git [1.7.12](https://github.com/git/git/blob/1d1bdafd64266e5ee3bd46c6965228f32e4022ea/Documentation/RelNotes/1.7.12.txt#L59-L60) it is possible to rebase down to the root commit. The root commit is the first commit ever made in a repository, and normally cannot be edited. Use the following command:
 
@@ -217,10 +204,7 @@ git rebase -i --root
 
 ```
 
-
-
 ## Rebasing before a code review
-
 
 ### Summary
 
@@ -237,8 +221,8 @@ This example assumes you know about interactive rebasing.
 - you're working on a feature branch off of master
 - your feature has three main layers: front-end, back-end, DB
 - you have made a lot of commits while working on a feature branch. Each commit touches multiple layers at once
-<li>you want (in the end) only three commits in your branch
-<ul>
+  <li>you want (in the end) only three commits in your branch
+  <ul>
 - one containing all front end changes
 - one containing all back end changes
 - one containing all DB changes
@@ -369,10 +353,7 @@ e8d8f7e adding todos: business logic layer
 
 You have now rebased your chronological commits into topical commits. In real life, you may not need to do this every single time, but when you do want or need to do this, now you can. Plus, hopefully you learned more about git rebase.
 
-
-
 ## Testing all commits during rebase
-
 
 Before making a pull request, it is useful to make sure that compile is successful and tests are passing for each commit in the branch. We can do that automatically using `-x` parameter.
 
@@ -382,10 +363,7 @@ For example:
 
 will perform the interactive rebase and stop after each commit to execute `make`. In case `make` fails, git will stop to give you an opportunity to fix the issues and amend the commit before proceeding with picking the next one.
 
-
-
 ## Configuring autostash
-
 
 Autostash is a very useful configuration option when using rebase for local changes. Oftentimes, you may need to bring in commits from the upstream branch, but are not ready to commit just yet.
 
@@ -399,10 +377,7 @@ git rebase @{u}                         # example rebase on upstream branch
 
 The autostash will be applied whenever the rebase is finished. It does not matter whether the rebase finishes successfully, or if it is aborted. Either way, the autostash will be applied. If the rebase was successful, and the base commit therefore changed, then there may be a conflict between the autostash and the new commits. In this case, you will have to resolve the conflicts before committing. This is no different than if you would have manually stashed, and then applied, so there is no downside to doing it automatically.
 
-
-
 ## Aborting an Interactive Rebase
-
 
 You have started an interactive rebase. In the editor where you pick your commits, you decide that something is going wrong (for example a commit is missing, or you chose the wrong rebase destination), and you want to abort the rebase.
 
@@ -431,10 +406,7 @@ The help text in the editor actually provides this hint:
 
 ```
 
-
-
 ## Setup git-pull for automatically perform a rebase instead of a merge
-
 
 If your team is following a rebase-based workflow, it may be a advantageous to setup git so that each newly created branch will perform a rebase operation, instead of a merge operation, during a `git pull`.
 
@@ -458,47 +430,34 @@ rebase = true
 
 **Command line: `git config [--global] pull.rebase true`**
 
-
-
 ## Pushing after a rebase
-
 
 Sometimes you need rewrite history with a rebase, but `git push` complains about doing so because you rewrote history.
 
-This can be solved with a `git push --force`, but consider `git push --force-with-lease`, indicating that you want the push to fail if the local remote-tracking branch differs from the branch on the remote, e.g.,  someone else pushed to the remote after the last fetch. This avoids inadvertently overwriting someone else's recent push.
+This can be solved with a `git push --force`, but consider `git push --force-with-lease`, indicating that you want the push to fail if the local remote-tracking branch differs from the branch on the remote, e.g., someone else pushed to the remote after the last fetch. This avoids inadvertently overwriting someone else's recent push.
 
 **Note**: `git push --force` - and even `--force-with-lease` for that matter - can be a dangerous command because it rewrites the history of the branch. If another person had pulled the branch before the forced push, his/her `git pull` or `git fetch` will have errors because the local history and the remote history are diverged. This may cause the person to have unexpected errors. With enough looking at the reflogs the other user's work can be recovered, but it can lead to a lot of wasted time. If you must do a forced push to a branch with other contributors, try to coordinate with them so that they do not have to deal with errors.
 
-
-
 #### Syntax
-
 
 - `git rebase [-i | --interactive] [options] [--exec <cmd>] [--onto <newbase>] [<upstream>] [<branch>]`
 - `git rebase [-i | --interactive] [options] [--exec <cmd>] [--onto <newbase>] --root [<branch>]`
 - `git rebase --continue | --skip | --abort | --edit-todo`
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|--continue|Restart the rebasing process after having resolved a merge conflict.
-|--abort|Abort the rebase operation and reset HEAD to the original branch. If branch was provided when the rebase operation was started, then HEAD will be reset to branch. Otherwise HEAD will be reset to where it was when the rebase operation was started.
-|--keep-empty|Keep the commits that do not change anything from its parents in the result.
-|--skip|Restart the rebasing process by skipping the current patch.
-|-m, --merge|Use merging strategies to rebase. When the recursive (default) merge strategy is used, this allows rebase to be aware of renames on the upstream side. Note that a rebase merge works by replaying each commit from the working branch on top of the upstream branch. Because of this, when a merge conflict happens, the side reported as ours is the so-far rebased series, starting with upstream, and theirs is the working branch. In other words, the sides are swapped.
-|--stat|Show a diffstat of what changed upstream since the last rebase. The diffstat is also controlled by the configuration option rebase.stat.
-|-x, --exec `command`|Perform interactive rebase, stopping between each commit and executing `command`
-
-
+| Parameter            | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --continue           | Restart the rebasing process after having resolved a merge conflict.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --abort              | Abort the rebase operation and reset HEAD to the original branch. If branch was provided when the rebase operation was started, then HEAD will be reset to branch. Otherwise HEAD will be reset to where it was when the rebase operation was started.                                                                                                                                                                                                                         |
+| --keep-empty         | Keep the commits that do not change anything from its parents in the result.                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --skip               | Restart the rebasing process by skipping the current patch.                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| -m, --merge          | Use merging strategies to rebase. When the recursive (default) merge strategy is used, this allows rebase to be aware of renames on the upstream side. Note that a rebase merge works by replaying each commit from the working branch on top of the upstream branch. Because of this, when a merge conflict happens, the side reported as ours is the so-far rebased series, starting with upstream, and theirs is the working branch. In other words, the sides are swapped. |
+| --stat               | Show a diffstat of what changed upstream since the last rebase. The diffstat is also controlled by the configuration option rebase.stat.                                                                                                                                                                                                                                                                                                                                       |
+| -x, --exec `command` | Perform interactive rebase, stopping between each commit and executing `command`                                                                                                                                                                                                                                                                                                                                                                                               |
 
 #### Remarks
-
 
 Please keep in mind that rebase effectively rewrites the repository history.
 
 Rebasing commits that exists in the remote repository could rewrite repository nodes used by other developers as base node for their developments. Unless you really know what you are doing, it is a best practice to rebase before pushing your changes.
-

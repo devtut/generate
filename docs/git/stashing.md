@@ -5,10 +5,7 @@ description: "Create stash, Apply and remove stash, Apply stash without removing
 
 # Stashing
 
-
-
 ## Create stash
-
 
 Save the current state of working directory and the index (also known as the staging area) in a stack of stashes.
 
@@ -38,10 +35,7 @@ git stash --keep-index
 
 ```
 
-
-
 ## Apply and remove stash
-
 
 To apply the last stash and remove it from the stack - type:
 
@@ -57,10 +51,7 @@ git stash pop stash@{n}
 
 ```
 
-
-
 ## Apply stash without removing it
-
 
 Applies the last stash without removing it from the stack
 
@@ -76,10 +67,7 @@ git stash apply stash@{n}
 
 ```
 
-
-
 ## Show stash
-
 
 Shows the changes saved in the last stash
 
@@ -102,10 +90,7 @@ git stash show -p stash@{n}
 
 ```
 
-
-
 ## What is Stashing?
-
 
 When working on a project, you might be half-way through a feature branch change when a bug is raised against master. You're not ready to commit your code, but you also don't want to lose your changes. This is where `git stash` comes in handy.
 
@@ -129,7 +114,7 @@ Then run `git stash` to save these changes to a stack:
 
 ```git
 (master) $ git stash
-Saved working directory and index state WIP on master: 
+Saved working directory and index state WIP on master:
 2f2a6e1 Merge pull request #1 from test/test-branch
 HEAD is now at 2f2a6e1 Merge pull request #1 from test/test-branch
 
@@ -158,7 +143,7 @@ nothing to commit, working tree clean
 
 ```
 
-Your working directory is now clean of any changes you made.  You can see this by re-running `git status`:
+Your working directory is now clean of any changes you made. You can see this by re-running `git status`:
 
 ```git
 (master) $ git status
@@ -184,7 +169,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ```
 
-Note, however, that stashing does not remember the branch you were working on.  In the above examples, the user was stashing on **master**.  If they switch to the **dev** branch, **dev**, and run `git stash apply` the last stash is put on the **dev** branch.
+Note, however, that stashing does not remember the branch you were working on. In the above examples, the user was stashing on **master**. If they switch to the **dev** branch, **dev**, and run `git stash apply` the last stash is put on the **dev** branch.
 
 ```git
 (master) $ git checkout -b dev
@@ -201,10 +186,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ```
 
-
-
 ## Partial stash
-
 
 If you would like to stash only **some** diffs in your working set, you can use a partial stash.
 
@@ -222,10 +204,7 @@ git stash push -m "My partial stash" -- app.config
 
 ```
 
-
-
 ## List saved stashes
-
 
 ```git
 git stash list
@@ -243,10 +222,7 @@ stash@{1}: WIP on master: 70f0d95 Add user role to localStorage on user login
 
 You can refer to specific stash by its name, for example `stash@{1}`.
 
-
-
 ## Move your work in progress to another branch
-
 
 If while working you realize you're on wrong branch and you haven't created any commits yet, you can easily move your work to correct branch using stashing:
 
@@ -264,10 +240,7 @@ git stash apply
 
 ```
 
-
-
 ## Remove stash
-
 
 Remove all stash
 
@@ -290,10 +263,7 @@ git stash drop stash@{n}
 
 ```
 
-
-
 ## Apply part of a stash with checkout
-
 
 You've made a stash and wish to checkout only some of the files in that stash.
 
@@ -302,10 +272,7 @@ git checkout stash@{0} -- myfile.txt
 
 ```
 
-
-
 ## Recovering earlier changes from stash
-
 
 To get your most recent stash after running git stash, use
 
@@ -338,10 +305,7 @@ git stash apply stash@{2}
 
 ```
 
-
-
 ## Interactive Stashing
-
 
 Stashing takes the dirty state of your working directory – that is, your modified tracked files and staged changes – and saves it on a stack of unfinished changes that you can reapply at any time.
 
@@ -378,10 +342,7 @@ git stash --patch
 
 Git will not stash everything that is modified but will instead prompt you interactively which of the changes you would like to stash and which you would like to keep in your working directory.
 
-
-
 ## Recover a dropped stash
-
 
 If you have only just popped it and the terminal is still open, you will still have the hash value printed by `git stash pop` on screen:
 
@@ -416,7 +377,7 @@ You can replace `gitk` there with something like `git log --graph --oneline --de
 
 To spot stash commits, look for commit messages of this form:
 
-        WIP on *somebranch*: *commithash Some old commit message*
+WIP on _somebranch_: _commithash Some old commit message_
 
 Once you know the hash of the commit you want, you can apply it as a stash:
 
@@ -426,10 +387,7 @@ git stash apply *$stash_hash*
 
 Or you can use the context menu in `gitk` to create branches for any unreachable commits you are interested in. After that, you can do whatever you want with them with all the normal tools. When you’re done, just blow those branches away again.
 
-
-
 #### Syntax
-
 
 - `git stash list [<options>]`
 - `git stash show [<stash>]`
@@ -441,26 +399,19 @@ Or you can use the context menu in `gitk` to create branches for any unreachable
 - `git stash create [<message>]`
 - `git stash store [-m|--message <message>] [-q|--quiet] <commit>`
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|show|Show the changes recorded in the stash as a diff between the stashed state and its original parent. When no <stash> is given, shows the latest one.
-|list|List the stashes that you currently have. Each stash is listed with its name (e.g. stash@{0} is the latest stash, stash@{1} is the one before, etc.), the name of the branch that was current when the stash was made, and a short description of the commit the stash was based on.
-|pop|Remove a single stashed state from the stash list and apply it on top of the current working tree state.
-|apply|Like `pop`, but do not remove the state from the stash list.
-|clear|Remove all the stashed states. Note that those states will then be subject to pruning, and may be impossible to recover.
-|drop|Remove a single stashed state from the stash list. When no <stash> is given, it removes the latest one. i.e. stash@{0}, otherwise <stash> must be a valid stash log reference of the form stash@{<revision>}.
-|create|Create a stash (which is a regular commit object) and return its object name, without storing it anywhere in the ref namespace. This is intended to be useful for scripts. It is probably not the command you want to use; see "save" above.
-|store|Store a given stash created via git stash create (which is a dangling merge commit) in the stash ref, updating the stash reflog. This is intended to be useful for scripts. It is probably not the command you want to use; see "save" above.
-
-
+| Parameter | Details                                                                                                                                                                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| show      | Show the changes recorded in the stash as a diff between the stashed state and its original parent. When no <stash> is given, shows the latest one.                                                                                                                                  |
+| list      | List the stashes that you currently have. Each stash is listed with its name (e.g. stash@{0} is the latest stash, stash@{1} is the one before, etc.), the name of the branch that was current when the stash was made, and a short description of the commit the stash was based on. |
+| pop       | Remove a single stashed state from the stash list and apply it on top of the current working tree state.                                                                                                                                                                             |
+| apply     | Like `pop`, but do not remove the state from the stash list.                                                                                                                                                                                                                         |
+| clear     | Remove all the stashed states. Note that those states will then be subject to pruning, and may be impossible to recover.                                                                                                                                                             |
+| drop      | Remove a single stashed state from the stash list. When no <stash> is given, it removes the latest one. i.e. stash@{0}, otherwise <stash> must be a valid stash log reference of the form stash@{<revision>}.                                                                        |
+| create    | Create a stash (which is a regular commit object) and return its object name, without storing it anywhere in the ref namespace. This is intended to be useful for scripts. It is probably not the command you want to use; see "save" above.                                         |
+| store     | Store a given stash created via git stash create (which is a dangling merge commit) in the stash ref, updating the stash reflog. This is intended to be useful for scripts. It is probably not the command you want to use; see "save" above.                                        |
 
 #### Remarks
 
-
 Stashing allows us to have a clean working directory without losing any information. Then, it's possible to start working on something different and/or to switch branches.
-

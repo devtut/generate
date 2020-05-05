@@ -149,7 +149,7 @@ Often hash is an integer value. There are special methods in programmning langua
 There are several approaches for determinig hash function. Without loss of generality, lets `x ∈ X = {z ∈ ℤ: z ≥ 0}` are positive integer numbers. Often `m` is prime (not too close to an exact power of 2).
 
 |Method|Hash function
-|------
+|---|---|---|---
 |Division method|`h(x) = x mod m`
 |Multiplication method|`h(x) = ⌊m (xA mod 1)⌋, A ∈ {z ∈ ℝ: 0 < z < 1}`
 
@@ -167,7 +167,7 @@ Open addressing: zero or one element is stored in each slot
 The next methods are used to compute the probe sequences required for open addressing
 
 |Method|Formula
-|------
+|---|---|---|---
 |Linear probing|`h(x, i) = (h'(x) + i) mod m`
 |Quadratic probing|`h(x, i) = (h'(x) + c1*i + c2*i^2) mod m`
 |Double hashing|`h(x, i) = (h1(x) + i*h2(x)) mod m`
@@ -179,7 +179,7 @@ Where `i ∈ {0, 1, ..., m-1}`, `h'(x), h1(x), h2(x)` are auxiliary hash functio
 Lets `x ∈ U{1, 1000}, h = x mod m`. The next table shows the hash values in case of not prime and prime. Bolded text indicates the same hash values.
 
 |x|m = 100 (not prime)|m = 101 (prime)
-|------
+|---|---|---|---
 |723|23|16
 |103|3|2
 |738|38|31

@@ -16,7 +16,7 @@ The `display` CSS property is fundamental for controlling the layout and flow of
 
 An `inline` element occupies only as much width as necessary. It stacks horizontally with other elements of the same type and may not contain other non-inline elements.
 
-```css
+```html
 <span>This is some <b>bolded</b> text!</span>
 
 ```
@@ -29,7 +29,7 @@ As demonstrated above, two `inline` elements, `<span>` and `<b>`, are in-line (h
 
 A `block` element occupies the maximum available width of its' parent element. It starts with a new line and, in contrast to `inline` elements, it does not restrict the type of elements it may contain.
 
-```css
+```html
 <div>Hello world!</div><div>This is an example!</div>
 
 ```
@@ -44,7 +44,7 @@ The `inline-block` value gives us the best of both worlds: it blends the element
 
 Elements with this display value act as if they were regular text and as a result are affected by rules controlling the flow of text such as `text-align`. By default they are also shrunk to the the smallest size possible to accommodate their content.
 
-```css
+```html
 <!--Inline: unordered list-->
 <style>
 li {
@@ -68,7 +68,7 @@ li {
 
 [<img src="https://i.stack.imgur.com/eTy8E.png" alt="Display:inline" />](https://i.stack.imgur.com/eTy8E.png)
 
-```css
+```html
 <!--block: unordered list-->
 <style>
 li {
@@ -92,7 +92,7 @@ li {
 
 [<img src="https://i.stack.imgur.com/fJErb.png" alt="Display:block" />](https://i.stack.imgur.com/fJErb.png)
 
-```css
+```html
 <!--Inline-block: unordered list-->
 <style>
 li {
@@ -123,7 +123,7 @@ An element that is given the none value to its display property will not be disp
 
 For example let's create a div-element that has an id of `myDiv`:
 
-```css
+```html
 <div id="myDiv"></div>
 
 ```
@@ -150,7 +150,7 @@ The `none` value for the display property is commonly used along with JavaScript
 
 This is the normal HTML table structure
 
-```css
+```html
 <style>
     table {
         width: 100%;
@@ -169,7 +169,7 @@ This is the normal HTML table structure
 
 You can do same implementation like this
 
-```css
+```html
 <style>
     .table-div {
         display: table;
@@ -204,21 +204,21 @@ You can do same implementation like this
 #### Parameters
 
 
-<th align="right">Value</th>|Effect
-|------
-<td align="right">`none`</td>|Hide the element and prevent it from occupying space.
-<td align="right">`block`</td>|Block element, occupy 100% of the available width, break after element.
-<td align="right">`inline`</td>|Inline element, occupy no width, no break after element.
-<td align="right">`inline-block`</td>|Taking special properties from both inline and block elements, no break, but can have width.
-<td align="right">`inline-flex`</td>|Displays an element as an inline-level flex container.
-<td align="right">`inline-table`</td>|The element is displayed as an inline-level table.
-<td align="right">`grid`</td>|Behaves like a block element and lays out its content according to the grid model.
-<td align="right">`flex`</td>|Behaves like a block element and lays out its content according to the flexbox model.
-<td align="right">`inherit`</td>|Inherit the value from the parent element.
-<td align="right">`initial`</td>|Reset the value to the default value taken from behaviors described in the HTML specifications or from the browser/user default stylesheet.
-<td align="right">`table`</td>|Behaves like the HTML `table` element.
-<td align="right">`table-cell`</td>|Let the element behave like a `<td>` element
-<td align="right">`table-column`</td>|Let the element behave like a `<col>` element
-<td align="right">`table-row`</td>|Let the element behave like a `<tr>` element
-<td align="right">`list-item`</td>|Let the element behave like a `<li>` element.
+|Value|Effect
+|---|---|---|---
+|`none`</td>|Hide the element and prevent it from occupying space.
+|`block`</td>|Block element, occupy 100% of the available width, break after element.
+|`inline`</td>|Inline element, occupy no width, no break after element.
+|`inline-block`</td>|Taking special properties from both inline and block elements, no break, but can have width.
+|`inline-flex`</td>|Displays an element as an inline-level flex container.
+|`inline-table`</td>|The element is displayed as an inline-level table.
+|`grid`</td>|Behaves like a block element and lays out its content according to the grid model.
+|`flex`</td>|Behaves like a block element and lays out its content according to the flexbox model.
+|`inherit`</td>|Inherit the value from the parent element.
+|`initial`</td>|Reset the value to the default value taken from behaviors described in the HTML specifications or from the browser/user default stylesheet.
+|`table`</td>|Behaves like the HTML `table` element.
+|`table-cell`</td>|Let the element behave like a `<td>` element
+|`table-column`</td>|Let the element behave like a `<col>` element
+|`table-row`</td>|Let the element behave like a `<tr>` element
+|`list-item`</td>|Let the element behave like a `<li>` element.
 

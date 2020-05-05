@@ -45,7 +45,7 @@ The `browser` function can be used like a breakpoint: code execution will pause 
 Once `browser()` is hit in the code the interactive interpreter will start. Any R code can be run as normal, and in addition the following commands are present,
 
 |Command|Meaning
-|------
+|---|---|---
 |c|Exit browser and continue program
 |f|Finish current loop or function \
 |n|Step Over (evaluate next statement, stepping over function calls)

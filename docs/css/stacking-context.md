@@ -27,7 +27,7 @@ It is important to note that DIV #4, DIV #5 and DIV #6 are children of DIV #3, s
 
 **HTML:**
 
-```css
+```html
 <div id="div1">
   <h1>Division Element #1</h1>
   <code>position: relative;<br/>

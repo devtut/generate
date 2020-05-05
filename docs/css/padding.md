@@ -16,7 +16,7 @@ To save adding padding to each side individually (using `padding-top`, `padding-
 
 **Four values**:
 
-```css
+```html
 <style>
     .myDiv {
         padding: 25px 50px 75px 100px; /* top right bottom left; */
@@ -30,7 +30,7 @@ To save adding padding to each side individually (using `padding-top`, `padding-
 
 **Three values**:
 
-```css
+```html
 <style>
     .myDiv {
         padding: 25px 50px 75px; /* top left/right bottom */
@@ -44,7 +44,7 @@ To save adding padding to each side individually (using `padding-top`, `padding-
 
 **Two values**:
 
-```css
+```html
 <style>
     .myDiv {
         padding: 25px 50px; /* top/bottom left/right */
@@ -58,7 +58,7 @@ To save adding padding to each side individually (using `padding-top`, `padding-
 
 **One value**:
 
-```css
+```html
 <style>
     .myDiv {
         padding: 25px; /* top/right/bottom/left */
@@ -86,7 +86,7 @@ You can specify a side individually:
 
 The following code would add a padding of `5px` to the top of the div:
 
-```css
+```html
 <style>
 .myClass {
     padding-top: 5px;

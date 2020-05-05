@@ -96,7 +96,7 @@ Keep in mind that this will not work on Apple devices (I didnt test them all), b
 
 
 |module/framework|description
-|------
+|---|---|---
 |node.js/express|Simple backe-end framework for Node.js application, very easy to use and extremely powerful
 |Socket.io|Socket.IO enables real-time bidirectional event-based communication. It works on every platform, browser or device, focusing equally on reliability and speed.
 |Push.js|The world's most versatile desktop notifications framework

@@ -5,10 +5,7 @@ description: "Rename Folders, Renaming a local branch, rename a local and the re
 
 # Renaming
 
-
-
 ## Rename Folders
-
 
 To rename a folder from `oldName` to `newName`
 
@@ -21,9 +18,7 @@ Followed by `git commit` and/or `git push`
 
 If this error occurs:
 
-> 
-fatal: renaming 'directoryToFolder/oldName' failed: Invalid argument
-
+> fatal: renaming 'directoryToFolder/oldName' failed: Invalid argument
 
 Use the following command:
 
@@ -32,10 +27,7 @@ git mv directoryToFolder/oldName temp && git mv temp directoryToFolder/newName
 
 ```
 
-
-
 ## Renaming a local branch
-
 
 You can rename branch in local repository using this command:
 
@@ -44,10 +36,7 @@ git branch -m old_name new_name
 
 ```
 
-
-
 ## rename a local and the remote branch
-
 
 the easiest way is to have the local branch checked out:
 
@@ -65,20 +54,13 @@ git push --set-upstream origin new_branch
 
 ```
 
-
-
 #### Syntax
-
 
 - `git mv <source> <destination>`
 - `git mv -f <source> <destination>`
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|`-f` or `--force`|Force renaming or moving of a file even if the target exists
-
+| Parameter         | Details                                                      |
+| ----------------- | ------------------------------------------------------------ |
+| `-f` or `--force` | Force renaming or moving of a file even if the target exists |

@@ -752,7 +752,7 @@ Linking projects can sometimes cause issues if the dependency or global tool is 
 
 
 |Parameter|Example
-|------
+|---|---
 |[access](https://docs.npmjs.com/cli/access)|`npm publish --access=public`
 |[bin](https://docs.npmjs.com/cli/bin)|`npm bin -g`
 |[edit](https://docs.npmjs.com/cli/edit)|`npm edit connect`

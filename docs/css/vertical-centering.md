@@ -13,7 +13,7 @@ description: "Centering with display: table, Centering with Transform, Centering
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
     <div class="outer">
         <div class="inner">
@@ -51,7 +51,7 @@ CSS:
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
     <div class="centered">
         centered
@@ -84,7 +84,7 @@ CSS:
 
 HTML:
 
-```css
+```html
 <div class="container">
     <div class="child"></div>
 </div>
@@ -118,7 +118,7 @@ CSS:
 
 HTML:
 
-```css
+```html
 <div class="container">
     <span>vertically centered</span>
 </div>
@@ -145,7 +145,7 @@ CSS:
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
   <img src="http://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.png?v=c78bd457575a">
 </div>
@@ -174,7 +174,7 @@ If you want to center other then images, then you must give height and width to 
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
   <div class="child">
      make me center
@@ -211,7 +211,7 @@ CSS:
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
   <div class="content"></div>
 </div>

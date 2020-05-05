@@ -15,7 +15,7 @@ CSS allows to define that element contents wrap into multiple columns with gaps 
 
 Consider the following HTML markup:
 
-```css
+```html
 <section>
   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
   <p> Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
@@ -42,7 +42,7 @@ See a [live sample of this on JSFiddle](https://jsfiddle.net/vjL9ewmb/).
 ## Create Multiple Columns
 
 
-```css
+```html
 <div class="content">
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim 

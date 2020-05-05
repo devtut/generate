@@ -5,13 +5,9 @@ description: "Parallelize repetitive tasks on list of files, Parallelize STDIN"
 
 # Parallel
 
-
 Jobs in GNU Linux can be parallelized using GNU parallel. A job can be a single command or a small script that has to be run for each of the lines in the input. The typical input is a list of files, a list of hosts, a list of users, a list of URLs, or a list of tables. A job can also be a command that reads from a pipe.
 
-
-
 ## Parallelize repetitive tasks on list of files
-
 
 Many repetitive jobs can be performed more efficiently if you utilize more of your computer's resources (i.e. CPU's and RAM). Below is an example of running multiple jobs in parallel.
 
@@ -43,10 +39,7 @@ parallel -j 3 "bzcat {} | grep puppies" ::: $( cat filelist.txt ) | gzip > outpu
 
 This command is simple, concise and more efficient when number of files and file size is large. The jobs gets initiated by `parallel`, option `-j 3` launches 3 parallel jobs and input to the parallel jobs is taken in by `:::`. The output is eventually piped to `gzip > output.gz`
 
-
-
 ## Parallelize STDIN
-
 
 Now, let's imagine we have 1 large file (e.g. 30 GB) that needs to be converted, line by line. Say we have a script, `convert.sh`, that does this `<task>`. We can pipe contents of this file to stdin for parallel to take in and work with in **chunks** such as
 
@@ -74,7 +67,7 @@ Your final output should look something like
 000003       3  <data>
 000004       4  <data>
 000005       5  <data>
- ... 
+ ...
 000587  552409  <data>
 000588  552410  <data>
 000589  552411  <data>
@@ -85,31 +78,24 @@ Your final output should look something like
 
 My original file had 552,413 lines. The first column represents the parallel jobs, and the second column represents the original line numbering that was passed to `parallel` in chunks. You should notice that the order in the second column (and rest of the file) is maintained.
 
-
-
 #### Syntax
 
-
-1. parallel [options] [command [arguments]] < list_of_arguments >
-
-
+1. parallel [options]command [arguments]] < list_of_arguments >
 
 #### Parameters
 
-
-|Option|Description
-|------
-|`-j n`|Run n jobs in parallel
-|`-k`|Keep same order
-|`-X`|Multiple arguments with context replace
-|`--colsep regexp`|Split input on regexp for positional replacements
-|`{} {.} {/} {/.} {#}`|Replacement strings
-|`{3} {3.} {3/} {3/.}`|Positional replacement strings
-|`-S sshlogin`|`Example: foo@server.example.com`
-|`--trc {}.bar`|Shorthand for --transfer --return {}.bar --cleanup
-|`--onall`|Run the given command with argument on all sshlogins
-|`--nonall`|Run the given command with no arguments on all sshlogins
-|`--pipe`|Split stdin (standard input) to multiple jobs.
-|`--recend str`|Record end separator for --pipe.
-|`--recstart str`|Record start separator for --pipe.
-
+| Option                | Description                                              |
+| --------------------- | -------------------------------------------------------- |
+| `-j n`                | Run n jobs in parallel                                   |
+| `-k`                  | Keep same order                                          |
+| `-X`                  | Multiple arguments with context replace                  |
+| `--colsep regexp`     | Split input on regexp for positional replacements        |
+| `{} {.} {/} {/.} {#}` | Replacement strings                                      |
+| `{3} {3.} {3/} {3/.}` | Positional replacement strings                           |
+| `-S sshlogin`         | `Example: foo@server.example.com`                        |
+| `--trc {}.bar`        | Shorthand for --transfer --return {}.bar --cleanup       |
+| `--onall`             | Run the given command with argument on all sshlogins     |
+| `--nonall`            | Run the given command with no arguments on all sshlogins |
+| `--pipe`              | Split stdin (standard input) to multiple jobs.           |
+| `--recend str`        | Record end separator for --pipe.                         |
+| `--recstart str`      | Record start separator for --pipe.                       |

@@ -5,29 +5,25 @@ description: "C# File.Exists(), VB WriteAllText, VB StreamWriter, C# StreamWrite
 
 # File Input/Output
 
-
-
-
 ## C# File.Exists()
-
 
 ```dotnet
 using System;
 using System.IO;
-                
+
 public class Program
 {
     public static void Main()
     {
         string filePath = "somePath";
-    
+
         if(File.Exists(filePath))
         {
             Console.WriteLine("Exists");
         }
         else
         {
-            Console.WriteLine("Does not exist");    
+            Console.WriteLine("Does not exist");
         }
     }
 }
@@ -41,10 +37,7 @@ Console.WriteLine(File.Exists(pathToFile) ? "Exists" : "Does not exist");
 
 ```
 
-
-
 ## VB WriteAllText
-
 
 ```dotnet
 Imports System.IO
@@ -54,10 +47,7 @@ File.WriteAllText(filename, "Text to write" & vbCrLf)
 
 ```
 
-
-
 ## VB StreamWriter
-
 
 ```dotnet
 Dim filename As String = "c:\path\to\file.txt"
@@ -69,10 +59,7 @@ End If
 
 ```
 
-
-
 ## C# StreamWriter
-
 
 ```dotnet
 using System.Text;
@@ -87,10 +74,7 @@ using (StreamWriter writer = new StreamWriter(filename"))
 
 ```
 
-
-
 ## C# WriteAllText()
-
 
 ```dotnet
 using System.IO;
@@ -101,19 +85,12 @@ File.writeAllText(filename, "Text to write\n");
 
 ```
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|string path|Path of the file to check. (relative or fully qualified)
-
-
+| Parameter   | Details                                                  |
+| ----------- | -------------------------------------------------------- |
+| string path | Path of the file to check. (relative or fully qualified) |
 
 #### Remarks
 
-
 Returns true if the file exists, false otherwise.
-

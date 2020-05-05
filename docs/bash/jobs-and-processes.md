@@ -5,10 +5,7 @@ description: "Job handling, Check which process running on specific port, Disown
 
 # Jobs and Processes
 
-
-
 ## Job handling
-
 
 ### Creating jobs
 
@@ -101,12 +98,12 @@ The sleep process runs in the background with process id (pid) `20024` and job n
 
 Some common kill signals are shown below. To see a full list, run `kill -l`.
 
-|Signal name|Signal value|Effect
-|------
-|`SIGHUP`|`1`|Hangup
-|`SIGINT`|`2`|Interrupt from keyboard
-|`SIGKILL`|`9`|Kill signal
-|`SIGTERM`|`15`|Termination signal
+| Signal name | Signal value | Effect                  |
+| ----------- | ------------ | ----------------------- |
+| `SIGHUP`    | `1`          | Hangup                  |
+| `SIGINT`    | `2`          | Interrupt from keyboard |
+| `SIGKILL`   | `9`          | Kill signal             |
+| `SIGTERM`   | `15`         | Termination signal      |
 
 ### Start and kill specific processes
 
@@ -162,10 +159,7 @@ that will kill exactly the process associated with your command, without relying
 
 This last example can be easily improved for running the same command multiple times (appending to the pid file instead of overwriting it, for example) and to manage cases where the process dies before being killed.
 
-
-
 ## Check which process running on specific port
-
 
 To check which process running on port 8080
 
@@ -174,10 +168,7 @@ lsof -i :8080
 
 ```
 
-
-
 ## Disowning background job
-
 
 ```bash
 $ gzip extremelylargefile.txt &
@@ -188,10 +179,7 @@ $ disown %1
 
 This allows a long running process to continue once your shell (terminal, ssh, etc) is closed.
 
-
-
 ## List Current Jobs
-
 
 ```bash
 $ tail -f /var/log/syslog > log.txt
@@ -205,15 +193,12 @@ $ jobs
 
 ```
 
-
-
 ## List all processes
-
 
 There are two common ways to list all processes on a system. Both list all processes running by all users, though they differ in the format they output (the reason for the differences are historical).
 
 ```bash
-ps -ef   # lists all processes 
+ps -ef   # lists all processes
 ps aux   # lists all processes in alternative format (BSD)
 
 ```
@@ -225,10 +210,7 @@ ps -ef | grep sshd
 
 ```
 
-
-
-## Finding information about a  running process 
-
+## Finding information about a running process
 
 `ps aux | grep <search-term>` shows processes matching **search-term**
 
@@ -245,4 +227,3 @@ root@server7:~#
 ```
 
 Here, second column is the process id. For example, if you want to kill the nginx process, you can use the command `kill 5647`. It is always adviced to use the `kill` command with `SIGTERM` rather than `SIGKILL`.
-

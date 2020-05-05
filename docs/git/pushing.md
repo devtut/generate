@@ -5,13 +5,9 @@ description: "Push a specific object to a remote branch, Push, Force Pushing, Pu
 
 # Pushing
 
-
 After changing, staging, and committing code with Git, pushing is required to make your changes available to others and transfers your local changes to the repository server. This topic will cover how to properly push code using Git.
 
-
-
 ## Push a specific object to a remote branch
-
 
 ### General syntax
 
@@ -84,10 +80,7 @@ git push origin 347d700:master
 
 ```
 
-
-
 ## Push
-
 
 ```git
 git push
@@ -131,11 +124,11 @@ To push to a repository that you haven't made yet, or is empty:
 
 1. Create the repository on GitHub (if applicable)
 1. Copy the url given to you, in the form `https://github.com/USERNAME/REPO_NAME.git`
-<li>Go to your local repository, and execute `git remote add origin URL`
-<ul>
+   <li>Go to your local repository, and execute `git remote add origin URL`
+   <ul>
 1. To verify it was added, run `git remote -v`
-</ul>
-</li>
+   </ul>
+   </li>
 1. Run `git push origin master`
 
 Your code should now be on GitHub
@@ -148,10 +141,7 @@ Push code means that git will analyze the differences of your local commits and 
 
 For more details on the concepts of "upstream" and "downstream", see [Remarks](//stackoverflow.com/documentation/git/2600/pushing#remarks).
 
-
-
 ## Force Pushing
-
 
 Sometimes, when you have local changes incompatible with remote changes (ie, when you cannot fast-forward the remote branch, or the remote branch is not a direct ancestor of your local branch), the only way to push your changes is a force push.
 
@@ -178,10 +168,7 @@ As a rule of thumb, only force push when:
 - Nobody except you pulled the changes you are trying to overwrite
 - You can force everyone to clone a fresh copy after the forced push and make everyone apply their changes to it (people may hate you for this).
 
-
-
 ## Push tags
-
 
 ```git
 git push --tags
@@ -190,10 +177,7 @@ git push --tags
 
 Pushes all of the `git tags` in the local repository that are not in the remote one.
 
-
-
 ## Changing the default push behavior
-
 
 **Current** updates the branch on the remote repository that shares a name with the current working branch.
 
@@ -222,39 +206,31 @@ git config push.default upstream
 After you've set the preferred style, use
 
 ```git
-git push 
+git push
 
 ```
 
 to update the remote repository.
 
-
-
 #### Syntax
 
-
-- git push [-f | --force] [-v | --verbose] [<remote> [<refspec>...]]
-
-
+- git push [-f | --force][-v | --verbose] [<remote> [<refspec>...]]
 
 #### Parameters
 
-
-|Parameter|Details
-|------
-|--force|Overwrites the remote ref to match your local ref. **Can cause the remote repository to lose commits, so use with care**.
-|--verbose|Run verbosely.
-|<remote>|The remote repository that is destination of the push operation.
-|<refspec>...|Specify what remote ref to update with what local ref or object.
-
-
+| Parameter    | Details                                                                                                                   |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| --force      | Overwrites the remote ref to match your local ref. **Can cause the remote repository to lose commits, so use with care**. |
+| --verbose    | Run verbosely.                                                                                                            |
+| <remote>     | The remote repository that is destination of the push operation.                                                          |
+| <refspec>... | Specify what remote ref to update with what local ref or object.                                                          |
 
 #### Remarks
 
-
 ### Upstream & Downstream
 
-> 
+>
+
 <p>In terms of source control, you're **"downstream"** when you copy (clone,
 checkout, etc) from a repository. Information flowed "downstream" to
 you.</p>
@@ -272,6 +248,4 @@ create a package for their system. They don't want to keep making
 those changes, so if they send them "upstream" to the original source,
 they shouldn't have to deal with the same issue in the next release.</p>
 
-
 ([Source](http://stackoverflow.com/a/2739476/163024))
-

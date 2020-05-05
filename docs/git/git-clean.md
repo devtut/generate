@@ -5,10 +5,7 @@ description: "Clean Ignored Files, Clean All Untracked Directories, Forcefully r
 
 # Git Clean
 
-
-
 ## Clean Ignored Files
-
 
 ```git
 git clean -fX
@@ -24,10 +21,7 @@ git clean -Xn
 
 Will preview all files that will be cleaned.
 
-
-
 ## Clean All Untracked Directories
-
 
 ```git
 git clean -fd
@@ -43,10 +37,7 @@ git clean -dn
 
 Will preview all directories that will be cleaned.
 
-
-
 ## Forcefully remove untracked files
-
 
 ```git
 git clean -f
@@ -55,10 +46,7 @@ git clean -f
 
 Will remove all untracked files.
 
-
-
 ## Clean Interactively
-
 
 ```git
 git clean -i
@@ -80,23 +68,16 @@ What now>
 
 Interactive option `i` can be added along with other options like `X`, `d`, etc.
 
-
-
 #### Syntax
-
 
 - `git clean [-d] [-f] [-i] [-n] [-q] [-e <pattern>] [-x | -X] [--] <path>`
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|-d|Remove untracked directories in addition to untracked files. If an untracked directory is managed by a different Git repository, it is not removed by default. Use -f option twice if you really want to remove such a directory.
-|-f, --force|If the Git configuration variable clean. `requireForce` is not set to false, git clean will refuse to delete files or directories unless given -f, -n or -i. Git will refuse to delete directories with .git sub directory or file unless a second -f is given.
-|-i, --interactive|Interactively prompts the removal of each file.
-|-n, --dry-run|Only displays a list of files to be removed, without actually removing them.
-|-q,--quiet|Only display errors, not the list of successfully removed files.
-
+| Parameter         | Details                                                                                                                                                                                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -d                | Remove untracked directories in addition to untracked files. If an untracked directory is managed by a different Git repository, it is not removed by default. Use -f option twice if you really want to remove such a directory.                               |
+| -f, --force       | If the Git configuration variable clean. `requireForce` is not set to false, git clean will refuse to delete files or directories unless given -f, -n or -i. Git will refuse to delete directories with .git sub directory or file unless a second -f is given. |
+| -i, --interactive | Interactively prompts the removal of each file.                                                                                                                                                                                                                 |
+| -n, --dry-run     | Only displays a list of files to be removed, without actually removing them.                                                                                                                                                                                    |
+| -q,--quiet        | Only display errors, not the list of successfully removed files.                                                                                                                                                                                                |

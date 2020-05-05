@@ -151,7 +151,7 @@ Let's say we have a problem of size n. Now for each step of our algorithm(which 
 So at each step, our problem becomes half.
 
 |Step|Problem
-|------
+|---|---|---|---
 |1|n/2
 |2|n/4
 |3|n/8

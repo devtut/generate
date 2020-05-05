@@ -5,13 +5,9 @@ description: "Listing ZIP contents, Extracting files from ZIP files, Updating a 
 
 # Reading and writing Zip files
 
-
 The **ZipFile** class lives in the **System.IO.Compression** namespace. It can be used to read from, and write to Zip files.
 
-
-
 ## Listing ZIP contents
-
 
 This snippet will list all the filenames of a zip archive. The filenames are relative to the zip root.
 
@@ -27,10 +23,7 @@ using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Read))
 
 ```
 
-
-
 ## Extracting files from ZIP files
-
 
 Extracting all the files into a directory is very easy:
 
@@ -68,10 +61,7 @@ using (ZipArchive archive = new ZipArchive(fs, ZipArchiveMode.Read))
 
 Any of these methods will produce the same result.
 
-
-
 ## Updating a ZIP file
-
 
 To update a ZIP file, the file has to be opened with ZipArchiveMode.Update instead.
 
@@ -99,10 +89,7 @@ using(var writer = new StreamWriter(entry.Open()))
 
 ```
 
-
-
 #### Remarks
-
 
 <li>
 You can also use a MemoryStream instead of a FileStream.
@@ -111,12 +98,12 @@ You can also use a MemoryStream instead of a FileStream.
 Exceptions
 </li>
 
-|Exception|Condition
-|------
-|ArgumentException|The stream has already been closed, or the capabilities of the stream does not match the mode (eg: trying to write to a read only stream)
-|ArgumentNullException|input **stream** is null
-|ArgumentOutOfRangeException|**mode** has an invalid value
-|InvalidDataException|See list below
+| Exception                   | Condition                                                                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| ArgumentException           | The stream has already been closed, or the capabilities of the stream does not match the mode (eg: trying to write to a read only stream) |
+| ArgumentNullException       | input **stream** is null                                                                                                                  |
+| ArgumentOutOfRangeException | **mode** has an invalid value                                                                                                             |
+| InvalidDataException        | See list below                                                                                                                            |
 
 When a **InvalidDataException** is thrown, it can have 3 causes:
 
@@ -124,5 +111,4 @@ When a **InvalidDataException** is thrown, it can have 3 causes:
 - **mode** is Update and an entry is missing from the archive or is corrupt and cannot be read
 - **mode** is Update and an entry is too large to fit into memory
 
-All information has been taken from [this MSDN page](https://msdn.microsoft.com/en-us/library/system.io.compression.ziparchive(v=vs.110).aspx)
-
+All information has been taken from [this MSDN page](<https://msdn.microsoft.com/en-us/library/system.io.compression.ziparchive(v=vs.110).aspx>)

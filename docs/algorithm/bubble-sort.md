@@ -244,7 +244,7 @@ print input_list
 
 
 |Parameter|Description
-|------
+|---|---|---|---
 |Stable|Yes
 |In place|Yes
 |Best case complexity|O(n)

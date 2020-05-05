@@ -5,10 +5,7 @@ description: "pingnmap"
 
 # getopts : smart positional-parameter parsing
 
-
-
 ## pingnmap
-
 
 ```bash
 #!/bin/bash
@@ -36,7 +33,7 @@ case "$opt" in
    'p')port="${OPTARG}"
        ;;
    'n')nmap_yes=1;
-       ;; 
+       ;;
    't')ping_yes=1;
        ;;
    'v')echo "pingnmap version 1.0.0"
@@ -97,48 +94,38 @@ $ ./pingnmap -v
 pingnmap version 1.0.0
 $ ./pingnmap -h
 Invalid option ?
-Usage : 
+Usage :
 pingmap -[n|t[i|p]|v]
 $ ./pingnmap -v
 pingnmap version 1.0.0
 $ ./pingnmap -h
 Invalid option ?
-Usage : 
+Usage :
 pingmap -[n|t[i|p]|v]
 
 ```
 
-
-
 #### Syntax
-
 
 - getopts optstring name [args]
 
-
-
 #### Parameters
 
-
-|Parameter|Detail
-|------
-|optstring|The option characters to be recognized
-|name|Then name where parsed option is stored
-
-
+| Parameter | Detail                                  |
+| --------- | --------------------------------------- |
+| optstring | The option characters to be recognized  |
+| name      | Then name where parsed option is stored |
 
 #### Remarks
 
-
 ### Options
 
-> 
-`optstring` : The option characters to be recognized
+> `optstring` : The option characters to be recognized
+
 <blockquote>
 <p>If a character is followed by a colon, the option is expected to
 have an argument, which should be separated from it by white space.
 The colon (`:`) and question mark (`?`) can not be used as option characters.</p>
-
 
 Each time it is invoked, `getopts` places the next option in the shell variable name, initializing name if it does not exist, and the index of the next argument to be processed into the variable `OPTIND`. `OPTIND` is initialized to `1` each time the shell or a shell script is invoked.
 
@@ -155,4 +142,3 @@ If the variable `OPTERR` is set to `0`, no error messages will be displayed, eve
 If an invalid option is seen, `getopts` places `?` into `name` and, if not silent, prints an error message and unsets `OPTARG`. If `getopts` is silent, the option character found is placed in `OPTARG` and no diagnostic message is printed.
 
 If a required argument is not found, and `getopts` is not silent, a question mark (`?`) is placed in `name`, `OPTARG` is unset, and a diagnostic message is printed. If `getopts` is silent, then a colon (`:`) is placed in name and `OPTARG` is set to the option character.
-

@@ -5,11 +5,7 @@ description: "Introduction: clean up temporary files, Catching SIGINT or Ctl+C, 
 
 # Using "trap" to react to signals and system events
 
-
-
-
 ## Introduction: clean up temporary files
-
 
 You can use the `trap` command to "trap" signals; this is the shell equivalent of the `signal()` or `sigaction()` call in C and most other programming languages to catch signals.
 
@@ -38,10 +34,7 @@ echo "Hello, world!" >> "${tmp}"
 
 ```
 
-
-
 ## Catching SIGINT or Ctl+C
-
 
 The trap is reset for subshells, so the `sleep` will still act on the `SIGINT` signal sent by `^C` (usually by quitting), but the parent process (i.e. the shell script) won't.
 
@@ -79,10 +72,7 @@ trap allow_quit INT
 
 ```
 
-
-
 ## Accumulate a list of trap work to run at exit.
-
 
 Have you ever forgotten to add a `trap` to clean up a temporary file or do other work at exit?
 
@@ -116,10 +106,7 @@ function add_on_exit()
 
 ```
 
-
-
 ## Killing Child Processes on Exit
-
 
 Trap expressions don't have to be individual functions or programs, they can be more complex expressions as well.
 
@@ -130,16 +117,13 @@ trap 'jobs -p | xargs kill' EXIT
 
 ```
 
-
-
 ## react on change of terminals window size
-
 
 There is a signal WINCH ( WINdowCHange), which is fired when one resizes a terminal window.
 
 ```bash
 declare -x rows cols
- 
+
 update_size(){
   rows=$(tput lines) # get actual lines of term
   cols=$(tput cols)  # get actual columns of term
@@ -150,28 +134,19 @@ trap update_size WINCH
 
 ```
 
-
-
 #### Syntax
-
 
 - trap action sigspec... # Run "action" on a list of signals
 - trap sigspec... # Omitting action resets traps for signals
 
-
-
 #### Parameters
 
-
-|Parameter|Meaning
-|------
-|-p|List currently installed traps
-|-l|List signal names and corresponding numbers
-
-
+| Parameter | Meaning                                     |
+| --------- | ------------------------------------------- |
+| -p        | List currently installed traps              |
+| -l        | List signal names and corresponding numbers |
 
 #### Remarks
-
 
 The `trap` utility is a special shell built-in. It's [defined in POSIX](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#trap), but bash adds some useful extensions as well.
 
@@ -181,14 +156,13 @@ The signals can either be a signal number, a signal name (without the SIG prefix
 
 Those guaranteed by POSIX are:
 
-|Number|Name|Notes
-|------
-|0|EXIT|Always run on shell exit, regardless of exit code
-|1|SIGHUP|
-|2|SIGINT|This is what `^C` sends
-|3|SIGQUIT|
-|6|SIGABRT|
-|9|SIGKILL|
-|14|SIGALRM|
-|15|SIGTERM|This is what `kill` sends by default
-
+| Number | Name    | Notes                                             |
+| ------ | ------- | ------------------------------------------------- |
+| 0      | EXIT    | Always run on shell exit, regardless of exit code |
+| 1      | SIGHUP  |
+| 2      | SIGINT  | This is what `^C` sends                           |
+| 3      | SIGQUIT |
+| 6      | SIGABRT |
+| 9      | SIGKILL |
+| 14     | SIGALRM |
+| 15     | SIGTERM | This is what `kill` sends by default              |

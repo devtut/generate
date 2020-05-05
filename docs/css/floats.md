@@ -14,7 +14,7 @@ The most basic use of a float is having text wrap around an image. The below cod
 
 HTML:
 
-```css
+```html
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
 
 <img src="http://lorempixel.com/200/100/" />
@@ -53,7 +53,7 @@ Property Values:
 - initial - Sets this property to its default value. Read about initial
 - inherit - Inherits this property from its parent element. Read about inherit
 
-```css
+```html
 <html>
 <head>
 <style>
@@ -162,7 +162,7 @@ Other resource: [Everything you know about clearfix is wrong](http://www.cssmojo
 
 The `div` is a block-level element, i.e it occupies the whole of the page width and the siblings are place one below the other irrespective of their width.
 
-```css
+```html
 <div>
     <p>This is DIV 1</p>
 </div>
@@ -179,7 +179,7 @@ We can make them in-line by adding a `float` css property to the `div`.
 
 HTML:
 
-```css
+```html
 <div class="outer-div">
     <div class="inner-div1">
         <p>This is DIV 1</p>
@@ -229,7 +229,7 @@ A simple two-column layout consists of two fixed-width, floated elements. Note t
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
 
 <div class="sidebar">
@@ -282,7 +282,7 @@ CSS:
 
 HTML:
 
-```css
+```html
 <div class="wrapper">
   <div class="left-sidebar">
     <h1>Left Sidebar</h1>
@@ -342,7 +342,7 @@ This layout uses one floated column to create a two-column layout with no define
 
 HTML:
 
-```css
+```html
 <div class="sidebar">
 <h1>Sidebar</h1>
 <img src="http://lorempixel.com/150/200/" />

@@ -204,7 +204,7 @@ This sums over the data for like states, giving the following.
 
 
 |Parameter|Details
-|------
+|---|---|---|---
 |id.vars|tell `melt` which columns to retain
 |variable.name|tell `melt` what to call the column with category labels
 |value.name|tell `melt` what to call the column that has values associated with category labels

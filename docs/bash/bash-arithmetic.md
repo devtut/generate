@@ -5,10 +5,7 @@ description: "Simple arithmetic with (( )), Arithmetic command, Simple arithmeti
 
 # Bash Arithmetic
 
-
-
 ## Simple arithmetic with (( ))
-
 
 ```bash
 #!/bin/bash
@@ -30,10 +27,7 @@ printf "%d\n" "$output"
 
 Output: 20
 
-
-
 ## Arithmetic command
-
 
 - `let`
 
@@ -42,7 +36,7 @@ Output: 20
    let num=1+2
     let num="1+2"
     let 'num= 1 + 2'
-    let num=1 num+=2 
+    let num=1 num+=2
 
 ```
 
@@ -57,7 +51,6 @@ You need quotes if there are spaces or globbing characters. So those will get er
 
 ```
 
-
 - `(( ))`
 
 ```
@@ -71,7 +64,7 @@ You need quotes if there are spaces or globbing characters. So those will get er
 We can use `(())` in `if`. Some Example:
 
 ```bash
-if (( a > 1 )); then echo "a is greater than 1"; fi 
+if (( a > 1 )); then echo "a is greater than 1"; fi
 
 ```
 
@@ -89,10 +82,7 @@ echo "The result of a + 1 is $((a + 1))"
 
 ```
 
-
-
 ## Simple arithmetic with expr
-
 
 ```bash
 #!/bin/bash
@@ -102,10 +92,7 @@ expr 1 + 2
 
 Output: 3
 
-
-
 #### Syntax
-
 
 <li>
 $(( EXPRESSION )) - Evaluates expression and returns its result.
@@ -114,19 +101,12 @@ $(( EXPRESSION )) - Evaluates expression and returns its result.
 expr EXPRESSION - Prints result of EXPRESSION to stdout.
 </li>
 
-
-
 #### Parameters
 
-
-|Parameter|Details
-|------
-|EXPRESSION|Expression to evaluate
-
-
+| Parameter  | Details                |
+| ---------- | ---------------------- |
+| EXPRESSION | Expression to evaluate |
 
 #### Remarks
 
-
 A space (" ") is required between each term (or sign) of the expression. "1+2" won't work, but "1 + 2" will work.
-

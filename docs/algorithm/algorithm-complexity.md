@@ -50,15 +50,15 @@ if `limit(x->infinity) f(x)/g(x) = c ∈ (0,∞)` i.e. the limit exists and it's
 
 **Common Complexity Classes**
 
-|Name|Notation<th align="right">n = 10</th><th align="right">n = 100</th>
-|------
-|Constant|Ө(1)<td align="right">1</td><td align="right">1</td>
-|Logarithmic|Ө(log(n))<td align="right">3</td><td align="right">7</td>
-|Linear|Ө(n)<td align="right">10</td><td align="right">100</td>
-|Linearithmic|Ө(n*log(n))<td align="right">30</td><td align="right">700</td>
-|Quadratic|Ө(n^2)<td align="right">100</td><td align="right">10 000</td>
-|Exponential|Ө(2^n)<td align="right">1 024</td><td align="right">1.267650e+ 30</td>
-|Factorial|Ө(n!)<td align="right">3 628 800</td><td align="right">9.332622e+157</td>
+|Name|Notation|n = 10|n = 100
+|---|---|---|---
+|Constant|Ө(1)|1|1
+|Logarithmic|Ө(log(n))|3|7
+|Linear|Ө(n)|10|100
+|Linearithmic|Ө(n*log(n))|30|700
+|Quadratic|Ө(n^2)|100|10 000
+|Exponential|Ө(2^n)|1 024|1.267650e+ 30
+|Factorial|Ө(n!)|3 628 800|9.332622e+157
 
 
 
@@ -68,7 +68,7 @@ if `limit(x->infinity) f(x)/g(x) = c ∈ (0,∞)` i.e. the limit exists and it's
 Let `f(n)` and `g(n)` be two functions defined on the set of the positive real numbers, `c, c1, c2, n0` are positive real constants.
 
 |Notation|f(n) = O(g(n))|f(n) = Ω(g(n))|f(n) = Θ(g(n))|f(n) = o(g(n))|f(n) = ω(g(n))
-|------
+|---|---|---|---|---|---|---|---
 |Formal definition|`∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) ≤ c g(n)`|`∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) ≤ f(n)`|`∃ c1, c2 > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c1 g(n) ≤ f(n) ≤ c2 g(n)`|`∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) < c g(n)`|`∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) < f(n)`
 |Analogy between the asymptotic comparison of `f, g` and real numbers `a, b`|`a ≤ b`|`a ≥ b`|`a = b`|`a < b`|`a > b`
 |Example|`7n + 10 = O(n^2 + n - 9)`|`n^3 - 34 = Ω(10n^2 - 7n + 1)`|`1/2 n^2 - 7n = Θ(n^2)`|`5n^2 = o(n^3)`|`7n^2 = ω(n)`

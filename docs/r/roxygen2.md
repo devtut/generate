@@ -65,7 +65,7 @@ The documentation can be created using `devtools::document()`. Note also that `d
 
 
 |Parameter|details
-|------
+|---|---|---|---
 |author|Author of the package
 |examples|The following lines will be examples on how to use the documented function
 |export|To export the function - i.e. make it callable by users of the package
