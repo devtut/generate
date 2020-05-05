@@ -78,7 +78,7 @@ for (S s : elements) {
 ```
 
 |T|S|Compiles
-|------
+|---|---|---|---|---|---|---|---|---|---
 |int[]|long|yes
 |long[]|int|no
 |`Iterable<Byte>`|long|yes

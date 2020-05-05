@@ -67,7 +67,7 @@ def append_to_csv(input_string):
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |open (**"/path/"**, "mode")|Specify the path to your CSV file
 |open (path, **"mode"**)|Specify mode to open file in (read, write, etc.)
 |csv.writer(**file**, delimiter)|Pass opened CSV file here

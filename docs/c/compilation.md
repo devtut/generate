@@ -273,7 +273,7 @@ An implementation of a C compiler may combine several steps together, but the re
 
 
 |Filename extension|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`.c`|Source file. Usually contains definitions and code.
 |`.h`|Header file. Usually contains declarations.
 |`.o`|Object file. Compiled code in machine language.
@@ -285,7 +285,7 @@ An implementation of a C compiler may combine several steps together, but the re
 |`.exe`, `.com`|Windows executable file. Formed by linking object files and library files. In Unix-like systems, there is no special file name extension for executable file.
 
 |POSIX c99 compiler flags|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`-o filename`|Output file name eg. (`bin/program.exe`, `program`)
 |`-I directory`|search for headers in `direrctory`.
 |`-D name`|define macro `name`
@@ -297,7 +297,7 @@ Compilers on POSIX platforms (Linux, mainframes, Mac) usually accept these optio
 - See also [c99 - compile standard C programs](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/c99.html)
 
 |GCC (GNU Compiler Collection) Flags|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`-Wall`|Enables all warning messages that are commonly accepted to be useful.
 |`-Wextra`|Enables more warning messages, can be too noisy.
 |`-pedantic`|Force warnings where code violates the chosen standard.
@@ -310,7 +310,7 @@ Compilers on POSIX platforms (Linux, mainframes, Mac) usually accept these optio
 - See also [Invoking GCC](https://gcc.gnu.org/onlinedocs/gcc/index.html#toc_Invoking-GCC) for many more options.
 
 |TCC (Tiny C Compiler) Flags|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`-Wimplicit-function-declaration`|Warn about implicit function declaration.
 |`-Wunsupported`|Warn about unsupported GCC features that are ignored by TCC.
 |`-Wwrite-strings`|Make string constants be of type const char * instead of char *.

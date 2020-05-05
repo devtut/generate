@@ -343,7 +343,7 @@ If you are working on an older Java codebase, you would be advised to ensure tha
 Java release naming is a little confusing.  There are actually two systems of naming and numbering, as shown in this table:
 
 |JDK version|Marketing name
-|------
+|---|---|---|---|---|---|---|---|---|---
 |jdk-1.0|JDK 1.0
 |jdk-1.1|JDK 1.1
 |jdk-1.2|J2SE 1.2

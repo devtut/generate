@@ -104,7 +104,7 @@ class C : public B {
 There are three [keywords](http://stackoverflow.com/documentation/c%2b%2b/4891/keywords) that act as **access specifiers**. These limit the access to class members  following the specifier, until another specifier changes the access level again:
 
 |Keyword|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`public`|Everyone has access
 |`protected`|Only the class itself, derived classes and friends have access
 |`private`|Only the class itself and friends have access

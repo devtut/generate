@@ -178,7 +178,7 @@ Here you can see we first call the copy constructor by executing the line `Foo f
 
 
 |rhs|Right Hand Side of the equality for both copy and assignment constructors. For example the assignment constructor : MyClass operator=( MyClass& rhs );
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Placeholder|Placeholder
 
 

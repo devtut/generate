@@ -78,7 +78,7 @@ Note that these factory methods are only available for the following interfaces:
 
 
 |Method w/ Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`List.of(E e)`|A generic type that can be a class or interface.
 |`Set.of(E e)`|A generic type that can be a class or interface.
 |`Map.of(K k, V v)`|A key-value pair of generic types that can each be a class or interface.

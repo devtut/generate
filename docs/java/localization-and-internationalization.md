@@ -147,7 +147,7 @@ Java comes with a powerful and flexible mechanism for localizing your applicatio
 Your users will expect to see data localized to the formats they're used to, and attempting to support this manually is a fools errand. Here is just a small example of the different ways users expect to see content you might assume is "always" displayed a certain way:
 
 ||Dates|Numbers|Local Currency|Foreign Currency|Distances
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Brazil|||||
 |China|||||
 |Egypt|||||

@@ -302,7 +302,7 @@ In java, a backslash is escaped with a double backslash, so a backslash in the r
 ### Important Symbols Explained
 
 |Character|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`*`|Match the preceding character or subexpression 0 or more times
 |`+`|Match the preceding character or subexpression 1 or more times
 |`?`|Match the preceding character or subexpression 0 or 1 times

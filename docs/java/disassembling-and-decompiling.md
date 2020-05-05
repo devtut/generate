@@ -405,7 +405,7 @@ RuntimeVisibleAnnotations:
 
 
 |Name|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`<classes>`|List of classes to disassemble. Can be in either `package1.package2.Classname` format, **or** `package1/package2/Classname` format. Do **not** include the `.class` extension.
 |`-help`, `--help`, `-?`|Print this usage message
 |`-version`|Version information

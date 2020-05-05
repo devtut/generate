@@ -80,7 +80,7 @@ console.log("z is ", eval(str));
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |string|The JavaScript to be evaluated.
 
 

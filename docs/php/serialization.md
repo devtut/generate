@@ -267,7 +267,7 @@ print urlencode(serialize(new Example2));
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |value|The value to be serialized. [serialize()](http://php.net/manual/en/function.serialize.php) handles all types, except the [resource](http://php.net/manual/en/language.types.resource.php)-type. You can even serialize() arrays that contain references to itself. Circular references inside the array/object you are serializing will also be stored. Any other reference will be lost. When serializing objects, PHP will attempt to call the member function [__sleep()](http://php.net/manual/en/language.oop5.magic.php#object.sleep) prior to serialization. This is to allow the object to do any last minute clean-up, etc. prior to being serialized. Likewise, when the object is restored using [unserialize()](http://php.net/manual/en/function.unserialize.php) the [__wakeup()](http://php.net/manual/en/language.oop5.magic.php#object.wakeup) member function is called. Object's private members have the class name prepended to the member name; protected members have a '*' prepended to the member name. These prepended values have null bytes on either side.
 
 
@@ -282,7 +282,7 @@ Serialization uses following string structures:
 
 
 |Type|Structure
-|------
+|---|---|---|---|---|---|---|---|---|---
 |String|`s:[size of string]:[value]`
 |Integer|`i:[value]`
 |Double|`d:[value]`

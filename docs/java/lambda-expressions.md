@@ -381,7 +381,7 @@ strings.stream().map(s -> new Integer(s));
 ### Cheat-Sheet
 
 |Method Reference Format|Code|Equivalent Lambda
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Static method|`TypeName::method`|`(args) -> TypeName.method(args)`
 |Non-static method (on instance<sup>*</sup>)|`instance::method`|`(args) -> instance.method(args)`
 |Non-static method (no instance)|`TypeName::method`|`(instance, args) -> instance.method(args)`

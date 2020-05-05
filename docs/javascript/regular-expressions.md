@@ -369,7 +369,7 @@ To go further :
 
 
 |Flags|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |g|**g**lobal. All matches (don't return on the first match).
 |m|**m**ulti-line. Causes **^** & **$** to match the begin/end of each line (not only begin/end of string).
 |i|**i**nsensitive. Case insensitive match (ignores case of [a-zA-Z]).

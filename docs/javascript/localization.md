@@ -68,7 +68,7 @@ const esDate = esDateTimeFormatting.format(new Date('2016-07-21')); // "21/7/201
 
 
 |Paramater|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |weekday|"narrow", "short", "long"
 |era|"narrow", "short", "long"
 |year|"numeric", "2-digit"

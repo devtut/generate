@@ -34,7 +34,7 @@ return a;
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |expression1|The assertion statement throws an `AssertionError` if this expression evaluates to `false`.
 |expression2|Optional. When used, `AssertionError`s thrown by the assert statement have this message.
 

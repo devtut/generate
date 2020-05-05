@@ -164,7 +164,7 @@ Basically, the way this works is like this - first you put some [type](http://st
 ```
 
 |#|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |1|The name of integer type.
 |2|Un-evaluated expression applying indirection to some identifier `z`.
 |3|We have a comma indicating that one more expression will follow in the same declaration.

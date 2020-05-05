@@ -331,9 +331,9 @@ The console printed true because `myArguments` is an Array, also, the `...myArgu
 
 Destructuring is new in the ECMAScript 6 (A.K.A ES2015) specification and [browser support](http://kangax.github.io/compat-table/es6/#test-destructuring) may be limited. The following table gives an overview of the earliest version of browsers that supported >75% of the specification.
 
-<th align="center">Chrome</th><th align="center">Edge</th><th align="center">Firefox</th><th align="center">Internet Explorer</th><th align="center">Opera</th><th align="center">Safari</th>
-|------
-<td align="center">49</td><td align="center">13</td><td align="center">45</td><td align="center">x</td><td align="center">36</td><td align="center">x</td>
+|Chrome|Edge|Firefox|Internet Explorer|Opera|Safari</th>
+|---|---|---|---|---|---|---|---|---|---
+|49|13|45|x|36|x</td>
 
 (Last Updated - 2016/08/18)
 

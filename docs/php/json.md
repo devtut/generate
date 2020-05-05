@@ -250,7 +250,7 @@ Output:
 Ensures the following conversions during encoding:
 
 |Constant|Input|Output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`JSON_HEX_TAG`|`<`|`\u003C`
 |`JSON_HEX_TAG`|`>`|`\u003E`
 |`JSON_HEX_AMP`|`&`|`\u0026`
@@ -481,7 +481,7 @@ if (!function_exists('json_last_error_msg')) {
 [`json_last_error()`](http://php.net/manual/en/function.json-last-error.php) returns an **integer** mapped to one of the pre-defined constants provided by PHP.
 
 |Constant|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`JSON_ERROR_NONE`|No error has occurred
 |`JSON_ERROR_DEPTH`|The maximum stack depth has been exceeded
 |`JSON_ERROR_STATE_MISMATCH`|Invalid or malformed JSON
@@ -649,7 +649,7 @@ $.ajax({
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**json_encode**|-
 |value|The value being encoded. Can be any type except a resource. All string data must be UTF-8 encoded.
 |options|Bitmask consisting of JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT, JSON_UNESCAPED_SLASHES, JSON_FORCE_OBJECT, JSON_PRESERVE_ZERO_FRACTION, JSON_UNESCAPED_UNICODE, JSON_PARTIAL_OUTPUT_ON_ERROR. The behaviour of these constants is described on the [JSON constants](http://php.net/manual/en/json.constants.php) page.

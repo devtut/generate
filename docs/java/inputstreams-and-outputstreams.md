@@ -118,7 +118,7 @@ BufferedOutputStream outputStream = new BufferedOutputStream(new DeflaterOutputS
 ### List of Input/Output Stream wrappers
 
 |Wrapper|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |BufferedOutputStream/ BufferedInputStream|While `OutputStream` writes data one byte at a time, `BufferedOutputStream` writes data in chunks. This reduces the number of system calls, thus improving performance.
 |DeflaterOutputStream/ DeflaterInputStream|Performs data compression.
 |InflaterOutputStream/ InflaterInputStream|Performs data decompression.

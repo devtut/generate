@@ -344,7 +344,7 @@ This stores all generated content into an output buffer, and displays it in one 
 
 
 |Function|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |ob_start()|Starts the output buffer, any output placed after this will be captured and not displayed
 |ob_get_contents()|Returns all content captured by `ob_start()`
 |ob_end_clean()|Empties the output buffer and turns it off for the current nesting level

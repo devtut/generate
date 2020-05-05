@@ -36,7 +36,7 @@ When an identifier consists of multiple words, do not use separators, such as un
 The following table summarizes the capitalization rules for identifiers and provides examples for the different types of identifiers:
 
 |Identifier|Case|Example
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Local variable|Camel|carName
 |Class|Pascal|AppDomain
 |Enumeration type|Pascal|ErrorLevel

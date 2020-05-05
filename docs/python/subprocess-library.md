@@ -151,7 +151,7 @@ out: ['ls', '--color', '-l', '-t', '-r']
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`args`|A single executable, or sequence of executable and arguments - `'ls'`, `['ls', '-la']`
 |`shell`|Run under a shell? The default shell to `/bin/sh` on POSIX.
 |`cwd`|Working directory of the child process.

@@ -14,7 +14,7 @@ description: "Floating point literals, Integer literals, String literals, Charac
 Floating point literals are used to represent signed real numbers. The following suffixes can be used to specify type of a literal:
 
 |Suffix|Type|Examples
-|------
+|---|---|---|---|---|---|---|---|---|---
 |none|`double`|`3.1415926` `-3E6`
 |`f`, `F`|`float`|`3.1415926f` `2.1E-6F`
 |`l`, `L`|`long double`|`3.1415926L` `1E126L`
@@ -29,7 +29,7 @@ In order to use these suffixes, the literal **must** be a floating point literal
 Integer literals are used to provide integral values. Three numerical bases are supported, indicated by prefixes:
 
 |Base|Prefix|Example
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Decimal|None|`5`
 |Octal|`0`|`0345`
 |Hexadecimal|`0x` or `0X`|`0x12AB`, `0X12AB`, `0x12ab`, `0x12Ab`
@@ -43,7 +43,7 @@ The type of an octal or hexadecimal integer literal is the first data type that 
 Using various suffixes, the default type of a literal can be changed.
 
 |Suffix|Explanation
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`L`, `l`|`long int`
 |`LL`, `ll` (since C99)|`long long int`
 |`U`, `u`|`unsigned`
@@ -62,7 +62,7 @@ The `L` prefix makes the literal a wide character array, of type `wchar_t*`. For
 Since C11, there are other encoding prefixes, similar to `L`:
 
 |prefix|base type|encoding
-|------
+|---|---|---|---|---|---|---|---|---|---
 |none|`char`|platform dependent
 |`L`|`wchar_t`|platform dependent
 |`u8`|`char`|UTF-8
@@ -83,7 +83,7 @@ The `L` prefix before a character literal makes it a wide character of type `wch
 When intending to represent certain special characters, such as a character that is non-printing, escape sequences are used. Escape sequences use a sequence of characters that are translated into another character. All escape sequences consist of two or more characters, the first of which is a backslash `\`. The characters immediately following the backslash determine what character literal the sequence is interpreted as.
 
 |Escape Sequence|Represented Character
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`\b`|Backspace
 |`\f`|Form feed
 |`\n`|Line feed (new line)
@@ -98,11 +98,11 @@ When intending to represent certain special characters, such as a character that
 |`\xnn`...|Hexadecimal value
 
 |Escape Sequence|Represented Character
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`\a`|Alert (beep, bell)
 
 |Escape Sequence|Represented Character
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`\unnnn`|Universal character name
 |`\Unnnnnnnn`|Universal character name
 

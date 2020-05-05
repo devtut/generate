@@ -16,7 +16,7 @@ description: "Reserved Keywords, Identifiers & Identifier Names"
 ### ECMAScript 1
 
 |<sub>**A — E**</sub>|<sub>**E — R**</sub>|<sub>**S — Z**</sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`break`|`export`|`super`
 |`case`|`extends`|`switch`
 |`catch`|`false`|`this`
@@ -35,7 +35,7 @@ description: "Reserved Keywords, Identifiers & Identifier Names"
 Added **24** additional reserved keywords. (New additions in bold).
 
 |<sub>**A — F**</sub>|<sub>**F — P**</sub>|<sub>**P — Z**</sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**`abstract`**|**`final`**|**`public`**
 |**`boolean`**|`finally`|`return`
 |`break`|**`float`**|**`short`**
@@ -64,7 +64,7 @@ There was no change since **ECMAScript 3**.
 **ECMAScript 5** removed `int`, `byte`, `char`, `goto`, `long`, `final`, `float`, `short`, `double`, `native`, `throws`, `boolean`, `abstract`, `volatile`, `transient`, and `synchronized`; it added `let` and `yield`.
 
 |<sub>**A — F**</sub>|<sub>**F — P**</sub>|<sub>**P — Z**</sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`break`|`finally`|`public`
 |`case`|`for`|`return`
 |`catch`|`function`|`static`
@@ -92,7 +92,7 @@ There was no change since **ECMAScript 3**.
 ### ECMAScript 6 / ECMAScript 2015
 
 |<sub>**A — E**</sub>|<sub>**E — R**</sub>|<sub>**S — Z**</sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`break`|`export`|`super`
 |`case`|`extends`|`switch`
 |`catch`|`finally`|`this`
@@ -110,13 +110,13 @@ Future reserved keywords
 The following are reserved as future keywords by the ECMAScript specification. They have no special functionality at present, but they might at some future time, so they cannot be used as identifiers.
 
 |<sub></sub>|<sub></sub>|<sub></sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`enum`||
 
 The following are only reserved when they are found in strict mode code:
 
 |<sub></sub>|<sub></sub>|<sub></sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`implements`|`package`|`public`
 |`interface`|`private`|`static'
 |`let`|`protected`|
@@ -126,7 +126,7 @@ Future reserved keywords in older standards
 The following are reserved as future keywords by older ECMAScript specifications (ECMAScript 1 till 3).
 
 |<sub></sub>|<sub></sub>|<sub></sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`abstract`|`float`|`short`
 |`boolean`|`goto`|`synchronized`
 |`byte`|`instanceof`|`throws`

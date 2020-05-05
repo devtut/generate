@@ -996,7 +996,7 @@ var enabled = ConfigurationReader.GetConfigKeyValue("IsEnabled", false);
 
 
 |Parameter(s)|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |T, V|Type placeholders for generic declarations
 
 

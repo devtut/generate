@@ -12,7 +12,7 @@ description: "Constants, Remainder / Modulus (%), Rounding, Trigonometry, Increm
 
 
 |Constants|Description|Approximate
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`Math.E`|Base of natural logarithm **e**|2.718
 |`Math.LN10`|Natural logarithm of 10|2.302
 |`Math.LN2`|Natural logarithm of 2|0.693

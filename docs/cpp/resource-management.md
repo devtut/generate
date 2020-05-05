@@ -73,7 +73,7 @@ int main() {
 Problems may happen when multiple threads try to access a resource. For a simple example, suppose we have a thread that adds one to a variable. It does this by first reading the variable, adding one to it, then storing it back. Suppose we initialize this variable to 1, then create two instances of this thread. After both threads finish, intuition suggests that this variable should have a value of 3. However, the below table illustrates what might go wrong:
 
 ||Thread 1|Thread 2
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Time Step 1|Read 1 from variable|
 |Time Step 2||Read 1 from variable
 |Time Step 3|Add 1 plus 1 to get 2|

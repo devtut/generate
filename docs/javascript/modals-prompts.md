@@ -155,7 +155,7 @@ An **alert box** is often used if you want to make sure information comes throug
 **Note:** The alert box takes the focus away from the current window, and forces the browser to read the message. Do not overuse this method, as it prevents the user from accessing other parts of the page until the box is closed. Also it stops the further code execution, until user clicks <kbd>OK</kbd>. (in particular, the timers which were set with `setInterval()` or `setTimeout()` don't tick either). The alert box only works in browsers, and its design cannot be modified.
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |message|Required. Specifies the text to display in the alert box, or an object converted into a string and displayed.
 
 **Return value**
@@ -184,7 +184,7 @@ console.log('Hello, ' + name);
 ```
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |message|Required. Text to display above the text field of the prompt.
 |default|Optional. Default text to display in the text field when the prompt is displayed.
 

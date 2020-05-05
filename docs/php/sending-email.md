@@ -503,7 +503,7 @@ $sendgrid->send($email);
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`string $to`|The recipient email address
 |`string $subject`|The subject line
 |`string $message`|The body of the email

@@ -21,13 +21,13 @@ The standard library provides specializations of the std::atomic template for th
 1. One full specialization for the type `bool` and its typedef name is defined that is treated as a non-specialized `std::atomic<T>` except that it has standard layout, trivial default constructor, trivial destructors, and supports aggregate initialization syntax:
 
 |Typedef name|Full specialization
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`std::atomic_bool`|`std::atomic<bool>`
 
 2)Full specializations and typedefs for integral types, as follows:
 
 |Typedef name|Full specialization
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`std::atomic_char`|`std::atomic<char>`
 |`std::atomic_char`|`std::atomic<char>`
 |`std::atomic_schar`|`std::atomic<signed char>`

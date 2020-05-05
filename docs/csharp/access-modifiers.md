@@ -13,7 +13,7 @@ description: "Access Modifiers Diagrams, public, private, internal, protected, p
 Here are all access modifiers in venn diagrams, from more limiting to more accessible:
 
 <th align="right">Access Modifier</th>|Diagram
-|------
+|---|---|---|---|---|---|---|---|---|---
 <td align="right">private</td>|<img src="https://i.stack.imgur.com/SdeM9.png" alt="private" />
 <td align="right">internal</td>|<img src="https://i.stack.imgur.com/8o7Dm.png" alt="internal" />
 <td align="right">protected</td>|<img src="https://i.stack.imgur.com/uniOu.png" alt="protected" />

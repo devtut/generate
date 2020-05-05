@@ -95,7 +95,7 @@ A `ClassLoader` object is typically obtained by calling `getClassLoader()` on a 
 Once you have a `Class` or `ClassLoader` instance, you can find a resource, using one of the following methods:
 
 |Methods|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`ClassLoader.getResource(path)`<br>`ClassLoader.getResources(path)`|Returns a URL which represents the location of the resource with the given path.
 |`ClassLoader.getResources(path)`<br>`Class.getResources(path)`|Returns an `Enumeration<URL>` giving the URLs which can be used to locate the `foo.bar` resource; see below.
 |`ClassLoader.getResourceAsStream(path)`<br>`Class.getResourceStream(path)`|Returns an `InputStream` from which you can read the contents of the `foo.bar` resource as a sequence of bytes.

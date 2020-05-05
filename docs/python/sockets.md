@@ -226,7 +226,7 @@ s.send(dst_addr+src_addr+ethertype+payload+checksum)
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |socket.AF_UNIX|UNIX Socket
 |socket.AF_INET|IPv4
 |socket.AF_INET6|IPv6

@@ -123,7 +123,7 @@ Using `signal()` imposes important limitations what you are allowed to do inside
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |sig|The signal to set the signal handler to, one of `SIGABRT`, `SIGFPE`, `SIGILL`, `SIGTERM`, `SIGINT`, `SIGSEGV` or some implementation defined value
 |func|The signal handler, which is either of the following: `SIG_DFL`, for the default handler, `SIG_IGN` to ignore the signal, or a function pointer with the signature `void foo(int sig);`.
 

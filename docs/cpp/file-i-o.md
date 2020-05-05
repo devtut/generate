@@ -280,7 +280,7 @@ If you don't specify an opening mode, then the following default modes are used:
 **The file opening modes that you may specify by design are:**
 
 |Mode|Meaning|For|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`app`|append|Output|Appends data at the end of the file.
 |`binary`|binary|Input/Output|Input and output is done in binary.
 |`in`|input|Input|Opens the file for reading.

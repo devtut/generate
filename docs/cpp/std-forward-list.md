@@ -66,14 +66,14 @@ words4: [Mo, Mo, Mo, Mo, Mo]
 
 
 |Method name|Definition
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`operator=`|assigns values to the container
 |`assign`|assigns values to the container
 |`get_allocator`|returns the associated allocator
-|------|------
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
 |**Element access**|
 |`front`|access the first element
-|------|------
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
 |**Iterators**|
 |`before_begi`n|returns an iterator to the element before beginning
 |`cbefore_begin`|returns a constant iterator to the element before beginning

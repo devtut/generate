@@ -185,7 +185,7 @@ python setup.py build_sphinx
 
 
 |Parameter|Usage
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`name`|Name of your distribution.
 |`version`|Version string of your distribution.
 |`packages`|List of Python packages (that is, directories containing modules) to include. This can be specified manually, but a call to `setuptools.find_packages()` is typically used instead.

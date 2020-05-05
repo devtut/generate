@@ -539,7 +539,7 @@ string(2) "4"
 
 
 |Parameter|Detail
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Key|The key is the unique identifier and index of an array. It may be a `string` or an `integer`. Therefore, valid keys would be `'foo', '5', 10, 'a2b', ...`
 |Value|For each `key` there is a corresponding value (`null` otherwise **and a notice is emitted upon access**). The value has no restrictions on the input type.
 

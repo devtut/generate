@@ -66,7 +66,7 @@ file, not to modify it. When using this mode the file must exist.</p>
 </li>
 
 ||r|r+|w|w+|a|a+
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Read|✔|✔|✘|✔|✘|✔
 |Write|✘|✔|✔|✔|✔|✔
 |Creates file|✘|✘|✔|✔|✔|✔
@@ -81,7 +81,7 @@ Python 3 added a new mode for `exclusive creation` so that you will not accident
 - `'xb+'` - writing and reading mode. The exact same as `x+` but the data is binary
 
 ||x|x+
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Read|✘|✔
 |Write|✔|✔
 |Creates file|✔|✔
@@ -498,7 +498,7 @@ which will return a `bool` value.
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |filename|the path to your file or, if the file is in the working directory, the filename of your file
 |access_mode|a string value that determines how the file is opened
 |buffering|an integer value used for optional line buffering

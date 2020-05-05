@@ -483,7 +483,7 @@ protected void finalize() {
 ### Abstract Methods & Classes
 
 |Concept|C++|Java
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**Abstract Method**<br>declared without an implementation|pure virtual method<br>`virtual void eat(void) = 0;`|abstract method<br>`abstract void draw();`
 |**Abstract Class**<br>cannot be instantiated|cannot be instantiated; has at least 1 pure virtual method<br>`class AB {public: virtual void f() = 0;};`|cannot be instantiated; can have non-abstract methods<br>`abstract class GraphicObject {}`
 |**Interface**<br>no instance fields|no "interface" keyword, but can mimic a Java interface with facilities of an abstract class|very similar to abstract class, but 1) supports multiple inheritance; 2) no instance fields<br>`interface TestInterface {}`
@@ -491,7 +491,7 @@ protected void finalize() {
 ### Accessibility Modifiers
 
 |Modifier|C++|Java
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**Public** - accessible by all|**no special notes**|**no special notes**
 |**Protected** - accessible by subclasses|also accessible by friends|also accessible within same package
 |**Private** - accessible by members|also accessible by friends|**no special notes**
@@ -545,7 +545,7 @@ Java Collections are symonymous with C++ Containers.
 ### Integer Types
 
 |Bits|Min|Max|C++ Type<br>(on LLP64 or LP64)|Java Type
-|------
+|---|---|---|---|---|---|---|---|---|---
 |8|-2(8-1) = -128|2(8-1)-1 = 127|char|byte
 |8|0|2(8)-1 = 255|unsigned char|--
 |16|-2(16-1) = -32,768|2(16-1)-1 = 32,767|short|short

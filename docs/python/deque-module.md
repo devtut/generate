@@ -177,7 +177,7 @@ We can now find the distances from some starting position:
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`iterable`|Creates the deque with initial elements copied from another iterable.
 |`maxlen`|Limits how large the deque can be, pushing out old elements as new are added.
 

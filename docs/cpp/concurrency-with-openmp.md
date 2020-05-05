@@ -56,7 +56,7 @@ std::cout << "end" << std::endl;
 This example produces 2 possible outputs and is dependent on the operating system and hardware. The output also illustrates a **race condition** problem that would occur from such an implementation.
 
 |OUTPUT A|OUTPUT B
-|------
+|---|---|---|---|---|---|---|---|---|---
 |begin hello world end|begin world hello end
 
 

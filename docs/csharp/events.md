@@ -405,7 +405,7 @@ public int Price
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |EventArgsT|The type that derives from EventArgs and contains the event parameters.
 |EventName|The name of the event.
 |HandlerName|The name of the event handler.

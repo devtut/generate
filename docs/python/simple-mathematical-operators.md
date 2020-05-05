@@ -459,7 +459,7 @@ quotient, remainder = divmod(9, 4)
 The `numbers` module contains the abstract metaclasses for the numerical types:
 
 |subclasses|[numbers.Number](https://docs.python.org/library/numbers.html#numbers.Number)|[numbers.Integral](https://docs.python.org/library/numbers.html#numbers.Integral)|[numbers.Rational](https://docs.python.org/library/numbers.html#numbers.Rational)|[numbers.Real](https://docs.python.org/library/numbers.html#numbers.Real)|[numbers.Complex](https://docs.python.org/library/numbers.html#numbers.Complex)
-|------
+|---|---|---|---|---|---|---|---|---|---
 |[bool](https://docs.python.org/library/functions.html#bool)|✓|✓|✓|✓|✓
 |[int](https://docs.python.org/library/functions.html#int)|✓|✓|✓|✓|✓
 |[fractions.Fraction](https://docs.python.org/library/fractions.html#fractions.Fraction)|✓|―|✓|✓|✓

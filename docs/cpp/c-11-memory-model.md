@@ -168,7 +168,7 @@ Atomic operations have the following properties:
 - Atomic operations receive an optional `std::memory_order` parameter which defines what additional properties the operation has regarding other memory locations.
 
 |std::memory_order|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`std::memory_order_relaxed`|no additional restrictions
 |`std::memory_order_release` → `std::memory_order_acquire`|if `load-acquire` sees the value stored by `store-release` then stores **sequenced before** the `store-release` happen before loads sequenced after the **load acquire**
 |`std::memory_order_consume`|like `memory_order_acquire` but only for dependent loads

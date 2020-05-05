@@ -271,7 +271,7 @@ Without the **possessive quantifier** the regex engine has to go back and test *
 
 
 |Signature|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`bool regex_match(BidirectionalIterator first, BidirectionalIterator last, smatch& sm, const regex& re, regex_constraints::match_flag_type flags)`|**`BidirectionalIterator`** is any character iterator that provides increment and decrement operators **`smatch`** may be `cmatch` or any other other variant of `match_results` that accepts the type of `BidirectionalIterator` the `smatch` argument may be ommitted if the results of the regex are not needed **Returns** whether `re` matches the entire character sequence defined by `first` and `last`
 |`bool regex_match(const string& str, smatch& sm, const regex re&, regex_constraints::match_flag_type flags)`|**`string`** may be either a `const char*` or an L-Value `string`, **the functions accepting an R-Value `string` are explicitly deleted** **`smatch`** may be `cmatch` or any other other variant of `match_results` that accepts the type of `str` the `smatch` argument may be ommitted if the results of the regex are not needed **Returns** whether `re` matches the entire character sequence defined by `str`
 

@@ -83,6 +83,6 @@ public static FontFamily GetResourceFontFamily(byte[] fontbytes)
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |fontbytes|byte array from the binary .ttf
 

@@ -34,7 +34,7 @@ The standard library `<iostream>` defines few streams for input and output:
 
 ```cpp
 |stream | description                      |
-|-------|----------------------------------|
+|---|---|---|---|---|---|---|---|---|----|---|---|---|---|---|---|---|---|---|-------------------------------|
 |cin    | standard input stream            |
 |cout   | standard output stream           |
 |cerr   | standard error (output) stream   |

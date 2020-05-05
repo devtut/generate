@@ -50,21 +50,21 @@ The standard thus guarantees that:
 
 Specific minimum sizes for each type are not given by the standard.  Instead, each type has a minimum range of values it can support, which is, as specified in § 3.9.1.3, inherited from the C standard, in §5.2.4.2.1.  The minimum size of each type can be roughly inferred from this range, by determining the minimum number of bits required; note that for any given platform, any type's actual supported range may be larger than the minimum.  Note that for signed types, ranges correspond to one's complement, not the more commonly used two's complement; this is to allow a wider range of platforms to comply with the standard.
 
-<th align="left">Type</th><th align="center">Minimum range</th><th align="right">Minimum bits required</th>
-|------
-<td align="left">`signed char`</td><td align="center">-127 to 127 (-(2<sup>7</sup> - 1) to (2<sup>7</sup> - 1))</td><td align="right">8</td>
-<td align="left">`unsigned char`</td><td align="center">0 to 255 (0 to 2<sup>8</sup> - 1)</td><td align="right">8</td>
-<td align="left">`signed short`</td><td align="center">-32,767 to 32,767 (-(2<sup>15</sup> - 1) to (2<sup>15</sup> - 1))</td><td align="right">16</td>
-<td align="left">`unsigned short`</td><td align="center">0 to 65,535 (0 to 2<sup>16</sup> - 1)</td><td align="right">16</td>
-<td align="left">`signed int`</td><td align="center">-32,767 to 32,767 (-(2<sup>15</sup> - 1) to (2<sup>15</sup> - 1))</td><td align="right">16</td>
-<td align="left">`unsigned int`</td><td align="center">0 to 65,535 (0 to 2<sup>16</sup> - 1)</td><td align="right">16</td>
-<td align="left">`signed long`</td><td align="center">-2,147,483,647 to 2,147,483,647 (-(2<sup>31</sup> - 1) to (2<sup>31</sup> - 1))</td><td align="right">32</td>
-<td align="left">`unsigned long`</td><td align="center">0 to 4,294,967,295 (0 to 2<sup>32</sup> - 1)</td><td align="right">32</td>
+<th align="left">Type|Minimum range</th><th align="right">Minimum bits required</th>
+|---|---|---|---|---|---|---|---|---|---
+<td align="left">`signed char`|-127 to 127 (-(2<sup>7</sup> - 1) to (2<sup>7</sup> - 1))</td><td align="right">8</td>
+<td align="left">`unsigned char`|0 to 255 (0 to 2<sup>8</sup> - 1)</td><td align="right">8</td>
+<td align="left">`signed short`|-32,767 to 32,767 (-(2<sup>15</sup> - 1) to (2<sup>15</sup> - 1))</td><td align="right">16</td>
+<td align="left">`unsigned short`|0 to 65,535 (0 to 2<sup>16</sup> - 1)</td><td align="right">16</td>
+<td align="left">`signed int`|-32,767 to 32,767 (-(2<sup>15</sup> - 1) to (2<sup>15</sup> - 1))</td><td align="right">16</td>
+<td align="left">`unsigned int`|0 to 65,535 (0 to 2<sup>16</sup> - 1)</td><td align="right">16</td>
+<td align="left">`signed long`|-2,147,483,647 to 2,147,483,647 (-(2<sup>31</sup> - 1) to (2<sup>31</sup> - 1))</td><td align="right">32</td>
+<td align="left">`unsigned long`|0 to 4,294,967,295 (0 to 2<sup>32</sup> - 1)</td><td align="right">32</td>
 
-<th align="left">Type</th><th align="center">Minimum range</th><th align="right">Minimum bits required</th>
-|------
-<td align="left">`signed long long`</td><td align="center">-9,223,372,036,854,775,807 to 9,223,372,036,854,775,807 (-(2<sup>63</sup> - 1) to (2<sup>63</sup> - 1))</td><td align="right">64</td>
-<td align="left">`unsigned long long`</td><td align="center">0 to 18,446,744,073,709,551,615 (0 to 2<sup>64</sup> - 1)</td><td align="right">64</td>
+<th align="left">Type|Minimum range</th><th align="right">Minimum bits required</th>
+|---|---|---|---|---|---|---|---|---|---
+<td align="left">`signed long long`|-9,223,372,036,854,775,807 to 9,223,372,036,854,775,807 (-(2<sup>63</sup> - 1) to (2<sup>63</sup> - 1))</td><td align="right">64</td>
+<td align="left">`unsigned long long`|0 to 18,446,744,073,709,551,615 (0 to 2<sup>64</sup> - 1)</td><td align="right">64</td>
 
 As each type is allowed to be greater than its minimum size requirement, types may differ in size between implementations.  The most notable example of this is with the 64-bit data models LP64 and LLP64, where LLP64 systems (such as 64-bit Windows) have 32-bit `ints` and `long`s, and LP64 systems (such as 64-bit Linux) have 32-bit `int`s and 64-bit `long`s.  Due to this, integer types cannot be assumed to have a fixed width across all platforms.
 
@@ -102,7 +102,7 @@ If Unicode support is desired, it is recommended to use `char` for UTF-8, `char1
 As mentioned above, the widths of integer types can differ between platforms.  The most common models are as follows, with sizes specified in bits:
 
 |Model|`int`|`long`|pointer
-|------
+|---|---|---|---|---|---|---|---|---|---
 |LP32 (2/4/4)|16|32|32
 |ILP32 (4/4/4)|32|32|32
 |LLP64 (4/4/8)|32|32|64

@@ -66,7 +66,7 @@ From Java 6 onwards, the complete source code for OpenJDK is available for downl
 The following table provides the timeline for the significant major versions of the Java SE platform.
 
 |Java SE Version<sup>1</sup>|Code Name|End-of-life (free<sup>2</sup>)|Release Date
-|------
+|---|---|---|---|---|---|---|---|---|---
 |[Java SE 9 (Early Access)](http://download.java.net/java/jdk9/docs/api/)|**None**|future|2017-07-27 (estimated)
 |[Java SE 8](http://docs.oracle.com/javase/8/docs/api/)|**None**|future|2014-03-18
 |[Java SE 7](http://docs.oracle.com/javase/7/docs/api/)|Dolphin|2015-04-14|2011-07-28
@@ -97,7 +97,7 @@ Source:
 ### Java SE Version Highlights
 
 |Java SE Version|Highlights
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Java SE 8|Lambda expressions and MapReduce-inspired Streams.  The Nashorn Javascript engine.  Annotations on types and repeating annotations.  Unsigned arithmetic extensions.  New Date and Time APIs.  Statically linked JNI libraries.  JavaFX launcher.  Removal of PermGen.
 |Java SE 7|String switches, **try-with-resource**, the diamond (`<>`), numeric literal enhancements and exception handling / rethrowing improvements.  Concurrency library enhancements.  Enhanced support for native file systems.  Timsort.  ECC crypto algorithms.  Improved 2D graphics (GPU) support. Pluggable annotations.
 |Java SE 6|Significant performance enhancements to JVM platform and Swing.  Scripting language API and Mozilla Rhino Javascript engine. JDBC 4.0.  Compiler API. JAXB 2.0. Web Services support (JAX-WS)

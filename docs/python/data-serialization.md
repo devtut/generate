@@ -104,7 +104,7 @@ See [Pickle](http://stackoverflow.com/documentation/python/2606/serializing-pyth
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`protocol`|Using `pickle` or `cPickle`, it is the method that objects are being Serialized/Unserialized. You probably want to use `pickle.HIGHEST_PROTOCOL` here, which means the newest method.
 
 

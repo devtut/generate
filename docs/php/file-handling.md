@@ -305,7 +305,7 @@ $filePathParts['filename']
 ```
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |$path|The full path of the file to be parsed
 |$option|One of four available options [PATHINFO_DIRNAME, PATHINFO_BASENAME, PATHINFO_EXTENSION or PATHINFO_FILENAME]
 
@@ -387,7 +387,7 @@ $f = fopen("errors.log", "a"); // Will try to open errors.log for writing
 The second parameter is the mode of the file stream:
 
 <th align="right">Mode</th><th align="left">Description</th>
-|------
+|---|---|---|---|---|---|---|---|---|---
 <td align="right">`r`</td><td align="left">Open in read only mode, starting at the beginning of the file</td>
 <td align="right">`r+`</td><td align="left">Open for reading and writing, starting at the beginning of the file</td>
 <td align="right">`w`</td><td align="left">open for writing only, starting at the beginning of the file.  If the file exists it will empty the file.  If it doesn't exist it will attempt to create it.</td>
@@ -531,7 +531,7 @@ Renaming/Moving files and directories is much simpler. Whole directories can be 
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |filename|The filename being read.
 |use_include_path|You can use the optional second parameter and set it to TRUE, if you want to search for the file in the include_path, too.
 |context|A context stream resource.

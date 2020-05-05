@@ -220,7 +220,7 @@ Note that the execute operator and [`shell_exec()`](http://php.net/manual/en/fun
 In PHP, there are two versions of logical AND and OR operators.
 
 |Operator|True if
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`$a and $b`|Both `$a` and `$b` are true
 |`$a && $b`|Both `$a` and `$b` are true
 |`$a or $b`|Either `$a` or `$b` is true
@@ -229,7 +229,7 @@ In PHP, there are two versions of logical AND and OR operators.
 Note that the `&&` and `||` opererators have higher [precedence](http://php.net/manual/en/language.operators.precedence.php) than `and` and `or`. See table below:
 
 |Evaluation|Result of `$e`|Evaluated as
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`$e = false || true`|True|`$e = (false || true)`
 |`$e = false or true`|False|`($e = false) or true`
 
@@ -868,7 +868,7 @@ Operators 'operate' or act on one (unary operators such as `!$a` and `++$a`), tw
 Operator precedence influences how operators are grouped (as if there were parentheses). The following is a list of operators in order of there precendence (operators in the second column). If multiple operators are in one row, the grouping is determined by the code order, where the first column indicates the associativity (see examples).
 
 |Association|Operator
-|------
+|---|---|---|---|---|---|---|---|---|---
 |left|`->` `::`
 |none|`clone` `new`
 |left|`[`

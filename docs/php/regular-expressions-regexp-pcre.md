@@ -237,7 +237,7 @@ print_r($replaced_str);
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`$pattern`|a string with a regular expression (PCRE pattern)
 
 

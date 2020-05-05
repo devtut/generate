@@ -134,7 +134,7 @@ No cryptic boilerplate required.
 Fold Expressions are supported for the following operators
 
 | | | | | | | | | | | | 
-|------
+|---|---|---|---|---|---|---|---|---|---
 |+|-|*|/|%|\ˆ|&|||<<|>>||
 |+=|-=|*=|/=|%=|\ˆ=|&=||=|<<=|>>=|=|
 |==|!=|<|>|<=|>=|&&||||,|.*|->*|
@@ -142,7 +142,7 @@ Fold Expressions are supported for the following operators
 When folding over an empty sequence, a fold expression is ill-formed, except for the following three operators:
 
 |Operator|Value when parameter pack is empty
-|------
+|---|---|---|---|---|---|---|---|---|---
 |&&|true
 ||||false
 |,|void()

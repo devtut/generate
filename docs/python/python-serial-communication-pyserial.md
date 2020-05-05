@@ -106,7 +106,7 @@ ser.write()
 
 
 |parameter|details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |port|Device name e.g. /dev/ttyUSB0 on GNU/Linux or COM3 on Windows.
 |baudrate|baudrate type: int default: 9600 standard values: 50, 75, 110, 134, 150, 200, 300, 600, 1200, 1800, 2400, 4800, 9600, 19200, 38400, 57600, 115200
 

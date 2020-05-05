@@ -133,7 +133,7 @@ echo $_COOKIE['user'];
 
 
 |parameter|detail
-|------
+|---|---|---|---|---|---|---|---|---|---
 |name|The name of the cookie. This is also the key you can use to retrieve the value from the `$_COOKIE` super global. **This is the only required parameter**
 |value|The value to store in the cookie. This data is accessible to the browser so don't store anything sensitive here.
 |expire|A Unix timestamp representing when the cookie should expire. If set to zero the cookie will expire at the end of the session. If set to a number less than the current Unix timestamp the cookie will expire immediately.

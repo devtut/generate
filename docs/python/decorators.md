@@ -409,6 +409,6 @@ decorated_function = decorator_function(decorated_function) # this is equivalent
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |f|The function to be decorated (wrapped)
 

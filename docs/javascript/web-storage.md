@@ -36,17 +36,17 @@ console.log(JSON.parse(localStorage.getItem('players')));
 
 Mobile browsers:
 
-<th align="center">Browser</th><th align="center">Google Chrome</th><th align="center">Android Browser</th><th align="center">Firefox</th><th align="center">iOS Safari</th>
-|------
-<td align="center">Version</td><td align="center">40</td><td align="center">4.3</td><td align="center">34</td><td align="center">6-8</td>
-<td align="center">Space available</td><td align="center">10MB</td><td align="center">2MB</td><td align="center">10MB</td><td align="center">5MB</td>
+|Browser|Google Chrome|Android Browser|Firefox|iOS Safari</th>
+|---|---|---|---|---|---|---|---|---|---
+|Version|40|4.3|34|6-8</td>
+|Space available|10MB|2MB|10MB|5MB</td>
 
 Desktop browsers:
 
-<th align="center">Browser</th><th align="center">Google Chrome</th><th align="center">Opera</th><th align="center">Firefox</th><th align="center">Safari</th><th align="center">Internet Explorer</th>
-|------
-<td align="center">Version</td><td align="center">40</td><td align="center">27</td><td align="center">34</td><td align="center">6-8</td><td align="center">9-11</td>
-<td align="center">Space available</td><td align="center">10MB</td><td align="center">10MB</td><td align="center">10MB</td><td align="center">5MB</td><td align="center">10MB</td>
+|Browser|Google Chrome|Opera|Firefox|Safari|Internet Explorer</th>
+|---|---|---|---|---|---|---|---|---|---
+|Version|40|27|34|6-8|9-11</td>
+|Space available|10MB|10MB|10MB|5MB|10MB</td>
 
 
 
@@ -318,7 +318,7 @@ localStorage.removeItem(name);
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**name**|The key/name of the item
 |**value**|The value of the item
 

@@ -910,7 +910,7 @@ R operator()(int arg1, int arg2) /*non-const*/ {
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**default-capture**|Specifies how all non-listed variables are captured. Can be `=` (capture by value) or `&` (capture by reference). If omitted, non-listed variables are inaccessible within the **lambda-body**. The **default-capture** must precede the **capture-list**.
 |**capture-list**|Specifies how local variables are made accessible within the **lambda-body**. Variables without prefix are captured by value. Variables prefixed with `&` are captured by reference. Within a class method, `this` can be used to make all its members accessible by reference. Non-listed variables are inaccessible, unless the list is preceded by a **default-capture**.
 |**argument-list**|Specifies the arguments of the lambda function.

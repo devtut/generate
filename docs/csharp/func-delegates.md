@@ -167,7 +167,7 @@ class Program
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`arg` or `arg1`|the (first) parameter of the method
 |`arg2`|the second parameter of the method
 |`arg3`|the third parameter of the method

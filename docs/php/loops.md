@@ -46,7 +46,7 @@ I love to eat cherry pie.
 The `continue` statement may also be used to immediately continue execution to an outer level of a loop by specifying the number of loop levels to jump. For example, consider data such as
 
 |Fruit|Color|Cost
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Apple|Red|1
 |Banana|Yellow|7
 |Cherry|Red|2

@@ -83,7 +83,7 @@ This example only shows some examples of what a generic stream wrapper would con
 
 
 |Parameter Name|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Stream Resource|The data provider consisting of the `<scheme>://<target>` syntax
 
 

@@ -233,7 +233,7 @@ int main (void)
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |expression|expression of scalar type.
 |message|string literal to be included in the diagnostic message.
 

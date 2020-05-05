@@ -194,7 +194,7 @@ m.group()
 **Common Flags**
 
 |Flag|Short Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`re.IGNORECASE`, `re.I`|Makes the pattern ignore the case
 |`re.DOTALL`, `re.S`|Makes `.` match everything including newlines
 |`re.MULTILINE`, `re.M`|Makes `^` match the begin of a line and `$` the end of a line

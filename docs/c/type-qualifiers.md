@@ -123,7 +123,7 @@ uint8_t volatile * pReg = (uint8_t volatile *) 0x1717;
 Type qualifiers are the keywords which describe additional semantics about a type. They are an integral part of type signatures. They can appear both at the topmost level of a declaration (directly affecting the identifier) or at sub-levels (relevant to pointers only, affecting the pointed-to values):
 
 |Keyword|Remarks
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`const`|Prevents the mutation of the declared object (by appearing at the topmost level) or prevents the mutation of the pointed-to value (by appearing next to a pointer subtype).
 |`volatile`|Informs the compiler that the declared object (at topmost level) or the pointed-to value (in pointer subtypes) may change its value as a result of external conditions, not only as a result of program control flow.
 |`restrict`|An optimization hint, relevant to pointers only. Declares intent that for the lifetime of the pointer, no other pointers will be used to access the same pointed-to object.

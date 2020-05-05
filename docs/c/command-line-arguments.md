@@ -246,7 +246,7 @@ Arguments for options are formatted as:
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |argc|argument count - initialized to the number of space-separated arguments given to the program from the command-line as well as the program name itself.
 |argv|argument vector - initialized to an array of `char`-pointers (strings) containing the arguments (and the program name) that was given on the command-line.
 

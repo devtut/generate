@@ -348,7 +348,7 @@ Output:
 ### Comparison of methods to iterate an array
 
 |Method|Advantage
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`foreach`|The simplest method to iterate an array.
 |`foreach` by reference|Simple method to iterate and change elements of an array.
 |`for` with incremental index|Allows iterating the array in a free sequence, e.g. skipping or reversing multiple elements

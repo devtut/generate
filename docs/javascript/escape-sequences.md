@@ -41,7 +41,7 @@ Some escape sequences consist of a backslash followed by a single character.
 For example, in `alert("Hello\nWorld");`, the escape sequence `\n` is used to introduce a newline in the string parameter, so that the words "Hello" and "World" are displayed in consecutive lines.
 
 |Escape sequence|Character|Unicode
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`\b` (only in strings, not in regular expressions)|backspace|U+0008
 |`\t`|horizontal tab|U+0009
 |`\n`|line feed|U+000A

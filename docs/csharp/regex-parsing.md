@@ -79,7 +79,7 @@ found = new List<string>() { "text in here", "another one", "third one", "fourth
 
 
 |Name|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Pattern|The `string` pattern that has to be used for the lookup. For more information: [msdn](https://msdn.microsoft.com/en-us/library/ae5bf541(v=vs.90).aspx)
 |RegexOptions **[Optional]**|The common options in here are `Singleline` and `Multiline`. They are changing the behaviour of pattern-elements like the dot (.) which won't cover a `NewLine` (\n) in `Multiline-Mode` but in `SingleLine-Mode`. Default behaviour: [msdn](https://msdn.microsoft.com/en-US/library/yd1hzczs(v=vs.110).aspx#Default)
 |Timeout **[Optional]**|Where patterns are getting more complex the lookup can consume more time. This is the passed timeout for the lookup just as known from network-programming.

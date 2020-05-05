@@ -185,7 +185,7 @@ package com.stackoverflow.users;
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |schema file|The xsd schema file to convert to java
 
 

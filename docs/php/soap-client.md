@@ -164,7 +164,7 @@ try {
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |$wsdl|URI of WSDL or `NULL` if using non-WSDL mode
 |$options|Array of options for SoapClient.  Non-WSDL mode requires `location` and `uri` to set, all other options are optional.  See table below for possible values.
 
@@ -185,7 +185,7 @@ This will call the `requestInfo` SOAP method.
 Table of possible `$options` values (**Array of key/value pairs**):
 
 |Option|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |location|URL of SOAP server.  **Required** in non-WSDL mode.  Can be used in WSDL mode to override the URL.
 |uri|Target namespace of SOAP service.  **Required** in non-WSDL mode.
 |style|Possible values are `SOAP_RPC` or `SOAP_DOCUMENT`.  Only valid in non-WSDL mode.

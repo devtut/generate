@@ -379,7 +379,7 @@ Although are intended to introduce a behaviour without breaking existing impleme
 **Below is a table summarizing the interaction between sub-class and super-class.**
 
 |-|SUPER_CLASS-INSTANCE-METHOD|SUPER_CLASS-STATIC-METHOD
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**SUB_CLASS-INSTANCE-METHOD**|**overrides**|**generates-compiletime-error**
 |**SUB_CLASS-STATIC-METHOD**|**generates-compiletime-error**|**hides**
 
@@ -388,7 +388,7 @@ Although are intended to introduce a behaviour without breaking existing impleme
 **Below is a table summarizing the interaction between interface and implementing-class.**
 
 |-|INTERFACE-DEFAULT-METHOD|INTERFACE-STATIC-METHOD
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**IMPL_CLASS-INSTANCE-METHOD**|**overrides**|**hides**
 |**IMPL_CLASS-STATIC-METHOD**|**generates-compiletime-error**|**hides**
 

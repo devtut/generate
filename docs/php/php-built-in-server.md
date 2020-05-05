@@ -51,7 +51,7 @@ Press Ctrl-C to quit.</p>
 
 
 |Column|Column
-|------
+|---|---|---|---|---|---|---|---|---|---
 |-S|Tell the php that we want a webserver
 |<hostname>:<port>|The host name and the por to be used
 |-t|Public directory

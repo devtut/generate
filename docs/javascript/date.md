@@ -734,7 +734,7 @@ console.log((new Date()).getTime());
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`value`|The number of milliseconds since 1 January 1970 00:00:00.000 UTC (Unix epoch)
 |`dateAsString`|A date formatted as a string (see examples for more information)
 |`year`|The year value of the date. Note that `month` must also be provided, or the value will be interpreted as a number of milliseconds. Also note that values between `0` and `99` have special meaning. See the examples.

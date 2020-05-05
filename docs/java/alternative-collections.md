@@ -13,7 +13,7 @@ description: "Multimap in Guava, Apache and Eclipse Collections, Apache HashBag,
 This multimap allows duplicate key-value pairs. JDK analogs are HashMap<K, List>, HashMap<K, Set> and so on.
 
 |Key's order|Value's order|Duplicate|Analog key|Analog value|Guava|Apache|Eclipse (GS) Collections|JDK
-|------
+|---|---|---|---|---|---|---|---|---|---
 |not defined|Insertion-order|yes|[HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)|[ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)|[ArrayListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/ArrayListMultimap.html)|`MultiValueMap`|`FastListMultimap`|`HashMap<K, ArrayList<V>>`
 |not defined|not defined|no|[HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)|[HashSet](https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html)|[HashMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/HashMultimap.html)|`MultiValueMap. multiValueMap( new HashMap<K, Set>(), HashSet.class);`|`UnifiedSetMultimap`|`HashMap<K, HashSet<V>>`
 |not defined|sorted|no|[HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)|[TreeSet](https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html)|`Multimaps. newMultimap( HashMap, Supplier <TreeSet>)`|`MultiValueMap.multiValueMap( new HashMap<K, Set>(), TreeSet.class)`|`TreeSortedSet- Multimap`|`HashMap<K, TreeSet<V>>`
@@ -164,7 +164,7 @@ HashMultiMap from Guava
 A Bag/ultiset stores each object in the collection together with a count of occurrences. Extra methods on the interface allow multiple copies of an object to be added or removed at once. JDK analog is HashMap<T, Integer>, when values is count of copies this key.
 
 |**Type**|**Guava**|**Apache Commons Collections**|**GS Collections**|**JDK**
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Order not defined|[HashMultiset](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/HashMultiset.html)|[HashBag](http://commons.apache.org/proper/commons-collections/javadocs/api-3.2.1/org/apache/commons/collections/bag/HashBag.html)|[HashBag](http://www.goldmansachs.com/gs-collections/javadoc/6.1.0/com/gs/collections/impl/bag/mutable/HashBag.html)|[HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
 |Sorted|[TreeMultiset](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/TreeMultiset.html)|[TreeBag](http://commons.apache.org/proper/commons-collections/javadocs/api-3.2.1/org/apache/commons/collections/TreeBag.html)|[TreeBag](http://www.goldmansachs.com/gs-collections/javadoc/6.1.0/com/gs/collections/impl/bag/sorted/mutable/TreeBag.html)|[TreeMap](https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html)
 |Insertion-order|[LinkedHashMultiset](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/LinkedHashMultiset.html)|-|-|[LinkedHashMap](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html)
@@ -292,7 +292,7 @@ A Bag/ultiset stores each object in the collection together with a count of occu
 ### Compare operation with collections - Create collections
 
 |Description|JDK|guava|gs-collections
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Create empty list|`new ArrayList<>`()|`Lists.newArrayList()`|`FastList.newList()`
 |Create list from values|`Arrays.asList("1", "2", "3")`|`Lists.newArrayList("1", "2", "3")`|`FastList.newListWith("1", "2", "3")`
 |Create list with capacity = 100|`new ArrayList<>(100)`|`Lists.newArrayListWithCapacity(100)`|`FastList.newList(100)`
@@ -369,7 +369,7 @@ A Bag/ultiset stores each object in the collection together with a count of occu
 ```
 
 |Description|JDK|guava|gs-collections
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Create empty set|`new HashSet<>()`|`Sets.newHashSet()`|`UnifiedSet.newSet()`
 |Creatre set from values|`new HashSet<>(Arrays.asList("alpha", "beta", "gamma")`)|`Sets.newHashSet("alpha", "beta", "gamma")`|`UnifiedSet.newSetWith("alpha", "beta", "gamma")`
 |Create set from any collections|`new HashSet<>(collection)`|`Sets.newHashSet(collection)`|`UnifiedSet.newSet(collection)`
@@ -435,7 +435,7 @@ A Bag/ultiset stores each object in the collection together with a count of occu
 ```
 
 |Description|JDK|guava|gs-collections
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Create empty map|`new HashMap<>()`|`Maps.newHashMap()`|`UnifiedMap.newMap()`
 |Create map with capacity = 130|`new HashMap<>(130)`|`Maps.newHashMapWithExpectedSize(100)`|`UnifiedMap.newMap(130)`
 |Create map from other map|`new HashMap<>(map)`|`Maps.newHashMap(map)`|`UnifiedMap.newMap(map)`

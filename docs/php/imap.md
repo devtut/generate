@@ -21,7 +21,7 @@ To do anything with an IMAP account you need to connect to it first. To do this 
 - NNTP is 119 or 563 (secure)
 
 |Flag|Description|Options|Default
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`/service=service`|Which service to use|imap, pop3, nntp, smtp|imap
 |`/user=user`|remote user name for login on the server||
 |`/authuser=user`|remote authentication user; if specified this is the user name whose password is used (e.g. administrator)||
@@ -173,7 +173,7 @@ N     4)19-Aug-2016 someone@example.com RE: RE: RE: Message Subje (1741 chars)
 ```
 
 |Symbol|Flag|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |A|Answered|Message has been replied to
 |D|Deleted|Message is deleted (but not removed)
 |F|Flagged|Message is flagged/stared for attention

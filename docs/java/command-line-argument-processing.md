@@ -165,7 +165,7 @@ As you can see, processing the arguments and options gets rather cumbersome if t
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |args|The command line arguments.  Assuming that the `main` method is invoked by the Java launcher, `args` will be non-null, and will have no `null` elements.
 
 

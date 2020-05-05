@@ -42,7 +42,7 @@ Returns `value`
 ### Types
 
 |Name|Definition
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`value_type`|`bool`
 |`type`|`std::integral_constant<bool,value>`
 

@@ -271,7 +271,7 @@ Hello World!
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`base64.b64encode(s, altchars=None)`| 
 |s|A bytes-like object
 |altchars|A bytes-like object of length 2+ of characters to replace the '+' and '=' characters when creating the Base64 alphabet. Extra characters are ignored.

@@ -320,7 +320,7 @@ extern int **foo**[2];
 Storage class specifiers are the keywords which can appear next to the top-level type of a declaration. The use of these keywords affects the storage duration and linkage of the declared object, depending on whether it is declared at file scope or at block scope:
 
 |Keyword|Storage Duration|Linkage|Remarks
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`static`|Static|Internal|Sets internal linkage for objects at file scope; sets static storage duration for objects at block scope.
 |`extern`|Static|External|Implied and therefore redundant for objects defined at file scope which also have an initializer. When used in a declaration at file scope without an initializer, hints that the definition is to be found in another translation unit and will be resolved at link-time.
 |`auto`|Automatic|Irrelevant|Implied and therefore redundant for objects declared at block scope.

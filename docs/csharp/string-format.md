@@ -131,7 +131,7 @@ output :
 ```
 
 |Specifier|Meaning|Sample|Result
-|------
+|---|---|---|---|---|---|---|---|---|---
 |d|Date|`{0:d}`|7/6/2016
 |dd|Day, zero-padded|`{0:dd}`|06
 |ddd|Short day name|`{0:ddd}`|Wed
@@ -421,7 +421,7 @@ money.ToString("C").PadLeft(10);  // yields "    $42.00"
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |format|A [composite format string](https://msdn.microsoft.com/en-us/library/txafckwd(v=vs.110).aspx), which defines the way **args** should be combined into a string.
 |args|A sequence of objects to be combined into a string. Since this uses a [`params`](https://stackoverflow.com/documentation/c%23/26/keywords/2513/params#t=201607212143476676934) argument, you can either use a comma-separated list of arguments or an actual object array.
 |provider|A collection of ways of formatting objects to strings. Typical values include [CultureInfo.InvariantCulture](https://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo.invariantculture(v=vs.110).aspx) and [CultureInfo.CurrentCulture](https://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo.currentculture(v=vs.110).aspx).

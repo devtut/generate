@@ -1565,7 +1565,7 @@ Number[] numbers = Arrays.copyOf(doubles, doubles.length, Number[].class);
 
 
 <th align="left">Parameter</th>|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 <td align="left">`ArrayType`</td>|Type of the array. This can be primitive (`int`, `long`, `byte`) or Objects (`String`, `MyObject`, etc).
 <td align="left">index</td>|Index refers to the position of a certain Object in an array.
 <td align="left">length</td>|Every array, when being created, needs a set length specified. This is either done when creating an empty array (`new int[3]`) or implied when specifying values (`{1, 2, 3}`).

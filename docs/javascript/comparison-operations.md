@@ -878,7 +878,7 @@ Notice that in this particular example (and many others), grouping the statement
 
 
 |Operator|Comparison|Example
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`==`|Equal|`i == 0`
 |`===`|Equal Value and Type|`i === "5"`
 |`!=`|Not Equal|`i != 5`

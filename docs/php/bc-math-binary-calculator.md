@@ -129,7 +129,7 @@ function readLong(string $binary) : string {
 
 
 |bcadd|**Add two arbitrary precision numbers.**
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`left_operand`|The left operand, as a string.
 |`right_operand`|The right operand, as a string.
 |`scale`|A optional parameter to set the number of digits after the decimal place in the result.

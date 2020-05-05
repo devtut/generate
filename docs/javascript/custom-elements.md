@@ -83,7 +83,7 @@ const InitiallyHiddenElement = document.registerElement('initially-hidden', clas
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |name|The name of the new custom element.
 |options.extends|The name of the native element being extended, if any.
 |options.prototype|The custom prototype to use for the custom element, if any.

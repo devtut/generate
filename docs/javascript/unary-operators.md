@@ -24,7 +24,7 @@ typeof operand
 These are the possible return values from `typeof`:
 
 |Type|Return value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`Undefined`|`"undefined"`
 |`Null`|`"object"`
 |`Boolean`|`"boolean"`
@@ -94,7 +94,7 @@ Unary operators are operators with only one operand. Unary operators are more ef
 The following unary operators are available:
 
 |Operator|Operation|Example
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`delete`|The delete operator deletes a property from an object.|[example](http://stackoverflow.com/documentation/javascript/2084/unary-operators/6837/the-delete-operator)
 |`void`|The void operator discards an expression's return value.|[example](http://stackoverflow.com/documentation/javascript/2084/unary-operators/6839/the-void-operator)
 |`typeof`|The typeof operator determines the type of a given object.|[example](http://stackoverflow.com/documentation/javascript/2084/unary-operators/6838/the-typeof-operator)
@@ -368,7 +368,7 @@ The bitwise NOT (`~`) performs a NOT operation on each bit in a value.
 The truth table for the NOT operation is:
 
 |a|NOT a
-|------
+|---|---|---|---|---|---|---|---|---|---
 |0|1
 |1|0
 
@@ -383,7 +383,7 @@ A bitwise not on a number results in: `-(x + 1)`.
 ### Examples:
 
 |value (base 10)|value (base 2)|return (base 2)|return (base 10)
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`2`|`00000010`|`11111100`|`-3`
 |`1`|`00000001`|`11111110`|`-2`
 |`0`|`00000000`|`11111111`|`-1`

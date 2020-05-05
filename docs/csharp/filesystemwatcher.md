@@ -104,6 +104,6 @@ private void OnChanged(object source, FileSystemEventArgs e)
 
 
 |path|filter
-|------
+|---|---|---|---|---|---|---|---|---|---
 |The directory to monitor, in standard or Universal Naming Convention (UNC) notation.|The type of files to watch. For example, "*.txt" watches for changes to all text files.
 

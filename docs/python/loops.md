@@ -741,7 +741,7 @@ This will also work for **most** types of iterables, not just tuples.
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |boolean expression|expression that can be evaluated in a boolean context, e.g. `x < 10`
 |variable|variable name for the current element from the `iterable`
 |iterable|anything that implements iterations

@@ -229,7 +229,7 @@ mySet.forEach((value, value2, set) => console.log(value)); // logs 1, 2 and 3
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |iterable|If an iterable object is passed, all of its elements will be added to the new Set. null is treated as undefined.
 |value|The value of the element to add to the Set object.
 |callback|Function to execute for each element.

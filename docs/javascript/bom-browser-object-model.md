@@ -28,7 +28,7 @@ The topmost object in BOM is the `window` object, which represents the current b
 The most important object in the `Browser Object Model` is the window object. It helps in accessing information about the browser and its components. To access these features, it has various methods and properties.
 
 |Method|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |window.alert()|Creates dialog box with message and an OK button
 |window.blur()|Remove focus from window
 |window.close()|Closes a browser window
@@ -52,7 +52,7 @@ The most important object in the `Browser Object Model` is the window object. It
 The Window Object contains the following properties.
 
 |Property|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |window.closed|Whether the window has been closed
 |window.length|Number of `<iframe>` elements in window
 |window.name|Gets or sets the name of the window

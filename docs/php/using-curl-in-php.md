@@ -464,7 +464,7 @@ curl --header "X-MyHeader: 123" www.google.com
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**curl_init**|--  Initialize a cURL session
 |url|The url to be used in the cURL request
 |**curl_setopt**|-- Set an option for a cURL transfer

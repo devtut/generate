@@ -140,7 +140,7 @@ Rather than making an array `["John Doe", "Billy"]` and calling `myArray[0]`, we
 
 
 |variable_name|**{Required}** The name of the variable: used when calling it.
-|------
+|---|---|---|---|---|---|---|---|---|---
 |=|**[Optional]** Assignment (defining the variable)
 |value|**{Required when using Assignment}** The value of a variable **[default: undefined]**
 

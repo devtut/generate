@@ -141,7 +141,7 @@ Here, the input is a string of `()` repeated one million times, which causes a c
 
 
 |Argument|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`expression`|The expression code as a string, or a `code` object
 |`object`|The statement code as a string, or a `code` object
 |`globals`|The dictionary to use for global variables. If locals is not specified, this is also used for locals. If omitted, the `globals()` of calling scope are used.

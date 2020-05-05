@@ -77,7 +77,7 @@ for (int i = 0; i <= 26; i++) {
 Table showing size and values range of all primitive types:
 
 |data type|numeric representation|range of values|default value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |boolean|n/a|false and true|false
 |byte|8-bit signed|-2<sup>7</sup> to 2<sup>7</sup> - 1|0
 |||-128 to +127|
@@ -224,7 +224,7 @@ int defaultInt;    // defaultInt == 0
 
 
 |Primitive|Boxed Type|Memory Size of primitive / boxed
-|------
+|---|---|---|---|---|---|---|---|---|---
 |boolean|Boolean|1 byte / 16 bytes
 |byte|Byte|1 byte / 16 bytes
 |short|Short|2 bytes / 16 bytes
@@ -494,7 +494,7 @@ This also has the nice side effect, that you can add the binary representations 
 The result of negating `0`, is `11111111`. Adding 1 gives a value of `100000000` (9 bits). Because a `byte` can only store 8 bits, the leftmost value is truncated, and  the result is `00000000`
 
 |Original|Process|Result
-|------
+|---|---|---|---|---|---|---|---|---|---
 |0 (00000000)|Negate|-0 (11111111)
 |11111111|Add 1 to binary|100000000
 |100000000|Truncate to 8 bits|00000000 (-0 equals 0)

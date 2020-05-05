@@ -113,7 +113,7 @@ This uses the `wss` instead of `ws` to make a secure web socket connection which
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |url|The server url supporting this web socket connection.
 |data|The content to send to the host.
 |message|The message received from the host.

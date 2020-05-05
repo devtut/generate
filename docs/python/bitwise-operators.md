@@ -20,7 +20,7 @@ This means that if you were using 8 bits to represent your two's-complement numb
 Eight-bit two's-complement numbers
 
 |Bits|Unsigned Value|Two's-complement Value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |0000 0000|0|0
 |0000 0001|1|1
 |0000 0010|2|2

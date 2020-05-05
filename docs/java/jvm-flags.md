@@ -20,7 +20,7 @@ Usage:
 ```
 
 |<param>|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`opt`|Schedules adaptive optimizations earlier and enables new optimizations, which are expected to be the default in future releases.
 |`memory`|Configures the memory system for memory-intensive workloads and sets an expectation to enable large amounts of memory resources to ensure high throughput. JRockit JVM will also use large pages, if available.
 
@@ -124,7 +124,7 @@ Usage:
 ```
 
 |<size>|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`none`|Does not generate a dump file.
 |`small`|On Windows, a small dump file is generated (on Linux a full core dump is generated). A small dump only include the thread stacks including their traces and very little else. This was the default in the JRockit JVM 8.1 with service packs 1 and 2, as well as 7.0 with service pack 3 and higher).
 |`normal`|Causes a normal dump to be generated on all platforms. This dump file includes all memory except the java heap. This is the default value for the JRockit JVM 1.4.2 and later.

@@ -281,7 +281,7 @@ public class ClassWithNativeMethods {
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |JNIEnv|Pointer to the JNI environment
 |jobject|The object which invoked the non-`static` `native` method
 |jclass|The class which invoked the `static` `native` method

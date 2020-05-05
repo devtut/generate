@@ -26,7 +26,7 @@ print stdout.channel.recv_exit_status() #tells the status  1 - job failed
 
 
 |Parameter|Usage
-|------
+|---|---|---|---|---|---|---|---|---|---
 |hostname|This parameter tells the host to which the connection needs to be established
 |username|username required to access the host
 |port|host port

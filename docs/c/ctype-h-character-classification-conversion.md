@@ -66,7 +66,7 @@ a = toupper(c);
 The below information is quoted from [cplusplus.com](http://www.cplusplus.com/reference/cctype/) mapping how the original 127-character ASCII set is considered by each of the classifying type functions (a • indicates that the function returns non-zero for that character)
 
 |ASCII values|characters|iscntrl|isblank|isspace|isupper|islower|isalpha|isdigit|isxdigit|isalnum|ispunct|isgraph|isprint
-|------
+|---|---|---|---|---|---|---|---|---|---
 |0x00 .. 0x08|NUL, (other control codes)|•|||||||||||
 |0x09|tab ('\t')|•|•|•|||||||||
 |0x0A .. 0x0D|(white-space control codes: '\f','\v','\n','\r')|•||•|||||||||

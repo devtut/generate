@@ -160,7 +160,7 @@ Example:
 
 
 |commandId|value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**⋮ Inline formatting commands**| 
 |backColor|Color value String
 |bold| 

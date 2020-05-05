@@ -60,7 +60,7 @@ Note that `static_assert()` does not participate in [SFINAE](https://stackoverfl
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**bool_constexpr**|Expression to check
 |**message**|Message to print when **bool_constexpr** is **false**
 

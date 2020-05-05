@@ -600,7 +600,7 @@ for key in car:
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |key|The desired key to lookup
 |value|The value to set or return
 

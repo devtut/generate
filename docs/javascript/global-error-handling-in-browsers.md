@@ -65,7 +65,7 @@ window.onerror = function (eventOrMessage, url, lineNumber, colNumber, error) {
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |eventOrMessage|Some browsers will call the event handler with just one argument, an `Event` object. However, other browsers, especially the older ones and older mobile ones will supply a `String` message as a first argument.
 |url|If a handler is called with more than 1 argument, the second argument usually is an URL of a JavaScript file that is the source of the problem.
 |lineNumber|If a handler is called with more than 1 argument, the third argument is a line number inside the JavaScript source file.

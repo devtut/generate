@@ -71,7 +71,7 @@ It may be necessary to first remove all the ranges of the previous selection, as
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |startOffset|If the node is a Text node, it is the number of characters from the beginning of `startNode` to where the range begins. Otherwise, it is the number of child nodes between the beginning of `startNode` to where the range begins.
 |endOffset|If the node is a Text node, it is the number of characters from the beginning of `startNode` to where the range ends. Otherwise, it is the number of child nodes between the beginning of `startNode` to where the range ends.
 

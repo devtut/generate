@@ -41,7 +41,7 @@ The following set of operators with identical precedence and associativity are r
 The above three operators have the following precedence and associativity:
 
 |Operator|Relative Precedence|Associativity
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`[]` (array subscription)|1|Left-to-right
 |`()` (function call)|1|Left-to-right
 |`*` (dereference)|2|Right-to-left
@@ -49,7 +49,7 @@ The above three operators have the following precedence and associativity:
 When interpreting declarations, one has to start from the identifier outwards and apply the adjacent operators in the correct order as per the above table. Each application of an operator can be substituted with the following English words:
 
 |Expression|Interpretation
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`thing[X]`|an array of size `X` of...
 |`thing(t1, t2, t3)`|a function taking `t1`, `t2`, `t3` and returning...
 |`*thing`|a pointer to...
@@ -211,7 +211,7 @@ Without a suffix the constant has the first type that fits its value, that is a 
 The header file `<limits.h>` describes the limits of integers as follows. Their implementation-defined values shall be equal or greater in magnitude (absolute value) to those shown below, with the same sign.
 
 |Macro|Type|Value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`CHAR_BIT`|smallest object that is not a bit-field (byte)|8
 |`SCHAR_MIN`|`signed char`|-127 / -(2<sup>7</sup> - 1)
 |`SCHAR_MAX`|`signed char`|+127 / 2<sup>7</sup> - 1
@@ -229,7 +229,7 @@ The header file `<limits.h>` describes the limits of integers as follows. Their 
 |`ULONG_MAX`|`unsigned long int`|4294967295 / 2<sup>32</sup> - 1
 
 |Macro|Type|Value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`LLONG_MIN`|`long long int`|-9223372036854775807 / -(2<sup>63</sup> - 1)
 |`LLONG_MAX`|`long long int`|+9223372036854775807 / 2<sup>63</sup> - 1
 |`ULLONG_MAX`|`unsigned long long int`|18446744073709551615 / 2<sup>64</sup> - 1

@@ -1129,7 +1129,7 @@ For browser support, please refer to this [link](http://kangax.github.io/compat-
 
 
 |Property|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`value`|The value to assign to the property.
 |`writable`|Whether the value of the property can be changed or not.
 |`enumerable`|Whether the property will be enumerated in `for in` loops or not.

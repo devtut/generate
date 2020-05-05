@@ -138,6 +138,6 @@ namespace ConsoleApplication1
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |archiveFileName|The path to the archive to open, specified as a relative or absolute path. A relative path is interpreted as relative to the current working directory.
 

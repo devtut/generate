@@ -1111,7 +1111,7 @@ namespace Samples
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |this|The first parameter of an extension method should always be preceded by the `this` keyword, followed by the identifier with which to refer to the "current" instance of the object you are extending
 
 

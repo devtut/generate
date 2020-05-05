@@ -222,7 +222,7 @@ public ICommand ActionCommand =>
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`possibleNullObject`|The value to test for null value. If non null, this value is returned. Must be a nullable type.
 |`defaultValue`|The value returned if `possibleNullObject` is null. Must be the same type as `possibleNullObject`.
 

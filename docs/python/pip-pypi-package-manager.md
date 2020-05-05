@@ -371,7 +371,7 @@ Three options exist for such installations:
 Sometimes, `pip` will perfom a manual compilation of native code. On Linux python will automatically choose an available C compiler on your system. Refer to the table below for the required Visual Studio/Visual C++ version on Windows (newer versions will not work.).
 
 |Python Version|Visual Studio Version|Visual C++ Version
-|------
+|---|---|---|---|---|---|---|---|---|---
 |2.6 - 3.2|Visual Studio 2008|[Visual C++ 9.0](https://www.microsoft.com/en-us/download/details.aspx?id=44266)
 |3.3 - 3.4|Visual Studio 2010|Visual C++ 10.0
 |3.5|Visual Studio 2015|Visual C++ 14.0

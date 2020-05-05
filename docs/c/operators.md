@@ -208,7 +208,7 @@ Bitwise operators can be used to perform bit level operation on variables.<br />
 Below is a list of all six bitwise operators supported in C:
 
 |Symbol|Operator
-|------
+|---|---|---|---|---|---|---|---|---|---
 |&|bitwise AND
 |||bitwise inclusive OR
 |^|bitwise exclusive OR (XOR)
@@ -1075,7 +1075,7 @@ The C language has many precedence levels; A table is given below of all operato
 **Precedence Table**
 
 |Operators|Associativity
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`()` `[]` `->` `.`|left to right
 |`!` `~` `++` `--` `+` `-` `*` (dereference) `(type)` `sizeof`|right to left
 |`*` (multiplication) `/` `%`|left to right

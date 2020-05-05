@@ -153,7 +153,7 @@ responseData.then(({items, has_more, quota_max, quota_remaining}) => {
 
 
 |Options|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`method`|The HTTP method to use for the request. ex: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`. Defaults to `GET`.
 |`headers`|A `Headers` object containing additional HTTP headers to include in the request.
 |`body`|The request payload, can be a `string` or a `FormData` object. Defaults to `undefined`

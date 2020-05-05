@@ -211,7 +211,7 @@ Wow! isn't it great? Two objects of same type calling same methods and returning
 Here's a chart to better compare the differences between these two:-
 
 |Method Overloading|Method Overriding
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Method overloading is used to increase the readability of the program.|Method overriding is used to provide the specific implementation of the method that is already provided by its super class.
 |Method overloading is performed within class.|Method overriding occurs in two classes that have IS-A (inheritance) relationship.
 |In case of method overloading, parameter must be different.|In case of method overriding, parameter must be same.

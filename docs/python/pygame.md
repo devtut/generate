@@ -91,7 +91,7 @@ Projects can also be found at [http://www.pygame.org/](http://www.pygame.org/)
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |count|A positive integer that represents something like the number of channels needed to be reserved.
 |force|A boolean value (`False` or `True`) that determines whether `find_channel()` has to return a channel (inactive or not) with `True` or not (if there are no inactive channels) with `False`
 

@@ -268,7 +268,7 @@ The error states that the `s` array in the `main` function is passed to the func
 The problem is due to something called **array decay**. What happens when `s` with its type `char[4][20]` (array of 4 arrays of 20 chars) is passed to the function is it turns into a pointer to its first element as if you had written `&s[0]`, which has the type `char (*)[20]` (pointer to 1 array of 20 chars). This occurs for any array, including an array of pointers, an array of arrays of arrays (3-D arrays), and an array of pointers to an array. Below is a table illustrating what happens when an array decays. Changes in the type description are highlighted to illustrate what happens:
 
 |Before Decay| |After Decay| 
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`char [20]`|**array of (20 chars)**|`char *`|**pointer to (1 char)**
 |`char [4][20]`|**array of (4 arrays** of 20 chars)|`char (*)[20]`|**pointer to (1 array** of 20 chars)
 |`char *[4]`|**array of (4 pointers** to 1 char)|`char **`|**pointer to (1 pointer** to 1 char)

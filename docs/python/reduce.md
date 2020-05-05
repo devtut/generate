@@ -163,7 +163,7 @@ reduce(do_and, [100, [], 20, 0])                  # = []
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |function|function that is used for reducing the iterable (must take two arguments). (**positional-only**)
 |iterable|iterable that's going to be reduced. (**positional-only**)
 |initializer|start-value of the reduction. (**optional**, **positional-only**)

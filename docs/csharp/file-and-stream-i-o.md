@@ -270,7 +270,7 @@ Returns an array of `FileInfo`, representing all the files in the specified dire
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |path|The location of the file.
 |append|If the file exist, true will add data to the end of the file (append), false will overwrite the file.
 |text|Text to be written or stored.

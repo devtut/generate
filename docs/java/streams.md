@@ -447,7 +447,7 @@ Davis={MATH=[35.0, 37.0], SCIENCE=[12.9, 37.0]} }
 ### Cheat-Sheet
 
 |Goal|Code
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Collect to a `List`|`Collectors.toList()`
 |Collect to an `ArrayList` with pre-allocated size|`Collectors.toCollection(() -> new ArrayList<>(size))`
 |Collect to a `Set`|`Collectors.toSet()`

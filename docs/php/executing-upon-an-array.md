@@ -139,7 +139,7 @@ If all the elements of the array is not evenly divided by the chunk size, last e
 If we pass second argument as less then 1 then **E_WARNING** will be thrown and output array will be **NULL**.
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |$array (array)|Input array, the array to work on
 |$size (int)|Size of each chunk ( Integer value)
 |$preserve_keys (boolean) (optional)|If you want output array to preserve the keys set it to **TRUE** otherwise **FALSE**.

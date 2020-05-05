@@ -126,7 +126,7 @@ function receiveMessage(ev) {
 
 
 |Parameters| 
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**message**| 
 |**targetOrigin**| 
 |transfer|`optional`

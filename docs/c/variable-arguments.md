@@ -383,7 +383,7 @@ int main (int argc, char *argv[])
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`va_list` ap|argument pointer, current position in the list of variadic arguments
 |**last**|name of last non-variadic function argument, so the compiler finds the correct place to start processing variadic arguments; may not be declared as a `register` variable, a function, or an array type
 |**type**|**promoted** type of the variadic argument to read (e.g. `int` for a `short int` argument)

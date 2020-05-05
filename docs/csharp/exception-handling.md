@@ -227,7 +227,7 @@ Even if there is a `return` statement in `try` block, the `finally` block will u
 ### Cheatsheet
 
 |DO|DON'T
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Control flow with control statements|Control flow with exceptions
 |Keep track of ignored (absorbed) exception by logging|Ignore exception
 |Repeat exception by using `throw`|Re-throw exception - `throw new ArgumentNullException()` or `throw ex`

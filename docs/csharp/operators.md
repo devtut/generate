@@ -965,7 +965,7 @@ The `nameof` operator was introduced in C# 6.0. It is evaluated at compile-time 
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |operatorSymbol|The operator being overloaded, e.g. +, -, /, *
 |OperandType|The type that will be returned by the overloaded operator.
 |operand1|The first operand to be used in performing the operation.

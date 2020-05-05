@@ -80,7 +80,7 @@ console.log(proxied.foo); // logs `Object {value: "bar", type: "string"}`
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |target|The target object, actions on this object (getting, setting, etc...) will be routed trough the handler
 |handler|An object that can define "traps" for intercepting actions on the target object (getting, setting, etc...)
 

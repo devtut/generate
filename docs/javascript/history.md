@@ -109,7 +109,7 @@ Click on the button to go back two pages:
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |domain|The domain you want to update to
 |title|The title to update to
 |path|The path to update to

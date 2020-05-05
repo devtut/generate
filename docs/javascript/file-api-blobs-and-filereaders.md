@@ -207,7 +207,7 @@ You can also get easily the following attributes: `lastModified` (Timestamp), `l
 
 
 |Property/Method|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`error`|A error that occurred while reading the file.
 |`readyState`|Contains the current state of the FileReader.
 |`result`|Contains the file contents.

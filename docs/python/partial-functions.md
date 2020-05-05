@@ -66,7 +66,7 @@ No need to use the abstract function defined above (you could make it **private*
 
 
 |Param|details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |x|the number to be raised
 |y|the exponent
 |raise|the function to be specialized

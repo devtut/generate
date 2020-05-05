@@ -255,7 +255,7 @@ Suppose you need to print `'greater than'` if `x > y`, `'less than'` if `x < y` 
 `cmp(x,y)` returns the following values
 
 |Comparison|Result
-|------
+|---|---|---|---|---|---|---|---|---|---
 |x < y|-1
 |x == y|0
 |x > y|1

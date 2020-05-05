@@ -304,7 +304,7 @@ After this, you should now have your FTP server connected to you Java script.
 
 
 |Parameters|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |host|Either the host name or IP address of the FTP server
 |port|The FTP server port
 |username|The FTP server username

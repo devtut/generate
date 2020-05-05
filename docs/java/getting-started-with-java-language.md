@@ -149,7 +149,7 @@ Inside the main method, we see the following statement:
 Let's break down this statement element-by-element:
 
 |Element|Purpose
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`System`|this denotes that the subsequent expression will call upon the `System` class, from the `java.lang` package.
 |`.`|this is a "dot operator". Dot operators provide you access to a classes members<sup>1</sup>; i.e. its fields (variables) and its methods. In this case, this dot operator allows you to reference the `out` static field within the `System` class.
 |`out`|this is the name of the static field of `PrintStream` type within the `System` class containing the standard output functionality.

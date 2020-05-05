@@ -170,7 +170,7 @@ A BlockingQueue is an interface, which is a queue that blocks when you try to de
 BlockingQueue methods come in four forms, with different ways of handling operations that cannot be satisfied immediately, but may be satisfied at some point in the future: one throws an exception, the second returns a special value (either null or false, depending on the operation), the third blocks the current thread indefinitely until the operation can succeed, and the fourth blocks for only a given maximum time limit before giving up.
 
 |Operation|Throws Exception|Special Value|Blocks|Times out
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Insert|add()|offer(e)|put(e)|offer(e, time, unit)
 |Remove|remove()|poll()|take()|poll(time, unit)
 |Examine|element()|peek()|N/A|N/A
@@ -225,7 +225,7 @@ A `Deque` is a "double ended queue" which means that a elements can be added at 
 The `Deque` inherits the `Queue` interface which means the regular methods remain, however the Deque interface offers additional methods to be more flexible with a queue. The additional methods really speak for them self if you know how a queue works, since those methods are intended to add more flexibility:
 
 |Method|Brief description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`getFirst()`|Gets the first item of the **head** of the queue without removing it.
 |`getLast()`|Gets the first item of the **tail** of the queue without removing it.
 |`addFirst(E e)`|Adds an item to the **head** of the queue
@@ -304,7 +304,7 @@ Each `Queue` method exists in two forms:
 - other returns a special value if the operation fails (either `null` or `false` depending on the operation.
 
 |**Type of operation**|**Throws exception**|**Returns special value**
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Insert|`add(e)`|`offer(e)`
 |Remove|`remove()`|`poll()`
 |Examine|`element()`|`peek()`

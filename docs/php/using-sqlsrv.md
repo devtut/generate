@@ -71,7 +71,7 @@ sqlsrv_errors([int $errorsOrWarnings]);
 This returns an array with:
 
 |Key|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |SQLSTATE|The state that the SQL Server / OBDC Driver is in
 |code|The SQL Server error code
 |message|The description of the error

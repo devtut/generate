@@ -193,7 +193,7 @@ next(generator)
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |function|**callable** that determines the condition or `None` then use the identity function for filtering (**positional-only**)
 |iterable|iterable that will be filtered (**positional-only**)
 

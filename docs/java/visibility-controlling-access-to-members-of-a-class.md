@@ -153,7 +153,7 @@ Note that this modifier only works on members of a class, not on the class itsel
 
 
 |Access Modifier|Visibility|Inheritance
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Private|Class only|Can't be inherited
 |**No modifier** / Package|In package|Available if subclass in package
 |Protected|In package|Available in subclass
@@ -218,7 +218,7 @@ The following table shows the access to members permitted by each modifier.
 **Access Levels:**
 
 |Modifier|Class|Package|Subclass|World
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`public`|Y|Y|Y|Y
 |`protected`|Y|Y|Y|N
 |**no modifier**|Y|Y|N|N

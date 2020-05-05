@@ -731,10 +731,10 @@ bool(false)
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |variable|Value to filter. Note that scalar values are converted to string internally before they are filtered.
-|------|------
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
 |filter|The ID of the filter to apply. The Types of filters manual page lists the available filters.If omitted, FILTER_DEFAULT will be used, which is equivalent to FILTER_UNSAFE_RAW. This will result in no filtering taking place by default.
-|------|------
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
 |options|Associative array of options or bitwise disjunction of flags. If filter accepts options, flags can be provided in "flags" field of array. For the "callback" filter, callable type should be passed. The callback must accept one argument, the value to be filtered, and return the value after filtering/sanitizing it.
 

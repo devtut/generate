@@ -196,7 +196,7 @@ The mappings are as follows
 This is illustrated in the following table:
 
 |Classname|Source pathname|Classfile pathname
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`SomeClass`|`SomeClass.java`|`SomeClass.class`
 |`com.example.SomeClass`|`com/example/SomeClass.java`|`com/example/SomeClass.class`
 |`SomeClass.Inner`|(in `SomeClass.java` )|`SomeClass$Inner.class`

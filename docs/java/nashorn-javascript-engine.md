@@ -200,7 +200,7 @@ In JS objects have a property length, which returns size of an array or a string
 Results:
 
 |Type|If|for each|.length
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Java null|false|No iterations|**Exception**
 |Java empty string|false|No iterations|0
 |Java string|true|Iterates over string characters|Length of the string

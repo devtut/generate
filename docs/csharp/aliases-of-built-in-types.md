@@ -13,7 +13,7 @@ description: "Built-In Types Table"
 The following table shows the keywords for built-in `C#` types, which are aliases of predefined types in the System namespaces.
 
 |C# Type|.NET Framework Type
-|------
+|---|---|---|---|---|---|---|---|---|---
 |bool|System.Boolean
 |byte|System.Byte
 |sbyte|System.SByte

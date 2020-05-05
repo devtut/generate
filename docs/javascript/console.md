@@ -79,7 +79,7 @@ Displays `Sam has 100 points`.
 The full list of format specifiers in Javascript is:
 
 |Specifier|Output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`%s`|Formats the value as a string
 |`%i` or `%d`|Formats the value as an integer
 |`%f`|Formats the value as a floating point value
@@ -325,7 +325,7 @@ console.table(['Hello', 'world']);
 displays like:
 
 |(index)|value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |0|"Hello"
 |1|"world"
 
@@ -337,7 +337,7 @@ console.table({foo: 'bar', bar: 'baz'});
 displays like:
 
 |(index)|value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |"foo"|"bar"
 |"bar"|"baz"
 
@@ -618,7 +618,7 @@ displays:
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |obj1 ... objN|A list of JavaScript objects whose string representations are outputted in the console
 |msg|A JavaScript string containing zero or more substitution strings.
 |sub1 ... subN|JavaScript objects with which to replace substitution strings within msg.

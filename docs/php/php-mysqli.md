@@ -186,7 +186,7 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
 The first parameter of `$stmt->bind_param` or the second parameter of `mysqli_stmt_bind_param` is determined by the data type of the corresponding parameter in the SQL query:
 
 |Parameter|Data type of the bound parameter
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`i`|integer
 |`d`|double
 |`s`|string

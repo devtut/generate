@@ -13,7 +13,7 @@ description: "errno, strerror, perror"
 When a standard library function fails, it often sets errno to the appropriate error code. The C standard requires at least 3 values for errno be set:
 
 |Value|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |EDOM|Domain error
 |ERANGE|Range error
 |EILSEQ|Illegal multi-byte character sequence

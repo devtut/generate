@@ -705,7 +705,7 @@ Thread Pools are used mostly calling methods in `ExecutorService`.
 The following methods can be used to submit work for execution:
 
 |Method|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`submit`|Executes a the submitted work and return a future which can be used to get the result
 |`execute`|Execute the task sometime in the future without getting any return value
 |`invokeAll`|Execute a list of tasks and return a list of Futures

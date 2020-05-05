@@ -22,7 +22,7 @@ PostgreSQL is an actively developed and mature open source database. Using the `
 Lets assume we have a table `my_table` in the database `my_database` defined as follows.
 
 |id|first_name|last_name
-|------
+|---|---|---|---|---|---|---|---|---|---
 |1|John|Doe
 
 We can use the `psycopg2` module to run queries on the database in the following fashion.

@@ -33,7 +33,7 @@ For example:
 The precedence of `+` is lower than the precedence of `*`, so the result of the expression is 7, not 9.
 
 |Description|Operators / constructs (primary)|Precedence|Associativity
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Qualifier<br>Parentheses<br>Instance creation<br>Field access<br>Array access<br>Method invocation<br>Method reference|name`.`name<br>`(`expr`)`<br>`new`<br>primary`.`name<br>primary`[`expr`]`<br>primary`(`expr, ...`)`<br>primary`::`name|15|Left to right
 |Post increment|expr`++`, expr`--`|14|-
 |Pre increment<br>Unary<br>Cast<sup>1</sup>|`++`expr, `--`expr,<br>`+`expr, `-`expr, `~`expr, `!`expr,<br>`(`type`)`expr|13|-<br>Right to left<br>Right to left

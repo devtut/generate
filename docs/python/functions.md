@@ -1063,7 +1063,7 @@ TypeError: unpacking() got multiple values for argument 'c'
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**arg1**, ..., **argN**|Regular arguments
 |***args**|Unnamed positional arguments
 |**kw1**, ..., **kwN**|Keyword-only arguments

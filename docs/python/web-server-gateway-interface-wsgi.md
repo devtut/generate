@@ -66,6 +66,6 @@ def run(application):
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |start_response|A function used to process the start
 

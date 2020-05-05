@@ -944,9 +944,9 @@ request.onerror = function() {
 
 Promises are part of the ECMAScript 2015 specification and [browser support](http://caniuse.com/#feat=promises) is limited, with 88% of browsers worldwide supporting it as of July 2017. The following table gives an overview of the earliest browser versions that provide support for promises.
 
-<th align="center">Chrome</th><th align="center">Edge</th><th align="center">Firefox</th><th align="center">Internet Explorer</th><th align="center">Opera</th><th align="center">Opera Mini</th><th align="center">Safari</th><th align="center">iOS Safari</th>
-|------
-<td align="center">32</td><td align="center">12</td><td align="center">27</td><td align="center">x</td><td align="center">19</td><td align="center">x</td><td align="center">7.1</td><td align="center">8</td>
+|Chrome|Edge|Firefox|Internet Explorer|Opera|Opera Mini|Safari|iOS Safari</th>
+|---|---|---|---|---|---|---|---|---|---
+|32|12|27|x|19|x|7.1|8</td>
 
 In environments which do not support them, `Promise` can be polyfilled. Third-party libraries may also provide extended functionalities, such as automated "promisification" of callback functions or additional methods like `progress`—also known as `notify`.
 

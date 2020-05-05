@@ -149,7 +149,7 @@ There are currently eight magical constants that change depending on where they 
 These special constants are case-insensitive and are as follows:
 
 |Name|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`__LINE__`|The current line number of the file.
 |`__FILE__`|The full path and filename of the file with symlinks resolved. If used inside an include, the name of the included file is returned.
 |`__DIR__`|The directory of the file. If used inside an include, the directory of the included file is returned. This is equivalent to `dirname(__FILE__)`. This directory name does not have a trailing slash unless it is the root directory.

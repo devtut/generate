@@ -178,7 +178,7 @@ int Next(int minValue, int maxValue)
 
 
 |Parameters|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Seed|A value for generating random numbers. If not set, the default value is determined by the current system time.
 |minValue|Generated numbers won't be smaller than this value. If not set, the default value is 0.
 |maxValue|Generated numbers will be smaller than this value. If not set, the default value is `Int32.MaxValue`.

@@ -196,7 +196,7 @@ console.log(map.size); // 2
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`iterable`|Any iterable object (for example an array) containing `[key, value]` pairs.
 |`key`|The key of an element.
 |`value`|The value assigned to the key.

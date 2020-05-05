@@ -164,7 +164,7 @@ public class Test {
 
 
 |Method|Output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`LocalTime.of(13, 12, 11)`|13:12:11
 |`LocalTime.MIDNIGHT`|00:00
 |`LocalTime.NOON`|12:00

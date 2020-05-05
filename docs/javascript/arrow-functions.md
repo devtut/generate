@@ -208,7 +208,7 @@ For more information on functions in JavaScript, please view the [Functions](htt
 
 Arrow functions are part of the ECMAScript 6 specification, so [browser support](http://caniuse.com/#feat=arrow-functions) may be limited. The following table shows the earliest browser versions that support arrow functions.
 
-<th align="center">Chrome</th><th align="center">Edge</th><th align="center">Firefox</th><th align="center">Internet Explorer</th><th align="center">Opera</th><th align="center">Opera Mini</th><th align="center">Safari</th>
-|------
-<td align="center">45</td><td align="center">12</td><td align="center">22</td><td align="center">**Currently unavailable**</td><td align="center">32</td><td align="center">**Currently unavailable**</td><td align="center">10</td>
+|Chrome|Edge|Firefox|Internet Explorer|Opera|Opera Mini|Safari</th>
+|---|---|---|---|---|---|---|---|---|---
+|45|12|22|**Currently unavailable**|32|**Currently unavailable**|10</td>
 

@@ -56,7 +56,7 @@ The following table summarizes the operator precedences in Python, from lowest p
 
 
 |Operator|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |lambda|Lambda expression
 |if – else|Conditional expression
 |or|Boolean OR

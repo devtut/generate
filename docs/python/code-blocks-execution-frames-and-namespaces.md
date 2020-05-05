@@ -14,7 +14,7 @@ A code block is a piece of Python program text that can be executed as a unit, s
 
 
 |Code Block Type|Global Namespace|Local Namespace
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Module|n.s. for the module|same as global
 |Script (file or command)|n.s. for `__main__`|same as global
 |Interactive command|n.s. for `__main__`|same as global

@@ -66,7 +66,7 @@ s.remove(2)     # KeyError!
 Set operations return new sets, but     have the corresponding in-place versions:
 
 |method|in-place operation|in-place method
-|------
+|---|---|---|---|---|---|---|---|---|---
 |union|s |= t|update
 |intersection|s &= t|intersection_update
 |difference|s -= t|difference_update
@@ -220,7 +220,7 @@ True
 The latter operations have equivalent operators as shown below:
 
 |Method|Operator
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`a.intersection(b)`|`a & b`
 |`a.union(b)`|`a`|`b`
 |`a.difference(b)`|`a - b`

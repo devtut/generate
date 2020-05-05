@@ -56,7 +56,7 @@ Multiple values can be added using array notation, e.g. `@Target({ElementType.FI
 ### Available Values
 
 |ElementType|target|example usage on target element
-|------
+|---|---|---|---|---|---|---|---|---|---
 |ANNOTATION_TYPE|annotation types|<pre>`@Retention(RetentionPolicy.RUNTIME) <br>@interface MyAnnotation`</pre>
 |CONSTRUCTOR|constructors|<pre>`@MyAnnotation<br>public MyClass() {}`</pre>
 |FIELD|fields, enum constants|<pre>`@XmlAttribute<br>private int count;`</pre>
@@ -67,7 +67,7 @@ Multiple values can be added using array notation, e.g. `@Target({ElementType.FI
 |TYPE|classes, interfaces, enums|<pre>`@XmlRootElement<br>public class Report {}`</pre>
 
 |ElementType|target|example usage on target element
-|------
+|---|---|---|---|---|---|---|---|---|---
 |TYPE_PARAMETER|Type parameter declarations|<pre>`public <@MyAnnotation T> void f(T t) {}`</pre>
 |TYPE_USE|Use of a type|<pre>`Object o = "42";<br>String s = (@MyAnnotation String) o;`</pre>
 
@@ -86,7 +86,7 @@ The `@Retention` meta-annotation defines the annotation visibility during the ap
 ### Available values
 
 |RetentionPolicy|Effect
-|------
+|---|---|---|---|---|---|---|---|---|---
 |CLASS|The annotation is available in the `.class` file, but not at runtime
 |RUNTIME|The annotation is available at runtime and can be accessed via reflection
 |SOURCE|The annotation is available at compile time, but not added to the `.class` files. The annotation can be used e.g. by an annotation processor.

@@ -42,7 +42,7 @@ Hello World!
 
 
 |param|description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |mode|mode to open file, default=w+b
 |delete|To delete file on closure, default=True
 |suffix|filename suffix, default=''

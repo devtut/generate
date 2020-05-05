@@ -26,7 +26,7 @@ let complement = ~number;
 Result of the `complement` number equals to -4;
 
 |Expression|Binary value|Decimal value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |3|`00000000 00000000 00000000 00000011`|3
 |~3|`11111111 11111111 11111111 11111100`|-4
 
@@ -61,7 +61,7 @@ let complement = ~number;
 Result of the `complement` number equals to -4;
 
 |Expression|Binary value|Decimal value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |3|`00000000 00000000 00000000 00000011`|3
 |~~3|`00000000 00000000 00000000 00000011`|3
 |3.5|`00000000 00000011.1`|3.5
@@ -165,7 +165,7 @@ let complement = ~number;
 Result of the `complement` number equals to -4;
 
 |Expression|Binary value|Decimal value
-|------
+|---|---|---|---|---|---|---|---|---|---
 |3.5|`00000000 00000010.1`|3.5
 |~3.5|`11111111 11111100`|-4
 

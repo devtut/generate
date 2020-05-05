@@ -104,7 +104,7 @@ greet(name)
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |filename / directory_name|2to3 accepts a list of files or directories which is to be transformed as its argument. The directories are recursively traversed for Python sources.
 |**Option**|**Option Description**
 |-f FIX, --fix=FIX|Specify transformations to be applied; default: all. List available transformations with `--list-fixes`

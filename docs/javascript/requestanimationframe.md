@@ -144,7 +144,7 @@ Note that the last option (which fills in when no existing support was found) wi
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |callback|"A parameter specifying a function to call when it's time to update your animation for the next repaint." ([https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame))
 
 
@@ -166,7 +166,7 @@ However, using these is no guarantee that your animations will be fluid, because
 The reason this works, is because the `requestAnimationFrame` API lets the browser know that you want an animation to happen at the next `paint` cycle, **as opposed to interrupting what's going on to force a new paint cycle in when a non-RAF animation is called**.
 
 |References|URL
-|------
+|---|---|---|---|---|---|---|---|---|---
 |What is jank?|[http://jankfree.org/](http://jankfree.org/)
 |High Performance Animations|[http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/](http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/).
 |R.A.I.L.|[https://developers.google.com/web/tools/chrome-devtools/profile/evaluate-performance/rail?hl=en](https://developers.google.com/web/tools/chrome-devtools/profile/evaluate-performance/rail?hl=en)

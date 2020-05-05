@@ -173,7 +173,7 @@ Trace.WriteLine("Line Number: " + LineNumber);
 
 
 |Method/Modifier with Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`Type<T>`|`T` is the return type
 
 

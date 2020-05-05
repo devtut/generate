@@ -135,7 +135,7 @@ While the method will work fine for most languages, a truly accurate, encoding r
 ### Explanation
 
 |Section|Explanation|Result
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`str`|The input string|`"string"`
 |[`String.prototype.split( deliminator )`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)|Splits string `str` into an array. The parameter `""` means to split between each character.|`["s","t","r","i","n","g"]`
 |[`Array.prototype.reverse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)|Returns the array from the split string with its elements in reverse order.|`["g","n","i","r","t","s"]`
@@ -527,7 +527,7 @@ console.log( string ); // "Bye, Universe!"
 `replaceFunction` can be used for conditional replacements for regular expression objects (i.e., with use with `regexp`). The parameters are in the following order:
 
 |Parameter|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`match`|the substring that matches the entire regular expressiong
 |`g1`, `g2`, `g3`, ...|the matching groups in the regular expression
 |`offset`|the offset of the match in the entire string

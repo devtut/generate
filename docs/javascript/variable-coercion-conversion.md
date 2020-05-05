@@ -312,7 +312,7 @@ arr = arr.reduce(upper_lower); // "a,Á,b,C"
 
 
 |Value|Converted To String|Converted To Number|Converted To Boolean
-|------
+|---|---|---|---|---|---|---|---|---|---
 |undefinded|"undefined"|NaN|false
 |null|"null"|0|false
 |true|"true"|1|

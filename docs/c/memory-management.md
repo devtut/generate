@@ -420,7 +420,7 @@ This scheme is extremely fast and efficient, and can be made generic with a cert
 
 
 |name|description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |size (`malloc`, `realloc` and `aligned_alloc`)|total size of the memory in bytes. For `aligned_alloc` the size must be a integral multiple of alignment.
 |size (`calloc`)|size of each element
 |nelements|number of elements

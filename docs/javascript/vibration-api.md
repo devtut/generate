@@ -68,7 +68,7 @@ window.navigator.vibrate([200, 100, 200]);
 
 The following table gives an overview of the earliest browser versions that provide support for vibrations.
 
-<th align="center">Chrome</th><th align="center">Edge</th><th align="center">Firefox</th><th align="center">Internet Explorer</th><th align="center">Opera</th><th align="center">Opera Mini</th><th align="center">Safari</th>
-|------
-<td align="center">30</td><td align="center">**no support**</td><td align="center">16</td><td align="center">**no support**</td><td align="center">17</td><td align="center">**no support**</td><td align="center">**no support**</td>
+|Chrome|Edge|Firefox|Internet Explorer|Opera|Opera Mini|Safari</th>
+|---|---|---|---|---|---|---|---|---|---
+|30|**no support**|16|**no support**|17|**no support**|**no support**</td>
 

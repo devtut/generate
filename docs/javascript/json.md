@@ -422,7 +422,7 @@ As soon as the process detects a cycle, the exception is raised. If there were n
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**JSON.parse**|**Parse a JSON string**
 |`input(string)`|JSON string to be parsed.
 |`reviver(function)`|Prescribes a transformation for the input JSON string.

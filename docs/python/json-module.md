@@ -306,7 +306,7 @@ the `json` module will handle encoding and decoding of the below types by defaul
 ### De-serialisation types:
 
 |JSON|Python
-|------
+|---|---|---|---|---|---|---|---|---|---
 |object|dict
 |array|list
 |string|str
@@ -320,7 +320,7 @@ The `json` module also understands `NaN`, `Infinity`, and `-Infinity` as their c
 ### Serialisation types:
 
 |Python|JSON
-|------
+|---|---|---|---|---|---|---|---|---|---
 |dict|object
 |list, tuple|array
 |str|string

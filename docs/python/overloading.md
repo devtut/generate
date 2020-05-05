@@ -15,7 +15,7 @@ Below are the operators that can be overloaded in classes, along with the method
 **N.B. The use of `other` as a variable name is not mandatory, but is considered the norm.**
 
 |Operator|Method|Expression
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`+` Addition|`__add__(self, other)`|`a1 + a2`
 |`-` Subtraction|`__sub__(self, other)`|`a1 - a2`
 |`*` Multiplication|`__mul__(self, other)`|`a1 * a2`
@@ -84,7 +84,7 @@ Since there's nothing special about these methods, many other parts of the langu
 Some of these uses are listed below.
 
 |Function|Method|Expression
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Casting to `int`|`__int__(self)`|`int(a1)`
 |Absolute function|`__abs__(self)`|`abs(a1)`
 |Casting to `str`|`__str__(self)`|`str(a1)`

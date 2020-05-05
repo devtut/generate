@@ -46,7 +46,7 @@ These are available on unix and windows.
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |os.F_OK|Value to pass as the mode parameter of access() to test the existence of path.
 |os.R_OK|Value to include in the mode parameter of access() to test the readability of path.
 |os.W_OK|Value to include in the mode parameter of access() to test the writability of path.

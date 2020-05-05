@@ -37,7 +37,7 @@ description: "composer.json syntax"
 
 
 |Parameters|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |repositories|Tells Composer where it can download the required packages.
 |type: vcs|Tells Composer how to treat the repository.
 |url: http://...|Tells Composer where is the repository.

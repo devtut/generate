@@ -39,7 +39,7 @@ var images = $$('img');  // Returns an array or a nodelist of all matching eleme
 ```
 
 ||$_|$()¹|$$()|$0|$1|$2|$3|$4
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Opera|15+|11+|11+|11+|11+|15+|15+|15+
 |Chrome|22+|**✓**|**✓**|**✓**|**✓**|**✓**|**✓**|**✓**
 |Firefox|39+|**✓**|**✓**|**✓**|**×**|**×**|**×**|**×**
@@ -163,7 +163,7 @@ Check out [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 Browser support for setters/getters:
 
 ||Chrome|Firefox|IE|Opera|Safari|Mobile
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Version|1|2.0|9|9.5|3|all
 
 

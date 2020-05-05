@@ -20,7 +20,7 @@ When dividing an integer by another integer in Python 3, the division operation 
 For example:
 
 |Code|Python 2 output|Python 3 output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`3 / 2`|1|1.5
 |`2 / 3`|0|0.6666666666666666
 |`-3 / 2`|-2|-1.5
@@ -30,7 +30,7 @@ The rounding-towards-zero behavior was deprecated in [Python 2.2](https://www.py
 **Note:** To get a **float** result in Python 2 (without floor rounding) we can specify one of the operands with the decimal point. The above example of `2/3` which gives `0` in Python 2 shall be used as `2 / 3.0` or `2.0 / 3` or `2.0/3.0` to get `0.6666666666666666`
 
 |Code|Python 2 output|Python 3 output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`3.0 / 2.0`|1.5|1.5
 |`2 / 3.0`|0.6666666666666666|0.6666666666666666
 |`-3.0 / 2`|-1.5|-1.5
@@ -38,7 +38,7 @@ The rounding-towards-zero behavior was deprecated in [Python 2.2](https://www.py
 There is also the [**floor division operator**](http://python-reference.readthedocs.io/en/latest/docs/operators/floor_division.html) (`//`), which works the same way in both versions: it rounds down to the nearest integer. (although a float is returned when used with floats)  In both versions the `//` operator maps to [`__floordiv__`](https://docs.python.org/3/library/operator.html#operator.__floordiv__).
 
 |Code|Python 2 output|Python 3 output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`3 // 2`|1|1
 |`2 // 3`|0|0
 |`-3 // 2`|-2|-2
@@ -64,7 +64,7 @@ from __future__ import division
 ```
 
 |Code|Python 2 output|Python 3 output
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`3 / 2`|1.5|1.5
 |`2 / 3`|0.6666666666666666|0.6666666666666666
 |`-3 / 2`|-1.5|-1.5
@@ -831,7 +831,7 @@ This code is portable across versions from 2.6 through to current releases.
 A few modules in the standard library have been renamed:
 
 |Old name|New name
-|------
+|---|---|---|---|---|---|---|---|---|---
 |_winreg|winreg
 |ConfigParser|configparser
 |copy_reg|copyreg

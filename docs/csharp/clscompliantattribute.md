@@ -197,7 +197,7 @@ namespace CLSDoc
 
 
 |Constructor|Parameter
-|------
+|---|---|---|---|---|---|---|---|---|---
 |CLSCompliantAttribute(Boolean)|Initializes an instance of the CLSCompliantAttribute class with a Boolean value indicating whether the indicated program element is CLS-compliant.
 
 

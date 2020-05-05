@@ -181,7 +181,7 @@ Note that if the type is neither `int` nor `double`, a warning would be generate
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |generic-assoc-list|generic-association **OR** generic-assoc-list , generic-association
 |generic-association|type-name : assignment-expression **OR** default : assignment-expression
 

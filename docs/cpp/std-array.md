@@ -280,7 +280,7 @@ int main() {
 
 
 |Parameter|Definition
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`class T`|Specifies the data type of array members
 |`std::size_t N`|Specifies the number of members in the array
 

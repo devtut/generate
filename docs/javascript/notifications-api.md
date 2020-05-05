@@ -141,7 +141,7 @@ The Notifications API was designed to allow browser access to notifying the clie
 
 The following table gives an overview of the earliest browser versions that provide support for notifications.
 
-<th align="center">Chrome</th><th align="center">Edge</th><th align="center">Firefox</th><th align="center">Internet Explorer</th><th align="center">Opera</th><th align="center">Opera Mini</th><th align="center">Safari</th>
-|------
-<td align="center">29</td><td align="center">14</td><td align="center">46</td><td align="center">no support</td><td align="center">38</td><td align="center">no support</td><td align="center">9.1</td>
+|Chrome|Edge|Firefox|Internet Explorer|Opera|Opera Mini|Safari</th>
+|---|---|---|---|---|---|---|---|---|---
+|29|14|46|no support|38|no support|9.1</td>
 

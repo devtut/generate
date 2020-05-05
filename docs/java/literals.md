@@ -105,7 +105,7 @@ String and character literals provide an escape mechanism that allows express ch
 The complete set of escape sequences is as follows:
 
 |Escape sequence|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`\\`|Denotes an backslash (`\`) character
 |`\'`|Denotes a single-quote (`'`) character
 |`\"`|Denotes a double-quote (`"`) character

@@ -319,7 +319,7 @@ Slices are objects in themselves and can be stored in variables with the built-i
 
 
 |Paramer|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`obj`|The object that you want to extract a "sub-object" from
 |`start`|The index of `obj` that you want the sub-object to start from (keep in mind that Python is zero-indexed, meaning that the first item of `obj` has an index of `0`). If omitted, defaults to `0`.
 |`stop`|The (non-inclusive) index of `obj` that you want the sub-object to end at. If omitted, defaults to `len(obj)`.

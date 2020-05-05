@@ -583,7 +583,7 @@ POSIX makes the [`getline()`](http://stackoverflow.com/documentation/c/507/files
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |const char *mode|A string describing the opening mode of the file-backed stream. See remarks for possible values.
 |int whence|Can be `SEEK_SET` to set from the beginning of the file, `SEEK_END` to set from its end, or `SEEK_CUR` to set relative to the current cursor value. Note: `SEEK_END` is non-portable.
 

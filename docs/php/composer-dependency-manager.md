@@ -141,7 +141,7 @@ In detail:
 
 
 |Command|Usage
-|------
+|---|---|---|---|---|---|---|---|---|---
 |about|Short information about Composer
 |archive|Create an archive of this composer package
 |browse|Opens the package's repository URL or homepage in your browser.
@@ -265,7 +265,7 @@ composer install
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |license|Defines the type of license you want to use in the Project.
 |authors|Defines the authors of the project, as well as the author details.
 |support|Defines the support emails, irc channel, and various links.

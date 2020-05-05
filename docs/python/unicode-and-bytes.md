@@ -181,7 +181,7 @@ UnicodeDecodeError: 'utf-16-le' codec can't decode byte 0x35 in position 6: trun
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |encoding|The encoding to use, e.g. `'ascii'`, `'utf8'`, etc...
 |errors|The errors mode, e.g. `'replace'` to replace bad characters with question marks, `'ignore'` to ignore bad characters, etc...
 

@@ -283,7 +283,7 @@ int SomeFunction(void)
 
 
 |Parameter|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |type-specifier|`signed`, `unsigned`, `int` or `_Bool`
 |identifier|The name for this field in the structure
 |size|The number of bits to use for this field

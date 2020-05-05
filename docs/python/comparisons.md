@@ -351,7 +351,7 @@ is not = test if objects are not the exact same object
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |x|First item to be compared
 |y|Second item to be compared
 

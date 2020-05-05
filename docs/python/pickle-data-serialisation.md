@@ -138,7 +138,7 @@ pickle.loads(buffer) # To de-serialzie an object from bytes
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |object|The object which is to be stored
 |file|The open file which will contain the object
 |protocol|The protocol used for pickling the object (optional parameter)

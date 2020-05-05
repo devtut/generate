@@ -14,7 +14,7 @@ In Java 8+, a **functional interface** is an interface that has just one abstrac
 
 
 |Parameter Types|Return Type|Interface
-|------
+|---|---|---|---|---|---|---|---|---|---
 |()|void|[Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
 |()|T|[Supplier](https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html)
 |()|boolean|[BooleanSupplier](https://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html)

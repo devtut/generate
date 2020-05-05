@@ -267,7 +267,7 @@ Though the naming on the example tuple above is pretty generic, the idea of rele
 The primary reason for introduction of `ValueTuple` is performance.
 
 |Type name|`ValueTuple`|`Tuple`
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Class or structure|`struct`|`class`
 |Mutability (changing values after creation)|mutable|immutable
 |Naming members and other language support|yes|no ([TBD](https://github.com/dotnet/roslyn/issues/11031))

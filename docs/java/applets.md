@@ -219,7 +219,7 @@ An applet is a Java application that normally runs inside a web browser. The bas
 An applet offers five methods to control their life cycle.
 
 |method name|description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`init()`|is called once when the applet is loaded
 |`destroy()`|is called once when the applet gets removed from memory
 |`start()`|is called whenever the applet gets visible

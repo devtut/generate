@@ -183,7 +183,7 @@ The Java language provides 4 operators that perform bitwise or logical operation
 The logical operations performed by these operators when the operands are booleans can be summarized as follows:
 
 |A|B|~A|A & B|A | B|A ^ B
-|------
+|---|---|---|---|---|---|---|---|---|---
 |0|0|1|0|0|0
 |0|1|1|0|1|1
 |1|0|0|0|1|1
@@ -755,7 +755,7 @@ The left shift operator is equivalent multiplying a (two's complement) number by
 The following table will help you see the effects of the three shift operators.  (The numbers have been expressed in binary notation to aid vizualization.)
 
 |<sub>Operand1</sub>|<sub>Operand2</sub>|<sub>`<<`</sub>|<sub>`>>`</sub>|<sub>`>>>`</sub>
-|------
+|---|---|---|---|---|---|---|---|---|---
 |<sub>0b0000000000001011</sub>|<sub>0</sub>|<sub>0b0000000000001011</sub>|<sub>0b0000000000001011</sub>|<sub>0b0000000000001011</sub>
 |<sub>0b0000000000001011</sub>|<sub>1</sub>|<sub>0b0000000000010110</sub>|<sub>0b0000000000000101</sub>|<sub>0b0000000000000101</sub>
 |<sub>0b0000000000001011</sub>|<sub>2</sub>|<sub>0b0000000000101100</sub>|<sub>0b0000000000000010</sub>|<sub>0b0000000000000010</sub>
@@ -817,7 +817,7 @@ If both operands are `boolean`, or one is `boolean` and the other is `Boolean`, 
 1. The unboxed operands are tested and the boolean result is calculated according to the following truth table
 
 |A|B|A == B|A != B
-|------
+|---|---|---|---|---|---|---|---|---|---
 |false|false|true|false
 |false|true|false|true
 |true|false|false|true

@@ -403,7 +403,7 @@ results in
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |function|function for mapping (must take as many parameters as there are iterables) (**positional-only**)
 |iterable|the function is applied to each element of the iterable (**positional-only**)
 |*additional_iterables|see iterable, but as many as you like (**optional**, **positional-only**)

@@ -38,17 +38,17 @@ int main()
 
 ```
 
-<th align="center">Trigraph</th><th align="center">Equivalent</th>
-|------
-<td align="center">??=</td><td align="center">#</td>
-<td align="center">??/</td><td align="center">\</td>
-<td align="center">??'</td><td align="center">^</td>
-<td align="center">??(</td><td align="center">[</td>
-<td align="center">??)</td><td align="center">]</td>
-<td align="center">??!</td><td align="center">|</td>
-<td align="center">??<</td><td align="center">{</td>
-<td align="center">??></td><td align="center">}</td>
-<td align="center">??-</td><td align="center">~</td>
+|Trigraph|Equivalent
+|---|---|---|---|---|---|---|---|---|---
+|??=|#
+|??/|\
+|??'|^
+|??(|[
+|??)|]
+|??!||
+|??<|{
+|??>|}
+|??-|~
 
 Note that trigraphs are problematic because, for example, `??/` is a backslash and can affect the meaning of continuation lines in comments, and have to be recognized inside strings and character literals (e.g. `'??/??/'` is a single character, a backslash).
 
@@ -83,13 +83,13 @@ int main()
 
 ```
 
-<th align="center">Digraph</th><th align="center">Equivalent</th>
-|------
-<td align="center"><:</td><td align="center">[</td>
-<td align="center">:></td><td align="center">]</td>
-<td align="center"><%</td><td align="center">{</td>
-<td align="center">%></td><td align="center">}</td>
-<td align="center">%:</td><td align="center">#</td>
+|Digraph|Equivalent</th>
+|---|---|---|---|---|---|---|---|---|---
+|<:|[
+|:>|]
+|<%|{
+|%>|}
+|%:|#
 
 
 

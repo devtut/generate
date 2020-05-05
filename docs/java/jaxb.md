@@ -591,7 +591,7 @@ Object obj = JAXB.unmarshall(fileObjOfXML, className);
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |fileObjOfXML|`File` object of an XML file
 |className|Name of a class with `.class` extension
 

@@ -109,7 +109,7 @@ pickle.load(file, *, fix_imports=True, encoding="ASCII", errors="strict")
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |**obj**|pickled representation of obj to the open file object file
 |**protocol**|an integer, tells the pickler to use the given protocol,`0`-ASCII,  `1`-  old binary format
 |**file**|The file argument must have a write() method `wb` for **dump** method and for loading read() method `rb`

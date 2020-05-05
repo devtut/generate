@@ -12,7 +12,7 @@ description: "Conversion Specifiers for printing, Printing the Value of a Pointe
 
 
 |Conversion Specifier|Type of Argument|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`i`, `d`|int|prints decimal
 |`u`|unsigned int|prints decimal
 |`o`|unsigned int|prints octal
@@ -208,7 +208,7 @@ After successful execution, the number of characters printed is returned with ty
 The C standard (C11, and C99 too) defines the following flags for `printf()`:
 
 |Flag|Conversions|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`-`|all|The result of the conversion shall be left-justified within the field. The conversion is right-justified if this flag is not specified.
 |`+`|signed numeric|The result of a signed conversion shall always begin with a sign ( '+' or '-' ). The conversion shall begin with a sign only when a negative value is converted if this flag is not specified.
 |`<space>`|signed numeric|If the first character of a signed conversion is not a sign or if a signed conversion results in no characters, a `<space>` shall be prefixed to the result. This means that if the `<space>` and '`+`' flags both appear, the `<space>` flag shall be ignored.
@@ -220,7 +220,7 @@ These flags are also supported by [Microsoft](https://msdn.microsoft.com/en-us/l
 The POSIX specification for [`printf()`](http://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html) adds:
 
 |Flag|Conversions|Meaning
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`'`|i, d, u, f, F, g, G|The integer portion of the result of a decimal conversion shall be formatted with thousands' grouping characters. For other conversions the behavior is undefined. The non-monetary grouping character is used.
 
 
@@ -231,7 +231,7 @@ The POSIX specification for [`printf()`](http://pubs.opengroup.org/onlinepubs/96
 The C99 and C11 standards specify the following length modifiers for `printf()`; their meanings are:
 
 |Modifier|Modifies|Applies to
-|------
+|---|---|---|---|---|---|---|---|---|---
 |hh|d, i, o, u, x, or X|`char`, `signed char` or `unsigned char`
 |h|d, i, o, u, x, or X|`short int` or `unsigned short int`
 |l|d, i, o, u, x, or X|`long int` or `unsigned long int`
@@ -247,7 +247,7 @@ If a length modifier appears with any conversion specifier other than as specifi
 [Microsoft](https://msdn.microsoft.com/en-us/library/tcxf1dw6.aspx) specifies some different length modifiers, and explicitly does not support `hh`, `j`, `z`, or `t`.
 
 |Modifier|Modifies|Applies to
-|------
+|---|---|---|---|---|---|---|---|---|---
 |I32|d, i, o, x, or X|`__int32`
 |I32|o, u, x, or X|`unsigned __int32`
 |I64|d, i, o, x, or X|`__int64`

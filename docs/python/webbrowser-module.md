@@ -90,7 +90,7 @@ webbrowser.get('firefox').open("https://stackoverflow.com/")
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`webbrowser.open()`| 
 |url|the URL to open in the web browser
 |new|0 opens the URL in the existing tab, 1 opens in a new window, 2 opens in new tab
@@ -114,7 +114,7 @@ webbrowser.get('firefox').open("https://stackoverflow.com/")
 The following table lists predefined browser types. The left column are names that can be passed into the `webbrowser.get()` method and the right column lists the class names for each browser type.
 
 |Type Name|Class Name
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`'mozilla'`|`Mozilla('mozilla')`
 |`'firefox'`|`Mozilla('mozilla')`
 |`'netscape'`|`Mozilla('netscape')`

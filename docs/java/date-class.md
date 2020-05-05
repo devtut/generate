@@ -415,7 +415,7 @@ System.out.println(date.getYear()); // 116
 There are 4 different styles for the text format, `SHORT`, `MEDIUM` (this is the default), `LONG` and `FULL`, all of which depend on the locale. If no locale is specified, the system default locale is used.
 
 |Style|Locale.US|Locale.France
-|------
+|---|---|---|---|---|---|---|---|---|---
 |SHORT|6/30/09|30/06/09
 |MEDIUM|Jun 30, 2009|30 juin 2009
 |LONG|June 30, 2009|30 juin 2009
@@ -539,7 +539,7 @@ this class works very nicely within a timer class to simulate an alarm clock.
 
 
 |Parameter|Explanation
-|------
+|---|---|---|---|---|---|---|---|---|---
 |No parameter|Creates a new Date object using the allocation time (to the nearest millisecond)
 |long date|Creates a new Date object with the time set to the number of milliseconds since "the epoch" (January 1, 1970, 00:00:00 GMT)
 

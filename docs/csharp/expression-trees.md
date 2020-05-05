@@ -240,7 +240,7 @@ We're going to use the expression tree API to create a `CalculateSalesTax` tree.
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |TDelegate|The delegate type to be used for the expression
 |lambdaExpression|The lambda expression (ex. `num => num < 5`)
 

@@ -421,7 +421,7 @@ More on [Mutexes](http://stackoverflow.com/documentation/c%2B%2B/9895/mutexes#t=
 `std::this_thread` is a `namespace` which has functions to do interesting things on the current thread from function it is called from.
 
 |Function|Description
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`get_id`|Returns the id of the thread
 |`sleep_for`|Sleeps for a specified amount of time
 |`sleep_until`|Sleeps until a specific time
@@ -700,7 +700,7 @@ for (int i = 0;i < 100;i++)
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |`other`|Takes ownership of `other`, `other` doesn't own the thread anymore
 |`func`|Function to call in a seperate thread
 |`args`|Arguments for `func`

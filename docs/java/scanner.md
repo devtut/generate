@@ -285,7 +285,7 @@ example:
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Source|Source could be either one of String, File or any kind of InputStream
 
 

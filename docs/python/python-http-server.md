@@ -173,12 +173,12 @@ This is a basic overview of inheritance from SocketServer class to other classes
           |
           v
     +-----------+        +------------------+
-    | TCPServer |------->| UnixStreamServer |
+    | TCPServer |---|---|---|---|---|---|---|---|---|---->| UnixStreamServer |
     +-----------+        +------------------+
           |
           v
     +-----------+        +--------------------+
-    | UDPServer |------->| UnixDatagramServer |
+    | UDPServer |---|---|---|---|---|---|---|---|---|---->| UnixDatagramServer |
     +-----------+        +--------------------+
 
 ```

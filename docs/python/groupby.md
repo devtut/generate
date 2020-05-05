@@ -249,7 +249,7 @@ Now we have all our 'A's.
 
 
 |Parameter|Details
-|------
+|---|---|---|---|---|---|---|---|---|---
 |iterable|Any python iterable
 |key|Function(criteria) on which to group the iterable
 

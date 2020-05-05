@@ -93,7 +93,7 @@ static {
 Some uses of unsafe is s follows:
 
 |Use|API
-|------
+|---|---|---|---|---|---|---|---|---|---
 |Off heap / direct memory allocation, reallocation and deallocation|`allocateMemory(bytes)`, `reallocateMemory(address, bytes)` and `freeMemory(address)`
 |Memory fences|`loadFence()`, `storeFence()`, `fullFence()`
 |Parking current thread|`park(isAbsolute, time)`, `unpark(thread)`
