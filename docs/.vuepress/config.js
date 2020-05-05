@@ -2159,13 +2159,5 @@ module.exports = {
         hostname: "https://devtut.github.io",
       },
     ],
-    [
-      "robots",
-      {
-        host: "https://devtut.github.io",
-        disallowAll: false,
-        allowAll: true,
-      },
-    ],
   ],
 };
