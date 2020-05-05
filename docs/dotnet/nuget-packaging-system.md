@@ -1,5 +1,5 @@
 ---
-metaTitle: "NuGet packaging system"
+metaTitle: ".NET Framework - NuGet packaging system"
 description: "Uninstalling a package from one project in a solution, Installing a specific version of a package, Installing the NuGet Package Manager, Adding a package source feed (MyGet, Klondike, ect), Managing Packages through the UI, Managing Packages through the console, Updating a package, Uninstalling a package, uninstall a specific version of package, Using different (local) Nuget package sources using UI"
 ---
 

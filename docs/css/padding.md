@@ -1,5 +1,5 @@
 ---
-metaTitle: "Padding"
+metaTitle: "CSS - Padding"
 description: "Padding Shorthand, Padding on a given side"
 ---
 

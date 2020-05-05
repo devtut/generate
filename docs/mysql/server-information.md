@@ -1,5 +1,5 @@
 ---
-metaTitle: "Server Information"
+metaTitle: "MySQL - Server Information"
 description: "SHOW VARIABLES example, SHOW STATUS example"
 ---
 

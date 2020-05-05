@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Pitfalls - Exception usage"
+metaTitle: "Java - Java Pitfalls - Exception usage"
 description: "Pitfall - Catching Throwable, Exception, Error or RuntimeException, Pitfall - Ignoring or squashing exceptions, Pitfall - Throwing Throwable, Exception, Error or RuntimeException, Pitfall - Using exceptions for normal flowcontrol, Pitfall - Catching InterruptedException, Pitfall - Excessive or inappropriate stacktraces, Pitfall - Directly subclassing `Throwable`"
 ---
 

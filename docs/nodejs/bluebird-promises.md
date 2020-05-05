@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bluebird Promises"
+metaTitle: "Node.js - Bluebird Promises"
 description: "Converting nodeback library to Promises, Functional Promises, Coroutines (Generators), Automatic Resource Disposal (Promise.using), Executing in series"
 ---
 

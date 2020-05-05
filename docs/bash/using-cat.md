@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using cat"
+metaTitle: "Bash - Using cat"
 description: "Concatenate files, Printing the Contents of a File, Write to a file, Display line numbers with output, Read from standard input, Show non printable characters, Concatenate gzipped files"
 ---
 

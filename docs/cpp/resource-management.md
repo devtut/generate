@@ -1,5 +1,5 @@
 ---
-metaTitle: "Resource Management"
+metaTitle: "C++ | Resource Management"
 description: "Resource Acquisition Is Initialization, Mutexes & Thread Safety"
 ---
 

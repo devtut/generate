@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.JS with ES6"
+metaTitle: "Node.js - Node.JS with ES6"
 description: "Node ES6 Support and creating a project with Babel, Use JS es6 on your NodeJS app"
 ---
 

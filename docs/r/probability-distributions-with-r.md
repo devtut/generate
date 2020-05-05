@@ -1,5 +1,5 @@
 ---
-metaTitle: "Probability Distributions with R"
+metaTitle: "R - Probability Distributions with R"
 description: "PDF and PMF for different distributions in R"
 ---
 

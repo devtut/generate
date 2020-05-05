@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variables"
+metaTitle: "Microsoft SQL Server - Variables"
 description: "Updating variables using SELECT, Declare multiple variables at once, with initial values, Declare a Table Variable, Updating a variable using SET, Compound assignment operators, Updating variables by selecting from a table"
 ---
 

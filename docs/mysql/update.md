@@ -1,5 +1,5 @@
 ---
-metaTitle: "UPDATE"
+metaTitle: "MySQL - UPDATE"
 description: "Basic Update, Update with Join Pattern, UPDATE with ORDER BY and LIMIT, Multiple Table UPDATE, Bulk UPDATE"
 ---
 

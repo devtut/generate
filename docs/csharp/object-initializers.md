@@ -1,5 +1,5 @@
 ---
-metaTitle: "Object initializers"
+metaTitle: "C# | Object initializers"
 description: "Simple usage, Usage with non-default constructors, Usage with anonymous types"
 ---
 

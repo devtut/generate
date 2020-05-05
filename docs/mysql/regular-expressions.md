@@ -1,5 +1,5 @@
 ---
-metaTitle: "Regular Expressions"
+metaTitle: "MySQL - Regular Expressions"
 description: "REGEXP / RLIKE"
 ---
 

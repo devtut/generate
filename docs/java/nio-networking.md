@@ -1,5 +1,5 @@
 ---
-metaTitle: "NIO - Networking"
+metaTitle: "Java - NIO - Networking"
 description: "Using Selector to wait for events (example with OP_CONNECT)"
 ---
 

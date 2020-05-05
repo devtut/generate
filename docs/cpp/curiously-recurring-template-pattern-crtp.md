@@ -1,5 +1,5 @@
 ---
-metaTitle: "Curiously Recurring Template Pattern (CRTP)"
+metaTitle: "C++ | Curiously Recurring Template Pattern (CRTP)"
 description: "The Curiously Recurring Template Pattern (CRTP), CRTP to avoid code duplication"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "DateTime Methods"
+metaTitle: "C# | DateTime Methods"
 description: "DateTime Formating, DateTime.AddDays(Double), DateTime.AddHours(Double), DateTime.Parse(String), DateTime.TryParse(String, DateTime), DateTime.AddMilliseconds(Double), DateTime.Compare(DateTime t1, 	DateTime t2 ), DateTime.DaysInMonth(Int32, Int32), DateTime.AddYears(Int32), Pure functions warning when dealing with DateTime, DateTime.TryParseExact(String, String, IFormatProvider, DateTimeStyles, DateTime), DateTime.Add(TimeSpan), Parse and TryParse with culture info, DateTime as initializer in for-loop, DateTime ToString, ToShortDateString, ToLongDateString and ToString formatted, Current Date, DateTime.ParseExact(String, String, IFormatProvider)"
 ---
 

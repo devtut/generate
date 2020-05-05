@@ -1,5 +1,5 @@
 ---
-metaTitle: "Indexes"
+metaTitle: "SQL - Indexes"
 description: "Creating an Index, Clustered, Unique, and Sorted Indexes, Sorted Index, Dropping an Index, or Disabling and Rebuilding it, Partial or Filtered Index, Inserting with a Unique Index, Rebuild index, SAP ASE: Drop index, Unique Index that Allows NULLS, Clustered index, Non clustered index"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Query Hints"
+metaTitle: "Microsoft SQL Server - Query Hints"
 description: "JOIN Hints, GROUP BY Hints, FAST rows hint, UNION hints, MAXDOP Option, INDEX Hints"
 ---
 

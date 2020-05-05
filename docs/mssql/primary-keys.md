@@ -1,5 +1,5 @@
 ---
-metaTitle: "Primary Keys"
+metaTitle: "Microsoft SQL Server - Primary Keys"
 description: "Create table w/ identity column as primary key, Create table w/ GUID primary key, Create table w/ natural key, Create table w/ composite key, Add primary key to existing table, Delete primary key"
 ---
 

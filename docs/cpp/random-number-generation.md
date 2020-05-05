@@ -1,5 +1,5 @@
 ---
-metaTitle: "Random number generation"
+metaTitle: "C++ | Random number generation"
 description: "True random value generator, Generating a pseudo-random number, Using the generator for multiple distributions"
 ---
 

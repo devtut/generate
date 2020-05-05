@@ -1,5 +1,5 @@
 ---
-metaTitle: "Retrieve Information about your Instance"
+metaTitle: "Microsoft SQL Server - Retrieve Information about your Instance"
 description: "Retrieve Local and Remote Servers, Get information on current sessions and query executions, Retrieve Edition and Version of Instance, Retrieve Instance Uptime in Days, Information about SQL Server version , General Information about Databases, Tables, Stored procedures and how to search them."
 ---
 

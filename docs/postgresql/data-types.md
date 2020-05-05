@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Types"
+metaTitle: "PostgreSQL - Data Types"
 description: "Numeric Types, Date/ Time Types, Geometric Types, Network Adress Types, Character Types, Arrays"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "XmlSerializer"
+metaTitle: ".NET Framework - XmlSerializer"
 description: "Formatting: Custom DateTime format, Serialize object, Deserialize object, Behaviour: Map array name to property (XmlArray), Behaviour: Map Element name to Property, Efficiently building multiple serializers with derived types specified dynamically"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "strsplit function"
+metaTitle: "R - strsplit function"
 description: "Introduction"
 ---
 

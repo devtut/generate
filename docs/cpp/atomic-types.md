@@ -1,5 +1,5 @@
 ---
-metaTitle: "Atomic Types"
+metaTitle: "C++ | Atomic Types"
 description: "Multi-threaded Access"
 ---
 

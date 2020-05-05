@@ -1,5 +1,5 @@
 ---
-metaTitle: "Error 1055: ONLY_FULL_GROUP_BY: something  is not in GROUP BY clause ..."
+metaTitle: "MySQL - Error 1055: ONLY_FULL_GROUP_BY: something  is not in GROUP BY clause ..."
 description: "Misusing GROUP BY to return unpredictable results: Murphy's Law, Misusing GROUP BY with SELECT *, and how to fix it., Using and misusing GROUP BY, ANY_VALUE()"
 ---
 

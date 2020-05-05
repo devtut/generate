@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::string"
+metaTitle: "C++ | std::string"
 description: "Tokenize, Conversion to (const) char*, Using the std::string_view class, Conversion to std::wstring, Trimming characters at start/end, Lexicographical comparison, String replacement, Converting to std::string, Splitting, Accessing a character, Looping through each character, Checking if a string is a prefix of another, Concatenation, Conversion to integers/floating point types, Converting between character encodings, Finding character(s) in a string"
 ---
 

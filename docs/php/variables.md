@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variables"
+metaTitle: "PHP - Variables"
 description: "Accessing A Variable Dynamically By Name (Variable variables), Data Types, Global variable best practices, Default values of uninitialized variables, Variable Value Truthiness and Identical Operator, Getting all defined variables"
 ---
 

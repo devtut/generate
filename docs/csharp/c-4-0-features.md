@@ -1,5 +1,5 @@
 ---
-metaTitle: "C# 4.0 Features"
+metaTitle: "C# | C# 4.0 Features"
 description: "Optional parameters and named arguments, Variance, Dynamic member lookup, Optional ref keyword when using COM"
 ---
 

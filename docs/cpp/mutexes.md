@@ -1,5 +1,5 @@
 ---
-metaTitle: "Mutexes"
+metaTitle: "C++ | Mutexes"
 description: "std::unique_lock, std::shared_lock, std::lock_guard, Strategies for lock classes: std::try_to_lock, std::adopt_lock, std::defer_lock, std::mutex, std::scoped_lock (C++ 17), Mutex Types, std::lock"
 ---
 

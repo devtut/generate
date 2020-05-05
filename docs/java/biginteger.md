@@ -1,5 +1,5 @@
 ---
-metaTitle: "BigInteger"
+metaTitle: "Java - BigInteger"
 description: "Initialization, BigInteger Mathematical Operations Examples, Comparing BigIntegers, Binary Logic Operations on BigInteger, Generating random BigIntegers"
 ---
 

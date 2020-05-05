@@ -1,5 +1,5 @@
 ---
-metaTitle: "PHP MySQLi"
+metaTitle: "PHP - PHP MySQLi"
 description: "Close connection, MySQLi connect, Loop through MySQLi results, Prepared statements in MySQLi, Escaping Strings, MySQLi query, Debugging SQL in MySQLi, How to get data from a prepared statement, MySQLi Insert ID"
 ---
 

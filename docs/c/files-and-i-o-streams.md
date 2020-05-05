@@ -1,5 +1,5 @@
 ---
-metaTitle: "Files and I/O streams"
+metaTitle: "C - Files and I/O streams"
 description: "Open and write to file, Run process, fprintf, Get lines from a file using getline(), Open and write to a binary file, fscanf(), Read lines from a file"
 ---
 

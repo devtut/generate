@@ -1,5 +1,5 @@
 ---
-metaTitle: "Longest Common Subsequence"
+metaTitle: "Algorithm - Longest Common Subsequence"
 description: "Longest Common Subsequence Explanation"
 ---
 

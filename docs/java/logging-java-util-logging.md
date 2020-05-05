@@ -1,5 +1,5 @@
 ---
-metaTitle: "Logging (java.util.logging)"
+metaTitle: "Java - Logging (java.util.logging)"
 description: "Using the default logger, Logging complex messages (efficiently), Logging levels"
 ---
 

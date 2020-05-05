@@ -1,5 +1,5 @@
 ---
-metaTitle: "Order of Execution"
+metaTitle: "SQL - Order of Execution"
 description: "Logical Order of  Query Processing in SQL"
 ---
 

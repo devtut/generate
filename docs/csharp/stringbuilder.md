@@ -1,5 +1,5 @@
 ---
-metaTitle: "StringBuilder"
+metaTitle: "C# | StringBuilder"
 description: "What a StringBuilder is and when to use one, Use StringBuilder to create string from a large number of records"
 ---
 

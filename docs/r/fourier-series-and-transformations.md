@@ -1,5 +1,5 @@
 ---
-metaTitle: "Fourier Series and Transformations"
+metaTitle: "R - Fourier Series and Transformations"
 description: "Fourier Series"
 ---
 

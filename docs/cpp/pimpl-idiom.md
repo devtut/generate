@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pimpl Idiom"
+metaTitle: "C++ | Pimpl Idiom"
 description: "Basic Pimpl idiom"
 ---
 

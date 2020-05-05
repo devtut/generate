@@ -1,5 +1,5 @@
 ---
-metaTitle: "Code Contracts"
+metaTitle: "C# | Code Contracts"
 description: "Postconditions, Invariants, Defining Contracts on Interface, Preconditions"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "LOAD DATA INFILE"
+metaTitle: "MySQL - LOAD DATA INFILE"
 description: "using LOAD DATA INFILE to load large amount of data to database, Load data with duplicates, Import a CSV file into a MySQL table, import / export"
 ---
 

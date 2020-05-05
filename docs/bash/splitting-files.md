@@ -1,5 +1,5 @@
 ---
-metaTitle: "Splitting Files"
+metaTitle: "Bash - Splitting Files"
 description: "Split a file, We can use sed with w option to split a file into mutiple files. Files can be split by specifying line address or pattern."
 ---
 

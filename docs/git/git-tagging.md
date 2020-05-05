@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Tagging"
+metaTitle: "Git - Git Tagging"
 description: "Listing all available tags, Create and push tag(s) in GIT"
 ---
 

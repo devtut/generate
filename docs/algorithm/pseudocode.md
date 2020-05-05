@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pseudocode"
+metaTitle: "Algorithm - Pseudocode"
 description: "Variable affectations, Functions"
 ---
 

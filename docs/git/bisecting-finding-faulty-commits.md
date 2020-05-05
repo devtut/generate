@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bisecting/Finding faulty commits"
+metaTitle: "Git - Bisecting/Finding faulty commits"
 description: "Binary search (git bisect), Semi-automatically find a faulty commit"
 ---
 

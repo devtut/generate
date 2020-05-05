@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data frames"
+metaTitle: "R - Data frames"
 description: "Create an empty data.frame, Subsetting rows and columns from a data frame, Convenience functions to manipulate data.frames, Introduction, Convert all columns of a data.frame to character class, Convert data stored in a list to a single data frame using do.call, Subsetting Rows by Column Values"
 ---
 

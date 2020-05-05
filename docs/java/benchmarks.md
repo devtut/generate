@@ -1,5 +1,5 @@
 ---
-metaTitle: "Benchmarks"
+metaTitle: "Java - Benchmarks"
 description: "Simple JMH example"
 ---
 

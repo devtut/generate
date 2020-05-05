@@ -1,5 +1,5 @@
 ---
-metaTitle: "Datetime Class"
+metaTitle: "PHP - Datetime Class"
 description: "getTimestamp, setDate, Add or Subtract Date Intervals, Create DateTime from custom format, Printing DateTimes, Create Immutable version of DateTime from Mutable prior PHP 5.6"
 ---
 

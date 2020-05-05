@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recover and reset the default root password for MySQL 5.7+"
+metaTitle: "MySQL - Recover and reset the default root password for MySQL 5.7+"
 description: "What happens when the initial start up of the server, How to change the root password by using the default password, reset root password when  /var/run/mysqld' for UNIX socket file don't exists"
 ---
 

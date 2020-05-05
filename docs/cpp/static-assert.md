@@ -1,5 +1,5 @@
 ---
-metaTitle: "static_assert"
+metaTitle: "C++ | static_assert"
 description: "static_assert"
 ---
 

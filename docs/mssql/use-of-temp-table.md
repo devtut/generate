@@ -1,5 +1,5 @@
 ---
-metaTitle: "Use of TEMP Table"
+metaTitle: "Microsoft SQL Server - Use of TEMP Table"
 description: "Dropping temp tables, Local Temp Table , Global Temp Table"
 ---
 

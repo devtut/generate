@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON in Sql Server"
+metaTitle: "Microsoft SQL Server - JSON in Sql Server"
 description: "Format Query Results as JSON with FOR JSON, Parse JSON text, Join parent and child JSON entities using CROSS APPLY OPENJSON, Index on JSON properties by using computed columns, Format one table row as a single JSON object using FOR JSON, Parse JSON text using OPENJSON function"
 ---
 

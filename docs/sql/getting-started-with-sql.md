@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with SQL"
+metaTitle: "SQL - Getting started with SQL"
 description: "Overview"
 ---
 

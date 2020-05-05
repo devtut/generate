@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cycle Sort"
+metaTitle: "Algorithm - Cycle Sort"
 description: "Pseudocode Implementation, Cycle Sort Basic Information, C# Implementation"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Installing a PHP environment on Windows"
+metaTitle: "PHP - Installing a PHP environment on Windows"
 description: "Download and Install XAMPP, Download, Install and use WAMP, Install PHP and use it with IIS"
 ---
 

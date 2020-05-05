@@ -1,5 +1,5 @@
 ---
-metaTitle: "One to Many"
+metaTitle: "MySQL - One to Many"
 description: "Example Company Tables, Get the Employees Managed by a Single Manager, Get the Manager for a Single Employee"
 ---
 

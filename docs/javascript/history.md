@@ -1,5 +1,5 @@
 ---
-metaTitle: "History"
+metaTitle: "JavsScript - History"
 description: "history.pushState(), history.replaceState(), Load a specific URL from the history list"
 ---
 

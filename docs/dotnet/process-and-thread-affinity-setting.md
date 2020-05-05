@@ -1,5 +1,5 @@
 ---
-metaTitle: "Process and Thread affinity setting"
+metaTitle: ".NET Framework - Process and Thread affinity setting"
 description: "Get process affinity mask, Set process affinity mask"
 ---
 

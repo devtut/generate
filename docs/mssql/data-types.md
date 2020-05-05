@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Types"
+metaTitle: "Microsoft SQL Server - Data Types"
 description: "Exact Numerics, Approximate Numerics, Date and Time, Character Strings, Unicode Character Strings, Binary Strings, Other Data Types"
 ---
 

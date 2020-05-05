@@ -1,5 +1,5 @@
 ---
-metaTitle: "Layout of object types"
+metaTitle: "C++ | Layout of object types"
 description: "Class types, Arithmetic types, Arrays"
 ---
 

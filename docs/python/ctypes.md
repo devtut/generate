@@ -1,5 +1,5 @@
 ---
-metaTitle: "ctypes"
+metaTitle: "Python - ctypes"
 description: "ctypes arrays, Wrapping functions for ctypes, Basic usage, Common pitfalls, Basic ctypes object, Complex usage"
 ---
 

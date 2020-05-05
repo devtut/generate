@@ -1,5 +1,5 @@
 ---
-metaTitle: "Random Number Generation"
+metaTitle: "Java - Random Number Generation"
 description: "Pseudo Random Numbers, Pseudo Random Numbers in Specific Range, Generating cryptographically secure pseudorandom numbers, Generating Random Numbers with a Specified Seed, Select random numbers without duplicates, Generating Random number using apache-common lang3"
 ---
 

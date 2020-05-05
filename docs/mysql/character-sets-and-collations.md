@@ -1,5 +1,5 @@
 ---
-metaTitle: "Character Sets and Collations"
+metaTitle: "MySQL - Character Sets and Collations"
 description: "Which CHARACTER SET and COLLATION?, Declaration, Connection, Setting character sets on tables and fields"
 ---
 

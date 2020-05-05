@@ -1,5 +1,5 @@
 ---
-metaTitle: "Varargs  (Variable Argument)"
+metaTitle: "Java - Varargs  (Variable Argument)"
 description: "Specifying a varargs parameter, Working with Varargs parameters"
 ---
 

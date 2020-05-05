@@ -1,5 +1,5 @@
 ---
-metaTitle: "Rewriting history with filter-branch"
+metaTitle: "Git - Rewriting history with filter-branch"
 description: "Changing the author of commits, Setting git committer equal to commit author"
 ---
 

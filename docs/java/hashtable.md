@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hashtable"
+metaTitle: "Java - Hashtable"
 description: "Hashtable"
 ---
 

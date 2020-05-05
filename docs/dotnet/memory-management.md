@@ -1,5 +1,5 @@
 ---
-metaTitle: "Memory management"
+metaTitle: ".NET Framework - Memory management"
 description: "Use SafeHandle when wrapping unmanaged resources, Unmanaged Resources"
 ---
 

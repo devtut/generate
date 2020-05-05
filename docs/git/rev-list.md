@@ -1,5 +1,5 @@
 ---
-metaTitle: "Rev-List"
+metaTitle: "Git - Rev-List"
 description: "List Commits in master but not in origin/master"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic Un-Pivot Table using Prepared Statement"
+metaTitle: "MySQL - Dynamic Un-Pivot Table using Prepared Statement"
 description: "Un-pivot a dynamic set of columns based on condition"
 ---
 

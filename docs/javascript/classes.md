@@ -1,5 +1,5 @@
 ---
-metaTitle: "Classes"
+metaTitle: "JavsScript - Classes"
 description: "Class Constructor, Class Inheritance, Static Methods, Getters and Setters, Private Members, Dynamic Method Names, Methods, Managing Private Data with Classes, Class Name binding"
 ---
 

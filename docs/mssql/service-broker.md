@@ -1,5 +1,5 @@
 ---
-metaTitle: "Service broker"
+metaTitle: "Microsoft SQL Server - Service broker"
 description: "1. Basics, 2. Enable service broker on database, 3. Create basic service broker construction on database (single database communication), 4. How to send basic communication through service broker, 5. How to receive conversation from TargetQueue automatically"
 ---
 

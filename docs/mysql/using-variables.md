@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using Variables"
+metaTitle: "MySQL - Using Variables"
 description: "Setting Variables, Row Number and Group By using variables in Select Statement"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sending Email"
+metaTitle: "PHP - Sending Email"
 description: "Sending Email - The basics, more details, and a full example, Sending HTML Email Using mail(), Sending Email With An Attachment Using mail(), Sending Plain Text Email Using PHPMailer, Sending HTML Email Using PHPMailer, Sending Email With An Attachment Using PHPMailer, Sending Plain Text Email Using Sendgrid, Sending Email With An Attachment Using Sendgrid"
 ---
 

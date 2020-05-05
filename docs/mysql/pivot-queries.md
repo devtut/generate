@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pivot queries"
+metaTitle: "MySQL - Pivot queries"
 description: "Creating a pivot query"
 ---
 

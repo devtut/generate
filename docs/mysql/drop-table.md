@@ -1,5 +1,5 @@
 ---
-metaTitle: "Drop Table"
+metaTitle: "MySQL - Drop Table"
 description: "Drop Table, Drop tables from database"
 ---
 

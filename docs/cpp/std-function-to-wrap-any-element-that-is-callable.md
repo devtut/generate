@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::function: To wrap any element that is callable"
+metaTitle: "C++ | std::function: To wrap any element that is callable"
 description: "Simple usage, std::function used with std::bind, std::function with lambda and std::bind, `function` overhead, Binding std::function to a different callable types, Storing function arguments in std::tuple"
 ---
 

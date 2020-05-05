@@ -1,5 +1,5 @@
 ---
-metaTitle: "Algorithm Complexity"
+metaTitle: "Algorithm - Algorithm Complexity"
 description: "Big-Theta notation, Comparison of the asymptotic notations, Big-Omega Notation"
 ---
 

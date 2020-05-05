@@ -1,5 +1,5 @@
 ---
-metaTitle: "*apply family of functions (functionals)"
+metaTitle: "R - *apply family of functions (functionals)"
 description: "Using built-in functionals, Bulk File Loading, Combining multiple `data.frames` (`lapply`, `mapply`), Using user-defined functionals, Use anonymous functions with apply"
 ---
 

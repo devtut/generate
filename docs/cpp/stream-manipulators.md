@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stream manipulators"
+metaTitle: "C++ | Stream manipulators"
 description: "Stream manipulators, Output stream manipulators, Input stream manipulators"
 ---
 

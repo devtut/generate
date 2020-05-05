@@ -1,5 +1,5 @@
 ---
-metaTitle: "sun.misc.Unsafe"
+metaTitle: "Java - sun.misc.Unsafe"
 description: "Instantiating sun.misc.Unsafe via reflection, Instantiating sun.misc.Unsafe via bootclasspath, Getting Instance of Unsafe, Uses of Unsafe"
 ---
 

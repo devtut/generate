@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Memory Model"
+metaTitle: "Java - Java Memory Model"
 description: "Motivation for the Memory Model, Happens-before relationships, Happens-before reasoning applied to some examples, How to avoid needing to understand the Memory Model"
 ---
 

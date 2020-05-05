@@ -1,5 +1,5 @@
 ---
-metaTitle: "BC Math (Binary Calculator)"
+metaTitle: "PHP - BC Math (Binary Calculator)"
 description: "Comparison between BCMath and float arithmetic operations, Using bcmath to read/write a binary long on 32-bit system"
 ---
 

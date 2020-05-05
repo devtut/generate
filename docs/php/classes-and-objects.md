@@ -1,5 +1,5 @@
 ---
-metaTitle: "Classes and Objects"
+metaTitle: "PHP - Classes and Objects"
 description: "Class Constants, Abstract Classes, Late static binding, Namespacing and Autoloading, Interfaces, Method and Property Visibility, Final Keyword, Autoloading, Dynamic Binding, Calling a parent constructor when instantiating a child, $this, self and static plus the singleton, Defining a Basic Class, Anonymous Classes"
 ---
 

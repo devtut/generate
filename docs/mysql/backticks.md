@@ -1,5 +1,5 @@
 ---
-metaTitle: "Backticks"
+metaTitle: "MySQL - Backticks"
 description: "Backticks usage"
 ---
 

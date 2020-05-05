@@ -1,5 +1,5 @@
 ---
-metaTitle: "Access network shared folder with username and password"
+metaTitle: "C# | Access network shared folder with username and password"
 description: "Code to access network shared file"
 ---
 

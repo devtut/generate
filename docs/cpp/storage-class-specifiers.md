@@ -1,5 +1,5 @@
 ---
-metaTitle: "Storage class specifiers"
+metaTitle: "C++ | Storage class specifiers"
 description: "register, extern, mutable, static, auto"
 ---
 

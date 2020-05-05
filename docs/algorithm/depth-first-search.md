@@ -1,5 +1,5 @@
 ---
-metaTitle: "Depth First Search"
+metaTitle: "Algorithm - Depth First Search"
 description: "Introduction To Depth-First Search"
 ---
 

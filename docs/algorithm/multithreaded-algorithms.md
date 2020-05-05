@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multithreaded Algorithms"
+metaTitle: "Algorithm - Multithreaded Algorithms"
 description: "Square matrix multiplication multithread, Multiplication matrix vector multithread, merge-sort multithread"
 ---
 

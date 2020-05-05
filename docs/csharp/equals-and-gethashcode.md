@@ -1,5 +1,5 @@
 ---
-metaTitle: "Equals and GetHashCode"
+metaTitle: "C# | Equals and GetHashCode"
 description: "Writing a good GetHashCode override, Default Equals behavior., Override Equals and GetHashCode on custom types, Equals and GetHashCode in IEqualityComparator"
 ---
 

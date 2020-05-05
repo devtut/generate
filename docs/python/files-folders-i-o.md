@@ -1,5 +1,5 @@
 ---
-metaTitle: "Files & Folders I/O"
+metaTitle: "Python - Files & Folders I/O"
 description: "File modes, Reading a file line-by-line, Iterate files (recursively), Getting the full contents of a file, Writing to a file, Check whether a file or path exists, Random File Access Using mmap, Copying contents of one file to a different file, Copy a directory tree, Read a file between a range of lines, Replacing text in a file, Checking if a file is empty"
 ---
 

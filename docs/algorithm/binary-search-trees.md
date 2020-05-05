@@ -1,5 +1,5 @@
 ---
-metaTitle: "Binary Search Trees"
+metaTitle: "Algorithm - Binary Search Trees"
 description: "Binary Search Tree - Insertion (Python), Binary Search Tree - Deletion(C++), Lowest common ancestor in a BST, Binary Search Tree - Python"
 ---
 

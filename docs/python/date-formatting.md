@@ -1,5 +1,5 @@
 ---
-metaTitle: "Date Formatting"
+metaTitle: "Python - Date Formatting"
 description: "Time between two date-times, Outputting datetime object to string, Parsing string to datetime object"
 ---
 

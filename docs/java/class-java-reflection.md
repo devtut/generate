@@ -1,5 +1,5 @@
 ---
-metaTitle: "Class - Java Reflection"
+metaTitle: "Java - Class - Java Reflection"
 description: "getClass() method of Object class"
 ---
 

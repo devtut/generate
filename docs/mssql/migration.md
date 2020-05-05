@@ -1,5 +1,5 @@
 ---
-metaTitle: "Migration"
+metaTitle: "Microsoft SQL Server - Migration"
 description: "How to generate migration scripts"
 ---
 

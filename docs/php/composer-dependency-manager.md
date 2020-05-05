@@ -1,5 +1,5 @@
 ---
-metaTitle: "Composer Dependency Manager"
+metaTitle: "PHP - Composer Dependency Manager"
 description: "Autoloading with Composer, What is Composer?, Difference between 'composer install' and 'composer update', Composer Available Commands, Benefits of Using Composer, Installation"
 ---
 

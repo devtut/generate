@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using Progress<T> and IProgress<T>"
+metaTitle: ".NET Framework - Using Progress<T> and IProgress<T>"
 description: "Simple Progress reporting, Using IProgress<T>"
 ---
 

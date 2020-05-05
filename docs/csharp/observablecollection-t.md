@@ -1,5 +1,5 @@
 ---
-metaTitle: "ObservableCollection<T>"
+metaTitle: "C# | ObservableCollection<T>"
 description: "Initialize ObservableCollection<T>"
 ---
 

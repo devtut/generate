@@ -1,5 +1,5 @@
 ---
-metaTitle: "The Print Function"
+metaTitle: "Python - The Print Function"
 description: "Print basics, Print parameters"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "CASE"
+metaTitle: "SQL - CASE"
 description: "Use CASE to COUNT the number of rows in a column match a condition., Searched CASE in SELECT (Matches a boolean expression), CASE in a clause ORDER BY, Shorthand CASE in SELECT, Using CASE in UPDATE, CASE use for NULL values ​​ordered last, CASE in ORDER BY clause to sort records by lowest value of 2 columns"
 ---
 

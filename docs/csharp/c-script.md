@@ -1,5 +1,5 @@
 ---
-metaTitle: "C# Script"
+metaTitle: "C# | C# Script"
 description: "Simple code evaluation"
 ---
 

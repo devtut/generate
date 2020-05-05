@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enum"
+metaTitle: "C# | Enum"
 description: "Enum as flags, Enum basics, Using << notation for flags, Test flags-style enum values with bitwise logic, Enum to string and back, Add and remove values from flagged enum, Default value for enum == ZERO, Adding additional description information to an enum value, Enums can have unexpected values, Get all the members values of an enum, Bitwise Manipulation using enums"
 ---
 

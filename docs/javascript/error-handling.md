@@ -1,5 +1,5 @@
 ---
-metaTitle: "Error Handling"
+metaTitle: "JavsScript - Error Handling"
 description: "Error objects, Interaction with Promises, Order of operations plus advanced thoughts, Error types"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "ALTER TABLE"
+metaTitle: "MySQL - ALTER TABLE"
 description: "Changing storage engine; rebuild table; change file_per_table, ALTER COLUMN OF TABLE, Change auto-increment value, Renaming a MySQL table, ALTER table add INDEX, Changing the type of a primary key column, Change column definition, Renaming a MySQL database, Swapping the names of two MySQL databases, Renaming a column in a MySQL table"
 ---
 

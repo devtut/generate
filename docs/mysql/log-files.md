@@ -1,5 +1,5 @@
 ---
-metaTitle: "Log files"
+metaTitle: "MySQL - Log files"
 description: "Slow Query Log, A List, General Query Log, Error Log"
 ---
 

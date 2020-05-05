@@ -1,5 +1,5 @@
 ---
-metaTitle: "Scopes"
+metaTitle: "C++ | Scopes"
 description: "Global variables, Simple block scope"
 ---
 

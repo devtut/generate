@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data acquisition"
+metaTitle: "R - Data acquisition"
 description: "Built-in datasets, Packages to access open databases, Packages to access restricted data, Datasets within packages"
 ---
 

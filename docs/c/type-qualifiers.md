@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type Qualifiers"
+metaTitle: "C - Type Qualifiers"
 description: "Unmodifiable (const) variables, Volatile variables"
 ---
 

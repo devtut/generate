@@ -1,5 +1,5 @@
 ---
-metaTitle: "Threading"
+metaTitle: "C++ | Threading"
 description: "Creating a std::thread, Passing a reference to a thread, Using std::async instead of std::thread, Ensuring a thread is always joined, Basic Synchronization, Create a simple thread pool, Operations on the current thread, Using Condition Variables, Thread operations, Thread-local storage, Reassigning thread objects"
 ---
 

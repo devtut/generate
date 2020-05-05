@@ -1,5 +1,5 @@
 ---
-metaTitle: "EXISTS CLAUSE"
+metaTitle: "SQL - EXISTS CLAUSE"
 description: "EXISTS CLAUSE"
 ---
 

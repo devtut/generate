@@ -1,5 +1,5 @@
 ---
-metaTitle: "JVM Tool Interface"
+metaTitle: "Java - JVM Tool Interface"
 description: "Iterate over objects reachable from object (Heap 1.0) , Get JVMTI environment, Example of initialization inside of Agent_OnLoad method"
 ---
 

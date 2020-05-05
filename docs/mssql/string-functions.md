@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Functions"
+metaTitle: "Microsoft SQL Server - String Functions"
 description: "Quotename, Replace, Substring, String_Split, Left, Right, Soundex, Format, String_escape, ASCII, Char, Concat, LTrim, RTrim, PatIndex, Space, Difference, Len, Lower, Upper, Unicode, NChar, Reverse, Replicate, Str, CharIndex"
 ---
 

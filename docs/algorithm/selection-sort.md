@@ -1,5 +1,5 @@
 ---
-metaTitle: "Selection Sort"
+metaTitle: "Algorithm - Selection Sort"
 description: "Selection Sort Basic Information, Implementation of Selection sort in C#, Elixir Implementation"
 ---
 

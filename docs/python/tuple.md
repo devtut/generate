@@ -1,5 +1,5 @@
 ---
-metaTitle: "Tuple"
+metaTitle: "Python - Tuple"
 description: "Tuple, Tuples are immutable, Packing and Unpacking Tuples, Built-in Tuple Functions, Tuple Are Element-wise Hashable and Equatable, Indexing Tuples, Reversing Elements"
 ---
 

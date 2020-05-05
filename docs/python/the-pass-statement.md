@@ -1,5 +1,5 @@
 ---
-metaTitle: "The pass statement"
+metaTitle: "Python - The pass statement"
 description: "Ignore an exception, Create a new Exception that can be caught"
 ---
 

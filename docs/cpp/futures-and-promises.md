@@ -1,5 +1,5 @@
 ---
-metaTitle: "Futures and Promises"
+metaTitle: "C++ | Futures and Promises"
 description: "std::future and std::promise, Deferred async example, std::packaged_task and std::future, std::future_error and std::future_errc, std::future and std::async, Async operation classes"
 ---
 

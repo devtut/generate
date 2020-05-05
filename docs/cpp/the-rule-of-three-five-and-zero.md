@@ -1,5 +1,5 @@
 ---
-metaTitle: "The Rule of Three, Five, And Zero"
+metaTitle: "C++ | The Rule of Three, Five, And Zero"
 description: "Rule of Zero, Rule of Five, Rule of Three, Self-assignment Protection"
 ---
 

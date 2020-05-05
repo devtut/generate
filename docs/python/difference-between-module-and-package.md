@@ -1,5 +1,5 @@
 ---
-metaTitle: "Difference between Module and Package"
+metaTitle: "Python - Difference between Module and Package"
 description: "Modules, Packages"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Static Classes"
+metaTitle: "C# | Static Classes"
 description: "Static Classes, Static keyword, Static class lifetime"
 ---
 

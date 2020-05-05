@@ -1,5 +1,5 @@
 ---
-metaTitle: "Storing JSON in SQL tables"
+metaTitle: "Microsoft SQL Server - Storing JSON in SQL tables"
 description: "JSON stored as text column, Ensure that JSON is properly formatted using ISJSON, Expose values from JSON text as computed columns, Adding index on JSON path, JSON stored in in-memory tables"
 ---
 

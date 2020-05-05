@@ -1,5 +1,5 @@
 ---
-metaTitle: "Good coding style"
+metaTitle: "Node.js - Good coding style"
 description: "Basic program for signup"
 ---
 

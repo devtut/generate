@@ -1,5 +1,5 @@
 ---
-metaTitle: "R in LaTeX with knitr"
+metaTitle: "R - R in LaTeX with knitr"
 description: "R in Latex with Knitr and Code Externalization, R in Latex with Knitr and Inline Code Chunks, R in LaTex with Knitr and Internal Code Chunks"
 ---
 

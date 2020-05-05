@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavaScript Variables"
+metaTitle: "JavsScript - JavaScript Variables"
 description: "Defining a Variable, Using a Variable, Types of Variables, Arrays and Objects"
 ---
 

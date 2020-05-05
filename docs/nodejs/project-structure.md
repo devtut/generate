@@ -1,5 +1,5 @@
 ---
-metaTitle: "Project Structure"
+metaTitle: "Node.js - Project Structure"
 description: "A simple nodejs application with MVC and API"
 ---
 

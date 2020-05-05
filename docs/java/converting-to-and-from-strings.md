@@ -1,5 +1,5 @@
 ---
-metaTitle: "Converting to and from Strings"
+metaTitle: "Java - Converting to and from Strings"
 description: "Converting String to other datatypes., Conversion to / from bytes, Base64 Encoding / Decoding, Converting other datatypes to String, Getting a `String` from an `InputStream`, Parsing Strings to a Numerical Value"
 ---
 

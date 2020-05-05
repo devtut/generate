@@ -1,5 +1,5 @@
 ---
-metaTitle: "Graph"
+metaTitle: "Algorithm - Graph"
 description: "Storing Graphs (Adjacency Matrix), Introduction To Graph Theory, Storing Graphs (Adjacency List), Topological Sort, Thorup's algorithm, Detecting a cycle in a directed graph using Depth First Traversal"
 ---
 

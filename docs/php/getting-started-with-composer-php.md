@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with composer-php"
+metaTitle: "PHP - Getting started with composer-php"
 description: "Installing Composer on Ubuntu, Installing on Windows, Overview"
 ---
 

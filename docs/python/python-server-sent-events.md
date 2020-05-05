@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python Server Sent Events"
+metaTitle: "Python - Python Server Sent Events"
 description: "Flask SSE, Asyncio SSE"
 ---
 

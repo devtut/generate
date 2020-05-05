@@ -1,5 +1,5 @@
 ---
-metaTitle: "SecurityManager"
+metaTitle: "Java - SecurityManager"
 description: "Sandboxing classes loaded by a ClassLoader, Enabling the SecurityManager, Implementing policy deny rules"
 ---
 

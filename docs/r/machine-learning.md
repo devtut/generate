@@ -1,5 +1,5 @@
 ---
-metaTitle: "Machine learning"
+metaTitle: "R - Machine learning"
 description: "Creating a Random Forest model"
 ---
 

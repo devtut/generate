@@ -1,5 +1,5 @@
 ---
-metaTitle: "global and local variables"
+metaTitle: "Bash - global and local variables"
 description: "Global variables, Local variables, Mixing the two together"
 ---
 

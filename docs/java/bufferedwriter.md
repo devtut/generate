@@ -1,5 +1,5 @@
 ---
-metaTitle: "BufferedWriter"
+metaTitle: "Java - BufferedWriter"
 description: "Write a line of text to File"
 ---
 

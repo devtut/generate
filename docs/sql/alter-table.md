@@ -1,5 +1,5 @@
 ---
-metaTitle: "ALTER TABLE"
+metaTitle: "SQL - ALTER TABLE"
 description: "Add Column(s), Drop Column, Add Primary Key, Drop Constraint, Alter Column, Add Constraint"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "MSSQL Intergration"
+metaTitle: "Node.js - MSSQL Intergration"
 description: "Connecting with SQL via. mssql npm module"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Window Functions"
+metaTitle: "SQL - Window Functions"
 description: "Setting up a flag if other rows have a common property, Getting a running total, Finding out-of-sequence records using the LAG() function, Adding the total rows selected to every row, Getting the N most recent rows over multiple grouping"
 ---
 

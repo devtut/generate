@@ -1,5 +1,5 @@
 ---
-metaTitle: ".Rprofile"
+metaTitle: "R - .Rprofile"
 description: ".Rprofile - the first chunk of code executed, .Rprofile example"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dijkstra’s Algorithm"
+metaTitle: "Algorithm - Dijkstra’s Algorithm"
 description: "Dijkstra's Shortest Path Algorithm"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Internationalization in C++"
+metaTitle: "C++ | Internationalization in C++"
 description: "Understanding C++ string characteristics"
 ---
 

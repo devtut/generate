@@ -1,5 +1,5 @@
 ---
-metaTitle: "Debugging"
+metaTitle: "PHP - Debugging"
 description: "Dumping variables, Displaying errors, phpinfo(), Xdebug, phpversion(), Error Reporting (use them both)"
 ---
 

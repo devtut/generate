@@ -1,5 +1,5 @@
 ---
-metaTitle: "Control Structures"
+metaTitle: "PHP - Control Structures"
 description: "if  else, Alternative syntax for control structures, while, do-while, goto, declare, include & require, return, for, foreach, if elseif else, if, switch"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "async.js"
+metaTitle: "Node.js - async.js"
 description: "Parallel : multi-tasking, Series : independent mono-tasking, Waterfall : dependent mono-tasking, async.each(To handle array of data efficiently), async.times(To handle for loop in better way), async.series(To handle events  one by one)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Returning several values from a function"
+metaTitle: "C++ | Returning several values from a function"
 description: "Using std::tuple, Structured Bindings, Using struct, Using Output Parameters, Using a Function Object Consumer, Using std::pair, Using std::array, Using Output Iterator, Using std::vector"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Heap Sort"
+metaTitle: "Algorithm - Heap Sort"
 description: "Heap Sort Basic Information, C# Implementation"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "CREATE Database"
+metaTitle: "SQL - CREATE Database"
 description: "CREATE Database"
 ---
 

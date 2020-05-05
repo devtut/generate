@@ -1,5 +1,5 @@
 ---
-metaTitle: "Control flow structures"
+metaTitle: "R - Control flow structures"
 description: "Optimal Construction of a For Loop, Basic For Loop Construction, The Other Looping Constructs: while and repeat"
 ---
 

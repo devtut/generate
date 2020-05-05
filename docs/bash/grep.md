@@ -1,5 +1,5 @@
 ---
-metaTitle: "Grep"
+metaTitle: "Bash - Grep"
 description: "How to search a file for a pattern"
 ---
 

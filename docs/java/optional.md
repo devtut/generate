@@ -1,5 +1,5 @@
 ---
-metaTitle: "Optional"
+metaTitle: "Java - Optional"
 description: "Map, Return default value if Optional is empty, Throw an exception, if there is no value, Lazily provide a default value using a Supplier, Filter, Using Optional containers for primitive number types, Run code only if there is a value present, FlatMap"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pointers to members"
+metaTitle: "C++ | Pointers to members"
 description: "Pointers to static member functions, Pointers to member functions, Pointers to member variables, Pointers to static member variables"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Subqueries"
+metaTitle: "SQL - Subqueries"
 description: "Subquery in FROM clause, Subquery in WHERE clause, Subquery in SELECT clause, Correlated Subqueries, Subqueries in FROM clause , Subqueries in WHERE clause, Filter query results using query on different table, Subqueries in SELECT clause"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "PyInstaller - Distributing Python Code"
+metaTitle: "Python - PyInstaller - Distributing Python Code"
 description: "Installation and Setup, Using Pyinstaller, Bundling to One Folder, Bundling to a Single File"
 ---
 

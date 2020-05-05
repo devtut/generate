@@ -1,5 +1,5 @@
 ---
-metaTitle: "Custom Properties (Variables)"
+metaTitle: "CSS - Custom Properties (Variables)"
 description: "Variable Color, Variable Dimensions, Variable Cascading, Valid/Invalids, With media queries"
 ---
 

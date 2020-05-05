@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQL Injection"
+metaTitle: "SQL - SQL Injection"
 description: "SQL injection sample, simple injection sample"
 ---
 

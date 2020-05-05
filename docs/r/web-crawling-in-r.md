@@ -1,5 +1,5 @@
 ---
-metaTitle: "Web Crawling in R"
+metaTitle: "R - Web Crawling in R"
 description: "Standard scraping approach using the RCurl package"
 ---
 

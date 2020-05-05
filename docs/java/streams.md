@@ -1,5 +1,5 @@
 ---
-metaTitle: "Streams"
+metaTitle: "Java - Streams"
 description: "Using Streams, Consuming Streams, Creating a Frequency Map, Infinite Streams, Collect Elements of a Stream into a Collection, Using Streams to Implement Mathematical Functions, Parallel Stream, Flatten Streams with flatMap(), Creating a Stream, Finding Statistics about Numerical Streams, Using IntStream to iterate over indexes, Converting an iterator to a stream, Concatenate Streams, IntStream to String, Finding the First Element that Matches a Predicate, Using Streams and Method References to Write Self-Documenting Processes, Using Streams of Map.Entry to Preserve Initial Values after Mapping, Reduction with Streams, Converting a Stream of Optional to a Stream of Values, Get a Slice of a Stream, Create a Map based on a Stream, Sort Using Stream, Streams of Primitives, Stream operations categories, Joining a stream to a single String, Collect Results of a Stream into an Array, Generating random Strings using Streams"
 ---
 

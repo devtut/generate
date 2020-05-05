@@ -1,5 +1,5 @@
 ---
-metaTitle: "Linear Models (Regression)"
+metaTitle: "R - Linear Models (Regression)"
 description: "Linear regression on the mtcars dataset, Weighting, Using the 'predict' function, Checking for nonlinearity with polynomial regression, Plotting The Regression (base), Quality assessment"
 ---
 

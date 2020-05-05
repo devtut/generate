@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic SQL"
+metaTitle: "Microsoft SQL Server - Dynamic SQL"
 description: "Execute SQL statement provided as string, Dynamic SQL executed as different user, SQL Injection with dynamic SQL, Dynamic SQL with parameters"
 ---
 

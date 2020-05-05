@@ -1,5 +1,5 @@
 ---
-metaTitle: "A* Pathfinding Algorithm"
+metaTitle: "Algorithm - A* Pathfinding Algorithm"
 description: "Simple Example of A* Pathfinding: A maze with no obstacles"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Splitting a string into fixed length parts"
+metaTitle: "Java - Splitting a string into fixed length parts"
 description: "Break a string up into substrings all of a known length, Break a string up into substrings all of variable length"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Strings"
+metaTitle: "C - Strings"
 description: "Tokenisation: strtok(), strtok_r() and strtok_s(), String literals, Calculate the Length: strlen(), Basic introduction to strings, Copying strings, Iterating Over the Characters in a String, Creating Arrays of Strings, Convert Strings to Number: atoi(), atof() (dangerous, don't use them), string formatted data read/write, Copy and Concatenation: strcpy(), strcat(), Comparsion: strcmp(), strncmp(), strcasecmp(), strncasecmp(), Find first/last occurrence of a specific character: strchr(), strrchr(), strspn and strcspn, Safely convert Strings to Number: strtoX functions, strstr, Zeroing out a string"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "BULK Import"
+metaTitle: "Microsoft SQL Server - BULK Import"
 description: "BULK INSERT with options, BULK INSERT, Reading entire content of file using OPENROWSET(BULK), Read file using OPENROWSET(BULK) and format file, Read json file using OPENROWSET(BULK)"
 ---
 

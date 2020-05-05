@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Tokenizer"
+metaTitle: "Java - String Tokenizer"
 description: "StringTokenizer Split by space, StringTokenizer Split by comma ','"
 ---
 

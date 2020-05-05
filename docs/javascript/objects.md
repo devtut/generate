@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objects"
+metaTitle: "JavsScript - Objects"
 description: "Shallow cloning, Object.freeze, Object cloning, Object properties iteration, Object.assign, Object rest/spread (...), Object.defineProperty, Accesor properties (get and set), Dynamic / variable property names, Arrays are Objects, Object.seal, Retrieving properties from an object, Convert object's values to array, Object.keys, Read-Only property, Non enumerable property, Lock property description, Descriptors and Named Properties, Object.getOwnPropertyDescriptor, Properties with special characters or reserved words, Creating an Iterable object, Iterating over Object entries - Object.entries(), Object.values()"
 ---
 

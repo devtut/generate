@@ -1,5 +1,5 @@
 ---
-metaTitle: "Border"
+metaTitle: "CSS - Border"
 description: "border-radius, border-style, Multiple Borders, border (shorthands), border-image, border-collapse, Creating a multi-colored border using border-image, border-[left|right|top|bottom]"
 ---
 

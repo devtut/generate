@@ -1,5 +1,5 @@
 ---
-metaTitle: "Resolving merge conflicts"
+metaTitle: "Git - Resolving merge conflicts"
 description: "Manual Resolution"
 ---
 

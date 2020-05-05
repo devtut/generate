@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inheritance"
+metaTitle: "Java - Inheritance"
 description: "Abstract Classes, Using 'final' to restrict inheritance and overriding, Inheritance, The Liskov Substitution Principle, Static Inheritance, Abstract class and Interface usage: Is-a relation vs Has-a capability, Inheritance and Static Methods, Variable shadowing, Narrowing and Widening of object references, Programming to an interface, Overriding in Inheritance"
 ---
 

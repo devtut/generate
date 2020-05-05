@@ -1,5 +1,5 @@
 ---
-metaTitle: "File and Stream I/O"
+metaTitle: "C# | File and Stream I/O"
 description: "Reading from a file using the System.IO.File class, Lazily reading a file line-by-line via an IEnumerable, Writing lines to a file using the System.IO.StreamWriter class, Writing to a file using the System.IO.File class, Copy File, Async write text to a file using StreamWriter, Create File, Move File, Delete File, Files and Directories"
 ---
 

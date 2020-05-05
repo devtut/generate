@@ -1,5 +1,5 @@
 ---
-metaTitle: "Shiny"
+metaTitle: "R - Shiny"
 description: "Create an app, Checkbox Group, Radio Button, Select box, Launch a Shiny app, Debugging, Control widgets"
 ---
 

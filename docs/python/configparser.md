@@ -1,5 +1,5 @@
 ---
-metaTitle: "configparser"
+metaTitle: "Python - configparser"
 description: "Creating configuration file programatically, Basic usage"
 ---
 

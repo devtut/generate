@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cursors"
+metaTitle: "Microsoft SQL Server - Cursors"
 description: "Basic Forward Only Cursor, Rudimentary cursor syntax"
 ---
 

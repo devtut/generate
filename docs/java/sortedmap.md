@@ -1,5 +1,5 @@
 ---
-metaTitle: "SortedMap"
+metaTitle: "Java - SortedMap"
 description: "Introduction to sorted Map."
 ---
 

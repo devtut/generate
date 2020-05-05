@@ -1,5 +1,5 @@
 ---
-metaTitle: "Navigating directories"
+metaTitle: "Bash - Navigating directories"
 description: "Absolute vs relative directories, Change to the last directory, Change to the home directory, Change to the Directory of the Script"
 ---
 

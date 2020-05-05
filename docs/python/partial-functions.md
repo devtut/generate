@@ -1,5 +1,5 @@
 ---
-metaTitle: "Partial functions"
+metaTitle: "Python - Partial functions"
 description: "Raise the power"
 ---
 

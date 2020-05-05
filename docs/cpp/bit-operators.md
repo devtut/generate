@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bit Operators"
+metaTitle: "C++ | Bit Operators"
 description: "| - bitwise OR, ^ - bitwise XOR (exclusive OR), & - bitwise AND, << - left shift, >> - right shift, ~ - bitwise NOT (unary complement)"
 ---
 

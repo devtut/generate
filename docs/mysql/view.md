@@ -1,5 +1,5 @@
 ---
-metaTitle: "VIEW"
+metaTitle: "MySQL - VIEW"
 description: "Create a View, A view from two tables, Updating a table via a VIEW, DROPPING A VIEW"
 ---
 

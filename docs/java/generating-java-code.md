@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generating Java Code"
+metaTitle: "Java - Generating Java Code"
 description: "Generate POJO From JSON"
 ---
 

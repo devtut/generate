@@ -1,5 +1,5 @@
 ---
-metaTitle: "Date and Time"
+metaTitle: "R - Date and Time"
 description: "Current Date and Time, Go to the End of the Month, Go to First Day of the Month, Move a date a number of months consistently by months"
 ---
 

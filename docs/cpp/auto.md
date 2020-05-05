@@ -1,5 +1,5 @@
 ---
-metaTitle: "auto"
+metaTitle: "C++ | auto"
 description: "Basic auto sample, auto and Expression Templates, auto, const, and references, Trailing return type, Generic lambda (C++14), auto and proxy objects"
 ---
 

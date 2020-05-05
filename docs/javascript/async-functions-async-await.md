@@ -1,5 +1,5 @@
 ---
-metaTitle: "Async functions (async/await)"
+metaTitle: "JavsScript - Async functions (async/await)"
 description: "Introduction, Await and operator precedence, Async functions compared to Promises, Looping with async await, Less indentation, Simultaneous async (parallel) operations"
 ---
 

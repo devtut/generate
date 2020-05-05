@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arithmitic Metaprogramming"
+metaTitle: "C++ | Arithmitic Metaprogramming"
 description: "Calculating power in O(log n)"
 ---
 

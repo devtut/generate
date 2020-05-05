@@ -1,5 +1,5 @@
 ---
-metaTitle: "decltype"
+metaTitle: "C++ | decltype"
 description: "Basic Example, Another example"
 ---
 

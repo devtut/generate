@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Types"
+metaTitle: "C - Data Types"
 description: "Fixed Width Integer Types (since C99), Interpreting Declarations, Integer types and constants, Floating Point Constants, String Literals"
 ---
 

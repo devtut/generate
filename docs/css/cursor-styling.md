@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cursor Styling"
+metaTitle: "CSS - Cursor Styling"
 description: "Changing cursor type, pointer-events, caret-color"
 ---
 

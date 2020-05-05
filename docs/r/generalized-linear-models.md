@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generalized linear models"
+metaTitle: "R - Generalized linear models"
 description: "Logistic regression on Titanic dataset"
 ---
 

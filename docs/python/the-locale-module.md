@@ -1,5 +1,5 @@
 ---
-metaTitle: "The locale Module"
+metaTitle: "Python - The locale Module"
 description: "Currency Formatting US Dollars Using the locale Module"
 ---
 

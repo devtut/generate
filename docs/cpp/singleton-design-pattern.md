@@ -1,5 +1,5 @@
 ---
-metaTitle: "Singleton Design Pattern"
+metaTitle: "C++ | Singleton Design Pattern"
 description: "Lazy Initialization, Static deinitialization-safe singleton., Subclasses, Thread-safe Singeton"
 ---
 

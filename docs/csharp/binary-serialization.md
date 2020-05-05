@@ -1,5 +1,5 @@
 ---
-metaTitle: "Binary Serialization"
+metaTitle: "C# | Binary Serialization"
 description: "Serialization Binder, Controlling serialization behavior with attributes, Some gotchas in backward compatibility, Making an object serializable, Serialization surrogates (Implementing ISerializationSurrogate), Adding more control by implementing ISerializable"
 ---
 

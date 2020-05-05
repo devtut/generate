@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exporting and Consuming Modules"
+metaTitle: "Node.js - Exporting and Consuming Modules"
 description: "Creating a hello-world.js module, Loading and using a module, Every module injected only once, Folder as a module, Invalidating the module cache, Building your own modules, Module loading from node_modules"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Headers Manipulation"
+metaTitle: "PHP - Headers Manipulation"
 description: "Basic Setting of a Header"
 ---
 

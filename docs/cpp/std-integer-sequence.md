@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::integer_sequence"
+metaTitle: "C++ | std::integer_sequence"
 description: "Turn a std::tuple<T...> into function parameters, Create a parameter pack consisting of integers, Turn a sequence of indices into copies of an element"
 ---
 

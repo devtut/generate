@@ -1,5 +1,5 @@
 ---
-metaTitle: "Worktrees"
+metaTitle: "Git - Worktrees"
 description: "Using a worktree, Moving a worktree"
 ---
 

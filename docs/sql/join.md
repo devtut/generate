@@ -1,5 +1,5 @@
 ---
-metaTitle: "JOIN"
+metaTitle: "SQL - JOIN"
 description: "Self Join, Differences between inner/outer joins, JOIN Terminology: Inner, Outer, Semi, Anti..., Left Outer Join, Implicit Join, Basic explicit inner join, CROSS JOIN, Joining on a Subquery, CROSS APPLY & LATERAL JOIN , FULL JOIN, Recursive JOINs"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recursive Mutex"
+metaTitle: "C++ | Recursive Mutex"
 description: "std::recursive_mutex"
 ---
 

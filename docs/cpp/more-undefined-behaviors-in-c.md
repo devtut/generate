@@ -1,5 +1,5 @@
 ---
-metaTitle: "More undefined behaviors in C++"
+metaTitle: "C++ | More undefined behaviors in C++"
 description: "Referring to non-static members in initializer lists"
 ---
 

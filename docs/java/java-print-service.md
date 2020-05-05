@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Print Service"
+metaTitle: "Java - Java Print Service"
 description: "Building the Doc that will be printed, Discovering the available print services, Defining print request attributes, Discovering the default print service, Creating a print job from a print service, Listening print job request status change"
 ---
 

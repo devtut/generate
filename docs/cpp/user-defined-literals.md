@@ -1,5 +1,5 @@
 ---
-metaTitle: "User-Defined Literals"
+metaTitle: "C++ | User-Defined Literals"
 description: "Self-made user-defined literal for binary, User-defined literals with long double values, Standard user-defined literals for duration, Standard user-defined literals for strings, Standard user-defined literals for complex"
 ---
 

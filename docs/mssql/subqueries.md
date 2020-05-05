@@ -1,5 +1,5 @@
 ---
-metaTitle: "Subqueries"
+metaTitle: "Microsoft SQL Server - Subqueries"
 description: "Subqueries"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Types"
+metaTitle: "MySQL - Data Types"
 description: "Implicit / automatic casting, VARCHAR(255) -- or not, INT as AUTO_INCREMENT, Others, Introduction (numeric), Integer Types, Fixed Point Types, Floating Point Types, Bit Value Type, CHAR(n), DATE, DATETIME, TIMESTAMP, YEAR, and TIME"
 ---
 

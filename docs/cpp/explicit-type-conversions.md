@@ -1,5 +1,5 @@
 ---
-metaTitle: "Explicit type conversions"
+metaTitle: "C++ | Explicit type conversions"
 description: "Casting away constness, C-style casting, Base to derived conversion, Conversion between pointer and integer, Type punning conversion, Conversion by explicit constructor or explicit conversion function, Implicit conversion, Enum conversions, Derived to base conversion for pointers to members, void* to T*"
 ---
 

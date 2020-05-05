@@ -1,5 +1,5 @@
 ---
-metaTitle: "Ranking Functions"
+metaTitle: "Microsoft SQL Server - Ranking Functions"
 description: "DENSE_RANK (), RANK()"
 ---
 

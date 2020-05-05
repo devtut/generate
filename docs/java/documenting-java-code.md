@@ -1,5 +1,5 @@
 ---
-metaTitle: "Documenting Java Code"
+metaTitle: "Java - Documenting Java Code"
 description: "Class Documentation, Method Documentation, Package Documentation, Building Javadocs From the Command Line, Links, Field Documentation, Code snippets inside documentation, Inline Code Documentation"
 ---
 

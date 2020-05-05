@@ -1,5 +1,5 @@
 ---
-metaTitle: "Plugin and Extension Classes"
+metaTitle: "Python - Plugin and Extension Classes"
 description: "Mixins, Plugins with Customized Classes"
 ---
 

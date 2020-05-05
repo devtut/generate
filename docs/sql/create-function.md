@@ -1,5 +1,5 @@
 ---
-metaTitle: "CREATE FUNCTION"
+metaTitle: "SQL - CREATE FUNCTION"
 description: "Create a new Function"
 ---
 

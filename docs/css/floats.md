@@ -1,5 +1,5 @@
 ---
-metaTitle: "Floats"
+metaTitle: "CSS - Floats"
 description: "Float an Image Within Text, clear property, Clearfix, In-line DIV using float, Simple Two Fixed-Width Column Layout, Simple Three Fixed-Width Column Layout, Two-Column Lazy/Greedy Layout, Use of overflow property to clear floats"
 ---
 

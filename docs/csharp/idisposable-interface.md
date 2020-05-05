@@ -1,5 +1,5 @@
 ---
-metaTitle: "IDisposable interface"
+metaTitle: "C# | IDisposable interface"
 description: "In a class that contains only managed resources, In a class with managed and unmanaged resources, IDisposable, Dispose, using keyword, In an inherited class with managed resources"
 ---
 

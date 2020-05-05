@@ -1,5 +1,5 @@
 ---
-metaTitle: "CLUSTERED COLUMNSTORE"
+metaTitle: "Microsoft SQL Server - CLUSTERED COLUMNSTORE"
 description: "Adding clustered columnstore index on existing table, Table with CLUSTERED COLUMNSTORE index, Rebuild CLUSTERED COLUMNSTORE index"
 ---
 

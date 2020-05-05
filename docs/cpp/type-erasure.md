@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type Erasure"
+metaTitle: "C++ | Type Erasure"
 description: "A move-only `std::function`, Erasing down to a Regular type with manual vtable, Basic mechanism, Erasing down to a contiguous buffer of T, Type erasing type erasure with std::any"
 ---
 

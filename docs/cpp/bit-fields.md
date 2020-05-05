@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bit fields"
+metaTitle: "C++ | Bit fields"
 description: "Declaration and Usage"
 ---
 

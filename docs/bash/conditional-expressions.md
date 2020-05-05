@@ -1,5 +1,5 @@
 ---
-metaTitle: "Conditional Expressions"
+metaTitle: "Bash - Conditional Expressions"
 description: "File type tests, String comparison and matching, Test on exit status of a command, File comparison, File access tests, Numerical comparisons, One liner test"
 ---
 

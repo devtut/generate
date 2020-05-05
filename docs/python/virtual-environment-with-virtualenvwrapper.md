@@ -1,5 +1,5 @@
 ---
-metaTitle: "virtual environment with virtualenvwrapper"
+metaTitle: "Python - virtual environment with virtualenvwrapper"
 description: "Create virtual environment with virtualenvwrapper"
 ---
 

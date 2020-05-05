@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions"
+metaTitle: "PHP - Functions"
 description: "Variable-length argument lists, Optional Parameters, Passing Arguments by Reference, Basic Function Usage, Function Scope"
 ---
 

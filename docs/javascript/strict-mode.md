@@ -1,5 +1,5 @@
 ---
-metaTitle: "Strict mode"
+metaTitle: "JavsScript - Strict mode"
 description: "For entire scripts, For functions, Changes to properties, Changes to global properties, Duplicate Parameters, Function scoping in strict mode, Behaviour of a function's arguments list, Non-Simple parameter lists"
 ---
 

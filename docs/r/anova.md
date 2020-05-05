@@ -1,5 +1,5 @@
 ---
-metaTitle: "ANOVA"
+metaTitle: "R - ANOVA"
 description: "Basic usage of aov(), Basic usage of Anova()"
 ---
 

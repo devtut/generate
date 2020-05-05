@@ -1,5 +1,5 @@
 ---
-metaTitle: "Algo:- Print a m*n matrix in square wise"
+metaTitle: "Algorithm - Algo:- Print a m*n matrix in square wise"
 description: "Sample Example, Write the generic code"
 ---
 

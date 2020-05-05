@@ -1,5 +1,5 @@
 ---
-metaTitle: "C# 3.0 Features"
+metaTitle: "C# | C# 3.0 Features"
 description: "Implicitly typed variables (var), Language Integrated Queries (LINQ), Lambda expresions, Anonymous types"
 ---
 

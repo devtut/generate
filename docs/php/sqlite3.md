@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQLite3"
+metaTitle: "PHP - SQLite3"
 description: "Querying a database, Retrieving only one result, SQLite3 Quickstart Tutorial"
 ---
 

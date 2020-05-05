@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recovering"
+metaTitle: "Git - Recovering"
 description: "Recovering from a lost commit, Restore a deleted file after a commit, Restore file to a previous version, Recover a deleted branch, Recovering from a reset, Recover from git stash"
 ---
 

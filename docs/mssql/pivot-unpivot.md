@@ -1,5 +1,5 @@
 ---
-metaTitle: "PIVOT / UNPIVOT"
+metaTitle: "Microsoft SQL Server - PIVOT / UNPIVOT"
 description: "Simple PIVOT & UNPIVOT (T-SQL), Dynamic PIVOT, Simple Pivot - Static Columns"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Usage of pip module: PyPI Package Manager"
+metaTitle: "Python - Usage of pip module: PyPI Package Manager"
 description: "Example use of commands, Handling ImportError Exception, Force install"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "GROUP BY"
+metaTitle: "Microsoft SQL Server - GROUP BY"
 description: "Simple Grouping, GROUP BY multiple columns , GROUP BY with ROLLUP and CUBE, Group by with multiple tables, multiple columns, HAVING"
 ---
 

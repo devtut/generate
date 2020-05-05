@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dependency Injection"
+metaTitle: "C# | Dependency Injection"
 description: "Dependency Injection C# and ASP.NET with Unity, Dependency injection using MEF"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Row-level security"
+metaTitle: "Microsoft SQL Server - Row-level security"
 description: "RLS filter predicate, Altering RLS security policy, Preventing updated using RLS block predicate"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lists"
+metaTitle: "Java - Lists"
 description: "Sorting a generic list, Convert a list of integers to a list of strings, Classes implementing List - Pros and Cons, Finding common elements between 2 lists, Creating a List, Positional Access Operations, Iterating over elements in a list, Removing elements from list B that are present in the list A, Creating, Adding and Removing element from an ArrayList, In-place replacement of a List element, Making a list unmodifiable, Moving objects around in the list"
 ---
 

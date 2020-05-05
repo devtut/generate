@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Serialization"
+metaTitle: "Python - Data Serialization"
 description: "Serialization using JSON, Serialization using Pickle"
 ---
 

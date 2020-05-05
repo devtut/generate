@@ -1,5 +1,5 @@
 ---
-metaTitle: "Mysql Connection Pool"
+metaTitle: "Node.js - Mysql Connection Pool"
 description: "Using a connection pool without database"
 ---
 

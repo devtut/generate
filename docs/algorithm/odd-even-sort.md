@@ -1,5 +1,5 @@
 ---
-metaTitle: "Odd-Even Sort"
+metaTitle: "Algorithm - Odd-Even Sort"
 description: "Odd-Even Sort Basic Information"
 ---
 

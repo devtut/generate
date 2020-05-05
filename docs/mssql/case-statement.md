@@ -1,5 +1,5 @@
 ---
-metaTitle: "CASE Statement"
+metaTitle: "Microsoft SQL Server - CASE Statement"
 description: "Simple CASE statement, Searched CASE statement"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON Support"
+metaTitle: "PostgreSQL - JSON Support"
 description: "Using JSONb operators, Querying complex JSON documents, Creating a pure JSON table"
 ---
 

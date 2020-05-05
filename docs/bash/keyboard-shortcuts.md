@@ -1,5 +1,5 @@
 ---
-metaTitle: "Keyboard shortcuts"
+metaTitle: "Bash - Keyboard shortcuts"
 description: "Editing Shortcuts, Recall Shortcuts, Job Control, Macros, Custome Key Bindings"
 ---
 

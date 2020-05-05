@@ -1,5 +1,5 @@
 ---
-metaTitle: "Linkage specifications"
+metaTitle: "C++ | Linkage specifications"
 description: "Signal handler for Unix-like operating system, Making a C library header compatible with C++"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Counters"
+metaTitle: "CSS - Counters"
 description: "Applying roman numerals styling to the counter output, Number each item using CSS Counter, Implementing multi-level numbering using CSS counters"
 ---
 

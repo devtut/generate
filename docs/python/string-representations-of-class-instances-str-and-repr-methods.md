@@ -1,5 +1,5 @@
 ---
-metaTitle: "String representations of class instances: __str__ and __repr__ methods"
+metaTitle: "Python - String representations of class instances: __str__ and __repr__ methods"
 description: "Motivation, Both methods implemented, eval-round-trip style __repr__()"
 ---
 

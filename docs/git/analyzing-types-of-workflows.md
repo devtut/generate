@@ -1,5 +1,5 @@
 ---
-metaTitle: "Analyzing types of workflows"
+metaTitle: "Git - Analyzing types of workflows"
 description: "Gitflow Workflow, Centralized Workflow, Feature Branch Workflow, GitHub Flow, Forking Workflow"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pivot and unpivot with data.table"
+metaTitle: "R - Pivot and unpivot with data.table"
 description: "Pivot and unpivot tabular data with data.table - I, Pivot and unpivot tabular data with data.table - II"
 ---
 

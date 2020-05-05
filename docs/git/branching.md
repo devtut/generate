@@ -1,5 +1,5 @@
 ---
-metaTitle: "Branching"
+metaTitle: "Git - Branching"
 description: "Creating and checking out new branches, Listing branches, Delete a remote branch, Quick switch to the previous branch, Check out a new branch tracking a remote branch, Delete a branch locally, Create an orphan branch (i.e. branch with no parent commit), Rename a branch, Push branch to remote, Searching in branches, Move current branch HEAD to an arbitrary commit, Overwrite single file in current working directory with the same from another branch"
 ---
 

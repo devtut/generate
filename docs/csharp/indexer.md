@@ -1,5 +1,5 @@
 ---
-metaTitle: "Indexer"
+metaTitle: "C# | Indexer"
 description: "A simple indexer, Overloading the indexer to create a SparseArray, Indexer with 2 arguments and interface"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "DROP or DELETE Database"
+metaTitle: "SQL - DROP or DELETE Database"
 description: "DROP Database"
 ---
 

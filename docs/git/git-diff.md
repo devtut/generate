@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Diff"
+metaTitle: "Git - Git Diff"
 description: "Show differences in working branch, Show changes between two commits, Show differences for staged files, Comparing branches, Show both staged and unstaged changes, Show differences for a specific file or directory, Viewing a word-diff for long lines, Using meld to see all modifications in the working directory, Show differences between current version and last version, Produce a patch-compatible diff, difference between two commit or branch, Diff UTF-16 encoded text and binary plist files, Viewing a three-way merge including the common ancestor, Show changes between two branches"
 ---
 

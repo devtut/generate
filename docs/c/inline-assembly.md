@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inline assembly"
+metaTitle: "C - Inline assembly"
 description: "gcc Basic asm support, gcc Extended asm support, gcc Inline assembly in macros"
 ---
 

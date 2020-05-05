@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cherry Picking"
+metaTitle: "Git - Cherry Picking"
 description: "Copying a commit from one branch to another, Copying a range of commits from one branch to another, Checking if a cherry-pick is required, Find commits yet to be applied to upstream"
 ---
 

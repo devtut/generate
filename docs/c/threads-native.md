@@ -1,5 +1,5 @@
 ---
-metaTitle: "Threads (native)"
+metaTitle: "C - Threads (native)"
 description: "Inititialization by one thread, Start several threads"
 ---
 

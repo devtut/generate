@@ -1,5 +1,5 @@
 ---
-metaTitle: "kivy - Cross-platform Python Framework for NUI Development"
+metaTitle: "Python - kivy - Cross-platform Python Framework for NUI Development"
 description: "First App"
 ---
 

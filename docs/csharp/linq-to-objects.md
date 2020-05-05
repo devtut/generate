@@ -1,5 +1,5 @@
 ---
-metaTitle: "Linq to Objects"
+metaTitle: "C# | Linq to Objects"
 description: "Using LINQ to Objects in C#, How LINQ to Object executes queries"
 ---
 

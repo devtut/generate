@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hooks"
+metaTitle: "Git - Hooks"
 description: "Pre-push, Verify Maven build (or other build system) before committing, Automatically forward certain pushes to other repositories, Commit-msg, Local hooks, Post-checkout, Post-commit, Post-receive, Pre-commit, Prepare-commit-msg, Pre-rebase, Pre-receive, Update"
 ---
 

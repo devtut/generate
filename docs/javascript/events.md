@@ -1,5 +1,5 @@
 ---
-metaTitle: "Events"
+metaTitle: "JavsScript - Events"
 description: "Page, DOM and Browser loading"
 ---
 

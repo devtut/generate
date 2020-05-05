@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java deployment"
+metaTitle: "Java - Java deployment"
 description: "Making an executable JAR from the command line, Creating JAR, WAR and EAR files, Introduction to Java Web Start, Creating an UberJAR for an application and its dependencies"
 ---
 

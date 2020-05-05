@@ -1,5 +1,5 @@
 ---
-metaTitle: "log4j / log4j2"
+metaTitle: "Java - log4j / log4j2"
 description: "How to get Log4j, Setting up property file, Properties-File to log to DB, How to use Log4j in Java code, Basic log4j2.xml configuration file, Migrating from log4j 1.x to 2.x, Filter Logoutput by level (log4j 1.x)"
 ---
 

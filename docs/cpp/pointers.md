@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pointers"
+metaTitle: "C++ | Pointers"
 description: "Pointer basics, Pointer Operations, Pointer Arithmetic"
 ---
 

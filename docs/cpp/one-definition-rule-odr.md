@@ -1,5 +1,5 @@
 ---
-metaTitle: "One Definition Rule (ODR)"
+metaTitle: "C++ | One Definition Rule (ODR)"
 description: "Multiply defined function, Inline functions, ODR violation via overload resolution"
 ---
 

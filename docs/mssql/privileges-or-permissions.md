@@ -1,5 +1,5 @@
 ---
-metaTitle: "Privileges or Permissions"
+metaTitle: "Microsoft SQL Server - Privileges or Permissions"
 description: "Simple rules"
 ---
 

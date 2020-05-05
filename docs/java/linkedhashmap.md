@@ -1,5 +1,5 @@
 ---
-metaTitle: "LinkedHashMap"
+metaTitle: "Java - LinkedHashMap"
 description: "Java LinkedHashMap class"
 ---
 

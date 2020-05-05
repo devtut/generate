@@ -1,5 +1,5 @@
 ---
-metaTitle: "data.table"
+metaTitle: "R - data.table"
 description: "Creating a data.table, Special symbols in data.table, Adding and modifying columns, Writing code compatible with both data.frame and data.table, Setting keys in data.table"
 ---
 

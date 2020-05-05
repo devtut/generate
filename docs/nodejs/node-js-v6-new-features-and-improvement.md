@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js v6 New Features and Improvement"
+metaTitle: "Node.js - Node.js v6 New Features and Improvement"
 description: "Default Function Parameters, Rest Parameters, Spread Operator, Arrow Functions, this in Arrow Function"
 ---
 

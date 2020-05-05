@@ -1,5 +1,5 @@
 ---
-metaTitle: "Code blocks, execution frames, and namespaces"
+metaTitle: "Python - Code blocks, execution frames, and namespaces"
 description: "Code block namespaces"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic Method Dispatch"
+metaTitle: "Java - Dynamic Method Dispatch"
 description: "Dynamic Method Dispatch - Example Code"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Normalizing Browser Styles"
+metaTitle: "CSS - Normalizing Browser Styles"
 description: "normalize.css, Approaches and Examples"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Limit Result Set"
+metaTitle: "Microsoft SQL Server - Limit Result Set"
 description: "Limiting With PERCENT, Limiting With TOP, Limiting with FETCH"
 ---
 

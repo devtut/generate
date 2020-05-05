@@ -1,5 +1,5 @@
 ---
-metaTitle: "Submodules"
+metaTitle: "Git - Submodules"
 description: "Cloning a Git repository having submodules, Updating a Submodule, Adding a submodule, Setting a submodule to follow a branch, Moving a submodule, Removing a submodule"
 ---
 

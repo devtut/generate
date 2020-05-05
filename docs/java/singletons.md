@@ -1,5 +1,5 @@
 ---
-metaTitle: "Singletons"
+metaTitle: "Java - Singletons"
 description: "Enum Singleton, Singleton without use of Enum (eager initialization), Thread-safe lazy initialization using holder class | Bill Pugh Singleton implementation, Thread safe Singleton with double checked locking, Extending singleton (singleton inheritance)"
 ---
 

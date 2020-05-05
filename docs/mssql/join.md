@@ -1,5 +1,5 @@
 ---
-metaTitle: "Join"
+metaTitle: "Microsoft SQL Server - Join"
 description: "Inner Join, Outer Join, Using Join in an Update, Join on a Subquery, Cross Join, Self Join, Accidentally turning an outer join into an inner join, Delete using Join"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Console"
+metaTitle: "JavsScript - Console"
 description: "Measuring time - console.time(), Formatting console output, Printing to a browser's debugging console, Including a stack trace when logging - console.trace(), Tabulating values - console.table(), Counting - console.count(), Debugging with assertions - console.assert(), Clearing the console - console.clear(), Displaying objects and XML interactively - console.dir(), console.dirxml()"
 ---
 

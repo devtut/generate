@@ -1,5 +1,5 @@
 ---
-metaTitle: "Squashing"
+metaTitle: "Git - Squashing"
 description: "Squash Recent Commits Without Rebasing, Squashing Commits During a Rebase, Squashing Commit During Merge, Autosquash: Committing code you want to squash during a rebase, Autosquashing and fixups"
 ---
 

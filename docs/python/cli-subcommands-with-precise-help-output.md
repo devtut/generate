@@ -1,5 +1,5 @@
 ---
-metaTitle: "CLI subcommands with precise help output"
+metaTitle: "Python - CLI subcommands with precise help output"
 description: "Native way (no libraries), argparse (default help formatter), argparse (custom help formatter)"
 ---
 

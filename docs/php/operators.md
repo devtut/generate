@@ -1,5 +1,5 @@
 ---
-metaTitle: "Operators"
+metaTitle: "PHP - Operators"
 description: "Null Coalescing Operator (??), Spaceship Operator (<=>), Ternary Operator (?:), Incrementing (++) and Decrementing Operators (--), Execution Operator (``), Logical Operators (&&/AND and ||/OR), String Operators (. and .=), Object and Class Operators, Combined Assignment (+= etc), Altering operator precedence (with parentheses), Basic Assignment (=), Association, Comparison Operators, instanceof (type operator), Bitwise Operators"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exceptions"
+metaTitle: "C++ | Exceptions"
 description: "Catching exceptions, Rethrow (propagate) exception, Best practice: throw by value, catch by const reference, std::uncaught_exceptions, Custom exception, Function Try Block for regular function, Nested exception, Function Try Blocks In constructor, Function Try Blocks In destructor"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Install Mysql container with Docker-Compose"
+metaTitle: "MySQL - Install Mysql container with Docker-Compose"
 description: "Simple example with docker-compose"
 ---
 

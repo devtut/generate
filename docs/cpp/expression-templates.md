@@ -1,5 +1,5 @@
 ---
-metaTitle: "Expression templates"
+metaTitle: "C++ | Expression templates"
 description: "A basic example illustrating expression templates, Basic expression templates on element-wise algebraic expressions"
 ---
 

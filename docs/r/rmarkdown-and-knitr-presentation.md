@@ -1,5 +1,5 @@
 ---
-metaTitle: "RMarkdown and knitr presentation"
+metaTitle: "R - RMarkdown and knitr presentation"
 description: "Adding a footer to an ioslides presentation, Rstudio example"
 ---
 

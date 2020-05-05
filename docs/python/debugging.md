@@ -1,5 +1,5 @@
 ---
-metaTitle: "Debugging"
+metaTitle: "Python - Debugging"
 description: "The Python Debugger: Step-through Debugging with _pdb_, Via IPython and ipdb, Remote debugger"
 ---
 

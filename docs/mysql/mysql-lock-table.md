@@ -1,5 +1,5 @@
 ---
-metaTitle: "MySQL LOCK TABLE"
+metaTitle: "MySQL - MySQL LOCK TABLE"
 description: "Mysql Locks, Row Level Locking"
 ---
 

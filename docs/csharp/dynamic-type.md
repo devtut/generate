@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic type"
+metaTitle: "C# | Dynamic type"
 description: "Creating a dynamic object with properties, Creating a dynamic variable, Returning dynamic, Handling Specific Types Unknown at Compile Time"
 ---
 

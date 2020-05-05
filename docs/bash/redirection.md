@@ -1,5 +1,5 @@
 ---
-metaTitle: "Redirection"
+metaTitle: "Bash - Redirection"
 description: "Append vs Truncate, Redirecting both STDOUT and STDERR, Redirecting standard output, Using named pipes, Redirecting multiple commands to the same file, Print error messages to stderr, Redirection to network addresses, Redirecting STDIN, Redirecting STDERR, STDIN, STDOUT and STDERR explained"
 ---
 

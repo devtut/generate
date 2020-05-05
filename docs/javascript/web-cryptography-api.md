@@ -1,5 +1,5 @@
 ---
-metaTitle: "Web Cryptography API"
+metaTitle: "JavsScript - Web Cryptography API"
 description: "Creating digests (e.g. SHA-256), Cryptographically random data, Generating RSA key pair and converting to PEM format, Converting PEM key pair to CryptoKey"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Archive"
+metaTitle: "Git - Archive"
 description: "Create an archive of git repository, Create an archive of git repository with directory prefix, Create archive of git repository based on specific branch, revision, tag or directory"
 ---
 

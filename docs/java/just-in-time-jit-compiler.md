@@ -1,5 +1,5 @@
 ---
-metaTitle: "Just in Time (JIT) compiler"
+metaTitle: "Java - Just in Time (JIT) compiler"
 description: "Overview"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lists"
+metaTitle: "R - Lists"
 description: "Quick Introduction to Lists, Introduction to lists, Serialization: using lists to pass informations, Reasons for using lists, Convert a list to a vector while keeping empty list elements"
 ---
 

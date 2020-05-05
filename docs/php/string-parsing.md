@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Parsing"
+metaTitle: "PHP - String Parsing"
 description: "Splitting a string by separators, Searching a substring with strpos, Substring, Parsing string using regular expressions"
 ---
 

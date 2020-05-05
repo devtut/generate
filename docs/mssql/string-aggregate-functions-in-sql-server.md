@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Aggregate functions in SQL Server"
+metaTitle: "Microsoft SQL Server - String Aggregate functions in SQL Server"
 description: "Using STUFF for string aggregation, String_Agg for String Aggregation"
 ---
 

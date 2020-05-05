@@ -1,5 +1,5 @@
 ---
-metaTitle: "lubridate"
+metaTitle: "R - lubridate"
 description: "Parsing dates and datetimes from strings with lubridate, Difference between period and duration, Instants, Intervals, Durations and Periods, Manipulating date and time in lubridate, Time Zones, Parsing date and time in lubridate, Rounding dates"
 ---
 

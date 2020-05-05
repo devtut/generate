@@ -1,5 +1,5 @@
 ---
-metaTitle: "groupby()"
+metaTitle: "Python - groupby()"
 description: "Example 4, Example 2, Example 3, Example 1"
 ---
 

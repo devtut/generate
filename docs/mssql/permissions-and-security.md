@@ -1,5 +1,5 @@
 ---
-metaTitle: "Permissions and Security"
+metaTitle: "Microsoft SQL Server - Permissions and Security"
 description: "Assign Object Permissions to a user"
 ---
 

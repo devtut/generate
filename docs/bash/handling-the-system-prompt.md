@@ -1,5 +1,5 @@
 ---
-metaTitle: "Handling the system prompt"
+metaTitle: "Bash - Handling the system prompt"
 description: "Using the PROMPT_COMMAND envrionment variable, Using PS2, Using PS3, Using PS4, Using PS1"
 ---
 

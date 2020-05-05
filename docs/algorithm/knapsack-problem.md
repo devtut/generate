@@ -1,5 +1,5 @@
 ---
-metaTitle: "Knapsack Problem"
+metaTitle: "Algorithm - Knapsack Problem"
 description: "Knapsack Problem Basics, Solution Implemented in C#"
 ---
 

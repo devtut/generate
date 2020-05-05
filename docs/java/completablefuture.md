@@ -1,5 +1,5 @@
 ---
-metaTitle: "CompletableFuture"
+metaTitle: "Java - CompletableFuture"
 description: "Simple Example of CompletableFuture, Convert blocking method to asynchonous"
 ---
 

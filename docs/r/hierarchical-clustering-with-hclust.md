@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hierarchical clustering with hclust"
+metaTitle: "R - Hierarchical clustering with hclust"
 description: "Example 1  - Basic use of hclust,  display of dendrogram, plot clusters, Example 2 - hclust and outliers"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Securing Node.js applications"
+metaTitle: "Node.js - Securing Node.js applications"
 description: "SSL/TLS in Node.js, Preventing Cross Site Request Forgery (CSRF), Setting up an HTTPS server, Using HTTPS, Secure express.js 3 Application"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comments"
+metaTitle: "PHP - Comments"
 description: "Single Line Comments, Multi Line Comments"
 ---
 

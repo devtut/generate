@@ -1,5 +1,5 @@
 ---
-metaTitle: "Clipping and Masking"
+metaTitle: "CSS - Clipping and Masking"
 description: "Simple mask that fades an image from solid to transparent, Clipping (Circle), Clipping and Masking: Overview and Difference, Clipping (Polygon), Using masks to cut a hole in the middle of an image, Using masks to create images with irregular shapes"
 ---
 

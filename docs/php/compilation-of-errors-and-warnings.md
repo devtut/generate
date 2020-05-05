@@ -1,5 +1,5 @@
 ---
-metaTitle: "Compilation of Errors and Warnings"
+metaTitle: "PHP - Compilation of Errors and Warnings"
 description: "Notice: Undefined index, Warning: Cannot modify header information - headers already sent, Parse error: syntax error, unexpected T_PAAMAYIM_NEKUDOTAYIM"
 ---
 

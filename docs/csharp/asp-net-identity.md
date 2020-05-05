@@ -1,5 +1,5 @@
 ---
-metaTitle: "ASP.NET Identity"
+metaTitle: "C# | ASP.NET Identity"
 description: "How to implement password reset token in asp.net identity using user manager."
 ---
 

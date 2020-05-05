@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using Browserfiy to resolve 'required' error with browsers"
+metaTitle: "Node.js - Using Browserfiy to resolve 'required' error with browsers"
 description: "Example - file.js"
 ---
 

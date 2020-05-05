@@ -1,5 +1,5 @@
 ---
-metaTitle: "Debugging"
+metaTitle: "Bash - Debugging"
 description: "Checking the syntax of a script with -n, Debugging usigh bashdb, Debugging a bash script with -x"
 ---
 

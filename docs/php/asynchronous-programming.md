@@ -1,5 +1,5 @@
 ---
-metaTitle: "Asynchronous programming"
+metaTitle: "PHP - Asynchronous programming"
 description: "Advantages of Generators, Using Icicle event loop, Spawning non-blocking processes with proc_open(), Using Amp event loop, Reading serial port with Event and DIO, HTTP Client Based on Event Extension, HTTP Client Based on Ev Extension"
 ---
 

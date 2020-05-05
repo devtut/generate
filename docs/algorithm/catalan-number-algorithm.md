@@ -1,5 +1,5 @@
 ---
-metaTitle: "Catalan Number Algorithm"
+metaTitle: "Algorithm - Catalan Number Algorithm"
 description: "Catalan Number Algorithm Basic Information, C# Implementation"
 ---
 

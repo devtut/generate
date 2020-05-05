@@ -1,5 +1,5 @@
 ---
-metaTitle: "Collections"
+metaTitle: "Java - Collections"
 description: "Removing items from a List within a loop, Constructing collections from existing data, Declaring an ArrayList and adding objects, Iterating over Collections, Immutable Empty Collections, Unmodifiable Collection, Pitfall: concurrent modification exceptions, Sub Collections, Join lists, Removing matching items from Lists using Iterator., Collections and Primitive Values, Creating your own Iterable structure for use with Iterator or for-each loop."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Merge Sort"
+metaTitle: "Algorithm - Merge Sort"
 description: "Merge Sort Basics, Merge Sort Implementation in Go, Merge Sort Implementation in  C & C#, Merge Sort Implementation in Java, Merge Sort Implementation in Python, Bottoms-up Java Implementation"
 ---
 

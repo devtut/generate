@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dealing with sparse or missing data"
+metaTitle: "MySQL - Dealing with sparse or missing data"
 description: "Working with columns containg NULL values"
 ---
 

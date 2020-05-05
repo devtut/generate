@@ -1,5 +1,5 @@
 ---
-metaTitle: "Radix Sort"
+metaTitle: "Algorithm - Radix Sort"
 description: "Radix Sort Basic Information"
 ---
 

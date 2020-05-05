@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.DirectoryServices.Protocols.LdapConnection"
+metaTitle: "C# | System.DirectoryServices.Protocols.LdapConnection"
 description: "Authenticated SSL LDAP connection, SSL cert does not match reverse DNS, Super Simple anonymous LDAP"
 ---
 

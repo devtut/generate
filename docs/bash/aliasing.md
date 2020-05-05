@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aliasing"
+metaTitle: "Bash - Aliasing"
 description: "Bypass an alias, Create an Alias, Remove an alias, List all Aliases, Expand alias, The BASH_ALIASES is an internal bash assoc array"
 ---
 

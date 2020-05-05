@@ -1,5 +1,5 @@
 ---
-metaTitle: "Mysql Performance Tips"
+metaTitle: "MySQL - Mysql Performance Tips"
 description: "Optimizing Storage Layout for InnoDB Tables, Building a composite index, Select Statement Optimization"
 ---
 

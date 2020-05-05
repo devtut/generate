@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js Architecture & Inner Workings"
+metaTitle: "Node.js - Node.js Architecture & Inner Workings"
 description: "Node.js - under the hood, Node.js - in motion"
 ---
 

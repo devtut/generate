@@ -1,5 +1,5 @@
 ---
-metaTitle: "Local Inner Class"
+metaTitle: "Java - Local Inner Class"
 description: "Local Inner Class"
 ---
 

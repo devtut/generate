@@ -1,5 +1,5 @@
 ---
-metaTitle: "Currency and Money"
+metaTitle: "Java - Currency and Money"
 description: "Add custom currency"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Annotation"
+metaTitle: "C# | Data Annotation"
 description: "Creating a custom validation attribute, Data Annotation Basics, Manually Execute Validation Attributes, EditableAttribute (data modeling attribute), Validation Attributes, DisplayNameAttribute (display attribute)"
 ---
 

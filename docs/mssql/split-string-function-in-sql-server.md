@@ -1,5 +1,5 @@
 ---
-metaTitle: "Split String function in Sql Server"
+metaTitle: "Microsoft SQL Server - Split String function in Sql Server"
 description: "Split string in Sql Server 2008/2012/2014 using XML, Split a String in Sql Server 2016, T-SQL Table variable and XML"
 ---
 

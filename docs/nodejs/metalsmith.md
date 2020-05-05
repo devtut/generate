@@ -1,5 +1,5 @@
 ---
-metaTitle: "metalsmith"
+metaTitle: "Node.js - metalsmith"
 description: "Build a simple blog"
 ---
 

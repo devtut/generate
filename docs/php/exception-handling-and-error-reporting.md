@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exception Handling and Error Reporting"
+metaTitle: "PHP - Exception Handling and Error Reporting"
 description: "Setting error reporting and where to display them, Logging fatal errors, Exception and Error handling"
 ---
 

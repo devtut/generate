@@ -1,5 +1,5 @@
 ---
-metaTitle: "Indexes and Keys"
+metaTitle: "MySQL - Indexes and Keys"
 description: "Create index, Create unique index, Drop index, Create composite index, AUTO_INCREMENT key"
 ---
 

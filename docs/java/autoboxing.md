@@ -1,5 +1,5 @@
 ---
-metaTitle: "Autoboxing"
+metaTitle: "Java - Autoboxing"
 description: "Using int and Integer interchangeably, Auto-unboxing may lead to NullPointerException, Using Boolean in if statement, Memory and Computational Overhead of Autoboxing, Different Cases When Integer and int can be used interchangeably"
 ---
 

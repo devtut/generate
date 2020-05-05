@@ -1,5 +1,5 @@
 ---
-metaTitle: "HTTP clients"
+metaTitle: ".NET Framework - HTTP clients"
 description: "Reading GET response as string using System.Net.HttpClient, Basic HTTP downloader using System.Net.Http.HttpClient, Reading GET response as string using System.Net.HttpWebRequest, Reading GET response as string using System.Net.WebClient, Sending a POST request with a string payload using System.Net.HttpWebRequest, Sending a POST request with a string payload using System.Net.WebClient, Sending a POST request with a string payload using System.Net.HttpClient"
 ---
 

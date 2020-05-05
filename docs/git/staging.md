@@ -1,5 +1,5 @@
 ---
-metaTitle: "Staging"
+metaTitle: "Git - Staging"
 description: "Staging All Changes to Files, Unstage a file that contains changes, Add changes by hunk, Interactive add, Show Staged Changes, Staging A Single File, Stage deleted files"
 ---
 

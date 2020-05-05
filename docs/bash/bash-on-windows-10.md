@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bash on Windows 10"
+metaTitle: "Bash - Bash on Windows 10"
 description: "Readme"
 ---
 

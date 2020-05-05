@@ -1,5 +1,5 @@
 ---
-metaTitle: "FOR JSON"
+metaTitle: "Microsoft SQL Server - FOR JSON"
 description: "FOR JSON PATH, FOR JSON PATH with column aliases, FOR JSON clause without array wrapper (single object in output), INCLUDE_NULL_VALUES, Wrapping results with ROOT object, FOR JSON AUTO, Creating custom nested JSON structure"
 ---
 

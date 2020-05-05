@@ -1,5 +1,5 @@
 ---
-metaTitle: "Structure and Formatting of a CSS Rule"
+metaTitle: "CSS - Structure and Formatting of a CSS Rule"
 description: "Property Lists, Rules, Selectors, and Declaration Blocks, Multiple Selectors"
 ---
 

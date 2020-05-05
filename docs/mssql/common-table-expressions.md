@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common Table Expressions"
+metaTitle: "Microsoft SQL Server - Common Table Expressions"
 description: "Generate a table of dates using CTE, Employee Hierarchy, Delete duplicate rows using CTE, Recursive CTE, Find nth highest salary using CTE, CTE with multiple AS statements"
 ---
 

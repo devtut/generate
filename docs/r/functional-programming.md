@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functional programming"
+metaTitle: "R - Functional programming"
 description: "Built-in Higher Order Functions"
 ---
 

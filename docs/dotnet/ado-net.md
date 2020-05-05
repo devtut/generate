@@ -1,5 +1,5 @@
 ---
-metaTitle: "ADO.NET"
+metaTitle: ".NET Framework - ADO.NET"
 description: "Best Practices - Executing Sql Statements, Executing SQL statements as a command, Using common interfaces to abstract away vendor specific classes"
 ---
 

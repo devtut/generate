@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variable arguments"
+metaTitle: "C - Variable arguments"
 description: "Using an explicit count argument to determine the length of the va_list, Using terminator values to determine the end of va_list, Implementing functions with a `printf()`-like interface, Using a format string"
 ---
 

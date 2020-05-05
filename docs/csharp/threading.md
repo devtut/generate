@@ -1,5 +1,5 @@
 ---
-metaTitle: "Threading"
+metaTitle: "C# | Threading"
 description: "Avoiding Reading and Writing Data Simultaneously, Creating and Starting a Second Thread, Parallel.ForEach Loop, Simple Complete Threading Demo, Deadlocks (hold resource and wait), Creating One Thread Per Processor, Simple Complete Threading Demo using Tasks, Explicit Task Parallism, Implicit Task Parallelism, Starting a thread with parameters, Deadlocks (two threads waiting on eachother)"
 ---
 

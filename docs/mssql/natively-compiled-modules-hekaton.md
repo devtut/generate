@@ -1,5 +1,5 @@
 ---
-metaTitle: "Natively compiled modules (Hekaton)"
+metaTitle: "Microsoft SQL Server - Natively compiled modules (Hekaton)"
 description: "Natively compiled stored procedure, Natively compiled scalar function, Native inline table value function"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Branch Name on Bash Ubuntu"
+metaTitle: "Git - Git Branch Name on Bash Ubuntu"
 description: "Branch Name in terminal"
 ---
 

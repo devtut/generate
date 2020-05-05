@@ -1,5 +1,5 @@
 ---
-metaTitle: "Code Contracts and Assertions"
+metaTitle: "C# | Code Contracts and Assertions"
 description: "Assertions to check logic should always be true"
 ---
 

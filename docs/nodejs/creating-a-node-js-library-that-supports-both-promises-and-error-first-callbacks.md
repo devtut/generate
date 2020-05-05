@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating a Node.js Library that Supports Both Promises and Error-First Callbacks"
+metaTitle: "Node.js - Creating a Node.js Library that Supports Both Promises and Error-First Callbacks"
 description: "Example Module and Corresponding Program using Bluebird"
 ---
 

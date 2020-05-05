@@ -1,5 +1,5 @@
 ---
-metaTitle: "Feature Queries"
+metaTitle: "CSS - Feature Queries"
 description: "Basic @supports usage, Chaining feature detections"
 ---
 

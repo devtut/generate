@@ -1,5 +1,5 @@
 ---
-metaTitle: "ijson"
+metaTitle: "Python - ijson"
 description: "Simple Example"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Avoiding date using printf"
+metaTitle: "Bash - Avoiding date using printf"
 description: "Get the current date, Set variable to current time"
 ---
 

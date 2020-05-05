@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Structures in C++"
+metaTitle: "C++ | Data Structures in C++"
 description: "Linked List implementation in C++"
 ---
 

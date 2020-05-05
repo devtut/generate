@@ -1,5 +1,5 @@
 ---
-metaTitle: "Filters & Filter Functions"
+metaTitle: "PHP - Filters & Filter Functions"
 description: "Validate Email Address, Validating A Value Is An Integer, Validating An Integer Falls In A Range, Validate a URL, Sanitize filters, Validating Boolean Values, Validating A Number Is A Float, Validate A MAC Address, Sanitze Email Addresses, Sanitize Integers, Sanitize URLs, Sanitize Floats, Validate IP Addresses"
 ---
 

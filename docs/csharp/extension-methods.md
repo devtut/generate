@@ -1,5 +1,5 @@
 ---
-metaTitle: "Extension Methods"
+metaTitle: "C# | Extension Methods"
 description: "Extension methods - overview, Null checking, Explicitly using an extension method, Extension methods can only see public (or internal) members of the extended class, Generic Extension Methods, Extension methods for chaining, Extension methods with Enumeration, Extension methods dispatch based on static type, Extension methods on Interfaces, Extension methods aren't supported by dynamic code., Extension methods in combination with interfaces, Extensions and interfaces together enable DRY code and mixin-like functionality, IList<T> Extension Method Example: Comparing 2 Lists, Extension methods as strongly typed wrappers, Using Extension methods to create beautiful mapper classes, Using Extension methods to build new collection types (e.g. DictList), Extension methods for handling special cases, Using Extension methods with Static methods and Callbacks"
 ---
 

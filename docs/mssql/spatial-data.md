@@ -1,5 +1,5 @@
 ---
-metaTitle: "Spatial Data"
+metaTitle: "Microsoft SQL Server - Spatial Data"
 description: "POINT"
 ---
 

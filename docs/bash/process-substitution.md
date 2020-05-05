@@ -1,5 +1,5 @@
 ---
-metaTitle: "Process substitution"
+metaTitle: "Bash - Process substitution"
 description: "Compare two files from the web, Feed a while loop with the output of a command, Concatenating files, With paste command, Stream a file through multiple programs at once, To avoid usage of a sub-shell"
 ---
 

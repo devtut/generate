@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using a .gitattributes file"
+metaTitle: "Git - Using a .gitattributes file"
 description: "Automatic Line Ending Normalization, Identify Binary Files, Disable Line Ending Normalization, Prefilled .gitattribute Templates"
 ---
 

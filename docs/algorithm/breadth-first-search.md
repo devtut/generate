@@ -1,5 +1,5 @@
 ---
-metaTitle: "Breadth-First Search"
+metaTitle: "Algorithm - Breadth-First Search"
 description: "Finding the Shortest Path from Source to other Nodes, Finding Shortest Path from Source in a  2D graph, Connected Components Of Undirected Graph Using BFS."
 ---
 

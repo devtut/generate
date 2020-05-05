@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Editions, Versions, Releases and Distributions"
+metaTitle: "Java - Java Editions, Versions, Releases and Distributions"
 description: "Differences between Java SE JRE or Java SE JDK distributions, Java SE Versions, Differences between Java EE, Java SE, Java ME and JavaFX, What is the difference between Oracle Hotspot and OpenJDK"
 ---
 

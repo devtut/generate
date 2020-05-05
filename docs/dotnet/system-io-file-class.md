@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.IO.File class"
+metaTitle: ".NET Framework - System.IO.File class"
 description: "Delete a file, Strip unwanted lines from a text file, Convert text file encoding, Enumerate files older than a specified amount, Move a File from one location to another, Touch a large amount of files (to update last write time)"
 ---
 

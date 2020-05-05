@@ -1,5 +1,5 @@
 ---
-metaTitle: "Centering"
+metaTitle: "CSS - Centering"
 description: "Using Flexbox, Using CSS transform, Using margin: 0 auto;, Using text-align, Using position: absolute, Using calc(), Vertical align anything with 3 lines of code, Using line-height, Ghost element technique (Michał Czernow's hack), Centering in relation to another item, Vertically align an image inside div, Centering vertically and horizontally without worrying about height or width, Centering with fixed size, Vertically align dynamic height elements, Horizontal and Vertical centering using table layout"
 ---
 

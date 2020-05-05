@@ -1,5 +1,5 @@
 ---
-metaTitle: "Installing packages"
+metaTitle: "R - Installing packages"
 description: "Download and install packages from repositories, Install packages from GitHub, Install package from local source, Using a CLI package manager -- basic pacman usage, Install local development version of a package"
 ---
 

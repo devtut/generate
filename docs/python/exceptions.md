@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exceptions"
+metaTitle: "Python - Exceptions"
 description: "Do not catch everything!, Re-raising exceptions, Catching multiple exceptions, Catching Exceptions, Exception Hierarchy, Else, Raising Exceptions, Creating custom exception types, Exceptions are Objects too, Practical examples of exception handling, Running clean-up code with finally, Chain exceptions with raise from"
 ---
 

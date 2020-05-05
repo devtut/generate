@@ -1,5 +1,5 @@
 ---
-metaTitle: "Unit Testing in C++"
+metaTitle: "C++ | Unit Testing in C++"
 description: "Google Test, Catch"
 ---
 

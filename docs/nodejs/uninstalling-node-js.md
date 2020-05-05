@@ -1,5 +1,5 @@
 ---
-metaTitle: "Uninstalling Node.js"
+metaTitle: "Node.js - Uninstalling Node.js"
 description: "Completely uninstall Node.js on Mac OSX, Uninstall Node.js on Windows"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Remote Method Invocation (RMI)"
+metaTitle: "Java - Remote Method Invocation (RMI)"
 description: "Callback: invoking methods on a client, Client-Server: invoking methods in one JVM from another, Simple RMI example with Client and Server implementation"
 ---
 

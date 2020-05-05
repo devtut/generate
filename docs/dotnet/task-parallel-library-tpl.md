@@ -1,5 +1,5 @@
 ---
-metaTitle: "Task Parallel Library (TPL)"
+metaTitle: ".NET Framework - Task Parallel Library (TPL)"
 description: "Basic producer-consumer loop (BlockingCollection), Parallel.Invoke, Task: basic instantiation and Wait, Task.WhenAll, Parallel.ForEach, Parallel.For, Task: Returning a value, Task: WaitAll and variable capturing, Task: WaitAny, Task: handling exceptions (using Wait), Task: handling exceptions (without using Wait), Task: cancelling using CancellationToken, Task.WhenAny, Flowing execution context with AsyncLocal, Parallel.ForEach in VB.NET"
 ---
 

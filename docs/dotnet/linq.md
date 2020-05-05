@@ -1,5 +1,5 @@
 ---
-metaTitle: "LINQ"
+metaTitle: ".NET Framework - LINQ"
 description: "SelectMany (flat map), Where (filter), Any, GroupJoin, Except, Zip, Aggregate (fold), ToLookup, Intersect, Concat, All, Sum, SequenceEqual, Min, Distinct, Count, Cast, Select (map), OrderBy, OrderByDescending, Contains, First (find), Single, Last, LastOrDefault, SingleOrDefault, FirstOrDefault, Skip, Take, Reverse, OfType, Max, Average, GroupBy, ToDictionary, Union, ToArray, ToList, ElementAt, ElementAtOrDefault, SkipWhile, TakeWhile, DefaultIfEmpty, Join, Empty, ThenBy, Range, Left Outer Join, Repeat"
 ---
 

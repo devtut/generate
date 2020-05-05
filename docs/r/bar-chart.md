@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bar Chart"
+metaTitle: "R - Bar Chart"
 description: "barplot() function"
 ---
 

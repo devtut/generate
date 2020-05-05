@@ -1,5 +1,5 @@
 ---
-metaTitle: "Equation Solving"
+metaTitle: "Algorithm - Equation Solving"
 description: "Linear Equation, Non-Linear Equation"
 ---
 

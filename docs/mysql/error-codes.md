@@ -1,5 +1,5 @@
 ---
-metaTitle: "Error codes"
+metaTitle: "MySQL - Error codes"
 description: "Error code 1064: Syntax error, Error code 1175: Safe Update, Error code 1215: Cannot add foreign key constraint, 1067, 1292, 1366, 1411 - Bad Value for number, date, default, etc., 1045 Access denied, 1236 impossible position in Replication, 2002, 2003 Cannot connect, 126, 127, 134, 144, 145, 139, 1366, 126, 1054, 1146, 1062, 24"
 ---
 

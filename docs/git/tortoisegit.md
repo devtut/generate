@@ -1,5 +1,5 @@
 ---
-metaTitle: "TortoiseGit"
+metaTitle: "Git - TortoiseGit"
 description: "Ignoring Files and Folders, Branching, Assume unchanged, Squash commits"
 ---
 

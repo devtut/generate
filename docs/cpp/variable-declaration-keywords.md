@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variable Declaration Keywords"
+metaTitle: "C++ | Variable Declaration Keywords"
 description: "decltype, const, signed, unsigned, volatile"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arrays"
+metaTitle: "C++ | Arrays"
 description: "Array initialization, A fixed size raw array matrix (that is, a 2D raw array)., Dynamically sized raw array, Array size: type safe at compile time., Expanding dynamic size array by using std::vector., A dynamic size matrix using std::vector for storage."
 ---
 

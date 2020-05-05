@@ -1,5 +1,5 @@
 ---
-metaTitle: "Travelling Salesman"
+metaTitle: "Algorithm - Travelling Salesman"
 description: "Brute Force Algorithm, Dynamic Programming Algorithm"
 ---
 

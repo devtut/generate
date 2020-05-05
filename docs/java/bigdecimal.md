@@ -1,5 +1,5 @@
 ---
-metaTitle: "BigDecimal"
+metaTitle: "Java - BigDecimal"
 description: "Comparing BigDecimals, Using BigDecimal instead of float, Mathematical operations with BigDecimal, BigDecimal.valueOf(), Initialization of BigDecimals with value zero, one or ten, BigDecimal objects are immutable"
 ---
 

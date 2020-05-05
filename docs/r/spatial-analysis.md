@@ -1,5 +1,5 @@
 ---
-metaTitle: "spatial analysis"
+metaTitle: "R - spatial analysis"
 description: "Create spatial points from XY data set, Importing a shape file (.shp)"
 ---
 

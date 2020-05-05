@@ -1,5 +1,5 @@
 ---
-metaTitle: "Map"
+metaTitle: "JavsScript - Map"
 description: "Creating a Map, Clearing a Map, Removing an element from a Map, Checking if a key exists in a Map, Iterating Maps, Getting and setting elements, Getting the number of elements of a Map"
 ---
 

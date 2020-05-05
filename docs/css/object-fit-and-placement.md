@@ -1,5 +1,5 @@
 ---
-metaTitle: "Object Fit and Placement"
+metaTitle: "CSS - Object Fit and Placement"
 description: "object-fit"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "CREATE TABLE"
+metaTitle: "SQL - CREATE TABLE"
 description: "Create a New Table, Create Table From Select, CREATE TABLE With FOREIGN KEY, Duplicate a table, Create a Temporary or In-Memory Table"
 ---
 

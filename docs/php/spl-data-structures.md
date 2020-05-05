@@ -1,5 +1,5 @@
 ---
-metaTitle: "SPL data structures"
+metaTitle: "PHP - SPL data structures"
 description: "SplFixedArray"
 ---
 

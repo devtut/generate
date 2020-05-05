@@ -1,5 +1,5 @@
 ---
-metaTitle: "StringBuffer"
+metaTitle: "Java - StringBuffer"
 description: "String Buffer class"
 ---
 

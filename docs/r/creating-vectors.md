@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating vectors"
+metaTitle: "R - Creating vectors"
 description: "Creating named vectors, Vectors from build in constants: Sequences of letters & month names, Sequence of numbers, seq(), Vectors, Expanding a vector with the rep() function"
 ---
 

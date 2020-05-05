@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generating a range of dates"
+metaTitle: "Microsoft SQL Server - Generating a range of dates"
 description: "Generating Date Range With Recursive CTE, Generating a Date Range With a Tally Table"
 ---
 

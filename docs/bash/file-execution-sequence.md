@@ -1,5 +1,5 @@
 ---
-metaTitle: "File execution sequence"
+metaTitle: "Bash - File execution sequence"
 description: ".profile vs .bash_profile (and .bash_login)"
 ---
 

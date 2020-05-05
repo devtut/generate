@@ -1,5 +1,5 @@
 ---
-metaTitle: "Require()"
+metaTitle: "Node.js - Require()"
 description: "Beginning require() use with a function and file, Beginning require() use with an NPM package"
 ---
 

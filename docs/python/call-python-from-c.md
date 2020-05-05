@@ -1,5 +1,5 @@
 ---
-metaTitle: "Call Python from C#"
+metaTitle: "Python - Call Python from C#"
 description: "Python script to be called by C# application, C# code calling Python script"
 ---
 

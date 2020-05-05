@@ -1,5 +1,5 @@
 ---
-metaTitle: "Survival analysis"
+metaTitle: "R - Survival analysis"
 description: "Random Forest Survival Analysis with randomForestSRC, Introduction - basic fitting and plotting of parametric survival models with the survival package, Kaplan Meier estimates of survival curves and risk set tables with survminer"
 ---
 

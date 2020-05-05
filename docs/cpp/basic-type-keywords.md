@@ -1,5 +1,5 @@
 ---
-metaTitle: "Basic Type Keywords"
+metaTitle: "C++ | Basic Type Keywords"
 description: "int, bool, char, char16_t, char32_t, float, double, long, short, void, wchar_t"
 ---
 

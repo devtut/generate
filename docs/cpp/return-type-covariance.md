@@ -1,5 +1,5 @@
 ---
-metaTitle: "Return Type Covariance"
+metaTitle: "C++ | Return Type Covariance"
 description: "2. Covariant result version of the base example, static type checking., 3. Covariant smart pointer result (automated cleanup)., 1. Base example without covariant returns, shows why they're desirable"
 ---
 

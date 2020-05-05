@@ -1,5 +1,5 @@
 ---
-metaTitle: "Yarn Package Manager"
+metaTitle: "Node.js - Yarn Package Manager"
 description: "Creating a basic package, Yarn Installation, Install package with Yarn"
 ---
 

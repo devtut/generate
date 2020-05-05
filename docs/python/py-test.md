@@ -1,5 +1,5 @@
 ---
-metaTitle: "py.test"
+metaTitle: "Python - py.test"
 description: "Intro to Test Fixtures, Failing Tests, Setting up py.test"
 ---
 

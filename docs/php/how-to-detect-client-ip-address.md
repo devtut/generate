@@ -1,5 +1,5 @@
 ---
-metaTitle: "How to Detect Client IP Address"
+metaTitle: "PHP - How to Detect Client IP Address"
 description: "Proper use of HTTP_X_FORWARDED_FOR"
 ---
 

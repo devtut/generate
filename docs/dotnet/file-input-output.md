@@ -1,5 +1,5 @@
 ---
-metaTitle: "File Input/Output"
+metaTitle: ".NET Framework - File Input/Output"
 description: "C# File.Exists(), VB WriteAllText, VB StreamWriter, C# StreamWriter, C# WriteAllText()"
 ---
 

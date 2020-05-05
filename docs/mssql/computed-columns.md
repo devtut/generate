@@ -1,5 +1,5 @@
 ---
-metaTitle: "Computed Columns"
+metaTitle: "Microsoft SQL Server - Computed Columns"
 description: "A column is computed from an expression, Simple example we normally use in log tables"
 ---
 

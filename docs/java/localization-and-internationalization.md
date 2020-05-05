@@ -1,5 +1,5 @@
 ---
-metaTitle: "Localization and Internationalization"
+metaTitle: "Java - Localization and Internationalization"
 description: "Automatically formatted Dates using locale, String Comparison, Locale"
 ---
 

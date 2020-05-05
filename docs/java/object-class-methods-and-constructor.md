@@ -1,5 +1,5 @@
 ---
-metaTitle: "Object Class Methods and Constructor"
+metaTitle: "Java - Object Class Methods and Constructor"
 description: "hashCode() method, toString() method, equals() method, wait() and notify() methods, getClass() method, clone() method, finalize() method, Object constructor"
 ---
 

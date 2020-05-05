@@ -1,5 +1,5 @@
 ---
-metaTitle: "Primitive Data Types"
+metaTitle: "Java - Primitive Data Types"
 description: "The char primitive, Primitive Types Cheatsheet, The float primitive, The int primitive, Memory consumption of primitives vs. boxed primitives, Converting Primitives, The double primitive, The long primitive, The boolean primitive, The byte primitive, Negative value representation, The short primitive"
 ---
 

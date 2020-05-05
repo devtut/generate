@@ -1,5 +1,5 @@
 ---
-metaTitle: "Concurrency With OpenMP"
+metaTitle: "C++ | Concurrency With OpenMP"
 description: "OpenMP: Parallel Sections, OpenMP: Parallel Sections, OpenMP: Parallel For Loop, OpenMP: Parallel Gathering / Reduction"
 ---
 

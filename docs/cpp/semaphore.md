@@ -1,5 +1,5 @@
 ---
-metaTitle: "Semaphore"
+metaTitle: "C++ | Semaphore"
 description: "Semaphore C++ 11, Semaphore class in action"
 ---
 

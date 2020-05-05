@@ -1,5 +1,5 @@
 ---
-metaTitle: "graph-tool"
+metaTitle: "Python - graph-tool"
 description: "PyDotPlus, PyGraphviz"
 ---
 

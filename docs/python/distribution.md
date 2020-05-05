@@ -1,5 +1,5 @@
 ---
-metaTitle: "Distribution"
+metaTitle: "Python - Distribution"
 description: "py2app, cx_Freeze"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Installing SQL Server on Windows"
+metaTitle: "Microsoft SQL Server - Installing SQL Server on Windows"
 description: "Introduction"
 ---
 

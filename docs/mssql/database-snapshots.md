@@ -1,5 +1,5 @@
 ---
-metaTitle: "Database Snapshots"
+metaTitle: "Microsoft SQL Server - Database Snapshots"
 description: "Create a database snapshot, Restore a database snapshot, DELETE Snapshot"
 ---
 

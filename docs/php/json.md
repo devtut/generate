@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON"
+metaTitle: "PHP - JSON"
 description: "Decoding a JSON string, Encoding a JSON string, Debugging JSON errors, Using JsonSerializable in an Object, Header json and the returned response"
 ---
 

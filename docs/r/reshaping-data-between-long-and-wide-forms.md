@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reshaping data between long and wide forms"
+metaTitle: "R - Reshaping data between long and wide forms"
 description: "Reshaping data, The reshape function"
 ---
 

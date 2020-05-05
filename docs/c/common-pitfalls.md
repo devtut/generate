@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common pitfalls"
+metaTitle: "C - Common pitfalls"
 description: "Mixing signed and unsigned integers in arithmetic operations, Macros are simple string replacements, Forgetting to copy the return value of realloc into a temporary, Forgetting to allocate one extra byte for \0, Misunderstanding array decay, Forgetting to free memory (memory leaks), Copying too much, Mistakenly writing = instead of == when comparing, Incautious use of semicolons, Newline character is not consumed in typical scanf() call, Adding a semicolon to a #define, Undefined reference errors when linking, Checking logical expression against 'true', Doing extra scaling in pointer arithmetic, Multi-line comments cannot be nested, Comparing floating point numbers, Ignoring return values of library functions, Floating point literals are of type double by default, Using character constants instead of string literals, and vice versa, Recursive function — missing out the base condition, Passing unadjacent arrays to functions expecting real multidimensional arrays, Overstepping array boundaries"
 ---
 

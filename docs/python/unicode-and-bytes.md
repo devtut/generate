@@ -1,5 +1,5 @@
 ---
-metaTitle: "Unicode and bytes"
+metaTitle: "Python - Unicode and bytes"
 description: "Encoding/decoding error handling, File I/O, Basics"
 ---
 

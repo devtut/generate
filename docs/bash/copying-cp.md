@@ -1,5 +1,5 @@
 ---
-metaTitle: "Copying (cp)"
+metaTitle: "Bash - Copying (cp)"
 description: "Copy a single file, Copy folders"
 ---
 

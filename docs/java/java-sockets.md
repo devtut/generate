@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Sockets"
+metaTitle: "Java - Java Sockets"
 description: "A simple TCP echo back server"
 ---
 

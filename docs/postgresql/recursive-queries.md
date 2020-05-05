@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recursive queries"
+metaTitle: "PostgreSQL - Recursive queries"
 description: "Sum of Integers"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Unions"
+metaTitle: "C++ | Unions"
 description: "Undefined Behavior, Basic Union Features, Typical Use"
 ---
 

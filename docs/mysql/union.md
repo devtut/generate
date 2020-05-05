@@ -1,5 +1,5 @@
 ---
-metaTitle: "UNION"
+metaTitle: "MySQL - UNION"
 description: "Combining SELECT statements with UNION, ORDER BY, Pagination via OFFSET, Combining data with different columns, UNION ALL  and UNION, Combining and merging data on different MySQL tables with the same columns into unique rows and running query"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reflection"
+metaTitle: ".NET Framework - Reflection"
 description: "What is an Assembly?, Compare two objects with reflection, How to create an object of T using Reflection, Creating Object and setting properties using reflection, Getting an attribute of an enum with reflection (and caching it)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enumerations"
+metaTitle: "C - Enumerations"
 description: "Enumeration with duplicate value, enumeration constant without typename, Simple Enumeration, Typedef enum"
 ---
 

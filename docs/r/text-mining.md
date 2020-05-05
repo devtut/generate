@@ -1,5 +1,5 @@
 ---
-metaTitle: "Text mining"
+metaTitle: "R - Text mining"
 description: "Scraping Data to build N-gram Word Clouds"
 ---
 

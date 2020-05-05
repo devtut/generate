@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functools Module"
+metaTitle: "Python - Functools Module"
 description: "partial, lru_cache, cmp_to_key, total_ordering, reduce"
 ---
 

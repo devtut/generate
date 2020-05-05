@@ -1,5 +1,5 @@
 ---
-metaTitle: "Magic Constants"
+metaTitle: "PHP - Magic Constants"
 description: "Difference between __FUNCTION__ and __METHOD__, Difference between __CLASS__, get_class() and get_called_class(), File & Directory Constants"
 ---
 

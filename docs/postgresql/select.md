@@ -1,5 +1,5 @@
 ---
-metaTitle: "SELECT"
+metaTitle: "PostgreSQL - SELECT"
 description: "SELECT using WHERE"
 ---
 

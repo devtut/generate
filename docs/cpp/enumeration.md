@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enumeration"
+metaTitle: "C++ | Enumeration"
 description: "Iteration over an enum, Basic Enumeration Declaration, Enumeration in switch statements, Scoped enums, Enum forward declaration in C++11"
 ---
 

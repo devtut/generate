@@ -1,5 +1,5 @@
 ---
-metaTitle: "CSS Object Model (CSSOM)"
+metaTitle: "CSS - CSS Object Model (CSSOM)"
 description: "Adding a background-image rule via the CSSOM, Introduction"
 ---
 

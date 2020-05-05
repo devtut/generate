@@ -1,5 +1,5 @@
 ---
-metaTitle: "Colors"
+metaTitle: "CSS - Colors"
 description: "currentColor, Color Keywords, Hexadecimal Value, rgb() Notation, rgba() Notation, hsl() Notation, hsla() Notation"
 ---
 

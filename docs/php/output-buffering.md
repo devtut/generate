@@ -1,5 +1,5 @@
 ---
-metaTitle: "Output Buffering"
+metaTitle: "PHP - Output Buffering"
 description: "Basic usage getting content between buffers and clearing, Nested output buffers, Running output buffer before any content, Processing the buffer via a callback, Using Output buffer to store contents in a file, useful for reports, invoices etc, Stream output to client, Capturing the output buffer to re-use later, Typical usage and reasons for using ob_start"
 ---
 

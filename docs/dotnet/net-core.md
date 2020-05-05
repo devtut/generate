@@ -1,5 +1,5 @@
 ---
-metaTitle: ".NET Core"
+metaTitle: ".NET Framework - .NET Core"
 description: "Basic Console App"
 ---
 

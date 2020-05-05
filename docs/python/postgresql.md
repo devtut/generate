@@ -1,5 +1,5 @@
 ---
-metaTitle: "PostgreSQL"
+metaTitle: "Python - PostgreSQL"
 description: "Getting Started"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python Networking"
+metaTitle: "Python - Python Networking"
 description: "Creating a Simple Http Server, The simplest Python socket client-server example, Creating a TCP server, Creating a UDP Server, Start Simple HttpServer in a thread and open the browser"
 ---
 

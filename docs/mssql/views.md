@@ -1,5 +1,5 @@
 ---
-metaTitle: "Views"
+metaTitle: "Microsoft SQL Server - Views"
 description: "Create a view with schema binding, Create a view, Create or replace view"
 ---
 

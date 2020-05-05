@@ -1,5 +1,5 @@
 ---
-metaTitle: "Transactions"
+metaTitle: "SQL - Transactions"
 description: "Simple Transaction, Rollback Transaction"
 ---
 

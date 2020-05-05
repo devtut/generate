@@ -1,5 +1,5 @@
 ---
-metaTitle: "PHPDoc"
+metaTitle: "PHP - PHPDoc"
 description: "Adding metadata to functions, Describing a variable, Adding metadata to files, Inheriting metadata from parent structures, Describing parameters, Collections"
 ---
 

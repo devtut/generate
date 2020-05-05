@@ -1,5 +1,5 @@
 ---
-metaTitle: "Collection Initializers"
+metaTitle: "C# | Collection Initializers"
 description: "Collection initializers, C# 6 Index Initializers, Collection initializers in custom classes, Using collection initializer inside object initializer, Collection Initializers with Parameter Arrays"
 ---
 

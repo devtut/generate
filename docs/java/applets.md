@@ -1,5 +1,5 @@
 ---
-metaTitle: "Applets"
+metaTitle: "Java - Applets"
 description: "Creating a GUI, Minimal Applet, Open links from within the applet, Loading images, audio and other resources"
 ---
 

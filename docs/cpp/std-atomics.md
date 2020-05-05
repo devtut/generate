@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::atomics"
+metaTitle: "C++ | std::atomics"
 description: "atomic types"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Idioms"
+metaTitle: "Python - Idioms"
 description: "Dictionary key initializations, Switching variables, Use truth value testing, Test for __main__ to avoid unexpected code execution"
 ---
 

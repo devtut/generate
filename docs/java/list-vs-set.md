@@ -1,5 +1,5 @@
 ---
-metaTitle: "List vs SET"
+metaTitle: "Java - List vs SET"
 description: "List vs Set"
 ---
 

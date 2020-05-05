@@ -1,5 +1,5 @@
 ---
-metaTitle: "NULL"
+metaTitle: "SQL - NULL"
 description: "Filtering for NULL in queries, Nullable columns in tables, Updating fields to NULL, Inserting rows with NULL fields"
 ---
 

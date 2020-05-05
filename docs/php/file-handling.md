@@ -1,5 +1,5 @@
 ---
-metaTitle: "File handling"
+metaTitle: "PHP - File handling"
 description: "Deleting files and directories, Convenience functions, Getting file information, Minimize memory usage when dealing with large files, Stream-based file IO, Moving and Copying files and directories"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Installing Java (Standard Edition)"
+metaTitle: "Java - Installing Java (Standard Edition)"
 description: "Setting %PATH% and %JAVA_HOME% after installing on Windows, Installing a Java JDK on Linux, Installing a Java JDK on macOS, Installing a Java JDK or JRE on Windows, Selecting an appropriate Java SE release, Java release and version naming, What do I need for Java Development, Configuring and switching Java versions on Linux using alternatives, Post-installation checking and configuration on Linux, Installing oracle java on Linux with latest tar file"
 ---
 

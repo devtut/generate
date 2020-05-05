@@ -1,5 +1,5 @@
 ---
-metaTitle: "Counting Sort"
+metaTitle: "Algorithm - Counting Sort"
 description: "Counting Sort Basic Information, Psuedocode Implementation, C# Implementation"
 ---
 

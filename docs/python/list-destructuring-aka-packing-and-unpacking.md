@@ -1,5 +1,5 @@
 ---
-metaTitle: "List destructuring (aka packing and unpacking)"
+metaTitle: "Python - List destructuring (aka packing and unpacking)"
 description: "Destructuring assignment, Packing function arguments, Unpacking function arguments"
 ---
 

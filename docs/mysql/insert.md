@@ -1,5 +1,5 @@
 ---
-metaTitle: "INSERT"
+metaTitle: "MySQL - INSERT"
 description: "INSERT, ON DUPLICATE KEY UPDATE, Inserting multiple rows, Basic Insert, INSERT with AUTO_INCREMENT + LAST_INSERT_ID(), INSERT SELECT (Inserting data from another Table), Lost AUTO_INCREMENT ids"
 ---
 

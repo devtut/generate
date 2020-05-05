@@ -1,5 +1,5 @@
 ---
-metaTitle: "Object Serialization"
+metaTitle: "PHP - Object Serialization"
 description: "Serialize / Unserialize, The Serializable interface"
 ---
 

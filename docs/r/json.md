@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON"
+metaTitle: "R - JSON"
 description: "JSON to / from R objects"
 ---
 

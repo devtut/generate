@@ -1,5 +1,5 @@
 ---
-metaTitle: "Customizing PS1"
+metaTitle: "Bash - Customizing PS1"
 description: "Colorize and customize terminal prompt, Show git branch name in terminal prompt, Change PS1 prompt, Show a git branch using PROMPT_COMMAND, Show time in terminal prompt, Show previous command return status and time"
 ---
 

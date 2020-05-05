@@ -1,5 +1,5 @@
 ---
-metaTitle: "php mysqli affected rows returns 0 when it should return a positive integer"
+metaTitle: "PHP - php mysqli affected rows returns 0 when it should return a positive integer"
 description: "PHP's $stmt->affected_rows intermittently returning 0 when it should return a positive integer"
 ---
 

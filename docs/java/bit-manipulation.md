@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bit Manipulation"
+metaTitle: "Java - Bit Manipulation"
 description: "Checking, setting, clearing, and toggling individual bits. Using long as bit mask, java.util.BitSet class, Checking if a number is a power of 2, Packing / unpacking values as bit fragments, Expressing the power of 2, Signed vs unsigned shift"
 ---
 

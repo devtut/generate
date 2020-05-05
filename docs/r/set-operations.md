@@ -1,5 +1,5 @@
 ---
-metaTitle: "Set operations"
+metaTitle: "R - Set operations"
 description: "Cartesian or cross products of vectors, Set operators for pairs of vectors, Set membership for vectors, Make unique / drop duplicates / select distinct elements from a vector, Measuring set overlaps / Venn diagrams for vectors"
 ---
 

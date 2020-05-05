@@ -1,5 +1,5 @@
 ---
-metaTitle: "Delimiting special characters and reserved words"
+metaTitle: "Microsoft SQL Server - Delimiting special characters and reserved words"
 description: "Basic Method"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Design Patterns"
+metaTitle: "PHP - Design Patterns"
 description: "Method Chaining in PHP"
 ---
 

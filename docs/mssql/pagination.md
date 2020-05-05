@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pagination"
+metaTitle: "Microsoft SQL Server - Pagination"
 description: "Pagination using ROW_NUMBER with a Common Table Expression, Pagination with OFFSET FETCH, Paginaton with inner query, Paging in Various Versions of SQL Server, SQL Server 2012/2014 using ORDER BY OFFSET and FETCH NEXT"
 ---
 

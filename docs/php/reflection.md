@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reflection"
+metaTitle: "PHP - Reflection"
 description: "Accessing private and protected member variables, Feature detection of classes or objects, Testing private/protected methods"
 ---
 

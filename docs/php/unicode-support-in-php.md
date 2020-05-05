@@ -1,5 +1,5 @@
 ---
-metaTitle: "Unicode Support in PHP"
+metaTitle: "PHP - Unicode Support in PHP"
 description: "Converting Unicode characters using PHP, Converting Unicode characters to their numeric value and/or HTML entities using PHP, Intl extention for Unicode support"
 ---
 

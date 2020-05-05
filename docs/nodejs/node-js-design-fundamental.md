@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js Design Fundamental"
+metaTitle: "Node.js - Node.js Design Fundamental"
 description: "The Node.js philosophy"
 ---
 

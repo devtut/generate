@@ -1,5 +1,5 @@
 ---
-metaTitle: "Quoting"
+metaTitle: "Bash - Quoting"
 description: "Double quotes for variable and command substitution, Difference between double quote and single quote, Newlines and control characters, Quoting literal text"
 ---
 

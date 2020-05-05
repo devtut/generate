@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cascading and Specificity"
+metaTitle: "CSS - Cascading and Specificity"
 description: "Calculating Selector Specificity, The !important declaration, Cascading, More complex specificity example"
 ---
 

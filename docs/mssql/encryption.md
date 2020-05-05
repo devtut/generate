@@ -1,5 +1,5 @@
 ---
-metaTitle: "Encryption"
+metaTitle: "Microsoft SQL Server - Encryption"
 description: "Encryption by certificate, Encryption of database, Encryption by symmetric key, Encryption by passphrase"
 ---
 

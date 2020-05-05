@@ -1,5 +1,5 @@
 ---
-metaTitle: "R memento by examples"
+metaTitle: "R - R memento by examples"
 description: "Plotting (using plot), Commonly used functions, Data types"
 ---
 

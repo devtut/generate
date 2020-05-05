@@ -1,5 +1,5 @@
 ---
-metaTitle: "dplyr"
+metaTitle: "R - dplyr"
 description: "dplyr's single table verbs, Aggregating with %>% (pipe) operator, Subset Observation (Rows), Examples of NSE and string variables in dpylr"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Restful API Design: Best Practices"
+metaTitle: "Node.js - Restful API Design: Best Practices"
 description: "Error Handling: GET all resources"
 ---
 

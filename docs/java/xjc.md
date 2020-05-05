@@ -1,5 +1,5 @@
 ---
-metaTitle: "XJC"
+metaTitle: "Java - XJC"
 description: "Generating Java code from simple XSD file"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "shelve"
+metaTitle: "Python - shelve"
 description: "Creating a new Shelf, Sample code for shelve, To summarize the interface (key is a string, data is an arbitrary object):, Write-back"
 ---
 

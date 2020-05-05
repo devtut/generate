@@ -1,5 +1,5 @@
 ---
-metaTitle: "FTP (File Transfer Protocol)"
+metaTitle: "Java - FTP (File Transfer Protocol)"
 description: "Connecting and Logging Into a FTP Server"
 ---
 

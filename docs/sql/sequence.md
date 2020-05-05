@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sequence"
+metaTitle: "SQL - Sequence"
 description: "Create Sequence, Using Sequences"
 ---
 

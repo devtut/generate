@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git revisions syntax"
+metaTitle: "Git - Git revisions syntax"
 description: "Specifying revision by object name, Symbolic ref names: branches, tags, remote-tracking branches, The default revision: HEAD, Reflog references: <refname>@{<n>}, Reflog references: <refname>@{<date>}, Tracked / upstream branch: <branchname>@{upstream}, Commit ancestry chain: <rev>^, <rev>~<n>, etc., Dereferencing branches and tags: <rev>^0, <rev>^{<type>}, Youngest matching commit: <rev>^{/<text>}, :/<text>"
 ---
 

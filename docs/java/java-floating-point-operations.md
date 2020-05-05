@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Floating Point Operations"
+metaTitle: "Java - Java Floating Point Operations"
 description: "Comparing floating point values, OverFlow and UnderFlow, Formatting the floating point values, Strict Adherence to the IEEE Specification"
 ---
 

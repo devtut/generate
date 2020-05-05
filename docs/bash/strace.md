@@ -1,5 +1,5 @@
 ---
-metaTitle: "strace"
+metaTitle: "Bash - strace"
 description: "How to observe the system calls of a program"
 ---
 

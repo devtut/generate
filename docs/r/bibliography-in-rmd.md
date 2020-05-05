@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bibliography in RMD"
+metaTitle: "R - Bibliography in RMD"
 description: "Specifying a bibliography and cite authors, Inline references, Citation styles"
 ---
 

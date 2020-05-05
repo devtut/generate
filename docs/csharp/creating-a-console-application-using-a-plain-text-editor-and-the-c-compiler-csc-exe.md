@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating a Console Application using a Plain-Text Editor and the C# Compiler (csc.exe)"
+metaTitle: "C# | Creating a Console Application using a Plain-Text Editor and the C# Compiler (csc.exe)"
 description: "Creating a Console application using a Plain-Text Editor and the C# Compiler"
 ---
 

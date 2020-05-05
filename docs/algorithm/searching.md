@@ -1,5 +1,5 @@
 ---
-metaTitle: "Searching"
+metaTitle: "Algorithm - Searching"
 description: "Binary Search, Binary Search: On Sorted Numbers, Linear search, Rabin Karp, Analysis of Linear search (Worst, Average and Best Cases)"
 ---
 

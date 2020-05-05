@@ -1,5 +1,5 @@
 ---
-metaTitle: "INSERT"
+metaTitle: "PostgreSQL - INSERT"
 description: "Insert data using COPY, Inserting multiple rows, INSERT data and RETURING values, Basic INSERT, Insert from select, SELECT data into file., UPSERT - INSERT ... ON CONFLICT DO UPDATE..."
 ---
 

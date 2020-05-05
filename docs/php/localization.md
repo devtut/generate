@@ -1,5 +1,5 @@
 ---
-metaTitle: "Localization"
+metaTitle: "PHP - Localization"
 description: "Localizing strings with gettext()"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Browsing the history"
+metaTitle: "Git - Browsing the history"
 description: "Prettier log, Regular Git Log, Oneline log, Colorize Logs, Log search, List all contributions grouped by author name, Searching commit string in git log, Filter logs, Log for a range of lines within a file, Log with changes inline, Git Log Between Two Branches, Log showing commited files, Show the contents of a single commit, One line showing commiter name and time since commit"
 ---
 

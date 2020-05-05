@@ -1,5 +1,5 @@
 ---
-metaTitle: "Literals for numbers, characters and strings"
+metaTitle: "C - Literals for numbers, characters and strings"
 description: "Floating point literals, Integer literals, String literals, Character literals"
 ---
 

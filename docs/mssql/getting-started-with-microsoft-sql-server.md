@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with Microsoft SQL Server"
+metaTitle: "Microsoft SQL Server - Getting started with Microsoft SQL Server"
 description: "INSERT / SELECT / UPDATE / DELETE: the basics of Data Manipulation Language, SELECT all rows and columns from a table, UPDATE Specific Row, Comments in code, DELETE All Rows, PRINT, Select rows that match a condition, UPDATE All Rows, Retrieve Basic Server Information, TRUNCATE TABLE, Create new table and insert records from old table, Using Transactions to change data safely, Getting Table Row Count"
 ---
 

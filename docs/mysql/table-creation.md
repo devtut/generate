@@ -1,5 +1,5 @@
 ---
-metaTitle: "Table Creation"
+metaTitle: "MySQL - Table Creation"
 description: "Table creation with Primary Key, Basic table creation, Table creation with Foreign Key, Show Table Structure, Cloning an existing table, CREATE TABLE FROM SELECT, Table Create With TimeStamp Column To Show Last Update"
 ---
 

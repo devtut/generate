@@ -1,5 +1,5 @@
 ---
-metaTitle: "Finding Duplicates on a Column Subset with Detail"
+metaTitle: "SQL - Finding Duplicates on a Column Subset with Detail"
 description: "Students with same name and date of birth"
 ---
 

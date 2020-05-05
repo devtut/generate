@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parameter packs"
+metaTitle: "C++ | Parameter packs"
 description: "A template with a parameter pack, Expansion of a parameter pack"
 ---
 

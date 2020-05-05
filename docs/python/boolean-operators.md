@@ -1,5 +1,5 @@
 ---
-metaTitle: "Boolean Operators"
+metaTitle: "Python - Boolean Operators"
 description: "and, or, not, Short-circuit evaluation, `and` and `or` are not guaranteed to return a boolean, A simple example"
 ---
 

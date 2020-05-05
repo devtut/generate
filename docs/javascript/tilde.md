@@ -1,5 +1,5 @@
 ---
-metaTitle: "Tilde ~"
+metaTitle: "JavsScript - Tilde ~"
 description: "~ Integer, ~~ Operator, Converting Non-numeric values to Numbers, Shorthands, ~ Decimal"
 ---
 

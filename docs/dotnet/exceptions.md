@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exceptions"
+metaTitle: ".NET Framework - Exceptions"
 description: "Catching and rethrowing caught exceptions, Using a finally block, Exception Filters, Rethrowing an exception within a catch block, Throwing an exception from a different method while preserving its information, Catching an exception"
 ---
 

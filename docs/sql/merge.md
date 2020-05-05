@@ -1,5 +1,5 @@
 ---
-metaTitle: "MERGE"
+metaTitle: "SQL - MERGE"
 description: "MERGE to make Target match Source, MySQL: counting users by name, PostgreSQL: counting users by name"
 ---
 

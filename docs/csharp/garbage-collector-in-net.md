@@ -1,5 +1,5 @@
 ---
-metaTitle: "Garbage Collector in .Net"
+metaTitle: "C# | Garbage Collector in .Net"
 description: "Weak References, Large Object Heap compaction"
 ---
 

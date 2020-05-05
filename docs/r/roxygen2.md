@@ -1,5 +1,5 @@
 ---
-metaTitle: "roxygen2"
+metaTitle: "R - roxygen2"
 description: "Documenting a package with roxygen2"
 ---
 

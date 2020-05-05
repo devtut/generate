@@ -1,5 +1,5 @@
 ---
-metaTitle: "Identifier"
+metaTitle: "SQL - Identifier"
 description: "Unquoted identifiers"
 ---
 

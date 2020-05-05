@@ -1,5 +1,5 @@
 ---
-metaTitle: "WHILE loop"
+metaTitle: "Microsoft SQL Server - WHILE loop"
 description: "Using While loop, While loop with min aggregate function usage"
 ---
 

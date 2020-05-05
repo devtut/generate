@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.Reflection.Emit namespace"
+metaTitle: ".NET Framework - System.Reflection.Emit namespace"
 description: "Creating an assembly dynamically"
 ---
 

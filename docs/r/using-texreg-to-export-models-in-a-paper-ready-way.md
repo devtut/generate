@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using texreg to export models in a paper-ready way"
+metaTitle: "R - Using texreg to export models in a paper-ready way"
 description: "Printing linear regression results"
 ---
 

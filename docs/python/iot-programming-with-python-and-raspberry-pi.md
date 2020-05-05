@@ -1,5 +1,5 @@
 ---
-metaTitle: "IoT Programming with Python and Raspberry PI"
+metaTitle: "Python - IoT Programming with Python and Raspberry PI"
 description: "Example - Temperature sensor"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Visualization with Python"
+metaTitle: "Python - Data Visualization with Python"
 description: "Seaborn, Matplotlib, MayaVI, Plotly"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Role Management"
+metaTitle: "PostgreSQL - Role Management"
 description: "Create a user with a password, Create Role and matching database, Grant and Revoke Privileges., Alter default search_path of user, Grant access privileges on objects created in the future., Create Read Only User"
 ---
 

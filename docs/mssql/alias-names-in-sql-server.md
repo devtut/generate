@@ -1,5 +1,5 @@
 ---
-metaTitle: "Alias Names in Sql Server"
+metaTitle: "Microsoft SQL Server - Alias Names in Sql Server"
 description: "Using AS, Using =, Giving alias after Derived table name, Without using AS"
 ---
 

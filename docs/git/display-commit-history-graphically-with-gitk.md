@@ -1,5 +1,5 @@
 ---
-metaTitle: "Display commit history graphically with Gitk"
+metaTitle: "Git - Display commit history graphically with Gitk"
 description: "Display commit history for one file, Display all commits between two commits, Display commits since version tag"
 ---
 

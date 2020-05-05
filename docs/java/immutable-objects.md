@@ -1,5 +1,5 @@
 ---
-metaTitle: "Immutable Objects"
+metaTitle: "Java - Immutable Objects"
 description: "Creating an immutable version of a type using defensive copying., The recipe for an immutable class, Typical design flaws which prevent a class from being immutable"
 ---
 

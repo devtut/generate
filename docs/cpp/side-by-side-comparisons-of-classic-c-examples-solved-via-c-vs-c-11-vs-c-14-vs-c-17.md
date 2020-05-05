@@ -1,5 +1,5 @@
 ---
-metaTitle: "Side by Side Comparisons of classic C++ examples solved via C++ vs C++11 vs C++14 vs C++17"
+metaTitle: "C++ | Side by Side Comparisons of classic C++ examples solved via C++ vs C++11 vs C++14 vs C++17"
 description: "Looping through a container"
 ---
 

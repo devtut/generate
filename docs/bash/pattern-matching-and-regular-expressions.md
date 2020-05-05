@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pattern matching and regular expressions"
+metaTitle: "Bash - Pattern matching and regular expressions"
 description: "Check if a string matches a regular expression, Behaviour when a glob does not match anything, Get captured groups from a regex match against a string, The * glob, The ** glob, The ? glob, The [ ] glob, Matching hidden files, Case insensitive matching, Extended globbing, Regex matching"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generators"
+metaTitle: "PHP - Generators"
 description: "The Yield Keyword, Reading a large file with a generator, Why use a generator?, Using the send()-function to pass values to a generator, Re-writing randomNumbers() using a generator"
 ---
 

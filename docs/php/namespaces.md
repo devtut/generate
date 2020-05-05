@@ -1,5 +1,5 @@
 ---
-metaTitle: "Namespaces"
+metaTitle: "PHP - Namespaces"
 description: "Declaring namespaces, Referencing a class or function in a namespace, Declaring sub-namespaces, What are Namespaces?"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Decoding URL"
+metaTitle: "Bash - Decoding URL"
 description: "Simple example, Using printf to decode a string"
 ---
 

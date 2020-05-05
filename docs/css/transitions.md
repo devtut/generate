@@ -1,5 +1,5 @@
 ---
-metaTitle: "Transitions"
+metaTitle: "CSS - Transitions"
 description: "Transition shorthand, cubic-bezier, Transition (longhand)"
 ---
 

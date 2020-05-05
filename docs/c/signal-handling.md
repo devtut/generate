@@ -1,5 +1,5 @@
 ---
-metaTitle: "Signal handling"
+metaTitle: "C - Signal handling"
 description: "Signal Handling with “signal()”"
 ---
 

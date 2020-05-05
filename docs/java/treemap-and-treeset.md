@@ -1,5 +1,5 @@
 ---
-metaTitle: "TreeMap and TreeSet"
+metaTitle: "Java - TreeMap and TreeSet"
 description: "TreeMap of a simple Java type, TreeSet of a simple Java Type, TreeMap/TreeSet of a custom Java type, TreeMap and TreeSet Thread Safety"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Random Forest Algorithm"
+metaTitle: "R - Random Forest Algorithm"
 description: "Basic examples - Classification and Regression"
 ---
 

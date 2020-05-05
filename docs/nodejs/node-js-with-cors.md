@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js with CORS"
+metaTitle: "Node.js - Node.js with CORS"
 description: "Enable CORS in express.js"
 ---
 

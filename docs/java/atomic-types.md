@@ -1,5 +1,5 @@
 ---
-metaTitle: "Atomic Types"
+metaTitle: "Java - Atomic Types"
 description: "Creating Atomic Types, Motivation for Atomic Types"
 ---
 

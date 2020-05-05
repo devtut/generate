@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stored Procedures"
+metaTitle: "SQL - Stored Procedures"
 description: "Create and call a stored procedure"
 ---
 

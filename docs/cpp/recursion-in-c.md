@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recursion in C++"
+metaTitle: "C++ | Recursion in C++"
 description: "Using tail recursion and Fibonnaci-style recursion to solve the Fibonnaci sequence, Recursion with memoization"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "polynomial-time bounded algorithm for Minimum Vertex Cover"
+metaTitle: "Algorithm - polynomial-time bounded algorithm for Minimum Vertex Cover"
 description: "Algorithm Pseudo Code"
 ---
 

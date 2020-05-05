@@ -1,5 +1,5 @@
 ---
-metaTitle: "Trigger"
+metaTitle: "Microsoft SQL Server - Trigger"
 description: "DML Triggers, Types and classifications of Trigger"
 ---
 

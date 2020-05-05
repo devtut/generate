@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating directories"
+metaTitle: "Bash - Creating directories"
 description: "Move all files not already in a directory into a self named directory"
 ---
 

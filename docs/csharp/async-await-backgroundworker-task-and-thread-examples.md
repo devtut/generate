@@ -1,5 +1,5 @@
 ---
-metaTitle: "Async/await, Backgroundworker, Task and Thread Examples"
+metaTitle: "C# | Async/await, Backgroundworker, Task and Thread Examples"
 description: "ASP.NET Configure Await, Async/await, BackgroundWorker, Task, Thread, Task run and forget extension"
 ---
 

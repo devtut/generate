@@ -1,5 +1,5 @@
 ---
-metaTitle: "Map Function"
+metaTitle: "Python - Map Function"
 description: "Basic use of map, itertools.imap and future_builtins.map, Mapping each value in an iterable, Mapping values of different iterables, Transposing with Map: Using None as function argument (python 2.x only), Series and Parallel Mapping"
 ---
 

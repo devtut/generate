@@ -1,5 +1,5 @@
 ---
-metaTitle: "Querying results by page"
+metaTitle: "Microsoft SQL Server - Querying results by page"
 description: "Row_Number()"
 ---
 

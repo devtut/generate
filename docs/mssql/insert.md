@@ -1,5 +1,5 @@
 ---
-metaTitle: "Insert"
+metaTitle: "Microsoft SQL Server - Insert"
 description: "Add a row to a table named Invoices"
 ---
 

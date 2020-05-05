@@ -1,5 +1,5 @@
 ---
-metaTitle: "Globalization in ASP.NET MVC using Smart internationalization for ASP.NET"
+metaTitle: ".NET Framework - Globalization in ASP.NET MVC using Smart internationalization for ASP.NET"
 description: "Basic configuration and setup"
 ---
 

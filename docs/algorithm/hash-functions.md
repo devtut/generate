@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hash Functions"
+metaTitle: "Algorithm - Hash Functions"
 description: "Hash codes for common types in C#, Introduction to hash functions"
 ---
 

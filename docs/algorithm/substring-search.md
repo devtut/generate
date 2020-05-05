@@ -1,5 +1,5 @@
 ---
-metaTitle: "Substring Search"
+metaTitle: "Algorithm - Substring Search"
 description: "Introduction To Knuth-Morris-Pratt (KMP) Algorithm, Introduction to Rabin-Karp Algorithm, KMP Algorithm in C, Python Implementation of KMP algorithm."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Edit Distance Dynamic Algorithm"
+metaTitle: "Algorithm - Edit Distance Dynamic Algorithm"
 description: "Minimum Edits required to convert string 1 to string 2"
 ---
 

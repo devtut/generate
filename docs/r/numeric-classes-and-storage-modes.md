@@ -1,5 +1,5 @@
 ---
-metaTitle: "Numeric classes and storage modes"
+metaTitle: "R - Numeric classes and storage modes"
 description: "Numeric"
 ---
 

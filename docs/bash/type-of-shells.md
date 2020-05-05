@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type of Shells"
+metaTitle: "Bash - Type of Shells"
 description: "Introduction to dot files, Start an interactive shell, Detect type of shell"
 ---
 

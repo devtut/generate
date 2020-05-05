@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variable Scope"
+metaTitle: "PHP - Variable Scope"
 description: "Superglobal variables, Static properties and variables, User-defined global variables"
 ---
 

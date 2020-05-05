@@ -1,5 +1,5 @@
 ---
-metaTitle: "Scoping"
+metaTitle: "Bash - Scoping"
 description: "Dynamic scoping in action"
 ---
 

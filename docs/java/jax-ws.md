@@ -1,5 +1,5 @@
 ---
-metaTitle: "JAX-WS"
+metaTitle: "Java - JAX-WS"
 description: "Basic Authentication"
 ---
 

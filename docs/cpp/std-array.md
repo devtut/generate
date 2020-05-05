@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::array"
+metaTitle: "C++ | std::array"
 description: "Initializing an std::array, Element access, Iterating through the Array, Checking size of the Array, Changing all array elements at once"
 ---
 

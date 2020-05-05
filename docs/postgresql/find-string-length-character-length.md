@@ -1,5 +1,5 @@
 ---
-metaTitle: "Find String Length / Character Length"
+metaTitle: "PostgreSQL - Find String Length / Character Length"
 description: "Example to get length of a character varying field"
 ---
 

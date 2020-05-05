@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multiple columns"
+metaTitle: "CSS - Multiple columns"
 description: "Basic example, Create Multiple Columns"
 ---
 

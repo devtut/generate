@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bit-fields"
+metaTitle: "C - Bit-fields"
 description: "Bit-fields, Using bit-fields as small integers, Bit-field alignment, When are bit-fields useful?, Don'ts for bit-fields"
 ---
 

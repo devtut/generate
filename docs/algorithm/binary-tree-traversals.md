@@ -1,5 +1,5 @@
 ---
-metaTitle: "Binary Tree traversals"
+metaTitle: "Algorithm - Binary Tree traversals"
 description: "Level Order traversal - Implementation, Pre-order, Inorder and Post Order traversal of a Binary Tree"
 ---
 

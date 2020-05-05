@@ -1,5 +1,5 @@
 ---
-metaTitle: "Working with Remotes"
+metaTitle: "Git - Working with Remotes"
 description: "Deleting a Remote Branch, Changing Git Remote URL, Updating from Upstream Repository, ls-remote, Removing Local Copies of Deleted Remote Branches, List Existing Remotes, Adding a New Remote Repository, Getting Started, Set Upstream on a New Branch, Show information about a Specific Remote, Changing a Remote Repository, Renaming a Remote, Set the URL for a Specific Remote, Get the URL for a Specific Remote"
 ---
 

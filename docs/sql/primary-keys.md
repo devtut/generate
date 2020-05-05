@@ -1,5 +1,5 @@
 ---
-metaTitle: "Primary Keys"
+metaTitle: "SQL - Primary Keys"
 description: "Creating a Primary Key, Using Auto Increment"
 ---
 

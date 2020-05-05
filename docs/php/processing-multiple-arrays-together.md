@@ -1,5 +1,5 @@
 ---
-metaTitle: "Processing Multiple Arrays Together"
+metaTitle: "PHP - Processing Multiple Arrays Together"
 description: "Merge or concatenate arrays, Array intersection, Changing a multidimensional array to associative array, Combining two arrays (keys from one, values from another)"
 ---
 

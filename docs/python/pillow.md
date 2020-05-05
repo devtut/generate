@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pillow"
+metaTitle: "Python - Pillow"
 description: "Read Image File, Convert files to JPEG"
 ---
 

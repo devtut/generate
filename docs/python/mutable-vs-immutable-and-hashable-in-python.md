@@ -1,5 +1,5 @@
 ---
-metaTitle: "Mutable vs Immutable (and Hashable) in Python"
+metaTitle: "Python - Mutable vs Immutable (and Hashable) in Python"
 description: "Mutable vs Immutable, Mutable and Immutable as Arguments"
 ---
 

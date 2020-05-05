@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arrays"
+metaTitle: "C# | Arrays"
 description: "Declaring an array, Initializing an array filled with a repeated non-default value, Copying arrays, Comparing arrays for equality, Multi-dimensional arrays, Getting and setting array values, Iterate over an array, Jagged arrays, Creating an array of sequential numbers, Array covariance, Checking if one array contains another array, Arrays as IEnumerable<> instances"
 ---
 

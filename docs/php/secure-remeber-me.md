@@ -1,5 +1,5 @@
 ---
-metaTitle: "Secure Remeber Me"
+metaTitle: "PHP - Secure Remeber Me"
 description: "“Keep Me Logged In” - the best approach"
 ---
 

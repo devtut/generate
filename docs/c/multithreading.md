@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multithreading"
+metaTitle: "C - Multithreading"
 description: "C11 Threads simple example"
 ---
 

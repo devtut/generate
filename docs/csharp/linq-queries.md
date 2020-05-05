@@ -1,5 +1,5 @@
 ---
-metaTitle: "LINQ Queries"
+metaTitle: "C# | LINQ Queries"
 description: "Chaining methods, First, FirstOrDefault, Last, LastOrDefault, Single, and SingleOrDefault, Except, SelectMany, Any, JOINS, Skip and Take, Defining a variable inside a Linq query (let keyword), Zip, Range and Repeat, All, Basics, Aggregate, SelectMany: Flattening a sequence of sequences, Distinct, Query collection by type / cast elements to type, GroupBy, Enumerating the Enumerable, Where, Using Range with various Linq methods, Using SelectMany instead of nested loops, Contains, GroupBy one or multiple fields, Query Ordering - OrderBy() ThenBy() OrderByDescending() ThenByDescending(), ToDictionary, SkipWhile, DefaultIfEmpty, SequenceEqual, ElementAt and ElementAtOrDefault, Joining multiple sequences, Joining on multiple keys, Sum, ToLookup, Any and First(OrDefault) - best practice, GroupBy Sum and Count, OrderBy, Select - Transforming elements, Union, Count and LongCount, Incrementally building a query, GroupJoin with outer range variable, Linq  Quantifiers, TakeWhile, Build your own Linq operators for IEnumerable<T>, Reverse, OrderByDescending, Concat, Select with Func<TSource, int, TResult> selector - Use to get ranking of elements"
 ---
 

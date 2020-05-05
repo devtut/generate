@@ -1,5 +1,5 @@
 ---
-metaTitle: "Descriptor"
+metaTitle: "Python - Descriptor"
 description: "Simple descriptor, Two-way conversions"
 ---
 

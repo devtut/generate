@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git GUI Clients"
+metaTitle: "Git - Git GUI Clients"
 description: "gitk and git-gui, GitHub Desktop, Git Kraken, SourceTree, Git Extensions, SmartGit"
 ---
 

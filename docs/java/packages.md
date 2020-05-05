@@ -1,5 +1,5 @@
 ---
-metaTitle: "Packages"
+metaTitle: "Java - Packages"
 description: "Using Packages to create classes with the same name, Using Package Protected Scope"
 ---
 

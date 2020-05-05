@@ -1,5 +1,5 @@
 ---
-metaTitle: "SSL Connection Setup"
+metaTitle: "MySQL - SSL Connection Setup"
 description: "Setup for Debian-based systems, Setup for CentOS7 / RHEL7"
 ---
 

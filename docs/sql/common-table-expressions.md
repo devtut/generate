@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common Table Expressions"
+metaTitle: "SQL - Common Table Expressions"
 description: "generating values, recursively enumerating a subtree, Temporary query, recursively going up in a tree, Recursively generate dates, extended to include team rostering as example, Oracle CONNECT BY functionality with recursive CTEs, Refactoring a query to use Common Table Expressions, Example of a complex SQL with Common Table Expression"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Native Access"
+metaTitle: "Java - Java Native Access"
 description: "Introduction to JNA"
 ---
 

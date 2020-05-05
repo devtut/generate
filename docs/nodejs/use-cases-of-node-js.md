@@ -1,5 +1,5 @@
 ---
-metaTitle: "Use Cases of Node.js"
+metaTitle: "Node.js - Use Cases of Node.js"
 description: "HTTP server, Console with command prompt"
 ---
 

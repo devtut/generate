@@ -1,5 +1,5 @@
 ---
-metaTitle: "Constants"
+metaTitle: "PHP - Constants"
 description: "Defining constants, Class Constants, Checking if constant is defined, Constant arrays, Using constants"
 ---
 

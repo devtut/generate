@@ -1,5 +1,5 @@
 ---
-metaTitle: "Opacity"
+metaTitle: "CSS - Opacity"
 description: "Opacity Property, IE Compatibility for `opacity`"
 ---
 

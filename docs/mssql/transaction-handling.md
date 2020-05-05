@@ -1,5 +1,5 @@
 ---
-metaTitle: "Transaction handling"
+metaTitle: "Microsoft SQL Server - Transaction handling"
 description: "basic transaction skeleton with error handling"
 ---
 

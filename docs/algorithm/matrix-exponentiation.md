@@ -1,5 +1,5 @@
 ---
-metaTitle: "Matrix Exponentiation"
+metaTitle: "Algorithm - Matrix Exponentiation"
 description: "Matrix Exponentiation to Solve Example Problems"
 ---
 

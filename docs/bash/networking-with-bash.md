@@ -1,5 +1,5 @@
 ---
-metaTitle: "Networking With Bash"
+metaTitle: "Bash - Networking With Bash"
 description: "Networking commands"
 ---
 

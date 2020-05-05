@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sequences"
+metaTitle: "Microsoft SQL Server - Sequences"
 description: "Create Sequence, Use Sequence in Table, Insert Into Table with Sequence, Delete From & Insert New"
 ---
 

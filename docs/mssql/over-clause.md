@@ -1,5 +1,5 @@
 ---
-metaTitle: "OVER Clause"
+metaTitle: "Microsoft SQL Server - OVER Clause"
 description: "Cumulative Sum, Using Aggregation functions with OVER, Using Aggregation funtions to find the most recent records, Dividing Data into equally-partitioned buckets using NTILE"
 ---
 

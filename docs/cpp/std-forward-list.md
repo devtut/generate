@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::forward_list"
+metaTitle: "C++ | std::forward_list"
 description: "Example, Methods"
 ---
 

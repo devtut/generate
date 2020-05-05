@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enum starting with number"
+metaTitle: "Java - Enum starting with number"
 description: "Enum with name at begining"
 ---
 

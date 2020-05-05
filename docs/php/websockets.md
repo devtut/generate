@@ -1,5 +1,5 @@
 ---
-metaTitle: "WebSockets"
+metaTitle: "PHP - WebSockets"
 description: "Simple TCP/IP server"
 ---
 

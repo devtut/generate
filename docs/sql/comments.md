@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comments"
+metaTitle: "SQL - Comments"
 description: "Single-line comments, Multi-line comments"
 ---
 

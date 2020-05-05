@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sockets"
+metaTitle: "Java - Sockets"
 description: "Read from socket"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Time with subsecond precision"
+metaTitle: "MySQL - Time with subsecond precision"
 description: "Get the current time with millisecond precision, Get the current time in a form that looks like a Javascript timestamp., Create a  table with columns to store sub-second time., Convert a millisecond-precision date / time value to text., Store a Javascript timestamp into a TIMESTAMP column"
 ---
 

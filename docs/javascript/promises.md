@@ -1,5 +1,5 @@
 ---
-metaTitle: "Promises"
+metaTitle: "JavsScript - Promises"
 description: "Introduction, Promise chaining, Waiting for multiple concurrent promises, Reduce an array to chained promises, Waiting for the first of multiple concurrent promises, Promisifying functions with callbacks, Error Handling, Reconciling synchronous and asynchronous operations, Delay function call, Promisifying values, Using ES2017 async/await, forEach with promises, Performing cleanup with finally(), Asynchronous API request"
 ---
 

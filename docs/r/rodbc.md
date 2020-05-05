@@ -1,5 +1,5 @@
 ---
-metaTitle: "RODBC"
+metaTitle: "R - RODBC"
 description: "Connecting to Excel Files via RODBC, SQL Server Management Database connection to get individual table, Connecting to relational databases"
 ---
 

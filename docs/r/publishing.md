@@ -1,5 +1,5 @@
 ---
-metaTitle: "Publishing"
+metaTitle: "R - Publishing"
 description: "Formatting tables, Formatting entire documents"
 ---
 

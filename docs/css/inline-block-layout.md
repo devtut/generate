@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inline-Block Layout"
+metaTitle: "CSS - Inline-Block Layout"
 description: "Justified navigation bar"
 ---
 

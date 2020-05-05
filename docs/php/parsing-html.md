@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parsing HTML"
+metaTitle: "PHP - Parsing HTML"
 description: "Parsing HTML from a string, Using XPath, SimpleXML"
 ---
 

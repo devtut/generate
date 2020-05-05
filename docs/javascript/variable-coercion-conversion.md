@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variable coercion/conversion"
+metaTitle: "JavsScript - Variable coercion/conversion"
 description: "Double Negation (!!x), Implicit conversion, Converting to boolean, Converting a string to a number, Converting a number to a string, Converting a number to a boolean, Converting a string to a boolean, Integer to Float, Float to Integer, Convert string to float, Convert an array to a string, Array to String using array methods, Primitive to Primitive conversion table"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "R Markdown Notebooks (from RStudio)"
+metaTitle: "R - R Markdown Notebooks (from RStudio)"
 description: "Creating a Notebook, Inserting Chunks, Executing Chunk Code, Execution Progress, Preview Output, Saving and Sharing"
 ---
 

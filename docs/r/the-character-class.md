@@ -1,5 +1,5 @@
 ---
-metaTitle: "The character class"
+metaTitle: "R - The character class"
 description: "Coercion"
 ---
 

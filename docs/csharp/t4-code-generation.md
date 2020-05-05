@@ -1,5 +1,5 @@
 ---
-metaTitle: "T4 Code Generation"
+metaTitle: "C# | T4 Code Generation"
 description: "Runtime Code Generation"
 ---
 

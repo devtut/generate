@@ -1,5 +1,5 @@
 ---
-metaTitle: "Big-O Notation"
+metaTitle: "Algorithm - Big-O Notation"
 description: "A Simple Loop, A Nested Loop, An O(log n) example, O(log n) types of Algorithms"
 ---
 

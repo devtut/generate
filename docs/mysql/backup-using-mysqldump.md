@@ -1,5 +1,5 @@
 ---
-metaTitle: "Backup using mysqldump"
+metaTitle: "MySQL - Backup using mysqldump"
 description: "Specifying username and password, Creating a backup of a database or table, Restoring a backup of a database or table, mysqldump from a remote server with compression, restore a gzipped mysqldump file without uncompressing, Backup direct to Amazon S3 with compression, Tranferring data from one MySQL server to another, Backup database with stored procedures and functions"
 ---
 

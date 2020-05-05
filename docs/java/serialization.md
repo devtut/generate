@@ -1,5 +1,5 @@
 ---
-metaTitle: "Serialization"
+metaTitle: "Java - Serialization"
 description: "Basic Serialization in Java, Custom Serialization, Versioning and serialVersionUID, Serialization with Gson, Custom JSON Deserialization with Jackson, Serialization with Jackson 2"
 ---
 

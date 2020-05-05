@@ -1,5 +1,5 @@
 ---
-metaTitle: "Manipulating an Array"
+metaTitle: "PHP - Manipulating an Array"
 description: "Filtering an array, Removing elements from an array, Sorting an Array, Adding element to start of array, Whitelist only some array keys, Exchange values with keys, Merge two arrays into one array"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bundles"
+metaTitle: "Git - Bundles"
 description: "Creating a git bundle on the local machine and using it on another"
 ---
 

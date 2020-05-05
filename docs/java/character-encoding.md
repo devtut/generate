@@ -1,5 +1,5 @@
 ---
-metaTitle: "Character encoding"
+metaTitle: "Java - Character encoding"
 description: "Reading text from a file encoded in UTF-8, Writing text to a file in UTF-8, Getting byte representation of a string in UTF-8"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "TRY/CATCH"
+metaTitle: "SQL - TRY/CATCH"
 description: "Transaction In a TRY/CATCH"
 ---
 

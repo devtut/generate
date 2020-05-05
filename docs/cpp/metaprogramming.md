@@ -1,5 +1,5 @@
 ---
-metaTitle: "Metaprogramming"
+metaTitle: "C++ | Metaprogramming"
 description: "Calculating Factorials, Iterating over a parameter pack, Iterating with std::integer_sequence, Tag Dispatching, Detect Whether Expression is Valid, If-then-else, Calculating power with C++11 (and higher), Manual distinction of types when given any type T, Generic Min/Max with variable argument count"
 ---
 

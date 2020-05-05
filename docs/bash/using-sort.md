@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using sort"
+metaTitle: "Bash - Using sort"
 description: "Sort command output, Make output unique, Numeric sort, Sort by keys"
 ---
 

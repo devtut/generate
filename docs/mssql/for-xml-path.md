@@ -1,5 +1,5 @@
 ---
-metaTitle: "FOR XML PATH"
+metaTitle: "Microsoft SQL Server - FOR XML PATH"
 description: "Using FOR XML PATH to concatenate values, Specifying namespaces, Specifying structure using XPath expressions, Hello World XML"
 ---
 

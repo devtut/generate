@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Large File Storage (LFS)"
+metaTitle: "Git - Git Large File Storage (LFS)"
 description: "Declare certain file types to store externally, Install LFS, Set LFS config for all clones"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "R code vectorization best practices"
+metaTitle: "R - R code vectorization best practices"
 description: "By row operations"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Backup script for a production DB"
+metaTitle: "PostgreSQL - Backup script for a production DB"
 description: "saveProdDb.sh"
 ---
 

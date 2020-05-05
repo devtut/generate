@@ -1,5 +1,5 @@
 ---
-metaTitle: "Database Access"
+metaTitle: "Python - Database Access"
 description: "SQLite, Accessing MySQL database using MySQLdb, Connection, PostgreSQL Database access using psycopg2, Oracle database, Using sqlalchemy"
 ---
 

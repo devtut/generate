@@ -1,5 +1,5 @@
 ---
-metaTitle: "Naming Conventions"
+metaTitle: "C# | Naming Conventions"
 description: "Capitalization conventions, Enums, Interfaces, Exceptions, Private fields, Namespaces"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "constexpr"
+metaTitle: "C++ | constexpr"
 description: "constexpr variables, Static if statement, constexpr functions"
 ---
 

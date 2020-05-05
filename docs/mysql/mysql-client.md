@@ -1,5 +1,5 @@
 ---
-metaTitle: "MySQL client"
+metaTitle: "MySQL - MySQL client"
 description: "Base login, Execute commands"
 ---
 

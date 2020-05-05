@@ -1,5 +1,5 @@
 ---
-metaTitle: "Example Databases and Tables"
+metaTitle: "SQL - Example Databases and Tables"
 description: "Auto Shop Database, Library Database, Countries Table"
 ---
 

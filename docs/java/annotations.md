@@ -1,5 +1,5 @@
 ---
-metaTitle: "Annotations"
+metaTitle: "Java - Annotations"
 description: "Defining annotation types, Runtime annotation checks via reflection, Built-in annotations, The idea behind Annotations, Compile time processing using annotation processor, Repeating Annotations, Inherited Annotations, Getting Annotation values at run-time, Annotations for 'this' and receiver parameters, Add multiple annotation values"
 ---
 

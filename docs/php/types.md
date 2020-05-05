@@ -1,5 +1,5 @@
 ---
-metaTitle: "Types"
+metaTitle: "PHP - Types"
 description: "Type Comparison, Boolean, Float, Strings, Callable, Null, Type Casting, Resources, Type Juggling, Integers"
 ---
 

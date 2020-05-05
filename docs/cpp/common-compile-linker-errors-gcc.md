@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common compile/linker errors (GCC)"
+metaTitle: "C++ | Common compile/linker errors (GCC)"
 description: "undefined reference to `***', error: '***' was not declared in this scope, fatal error: ***: No such file or directory"
 ---
 

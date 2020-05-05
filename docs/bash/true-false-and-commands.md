@@ -1,5 +1,5 @@
 ---
-metaTitle: "true, false and : commands"
+metaTitle: "Bash - true, false and : commands"
 description: "Infinite Loop, Function Return, Code that will always/never be executed"
 ---
 

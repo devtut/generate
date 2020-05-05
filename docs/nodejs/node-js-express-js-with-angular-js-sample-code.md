@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js (express.js) with angular.js Sample code"
+metaTitle: "Node.js - Node.js (express.js) with angular.js Sample code"
 description: "Creating our project."
 ---
 

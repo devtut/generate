@@ -1,5 +1,5 @@
 ---
-metaTitle: "Basic input/output in c++"
+metaTitle: "C++ | Basic input/output in c++"
 description: "user input and standard output"
 ---
 

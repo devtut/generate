@@ -1,5 +1,5 @@
 ---
-metaTitle: "Group By"
+metaTitle: "MySQL - Group By"
 description: "GROUP BY using HAVING, Group By using Group Concat, Group By Using MIN function, GROUP BY with AGGREGATE functions, GROUP BY USING SUM Function, GROUP BY USING COUNT Function"
 ---
 

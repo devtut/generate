@@ -1,5 +1,5 @@
 ---
-metaTitle: "Network analysis with the igraph package"
+metaTitle: "R - Network analysis with the igraph package"
 description: "Simple Directed and Non-directed Network Graphing"
 ---
 

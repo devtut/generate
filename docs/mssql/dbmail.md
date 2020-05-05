@@ -1,5 +1,5 @@
 ---
-metaTitle: "DBMAIL"
+metaTitle: "Microsoft SQL Server - DBMAIL"
 description: "Send simple email, Send results of a query, Send HTML email"
 ---
 

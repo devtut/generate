@@ -1,5 +1,5 @@
 ---
-metaTitle: "Connecting Python to SQL Server"
+metaTitle: "Python - Connecting Python to SQL Server"
 description: "Connect to Server, Create Table, Query Data"
 ---
 

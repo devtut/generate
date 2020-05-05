@@ -1,5 +1,5 @@
 ---
-metaTitle: "The STUFF Function"
+metaTitle: "Microsoft SQL Server - The STUFF Function"
 description: "Using FOR XML to Concatenate Values from Multiple Rows, Basic Character Replacement with STUFF(), Basic Example of STUFF() function., Obtain column names separated with comma (not a list), stuff for comma separated in sql server"
 ---
 

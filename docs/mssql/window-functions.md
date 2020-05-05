@@ -1,5 +1,5 @@
 ---
-metaTitle: "Window functions"
+metaTitle: "Microsoft SQL Server - Window functions"
 description: "Centered Moving Average, Find the single most recent item in a list of timestamped events, Moving Average of last 30 Items"
 ---
 

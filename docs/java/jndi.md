@@ -1,5 +1,5 @@
 ---
-metaTitle: "JNDI"
+metaTitle: "Java - JNDI"
 description: "RMI through JNDI"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stopwatches"
+metaTitle: "C# | Stopwatches"
 description: "IsHighResolution, Creating an Instance of a Stopwatch"
 ---
 

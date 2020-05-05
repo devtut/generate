@@ -1,5 +1,5 @@
 ---
-metaTitle: "mutable keyword"
+metaTitle: "C++ | mutable keyword"
 description: "mutable lambdas, non-static class member modifier"
 ---
 

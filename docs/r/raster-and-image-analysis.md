@@ -1,5 +1,5 @@
 ---
-metaTitle: "Raster and Image Analysis"
+metaTitle: "R - Raster and Image Analysis"
 description: "Calculating GLCM Texture, Mathematical Morphologies"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Design Patterns"
+metaTitle: "Python - Design Patterns"
 description: "Introduction to design patterns and Singleton Pattern, Strategy Pattern, Proxy"
 ---
 

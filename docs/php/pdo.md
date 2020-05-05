@@ -1,5 +1,5 @@
 ---
-metaTitle: "PDO"
+metaTitle: "PHP - PDO"
 description: "Preventing SQL injection with Parameterized Queries, Basic PDO Connection and Retrieval, Database Transactions with PDO, PDO: connecting to MySQL/MariaDB server, PDO: Get number of affected rows by a query, PDO::lastInsertId()"
 ---
 

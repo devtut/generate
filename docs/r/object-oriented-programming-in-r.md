@@ -1,5 +1,5 @@
 ---
-metaTitle: "Object-Oriented Programming in R"
+metaTitle: "R - Object-Oriented Programming in R"
 description: "S3"
 ---
 

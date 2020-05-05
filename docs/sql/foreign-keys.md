@@ -1,5 +1,5 @@
 ---
-metaTitle: "Foreign Keys"
+metaTitle: "SQL - Foreign Keys"
 description: "Creating a table with a foreign key, Foreign Keys explained"
 ---
 

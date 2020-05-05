@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions"
+metaTitle: "Bash - Functions"
 description: "Functions with arguments, Simple Function, Handling flags and optional parameters, Return value from a function, The exit code of a function is the exit code of its last command, Print the function definition, A function that accepts named parameters"
 ---
 

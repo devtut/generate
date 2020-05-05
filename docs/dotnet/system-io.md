@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.IO"
+metaTitle: ".NET Framework - System.IO"
 description: "Reading a text file using StreamReader, Serial Ports using System.IO.SerialPorts, Reading/Writing Data Using System.IO.File"
 ---
 

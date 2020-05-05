@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java SE 7 Features"
+metaTitle: "Java - Java SE 7 Features"
 description: "New Java SE 7 programming language features, Binary Literals, The try-with-resources statement, Underscores in Numeric Literals, Type Inference for Generic Instance Creation, Strings in switch Statements"
 ---
 

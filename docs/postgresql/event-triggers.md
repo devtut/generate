@@ -1,5 +1,5 @@
 ---
-metaTitle: "Event Triggers"
+metaTitle: "PostgreSQL - Event Triggers"
 description: "Logging DDL Command Start Events"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Attributes"
+metaTitle: "C# | Attributes"
 description: "Creating a custom attribute, Reading an attribute, Using an attribute, DebuggerDisplay Attribute, Caller info attributes, Reading an attribute from interface, Obsolete Attribute"
 ---
 

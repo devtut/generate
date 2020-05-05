@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using Redis with PHP"
+metaTitle: "PHP - Using Redis with PHP"
 description: "Connecting to a Redis instance, Installing PHP Redis on Ubuntu, Executing Redis commands in PHP"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "HTTP Authentication"
+metaTitle: "PHP - HTTP Authentication"
 description: "Simple authenticate"
 ---
 

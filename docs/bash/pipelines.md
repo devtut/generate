@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pipelines"
+metaTitle: "Bash - Pipelines"
 description: "Using |&, Show all processes paginated, Modify continuous output of a command"
 ---
 

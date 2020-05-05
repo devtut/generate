@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON in .NET with Newtonsoft.Json"
+metaTitle: ".NET Framework - JSON in .NET with Newtonsoft.Json"
 description: "Deserialize an object from JSON text, Serialize object into JSON"
 ---
 

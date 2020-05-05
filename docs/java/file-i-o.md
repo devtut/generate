@@ -1,5 +1,5 @@
 ---
-metaTitle: "File I/O"
+metaTitle: "Java - File I/O"
 description: "Migrating from java.io.File to Java 7 NIO (java.nio.file.Path), Reading an image from a file, File Read/Write Using  FileInputStream/FileOutputStream, Reading all bytes to a byte[], Copying a file using Channel, Writing a byte[] to a file, Stream vs Writer/Reader API, Reading a file with a Scanner, Reading a whole file at once, Iterating over a directory and filter by file extension, Reading from a binary file, Locking, Copying a file using InputStream and OutputStream, Reading a file using Channel and Buffer, Reading  a file using BufferedInputStream, Writing a file using Channel and Buffer, Writing a file using PrintStream, Iterate over a directory printing subdirectories in it, Adding Directories, Blocking or redirecting standard output / error, Accessing the contents of a ZIP file"
 ---
 

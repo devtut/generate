@@ -1,5 +1,5 @@
 ---
-metaTitle: "Resource Governor"
+metaTitle: "Microsoft SQL Server - Resource Governor"
 description: "Reading the Statistics, Create a pool for adhoc queries"
 ---
 

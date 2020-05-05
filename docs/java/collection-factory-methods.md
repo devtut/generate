@@ -1,5 +1,5 @@
 ---
-metaTitle: "Collection Factory Methods"
+metaTitle: "Java - Collection Factory Methods"
 description: "List<E> Factory Method Examples, Set<E> Factory Method Examples, Map<K, V> Factory Method Examples"
 ---
 

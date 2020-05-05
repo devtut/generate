@@ -1,5 +1,5 @@
 ---
-metaTitle: "SELECT"
+metaTitle: "SQL - SELECT"
 description: "Using the wildcard character to select all columns in a query., SELECT Using Column Aliases, Select Individual Columns, Selecting specified number of records, Selecting with Condition, Selecting with CASE, Select columns which are named after reserved keywords, Selecting with table alias, Selection with sorted Results, Selecting with Aggregate functions, Selecting without Locking the table, Select with condition of multiple values from column, Get aggregated result for row groups, Selecting with more than 1 condition., Select rows from multiple tables, Selecting with null, Select distinct (unique values only)"
 ---
 

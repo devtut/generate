@@ -1,5 +1,5 @@
 ---
-metaTitle: "C++ Streams"
+metaTitle: "C++ | C++ Streams"
 description: "String streams, Printing collections with iostream, Reading a file till the end, Parsing files"
 ---
 

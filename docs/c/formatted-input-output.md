@@ -1,5 +1,5 @@
 ---
-metaTitle: "Formatted Input/Output"
+metaTitle: "C - Formatted Input/Output"
 description: "Conversion Specifiers for printing, Printing the Value of a Pointer to an Object, Printing the Difference of the Values of two Pointers to an Object, The printf() Function, Printing format flags, Length modifiers"
 ---
 

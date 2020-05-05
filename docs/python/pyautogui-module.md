@@ -1,5 +1,5 @@
 ---
-metaTitle: "pyautogui module"
+metaTitle: "Python - pyautogui module"
 description: "Mouse Functions, Keyboard Functions, ScreenShot And Image Recognition"
 ---
 

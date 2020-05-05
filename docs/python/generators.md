@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generators"
+metaTitle: "Python - Generators"
 description: "Introduction, Infinite sequences, Sending objects to a generator, Yielding all values from another iterable, Iteration, The next() function, Coroutines, Yield with recursion: recursively listing all files in a directory, Refactoring list-building code, Generator expressions, Using a generator to find Fibonacci Numbers, Searching, Iterating over generators in parallel"
 ---
 

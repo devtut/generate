@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dependency Injection"
+metaTitle: ".NET Framework - Dependency Injection"
 description: "Dependency Injection - Simple example, How Dependency Injection Makes Unit Testing Easier, Why We Use Dependency Injection Containers (IoC Containers)"
 ---
 

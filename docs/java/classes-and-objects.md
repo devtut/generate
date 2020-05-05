@@ -1,5 +1,5 @@
 ---
-metaTitle: "Classes and Objects"
+metaTitle: "Java - Classes and Objects"
 description: "Overloading Methods, Explaining what is method overloading and overriding., Simplest Possible Class, Object Member vs Static Member, Basic Object Construction and Use, Constructors, Initializing static final fields using a static initializer"
 ---
 

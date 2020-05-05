@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::iomanip"
+metaTitle: "C++ | std::iomanip"
 description: "std::setprecision, std::setfill, std::setiosflags, std::setw"
 ---
 

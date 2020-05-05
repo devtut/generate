@@ -1,5 +1,5 @@
 ---
-metaTitle: "Properties Class"
+metaTitle: "Java - Properties Class"
 description: "Loading properties, Property files caveat: trailing whitespace, Saving Properties as XML"
 ---
 

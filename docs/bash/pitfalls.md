@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pitfalls"
+metaTitle: "Bash - Pitfalls"
 description: "Whitespace When Assigning Variables, Failed commands do not stop script execution, Missing The Last Line in a File"
 ---
 

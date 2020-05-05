@@ -1,5 +1,5 @@
 ---
-metaTitle: "Identifier Scope"
+metaTitle: "C - Identifier Scope"
 description: "Function Prototype Scope, Block Scope, File Scope, Function scope"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Subsetting"
+metaTitle: "R - Subsetting"
 description: "Data frames, Atomic vectors, Matrices, Lists, Other objects, Vector indexing, Elementwise Matrix Operations"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Jobs at specific times"
+metaTitle: "Bash - Jobs at specific times"
 description: "Execute job once at specific time, Doing jobs at specified times repeatedly using systemd.timer"
 ---
 

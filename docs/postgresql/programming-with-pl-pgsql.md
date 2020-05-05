@@ -1,5 +1,5 @@
 ---
-metaTitle: "Programming with PL/pgSQL"
+metaTitle: "PostgreSQL - Programming with PL/pgSQL"
 description: "Basic PL/pgSQL Function, PL/pgSQL Syntax, RETURNS Block, custom exceptions"
 ---
 

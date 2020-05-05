@@ -1,5 +1,5 @@
 ---
-metaTitle: "Database permissions"
+metaTitle: "Microsoft SQL Server - Database permissions"
 description: "Changing permissions, CREATE USER, CREATE ROLE, Changing role membership"
 ---
 

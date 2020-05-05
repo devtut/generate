@@ -1,5 +1,5 @@
 ---
-metaTitle: "Delegates"
+metaTitle: "C# | Delegates"
 description: "Declaring a delegate type, The Func<T, TResult>, Action<T> and Predicate<T> delegate types, Combine Delegates (Multicast Delegates), Safe invoke multicast delegate, Delegate Equality, Underlying references of named method delegates, Assigning a named method to a delegate, Assigning to a delegate by lambda, Passing delegates as parameters, Closure inside a delegate, Encapsulating transformations in funcs"
 ---
 

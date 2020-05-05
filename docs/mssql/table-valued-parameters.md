@@ -1,5 +1,5 @@
 ---
-metaTitle: "Table Valued Parameters"
+metaTitle: "Microsoft SQL Server - Table Valued Parameters"
 description: "Using a table valued parameter to insert multiple rows to a table"
 ---
 

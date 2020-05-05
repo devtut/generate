@@ -1,5 +1,5 @@
 ---
-metaTitle: "Alternative Syntax for Control Structures"
+metaTitle: "PHP - Alternative Syntax for Control Structures"
 description: "Alternative if/else statement, Alternative for statement, Alternative while statement, Alternative foreach statement, Alternative switch statement"
 ---
 

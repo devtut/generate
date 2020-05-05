@@ -1,5 +1,5 @@
 ---
-metaTitle: "Logging"
+metaTitle: "Python - Logging"
 description: "Introduction to Python Logging, Logging exceptions"
 ---
 

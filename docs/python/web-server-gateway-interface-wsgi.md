@@ -1,5 +1,5 @@
 ---
-metaTitle: "Web Server Gateway Interface (WSGI)"
+metaTitle: "Python - Web Server Gateway Interface (WSGI)"
 description: "Server Object (Method)"
 ---
 

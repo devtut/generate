@@ -1,5 +1,5 @@
 ---
-metaTitle: "Managing Azure SQL Database"
+metaTitle: "Microsoft SQL Server - Managing Azure SQL Database"
 description: "Find service tier information for Azure SQL Database, Change service tier of Azure SQL Database, Replication of Azure SQL Database, Create Azure SQL Database in Elastic pool"
 ---
 

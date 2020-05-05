@@ -1,5 +1,5 @@
 ---
-metaTitle: "Chain of commands and operations"
+metaTitle: "Bash - Chain of commands and operations"
 description: "Counting a text pattern ocurrence, transfer root cmd output to user file, logical chaining of commands with && and ||, serial chaining of commands with semicolon, chaining commands with |"
 ---
 

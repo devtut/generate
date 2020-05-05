@@ -1,5 +1,5 @@
 ---
-metaTitle: "Graph Traversals"
+metaTitle: "Algorithm - Graph Traversals"
 description: "Depth First Search traversal function"
 ---
 

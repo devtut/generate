@@ -1,5 +1,5 @@
 ---
-metaTitle: "Integer Partition Algorithm"
+metaTitle: "Algorithm - Integer Partition Algorithm"
 description: "Basic Information of Integer Partition Algorithm, Implementation of Interger Partition Algorithm in C#"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Empty directories in Git"
+metaTitle: "Git - Empty directories in Git"
 description: "Git doesn't track directories"
 ---
 

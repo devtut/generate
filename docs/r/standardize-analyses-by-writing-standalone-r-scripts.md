@@ -1,5 +1,5 @@
 ---
-metaTitle: "Standardize analyses by writing standalone R scripts"
+metaTitle: "R - Standardize analyses by writing standalone R scripts"
 description: "The basic structure of standalone R program and how to call it, Using littler to execute R scripts"
 ---
 

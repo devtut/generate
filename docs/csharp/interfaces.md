@@ -1,5 +1,5 @@
 ---
-metaTitle: "Interfaces"
+metaTitle: "C# | Interfaces"
 description: "Implementing an interface, Explicit interface implementation, Implementing multiple interfaces, Interface Basics, IComparable<T> as an Example of Implementing an Interface, Why we use interfaces, Hiding members with Explicit Implementation"
 ---
 

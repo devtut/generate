@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type Hints"
+metaTitle: "Python - Type Hints"
 description: "Adding types to a function, Generic Types, NamedTuple, Variables and Attributes, Class Members and Methods, Type hints for keyword arguments"
 ---
 

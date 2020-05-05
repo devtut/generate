@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common C programming idioms and developer practices"
+metaTitle: "C - Common C programming idioms and developer practices"
 description: "Comparing literal and variable, Do not leave the parameter list of a function blank — use void"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cluster Module"
+metaTitle: "Node.js - Cluster Module"
 description: "Hello World, Cluster Example"
 ---
 

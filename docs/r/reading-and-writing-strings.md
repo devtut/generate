@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reading and writing strings"
+metaTitle: "R - Reading and writing strings"
 description: "Printing and displaying strings, Capture output of operating system command, Reading from or writing to a file connection"
 ---
 

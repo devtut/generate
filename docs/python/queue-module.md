@@ -1,5 +1,5 @@
 ---
-metaTitle: "Queue Module"
+metaTitle: "Python - Queue Module"
 description: "Simple example"
 ---
 

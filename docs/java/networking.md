@@ -1,5 +1,5 @@
 ---
-metaTitle: "Networking"
+metaTitle: "Java - Networking"
 description: "Basic Client and Server Communication using a Socket, Basic Client/Server Communication using UDP (Datagram), Loading TrustStore and KeyStore from InputStream, Socket example - reading a web page using a simple socket, Multicasting, Temporarily disable SSL verification (for testing purposes), Downloading a file using Channel"
 ---
 

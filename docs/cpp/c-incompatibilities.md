@@ -1,5 +1,5 @@
 ---
-metaTitle: "C incompatibilities"
+metaTitle: "C++ | C incompatibilities"
 description: "Reserved Keywords, Weakly typed pointers, goto or switch"
 ---
 

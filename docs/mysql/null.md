@@ -1,5 +1,5 @@
 ---
-metaTitle: "NULL"
+metaTitle: "MySQL - NULL"
 description: "Uses for NULL, Testing NULLs"
 ---
 

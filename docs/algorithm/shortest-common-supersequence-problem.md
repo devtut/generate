@@ -1,5 +1,5 @@
 ---
-metaTitle: "Shortest Common Supersequence Problem"
+metaTitle: "Algorithm - Shortest Common Supersequence Problem"
 description: "Shortest Common Supersequence Problem Basic Information, Implementation of Shortest Common Supersequence Problem in C#"
 ---
 

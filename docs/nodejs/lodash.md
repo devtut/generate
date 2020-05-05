@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lodash"
+metaTitle: "Node.js - Lodash"
 description: "Filter a collection"
 ---
 

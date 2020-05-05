@@ -1,5 +1,5 @@
 ---
-metaTitle: "Destructuring assignment"
+metaTitle: "JavsScript - Destructuring assignment"
 description: "Destructuring Objects, Destructuring function arguments, Nested Destructuring, Destructuring Arrays, Renaming Variables While Destructuring, Destructuring inside variables, Default Value While Destructuring, Using rest parameters to create an arguments array"
 ---
 

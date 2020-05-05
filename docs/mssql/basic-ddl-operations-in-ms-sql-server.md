@@ -1,5 +1,5 @@
 ---
-metaTitle: "Basic DDL Operations in MS SQL Server"
+metaTitle: "Microsoft SQL Server - Basic DDL Operations in MS SQL Server"
 description: "Getting started"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Web scraping and parsing"
+metaTitle: "R - Web scraping and parsing"
 description: "Basic scraping with rvest, Using rvest when login is required"
 ---
 

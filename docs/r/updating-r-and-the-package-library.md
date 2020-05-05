@@ -1,5 +1,5 @@
 ---
-metaTitle: "Updating R and the package library"
+metaTitle: "R - Updating R and the package library"
 description: "On Windows"
 ---
 

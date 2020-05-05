@@ -1,5 +1,5 @@
 ---
-metaTitle: "Deque Module"
+metaTitle: "Python - Deque Module"
 description: "Basic deque using, Available methods in deque, limit deque size, Breadth First Search"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "UNION / UNION ALL"
+metaTitle: "SQL - UNION / UNION ALL"
 description: "Basic UNION ALL query, Simple explanation and Example"
 ---
 

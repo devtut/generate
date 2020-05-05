@@ -1,5 +1,5 @@
 ---
-metaTitle: "Polymorphism"
+metaTitle: "Java - Polymorphism"
 description: "Method Overriding, Method Overloading, Polymorphism and different types of overriding, Adding behaviour by adding classes without touching existing code, Virtual functions"
 ---
 

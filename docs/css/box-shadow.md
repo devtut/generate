@@ -1,5 +1,5 @@
 ---
-metaTitle: "box-shadow"
+metaTitle: "CSS - box-shadow"
 description: "bottom-only drop shadow using a pseudo-element, drop shadow, inner drop shadow, multiple shadows"
 ---
 

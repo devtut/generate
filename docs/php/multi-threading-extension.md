@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multi Threading Extension"
+metaTitle: "PHP - Multi Threading Extension"
 description: "Getting Started, Using Pools and Workers"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: ".mailmap file: Associating contributor and email aliases"
+metaTitle: "Git - .mailmap file: Associating contributor and email aliases"
 description: "Merge contributers by aliases to show commit count in shortlog."
 ---
 

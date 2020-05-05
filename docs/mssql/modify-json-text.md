@@ -1,5 +1,5 @@
 ---
-metaTitle: "Modify JSON text"
+metaTitle: "Microsoft SQL Server - Modify JSON text"
 description: "Modify value in JSON text on the specified path, Append a scalar value into a JSON array, Insert new JSON Object in JSON text, Insert new JSON array generated with FOR JSON query, Insert single JSON object generated with FOR JSON clause"
 ---
 

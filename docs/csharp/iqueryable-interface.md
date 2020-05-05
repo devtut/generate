@@ -1,5 +1,5 @@
 ---
-metaTitle: "IQueryable interface"
+metaTitle: "C# | IQueryable interface"
 description: "Translating a LINQ query to a SQL query"
 ---
 

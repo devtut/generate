@@ -1,5 +1,5 @@
 ---
-metaTitle: "Imagick"
+metaTitle: "PHP - Imagick"
 description: "First Steps, Convert Image into base64 String"
 ---
 

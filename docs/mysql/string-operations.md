@@ -1,5 +1,5 @@
 ---
-metaTitle: "String operations"
+metaTitle: "MySQL - String operations"
 description: "Find element in comma separated list, STR_TO_DATE - Convert string to date, LOWER() / LCASE(), REPLACE(), SUBSTRING(), UPPER() / UCASE(), LENGTH(), CHAR_LENGTH(), HEX(str)"
 ---
 

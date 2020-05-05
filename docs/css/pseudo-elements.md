@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pseudo-Elements"
+metaTitle: "CSS - Pseudo-Elements"
 description: "Pseudo-Elements, Pseudo-Elements in Lists"
 ---
 

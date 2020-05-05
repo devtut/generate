@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using trap to react to signals and system events"
+metaTitle: "Bash - Using trap to react to signals and system events"
 description: "Introduction: clean up temporary files, Catching SIGINT or Ctl+C, Accumulate a list of trap work to run at exit., Killing Child Processes on Exit, react on change of terminals window size"
 ---
 

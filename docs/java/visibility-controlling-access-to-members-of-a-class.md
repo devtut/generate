@@ -1,5 +1,5 @@
 ---
-metaTitle: "Visibility (controlling access to members of a class)"
+metaTitle: "Java - Visibility (controlling access to members of a class)"
 description: "Private Visibility, Public Visibility, Package Visibility, Protected Visibility, Summary of Class Member Access Modifiers, Interface members"
 ---
 

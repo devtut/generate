@@ -1,5 +1,5 @@
 ---
-metaTitle: "Jobs and Processes"
+metaTitle: "Bash - Jobs and Processes"
 description: "Job handling, Check which process running on specific port, Disowning background job, List Current Jobs, List all processes, Finding information about a  running process "
 ---
 

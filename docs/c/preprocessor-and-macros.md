@@ -1,5 +1,5 @@
 ---
-metaTitle: "Preprocessor and Macros"
+metaTitle: "C - Preprocessor and Macros"
 description: "#if 0 to block out code sections, Header Include Guards, Function-like macros, Source file inclusion, Conditional inclusion and conditional function signature modification, Token pasting, Predefined Macros, __cplusplus for using C externals in C++ code compiled with C++ - name mangling, Variadic arguments macro, Macro Replacement, Error directive, FOREACH implementation"
 ---
 

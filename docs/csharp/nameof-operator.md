@@ -1,5 +1,5 @@
 ---
-metaTitle: "nameof Operator"
+metaTitle: "C# | nameof Operator"
 description: "Raising PropertyChanged event, Basic usage: Printing a variable name, Argument Checking and Guard Clauses, Strongly typed MVC action links, Handling PropertyChanged events, Applied to a generic type parameter, Printing a parameter name, Applied to qualified identifiers"
 ---
 

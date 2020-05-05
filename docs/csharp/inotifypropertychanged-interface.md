@@ -1,5 +1,5 @@
 ---
-metaTitle: "INotifyPropertyChanged interface"
+metaTitle: "C# | INotifyPropertyChanged interface"
 description: "Implementing INotifyPropertyChanged in C# 6, INotifyPropertyChanged With Generic Set Method"
 ---
 

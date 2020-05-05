@@ -1,5 +1,5 @@
 ---
-metaTitle: "Typedef"
+metaTitle: "C - Typedef"
 description: "Typedef for Structures and Unions, Simple Uses of Typedef, Typedef for Function Pointers"
 ---
 

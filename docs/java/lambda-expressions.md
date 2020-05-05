@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lambda Expressions"
+metaTitle: "Java - Lambda Expressions"
 description: "Introduction to Java lambdas, Using Lambda Expressions to Sort a Collection, Method References, Implementing multiple interfaces, Lambda - Listener Example, Java Closures with lambda expressions., Using lambda expression with your own functional interface, Traditional style to Lambda style, Lambdas and memory utilization, Lambdas and Execute-around Pattern, `return` only returns from the lambda, not the outer method, Using lambda expressions & predicates to get a certain value(s) from a list"
 ---
 

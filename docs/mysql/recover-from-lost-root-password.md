@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recover from lost root password"
+metaTitle: "MySQL - Recover from lost root password"
 description: "Set root password, enable root user for socket and http access"
 ---
 

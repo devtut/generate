@@ -1,5 +1,5 @@
 ---
-metaTitle: "Constant class member functions"
+metaTitle: "C++ | Constant class member functions"
 description: "constant member function"
 ---
 

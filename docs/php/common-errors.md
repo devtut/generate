@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common Errors"
+metaTitle: "PHP - Common Errors"
 description: "Call fetch_assoc on boolean, Unexpected $end"
 ---
 

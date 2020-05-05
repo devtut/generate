@@ -1,5 +1,5 @@
 ---
-metaTitle: "Standard Library Algorithms"
+metaTitle: "C++ | Standard Library Algorithms"
 description: "std::next_permutation, std::for_each, std::accumulate, std::find, std::count, std::count_if, std::find_if, std::min_element, Using std::nth_element To Find The Median (Or Other Quantiles)"
 ---
 

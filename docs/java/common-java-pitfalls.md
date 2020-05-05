@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common Java Pitfalls"
+metaTitle: "Java - Common Java Pitfalls"
 description: "Pitfall: using == to compare primitive wrappers objects such as Integer, Pitfall: using == to compare strings, Pitfall: forgetting to free resources, Pitfall: testing a file before attempting to open it., Pitfall: thinking of variables as objects, Pitfall: memory leaks, Pitfall: Not understanding that String is an immutable class, Pitfall: combining assignment and side-effects"
 ---
 

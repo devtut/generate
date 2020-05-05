@@ -1,5 +1,5 @@
 ---
-metaTitle: "MERGE"
+metaTitle: "Microsoft SQL Server - MERGE"
 description: "MERGE to Insert / Update / Delete, Merge Using CTE Source, MERGE using Derived Source Table, Merge Example - Synchronize Source And Target Table, Merge using EXCEPT"
 ---
 

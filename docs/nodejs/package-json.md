@@ -1,5 +1,5 @@
 ---
-metaTitle: "package.json"
+metaTitle: "Node.js - package.json"
 description: "Scripts, Exploring package.json, Basic project definition, Dependencies, Extended project definition"
 ---
 

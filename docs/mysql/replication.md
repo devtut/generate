@@ -1,5 +1,5 @@
 ---
-metaTitle: "Replication"
+metaTitle: "MySQL - Replication"
 description: "Master - Slave Replication Setup, Replication Errors"
 ---
 

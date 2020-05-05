@@ -1,5 +1,5 @@
 ---
-metaTitle: "References"
+metaTitle: "C++ | References"
 description: "Defining a reference, C++ References are Alias of existing variables"
 ---
 

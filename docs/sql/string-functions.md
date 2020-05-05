@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Functions"
+metaTitle: "SQL - String Functions"
 description: "Concatenate, Length, Trim empty spaces, Upper & lower case, Split, Replace, Substring, Stuff, REGEXP, LEFT - RIGHT, REVERSE, REPLICATE, Replace function in sql Select and Update query, PARSENAME , INSTR"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Iterator and Iterable"
+metaTitle: "Java - Iterator and Iterable"
 description: "Creating your own Iterable., Removing elements using an iterator, Using Iterable in for loop, Using the raw iterator"
 ---
 

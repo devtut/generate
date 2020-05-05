@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQL Server Evolution through different versions (2000 - 2016)"
+metaTitle: "Microsoft SQL Server - SQL Server Evolution through different versions (2000 - 2016)"
 description: "SQL Server Version 2000 - 2016"
 ---
 

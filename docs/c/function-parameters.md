@@ -1,5 +1,5 @@
 ---
-metaTitle: "Function Parameters"
+metaTitle: "C - Function Parameters"
 description: "Parameters are passed by value, Passing in Arrays to Functions, Order of function parameter execution, Using pointer parameters to return multiple values, Example of function returning struct containing values with error codes"
 ---
 

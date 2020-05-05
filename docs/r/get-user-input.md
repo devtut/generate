@@ -1,5 +1,5 @@
 ---
-metaTitle: "Get user input"
+metaTitle: "R - Get user input"
 description: "User input in R"
 ---
 

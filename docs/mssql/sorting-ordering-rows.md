@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sorting/ordering rows"
+metaTitle: "Microsoft SQL Server - Sorting/ordering rows"
 description: "Basics, Order by Case"
 ---
 

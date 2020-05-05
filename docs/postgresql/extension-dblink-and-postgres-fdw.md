@@ -1,5 +1,5 @@
 ---
-metaTitle: "EXTENSION dblink and postgres_fdw"
+metaTitle: "PostgreSQL - EXTENSION dblink and postgres_fdw"
 description: "Extention FDW, Foreign Data Wrapper, Extention  dblink"
 ---
 

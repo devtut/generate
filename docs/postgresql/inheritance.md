@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inheritance"
+metaTitle: "PostgreSQL - Inheritance"
 description: "Creating children tables, Altering tables"
 ---
 

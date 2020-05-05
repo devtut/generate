@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using Directive"
+metaTitle: "C# | Using Directive"
 description: "Access Static Members of a Class, Associate an Alias to Resolve Conflicts, Using alias directives, Basic Usage, Reference a Namespace, Associate an Alias with a Namespace"
 ---
 

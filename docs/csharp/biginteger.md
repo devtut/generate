@@ -1,5 +1,5 @@
 ---
-metaTitle: "BigInteger"
+metaTitle: "C# | BigInteger"
 description: "Calculate the First 1,000-Digit Fibonacci Number"
 ---
 

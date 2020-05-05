@@ -1,5 +1,5 @@
 ---
-metaTitle: "The Box Model"
+metaTitle: "CSS - The Box Model"
 description: "What is the Box Model?, box-sizing"
 ---
 

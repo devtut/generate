@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bash Arithmetic"
+metaTitle: "Bash - Bash Arithmetic"
 description: "Simple arithmetic with (( )), Arithmetic command, Simple arithmetic with expr"
 ---
 

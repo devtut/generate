@@ -1,5 +1,5 @@
 ---
-metaTitle: "Immutable datatypes(int, float, str, tuple and frozensets)"
+metaTitle: "Python - Immutable datatypes(int, float, str, tuple and frozensets)"
 description: "Individual characters of strings are not assignable, Tuple's individual members aren't assignable, Frozenset's are immutable and not assignable"
 ---
 

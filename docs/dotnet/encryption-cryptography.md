@@ -1,5 +1,5 @@
 ---
-metaTitle: "Encryption / Cryptography"
+metaTitle: ".NET Framework - Encryption / Cryptography"
 description: "RijndaelManaged, Encrypt and decrypt data using AES (in C#), Create a Key from a Password / Random SALT (in C#), Encryption and Decryption using Cryptography (AES)"
 ---
 

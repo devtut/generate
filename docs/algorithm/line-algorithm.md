@@ -1,5 +1,5 @@
 ---
-metaTitle: "Line Algorithm"
+metaTitle: "Algorithm - Line Algorithm"
 description: "Bresenham Line Drawing Algorithm"
 ---
 

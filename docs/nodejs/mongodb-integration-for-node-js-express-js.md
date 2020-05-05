@@ -1,5 +1,5 @@
 ---
-metaTitle: "MongoDB Integration for Node.js/Express.js"
+metaTitle: "Node.js - MongoDB Integration for Node.js/Express.js"
 description: "Installing MongoDB, Creating a Mongoose Model, Querying your Mongo Database"
 ---
 

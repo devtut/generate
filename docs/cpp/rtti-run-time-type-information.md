@@ -1,5 +1,5 @@
 ---
-metaTitle: "RTTI: Run-Time Type Information"
+metaTitle: "C++ | RTTI: Run-Time Type Information"
 description: "Name of a type, dynamic_cast, The typeid keyword, When to use which cast in c++"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Row number"
+metaTitle: "SQL - Row number"
 description: "Row numbers without partitions, Row numbers with partitions, Delete All But Last Record (1 to Many Table)"
 ---
 

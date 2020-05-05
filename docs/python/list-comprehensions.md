@@ -1,5 +1,5 @@
 ---
-metaTitle: "List Comprehensions"
+metaTitle: "Python - List Comprehensions"
 description: "Conditional List Comprehensions, List Comprehensions with Nested Loops, Refactoring filter and map to list comprehensions, Nested List Comprehensions, Iterate two or more list simultaneously within list comprehension"
 ---
 

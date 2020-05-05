@@ -1,5 +1,5 @@
 ---
-metaTitle: "Notifications API"
+metaTitle: "JavsScript - Notifications API"
 description: "Requesting Permission to send notifications, Sending Notifications, Closing a notification, Notification events"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multi-Release JAR Files"
+metaTitle: "Java - Multi-Release JAR Files"
 description: "Example of a multi-release Jar file's contents, Creating a multi-release Jar using the jar tool, URL of a loaded class inside a multi-release Jar"
 ---
 

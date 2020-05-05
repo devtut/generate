@@ -1,5 +1,5 @@
 ---
-metaTitle: "Named and Optional Arguments"
+metaTitle: "C# | Named and Optional Arguments"
 description: "Optional Arguments, Named Arguments"
 ---
 

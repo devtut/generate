@@ -1,5 +1,5 @@
 ---
-metaTitle: "CSS Image Sprites"
+metaTitle: "CSS - CSS Image Sprites"
 description: "A Basic Implementation"
 ---
 

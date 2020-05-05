@@ -1,5 +1,5 @@
 ---
-metaTitle: "Passport integration"
+metaTitle: "Node.js - Passport integration"
 description: "Local authentication, Getting started, Facebook authentication, Simple Username-Password Authentication, Google Passport authentication"
 ---
 

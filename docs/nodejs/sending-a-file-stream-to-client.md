@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sending a file stream to client"
+metaTitle: "Node.js - Sending a file stream to client"
 description: "Using fs And pipe To Stream Static Files From The Server, Streaming Using fluent-ffmpeg"
 ---
 

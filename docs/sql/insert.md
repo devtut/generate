@@ -1,5 +1,5 @@
 ---
-metaTitle: "INSERT"
+metaTitle: "SQL - INSERT"
 description: "INSERT data from another table using SELECT, Insert New Row, Insert Only Specified Columns, Insert multiple rows at once"
 ---
 

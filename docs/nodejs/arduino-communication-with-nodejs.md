@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arduino communication with nodeJs"
+metaTitle: "Node.js - Arduino communication with nodeJs"
 description: "Node Js communication with Arduino via serialport"
 ---
 

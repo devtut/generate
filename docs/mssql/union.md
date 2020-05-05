@@ -1,5 +1,5 @@
 ---
-metaTitle: "UNION"
+metaTitle: "Microsoft SQL Server - UNION"
 description: "Union and union all"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cascading Delete"
+metaTitle: "SQL - Cascading Delete"
 description: "ON DELETE CASCADE "
 ---
 

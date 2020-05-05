@@ -1,5 +1,5 @@
 ---
-metaTitle: "Quicksort"
+metaTitle: "Algorithm - Quicksort"
 description: "Quicksort Basics, Quicksort in Python, Lomuto partition java implementation, Haskell Implementation, C# Implementation"
 ---
 

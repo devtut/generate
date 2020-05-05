@@ -1,5 +1,5 @@
 ---
-metaTitle: "tidyverse"
+metaTitle: "R - tidyverse"
 description: "tidyverse: an overview, Creating tbl_df’s"
 ---
 

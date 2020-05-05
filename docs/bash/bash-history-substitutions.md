@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bash history substitutions"
+metaTitle: "Bash - Bash history substitutions"
 description: "Quick Reference, Repeat previous command with sudo, Search in the command history by pattern, Switch to newly created directory with !#:N, Using !$, Repeat the previous command with a substitution"
 ---
 

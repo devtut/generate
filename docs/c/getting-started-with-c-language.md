@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with C Language"
+metaTitle: "C - Getting started with C Language"
 description: "Hello World, Original Hello, World! in K&R C"
 ---
 

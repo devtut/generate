@@ -1,5 +1,5 @@
 ---
-metaTitle: "Backup and Restore"
+metaTitle: "PostgreSQL - Backup and Restore"
 description: "Backing up one database, Restoring backups, Backing up the whole cluster, Using psql to export data, Using Copy to import, Using Copy to export"
 ---
 

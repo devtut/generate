@@ -1,5 +1,5 @@
 ---
-metaTitle: "JIT compiler"
+metaTitle: ".NET Framework - JIT compiler"
 description: "IL compilation sample"
 ---
 

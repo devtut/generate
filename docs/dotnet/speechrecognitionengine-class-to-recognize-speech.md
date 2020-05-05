@@ -1,5 +1,5 @@
 ---
-metaTitle: "SpeechRecognitionEngine class to recognize speech"
+metaTitle: ".NET Framework - SpeechRecognitionEngine class to recognize speech"
 description: "Asynchronously recognizing speech based on a restricted set of phrases, Asynchronously recognizing speech for free text dictation"
 ---
 

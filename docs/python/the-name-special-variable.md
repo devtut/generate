@@ -1,5 +1,5 @@
 ---
-metaTitle: "The __name__ special variable"
+metaTitle: "Python - The __name__ special variable"
 description: "__name__ == '__main__', function_class_or_module.__name__, Use in logging"
 ---
 

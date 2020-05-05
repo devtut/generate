@@ -1,5 +1,5 @@
 ---
-metaTitle: "Preprocessor"
+metaTitle: "C++ | Preprocessor"
 description: "Include Guards, Conditional logic and cross-platform handling, Macros, X-macros, Preprocessor error messages , Predefined macros, #pragma once, Preprocessor Operators"
 ---
 

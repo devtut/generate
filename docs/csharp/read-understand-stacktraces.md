@@ -1,5 +1,5 @@
 ---
-metaTitle: "Read & Understand Stacktraces"
+metaTitle: "C# | Read & Understand Stacktraces"
 description: "Stack trace for a simple NullReferenceException in Windows Forms"
 ---
 

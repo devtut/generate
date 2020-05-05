@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with C++"
+metaTitle: "C++ | Getting started with C++"
 description: "Hello World, Comments, The standard C++ compilation process, Function, Visibility of function prototypes and declarations, Preprocessor"
 ---
 

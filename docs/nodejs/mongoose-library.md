@@ -1,5 +1,5 @@
 ---
-metaTitle: "Mongoose Library"
+metaTitle: "Node.js - Mongoose Library"
 description: "Connect to MongoDB Using Mongoose, Find Data in MongoDB Using Mongoose, Express.js Routes and $text Operator, Save Data to MongoDB using Mongoose and Express.js Routes, Find Data in MongoDB Using Mongoose and Express.js Routes, Indexes in models., Useful Mongoose functions, find data in mongodb using promises"
 ---
 

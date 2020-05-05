@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hash Functions"
+metaTitle: "C# | Hash Functions"
 description: "MD5, SHA1, SHA256, SHA384, SHA512, PBKDF2 for Password Hashing, Complete Password Hashing Solution using Pbkdf2"
 ---
 

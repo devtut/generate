@@ -1,5 +1,5 @@
 ---
-metaTitle: "Initializing Properties"
+metaTitle: "C# | Initializing Properties"
 description: "C# 6.0: Initialize an Auto-Implemented Property, Initializing Property with a Backing Field, Initializing Property in Constructor, Property Initialization during object instantiation"
 ---
 

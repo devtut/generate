@@ -1,5 +1,5 @@
 ---
-metaTitle: "Logical Functions"
+metaTitle: "Microsoft SQL Server - Logical Functions"
 description: "CHOOSE, IIF"
 ---
 

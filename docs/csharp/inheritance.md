@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inheritance"
+metaTitle: "C# | Inheritance"
 description: "Inheritance. Constructors' calls sequence, Inheriting from a base class, Inheriting from a class and implementing an interface, Inheriting from a class and implementing multiple interfaces, Testing and navigating inheritance, Extending an abstract base class, Constructors In A Subclass, Inheritance Anti-patterns, Inheriting methods, Base class with recursive type specification"
 ---
 

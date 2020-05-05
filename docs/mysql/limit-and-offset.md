@@ -1,5 +1,5 @@
 ---
-metaTitle: "Limit and Offset"
+metaTitle: "MySQL - Limit and Offset"
 description: "Limit and Offset relationship"
 ---
 

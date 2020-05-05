@@ -1,5 +1,5 @@
 ---
-metaTitle: "Atomics"
+metaTitle: "C - Atomics"
 description: "atomics and operators"
 ---
 

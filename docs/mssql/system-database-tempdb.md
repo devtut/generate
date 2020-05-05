@@ -1,5 +1,5 @@
 ---
-metaTitle: "System database - TempDb"
+metaTitle: "Microsoft SQL Server - System database - TempDb"
 description: "Identify TempDb usage, TempDB database details"
 ---
 

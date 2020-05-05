@@ -1,5 +1,5 @@
 ---
-metaTitle: "String.Format"
+metaTitle: "C# | String.Format"
 description: "Since C# 6.0, Places where String.Format is 'embedded' in the framework, Create a custom format provider, Date Formatting, Currency Formatting, Using custom number format, Align left/ right, pad with spaces, Numeric formats, Escaping curly brackets inside a String.Format() expression, ToString(), Relationship with ToString()"
 ---
 

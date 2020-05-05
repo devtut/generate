@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cloning Repositories"
+metaTitle: "Git - Cloning Repositories"
 description: "Shallow Clone, Regular Clone, Clone a specific branch, Clone recursively, Clone using a proxy"
 ---
 

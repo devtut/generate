@@ -1,5 +1,5 @@
 ---
-metaTitle: "String manipulation with stringi package"
+metaTitle: "R - String manipulation with stringi package"
 description: "Count pattern inside string, Duplicating strings, Paste vectors, Splitting text by some fixed pattern"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Check if a tree is BST or not"
+metaTitle: "Algorithm - Check if a tree is BST or not"
 description: "Algorithm to check if a given binary tree is BST, If a given input tree follows Binary search tree property or not"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Standard Math"
+metaTitle: "C - Standard Math"
 description: "Double precision floating-point remainder: fmod(), Single precision and long double precision floating-point remainder: fmodf(), fmodl(), Power functions - pow(), powf(), powl()"
 ---
 

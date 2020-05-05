@@ -1,5 +1,5 @@
 ---
-metaTitle: "Thread synchronization structures"
+metaTitle: "C++ | Thread synchronization structures"
 description: "std::shared_lock, std::call_once, std::once_flag, Object locking for efficient access., std::condition_variable_any, std::cv_status"
 ---
 

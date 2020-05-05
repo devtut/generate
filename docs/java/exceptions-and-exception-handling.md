@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exceptions and exception handling"
+metaTitle: "Java - Exceptions and exception handling"
 description: "Catching an exception with try-catch, The try-with-resources statement, Custom Exceptions, Handling InterruptedException, Return statements in try catch block, The Java Exception Hierarchy - Unchecked and Checked Exceptions, Introduction, Creating and reading stacktraces, Throwing an exception, Advanced features of Exceptions, The try-finally and try-catch-finally statements, The 'throws' clause in a method declaration"
 ---
 

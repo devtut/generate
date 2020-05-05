@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parallel processing using .Net framework"
+metaTitle: ".NET Framework - Parallel processing using .Net framework"
 description: "Parallel Extensions"
 ---
 

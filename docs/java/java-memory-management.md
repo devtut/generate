@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Memory Management"
+metaTitle: "Java - Java Memory Management"
 description: "Setting the Heap, PermGen and Stack sizes, Garbage collection, Memory leaks in Java, Finalization, Manually triggering GC"
 ---
 

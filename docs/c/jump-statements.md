@@ -1,5 +1,5 @@
 ---
-metaTitle: "Jump Statements"
+metaTitle: "C - Jump Statements"
 description: "Using return, Using goto to jump out of nested loops, Using break and continue"
 ---
 

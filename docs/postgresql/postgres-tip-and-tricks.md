@@ -1,5 +1,5 @@
 ---
-metaTitle: "Postgres Tip and Tricks"
+metaTitle: "PostgreSQL - Postgres Tip and Tricks"
 description: "DATEADD alternative in Postgres, Comma seperated values of a column, Delete duplicate records from postgres table, Update query with join between two tables alternative since Postresql does not support join in update query., Difference between two date timestamps month wise and year wise, Query to Copy/Move/Transafer table data from one database to other database table with same schema"
 ---
 

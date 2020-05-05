@@ -1,5 +1,5 @@
 ---
-metaTitle: "Transaction"
+metaTitle: "MySQL - Transaction"
 description: "Start Transaction, COMMIT , ROLLBACK and AUTOCOMMIT, Transaction using JDBC Driver"
 ---
 

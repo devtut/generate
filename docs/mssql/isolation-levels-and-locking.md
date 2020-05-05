@@ -1,5 +1,5 @@
 ---
-metaTitle: "Isolation levels and locking"
+metaTitle: "Microsoft SQL Server - Isolation levels and locking"
 description: "Examples of setting the isolation level"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generating Random Numbers in C#"
+metaTitle: "C# | Generating Random Numbers in C#"
 description: "Generate a random int, Generate a random int in a given range, Generating the same sequence of random numbers over and over again, Create multiple random class with different seeds simultaneously, Generate a Random double, Generate a random character, Generate a number that is a percentage of a max value"
 ---
 

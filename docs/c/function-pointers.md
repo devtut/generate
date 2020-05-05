@@ -1,5 +1,5 @@
 ---
-metaTitle: "Function Pointers"
+metaTitle: "C - Function Pointers"
 description: "Returning Function Pointers from a Function, Best Practices, Introduction, Assigning a Function Pointer, Mnemonic for writing function pointers, Basics"
 ---
 

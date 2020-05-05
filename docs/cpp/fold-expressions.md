@@ -1,5 +1,5 @@
 ---
-metaTitle: "Fold Expressions"
+metaTitle: "C++ | Fold Expressions"
 description: "Unary Folds, Binary Folds, Folding over a comma"
 ---
 

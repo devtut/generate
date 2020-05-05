@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQL CURSOR"
+metaTitle: "SQL - SQL CURSOR"
 description: "Example of a cursor that queries all rows by index for each database"
 ---
 

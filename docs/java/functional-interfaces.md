@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functional Interfaces"
+metaTitle: "Java - Functional Interfaces"
 description: "List of standard Java Runtime Library functional interfaces by signature"
 ---
 

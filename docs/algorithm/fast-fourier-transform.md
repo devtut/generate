@@ -1,5 +1,5 @@
 ---
-metaTitle: "Fast Fourier Transform"
+metaTitle: "Algorithm - Fast Fourier Transform"
 description: "Radix 2 FFT, Radix 2 Inverse FFT"
 ---
 

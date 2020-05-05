@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hashmaps"
+metaTitle: "R - Hashmaps"
 description: "Environments as hash maps , package:hash, package:listenv"
 ---
 

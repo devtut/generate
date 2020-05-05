@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sliding Window Algorithm"
+metaTitle: "Algorithm - Sliding Window Algorithm"
 description: "Sliding Window Algorithm Basic Information, Implementation of Sliding Window Algorithm in C#"
 ---
 

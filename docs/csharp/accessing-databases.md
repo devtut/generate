@@ -1,5 +1,5 @@
 ---
-metaTitle: "Accessing Databases"
+metaTitle: "C# | Accessing Databases"
 description: "Connection Strings, Entity Framework Connections, ADO.NET Connections"
 ---
 

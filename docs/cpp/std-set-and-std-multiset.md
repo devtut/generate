@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::set and std::multiset"
+metaTitle: "C++ | std::set and std::multiset"
 description: "Changing the default sort of a set, Deleting values from a set, Inserting values in a set, Inserting values in a multiset, Searching values in set and multiset"
 ---
 

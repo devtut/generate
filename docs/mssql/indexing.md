@@ -1,5 +1,5 @@
 ---
-metaTitle: "Indexing"
+metaTitle: "Microsoft SQL Server - Indexing"
 description: "Create Clustered index, Create Non-Clustered index, Show index info, Drop index, Index on view, Returns size and fragmentation indexes , Reorganize and rebuild index, Rebuild or reorganize all indexes on a table, Rebuild all index database, Index investigations"
 ---
 

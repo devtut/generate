@@ -1,5 +1,5 @@
 ---
-metaTitle: "Named Arguments"
+metaTitle: "C# | Named Arguments"
 description: "Argument order is not necessary, Named Arguments can make your code more clear, Named arguments and optional paramaters, Named Arguments avoids bugs on optional parameters"
 ---
 

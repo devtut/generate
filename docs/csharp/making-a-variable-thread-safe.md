@@ -1,5 +1,5 @@
 ---
-metaTitle: "Making a variable thread safe"
+metaTitle: "C# | Making a variable thread safe"
 description: "Controlling access to a variable in a Parallel.For loop"
 ---
 

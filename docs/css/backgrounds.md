@@ -1,5 +1,5 @@
 ---
-metaTitle: "Backgrounds"
+metaTitle: "CSS - Backgrounds"
 description: "Background Color, Background Gradients, Background Image, Background Shorthand, Background Size, Background Position, The background-origin property, Background Attachment, Multiple Background Image, Background Clip, Background Repeat, Background Color with Opacity, background-blend-mode Property"
 ---
 

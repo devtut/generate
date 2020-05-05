@@ -1,5 +1,5 @@
 ---
-metaTitle: "Factors"
+metaTitle: "R - Factors"
 description: "Consolidating Factor Levels with a List, Basic creation of factors, Changing and reordering factors, Rebuilding factors from zero, Factors"
 ---
 

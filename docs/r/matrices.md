@@ -1,5 +1,5 @@
 ---
-metaTitle: "Matrices"
+metaTitle: "R - Matrices"
 description: "Creating matrices"
 ---
 

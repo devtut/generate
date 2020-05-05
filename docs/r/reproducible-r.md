@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reproducible R"
+metaTitle: "R - Reproducible R"
 description: "Data reproducibility, Package reproducibility"
 ---
 

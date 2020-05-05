@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cookies"
+metaTitle: "PHP - Cookies"
 description: "Modifying a Cookie, Setting a Cookie, Checking if a Cookie is Set, Removing a Cookie, Retrieving a Cookie"
 ---
 

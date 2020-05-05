@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sessions"
+metaTitle: "PHP - Sessions"
 description: "session_start() Options, Session Locking, Manipulating session data, Destroy an entire session, Session name, Safe Session Start With no Errors"
 ---
 

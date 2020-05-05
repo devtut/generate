@@ -1,5 +1,5 @@
 ---
-metaTitle: "Typing variables"
+metaTitle: "Bash - Typing variables"
 description: "declare weakly typed variables"
 ---
 

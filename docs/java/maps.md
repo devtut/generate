@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maps"
+metaTitle: "Java - Maps"
 description: "Iterating Map Entries Efficiently, Using Default Methods of Map from Java 8, Usage of HashMap, Iterating through the contents of a Map, Add multiple items, Merging, combine and composing Maps, Add an element, Clear the map, Check if key exists, Use custom object as key, Creating and Initializing Maps"
 ---
 

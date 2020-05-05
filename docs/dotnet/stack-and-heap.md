@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stack and Heap"
+metaTitle: ".NET Framework - Stack and Heap"
 description: "Value types in use, Reference types in use"
 ---
 

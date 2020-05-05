@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python HTTP Server"
+metaTitle: "Python - Python HTTP Server"
 description: "Running a simple HTTP server, Serving files, Programmatic API of SimpleHTTPServer, Basic handling of GET, POST, PUT using BaseHTTPRequestHandler"
 ---
 

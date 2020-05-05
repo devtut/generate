@@ -1,5 +1,5 @@
 ---
-metaTitle: "WeakMap"
+metaTitle: "JavsScript - WeakMap"
 description: "Getting a value associated to the key, Assigning a value to the key, Checking if an element with the key exists, Removing an element with the key, Weak reference demo, Creating a WeakMap object"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type hinting"
+metaTitle: "PHP - Type hinting"
 description: "Type hinting scalar types, arrays and callables, Type hinting classes and interfaces, Nullable type hints, Type hinting generic objects, Type Hinting No Return(Void)"
 ---
 

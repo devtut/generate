@@ -1,5 +1,5 @@
 ---
-metaTitle: "How to use C# Structs to create a Union type  (Similar to C Unions)"
+metaTitle: "C# | How to use C# Structs to create a Union type  (Similar to C Unions)"
 description: "C-Style Unions in C#, Union Types in C# can also contain Struct fields"
 ---
 

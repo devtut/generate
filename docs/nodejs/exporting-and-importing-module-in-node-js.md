@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exporting and Importing Module in node.js"
+metaTitle: "Node.js - Exporting and Importing Module in node.js"
 description: "Using a simple module in node.js, Exporting with ES6 syntax, Using Imports In ES6"
 ---
 

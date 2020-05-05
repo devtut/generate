@@ -1,5 +1,5 @@
 ---
-metaTitle: "ForEach"
+metaTitle: ".NET Framework - ForEach"
 description: "Extension method for IEnumerable, Calling a method on an object in a list"
 ---
 

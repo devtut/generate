@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with R Language"
+metaTitle: "R - Getting started with R Language"
 description: "Installing R, Hello World!, Getting Help, Interactive mode and R scripts"
 ---
 

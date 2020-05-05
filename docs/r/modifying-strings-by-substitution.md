@@ -1,5 +1,5 @@
 ---
-metaTitle: "Modifying strings by substitution"
+metaTitle: "R - Modifying strings by substitution"
 description: "Rearrange character strings using capture groups, Eliminate duplicated consecutive elements"
 ---
 

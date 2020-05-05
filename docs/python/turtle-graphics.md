@@ -1,5 +1,5 @@
 ---
-metaTitle: "Turtle Graphics"
+metaTitle: "Python - Turtle Graphics"
 description: "Ninja Twist (Turtle Graphics)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Transpiling"
+metaTitle: "JavsScript - Transpiling"
 description: "Introduction to Transpiling, Start using ES6/7 with Babel"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "ByteBuffer"
+metaTitle: "Java - ByteBuffer"
 description: "Basic Usage - Creating a ByteBuffer, Basic Usage - Using DirectByteBuffer, Basic Usage - Write Data to the Buffer"
 ---
 

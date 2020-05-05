@@ -1,5 +1,5 @@
 ---
-metaTitle: "Profiling"
+metaTitle: "C++ | Profiling"
 description: "Profiling with gcc and gprof, Generating callgraph diagrams with gperf2dot, Profiling CPU Usage with gcc and Google Perf Tools"
 ---
 

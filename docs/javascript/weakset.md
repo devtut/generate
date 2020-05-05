@@ -1,5 +1,5 @@
 ---
-metaTitle: "WeakSet"
+metaTitle: "JavsScript - WeakSet"
 description: "Creating a WeakSet object, Adding a value, Checking if a value exists, Removing a value"
 ---
 

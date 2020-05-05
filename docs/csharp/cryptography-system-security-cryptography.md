@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cryptography (System.Security.Cryptography)"
+metaTitle: "C# | Cryptography (System.Security.Cryptography)"
 description: "Modern Examples of Symmetric Authenticated Encryption of a string, Introduction to Symmetric and Asymmetric Encryption, Password Hashing, Simple Symmetric File Encryption, Cryptographically Secure Random Data, Fast Asymmetric File Encryption"
 ---
 

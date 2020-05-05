@@ -1,5 +1,5 @@
 ---
-metaTitle: "An overview of c# collections"
+metaTitle: "C# | An overview of c# collections"
 description: "HashSet<T>, Dictionary<TKey, TValue>, SortedSet<T>, T[ ] (Array of T), List<T>, Stack<T>, LinkedList<T>, Queue"
 ---
 

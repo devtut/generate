@@ -1,5 +1,5 @@
 ---
-metaTitle: "Configuration"
+metaTitle: "Git - Configuration"
 description: "Setting which editor to use, Auto correct typos, Username and email address, Multiple git configurations, List and edit the current configuration, Multiple usernames and email address, Configuring line endings, configuration for one command only, Setup a proxy"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Header Files"
+metaTitle: "C++ | Header Files"
 description: "Basic Example, Templates in Header Files"
 ---
 

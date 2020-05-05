@@ -1,5 +1,5 @@
 ---
-metaTitle: "Converting data types"
+metaTitle: "Microsoft SQL Server - Converting data types"
 description: "TRY PARSE, TRY CONVERT, TRY CAST, Cast , Convert"
 ---
 

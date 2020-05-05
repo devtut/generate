@@ -1,5 +1,5 @@
 ---
-metaTitle: "Table Creation"
+metaTitle: "PostgreSQL - Table Creation"
 description: "Table creation with Primary Key, Show table definition, Create table from select, Create unlogged table, Create a table that references other table."
 ---
 

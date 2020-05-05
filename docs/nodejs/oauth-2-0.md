@@ -1,5 +1,5 @@
 ---
-metaTitle: "OAuth 2.0"
+metaTitle: "Node.js - OAuth 2.0"
 description: "OAuth 2 with Redis Implementation - grant_type: password"
 ---
 

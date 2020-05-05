@@ -1,5 +1,5 @@
 ---
-metaTitle: "pyaudio"
+metaTitle: "Python - pyaudio"
 description: "Callback Mode Audio I/O, Blocking Mode Audio I/O"
 ---
 

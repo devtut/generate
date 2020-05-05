@@ -1,5 +1,5 @@
 ---
-metaTitle: "JMX"
+metaTitle: "Java - JMX"
 description: "Simple example with Platform MBean Server"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Working around the Global Interpreter Lock (GIL)"
+metaTitle: "Python - Working around the Global Interpreter Lock (GIL)"
 description: "Multiprocessing.Pool, Cython nogil:"
 ---
 

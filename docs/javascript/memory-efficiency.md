@@ -1,5 +1,5 @@
 ---
-metaTitle: "Memory efficiency"
+metaTitle: "JavsScript - Memory efficiency"
 description: "Drawback of creating true private method"
 ---
 

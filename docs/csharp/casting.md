@@ -1,5 +1,5 @@
 ---
-metaTitle: "Casting"
+metaTitle: "C# | Casting"
 description: "Cast an object to a base type, Checking compatibility without casting, Explicit Casting, Safe Explicit Casting (`as` operator), Implicit Casting, Explicit Numeric Conversions, Conversion Operators, LINQ Casting operations"
 ---
 

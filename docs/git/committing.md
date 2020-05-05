@@ -1,5 +1,5 @@
 ---
-metaTitle: "Committing"
+metaTitle: "Git - Committing"
 description: "Good commit messages, Amending a commit, Committing without opening an editor, Stage and commit changes, Committing changes directly, Creating an empty commit, Committing on behalf of someone else, Selecting which lines should be staged for committing, Commiting changes in specific files, GPG signing commits, Committing at a specific date, Amending the time of a commit, Amending the author of a commit"
 ---
 

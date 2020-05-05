@@ -1,5 +1,5 @@
 ---
-metaTitle: "User-Defined Methods"
+metaTitle: "Python - User-Defined Methods"
 description: "Creating user-defined method objects, Turtle example"
 ---
 

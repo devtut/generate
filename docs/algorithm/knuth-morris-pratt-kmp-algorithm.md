@@ -1,5 +1,5 @@
 ---
-metaTitle: "Knuth Morris Pratt (KMP) Algorithm"
+metaTitle: "Algorithm - Knuth Morris Pratt (KMP) Algorithm"
 description: "KMP-Example"
 ---
 

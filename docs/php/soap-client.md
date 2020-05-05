@@ -1,5 +1,5 @@
 ---
-metaTitle: "SOAP Client"
+metaTitle: "PHP - SOAP Client"
 description: "WSDL Mode, Non-WSDL Mode, Classmaps, Tracing SOAP request and response"
 ---
 

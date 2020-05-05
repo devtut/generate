@@ -1,5 +1,5 @@
 ---
-metaTitle: "RSA Encryption"
+metaTitle: "Java - RSA Encryption"
 description: "An example using a hybrid cryptosystem consisting of OAEP and GCM"
 ---
 

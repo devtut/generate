@@ -1,5 +1,5 @@
 ---
-metaTitle: "ORDER BY"
+metaTitle: "SQL - ORDER BY"
 description: "Use ORDER BY with TOP to return the top x rows based on a column's value, Sorting by column number (instead of name), Sorting by multiple columns, Order by Alias, Customizeed sorting order"
 ---
 

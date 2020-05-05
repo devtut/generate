@@ -1,5 +1,5 @@
 ---
-metaTitle: "INSERT INTO"
+metaTitle: "Microsoft SQL Server - INSERT INTO"
 description: "INSERT multiple rows of data, Use OUTPUT to get the new Id, INSERT from SELECT Query Results, INSERT a single row of data, INSERT on specific columns, INSERT Hello World INTO table"
 ---
 

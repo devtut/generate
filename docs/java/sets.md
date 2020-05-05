@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sets"
+metaTitle: "Java - Sets"
 description: "Initialization, Basics of Set, Types and Usage of Sets, Declaring a HashSet with values, Create a list from an existing Set, Eliminating duplicates using Set"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "AND & OR Operators"
+metaTitle: "SQL - AND & OR Operators"
 description: "AND OR Example"
 ---
 

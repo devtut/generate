@@ -1,5 +1,5 @@
 ---
-metaTitle: "Singleton Implementation"
+metaTitle: "C# | Singleton Implementation"
 description: "Statically Initialized Singleton, Lazy, thread-safe Singleton (using Lazy<T>), Lazy, thread-safe Singleton (using Double Checked Locking), Lazy, thread safe singleton (for .NET 3.5 or older, alternate implementation), Disposing of the Singleton instance when it is no longer needed"
 ---
 

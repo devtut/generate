@@ -1,5 +1,5 @@
 ---
-metaTitle: "The Java Command - 'java' and 'javaw'"
+metaTitle: "Java - The Java Command - 'java' and 'javaw'"
 description: "Entry point classes, Running an executable JAR file, Running a Java applications via a main class, Troubleshooting the 'java' command, Running a Java application with library dependencies, Spaces and other special characters in arguments, Java Options"
 ---
 

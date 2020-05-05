@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sleep utility"
+metaTitle: "Bash - Sleep utility"
 description: "$sleep 1"
 ---
 

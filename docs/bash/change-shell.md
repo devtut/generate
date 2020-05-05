@@ -1,5 +1,5 @@
 ---
-metaTitle: "Change shell"
+metaTitle: "Bash - Change shell"
 description: "Find the current shell, Change the shell, List available shells"
 ---
 

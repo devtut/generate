@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions"
+metaTitle: "CSS - Functions"
 description: "calc() function, attr() function, var() function, linear-gradient() function, radial-gradient() function"
 ---
 

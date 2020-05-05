@@ -1,5 +1,5 @@
 ---
-metaTitle: "Operators"
+metaTitle: "Java - Operators"
 description: "The Increment/Decrement Operators (++/--), The Conditional Operator (? :), The Bitwise and Logical Operators (~, &, |, ^), The String Concatenation Operator (+), The Arithmetic Operators (+, -, *, /, %), The Instanceof Operator, The Assignment Operators (=, +=, -=, *=, /=, %=, <<=, >>= , >>>=, &=, |= and ^=), The conditional-and and conditional-or Operators ( && and || ), The Shift Operators (<<, >> and >>>), The Equality Operators (==, !=), The Lambda operator ( -> ), The Relational Operators (<, <=, >, >=)"
 ---
 

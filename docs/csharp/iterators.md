@@ -1,5 +1,5 @@
 ---
-metaTitle: "Iterators"
+metaTitle: "C# | Iterators"
 description: "Creating Iterators Using Yield, Simple Numeric Iterator Example"
 ---
 

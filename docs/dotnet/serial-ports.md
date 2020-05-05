@@ -1,5 +1,5 @@
 ---
-metaTitle: "Serial Ports"
+metaTitle: ".NET Framework - Serial Ports"
 description: "Basic operation, List available port names, Asynchronous read, Synchronous text echo service, Asynchronous message receiver"
 ---
 

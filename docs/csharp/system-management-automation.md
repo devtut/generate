@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.Management.Automation"
+metaTitle: "C# | System.Management.Automation"
 description: "Invoke simple synchronous pipeline"
 ---
 

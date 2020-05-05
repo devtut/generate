@@ -1,5 +1,5 @@
 ---
-metaTitle: "Implementing Decorator Design Pattern"
+metaTitle: "C# | Implementing Decorator Design Pattern"
 description: "Simulating cafeteria"
 ---
 

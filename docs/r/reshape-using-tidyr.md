@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reshape using tidyr"
+metaTitle: "R - Reshape using tidyr"
 description: "Reshape from long to wide format with spread(), Reshape from wide to long format with gather()"
 ---
 

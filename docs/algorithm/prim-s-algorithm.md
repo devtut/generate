@@ -1,5 +1,5 @@
 ---
-metaTitle: "Prim's Algorithm"
+metaTitle: "Algorithm - Prim's Algorithm"
 description: "Introduction To Prim's Algorithm"
 ---
 

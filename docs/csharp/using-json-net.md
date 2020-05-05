@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using json.net"
+metaTitle: "C# | Using json.net"
 description: "Using JsonConverter on simple values, Collect all fields of JSON object"
 ---
 

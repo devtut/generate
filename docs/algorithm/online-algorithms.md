@@ -1,5 +1,5 @@
 ---
-metaTitle: "Online algorithms"
+metaTitle: "Algorithm - Online algorithms"
 description: "Paging (Online Caching)"
 ---
 

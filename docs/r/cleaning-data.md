@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cleaning data"
+metaTitle: "R - Cleaning data"
 description: "Removing missing data from a vector, Removing incomplete rows"
 ---
 

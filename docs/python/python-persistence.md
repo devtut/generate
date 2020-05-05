@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python Persistence"
+metaTitle: "Python - Python Persistence"
 description: "Python Persistence, Function utility for save and load"
 ---
 

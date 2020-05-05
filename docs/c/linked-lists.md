@@ -1,5 +1,5 @@
 ---
-metaTitle: "Linked lists"
+metaTitle: "C - Linked lists"
 description: "A doubly linked list, Inserting a node at the beginning of a singly linked list, Inserting a node at the nth position, Reversing a linked list"
 ---
 

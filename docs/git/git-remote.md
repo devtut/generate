@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Remote"
+metaTitle: "Git - Git Remote"
 description: "Display Remote Repositories, Change remote url of your Git repository, Remove a Remote Repository, Add a Remote Repository, Show more information about remote repository, Rename a Remote Repository"
 ---
 

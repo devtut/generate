@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comment Mysql"
+metaTitle: "MySQL - Comment Mysql"
 description: "Adding comments, Commenting table definitions"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stashing"
+metaTitle: "Git - Stashing"
 description: "Create stash, Apply and remove stash, Apply stash without removing it, Show stash, What is Stashing?, Partial stash, List saved stashes, Move your work in progress to another branch, Remove stash, Apply part of a stash with checkout, Recovering earlier changes from stash, Interactive Stashing, Recover a dropped stash"
 ---
 

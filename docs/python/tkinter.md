@@ -1,5 +1,5 @@
 ---
-metaTitle: "tkinter"
+metaTitle: "Python - tkinter"
 description: "Geometry Managers, A minimal tkinter Application"
 ---
 

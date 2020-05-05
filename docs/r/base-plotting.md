@@ -1,5 +1,5 @@
 ---
-metaTitle: "Base Plotting"
+metaTitle: "R - Base Plotting"
 description: "Combining Plots, Density plot, Basic Plot, Getting Started with R_Plots, Histograms, Matplot, Empirical Cumulative Distribution Function"
 ---
 

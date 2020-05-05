@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java SE 8 Features"
+metaTitle: "Java - Java SE 8 Features"
 description: "New Java SE 8 programming language features"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Coding Conventions"
+metaTitle: "PHP - Coding Conventions"
 description: "PHP Tags"
 ---
 

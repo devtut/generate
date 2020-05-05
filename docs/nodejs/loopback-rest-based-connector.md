@@ -1,5 +1,5 @@
 ---
-metaTitle: "Loopback - REST Based connector"
+metaTitle: "Node.js - Loopback - REST Based connector"
 description: "Adding a web based connector"
 ---
 

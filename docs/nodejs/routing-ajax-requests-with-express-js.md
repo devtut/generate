@@ -1,5 +1,5 @@
 ---
-metaTitle: "Routing ajax requests with Express.JS"
+metaTitle: "Node.js - Routing ajax requests with Express.JS"
 description: "A simple implementation of AJAX"
 ---
 

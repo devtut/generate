@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cookies"
+metaTitle: "JavsScript - Cookies"
 description: "Adding and Setting Cookies, Reading cookies, Removing cookies, Test if cookies are enabled"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Last Inserted Identity"
+metaTitle: "Microsoft SQL Server - Last Inserted Identity"
 description: "SCOPE_IDENTITY(), @@IDENTITY, IDENT_CURRENT('tablename'), @@IDENTITY and MAX(ID)"
 ---
 

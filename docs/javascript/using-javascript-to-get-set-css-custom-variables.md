@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using javascript to get/set CSS custom variables"
+metaTitle: "JavsScript - Using javascript to get/set CSS custom variables"
 description: "How to get and set CSS variable property values."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Insertion Sort"
+metaTitle: "Algorithm - Insertion Sort"
 description: "Haskell Implementation, Algorithm Basics, C# Implementation"
 ---
 

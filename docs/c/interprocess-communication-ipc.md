@@ -1,5 +1,5 @@
 ---
-metaTitle: "Interprocess Communication (IPC)"
+metaTitle: "C - Interprocess Communication (IPC)"
 description: "Semaphores"
 ---
 

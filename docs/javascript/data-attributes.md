@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data attributes"
+metaTitle: "JavsScript - Data attributes"
 description: "Accessing data attributes"
 ---
 

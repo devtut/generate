@@ -1,5 +1,5 @@
 ---
-metaTitle: "Choosing Collections"
+metaTitle: "Java - Choosing Collections"
 description: "Java Collections Flowchart"
 ---
 

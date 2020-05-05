@@ -1,5 +1,5 @@
 ---
-metaTitle: "bcp (bulk copy program) Utility"
+metaTitle: "Microsoft SQL Server - bcp (bulk copy program) Utility"
 description: "Example to Import Data without a Format File(using Native Format )"
 ---
 

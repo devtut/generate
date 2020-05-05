@@ -1,5 +1,5 @@
 ---
-metaTitle: "Console I/O"
+metaTitle: "Java - Console I/O"
 description: "Reading user input from the console, Implementing Basic Command-Line Behavior, Aligning strings in console"
 ---
 

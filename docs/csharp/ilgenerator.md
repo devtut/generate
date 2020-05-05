@@ -1,5 +1,5 @@
 ---
-metaTitle: "ILGenerator"
+metaTitle: "C# | ILGenerator"
 description: "Creates a DynamicAssembly that contains a UnixTimestamp helper method, Create method override"
 ---
 

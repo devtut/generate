@@ -1,5 +1,5 @@
 ---
-metaTitle: "Internal variables"
+metaTitle: "Bash - Internal variables"
 description: "Bash internal variables at a glance, $@, $#, $FUNCNAME, $HOME, $IFS, $OLDPWD, $PWD, $1 $2 $3 etc..., $*, $!, $?, $$, $HISTSIZE, $BASHPID, $BASH_ENV, $BASH_VERSINFO, $BASH_VERSION, $EDITOR, $HOSTNAME, $HOSTTYPE, $MACHTYPE, $OSTYPE, $PATH, $PPID, $SECONDS, $SHELLOPTS, $_, $RANDOM, $GROUPS, $LINENO, $SHLVL, $UID"
 ---
 

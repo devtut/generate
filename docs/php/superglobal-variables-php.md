@@ -1,5 +1,5 @@
 ---
-metaTitle: "Superglobal Variables PHP"
+metaTitle: "PHP - Superglobal Variables PHP"
 description: "Suberglobals explained, PHP5 SuperGlobals"
 ---
 

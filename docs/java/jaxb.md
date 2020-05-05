@@ -1,5 +1,5 @@
 ---
-metaTitle: "JAXB"
+metaTitle: "Java - JAXB"
 description: "Reading an XML file (unmarshalling), Writing an XML file (marshalling an object), Manual field/property XML mapping configuration, Binding an XML namespace to a serializable Java class., Using XmlAdapter to generate desired xml format, Automatic field/property XML mapping configuration (@XmlAccessorType), Specifying a XmlAdapter instance to (re)use existing data, Using XmlAdapter to trim string."
 ---
 

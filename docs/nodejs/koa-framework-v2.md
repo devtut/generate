@@ -1,5 +1,5 @@
 ---
-metaTitle: "Koa Framework v2"
+metaTitle: "Node.js - Koa Framework v2"
 description: "Hello World example, Handling errors using middleware"
 ---
 

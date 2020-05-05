@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aggregate Functions"
+metaTitle: "Microsoft SQL Server - Aggregate Functions"
 description: "SUM(), AVG(), MAX(), MIN(), COUNT(), COUNT(Column_Name) with GROUP BY Column_Name"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type Inference"
+metaTitle: "C++ | Type Inference"
 description: "Data Type: Auto, Lambda auto, Loops and auto"
 ---
 

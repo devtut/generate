@@ -1,5 +1,5 @@
 ---
-metaTitle: "Function with multiple return values"
+metaTitle: "C# | Function with multiple return values"
 description: "anonymous object + dynamic keyword solution , Tuple solution, Ref and Out Parameters"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Scope of variables"
+metaTitle: "R - Scope of variables"
 description: "Environments and Functions, Function Exit, Sub functions, Global Assignment, Explicit Assignment of Environments and Variables, Packages and Masking"
 ---
 

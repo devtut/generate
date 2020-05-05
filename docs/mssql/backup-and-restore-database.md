@@ -1,5 +1,5 @@
 ---
-metaTitle: "Backup and Restore Database"
+metaTitle: "Microsoft SQL Server - Backup and Restore Database"
 description: "Basic Backup to disk with no options, Basic Restore from disk with no options, RESTORE Database with REPLACE"
 ---
 

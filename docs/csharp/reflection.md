@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reflection"
+metaTitle: "C# | Reflection"
 description: "Get the members of a type, Get a method and invoke it, Creating an instance of a Type, Get a generic method and invoke it, Get a Strongly-Typed Delegate to a Method or Property via Reflection, Get a System.Type, Getting and setting properties, Custom Attributes,  Create an instance of a Generic Type and invoke it's method, Instantiating classes that implement an interface (e.g. plugin activation), Determining generic arguments of instances of generic types, Get a Type by name with namespace, Looping through all the properties of a class"
 ---
 

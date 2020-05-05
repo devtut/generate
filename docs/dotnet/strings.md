@@ -1,5 +1,5 @@
 ---
-metaTitle: "Strings"
+metaTitle: ".NET Framework - Strings"
 description: "Count characters, Count distinct characters, Convert string to/from another encoding, Сomparing strings, Count occurrences of a character, Split string into fixed length blocks, Object.ToString() virtual method, Immutability of strings"
 ---
 

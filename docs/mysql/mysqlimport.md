@@ -1,5 +1,5 @@
 ---
-metaTitle: "mysqlimport"
+metaTitle: "MySQL - mysqlimport"
 description: "Basic usage, Using a custom field-delimiter, Using a custom row-delimiter, Handling duplicate keys, Conditional import, Import a standard csv"
 ---
 

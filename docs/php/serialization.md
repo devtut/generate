@@ -1,5 +1,5 @@
 ---
-metaTitle: "Serialization"
+metaTitle: "PHP - Serialization"
 description: "Serialization of different types, Security Issues with unserialize"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bit Manipulation"
+metaTitle: "C++ | Bit Manipulation"
 description: "Toggling a bit, Checking a bit, Set all bits, Remove rightmost set bit, Setting a bit, Clearing a bit, Changing the nth bit to x, Counting bits set, Check if an integer is a power of 2, Bit Manipulation Application: Small to Capital  Letter"
 ---
 

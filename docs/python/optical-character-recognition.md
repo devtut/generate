@@ -1,5 +1,5 @@
 ---
-metaTitle: "Optical Character Recognition"
+metaTitle: "Python - Optical Character Recognition"
 description: "PyTesseract, PyOCR"
 ---
 

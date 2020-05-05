@@ -1,5 +1,5 @@
 ---
-metaTitle: "Task Parallel Library"
+metaTitle: "C# | Task Parallel Library"
 description: "Parallel.ForEach, Parallel.For, Parallel.Invoke, A cancellable polling Task using CancellationTokenSource, Async version of PingUrl, An async cancellable polling Task that waits between iterations"
 ---
 

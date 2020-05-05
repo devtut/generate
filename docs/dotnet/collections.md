@@ -1,5 +1,5 @@
 ---
-metaTitle: "Collections"
+metaTitle: ".NET Framework - Collections"
 description: "Using collection initializers, Creating an initialized List with Custom Types, Queue, Stack"
 ---
 

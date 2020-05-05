@@ -1,5 +1,5 @@
 ---
-metaTitle: "Columns"
+metaTitle: "CSS - Columns"
 description: "Simple Example (column-count), Column Width"
 ---
 

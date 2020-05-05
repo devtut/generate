@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functional Programming"
+metaTitle: "C# | Functional Programming"
 description: "Func and Action, Avoid Null References, Higher-Order Functions, Immutability, Immutable collections"
 ---
 

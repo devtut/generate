@@ -1,5 +1,5 @@
 ---
-metaTitle: "Synchronous vs Asynchronous programming in nodejs"
+metaTitle: "Node.js - Synchronous vs Asynchronous programming in nodejs"
 description: "Using async"
 ---
 

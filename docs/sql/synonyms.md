@@ -1,5 +1,5 @@
 ---
-metaTitle: "Synonyms"
+metaTitle: "SQL - Synonyms"
 description: "Create Synonym"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Managed Extensibility Framework"
+metaTitle: ".NET Framework - Managed Extensibility Framework"
 description: "Connecting (Basic), Exporting a Type (Basic), Importing (Basic)"
 ---
 

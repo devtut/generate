@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pigeonhole Sort"
+metaTitle: "Algorithm - Pigeonhole Sort"
 description: "Pigeonhole Sort Basic Information, C# Implementation"
 ---
 

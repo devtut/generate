@@ -1,5 +1,5 @@
 ---
-metaTitle: "ReadOnlyCollections"
+metaTitle: ".NET Framework - ReadOnlyCollections"
 description: "Creating a ReadOnlyCollection, Updating a ReadOnlyCollection, Warning: Elements in a ReadOnlyCollection are not inherently read-only"
 ---
 

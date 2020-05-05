@@ -1,5 +1,5 @@
 ---
-metaTitle: "Declarations"
+metaTitle: "C - Declarations"
 description: "Calling a function from another C file, Using a Global Variable, Introduction, Using Global Constants, Typedef, Using the right-left or spiral rule to decipher C declaration"
 ---
 

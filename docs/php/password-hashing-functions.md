@@ -1,5 +1,5 @@
 ---
-metaTitle: "Password Hashing Functions"
+metaTitle: "PHP - Password Hashing Functions"
 description: "Creating a password hash, Determine if an existing password hash can be upgraded to a stronger algorithm, Verifying a password against a hash"
 ---
 

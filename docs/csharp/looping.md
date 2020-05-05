@@ -1,5 +1,5 @@
 ---
-metaTitle: "Looping"
+metaTitle: "C# | Looping"
 description: "Foreach Loop, For Loop, Do - While Loop, Looping styles, Nested loops, break, While loop, continue"
 ---
 

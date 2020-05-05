@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Clean"
+metaTitle: "Git - Git Clean"
 description: "Clean Ignored Files, Clean All Untracked Directories, Forcefully remove untracked files, Clean Interactively"
 ---
 

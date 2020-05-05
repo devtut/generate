@@ -1,5 +1,5 @@
 ---
-metaTitle: "Linked List Node"
+metaTitle: "Python - Linked List Node"
 description: "Write a simple Linked List Node in python"
 ---
 

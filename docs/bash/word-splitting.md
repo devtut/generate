@@ -1,5 +1,5 @@
 ---
-metaTitle: "Word splitting"
+metaTitle: "Bash - Word splitting"
 description: "Bad effects of word splitting, Splitting with IFS, What, when and Why?, IFS & word splitting, Usefulness of word splitting, Splitting by separator changes"
 ---
 

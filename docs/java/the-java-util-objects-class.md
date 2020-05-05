@@ -1,5 +1,5 @@
 ---
-metaTitle: "The java.util.Objects Class"
+metaTitle: "Java - The java.util.Objects Class"
 description: "Basic use for object null check, Objects.nonNull() method reference use in stream api"
 ---
 

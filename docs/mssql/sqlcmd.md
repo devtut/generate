@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQLCMD"
+metaTitle: "Microsoft SQL Server - SQLCMD"
 description: "SQLCMD.exe called from a batch file or command line"
 ---
 

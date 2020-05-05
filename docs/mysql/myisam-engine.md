@@ -1,5 +1,5 @@
 ---
-metaTitle: "MyISAM Engine"
+metaTitle: "MySQL - MyISAM Engine"
 description: "ENGINE=MyISAM"
 ---
 

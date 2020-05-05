@@ -1,5 +1,5 @@
 ---
-metaTitle: "Partitioning"
+metaTitle: "Microsoft SQL Server - Partitioning"
 description: "Retrieve Partition Boundary Values, Switching Partitions, Retrieve partition table,column, scheme, function, total and min-max boundry values using single query"
 ---
 

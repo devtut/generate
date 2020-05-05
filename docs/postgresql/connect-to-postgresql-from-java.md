@@ -1,5 +1,5 @@
 ---
-metaTitle: "Connect to PostgreSQL from Java"
+metaTitle: "PostgreSQL - Connect to PostgreSQL from Java"
 description: "Connecting with java.sql.DriverManager, Connecting with java.sql.DriverManager and Properties, Connecting with javax.sql.DataSource using a connection pool"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "getopts : smart positional-parameter parsing"
+metaTitle: "Bash - getopts : smart positional-parameter parsing"
 description: "pingnmap"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "EnumSet class"
+metaTitle: "Java - EnumSet class"
 description: "Enum Set Example"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Method Overriding"
+metaTitle: "Python - Method Overriding"
 description: "Basic method overriding"
 ---
 

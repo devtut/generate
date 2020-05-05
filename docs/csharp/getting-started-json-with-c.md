@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting Started: Json with C#"
+metaTitle: "C# | Getting Started: Json with C#"
 description: "Simple Json Example, First things First: Library to work with Json, C# Implementation, Serialization, Deserialization, Serialization & De-Serialization Common Utilities function"
 ---
 

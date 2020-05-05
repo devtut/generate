@@ -1,5 +1,5 @@
 ---
-metaTitle: "Operator Precedence"
+metaTitle: "Python - Operator Precedence"
 description: "Simple Operator Precedence Examples in python."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Contributing to the PHP Manual"
+metaTitle: "PHP - Contributing to the PHP Manual"
 description: "Improve the official documentation, Tips for contributing to the manual"
 ---
 

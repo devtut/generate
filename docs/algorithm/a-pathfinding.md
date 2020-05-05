@@ -1,5 +1,5 @@
 ---
-metaTitle: "A* Pathfinding"
+metaTitle: "Algorithm - A* Pathfinding"
 description: "Introduction to A*, A* Pathfinding through a maze with no obstacles, Solving 8-puzzle problem using A* algorithm"
 ---
 

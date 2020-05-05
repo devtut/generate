@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON"
+metaTitle: "MySQL - JSON"
 description: "Create simple table with a primary key and JSON field, Insert a simple JSON, Updating a JSON field, Insert mixed data into a JSON field., CAST data to JSON type, Create Json Object and Array"
 ---
 

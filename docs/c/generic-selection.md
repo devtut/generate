@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generic selection"
+metaTitle: "C - Generic selection"
 description: "Check whether a variable is of a certain qualified type, Generic selection based on multiple arguments, Type-generic printing macro"
 ---
 

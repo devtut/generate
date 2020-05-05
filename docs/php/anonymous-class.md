@@ -1,5 +1,5 @@
 ---
-metaTitle: "Anonymous class"
+metaTitle: "PHP - Anonymous class"
 description: "Simple in-place data wrapper"
 ---
 

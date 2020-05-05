@@ -1,5 +1,5 @@
 ---
-metaTitle: "C++ Comparison"
+metaTitle: "Java - C++ Comparison"
 description: "Static Class Members, Classes Defined within Other Constructs, Pass-by-value & Pass-by-reference, Inheritance vs Composition, Outcast Downcasting, Abstract Methods & Classes"
 ---
 

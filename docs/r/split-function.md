@@ -1,5 +1,5 @@
 ---
-metaTitle: "Split function"
+metaTitle: "R - Split function"
 description: "Using split in the split-apply-combine paradigm, Basic usage of split"
 ---
 

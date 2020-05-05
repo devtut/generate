@@ -1,5 +1,5 @@
 ---
-metaTitle: "CLSCompliantAttribute"
+metaTitle: "C# | CLSCompliantAttribute"
 description: "Access Modifier to which CLS rules apply, Violation of CLS rule: Unsigned types / sbyte, Violation of CLS rule: Same naming, Violation of CLS rule: Identifier _, Violation of CLS rule: Inherit from non CLSComplaint class"
 ---
 

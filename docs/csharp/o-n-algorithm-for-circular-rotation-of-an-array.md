@@ -1,5 +1,5 @@
 ---
-metaTitle: "O(n) Algorithm for circular rotation of an array"
+metaTitle: "C# | O(n) Algorithm for circular rotation of an array"
 description: "Example of a generic method that rotates an array by a given shift"
 ---
 

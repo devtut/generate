@@ -1,5 +1,5 @@
 ---
-metaTitle: "Performance"
+metaTitle: "PHP - Performance"
 description: "Profiling with Xdebug, Memory Usage, Profiling with XHProf"
 ---
 

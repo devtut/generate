@@ -1,5 +1,5 @@
 ---
-metaTitle: "C++ Debugging and Debug-prevention Tools & Techniques"
+metaTitle: "C++ | C++ Debugging and Debug-prevention Tools & Techniques"
 description: "Segfault analysis with GDB, Static analysis, Clean code, My C++ program ends with segfault - valgrind, Safe-stack (Stack corruptions)"
 ---
 

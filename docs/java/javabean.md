@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavaBean"
+metaTitle: "Java - JavaBean"
 description: "Basic Java Bean"
 ---
 

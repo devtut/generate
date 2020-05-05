@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inlining"
+metaTitle: "C - Inlining"
 description: "Inlining functions used in more than one source file"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions (Analytic)"
+metaTitle: "SQL - Functions (Analytic)"
 description: "LAG and LEAD, PERCENTILE_DISC and PERCENTILE_CONT, FIRST_VALUE, LAST_VALUE, PERCENT_RANK and CUME_DIST"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Clean Code in SQL"
+metaTitle: "SQL - Clean Code in SQL"
 description: "Formatting and Spelling of Keywords and Names, Indenting, SELECT *, Joins"
 ---
 

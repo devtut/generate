@@ -1,5 +1,5 @@
 ---
-metaTitle: "SELECT"
+metaTitle: "MySQL - SELECT"
 description: "SELECT with DISTINCT, SELECT all columns (*), SELECT by column name, SELECT with LIKE (%), SELECT with CASE or IF, SELECT with Alias (AS), SELECT with a LIMIT clause, SELECT with WHERE, SELECT with BETWEEN, SELECT with LIKE(_), SELECT with date range"
 ---
 
@@ -306,10 +306,42 @@ SELECT *
 ```
 
 **Result:**
-    |CustomerID    |CustomerName    |ContactName    |Address    |City    |PostalCode    |Country  
-    |1<br><br>    |Alfreds Futterkiste    |Maria Anders    |Obere Str. 57    |Berlin    |12209    |Germany  
-    |2    |Ana Trujillo Emparedados y helados    |Ana Trujillo    |Avda. de la Constitución 2222    |México D.F.    |05021    |Mexico  
-    |3    |Antonio Moreno Taquería    |Antonio Moreno    |Mataderos 2312    |México D.F.    |05023    |Mexico  
+
+    |CustomerID
+    |CustomerName
+    |ContactName
+    |Address
+    |City
+    |PostalCode
+    |Country
+  
+
+    |1<br><br>
+    |Alfreds Futterkiste
+    |Maria Anders
+    |Obere Str. 57
+    |Berlin
+    |12209
+    |Germany
+  
+
+    |2
+    |Ana Trujillo Emparedados y helados
+    |Ana Trujillo
+    |Avda. de la Constitución 2222
+    |México D.F.
+    |05021
+    |Mexico
+  
+
+    |3
+    |Antonio Moreno Taquería
+    |Antonio Moreno
+    |Mataderos 2312
+    |México D.F.
+    |05023
+    |Mexico
+  
 
 **Best Practice** Always use `ORDER BY` when using `LIMIT`; otherwise the rows you will get will be unpredictable.
 
@@ -329,8 +361,24 @@ SELECT *
 When a `LIMIT` clause contains two numbers, it is interpreted as `LIMIT offset,count`. So, in this example the query skips two records and returns one.
 
 **Result:**
-    |CustomerID    |CustomerName    |ContactName    |Address    |City    |PostalCode    |Country  
-    |3    |Antonio Moreno Taquería    |Antonio Moreno    |Mataderos 2312    |México D.F.    |05023    |Mexico  
+
+    |CustomerID
+    |CustomerName
+    |ContactName
+    |Address
+    |City
+    |PostalCode
+    |Country
+  
+
+    |3
+    |Antonio Moreno Taquería
+    |Antonio Moreno
+    |Mataderos 2312
+    |México D.F.
+    |05023
+    |Mexico
+  
 
 **Note:**
 

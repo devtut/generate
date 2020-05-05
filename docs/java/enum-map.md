@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enum Map"
+metaTitle: "Java - Enum Map"
 description: "Enum Map Book Example"
 ---
 

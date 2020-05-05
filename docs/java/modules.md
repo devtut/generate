@@ -1,5 +1,5 @@
 ---
-metaTitle: "Modules"
+metaTitle: "Java - Modules"
 description: "Defining a basic module"
 ---
 

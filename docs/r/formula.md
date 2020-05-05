@@ -1,5 +1,5 @@
 ---
-metaTitle: "Formula"
+metaTitle: "R - Formula"
 description: "The basics of formula, Create Linear, Quadratic and Second Order Interaction Terms"
 ---
 

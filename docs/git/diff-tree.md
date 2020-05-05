@@ -1,5 +1,5 @@
 ---
-metaTitle: "diff-tree"
+metaTitle: "Git - diff-tree"
 description: "See the files changed in a specific commit, Usage, Common diff options"
 ---
 

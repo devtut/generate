@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dates"
+metaTitle: "Microsoft SQL Server - Dates"
 description: "Date & Time Formatting using CONVERT, Date & Time Formatting using FORMAT, DATEADD for adding and subtracting time periods, Get the current DateTime, Getting the last day of a month, Create function to calculate a person's age on a specific date, DATEDIFF for calculating time period differences, DATEPART & DATENAME, Return just Date from a DateTime, CROSS PLATFORM DATE OBJECT, Date parts reference, Date Format  Extended"
 ---
 

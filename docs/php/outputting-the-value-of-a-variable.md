@@ -1,5 +1,5 @@
 ---
-metaTitle: "Outputting the Value of a Variable"
+metaTitle: "PHP - Outputting the Value of a Variable"
 description: "echo and print, Outputting a structured view of arrays and objects, String concatenation with echo, printf vs sprintf, Outputting large integers, Output a Multidimensional Array with index and value and print into the table"
 ---
 

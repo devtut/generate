@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating reports with RMarkdown"
+metaTitle: "R - Creating reports with RMarkdown"
 description: "Including bibliographies, Printing tables, Including LaTeX Preample Commands , Basic R-markdown document structure"
 ---
 

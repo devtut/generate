@@ -1,5 +1,5 @@
 ---
-metaTitle: "Audio"
+metaTitle: "Java - Audio"
 description: "Play a MIDI file, Play an Audio file Looped, Basic audio output, Bare metal sound"
 ---
 

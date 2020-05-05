@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aggregating data frames"
+metaTitle: "R - Aggregating data frames"
 description: "Aggregating with base R, Aggregating with dplyr, Aggregating with data.table"
 ---
 

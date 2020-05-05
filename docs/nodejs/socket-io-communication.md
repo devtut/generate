@@ -1,5 +1,5 @@
 ---
-metaTitle: "Socket.io communication"
+metaTitle: "Node.js - Socket.io communication"
 description: "Hello world! with socket messages."
 ---
 

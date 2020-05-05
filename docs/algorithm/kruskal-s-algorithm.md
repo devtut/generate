@@ -1,5 +1,5 @@
 ---
-metaTitle: "Kruskal's Algorithm"
+metaTitle: "Algorithm - Kruskal's Algorithm"
 description: "Optimal, disjoint-set based implementation, Simple, more detailed implementation, Simple, disjoint-set based implementation, Simple, high level implementation"
 ---
 

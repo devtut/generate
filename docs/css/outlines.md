@@ -1,5 +1,5 @@
 ---
-metaTitle: "Outlines"
+metaTitle: "CSS - Outlines"
 description: "Overview, outline-style"
 ---
 

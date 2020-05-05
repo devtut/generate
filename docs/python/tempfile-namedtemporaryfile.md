@@ -1,5 +1,5 @@
 ---
-metaTitle: "tempfile NamedTemporaryFile"
+metaTitle: "Python - tempfile NamedTemporaryFile"
 description: "Create (and write to a) known, persistant temporary file"
 ---
 

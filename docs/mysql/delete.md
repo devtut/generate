@@ -1,5 +1,5 @@
 ---
-metaTitle: "DELETE"
+metaTitle: "MySQL - DELETE"
 description: "Delete with Where clause, Delete all rows from a table, LIMITing deletes, Multi-Table Deletes, Basic delete, DELETE vs TRUNCATE, Multi-table DELETE"
 ---
 

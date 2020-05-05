@@ -1,5 +1,5 @@
 ---
-metaTitle: "PSR"
+metaTitle: "PHP - PSR"
 description: "PSR-4: Autoloader, PSR-1: Basic Coding Standard, PSR-8: Huggable Interface"
 ---
 

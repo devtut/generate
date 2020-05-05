@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sockets"
+metaTitle: "PHP - Sockets"
 description: "TCP client socket, TCP server socket, UDP server socket, Handling socket errors"
 ---
 

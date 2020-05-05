@@ -1,5 +1,5 @@
 ---
-metaTitle: "Find"
+metaTitle: "Bash - Find"
 description: "Searching for a file by name or extension, Executing commands against a found file, Finding file by access / modification time, Finding files according to size, Filter the path, Finding files by type, Finding files by specific extension"
 ---
 

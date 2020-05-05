@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pipe operators (%>% and others)"
+metaTitle: "R - Pipe operators (%>% and others)"
 description: "Basic use and chaining, Functional sequences, Assignment with %<>%, Exposing contents with %$%, Creating side effects with %T>%, Using the pipe with dplyr and ggplot2"
 ---
 

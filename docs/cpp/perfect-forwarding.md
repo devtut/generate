@@ -1,5 +1,5 @@
 ---
-metaTitle: "Perfect Forwarding"
+metaTitle: "C++ | Perfect Forwarding"
 description: "Factory functions"
 ---
 

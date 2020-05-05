@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node JS Localization"
+metaTitle: "Node.js - Node JS Localization"
 description: "using i18n module to maintains localization in  node js app"
 ---
 

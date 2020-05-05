@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions"
+metaTitle: "Python - Functions"
 description: "Defining a function with an arbitrary number of arguments, Defining and calling simple functions, Lambda (Inline/Anonymous) Functions, Defining a function with optional arguments, Defining a function with optional mutable arguments, Argument passing and mutability, Returning values from functions, Closure, Forcing the use of named parameters, Defining a function with arguments, Recursive functions, Recursion limit, Nested functions, Recursive Lambda using assigned variable, Defining a function with multiple arguments, Iterable and dictionary unpacking"
 ---
 

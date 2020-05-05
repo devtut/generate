@@ -1,5 +1,5 @@
 ---
-metaTitle: "Export PostgreSQL database table header and data to CSV file"
+metaTitle: "PostgreSQL - Export PostgreSQL database table header and data to CSV file"
 description: "Export PostgreSQL table to csv with header for some column(s), Full table backup to csv with header, copy from query"
 ---
 

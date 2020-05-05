@@ -1,5 +1,5 @@
 ---
-metaTitle: "Scripting with Parameters"
+metaTitle: "Bash - Scripting with Parameters"
 description: "Multiple Parameter Parsing, Accessing Parameters, Argument parsing using a for loop, Wrapper script, Split string into an array in Bash"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generic Lambda Query Builder"
+metaTitle: "C# | Generic Lambda Query Builder"
 description: "QueryFilter class, GetExpression Method, GetExpression Private overload, ConstantExpression Method, Usage"
 ---
 

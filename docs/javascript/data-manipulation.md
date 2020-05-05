@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Manipulation"
+metaTitle: "JavsScript - Data Manipulation"
 description: "Format numbers as money, Extract extension from file name, Set object property given its string name"
 ---
 

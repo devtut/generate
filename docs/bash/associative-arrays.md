@@ -1,5 +1,5 @@
 ---
-metaTitle: "Associative arrays"
+metaTitle: "Bash - Associative arrays"
 description: "Examining assoc arrays"
 ---
 

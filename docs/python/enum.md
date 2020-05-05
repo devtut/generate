@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enum"
+metaTitle: "Python - Enum"
 description: "Creating an enum (Python 2.4 through 3.3), Iteration"
 ---
 

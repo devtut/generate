@@ -1,5 +1,5 @@
 ---
-metaTitle: "Settings"
+metaTitle: ".NET Framework - Settings"
 description: "AppSettings from ConfigurationSettings in .NET 1.x, Reading AppSettings from ConfigurationManager in .NET 2.0 and later, Introduction to strongly-typed application and user settings support from Visual Studio, Reading strongly-typed settings from custom section of configuration file"
 ---
 

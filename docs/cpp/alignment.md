@@ -1,5 +1,5 @@
 ---
-metaTitle: "Alignment"
+metaTitle: "C++ | Alignment"
 description: "Controlling alignment, Querying the alignment of a type"
 ---
 

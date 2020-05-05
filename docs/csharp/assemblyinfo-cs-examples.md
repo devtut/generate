@@ -1,5 +1,5 @@
 ---
-metaTitle: "AssemblyInfo.cs Examples"
+metaTitle: "C# | AssemblyInfo.cs Examples"
 description: "Global and local AssemblyInfo, [AssemblyVersion], [AssemblyTitle], [AssemblyProduct], Automated versioning, Common fields, [InternalsVisibleTo], Reading Assembly Attributes, [AssemblyConfiguration], [AssemblyKeyFile]"
 ---
 

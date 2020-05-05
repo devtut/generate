@@ -1,5 +1,5 @@
 ---
-metaTitle: "Select keyword"
+metaTitle: "Bash - Select keyword"
 description: "Select keyword can be used for getting input argument in a menu format"
 ---
 

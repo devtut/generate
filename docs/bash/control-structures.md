@@ -1,5 +1,5 @@
 ---
-metaTitle: "Control Structures"
+metaTitle: "Bash - Control Structures"
 description: "If statement, Looping over an array, Using For Loop to List Iterate Over Numbers, Conditional execution of command lists, While Loop, For Loop with C-style syntax, Until Loop, continue and break, Loop break, Switch statement with case, For Loop without a list-of-words parameter, For Loop"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Object Oriented Programming In C#"
+metaTitle: "C# | Object Oriented Programming In C#"
 description: "Classes:"
 ---
 

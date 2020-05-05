@@ -1,5 +1,5 @@
 ---
-metaTitle: "Execution blocks"
+metaTitle: "SQL - Execution blocks"
 description: "Using BEGIN ... END"
 ---
 

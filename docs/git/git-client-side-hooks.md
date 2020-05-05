@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Client-Side Hooks"
+metaTitle: "Git - Git Client-Side Hooks"
 description: "Git pre-push hook, Installing a Hook"
 ---
 

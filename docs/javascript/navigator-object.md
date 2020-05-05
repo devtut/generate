@@ -1,5 +1,5 @@
 ---
-metaTitle: "Navigator Object"
+metaTitle: "JavsScript - Navigator Object"
 description: "Get some basic browser data and return it as a JSON object"
 ---
 

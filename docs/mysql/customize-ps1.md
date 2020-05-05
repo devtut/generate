@@ -1,5 +1,5 @@
 ---
-metaTitle: "Customize PS1"
+metaTitle: "MySQL - Customize PS1"
 description: "Customize the MySQL PS1 with current database, Custom PS1 via MySQL configuration file"
 ---
 

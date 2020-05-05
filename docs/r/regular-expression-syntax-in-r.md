@@ -1,5 +1,5 @@
 ---
-metaTitle: "Regular Expression Syntax in R"
+metaTitle: "R - Regular Expression Syntax in R"
 description: "Use `grep` to find a string in a character vector"
 ---
 

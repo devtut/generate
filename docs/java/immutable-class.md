@@ -1,5 +1,5 @@
 ---
-metaTitle: "Immutable Class"
+metaTitle: "Java - Immutable Class"
 description: "Example without mutable refs, What is the advantage of immutability?, Rules to define immutable classes, Example with mutable refs"
 ---
 

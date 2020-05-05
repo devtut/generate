@@ -1,5 +1,5 @@
 ---
-metaTitle: "Strings"
+metaTitle: "Java - Strings"
 description: "Comparing Strings, Changing the case of characters within a String, Finding a String Within Another String, Splitting Strings, String pool and heap storage, Joining Strings with a delimiter, String concatenation and StringBuilders, Substrings, Platform independent new line separator, Adding toString() method for custom objects, Reversing Strings, Remove Whitespace from the Beginning and End of a String, Replacing parts of Strings, Case insensitive switch, Getting the length of a String, Getting the nth character in a String, Counting occurrences of a substring or character in a string"
 ---
 

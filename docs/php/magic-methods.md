@@ -1,5 +1,5 @@
 ---
-metaTitle: "Magic Methods"
+metaTitle: "PHP - Magic Methods"
 description: "__call() and __callStatic(), __get(), __set(), __isset() and __unset(), __construct() and __destruct(), __toString(), __clone(), __invoke(), __sleep() and __wakeup(), __debugInfo()"
 ---
 

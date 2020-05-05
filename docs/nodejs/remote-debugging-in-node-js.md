@@ -1,5 +1,5 @@
 ---
-metaTitle: "Remote Debugging in Node.JS"
+metaTitle: "Node.js - Remote Debugging in Node.JS"
 description: "NodeJS run configuration, IntelliJ/Webstorm Configuration, Use the proxy for debugging via port on Linux"
 ---
 

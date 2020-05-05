@@ -1,5 +1,5 @@
 ---
-metaTitle: "Math"
+metaTitle: "Bash - Math"
 description: "Math using dc, Math using bc, Math using bash capabilities, Math using expr"
 ---
 

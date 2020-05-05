@@ -1,5 +1,5 @@
 ---
-metaTitle: "Autoloading Primer"
+metaTitle: "PHP - Autoloading Primer"
 description: "Inline class definition, no loading required, Manual class loading with require, Autoloading replaces manual class definition loading, Autoloading as part of a framework solution, Autoloading with Composer"
 ---
 

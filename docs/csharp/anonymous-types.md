@@ -1,5 +1,5 @@
 ---
-metaTitle: "Anonymous types"
+metaTitle: "C# | Anonymous types"
 description: "Anonymous vs dynamic, Creating an anonymous type, Anonymous type equality, Generic methods with anonymous types, Instantiating generic types with anonymous types, Implicitly typed arrays"
 ---
 

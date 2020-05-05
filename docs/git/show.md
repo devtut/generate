@@ -1,5 +1,5 @@
 ---
-metaTitle: "Show"
+metaTitle: "Git - Show"
 description: "Overview"
 ---
 

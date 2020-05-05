@@ -1,5 +1,5 @@
 ---
-metaTitle: "LIKE operator"
+metaTitle: "SQL - LIKE operator"
 description: "Match open-ended pattern, Single character match, ESCAPE statement in the LIKE-query, Match by range or set, Search for a range of characters, Wildcard characters, Match ANY versus ALL"
 ---
 

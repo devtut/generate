@@ -1,5 +1,5 @@
 ---
-metaTitle: "Secure objects"
+metaTitle: "Java - Secure objects"
 description: "SealedObject (javax.crypto.SealedObject), SignedObject (java.security.SignedObject)"
 ---
 

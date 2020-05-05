@@ -1,5 +1,5 @@
 ---
-metaTitle: "Window Functions"
+metaTitle: "PostgreSQL - Window Functions"
 description: "generic example, column values vs dense_rank vs rank vs row_number"
 ---
 

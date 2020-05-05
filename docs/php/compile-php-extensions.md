@@ -1,5 +1,5 @@
 ---
-metaTitle: "Compile PHP Extensions"
+metaTitle: "PHP - Compile PHP Extensions"
 description: "Compiling on Linux"
 ---
 

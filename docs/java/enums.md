@@ -1,5 +1,5 @@
 ---
-metaTitle: "Enums"
+metaTitle: "Java - Enums"
 description: "Declaring and using a basic enum, Enums with constructors, Enums with Abstract Methods, Implements Interface, Implement Singleton pattern with a single-element enum, Using methods and static blocks, Documenting enums, Enum as a bounded type parameter, Enum constant specific body, Zero instance enum, Getting the values of an enum, Enum Polymorphism Pattern, Compare and Contains for Enum values, Get enum constant by name, Enum with properties (fields), Convert enum to String, Enums with static fields"
 ---
 

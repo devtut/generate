@@ -1,5 +1,5 @@
 ---
-metaTitle: "Code Contracts"
+metaTitle: ".NET Framework - Code Contracts"
 description: "Contracts for Interfaces, Preconditions, Postconditions, Installing and Enabling Code Contracts"
 ---
 

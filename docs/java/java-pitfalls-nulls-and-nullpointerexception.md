@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Pitfalls - Nulls and NullPointerException"
+metaTitle: "Java - Java Pitfalls - Nulls and NullPointerException"
 description: "Pitfall - Making good unexpected nulls, Pitfall - Using null to represent an empty array or collection, Pitfall - Returning null instead of throwing an exception, Pitfall - Not checking if an I/O stream isn't even initialized when closing it, Pitfall - Unnecessary use of Primitive Wrappers can lead to NullPointerExceptions, Pitfall - Using Yoda notation to avoid NullPointerException"
 ---
 

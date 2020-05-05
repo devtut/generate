@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lowest common ancestor of a Binary Tree"
+metaTitle: "Algorithm - Lowest common ancestor of a Binary Tree"
 description: "Finding lowest common ancestor"
 ---
 

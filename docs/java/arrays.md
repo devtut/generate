@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arrays"
+metaTitle: "Java - Arrays"
 description: "Creating and Initializing Arrays, Creating a List from an Array, Creating an Array from a Collection, Multidimensional and Jagged Arrays, ArrayIndexOutOfBoundsException, Arrays to Stream, Array Covariance, Iterating over arrays, Arrays to a String, Sorting arrays, Getting the Length of an Array, Remove an element from an array, How do you change the size of an array?, Finding an element in an array, Converting arrays between primitives and boxed types, Comparing arrays for equality, Copying arrays, Casting Arrays"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Listing Files"
+metaTitle: "Bash - Listing Files"
 description: "List Files in a Long Listing Format, List the Ten Most Recently Modified Files, List All Files Including Dotfiles, List Files, List Files Without Using `ls`, List Files in a Tree-Like Format, List Files Sorted by Size"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "XmlDocument and the System.Xml namespace"
+metaTitle: "C# | XmlDocument and the System.Xml namespace"
 description: "XmlDocument vs XDocument (Example and comparison), Reading from XML document, Basic XML document interaction"
 ---
 

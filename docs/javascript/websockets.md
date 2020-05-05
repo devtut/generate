@@ -1,5 +1,5 @@
 ---
-metaTitle: "WebSockets"
+metaTitle: "JavsScript - WebSockets"
 description: "Working with string messages, Establish a web socket connection, Working with binary messages, Making a secure web socket connection"
 ---
 

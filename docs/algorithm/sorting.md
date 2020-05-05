@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sorting"
+metaTitle: "Algorithm - Sorting"
 description: "Stability in Sorting"
 ---
 

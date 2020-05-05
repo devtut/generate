@@ -1,5 +1,5 @@
 ---
-metaTitle: "Timers"
+metaTitle: "C# | Timers"
 description: "Multithreaded Timers, Creating an Instance of a Timer, Assigning the Tick event handler to a Timer, Example: Using a Timer to perform a simple countdown."
 ---
 

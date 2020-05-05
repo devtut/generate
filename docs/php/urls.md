@@ -1,5 +1,5 @@
 ---
-metaTitle: "URLs"
+metaTitle: "PHP - URLs"
 description: "Parsing a URL, Build an URL-encoded query string from an array, Redirecting to another URL"
 ---
 

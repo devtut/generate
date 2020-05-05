@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inheritance"
+metaTitle: "CSS - Inheritance"
 description: "Automatic inheritance, Enforced inheritance"
 ---
 

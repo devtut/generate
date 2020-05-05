@@ -1,5 +1,5 @@
 ---
-metaTitle: "co-processes"
+metaTitle: "Bash - co-processes"
 description: "Hello World"
 ---
 

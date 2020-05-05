@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parallel"
+metaTitle: "Bash - Parallel"
 description: "Parallelize repetitive tasks on list of files, Parallelize STDIN"
 ---
 

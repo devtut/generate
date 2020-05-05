@@ -1,5 +1,5 @@
 ---
-metaTitle: "Vertical Centering"
+metaTitle: "CSS - Vertical Centering"
 description: "Centering with display: table, Centering with Transform, Centering with Flexbox, Centering Text with Line Height, Centering with Position: absolute, Centering with pseudo element"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using declaration"
+metaTitle: "C++ | Using declaration"
 description: "Importing names individually from a namespace, Redeclaring members from a base class to avoid name hiding, Inheriting constructors"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Manipulation"
+metaTitle: "C# | String Manipulation"
 description: "Replacing a string within a string, Changing the case of characters within a String, Finding a string within a string, Removing (Trimming) white-space from a string, Splitting a string using a delimiter, Concatenate an array of strings into a single string, String Concatenation"
 ---
 

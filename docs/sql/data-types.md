@@ -1,5 +1,5 @@
 ---
-metaTitle: "Data Types"
+metaTitle: "SQL - Data Types"
 description: "DECIMAL and NUMERIC, FLOAT and REAL, Integers, MONEY and SMALLMONEY, BINARY and VARBINARY, CHAR and VARCHAR, NCHAR and NVARCHAR, UNIQUEIDENTIFIER"
 ---
 

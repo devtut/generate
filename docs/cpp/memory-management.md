@@ -1,5 +1,5 @@
 ---
-metaTitle: "Memory management"
+metaTitle: "C++ | Memory management"
 description: "Free Storage (Heap, Dynamic Allocation ...), Placement new, Stack"
 ---
 

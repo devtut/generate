@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with algorithm"
+metaTitle: "Algorithm - Getting started with algorithm"
 description: "A sample algorithmic problem, Getting Started with Simple Fizz Buzz Algorithm in Swift"
 ---
 

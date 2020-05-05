@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating packages with devtools"
+metaTitle: "R - Creating packages with devtools"
 description: "Creating and distributing packages, Creating vignettes"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "UPDATE"
+metaTitle: "PostgreSQL - UPDATE"
 description: "Updating a table based on joining another table, Update all rows in a table, Update all rows meeting a condition, Updating multiple columns in table"
 ---
 

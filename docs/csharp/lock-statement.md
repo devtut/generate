@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lock Statement"
+metaTitle: "C# | Lock Statement"
 description: "Throwing exception in a lock statement, Simple usage, Return in a lock statement, Anti-Patterns and gotchas, Using instances of Object for lock"
 ---
 

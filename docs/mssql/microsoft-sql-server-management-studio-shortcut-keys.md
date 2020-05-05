@@ -1,5 +1,5 @@
 ---
-metaTitle: "Microsoft SQL Server Management Studio Shortcut Keys"
+metaTitle: "Microsoft SQL Server - Microsoft SQL Server Management Studio Shortcut Keys"
 description: "Shortcut Examples, Menu Activation Keyboard Shortcuts, Custom keyboard shortcuts"
 ---
 

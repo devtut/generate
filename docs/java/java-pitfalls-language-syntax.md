@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Pitfalls - Language syntax"
+metaTitle: "Java - Java Pitfalls - Language syntax"
 description: "Pitfall - Missing a ‘break’ in a 'switch' case, Pitfall - Leaving out braces: the dangling if and dangling else problems, Pitfall - Declaring classes with the same names as standard classes, Pitfall - Ignoring method visibility, Pitfall - Octal literals, Pitfall - Using '==' to test a boolean, Pitfall - Misplaced semicolons and missing braces, Pitfall - Wildcard imports can make your code fragile, Pitfall: Using 'assert' for argument or user input validation, Pitfall - Overloading instead of overriding, Pitfall of Auto-Unboxing Null Objects into Primitives"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Time Series and Forecasting"
+metaTitle: "R - Time Series and Forecasting"
 description: "Creating a ts object, Exploratory Data Analysis with time-series data"
 ---
 

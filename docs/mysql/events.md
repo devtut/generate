@@ -1,5 +1,5 @@
 ---
-metaTitle: "Events"
+metaTitle: "MySQL - Events"
 description: "Create an Event"
 ---
 

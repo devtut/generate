@@ -1,5 +1,5 @@
 ---
-metaTitle: "Structs"
+metaTitle: "C# | Structs"
 description: "Declaring a struct, Struct usage, Struct implementing interface, Structs are copied on assignment"
 ---
 

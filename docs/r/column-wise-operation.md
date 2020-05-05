@@ -1,5 +1,5 @@
 ---
-metaTitle: "Column wise operation"
+metaTitle: "R - Column wise operation"
 description: "sum of each column"
 ---
 

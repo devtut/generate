@@ -1,5 +1,5 @@
 ---
-metaTitle: "Handling FormatException when converting string to other types"
+metaTitle: "C# | Handling FormatException when converting string to other types"
 description: "Converting string to integer"
 ---
 

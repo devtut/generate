@@ -1,5 +1,5 @@
 ---
-metaTitle: "Shell Sort"
+metaTitle: "Algorithm - Shell Sort"
 description: "Shell Sort Basic Information, C# Implementation"
 ---
 

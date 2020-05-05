@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sequelize.js"
+metaTitle: "Node.js - Sequelize.js"
 description: "Installation, Defining Models"
 ---
 

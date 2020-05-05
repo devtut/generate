@@ -1,5 +1,5 @@
 ---
-metaTitle: "Geolocation"
+metaTitle: "JavsScript - Geolocation"
 description: "Get a user's latitude and longitude, More descriptive error codes, Get updates when a user's location changes"
 ---
 

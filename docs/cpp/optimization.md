@@ -1,5 +1,5 @@
 ---
-metaTitle: "Optimization"
+metaTitle: "C++ | Optimization"
 description: "Inline Expansion/Inlining, Empty base optimization"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Guid"
+metaTitle: "C# | Guid"
 description: "Getting the string representation of a Guid, Creating a Guid, Declaring a nullable GUID"
 ---
 

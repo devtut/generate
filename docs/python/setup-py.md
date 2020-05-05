@@ -1,5 +1,5 @@
 ---
-metaTitle: "setup.py"
+metaTitle: "Python - setup.py"
 description: "Using source control metadata in setup.py, Purpose of setup.py, Adding command line scripts to your python package, Adding installation options"
 ---
 

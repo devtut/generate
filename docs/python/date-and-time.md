@@ -1,5 +1,5 @@
 ---
-metaTitle: "Date and Time"
+metaTitle: "Python - Date and Time"
 description: "Parsing a string into a timezone aware datetime object, Constructing timezone-aware datetimes, Basic datetime objects usage, Computing time differences, Simple date arithmetic , Switching between time zones, Converting timestamp to datetime, Subtracting months from a date accurately, Iterate over dates, Parsing a string with a short time zone name into a timezone aware datetime object, Fuzzy datetime parsing (extracting datetime out of a text), Parsing an arbitrary ISO 8601 timestamp with minimal libraries, Get an ISO 8601 timestamp"
 ---
 

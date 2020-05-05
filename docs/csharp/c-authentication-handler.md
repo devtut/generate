@@ -1,5 +1,5 @@
 ---
-metaTitle: "C# Authentication handler"
+metaTitle: "C# | C# Authentication handler"
 description: "Authentication handler"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Temporary Tables"
+metaTitle: "MySQL - Temporary Tables"
 description: "Create Temporary Table, Drop Temporary Table"
 ---
 

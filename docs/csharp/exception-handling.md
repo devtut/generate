@@ -1,5 +1,5 @@
 ---
-metaTitle: "Exception Handling"
+metaTitle: "C# | Exception Handling"
 description: "Creating Custom Exceptions, Finally block, Best Practices, Exception Anti-patterns, Basic Exception Handling, Handling specific exception types, Aggregate exceptions / multiple exceptions from one method, Throwing an exception, Unhandled and Thread Exception, Using the exception object, Implementing IErrorHandler for WCF Services, Nesting of Exceptions & try catch blocks."
 ---
 

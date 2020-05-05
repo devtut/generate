@@ -1,5 +1,5 @@
 ---
-metaTitle: "Updating R version"
+metaTitle: "R - Updating R version"
 description: "Installing from R Website, Updating from within R using installr Package, Deciding on the old packages, Updating Packages, Check R Version"
 ---
 

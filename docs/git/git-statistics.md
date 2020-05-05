@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git statistics"
+metaTitle: "Git - Git statistics"
 description: "Lines of code per developer, Listing each branch and its last revision's date, Commits per developer, Commits per date, Total number of commits in a  branch , List all commits in pretty format, Find All Local Git Repositories on Computer, Show the total number of commits per author"
 ---
 

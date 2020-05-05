@@ -1,5 +1,5 @@
 ---
-metaTitle: "Tables"
+metaTitle: "CSS - Tables"
 description: "table-layout, empty-cells, border-collapse, border-spacing, caption-side"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "heatmap and heatmap.2"
+metaTitle: "R - heatmap and heatmap.2"
 description: "Examples from the official documentation, Tuning parameters in heatmap.2"
 ---
 

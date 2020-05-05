@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cassandra Integration"
+metaTitle: "Node.js - Cassandra Integration"
 description: "Hello world"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Concatenate"
+metaTitle: "C# | String Concatenate"
 description: "+ Operator, Concatenate strings using System.Text.StringBuilder, Concat string array elements using String.Join, Concatenation of two strings using $"
 ---
 

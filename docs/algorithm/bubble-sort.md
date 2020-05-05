@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bubble Sort"
+metaTitle: "Algorithm - Bubble Sort"
 description: "Bubble Sort, Implementation in  C & C++, Implementation in Javascript, Implementation in C#, Implementation in Java, Python Implementation"
 ---
 

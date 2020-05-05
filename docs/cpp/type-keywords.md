@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type Keywords"
+metaTitle: "C++ | Type Keywords"
 description: "class, enum, struct, union"
 ---
 

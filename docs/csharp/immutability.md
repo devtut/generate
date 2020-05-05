@@ -1,5 +1,5 @@
 ---
-metaTitle: "Immutability"
+metaTitle: "C# | Immutability"
 description: "System.String class, Strings and immutability"
 ---
 

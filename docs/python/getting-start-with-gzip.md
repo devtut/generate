@@ -1,5 +1,5 @@
 ---
-metaTitle: "getting start with GZip"
+metaTitle: "Python - getting start with GZip"
 description: "Read and write GNU zip files"
 ---
 

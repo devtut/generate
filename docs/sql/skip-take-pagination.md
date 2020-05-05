@@ -1,5 +1,5 @@
 ---
-metaTitle: "SKIP TAKE (Pagination)"
+metaTitle: "SQL - SKIP TAKE (Pagination)"
 description: "Limiting amount of results, Skipping then taking some results (Pagination), Skipping some rows from result"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "ENUM"
+metaTitle: "MySQL - ENUM"
 description: "Why ENUM?, VARCHAR as an alternative, Adding a new option, NULL vs NOT NULL, TINYINT as an alternative"
 ---
 

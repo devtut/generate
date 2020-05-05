@@ -1,5 +1,5 @@
 ---
-metaTitle: "Animations"
+metaTitle: "CSS - Animations"
 description: "Animations with keyframes, Animations with the transition property, Syntax Examples, Increasing Animation Performance Using the `will-change` Attribute"
 ---
 

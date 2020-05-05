@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variables"
+metaTitle: "R - Variables"
 description: "Variables, data structures and basic Operations"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Writing to CSV from String or List"
+metaTitle: "Python - Writing to CSV from String or List"
 description: "Basic Write Example, Appending a String as a newline in a CSV file"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reading and writing .zip files"
+metaTitle: "C# | Reading and writing .zip files"
 description: "Writing to a zip file, Writing Zip Files in-memory, Get files from a Zip file, The following example shows how to open a zip archive and extract all .txt files to a folder"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Iteration Statements/Loops: for, while, do-while"
+metaTitle: "C - Iteration Statements/Loops: for, while, do-while"
 description: "For loop, While loop, Do-While loop, Structure and flow of control in a for loop, Infinite Loops, Loop Unrolling and Duff's Device"
 ---
 

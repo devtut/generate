@@ -1,5 +1,5 @@
 ---
-metaTitle: "Materialized Views"
+metaTitle: "SQL - Materialized Views"
 description: "PostgreSQL example"
 ---
 

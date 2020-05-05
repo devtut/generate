@@ -1,5 +1,5 @@
 ---
-metaTitle: "Classes"
+metaTitle: "R - Classes"
 description: "Inspect classes, Vectors and lists, Vectors"
 ---
 

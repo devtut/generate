@@ -1,5 +1,5 @@
 ---
-metaTitle: "Table Design"
+metaTitle: "SQL - Table Design"
 description: "Properties of a well designed table."
 ---
 

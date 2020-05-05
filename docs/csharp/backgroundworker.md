@@ -1,5 +1,5 @@
 ---
-metaTitle: "BackgroundWorker"
+metaTitle: "C# | BackgroundWorker"
 description: "Using a BackgroundWorker to complete a task., Assigning Event Handlers to a BackgroundWorker, Creating a new BackgroundWorker instance, Assigning Properties to a BackgroundWorker"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Writing functions in R"
+metaTitle: "R - Writing functions in R"
 description: "Anonymous functions, RStudio code snippets, Named functions, Passing column names as argument of a function"
 ---
 

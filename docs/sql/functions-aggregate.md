@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions (Aggregate)"
+metaTitle: "SQL - Functions (Aggregate)"
 description: "Conditional aggregation, List Concatenation, SUM, AVG(), Count, Max, Min"
 ---
 

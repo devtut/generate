@@ -1,5 +1,5 @@
 ---
-metaTitle: "Array iteration"
+metaTitle: "PHP - Array iteration"
 description: "Iterating multiple arrays together, Using an incremental index, Using internal array pointers, Using foreach, Using ArrayObject Iterator"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Unnamed types"
+metaTitle: "C++ | Unnamed types"
 description: "Unnamed classes, As a type alias, Anonymous members, Anonymous Union"
 ---
 

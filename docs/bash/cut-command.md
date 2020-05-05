@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cut Command"
+metaTitle: "Bash - Cut Command"
 description: "Show the first column of a file, Show columns x to y of a file"
 ---
 

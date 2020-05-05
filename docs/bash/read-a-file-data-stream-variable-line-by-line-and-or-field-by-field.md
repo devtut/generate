@@ -1,5 +1,5 @@
 ---
-metaTitle: "Read a file (data stream, variable) line-by-line (and/or field-by-field)?"
+metaTitle: "Bash - Read a file (data stream, variable) line-by-line (and/or field-by-field)?"
 description: "Looping through a file line by line, Looping through the output of a command field by field, Read lines of a file into an array, Read lines of a string into an array, Looping through a string line by line, Looping through the output of a command line by line, Read a file field by field, Read a string field by field, Read fields of a file into an array, Read fields of a string into an array, Reads file (/etc/passwd) line by line and field by field"
 ---
 

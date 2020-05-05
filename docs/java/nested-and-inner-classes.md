@@ -1,5 +1,5 @@
 ---
-metaTitle: "Nested and Inner Classes"
+metaTitle: "Java - Nested and Inner Classes"
 description: "A Simple Stack Using a Nested Class, Static vs Non Static Nested Classes, Access Modifiers for Inner Classes, Anonymous Inner Classes, Create instance of non-static inner class from outside, Method Local Inner Classes, Accessing the outer class from a non-static inner class"
 ---
 

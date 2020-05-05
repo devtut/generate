@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::optional"
+metaTitle: "C++ | std::optional"
 description: "Using optionals to represent the absence of a value, optional as return value, Introduction, value_or, Using optionals to represent the failure of a function"
 ---
 

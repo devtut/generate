@@ -1,5 +1,5 @@
 ---
-metaTitle: "Drop Keyword"
+metaTitle: "Microsoft SQL Server - Drop Keyword"
 description: "Drop temporary tables, Drop tables, Drop Databases"
 ---
 

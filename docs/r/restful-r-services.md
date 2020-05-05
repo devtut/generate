@@ -1,5 +1,5 @@
 ---
-metaTitle: "RESTful R Services"
+metaTitle: "R - RESTful R Services"
 description: "opencpu Apps"
 ---
 

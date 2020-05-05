@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type Traits"
+metaTitle: "C++ | Type Traits"
 description: "Standard type traits, Type Properties, Type relations with std::is_same<T, T> , Fundamental type traits"
 ---
 

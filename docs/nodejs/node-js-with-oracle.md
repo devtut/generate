@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js with Oracle"
+metaTitle: "Node.js - Node.js with Oracle"
 description: "Connect to Oracle DB, Using a local module for easier querying, Query a connection object without parameters"
 ---
 

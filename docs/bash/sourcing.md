@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sourcing"
+metaTitle: "Bash - Sourcing"
 description: "Sourcing a file, Sourcing a virtual environment"
 ---
 

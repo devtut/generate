@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arrays"
+metaTitle: "PHP - Arrays"
 description: "Initializing an Array, Check if key exists, Validating the array type, Creating an array of variables, Checking if a value exists in array, ArrayAccess and Iterator Interfaces"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "CREATE VIEW"
+metaTitle: "Microsoft SQL Server - CREATE VIEW"
 description: "CREATE Indexed VIEW, CREATE VIEW, CREATE VIEW With Encryption, CREATE VIEW With INNER JOIN, Grouped VIEWs, UNION-ed VIEWs"
 ---
 

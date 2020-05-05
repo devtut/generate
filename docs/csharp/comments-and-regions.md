@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comments and regions"
+metaTitle: "C# | Comments and regions"
 description: "Comments, Regions, Documentation comments"
 ---
 

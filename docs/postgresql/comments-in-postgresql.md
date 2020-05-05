@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comments in postgresql"
+metaTitle: "PostgreSQL - Comments in postgresql"
 description: "COMMENT on Table, Remove Comment"
 ---
 

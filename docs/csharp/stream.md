@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stream"
+metaTitle: "C# | Stream"
 description: "Using Streams"
 ---
 

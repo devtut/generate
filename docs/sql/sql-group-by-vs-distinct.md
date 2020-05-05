@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQL Group By vs Distinct"
+metaTitle: "SQL - SQL Group By vs Distinct"
 description: "Difference between GROUP BY and DISTINCT"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "git-svn"
+metaTitle: "Git - git-svn"
 description: "Cloning the SVN repository, Pushing local changes to SVN, Working locally, Getting the latest changes from SVN, Handling empty folders"
 ---
 

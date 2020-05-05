@@ -1,5 +1,5 @@
 ---
-metaTitle: "Keep a node application constantly running"
+metaTitle: "Node.js - Keep a node application constantly running"
 description: "Use PM2 as a process manager, Running and stopping a Forever daemon, Continuous running with nohup, Process Mangement with Forever"
 ---
 

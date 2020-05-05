@@ -1,5 +1,5 @@
 ---
-metaTitle: "Run-length encoding"
+metaTitle: "R - Run-length encoding"
 description: "Identifying and grouping by runs in base R, Run-length Encoding with `rle`, Run-length encoding to compress and decompress vectors, Identifying and grouping by runs in data.table"
 ---
 

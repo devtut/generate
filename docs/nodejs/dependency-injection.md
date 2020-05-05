@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dependency Injection"
+metaTitle: "Node.js - Dependency Injection"
 description: "Why Use Dependency Injection"
 ---
 

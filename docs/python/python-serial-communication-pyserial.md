@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python Serial Communication (pyserial)"
+metaTitle: "Python - Python Serial Communication (pyserial)"
 description: "Initialize serial device, Read from serial port, Check what serial ports are available on your machine"
 ---
 

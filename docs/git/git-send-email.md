@@ -1,5 +1,5 @@
 ---
-metaTitle: "git send-email"
+metaTitle: "Git - git send-email"
 description: "Use git send-email with Gmail, Composing, Sending patches by mail"
 ---
 

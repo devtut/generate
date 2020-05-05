@@ -1,5 +1,5 @@
 ---
-metaTitle: "Defining functions with list arguments"
+metaTitle: "Python - Defining functions with list arguments"
 description: "Function and Call"
 ---
 

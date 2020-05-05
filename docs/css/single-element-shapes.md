@@ -1,5 +1,5 @@
 ---
-metaTitle: "Single Element Shapes"
+metaTitle: "CSS - Single Element Shapes"
 description: "Triangles, Trapezoid, Circles and Ellipses, Bursts, Square, Cube, Pyramid"
 ---
 

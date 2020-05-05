@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stored Procedures"
+metaTitle: "Microsoft SQL Server - Stored Procedures"
 description: "Creating and executing a basic stored procedure, Stored Procedure with If...Else and Insert Into operation, Dynamic SQL in stored procedure, STORED PROCEDURE with OUT parameters, Simple Looping, Simple Looping"
 ---
 

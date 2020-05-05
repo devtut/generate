@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating Images Programmatically"
+metaTitle: "Java - Creating Images Programmatically"
 description: "Creating a simple image programmatically and displaying it, Save an Image to disk, Setting individual pixel's color in BufferedImage, Specifying image rendering quality, Creating an image with BufferedImage class, Editing and re-using image with BufferedImage, How to scale a BufferedImage"
 ---
 

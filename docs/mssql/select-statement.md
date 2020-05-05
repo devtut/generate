@@ -1,5 +1,5 @@
 ---
-metaTitle: "SELECT statement"
+metaTitle: "Microsoft SQL Server - SELECT statement"
 description: "Basic SELECT from table, Filter rows using WHERE clause, Sort results using ORDER BY, Group result using GROUP BY, Filter groups using HAVING clause, Returning only first N rows, Pagination using OFFSET FETCH, SELECT without FROM (no data souce)"
 ---
 

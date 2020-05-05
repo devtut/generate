@@ -1,5 +1,5 @@
 ---
-metaTitle: "Variable Scope and Binding"
+metaTitle: "Python - Variable Scope and Binding"
 description: "Nonlocal Variables, Global Variables, Local Variables, Binding Occurrence, Functions skip class scope when looking up names, The del command, Local vs Global Scope"
 ---
 

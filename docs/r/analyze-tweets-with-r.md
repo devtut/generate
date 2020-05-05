@@ -1,5 +1,5 @@
 ---
-metaTitle: "Analyze tweets with R"
+metaTitle: "R - Analyze tweets with R"
 description: "Download Tweets, Get text of tweets"
 ---
 

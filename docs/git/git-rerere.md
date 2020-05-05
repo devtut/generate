@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git rerere"
+metaTitle: "Git - Git rerere"
 description: "Enabling rerere"
 ---
 

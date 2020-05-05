@@ -1,5 +1,5 @@
 ---
-metaTitle: "Classes/Structures"
+metaTitle: "C++ | Classes/Structures"
 description: "Class basics, Final classes and structs, Access specifiers, Inheritance, Friendship, Virtual Inheritance, Accessing class members, Private inheritance: restricting base class interface, Nested Classes/Structures, Member Types and Aliases, Multiple Inheritance, Static class members, Non-static member functions, Unnamed struct/class"
 ---
 

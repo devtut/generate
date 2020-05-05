@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Agents"
+metaTitle: "Java - Java Agents"
 description: "Modifying classes with agents, Adding an agent at runtime, Setting up a basic agent"
 ---
 

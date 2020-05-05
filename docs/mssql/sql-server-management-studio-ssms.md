@@ -1,5 +1,5 @@
 ---
-metaTitle: "SQL Server Management Studio (SSMS)"
+metaTitle: "Microsoft SQL Server - SQL Server Management Studio (SSMS)"
 description: "Refreshing the IntelliSense cache"
 ---
 

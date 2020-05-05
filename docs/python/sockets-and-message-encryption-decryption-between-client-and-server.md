@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sockets And Message Encryption/Decryption Between Client and Server"
+metaTitle: "Python - Sockets And Message Encryption/Decryption Between Client and Server"
 description: "Server side Implementation, Client side Implementation"
 ---
 

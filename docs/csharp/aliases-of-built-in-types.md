@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aliases of built-in types"
+metaTitle: "C# | Aliases of built-in types"
 description: "Built-In Types Table"
 ---
 

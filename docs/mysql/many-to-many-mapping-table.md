@@ -1,5 +1,5 @@
 ---
-metaTitle: "Many-to-many Mapping table"
+metaTitle: "MySQL - Many-to-many Mapping table"
 description: "Typical schema"
 ---
 

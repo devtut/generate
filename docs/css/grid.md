@@ -1,5 +1,5 @@
 ---
-metaTitle: "Grid"
+metaTitle: "CSS - Grid"
 description: "Basic Example"
 ---
 

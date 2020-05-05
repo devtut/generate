@@ -1,5 +1,5 @@
 ---
-metaTitle: "Filter results using WHERE and HAVING"
+metaTitle: "SQL - Filter results using WHERE and HAVING"
 description: "Use BETWEEN to Filter Results, Use HAVING with Aggregate Functions, WHERE clause with NULL/NOT NULL values, The WHERE clause only returns rows that match its criteria, Equality, AND and OR, Use IN to return rows with a value contained in a list, Use LIKE to find matching strings and substrings, Use HAVING to check for multiple conditions in a group, Where EXISTS"
 ---
 

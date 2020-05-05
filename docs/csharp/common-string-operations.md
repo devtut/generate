@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common String Operations"
+metaTitle: "C# | Common String Operations"
 description: "Formatting a string, Padding a string to a fixed length, Correctly reversing a string, Getting x characters from the right side of a string, Checking for empty String using String.IsNullOrEmpty() and String.IsNullOrWhiteSpace(), Trimming Unwanted Characters Off the Start and/or End of Strings., Construct a string from Array, Formatting using ToString, Convert Decimal Number to Binary,Octal and Hexadecimal Format, Splitting a String by specific character, Getting Substrings of a given string, Determine whether a string begins with a given sequence, Joining an array of strings into a new one , Getting a char at specific index and enumerating the string, Splitting a String by another string,  Replacing a string within a string, Changing the case of characters within a String, Concatenate an array of strings into a single string, String Concatenation"
 ---
 

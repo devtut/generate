@@ -1,5 +1,5 @@
 ---
-metaTitle: "Extracting and Listing Files in Compressed Archives"
+metaTitle: "R - Extracting and Listing Files in Compressed Archives"
 description: "Extracting files from a .zip archive, Listing files in a .zip archive, Listing files in a .tar archive, Extracting files from a .tar archive, Extract all .zip archives in a directory"
 ---
 

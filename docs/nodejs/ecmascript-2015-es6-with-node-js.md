@@ -1,5 +1,5 @@
 ---
-metaTitle: "ECMAScript 2015 (ES6) with Node.js"
+metaTitle: "Node.js - ECMAScript 2015 (ES6) with Node.js"
 description: "const/let declarations, Arrow functions, Arrow Function Example, destructuring, flow, ES6 Class"
 ---
 

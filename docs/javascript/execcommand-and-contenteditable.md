@@ -1,5 +1,5 @@
 ---
-metaTitle: "execCommand and contenteditable"
+metaTitle: "JavsScript - execCommand and contenteditable"
 description: "Listening to Changes of contenteditable, Getting started, Formatting, Copy to clipboard from textarea using execCommand(copy)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Performance Tuning"
+metaTitle: "Java - Java Performance Tuning"
 description: "Reducing amount of Strings, An evidence-based approach to Java performance tuning, General approach"
 ---
 

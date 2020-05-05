@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creational Design Patterns"
+metaTitle: "JavsScript - Creational Design Patterns"
 description: "Factory Functions, Factory with Composition, Module and Revealing Module Patterns, Prototype Pattern, Singleton Pattern, Abstract Factory Pattern"
 ---
 

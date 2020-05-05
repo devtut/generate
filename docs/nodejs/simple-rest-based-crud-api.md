@@ -1,5 +1,5 @@
 ---
-metaTitle: "Simple REST based CRUD API"
+metaTitle: "Node.js - Simple REST based CRUD API"
 description: "REST API for CRUD in Express 3+"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with Git"
+metaTitle: "Git - Getting started with Git"
 description: "Create your first repository, then add and commit files, Clone a repository, Sharing code, Setting your user name and email, Setting up the upstream remote, Learning about a command, Set up SSH for Git, Git Installation"
 ---
 

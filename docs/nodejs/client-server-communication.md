@@ -1,5 +1,5 @@
 ---
-metaTitle: "Client-server communication"
+metaTitle: "Node.js - Client-server communication"
 description: "/w Express, jQuery and Jade"
 ---
 

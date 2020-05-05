@@ -1,5 +1,5 @@
 ---
-metaTitle: "In-Memory OLTP (Hekaton)"
+metaTitle: "Microsoft SQL Server - In-Memory OLTP (Hekaton)"
 description: "Declare Memory-Optimized Table Variables, Create Memory Optimized Table, Show created .dll files and tables for Memory Optimized Tables, Create Memory Optimized System-Versioned Temporal Table, Memory-Optimized Table Types  and Temp tables"
 ---
 

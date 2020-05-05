@@ -1,5 +1,5 @@
 ---
-metaTitle: "Fault-tolerant/resilient code"
+metaTitle: "R - Fault-tolerant/resilient code"
 description: "Using tryCatch()"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creational Design Patterns"
+metaTitle: "C# | Creational Design Patterns"
 description: "Singleton Pattern, Factory Method pattern, Abstract Factory Pattern, Builder Pattern, Prototype Pattern"
 ---
 

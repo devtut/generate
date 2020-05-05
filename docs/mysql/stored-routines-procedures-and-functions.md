@@ -1,5 +1,5 @@
 ---
-metaTitle: "Stored routines (procedures and functions)"
+metaTitle: "MySQL - Stored routines (procedures and functions)"
 description: "Stored procedure with IN, OUT, INOUT parameters, Create a Function, Create Procedure with a Constructed Prepare , Cursors, Multiple ResultSets, Create a function"
 ---
 

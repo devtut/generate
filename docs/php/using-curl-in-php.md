@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using cURL in PHP"
+metaTitle: "PHP - Using cURL in PHP"
 description: "POST Requests, Basic Usage (GET Requests), Using Cookies, Using multi_curl to make multiple POST requests, Creating and sending a request with a custom method, Sending multi-dimensional data and multiple files with CurlFile in one request, Get and Set custom http headers in php"
 ---
 

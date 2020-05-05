@@ -1,5 +1,5 @@
 ---
-metaTitle: "Greedy Algorithms"
+metaTitle: "Algorithm - Greedy Algorithms"
 description: "Huffman Coding, Activity Selection Problem, Change-making problem, Continuous knapsack problem"
 ---
 

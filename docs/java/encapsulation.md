@@ -1,5 +1,5 @@
 ---
-metaTitle: "Encapsulation"
+metaTitle: "Java - Encapsulation"
 description: "Encapsulation to maintain invariants, Encapsulation to reduce coupling"
 ---
 

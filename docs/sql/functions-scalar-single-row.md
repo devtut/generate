@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions (Scalar/Single Row)"
+metaTitle: "SQL - Functions (Scalar/Single Row)"
 description: "Character modifications, Date And Time, Configuration and Conversion Function, Logical and Mathmetical Function"
 ---
 

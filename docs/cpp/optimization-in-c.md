@@ -1,5 +1,5 @@
 ---
-metaTitle: "Optimization in C++"
+metaTitle: "C++ | Optimization in C++"
 description: "Introduction to performance, Empty Base Class Optimization, Optimizing by executing less code, Using efficient containers, Small Object Optimization"
 ---
 

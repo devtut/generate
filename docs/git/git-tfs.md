@@ -1,5 +1,5 @@
 ---
-metaTitle: "git-tfs"
+metaTitle: "Git - git-tfs"
 description: "git-tfs clone, git-tfs clone from bare git repository, git-tfs install via Chocolatey, git-tfs Check In, git-tfs push"
 ---
 

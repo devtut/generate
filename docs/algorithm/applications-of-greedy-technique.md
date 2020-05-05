@@ -1,5 +1,5 @@
 ---
-metaTitle: "Applications of Greedy technique"
+metaTitle: "Algorithm - Applications of Greedy technique"
 description: "Ticket automat, Interval Scheduling, Minimizing Lateness, Offline Caching"
 ---
 

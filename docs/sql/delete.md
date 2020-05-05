@@ -1,5 +1,5 @@
 ---
-metaTitle: "DELETE"
+metaTitle: "SQL - DELETE"
 description: "DELETE all rows, DELETE certain rows with WHERE, TRUNCATE clause, DELETE certain rows based upon comparisons with other tables"
 ---
 

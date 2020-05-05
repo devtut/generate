@@ -1,5 +1,5 @@
 ---
-metaTitle: "Design Patterns"
+metaTitle: "Bash - Design Patterns"
 description: "The Publish/Subscribe (Pub/Sub) Pattern"
 ---
 

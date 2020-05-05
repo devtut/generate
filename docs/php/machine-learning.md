@@ -1,5 +1,5 @@
 ---
-metaTitle: "Machine learning"
+metaTitle: "PHP - Machine learning"
 description: "Classification using PHP-ML, Regression, Clustering"
 ---
 

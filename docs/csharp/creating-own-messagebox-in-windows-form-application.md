@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating Own MessageBox in Windows Form Application"
+metaTitle: "C# | Creating Own MessageBox in Windows Form Application"
 description: "Creating Own MessageBox Control., How to use own created MessageBox control in another Windows Form application."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Feature Selection in R -- Removing Extraneous Features"
+metaTitle: "R - Feature Selection in R -- Removing Extraneous Features"
 description: "Removing features with zero or near-zero variance, Removing features with high numbers of NA, Removing closely correlated features"
 ---
 

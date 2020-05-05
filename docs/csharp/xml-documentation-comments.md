@@ -1,5 +1,5 @@
 ---
-metaTitle: "XML Documentation Comments"
+metaTitle: "C# | XML Documentation Comments"
 description: "Simple method annotation, Generating XML from documentation comments, Method documentation comment with param and returns elements, Interface and class documentation comments, Referencing another class in documentation"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Layout Control"
+metaTitle: "CSS - Layout Control"
 description: "The display property, To get old table structure using div"
 ---
 

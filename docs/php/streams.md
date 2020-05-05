@@ -1,5 +1,5 @@
 ---
-metaTitle: "Streams"
+metaTitle: "PHP - Streams"
 description: "Registering a stream wrapper"
 ---
 

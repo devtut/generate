@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arrays"
+metaTitle: "C - Arrays"
 description: "Array length, Iterating through an array efficiently and row-major order, Declaring and initializing an array, Multi-dimensional arrays, Passing multidimensional arrays to a function, Clearing array contents (zeroing), Setting values in arrays, Define array and access array element, Allocate and zero-initialize an array with user defined size, Iterating through an array using pointers"
 ---
 

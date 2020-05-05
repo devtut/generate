@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inline variables"
+metaTitle: "C++ | Inline variables"
 description: "Defining a static data member in the class definition"
 ---
 

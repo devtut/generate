@@ -1,5 +1,5 @@
 ---
-metaTitle: "Basic Curses with Python"
+metaTitle: "Python - Basic Curses with Python"
 description: "Basic Invocation Example, The wrapper() helper function."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Boolean"
+metaTitle: "C - Boolean"
 description: "Using stdbool.h, Using #define, Using the Intrinsic (built-in)  Type _Bool, Integers and pointers in Boolean expressions., Defining a bool type using typedef"
 ---
 

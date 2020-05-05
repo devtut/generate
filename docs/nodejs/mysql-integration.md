@@ -1,5 +1,5 @@
 ---
-metaTitle: "MySQL integration"
+metaTitle: "Node.js - MySQL integration"
 description: "Connect to MySQL, Using a connection pool, Query a connection object with parameters, Query a connection object without parameters, Run a number of queries with a single connection from a pool, Export Connection Pool, Return the query when an error occurs"
 ---
 

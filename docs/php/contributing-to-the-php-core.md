@@ -1,5 +1,5 @@
 ---
-metaTitle: "Contributing to the PHP Core"
+metaTitle: "PHP - Contributing to the PHP Core"
 description: "Setting up a basic development environment"
 ---
 

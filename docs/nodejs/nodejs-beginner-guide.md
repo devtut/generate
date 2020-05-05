@@ -1,5 +1,5 @@
 ---
-metaTitle: "NodeJS Beginner Guide"
+metaTitle: "Node.js - NodeJS Beginner Guide"
 description: "Hello World !"
 ---
 

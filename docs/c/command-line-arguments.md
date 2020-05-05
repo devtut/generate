@@ -1,5 +1,5 @@
 ---
-metaTitle: "Command-line arguments"
+metaTitle: "C - Command-line arguments"
 description: "Print the arguments to a program and convert to integer values, Printing the command line arguments, Using GNU getopt tools"
 ---
 

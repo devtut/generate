@@ -1,5 +1,5 @@
 ---
-metaTitle: "Smart Pointers"
+metaTitle: "C++ | Smart Pointers"
 description: "Unique ownership (std::unique_ptr), Sharing ownership (std::shared_ptr), Sharing with temporary ownership (std::weak_ptr), Using custom deleters to create a wrapper to a C interface, Unique ownership without move semantics (auto_ptr), Casting std::shared_ptr pointers, Writing a smart pointer: value_ptr, Getting a shared_ptr referring to this"
 ---
 

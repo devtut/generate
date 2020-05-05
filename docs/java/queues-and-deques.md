@@ -1,5 +1,5 @@
 ---
-metaTitle: "Queues and Deques"
+metaTitle: "Java - Queues and Deques"
 description: "The usage of the PriorityQueue, LinkedList as a FIFO Queue, Stacks, BlockingQueue, Deque, Queue Interface"
 ---
 

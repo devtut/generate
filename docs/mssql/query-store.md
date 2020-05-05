@@ -1,5 +1,5 @@
 ---
-metaTitle: "Query Store"
+metaTitle: "Microsoft SQL Server - Query Store"
 description: "Enable query store on database, Get execution statistics for SQL queries/plans, Remove data from query store, Forcing plan for query"
 ---
 

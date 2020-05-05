@@ -1,5 +1,5 @@
 ---
-metaTitle: ".NET Compiler Platform (Roslyn)"
+metaTitle: "C# | .NET Compiler Platform (Roslyn)"
 description: "Semantic model, Syntax tree, Create workspace from MSBuild project"
 ---
 

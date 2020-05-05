@@ -1,5 +1,5 @@
 ---
-metaTitle: "GROUP BY"
+metaTitle: "SQL - GROUP BY"
 description: "Basic GROUP BY example, USE GROUP BY to COUNT the number of rows for each unique entry in a given column, Filter GROUP BY results using a HAVING clause, ROLAP aggregation (Data Mining)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "npm"
+metaTitle: "Node.js - npm"
 description: "Installing packages, Uninstalling packages, Setting up a package configuration, Running scripts, Basic semantic versioning, Publishing a package, Removing extraneous packages, Scopes and repositories, Listing currently installed packages, Updating npm and packages, Locking modules to specific versions, Setting up for globally installed packages, Linking projects for faster debugging and development"
 ---
 

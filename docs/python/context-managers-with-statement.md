@@ -1,5 +1,5 @@
 ---
-metaTitle: "Context Managers (“with” Statement)"
+metaTitle: "Python - Context Managers (“with” Statement)"
 description: "Introduction to context managers and the with statement, Writing your own context manager, Writing your own contextmanager using generator syntax, Multiple context managers, Assigning to a target, Manage Resources"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Create PDF files in PHP"
+metaTitle: "PHP - Create PDF files in PHP"
 description: "Getting Started with PDFlib"
 ---
 

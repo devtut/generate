@@ -1,5 +1,5 @@
 ---
-metaTitle: "Security"
+metaTitle: "PHP - Security"
 description: "PHP Version Leakage, Cross-Site Scripting (XSS), Cross-Site Request Forgery, Command Line Injection, Error Reporting, File Inclusion, Stripping Tags, Uploading files"
 ---
 

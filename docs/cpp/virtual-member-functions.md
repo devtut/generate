@@ -1,5 +1,5 @@
 ---
-metaTitle: "Virtual Member Functions"
+metaTitle: "C++ | Virtual Member Functions"
 description: "Using override with virtual in C++11 and later, Virtual vs non-virtual member functions, Final virtual functions, Behaviour of virtual functions in constructors and destructors, Pure virtual functions"
 ---
 

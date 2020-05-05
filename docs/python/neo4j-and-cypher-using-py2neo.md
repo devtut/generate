@@ -1,5 +1,5 @@
 ---
-metaTitle: "Neo4j and Cypher using Py2Neo"
+metaTitle: "Python - Neo4j and Cypher using Py2Neo"
 description: "Adding Nodes to Neo4j Graph, Importing and Authenticating, Adding Relationships to Neo4j Graph, Query 1 : Autocomplete on News Titles, Query 2 : Get News Articles by Location on a particular date, Cypher Query Samples"
 ---
 

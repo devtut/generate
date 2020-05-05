@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::any"
+metaTitle: "C++ | std::any"
 description: "Basic usage"
 ---
 

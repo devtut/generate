@@ -1,5 +1,5 @@
 ---
-metaTitle: "Compound Literals"
+metaTitle: "C - Compound Literals"
 description: "Definition/Initialisation of Compound Literals"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "VB Forms"
+metaTitle: ".NET Framework - VB Forms"
 description: "Hello World in VB.NET Forms, For Beginners, Forms Timer"
 ---
 

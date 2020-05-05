@@ -1,5 +1,5 @@
 ---
-metaTitle: "Image Processing with GD"
+metaTitle: "PHP - Image Processing with GD"
 description: "Image output, Creating an image, Image Cropping and Resizing"
 ---
 

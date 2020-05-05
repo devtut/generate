@@ -1,5 +1,5 @@
 ---
-metaTitle: "WeakHashMap"
+metaTitle: "Java - WeakHashMap"
 description: "Concepts of WeakHashmap"
 ---
 

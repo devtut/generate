@@ -1,5 +1,5 @@
 ---
-metaTitle: "BOM (Browser Object Model)"
+metaTitle: "JavsScript - BOM (Browser Object Model)"
 description: "Introduction, Window Object Methods, Window Object Properties"
 ---
 

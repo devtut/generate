@@ -1,5 +1,5 @@
 ---
-metaTitle: "Security via GRANTs"
+metaTitle: "MySQL - Security via GRANTs"
 description: "Best Practice, Host (of user@host)"
 ---
 

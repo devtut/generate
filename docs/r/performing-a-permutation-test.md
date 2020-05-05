@@ -1,5 +1,5 @@
 ---
-metaTitle: "Performing a Permutation Test"
+metaTitle: "R - Performing a Permutation Test"
 description: "A fairly general function"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Non-Access Modifiers"
+metaTitle: "Java - Non-Access Modifiers"
 description: "final, static, abstract, strictfp, volatile, synchronized, transient"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Flow Control"
+metaTitle: "C++ | Flow Control"
 description: "case, switch, catch, default, if, else, goto, return, throw, try, Conditional Structures: if, if..else, Jump statements : break, continue, goto, exit."
 ---
 

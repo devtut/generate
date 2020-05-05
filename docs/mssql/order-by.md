@@ -1,5 +1,5 @@
 ---
-metaTitle: "ORDER BY"
+metaTitle: "Microsoft SQL Server - ORDER BY"
 description: "Simple ORDER BY clause, ORDER BY multiple fields, ORDER BY with complex logic, Custom Ordering"
 ---
 

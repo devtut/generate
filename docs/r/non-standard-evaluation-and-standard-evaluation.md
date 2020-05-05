@@ -1,5 +1,5 @@
 ---
-metaTitle: "Non-standard evaluation and standard evaluation"
+metaTitle: "R - Non-standard evaluation and standard evaluation"
 description: "Examples with standard dplyr verbs"
 ---
 

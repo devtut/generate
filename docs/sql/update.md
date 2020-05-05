@@ -1,5 +1,5 @@
 ---
-metaTitle: "UPDATE"
+metaTitle: "SQL - UPDATE"
 description: "UPDATE with data from another table, Modifying existing values, Updating Specified Rows, Updating All Rows, Capturing Updated records"
 ---
 

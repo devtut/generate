@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with CSS"
+metaTitle: "CSS - Getting started with CSS"
 description: "External Stylesheet, Internal Styles, CSS @import rule (one of CSS at-rule), Inline Styles, Changing CSS with JavaScript, Styling Lists with CSS"
 ---
 

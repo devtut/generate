@@ -1,5 +1,5 @@
 ---
-metaTitle: "Connect to Mongodb"
+metaTitle: "Node.js - Connect to Mongodb"
 description: "Simple example to Connect mongoDB from Node.JS, Simple way to Connect mongoDB with core Node.JS"
 ---
 

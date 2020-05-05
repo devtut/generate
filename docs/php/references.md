@@ -1,5 +1,5 @@
 ---
-metaTitle: "References"
+metaTitle: "PHP - References"
 description: "Assign by Reference, Return by Reference, Pass by Reference"
 ---
 

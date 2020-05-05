@@ -1,5 +1,5 @@
 ---
-metaTitle: "Alternative Collections"
+metaTitle: "Java - Alternative Collections"
 description: "Multimap in Guava, Apache and Eclipse Collections, Apache HashBag, Guava HashMultiset and Eclipse HashBag, Compare operation with collections - Create collections"
 ---
 

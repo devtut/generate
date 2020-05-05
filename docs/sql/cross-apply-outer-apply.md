@@ -1,5 +1,5 @@
 ---
-metaTitle: "cross apply, outer apply"
+metaTitle: "SQL - cross apply, outer apply"
 description: "CROSS APPLY and OUTER APPLY basics"
 ---
 

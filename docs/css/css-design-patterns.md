@@ -1,5 +1,5 @@
 ---
-metaTitle: "CSS design patterns"
+metaTitle: "CSS - CSS design patterns"
 description: "BEM"
 ---
 

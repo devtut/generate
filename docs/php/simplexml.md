@@ -1,5 +1,5 @@
 ---
-metaTitle: "SimpleXML"
+metaTitle: "PHP - SimpleXML"
 description: "Loading XML data into simplexml"
 ---
 

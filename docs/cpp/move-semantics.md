@@ -1,5 +1,5 @@
 ---
-metaTitle: "Move Semantics"
+metaTitle: "C++ | Move Semantics"
 description: "Using std::move to reduce complexity from O(n²) to O(n), Move semantics, Move constructor, Move assignment, Re-use a moved object, Using move semantics on containers"
 ---
 

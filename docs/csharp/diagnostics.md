@@ -1,5 +1,5 @@
 ---
-metaTitle: "Diagnostics"
+metaTitle: "C# | Diagnostics"
 description: "Redirecting log output with TraceListeners, Debug.WriteLine"
 ---
 

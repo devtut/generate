@@ -1,5 +1,5 @@
 ---
-metaTitle: "Secure Shell Connection in Python"
+metaTitle: "Python - Secure Shell Connection in Python"
 description: "ssh connection"
 ---
 

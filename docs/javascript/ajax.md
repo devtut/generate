@@ -1,5 +1,5 @@
 ---
-metaTitle: "AJAX"
+metaTitle: "JavsScript - AJAX"
 description: "Sending and Receiving JSON Data via POST, Add an AJAX preloader, Displaying the top JavaScript questions of the month from Stack Overflow's API, Using GET with parameters, Check if a file exists via a HEAD request, Using GET and no parameters, Listening to AJAX events at a global level"
 ---
 

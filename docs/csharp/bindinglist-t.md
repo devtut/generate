@@ -1,5 +1,5 @@
 ---
-metaTitle: "BindingList<T>"
+metaTitle: "C# | BindingList<T>"
 description: "Add item to list, Avoiding N*2 iteration"
 ---
 

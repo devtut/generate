@@ -1,5 +1,5 @@
 ---
-metaTitle: "TRIGGERS"
+metaTitle: "MySQL - TRIGGERS"
 description: "Basic Trigger, Types of triggers"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Handling Time Zones"
+metaTitle: "MySQL - Handling Time Zones"
 description: "Retrieve the current date and time in a particular time zone., Convert a stored `DATE` or `DATETIME` value to another time zone., Retrieve stored `TIMESTAMP` values in a particular time zone, What is my server's local time zone setting?, What time_zone values are available in my server?"
 ---
 

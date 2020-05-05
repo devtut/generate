@@ -1,5 +1,5 @@
 ---
-metaTitle: "Iterators"
+metaTitle: "C++ | Iterators"
 description: "Overview, Vector Iterator, Map Iterator, Reverse Iterators, Stream Iterators, C Iterators (Pointers), Write your own generator-backed iterator"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Unsafe Code in .NET"
+metaTitle: "C# | Unsafe Code in .NET"
 description: "Using unsafe with arrays, Using unsafe with strings, Unsafe Array Index"
 ---
 

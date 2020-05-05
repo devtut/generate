@@ -1,5 +1,5 @@
 ---
-metaTitle: "RAII: Resource Acquisition Is Initialization"
+metaTitle: "C++ | RAII: Resource Acquisition Is Initialization"
 description: "Locking, Finally/ScopeExit, ScopeSuccess (c++17), ScopeFail (c++17)"
 ---
 

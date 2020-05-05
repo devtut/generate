@@ -1,5 +1,5 @@
 ---
-metaTitle: "DROP Table"
+metaTitle: "SQL - DROP Table"
 description: "Check for existence before dropping, Simple drop"
 ---
 

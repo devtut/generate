@@ -1,5 +1,5 @@
 ---
-metaTitle: "Random Number Generation"
+metaTitle: "C - Random Number Generation"
 description: "Basic Random Number Generation, Permuted Congruential Generator, Restrict generation to a given range, Xorshift Generation"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Equality Operator"
+metaTitle: "C# | Equality Operator"
 description: "Equality kinds in c# and equality operator"
 ---
 

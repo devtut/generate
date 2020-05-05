@@ -1,5 +1,5 @@
 ---
-metaTitle: "Merging"
+metaTitle: "Git - Merging"
 description: "Merge one branch into another, Automatic Merging, Aborting a merge, Keep changes from only one side of a merge, Merge with a commit, Finding all branches with no merged changes"
 ---
 

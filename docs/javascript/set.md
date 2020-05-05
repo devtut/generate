@@ -1,5 +1,5 @@
 ---
-metaTitle: "Set"
+metaTitle: "JavsScript - Set"
 description: "Creating a Set, Adding a value to a Set, Removing value from a set, Checking if a value exist in a set, Clearing a Set, Getting set length, Converting Sets to arrays, Intersection and difference in Sets, Iterating Sets"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "The Date class"
+metaTitle: "R - The Date class"
 description: "Formatting Dates, Parsing Strings into Date Objects, Dates"
 ---
 

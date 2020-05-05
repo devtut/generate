@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic SQL Pivot"
+metaTitle: "Microsoft SQL Server - Dynamic SQL Pivot"
 description: "Basic Dynamic SQL Pivot"
 ---
 

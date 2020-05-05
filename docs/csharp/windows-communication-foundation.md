@@ -1,5 +1,5 @@
 ---
-metaTitle: "Windows Communication Foundation"
+metaTitle: "C# | Windows Communication Foundation"
 description: "Getting started sample"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Performance Tuning"
+metaTitle: "MySQL - Performance Tuning"
 description: "Add the correct index, Don't hide in function, OR, Set the cache correctly, Negatives, Have an INDEX, Subqueries, JOIN + GROUP BY, Avoid inefficient constructs"
 ---
 

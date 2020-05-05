@@ -1,5 +1,5 @@
 ---
-metaTitle: "Flexible Box Layout (Flexbox)"
+metaTitle: "CSS - Flexible Box Layout (Flexbox)"
 description: "Dynamic Vertical and Horizontal Centering (align-items, justify-content), Sticky Variable-Height Footer, Optimally fit elements to their container, Holy Grail Layout using Flexbox, Perfectly aligned buttons inside cards with flexbox, Same height on nested containers"
 ---
 

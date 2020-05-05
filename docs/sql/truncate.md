@@ -1,5 +1,5 @@
 ---
-metaTitle: "TRUNCATE"
+metaTitle: "SQL - TRUNCATE"
 description: "Removing all rows from the Employee table"
 ---
 

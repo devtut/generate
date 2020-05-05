@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hack"
+metaTitle: "Node.js - Hack"
 description: "Add new extensions to require()"
 ---
 

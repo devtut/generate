@@ -1,5 +1,5 @@
 ---
-metaTitle: "User Defined Table Types"
+metaTitle: "Microsoft SQL Server - User Defined Table Types"
 description: "creating a UDT with a single int column that is also a primary key, Creating a UDT with multiple columns, Creating a UDT with a unique constraint:, Creating a UDT with a primary key and a column with a default value:"
 ---
 

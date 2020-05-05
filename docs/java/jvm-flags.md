@@ -1,5 +1,5 @@
 ---
-metaTitle: "JVM Flags"
+metaTitle: "Java - JVM Flags"
 description: "-XXaggressive, -XXallocClearChunks, -XXallocClearChunkSize, -XXcallProfiling, -XXdisableFatSpin, -XXdisableGCHeuristics, -XXdumpSize, -XXexitOnOutOfMemory"
 ---
 

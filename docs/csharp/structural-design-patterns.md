@@ -1,5 +1,5 @@
 ---
-metaTitle: "Structural Design Patterns"
+metaTitle: "C# | Structural Design Patterns"
 description: "Adapter Design Pattern"
 ---
 

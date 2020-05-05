@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getters and Setters"
+metaTitle: "Java - Getters and Setters"
 description: "Using a setter or getter to implement a constraint, Adding Getters and Setters, Why Use Getters and Setters?"
 ---
 

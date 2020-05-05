@@ -1,5 +1,5 @@
 ---
-metaTitle: "Templates"
+metaTitle: "C++ | Templates"
 description: "Function Templates, Basic Class Template, Variadic template data structures, Argument forwarding, Template Specialization, Partial template specialization, Alias template, Template template parameters, Declaring non-type template arguments with auto, Non-type template parameter, Explicit instantiation, Default template parameter value"
 ---
 

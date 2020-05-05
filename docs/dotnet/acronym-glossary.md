@@ -1,5 +1,5 @@
 ---
-metaTitle: "Acronym Glossary"
+metaTitle: ".NET Framework - Acronym Glossary"
 description: ".Net Related Acronyms"
 ---
 

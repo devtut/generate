@@ -1,5 +1,5 @@
 ---
-metaTitle: "Linked lists"
+metaTitle: "Python - Linked lists"
 description: "Single linked list example"
 ---
 

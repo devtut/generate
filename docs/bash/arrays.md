@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arrays"
+metaTitle: "Bash - Arrays"
 description: "Array Assignments, Accessing Array Elements, Array Modification, Array Length, Array Iteration, Associative Arrays, Looping through an array, Destroy, Delete, or Unset an Array, List of initialized indexes, Array from string, Reading an entire file into an array, Array insert function"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Rcpp"
+metaTitle: "R - Rcpp"
 description: "Extending Rcpp with Plugins, Inline Code Compile, Rcpp Attributes, Specifying Additional Build Dependencies"
 ---
 

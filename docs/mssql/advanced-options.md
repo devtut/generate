@@ -1,5 +1,5 @@
 ---
-metaTitle: "Advanced options"
+metaTitle: "Microsoft SQL Server - Advanced options"
 description: "Enable and show advanced options, Enable backup compression default, Enable cmd permission , Set default fill factor percent , Set system recovery interval, Set max server memory size, Set number of checkpoint tasks"
 ---
 

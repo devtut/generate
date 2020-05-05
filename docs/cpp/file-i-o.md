@@ -1,5 +1,5 @@
 ---
-metaTitle: "File I/O"
+metaTitle: "C++ | File I/O"
 description: "Writing to a file, Opening a file, Reading from a file, Opening modes, Reading an ASCII file into a std::string, Writing files with non-standard locale settings, Flushing a stream, Reading a file into a container, Checking end of file inside a loop condition, bad practice?, Closing a file, Reading a `struct` from a formatted text file., Copying a file"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using SQLite in C#"
+metaTitle: "C# | Using SQLite in C#"
 description: "Creating simple CRUD using SQLite in C#, Executing Query"
 ---
 

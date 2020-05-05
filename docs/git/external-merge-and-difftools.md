@@ -1,5 +1,5 @@
 ---
-metaTitle: "External merge and difftools"
+metaTitle: "Git - External merge and difftools"
 description: "Setting up Beyond Compare, Setting up KDiff3 as merge tool, Setting up KDiff3 as diff tool, Setting up an IntelliJ IDE as merge tool (Windows), Setting up an IntelliJ IDE as diff tool (Windows)"
 ---
 

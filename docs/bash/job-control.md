@@ -1,5 +1,5 @@
 ---
-metaTitle: "Job Control"
+metaTitle: "Bash - Job Control"
 description: "List background processes, Bring a background process to the foreground, Restart stopped background process, Run command in background, Stop a foreground process"
 ---
 

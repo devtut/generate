@@ -1,5 +1,5 @@
 ---
-metaTitle: "Full-Text Indexing"
+metaTitle: "Microsoft SQL Server - Full-Text Indexing"
 description: "A. Creating a unique index, a full-text catalog, and a full-text index, Creating a full-text index on several table columns, Creating a full-text index with a search property list without populating it, Full-Text Search"
 ---
 

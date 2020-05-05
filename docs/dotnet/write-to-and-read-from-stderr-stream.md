@@ -1,5 +1,5 @@
 ---
-metaTitle: "Write to and read from StdErr stream"
+metaTitle: ".NET Framework - Write to and read from StdErr stream"
 description: "Write to standard error output using Console, Read from standard error of child process"
 ---
 

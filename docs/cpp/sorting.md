@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sorting"
+metaTitle: "C++ | Sorting"
 description: "Sorting and sequence containers, Sorting sequence containers with specifed ordering, Sorting sequence containers by overloaded less operator, Sorting sequence containers using compare function, Sorting sequence containers using lambda expressions (C++11), sorting with std::map (ascending and descending), Sorting built-in arrays"
 ---
 

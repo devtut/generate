@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Pitfalls - Threads and Concurrency"
+metaTitle: "Java - Java Pitfalls - Threads and Concurrency"
 description: "Pitfall: incorrect use of wait() / notify(), Pitfall - Extending 'java.lang.Thread', Pitfall - Too many threads makes an application slower., Pitfall - Thread creation is relatively expensive, Pitfall: Shared variables require proper synchronization"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "COALESCE"
+metaTitle: "PostgreSQL - COALESCE"
 description: "Single non null argument, Multiple non null arguments, All null arguments"
 ---
 

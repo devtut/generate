@@ -1,5 +1,5 @@
 ---
-metaTitle: "Concurrent Collections"
+metaTitle: "Java - Concurrent Collections"
 description: "Thread-safe Collections, Concurrent Collections, Insertion into ConcurrentHashMap"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Cryptography"
+metaTitle: "PHP - Cryptography"
 description: "Symmetric Encryption and Decryption of large Files with OpenSSL, Symmetric Cipher"
 ---
 

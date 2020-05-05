@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inspecting packages"
+metaTitle: "R - Inspecting packages"
 description: "View package information, View package's built-in data sets, List a package's exported functions, View Package Version, View Loaded packages in Current Session"
 ---
 

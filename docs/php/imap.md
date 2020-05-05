@@ -1,5 +1,5 @@
 ---
-metaTitle: "IMAP"
+metaTitle: "PHP - IMAP"
 description: "Connecting to a mailbox, Install IMAP extension, List all folders in the mailbox, Finding messages in the mailbox"
 ---
 

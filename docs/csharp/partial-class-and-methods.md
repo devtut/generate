@@ -1,5 +1,5 @@
 ---
-metaTitle: "Partial class and methods"
+metaTitle: "C# | Partial class and methods"
 description: "Partial classes, Partial methods, Partial classes inheriting from a base class"
 ---
 

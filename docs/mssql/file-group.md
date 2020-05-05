@@ -1,5 +1,5 @@
 ---
-metaTitle: "File Group"
+metaTitle: "Microsoft SQL Server - File Group"
 description: "Create filegroup in database"
 ---
 

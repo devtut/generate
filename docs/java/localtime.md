@@ -1,5 +1,5 @@
 ---
-metaTitle: "LocalTime"
+metaTitle: "Java - LocalTime"
 description: "Amount of time between two LocalTime, Intro, Time Modification, Time Zones and their time difference"
 ---
 

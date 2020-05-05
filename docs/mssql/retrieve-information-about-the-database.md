@@ -1,5 +1,5 @@
 ---
-metaTitle: "Retrieve information about the database"
+metaTitle: "Microsoft SQL Server - Retrieve information about the database"
 description: "Retrieve a List of all Stored Procedures, Get the list of all databases on a server, Count the Number of Tables in a Database, Database Files, Determine a Windows Login's Permission Path, See if Enterprise-specific features are being used, Retrieve Database Options, Show Size of All Tables in Current Database , Retrieve Tables Containing Known Column, Search and Return All Tables and Columns Containing a Specified Column Value, Get all schemas, tables, columns and indexes, Return a list of SQL Agent jobs, with schedule information, Find every mention of a field in the database, Retrieve information on backup and restore operations"
 ---
 

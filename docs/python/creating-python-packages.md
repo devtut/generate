@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating Python packages"
+metaTitle: "Python - Creating Python packages"
 description: "Introduction, Uploading to PyPI, Making package executable"
 ---
 

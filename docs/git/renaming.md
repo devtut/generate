@@ -1,5 +1,5 @@
 ---
-metaTitle: "Renaming"
+metaTitle: "Git - Renaming"
 description: "Rename Folders, Renaming a local branch, rename a local and the remote branch"
 ---
 

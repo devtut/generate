@@ -1,5 +1,5 @@
 ---
-metaTitle: "Combinatorics"
+metaTitle: "R - Combinatorics"
 description: "Enumerating combinations of a specified length, Counting combinations of a specified length"
 ---
 

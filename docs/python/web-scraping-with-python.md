@@ -1,5 +1,5 @@
 ---
-metaTitle: "Web scraping with Python"
+metaTitle: "Python - Web scraping with Python"
 description: "Scraping using the Scrapy framework, Basic example of using requests and lxml to scrape some data, Maintaining web-scraping session with requests, Scraping using Selenium WebDriver, Scraping using BeautifulSoup4, Modify Scrapy user agent, Simple web content download with urllib.request, Scraping with curl"
 ---
 

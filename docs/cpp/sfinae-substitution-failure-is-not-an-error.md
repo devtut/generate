@@ -1,5 +1,5 @@
 ---
-metaTitle: "SFINAE (Substitution Failure Is Not An Error)"
+metaTitle: "C++ | SFINAE (Substitution Failure Is Not An Error)"
 description: "What is SFINAE, void_t, enable_if, is_detected, Overload resolution with a large number of options, trailing decltype in function templates, enable_if_all / enable_if_any"
 ---
 

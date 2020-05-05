@@ -1,5 +1,5 @@
 ---
-metaTitle: "FileSystemWatcher"
+metaTitle: "C# | FileSystemWatcher"
 description: "IsFileReady, Basic FileWatcher "
 ---
 

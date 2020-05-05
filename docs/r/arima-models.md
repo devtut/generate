@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arima Models"
+metaTitle: "R - Arima Models"
 description: "Modeling an AR1 Process with Arima"
 ---
 

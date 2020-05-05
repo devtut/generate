@@ -1,5 +1,5 @@
 ---
-metaTitle: "Const Correctness"
+metaTitle: "C++ | Const Correctness"
 description: "The Basics, Const Correct Class Design, Const Correct Function Parameters, Const Correctness as Documentation"
 ---
 

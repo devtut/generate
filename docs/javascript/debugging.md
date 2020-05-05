@@ -1,5 +1,5 @@
 ---
-metaTitle: "Debugging"
+metaTitle: "JavsScript - Debugging"
 description: "Interactive interpreter variables, Breakpoints, Using setters and getters to find what changed a property, Using the console, Automatically pausing execution, Elements inspector, Stepping through code, Break when a function is called"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Analyzing a Query"
+metaTitle: "Microsoft SQL Server - Analyzing a Query"
 description: "Scan vs Seek"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Color script output (cross-platform)"
+metaTitle: "Bash - Color script output (cross-platform)"
 description: "color-output.sh"
 ---
 

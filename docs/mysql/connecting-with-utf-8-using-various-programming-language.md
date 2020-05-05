@@ -1,5 +1,5 @@
 ---
-metaTitle: "Connecting with UTF-8 Using Various Programming language."
+metaTitle: "MySQL - Connecting with UTF-8 Using Various Programming language."
 description: "Python, PHP"
 ---
 

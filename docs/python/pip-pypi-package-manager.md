@@ -1,5 +1,5 @@
 ---
-metaTitle: "pip: PyPI Package Manager"
+metaTitle: "Python - pip: PyPI Package Manager"
 description: "Install Packages, To list all packages installed using `pip`, Upgrade Packages, Uninstall Packages, Updating all outdated packages on Linux, Updating all outdated packages on Windows, Create a requirements.txt file of all packages on the system, Create a requirements.txt file of packages only in the current virtualenv, Using a certain Python version with pip, Installing packages not yet on pip as wheels"
 ---
 

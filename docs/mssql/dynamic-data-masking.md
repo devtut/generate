@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic data masking"
+metaTitle: "Microsoft SQL Server - Dynamic data masking"
 description: "Mask email address using Dynamic data masking, Add partial mask on column, Showing random value from the range using random() mask, Adding default mask on the column, Controlling who can see unmasked data"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Pitfalls - Performance Issues"
+metaTitle: "Java - Java Pitfalls - Performance Issues"
 description: "Pitfall - String concatenation in a loop does not scale, Pitfall - Using size() to test if a collection is empty is inefficient., Pitfall - Using 'new' to create primitive wrapper instances is inefficient, Pitfall - Interning strings so that you can use == is a bad idea, Pitfall - Efficiency concerns with regular expressions, Pitfall - Small reads / writes on unbuffered streams are inefficient, Pitfall - The overheads of creating log messages, Pitfall - Calling 'new String(String)' is inefficient, Pitfall - Calling System.gc() is inefficient, Pitfall - Over-use of primitive wrapper types is inefficient, Pitfall - Iterating a Map's keys can be inefficient"
 ---
 

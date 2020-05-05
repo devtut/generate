@@ -1,5 +1,5 @@
 ---
-metaTitle: "Queries with JSON data"
+metaTitle: "Microsoft SQL Server - Queries with JSON data"
 description: "Using values from JSON in query, Using JSON values in reports, Filter-out bad JSON text from query results, Update value in JSON column, Append new value into JSON array, JOIN table with inner JSON collection, Finding rows that contain value in the JSON array"
 ---
 

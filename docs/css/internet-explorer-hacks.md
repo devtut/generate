@@ -1,5 +1,5 @@
 ---
-metaTitle: "Internet Explorer Hacks"
+metaTitle: "CSS - Internet Explorer Hacks"
 description: "Adding Inline Block support to IE6 and IE7, High Contrast Mode in Internet Explorer 10 and greater, Internet Explorer 6 & Internet Explorer 7 only, Internet Explorer 8 only"
 ---
 

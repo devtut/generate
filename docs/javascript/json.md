@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON"
+metaTitle: "JavsScript - JSON"
 description: "Parsing with a reviver function, Serializing a value, Serializing and restoring class instances, JSON versus JavaScript literals, Serializing with a replacer function, Parsing a simple JSON string, Cyclic object values"
 ---
 

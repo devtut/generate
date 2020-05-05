@@ -1,5 +1,5 @@
 ---
-metaTitle: "PostgreSQL High Availability"
+metaTitle: "PostgreSQL - PostgreSQL High Availability"
 description: "Replication in PostgreSQL"
 ---
 

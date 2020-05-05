@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python Lex-Yacc"
+metaTitle: "Python - Python Lex-Yacc"
 description: "Getting Started with PLY, The Hello, World! of PLY - A Simple Calculator, Part 1: Tokenizing Input with Lex, Part 2: Parsing Tokenized Input with Yacc"
 ---
 

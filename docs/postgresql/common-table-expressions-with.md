@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common Table Expressions (WITH)"
+metaTitle: "PostgreSQL - Common Table Expressions (WITH)"
 description: "Common Table Expressions in SELECT Queries, Traversing tree using WITH RECURSIVE"
 ---
 

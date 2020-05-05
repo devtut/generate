@@ -1,5 +1,5 @@
 ---
-metaTitle: "Triggers and Trigger Functions"
+metaTitle: "PostgreSQL - Triggers and Trigger Functions"
 description: "Basic PL/pgSQL Trigger Function, Type of triggers"
 ---
 

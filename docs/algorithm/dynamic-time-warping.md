@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic Time Warping"
+metaTitle: "Algorithm - Dynamic Time Warping"
 description: "Introduction To Dynamic Time Warping"
 ---
 

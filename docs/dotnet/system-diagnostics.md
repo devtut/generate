@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.Diagnostics"
+metaTitle: ".NET Framework - System.Diagnostics"
 description: "Stopwatch, Run shell commands, Send Command to CMD and Receive Output"
 ---
 

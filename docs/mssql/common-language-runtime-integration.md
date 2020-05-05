@@ -1,5 +1,5 @@
 ---
-metaTitle: "Common Language Runtime Integration"
+metaTitle: "Microsoft SQL Server - Common Language Runtime Integration"
 description: "Enable CLR on database, Adding .dll that contains Sql CLR modules, Create CLR Function in SQL Server, Create CLR User-defined type in SQL Server, Create CLR procedure in SQL Server"
 ---
 

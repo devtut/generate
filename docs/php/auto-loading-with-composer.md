@@ -1,5 +1,5 @@
 ---
-metaTitle: "Auto loading with composer"
+metaTitle: "PHP - Auto loading with composer"
 description: "Autoloading"
 ---
 

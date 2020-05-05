@@ -1,5 +1,5 @@
 ---
-metaTitle: "COALESCE"
+metaTitle: "Microsoft SQL Server - COALESCE"
 description: "Using COALESCE to Build Comma-Delimited String, Coalesce basic Example, Getting the first not null from a list of column values"
 ---
 

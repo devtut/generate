@@ -1,5 +1,5 @@
 ---
-metaTitle: "Applications of Dynamic Programming"
+metaTitle: "Algorithm - Applications of Dynamic Programming"
 description: "Fibonacci Numbers"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Arithmetic"
+metaTitle: "MySQL - Arithmetic"
 description: "Arithmetic Operators, Mathematical Constants, Trigonometry (SIN, COS), Rounding (ROUND, FLOOR, CEIL), Raise a number to a power (POW), Square Root (SQRT), Random Numbers (RAND), Absolute Value and Sign (ABS, SIGN)"
 ---
 

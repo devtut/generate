@@ -1,5 +1,5 @@
 ---
-metaTitle: "Shapes for Floats"
+metaTitle: "CSS - Shapes for Floats"
 description: "Shape Outside with Basic Shape – circle(), Shape margin"
 ---
 

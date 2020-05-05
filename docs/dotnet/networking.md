@@ -1,5 +1,5 @@
 ---
-metaTitle: "Networking"
+metaTitle: ".NET Framework - Networking"
 description: "Basic TCP chat (TcpListener, TcpClient, NetworkStream), Basic SNTP client (UdpClient)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pointers"
+metaTitle: "C - Pointers"
 description: "Common errors, Introduction, Dereferencing a Pointer, Dereferencing a Pointer to a struct, Function pointers, Const Pointers, Polymorphic behaviour with void pointers, Initializing Pointers, Address-of Operator ( & ), Pointer Arithmetic, void* pointers as arguments and return values to standard functions, Same Asterisk, Different Meanings, Pointer to Pointer"
 ---
 

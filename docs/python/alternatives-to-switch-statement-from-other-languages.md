@@ -1,5 +1,5 @@
 ---
-metaTitle: "Alternatives to switch statement from other languages"
+metaTitle: "Python - Alternatives to switch statement from other languages"
 description: "Use what the language offers: the if/else construct., Use a dict of functions, Use class introspection, Using a context manager"
 ---
 

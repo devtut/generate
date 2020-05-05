@@ -1,5 +1,5 @@
 ---
-metaTitle: "Scanner"
+metaTitle: "Java - Scanner"
 description: "General Pattern that does most commonly asked about tasks, Using custom delimiters, Reading system input using Scanner, Reading file input using Scanner, Read the entire input as a String using Scanner, Read an int from the command line, Carefully Closing a Scanner"
 ---
 

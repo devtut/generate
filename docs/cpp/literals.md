@@ -1,5 +1,5 @@
 ---
-metaTitle: "Literals"
+metaTitle: "C++ | Literals"
 description: "true, false, nullptr, this, Integer literal"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Filter Property"
+metaTitle: "CSS - Filter Property"
 description: "Blur, Drop Shadow (use box-shadow instead if possible), Hue Rotate, Multiple Filter Values, Invert Color"
 ---
 

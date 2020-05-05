@@ -1,5 +1,5 @@
 ---
-metaTitle: "Running node.js as a service"
+metaTitle: "Node.js - Running node.js as a service"
 description: "Node.js as a systemd dæmon"
 ---
 

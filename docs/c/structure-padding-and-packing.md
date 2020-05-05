@@ -1,5 +1,5 @@
 ---
-metaTitle: "Structure Padding and Packing"
+metaTitle: "C - Structure Padding and Packing"
 description: "Packing structures, Structure padding"
 ---
 

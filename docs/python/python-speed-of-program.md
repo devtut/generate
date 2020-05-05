@@ -1,5 +1,5 @@
 ---
-metaTitle: "Python speed of program"
+metaTitle: "Python - Python speed of program"
 description: "Deque operations, Algorithmic Notations..., Notation, List operations, Set operations"
 ---
 

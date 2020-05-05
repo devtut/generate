@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reflog - Restoring commits not shown in git log"
+metaTitle: "Git - Reflog - Restoring commits not shown in git log"
 description: "Recovering from a bad rebase"
 ---
 

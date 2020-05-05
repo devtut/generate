@@ -1,5 +1,5 @@
 ---
-metaTitle: "IComparable"
+metaTitle: "C# | IComparable"
 description: "Sort versions"
 ---
 

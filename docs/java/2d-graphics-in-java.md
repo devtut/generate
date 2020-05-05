@@ -1,5 +1,5 @@
 ---
-metaTitle: "2D Graphics in Java"
+metaTitle: "Java - 2D Graphics in Java"
 description: "Example 1: Draw and Fill a Rectangle Using Java, Example 2: Drawing and Filling Oval"
 ---
 

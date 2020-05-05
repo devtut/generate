@@ -1,5 +1,5 @@
 ---
-metaTitle: "Speeding up tough-to-vectorize code"
+metaTitle: "R - Speeding up tough-to-vectorize code"
 description: "Speeding tough-to-vectorize for loops with Rcpp, Speeding tough-to-vectorize for loops by byte compiling"
 ---
 

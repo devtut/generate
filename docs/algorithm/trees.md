@@ -1,5 +1,5 @@
 ---
-metaTitle: "Trees"
+metaTitle: "Algorithm - Trees"
 description: "Introduction, Typical anary tree representation, To check if two Binary trees are same or not"
 ---
 

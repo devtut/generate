@@ -1,5 +1,5 @@
 ---
-metaTitle: "hashlib"
+metaTitle: "Python - hashlib"
 description: "MD5 hash of a string, algorithm provided by OpenSSL"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "sqldf"
+metaTitle: "R - sqldf"
 description: "Basic Usage Examples"
 ---
 

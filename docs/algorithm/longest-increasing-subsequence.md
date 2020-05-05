@@ -1,5 +1,5 @@
 ---
-metaTitle: "Longest Increasing Subsequence"
+metaTitle: "Algorithm - Longest Increasing Subsequence"
 description: "Longest Increasing Subsequence Basic Information, C# Implementation"
 ---
 

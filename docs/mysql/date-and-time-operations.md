@@ -1,5 +1,5 @@
 ---
-metaTitle: "Date and Time Operations"
+metaTitle: "MySQL - Date and Time Operations"
 description: "Date arithmetic, SYSDATE(), NOW(), CURDATE(), Now(), Testing against a date range, Extract Date from Given Date or DateTime Expression, Using an index for a date and time lookup"
 ---
 

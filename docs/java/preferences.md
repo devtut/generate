@@ -1,5 +1,5 @@
 ---
-metaTitle: "Preferences"
+metaTitle: "Java - Preferences"
 description: "Adding event listeners, Getting sub-nodes of Preferences, Coordinating preferences access across multiple application instances, Exporting preferences, Importing preferences, Removing event listeners, Getting preferences values, Setting preferences values, Using preferences"
 ---
 

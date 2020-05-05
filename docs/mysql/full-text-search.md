@@ -1,5 +1,5 @@
 ---
-metaTitle: "Full-Text search"
+metaTitle: "MySQL - Full-Text search"
 description: "Simple FULLTEXT search, Simple BOOLEAN search, Multi-column FULLTEXT search"
 ---
 

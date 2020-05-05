@@ -1,5 +1,5 @@
 ---
-metaTitle: "Literals"
+metaTitle: "Java - Literals"
 description: "Using underscore to improve readability, Hexadecimal, Octal and Binary literals, Boolean literals, Escape sequences in literals, Decimal Integer literals, String literals, The Null literal, Floating-point literals, Character literals"
 ---
 

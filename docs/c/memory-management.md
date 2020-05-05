@@ -1,5 +1,5 @@
 ---
-metaTitle: "Memory management"
+metaTitle: "C - Memory management"
 description: "Freeing Memory, Allocating Memory, Reallocating Memory, realloc(ptr, 0) is not equivalent to free(ptr), Multidimensional arrays of variable size, alloca: allocate memory on stack, User-defined memory management"
 ---
 

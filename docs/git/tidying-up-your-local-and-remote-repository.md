@@ -1,5 +1,5 @@
 ---
-metaTitle: "Tidying up your local and remote repository"
+metaTitle: "Git - Tidying up your local and remote repository"
 description: "Delete local branches that have been deleted on the remote"
 ---
 

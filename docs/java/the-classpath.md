@@ -1,5 +1,5 @@
 ---
-metaTitle: "The Classpath"
+metaTitle: "Java - The Classpath"
 description: "Different ways to specify the classpath, Adding all JARs in a directory to the classpath, Load a resource from the classpath, Classpath path syntax, Dynamic Classpath, Mapping classnames to pathnames, What the classpath means:  how searches work, The bootstrap classpath"
 ---
 

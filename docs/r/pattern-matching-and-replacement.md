@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pattern Matching and Replacement"
+metaTitle: "R - Pattern Matching and Replacement"
 description: "Finding Matches, Single and Global match., Making substitutions, Find matches in big data sets"
 ---
 

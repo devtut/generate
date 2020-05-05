@@ -1,5 +1,5 @@
 ---
-metaTitle: "Programmable completion"
+metaTitle: "Bash - Programmable completion"
 description: "Simple completion using function, Simple completion for options and filenames"
 ---
 

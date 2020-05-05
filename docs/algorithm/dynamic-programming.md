@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dynamic Programming"
+metaTitle: "Algorithm - Dynamic Programming"
 description: "Edit Distance, Weighted Job Scheduling Algorithm, Longest Common Subsequence, Fibonacci Number, Longest Common Substring, Knapsack Problem"
 ---
 

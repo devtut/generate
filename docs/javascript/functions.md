@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functions"
+metaTitle: "JavsScript - Functions"
 description: "Function Scoping, Currying, Immediately Invoked Function Expressions, Binding `this` and arguments, Named Functions, Functions with an Unknown Number of Arguments (variadic functions), Anonymous Function, Default parameters, Function Arguments, arguments object, rest and spread parameters, Passing arguments by reference or value, Call and apply, Partial Application, Function Composition, Functions as a variable, Recursive Function, Using the Return Statement, Get the name of a function object"
 ---
 

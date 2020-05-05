@@ -1,5 +1,5 @@
 ---
-metaTitle: "Resources (on classpath)"
+metaTitle: "Java - Resources (on classpath)"
 description: "Loading default configuration, Loading an image from a resource, Finding and reading resources using a classloader, Loading same-name resource from multiple JARs"
 ---
 

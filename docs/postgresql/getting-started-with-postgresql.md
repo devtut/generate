@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with postgresql"
+metaTitle: "PostgreSQL - Getting started with postgresql"
 description: "Installing PostgreSQL on Windows, Install PostgreSQL from Source on Linux, Installation on GNU+Linux, How to install PostgreSQL via MacPorts on OSX, Install postgresql with brew on Mac, Postgres.app for Mac OSX"
 ---
 

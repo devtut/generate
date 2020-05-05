@@ -1,5 +1,5 @@
 ---
-metaTitle: "JShell"
+metaTitle: "Java - JShell"
 description: "Editting Snippets, Entering and Exiting JShell, Expressions, Methods and Classes, Variables"
 ---
 

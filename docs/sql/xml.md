@@ -1,5 +1,5 @@
 ---
-metaTitle: "XML"
+metaTitle: "SQL - XML"
 description: "Query from XML Data Type"
 ---
 

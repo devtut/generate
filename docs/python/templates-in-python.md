@@ -1,5 +1,5 @@
 ---
-metaTitle: "Templates in python"
+metaTitle: "Python - Templates in python"
 description: "Simple data output program using template, Changing delimiter"
 ---
 

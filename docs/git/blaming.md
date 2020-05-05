@@ -1,5 +1,5 @@
 ---
-metaTitle: "Blaming"
+metaTitle: "Git - Blaming"
 description: "Only show certain lines, Show the commit that last modified a line, Ignore whitespace-only changes, To find out who changed a file"
 ---
 

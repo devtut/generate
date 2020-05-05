@@ -1,5 +1,5 @@
 ---
-metaTitle: "YAML in PHP"
+metaTitle: "PHP - YAML in PHP"
 description: "Installing YAML extension, Using YAML to store application configuration"
 ---
 

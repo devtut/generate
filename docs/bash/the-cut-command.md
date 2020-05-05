@@ -1,5 +1,5 @@
 ---
-metaTitle: "The cut command"
+metaTitle: "Bash - The cut command"
 description: "Only one delimiter character, Repeated delimiters are interpreted as empty fields, No quoting, Extracting, not manipulating, Basic usage"
 ---
 

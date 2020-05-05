@@ -1,5 +1,5 @@
 ---
-metaTitle: "Literals"
+metaTitle: "C# | Literals"
 description: "uint literals, int literals, sbyte literals, decimal literals, double literals, float literals, long literals, ulong literal, string literals, char literals, byte literals, short literal, ushort literal, bool literals"
 ---
 

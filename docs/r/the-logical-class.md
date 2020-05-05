@@ -1,5 +1,5 @@
 ---
-metaTitle: "The logical class"
+metaTitle: "R - The logical class"
 description: "Logical operators, Coercion, Interpretation of NAs"
 ---
 

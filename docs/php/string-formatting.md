@@ -1,5 +1,5 @@
 ---
-metaTitle: "String formatting"
+metaTitle: "PHP - String formatting"
 description: "String interpolation, Extracting/replacing substrings"
 ---
 

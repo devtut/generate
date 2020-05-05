@@ -1,5 +1,5 @@
 ---
-metaTitle: "Vibration API"
+metaTitle: "JavsScript - Vibration API"
 description: "Single vibration, Check for support, Vibration patterns"
 ---
 

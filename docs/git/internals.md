@@ -1,5 +1,5 @@
 ---
-metaTitle: "Internals"
+metaTitle: "Git - Internals"
 description: "Repo, Objects, HEAD ref, Refs, Commit Object, Tree Object, Blob Object, Creating new Commits, Moving HEAD , Moving refs around, Creating new Refs"
 ---
 

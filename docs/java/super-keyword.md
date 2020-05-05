@@ -1,5 +1,5 @@
 ---
-metaTitle: "super keyword"
+metaTitle: "Java - super keyword"
 description: "Super keyword use with examples"
 ---
 

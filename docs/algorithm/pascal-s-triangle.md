@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pascal's Triangle"
+metaTitle: "Algorithm - Pascal's Triangle"
 description: "Pascal triangle in C, Pascal's Triagle Basic Information, Implementation of Pascal's Triangle in C#"
 ---
 

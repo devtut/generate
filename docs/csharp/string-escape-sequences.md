@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Escape Sequences"
+metaTitle: "C# | String Escape Sequences"
 description: "Escaping special symbols in string literals, Unicode character escape sequences, Escaping special symbols in character literals, Using escape sequences in identifiers, Unrecognized escape sequences produce compile-time errors"
 ---
 

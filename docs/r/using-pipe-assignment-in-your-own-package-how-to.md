@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using pipe assignment in your own package %<>%: How to ?"
+metaTitle: "R - Using pipe assignment in your own package %<>%: How to ?"
 description: "Putting the pipe in a utility-functions file"
 ---
 

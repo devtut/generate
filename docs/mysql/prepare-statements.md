@@ -1,5 +1,5 @@
 ---
-metaTitle: "PREPARE Statements"
+metaTitle: "MySQL - PREPARE Statements"
 description: "PREPARE, EXECUTE and DEALLOCATE PREPARE Statements, Alter table with add column, Construct and execute"
 ---
 

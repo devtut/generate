@@ -1,5 +1,5 @@
 ---
-metaTitle: "const keyword"
+metaTitle: "C++ | const keyword"
 description: "Const local variables, Const pointers, Const member functions, Avoiding duplication of code in const and non-const getter methods."
 ---
 

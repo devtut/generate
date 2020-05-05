@@ -1,5 +1,5 @@
 ---
-metaTitle: "boxplot"
+metaTitle: "R - boxplot"
 description: "Create a box-and-whisker plot with boxplot() {graphics}, Additional boxplot style parameters."
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with Nodes profiling"
+metaTitle: "Node.js - Getting started with Nodes profiling"
 description: "Profiling a simple node application"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Declaration vs Definition"
+metaTitle: "C - Declaration vs Definition"
 description: "Understanding Declaration and Definition"
 ---
 

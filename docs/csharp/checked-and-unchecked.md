@@ -1,5 +1,5 @@
 ---
-metaTitle: "Checked and Unchecked"
+metaTitle: "C# | Checked and Unchecked"
 description: "Checked and Unchecked, Checked and Unchecked as a scope"
 ---
 

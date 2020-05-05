@@ -1,5 +1,5 @@
 ---
-metaTitle: "Script shebang"
+metaTitle: "Bash - Script shebang"
 description: "Env shebang, Direct shebang, Other shebangs"
 ---
 

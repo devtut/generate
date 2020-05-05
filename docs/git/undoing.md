@@ -1,5 +1,5 @@
 ---
-metaTitle: "Undoing"
+metaTitle: "Git - Undoing"
 description: "Return to a previous commit, Undoing changes, Undoing merges, Using reflog, Revert some existing commits, Undo / Redo a series of commits"
 ---
 

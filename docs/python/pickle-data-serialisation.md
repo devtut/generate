@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pickle data serialisation"
+metaTitle: "Python - Pickle data serialisation"
 description: "Using Pickle to serialize and deserialize an object, Customize Pickled Data"
 ---
 

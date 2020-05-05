@@ -1,5 +1,5 @@
 ---
-metaTitle: "Writing extensions"
+metaTitle: "Python - Writing extensions"
 description: "Hello World with C Extension, C Extension Using c++ and Boost, Passing an open file to C Extensions"
 ---
 

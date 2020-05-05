@@ -1,5 +1,5 @@
 ---
-metaTitle: "PostgreSQL integration"
+metaTitle: "Node.js - PostgreSQL integration"
 description: "Connect To PostgreSQL, Query with Connection Object"
 ---
 

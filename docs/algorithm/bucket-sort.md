@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bucket Sort"
+metaTitle: "Algorithm - Bucket Sort"
 description: "C# Implementation, Bucket Sort Basic Information"
 ---
 

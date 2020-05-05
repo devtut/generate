@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functional Programming in Python"
+metaTitle: "Python - Functional Programming in Python"
 description: "Lambda Function, Map Function, Reduce Function, Filter Function"
 ---
 

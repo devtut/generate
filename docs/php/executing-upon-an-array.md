@@ -1,5 +1,5 @@
 ---
-metaTitle: "Executing Upon an Array"
+metaTitle: "PHP - Executing Upon an Array"
 description: "Applying a function to each element of an array, Split array into chunks, Imploding an array into string, array_reduce, Destructuring arrays using list(), Push a Value on an Array"
 ---
 

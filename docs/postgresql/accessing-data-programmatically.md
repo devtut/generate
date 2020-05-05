@@ -1,5 +1,5 @@
 ---
-metaTitle: "Accessing Data Programmatically"
+metaTitle: "PostgreSQL - Accessing Data Programmatically"
 description: "Accessing PostgreSQL with the C-API, Accessing Postgresql from .NET using the Npgsql provider, Accessing PostgreSQL from python using psycopg2, Accessing PostgreSQL from PHP using Pomm2"
 ---
 

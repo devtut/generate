@@ -1,5 +1,5 @@
 ---
-metaTitle: "GRANT and REVOKE"
+metaTitle: "SQL - GRANT and REVOKE"
 description: "Grant/revoke privileges"
 ---
 

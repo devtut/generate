@@ -1,5 +1,5 @@
 ---
-metaTitle: "Behavioral Design Patterns"
+metaTitle: "JavsScript - Behavioral Design Patterns"
 description: "Observer pattern, Mediator Pattern, Command, Iterator"
 ---
 

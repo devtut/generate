@@ -1,5 +1,5 @@
 ---
-metaTitle: "ORDER BY"
+metaTitle: "MySQL - ORDER BY"
 description: "Contexts, Basic, ASCending / DESCending, Some tricks"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multidimensional arrays"
+metaTitle: "Python - Multidimensional arrays"
 description: "Lists in lists, Lists in lists in lists in..."
 ---
 

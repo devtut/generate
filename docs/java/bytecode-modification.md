@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bytecode Modification"
+metaTitle: "Java - Bytecode Modification"
 description: "What is Bytecode?, How to edit jar files with ASM, How to load a ClassNode as a Class, How to rename classes in a jar file, Javassist Basic"
 ---
 

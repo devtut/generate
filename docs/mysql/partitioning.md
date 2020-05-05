@@ -1,5 +1,5 @@
 ---
-metaTitle: "Partitioning"
+metaTitle: "MySQL - Partitioning"
 description: "RANGE Partitioning, LIST Partitioning, HASH Partitioning"
 ---
 

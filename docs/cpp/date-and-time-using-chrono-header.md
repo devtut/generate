@@ -1,5 +1,5 @@
 ---
-metaTitle: "Date and time using <chrono> header"
+metaTitle: "C++ | Date and time using <chrono> header"
 description: "Measuring time using <chrono>, Find number of days between two dates"
 ---
 

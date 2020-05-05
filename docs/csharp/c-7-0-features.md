@@ -1,5 +1,5 @@
 ---
-metaTitle: "C# 7.0 Features"
+metaTitle: "C# | C# 7.0 Features"
 description: "Language support for Tuples, Local functions, out var declaration, Pattern Matching, Digit separators, Binary literals, throw expressions, Extended expression bodied members list, ref return and ref local, ValueTask<T>"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using loops within functions"
+metaTitle: "Python - Using loops within functions"
 description: "Return statement inside loop in a function"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Ignoring Files and Folders"
+metaTitle: "Git - Ignoring Files and Folders"
 description: "Ignoring files and directories with a .gitignore file, Checking if a file is ignored, Exceptions in a .gitignore file, A global .gitignore file, Ignore files that have already been committed to a Git repository, Ignore files locally without committing ignore rules, Ignoring a file in any directory, Ignoring subsequent changes to a file (without removing it), Ignoring files in subfolders (Multiple gitignore files), Prefilled .gitignore Templates, Create an Empty Folder, Finding files ignored by .gitignore, Ignoring only part of a file [stub], Ignoring changes in tracked files. [stub], Clear already committed files, but included in .gitignore"
 ---
 

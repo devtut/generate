@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comparable and Comparator"
+metaTitle: "Java - Comparable and Comparator"
 description: "Sorting a List using Comparable<T> or a Comparator<T>, The compareTo and compare Methods, Natural (comparable) vs explicit (comparator) sorting, Creating a Comparator using comparing method, Sorting Map entries"
 ---
 

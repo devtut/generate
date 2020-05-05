@@ -1,5 +1,5 @@
 ---
-metaTitle: "Selectors"
+metaTitle: "CSS - Selectors"
 description: "Attribute Selectors, Basic selectors, Combinators, Pseudo-classes, Child Pseudo Class, Class Name Selectors, Select element using its ID without the high specificity of the ID selector, Global boolean with checkbox:checked and ~ (general sibling combinator), CSS3 :in-range selector example, A. The :not pseudo-class example & B. :focus-within CSS pseudo-class, The :last-of-type selector, ID selectors, How to style a Range input, The :only-child pseudo-class selector example"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Structs"
+metaTitle: "C - Structs"
 description: "Typedef Structs, Flexible Array Members, Pointers to structs, Passing structs to functions, Object-based programming using structs, Simple data structures"
 ---
 

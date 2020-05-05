@@ -1,5 +1,5 @@
 ---
-metaTitle: "Func delegates"
+metaTitle: "C# | Func delegates"
 description: "Without parameters , With multiple variables, Lambda & anonymous methods, Covariant & Contravariant Type Parameters"
 ---
 

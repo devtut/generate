@@ -1,5 +1,5 @@
 ---
-metaTitle: "Regular Expressions (regex)"
+metaTitle: "R - Regular Expressions (regex)"
 description: "Differences between Perl and POSIX regex, Validate a date in a YYYYMMDD format, Validate US States postal abbreviations, Validate US phone numbers, Escaping characters in R regex patterns, Eliminating Whitespace"
 ---
 

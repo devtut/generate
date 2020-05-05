@@ -1,5 +1,5 @@
 ---
-metaTitle: "Views"
+metaTitle: "SQL - Views"
 description: "Simple views, Complex views"
 ---
 

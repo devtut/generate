@@ -1,5 +1,5 @@
 ---
-metaTitle: "Non-Static Member Functions"
+metaTitle: "C++ | Non-Static Member Functions"
 description: "Non-static Member Functions, Encapsulation, Name Hiding & Importing, Virtual Member Functions, Const Correctness"
 ---
 

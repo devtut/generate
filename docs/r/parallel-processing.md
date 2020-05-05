@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parallel processing"
+metaTitle: "R - Parallel processing"
 description: "Parallel processing with parallel package, Parallel processing with foreach package, Random Number Generation, mcparallelDo"
 ---
 

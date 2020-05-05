@@ -1,5 +1,5 @@
 ---
-metaTitle: "NullReferenceException"
+metaTitle: "C# | NullReferenceException"
 description: "NullReferenceException explained"
 ---
 

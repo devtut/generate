@@ -1,5 +1,5 @@
 ---
-metaTitle: "Constructors and Finalizers"
+metaTitle: "C# | Constructors and Finalizers"
 description: "Static constructor, Singleton constructor pattern, Default Constructor, Forcing a static constructor to be called, Calling a constructor from another constructor, Calling the base class constructor, Finalizers on derived classes, Exceptions in static constructors, Calling virtual methods in constructor, Generic Static Constructors, Constructor and Property Initialization"
 ---
 

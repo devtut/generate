@@ -1,5 +1,5 @@
 ---
-metaTitle: "Interfaces"
+metaTitle: "Java - Interfaces"
 description: "Implementing multiple interfaces, Declaring and Implementing an Interface, Extending an interface, Usefulness of interfaces, Default methods, Modifiers in Interfaces, Using Interfaces with Generics, Strengthen bounded type parameters, Implementing interfaces in an abstract class"
 ---
 

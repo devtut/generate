@@ -1,5 +1,5 @@
 ---
-metaTitle: "Performance optimization"
+metaTitle: "Python - Performance optimization"
 description: "Code profiling"
 ---
 

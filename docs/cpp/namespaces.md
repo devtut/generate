@@ -1,5 +1,5 @@
 ---
-metaTitle: "Namespaces"
+metaTitle: "C++ | Namespaces"
 description: "What are namespaces?, Argument Dependent Lookup, Extending namespaces, Using directive, Making namespaces, Unnamed/anonymous namespaces, Compact nested namespaces, Inline namespace, Namespace alias, Aliasing a long namespace, Alias Declaration scope"
 ---
 

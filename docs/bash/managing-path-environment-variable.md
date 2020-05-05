@@ -1,5 +1,5 @@
 ---
-metaTitle: "Managing PATH environment variable"
+metaTitle: "Bash - Managing PATH environment variable"
 description: "Add a path to the PATH environment variable, Remove a path from the PATH environment variable"
 ---
 

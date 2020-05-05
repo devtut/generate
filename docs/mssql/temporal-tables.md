@@ -1,5 +1,5 @@
 ---
-metaTitle: "Temporal Tables"
+metaTitle: "Microsoft SQL Server - Temporal Tables"
 description: "CREATE Temporal Tables, FOR SYSTEM_TIME ALL, Creating a Memory-Optimized System-Versioned Temporal Table and cleaning up the SQL Server history table, How do I query temporal data?, Return actual value specified point in time(FOR SYSTEM_TIME AS OF <date_time>), FOR SYSTEM_TIME BETWEEN <start_date_time> AND <end_date_time>, FOR SYSTEM_TIME FROM <start_date_time> TO <end_date_time>, FOR SYSTEM_TIME CONTAINED IN (<start_date_time> , <end_date_time>)"
 ---
 

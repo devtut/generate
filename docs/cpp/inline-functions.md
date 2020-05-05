@@ -1,5 +1,5 @@
 ---
-metaTitle: "Inline functions"
+metaTitle: "C++ | Inline functions"
 description: "Non-member inline function declaration, Non-member inline function definition, Member inline functions, What is function inlining?"
 ---
 

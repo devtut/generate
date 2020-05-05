@@ -1,5 +1,5 @@
 ---
-metaTitle: "Typography"
+metaTitle: "CSS - Typography"
 description: "The Font Shorthand, Quotes, Font Size, Text Direction, Font Stacks, Text Transform, Text Overflow, Text Shadow, Letter Spacing, Text Indent, Text Decoration, Word Spacing, Font Variant"
 ---
 

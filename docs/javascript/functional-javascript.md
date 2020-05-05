@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functional JavaScript"
+metaTitle: "JavsScript - Functional JavaScript"
 description: "Higher-Order Functions, Identity Monad, Pure Functions, Accepting Functions as Arguments"
 ---
 

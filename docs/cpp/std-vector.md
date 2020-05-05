@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::vector"
+metaTitle: "C++ | std::vector"
 description: "Accessing Elements, Initializing a std::vector, Deleting Elements, Iterating Over std::vector, vector<bool>: The Exception To So Many, So Many Rules, Inserting Elements, Using std::vector as a C array, Finding an Element in std::vector, Concatenating Vectors, Reducing the Capacity of a Vector, Using a Sorted Vector for Fast Element Lookup, Matrices Using Vectors, Iterator/Pointer Invalidation, Vector size and capacity, Find max and min Element and Respective Index in a Vector, Converting an array to std::vector, Functions Returning Large Vectors"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Information Schema"
+metaTitle: "SQL - Information Schema"
 description: "Basic Information Schema Search"
 ---
 

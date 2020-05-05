@@ -1,5 +1,5 @@
 ---
-metaTitle: "IEnumerable"
+metaTitle: "C# | IEnumerable"
 description: "IEnumerable with custom Enumerator, IEnumerable<int>"
 ---
 

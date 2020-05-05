@@ -1,5 +1,5 @@
 ---
-metaTitle: "Closure"
+metaTitle: "PHP - Closure"
 description: "Basic usage of a closure, Using external variables, Basic closure binding, Closure binding and scope, Binding a closure for one call, Use closures to implement observer pattern"
 ---
 

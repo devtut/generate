@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reactive Extensions (Rx)"
+metaTitle: "C# | Reactive Extensions (Rx)"
 description: "Observing TextChanged event on a TextBox, Streaming Data from Database with Observable"
 ---
 

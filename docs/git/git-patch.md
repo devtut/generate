@@ -1,5 +1,5 @@
 ---
-metaTitle: "Git Patch"
+metaTitle: "Git - Git Patch"
 description: "Creating a patch, Applying patches"
 ---
 

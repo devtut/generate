@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maximum Subarray Algorithm"
+metaTitle: "Algorithm - Maximum Subarray Algorithm"
 description: "Maximum Subarray Algorithm Basic Information, C# Implementation"
 ---
 

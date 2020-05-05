@@ -1,5 +1,5 @@
 ---
-metaTitle: "Tuples"
+metaTitle: "C# | Tuples"
 description: "Accessing tuple elements, Creating tuples, Comparing and sorting Tuples, Return multiple values from a method"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reading and writing Zip files"
+metaTitle: ".NET Framework - Reading and writing Zip files"
 description: "Listing ZIP contents, Extracting files from ZIP files, Updating a ZIP file"
 ---
 

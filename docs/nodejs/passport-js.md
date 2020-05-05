@@ -1,5 +1,5 @@
 ---
-metaTitle: "passport.js"
+metaTitle: "Node.js - passport.js"
 description: "Example of LocalStrategy in passport.js"
 ---
 

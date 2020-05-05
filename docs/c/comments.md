@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comments"
+metaTitle: "C - Comments"
 description: "Commenting using the preprocessor, /* */ delimited comments, // delimited comments, Possible pitfall due to trigraphs"
 ---
 

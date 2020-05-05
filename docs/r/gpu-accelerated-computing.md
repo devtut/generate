@@ -1,5 +1,5 @@
 ---
-metaTitle: "GPU-accelerated computing"
+metaTitle: "R - GPU-accelerated computing"
 description: "gpuR gpuMatrix objects, gpuR vclMatrix objects"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Checking Path Existence and Permissions"
+metaTitle: "Python - Checking Path Existence and Permissions"
 description: "Perform checks using os.access"
 ---
 

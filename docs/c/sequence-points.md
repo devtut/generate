@@ -1,5 +1,5 @@
 ---
-metaTitle: "Sequence points"
+metaTitle: "C - Sequence points"
 description: "Unsequenced expressions, Sequenced expressions, Indeterminately sequenced expressions"
 ---
 

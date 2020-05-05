@@ -1,5 +1,5 @@
 ---
-metaTitle: "Traits"
+metaTitle: "PHP - Traits"
 description: "Traits to facilitate horizontal code reuse, What is a Trait?, Conflict Resolution, Implementing a Singleton using Traits, Multiple Traits Usage, Changing Method Visibility, Traits to keep classes clean"
 ---
 

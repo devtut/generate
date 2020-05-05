@@ -1,5 +1,5 @@
 ---
-metaTitle: "X-macros"
+metaTitle: "C - X-macros"
 description: "Trivial use of X-macros for printfs, Extension: Give the X macro as an argument, Enum Value and Identifier, Code generation"
 ---
 

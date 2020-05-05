@@ -1,5 +1,5 @@
 ---
-metaTitle: "Change git repository name"
+metaTitle: "Git - Change git repository name"
 description: "Change local setting"
 ---
 

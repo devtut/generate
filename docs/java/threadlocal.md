@@ -1,5 +1,5 @@
 ---
-metaTitle: "ThreadLocal"
+metaTitle: "Java - ThreadLocal"
 description: "Basic ThreadLocal usage, ThreadLocal Java 8 functional initialization, Multiple threads with one shared object"
 ---
 

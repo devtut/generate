@@ -1,5 +1,5 @@
 ---
-metaTitle: "Security & Cryptography"
+metaTitle: "Java - Security & Cryptography"
 description: "The JCE, Keys and Key Management, Common Java vulnerabilities, Networking Concerns, Randomness and You, Hashing and Validation"
 ---
 

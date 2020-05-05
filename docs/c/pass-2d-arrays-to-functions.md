@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pass 2D-arrays to functions"
+metaTitle: "C - Pass 2D-arrays to functions"
 description: "Pass a 2D-array to a function, Using flat arrays as 2D arrays"
 ---
 

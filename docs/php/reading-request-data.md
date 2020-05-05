@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reading Request Data"
+metaTitle: "PHP - Reading Request Data"
 description: "Reading raw POST data, Reading POST data, Reading GET data, Handling file upload errors, Uploading files with HTTP PUT, Passing arrays by POST"
 ---
 

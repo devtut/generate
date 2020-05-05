@@ -1,5 +1,5 @@
 ---
-metaTitle: "Check two strings are anagrams"
+metaTitle: "Algorithm - Check two strings are anagrams"
 description: "Sample input and output, Generic Code for Anagrams"
 ---
 

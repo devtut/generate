@@ -1,5 +1,5 @@
 ---
-metaTitle: "NodeJS with Redis"
+metaTitle: "Node.js - NodeJS with Redis"
 description: "Getting Started, Storing Key-Value Pairs, Some more important operations supported by node_redis."
 ---
 

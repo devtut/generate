@@ -1,5 +1,5 @@
 ---
-metaTitle: "Django"
+metaTitle: "Python - Django"
 description: "Hello World with Django"
 ---
 

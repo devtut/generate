@@ -1,5 +1,5 @@
 ---
-metaTitle: "Strings"
+metaTitle: "JavsScript - Strings"
 description: "Basic Info and String Concatenation, Reverse String, Comparing Strings Lexicographically, Access character at index in string, Escaping quotes, Trim whitespace, Splitting a string into an array, Strings are unicode, Detecting a string, Word Counter, Substrings with slice, String Find and Replace Functions, String Representations of Numbers, Character code, String to Upper Case, String to Lower Case, Find the index of a substring inside a string, Repeat a String"
 ---
 

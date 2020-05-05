@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generics"
+metaTitle: "Java - Generics"
 description: "Creating a Generic Class, Deciding between `T`, `? super T`, and `? extends T`, The Diamond, Declaring a Generic Method, Requiring multiple upper bounds (extends A & B), Benefits of Generic class and interface, Instantiating a generic type, Obtain class that satisfies generic parameter at runtime, Creating a Bounded Generic Class, Referring to the declared generic type within its own declaration, Binding generic parameter to more than 1 type, Using Generics to auto-cast, Use of instanceof with Generics, Different ways for implementing a Generic Interface (or extending a Generic Class)"
 ---
 

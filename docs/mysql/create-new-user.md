@@ -1,5 +1,5 @@
 ---
-metaTitle: "Create New User"
+metaTitle: "MySQL - Create New User"
 description: "Create a MySQL User, Specify the password, Create new user and grant all priviliges to schema, Renaming user"
 ---
 

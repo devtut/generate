@@ -1,5 +1,5 @@
 ---
-metaTitle: "Searching"
+metaTitle: "Python - Searching"
 description: "Getting the index for strings: str.index(), str.rindex() and str.find(), str.rfind(), Searching for an element, Getting the index list and tuples: list.index(), tuple.index(), Searching key(s) for a value in dict, Getting the index for sorted sequences: bisect.bisect_left(), Searching nested sequences, Searching in custom classes: __contains__ and __iter__"
 ---
 

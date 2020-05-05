@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Virtual Machine (JVM)"
+metaTitle: "Java - Java Virtual Machine (JVM)"
 description: "These are the basics."
 ---
 

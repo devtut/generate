@@ -1,5 +1,5 @@
 ---
-metaTitle: "Constructor functions"
+metaTitle: "JavsScript - Constructor functions"
 description: "Declaring a constructor function"
 ---
 

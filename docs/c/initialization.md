@@ -1,5 +1,5 @@
 ---
-metaTitle: "Initialization"
+metaTitle: "C - Initialization"
 description: "Initialization of Variables in C, Using designated initializers, Initializing structures and arrays of structures"
 ---
 

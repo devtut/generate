@@ -1,5 +1,5 @@
 ---
-metaTitle: "C# 6.0 Features"
+metaTitle: "C# | C# 6.0 Features"
 description: "Exception filters, String interpolation, Auto-property initializers, Null propagation, Expression-bodied function members, Operator nameof, Using static type, Index initializers, Improved overload resolution, Await in catch and finally, Minor changes and bugfixes, Using an extension method for collection initialization, Disable Warnings Enhancements"
 ---
 

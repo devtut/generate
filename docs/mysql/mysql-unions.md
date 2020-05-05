@@ -1,5 +1,5 @@
 ---
-metaTitle: "MySQL Unions"
+metaTitle: "MySQL - MySQL Unions"
 description: "Union operator, Union ALL, UNION ALL With WHERE"
 ---
 

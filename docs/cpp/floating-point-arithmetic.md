@@ -1,5 +1,5 @@
 ---
-metaTitle: "Floating Point Arithmetic"
+metaTitle: "C++ | Floating Point Arithmetic"
 description: "Floating Point Numbers are Weird"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pointers"
+metaTitle: "C# | Pointers"
 description: "Pointers for array access, Pointer arithmetic, The asterisk is part of the type, void*, Member access using ->, Generic pointers"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aliases"
+metaTitle: "Git - Aliases"
 description: "List / search existing aliases, Simple aliases, Advanced Aliases, Temporarily ignore tracked files, Show pretty log with branch graph, Updating code while keeping a linear history, See which files are being ignored by your .gitignore configuration, Unstage staged files"
 ---
 

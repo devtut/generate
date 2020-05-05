@@ -1,5 +1,5 @@
 ---
-metaTitle: "JSON Serialization"
+metaTitle: ".NET Framework - JSON Serialization"
 description: "Deserialization using System.Web.Script.Serialization.JavaScriptSerializer, Deserialization using Json.NET, Serialization using Json.NET, Serialization-Deserialization using Newtonsoft.Json, Dynamic binding, Serialization using Json.NET with JsonSerializerSettings"
 ---
 

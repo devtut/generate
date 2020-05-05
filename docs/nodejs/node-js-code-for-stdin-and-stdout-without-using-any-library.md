@@ -1,5 +1,5 @@
 ---
-metaTitle: "Node.js code for STDIN and STDOUT without using  any library"
+metaTitle: "Node.js - Node.js code for STDIN and STDOUT without using  any library"
 description: "Program"
 ---
 

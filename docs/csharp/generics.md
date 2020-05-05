@@ -1,5 +1,5 @@
 ---
-metaTitle: "Generics"
+metaTitle: "C# | Generics"
 description: "Implicit type inference (methods), Type inference (classes), Using generic method with an interface as a constraint type., Type constraints (new-keyword), Type constraints (classes and interfaces), Reflecting on type parameters, Covariance, Contravariance, Invariance, Variant interfaces, Checking equality of generic values., Type Parameters (Interfaces), Variant delegates, Variant types as parameters and return values, Type Parameters (Classes), Type Parameters (Methods), Type constraints (class and struct), Explicit type parameters, Generic type casting, Configuration reader with generic type casting"
 ---
 

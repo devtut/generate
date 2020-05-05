@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with Java Language"
+metaTitle: "Java - Getting started with Java Language"
 description: "Creating Your First Java Program"
 ---
 

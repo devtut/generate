@@ -1,5 +1,5 @@
 ---
-metaTitle: "File Transfer using scp"
+metaTitle: "Bash - File Transfer using scp"
 description: "scp transferring file, scp transferring multiple files, Downloading file using scp"
 ---
 

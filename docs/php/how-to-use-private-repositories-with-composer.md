@@ -1,5 +1,5 @@
 ---
-metaTitle: "How to use private repositories with Composer"
+metaTitle: "PHP - How to use private repositories with Composer"
 description: "composer.json syntax"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Configuration and tuning"
+metaTitle: "MySQL - Configuration and tuning"
 description: "InnoDB performance, Parameter to allow huge data to insert, Increase the string limit for group_concat, Minimal InnoDB configuration, Secure MySQL encryption"
 ---
 

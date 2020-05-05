@@ -1,5 +1,5 @@
 ---
-metaTitle: "Joins"
+metaTitle: "MySQL - Joins"
 description: "Joins visualized, JOIN with subquery (Derived table), Full Outer Join, Joining Examples, Retrieve customers with orders -- variations on a theme, Inner-join for 3 tables"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Importing modules"
+metaTitle: "Python - Importing modules"
 description: "The __all__ special variable, Importing a module, Import modules from an arbitrary filesystem location, Importing all names from a module, Programmatic importing, PEP8 rules for Imports, Importing specific names from a module, Importing submodules, __import__() function, Re-importing a module"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "InputStreams and OutputStreams"
+metaTitle: "Java - InputStreams and OutputStreams"
 description: "Closing Streams, Reading InputStream into a String, Wrapping Input/Output Streams, Writing bytes to an OutputStream, Copying Input Stream to Output Stream, DataInputStream Example"
 ---
 

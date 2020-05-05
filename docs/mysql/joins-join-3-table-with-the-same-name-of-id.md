@@ -1,5 +1,5 @@
 ---
-metaTitle: "JOINS: Join 3 table with the same name of id."
+metaTitle: "MySQL - JOINS: Join 3 table with the same name of id."
 description: "Join 3 tables on a column with the same name"
 ---
 

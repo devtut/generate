@@ -1,5 +1,5 @@
 ---
-metaTitle: "Event Emitters"
+metaTitle: "Node.js - Event Emitters"
 description: "Basics, HTTP Analytics through an Event Emitter, Get the names of the events that are subscribed to, Get the number of listeners registered to listen for a specific event"
 ---
 

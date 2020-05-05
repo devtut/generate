@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::pair"
+metaTitle: "C++ | std::pair"
 description: "Creating a Pair and accessing the elements, Compare operators"
 ---
 

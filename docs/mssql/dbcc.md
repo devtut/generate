@@ -1,5 +1,5 @@
 ---
-metaTitle: "DBCC"
+metaTitle: "Microsoft SQL Server - DBCC"
 description: "DBCC maintenance commands, DBCC validation statements, DBCC informational statements, DBCC Trace commands, DBCC statement"
 ---
 

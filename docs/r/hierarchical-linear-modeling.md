@@ -1,5 +1,5 @@
 ---
-metaTitle: "Hierarchical Linear Modeling"
+metaTitle: "R - Hierarchical Linear Modeling"
 description: "basic model fitting"
 ---
 

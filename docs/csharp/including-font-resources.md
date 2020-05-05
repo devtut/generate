@@ -1,5 +1,5 @@
 ---
-metaTitle: "Including Font Resources"
+metaTitle: "C# | Including Font Resources"
 description: "Instantiate 'Fontfamily' from Resources, Integration method, Usage with a 'Button'"
 ---
 

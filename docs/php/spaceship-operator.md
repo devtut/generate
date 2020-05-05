@@ -1,5 +1,5 @@
 ---
-metaTitle: "Spaceship operator"
+metaTitle: "PHP - Spaceship operator"
 description: "Sorting a list of numbers, Simple Example, Generic numerical example"
 ---
 

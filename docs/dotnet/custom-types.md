@@ -1,5 +1,5 @@
 ---
-metaTitle: "Custom Types"
+metaTitle: ".NET Framework - Custom Types"
 description: "Struct Definition, Class Definition, Enum Definition"
 ---
 

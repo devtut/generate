@@ -1,5 +1,5 @@
 ---
-metaTitle: "Typedef and type aliases"
+metaTitle: "C++ | Typedef and type aliases"
 description: "Basic typedef syntax, More complex uses of typedef, Declaring multiple types with typedef, Alias declaration with using"
 ---
 

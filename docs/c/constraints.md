@@ -1,5 +1,5 @@
 ---
-metaTitle: "Constraints"
+metaTitle: "C - Constraints"
 description: "Duplicate variable names in the same scope, Unary arithmetic operators"
 ---
 

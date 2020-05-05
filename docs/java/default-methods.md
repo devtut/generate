@@ -1,5 +1,5 @@
 ---
-metaTitle: "Default Methods"
+metaTitle: "Java - Default Methods"
 description: "Basic usage of default methods, Accessing overridden default methods from implementing class, Why use Default Methods?, Accessing other interface methods within default method, Default method multiple inheritance collision, Class, Abstract class and Interface method precedence"
 ---
 

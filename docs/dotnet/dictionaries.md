@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dictionaries"
+metaTitle: ".NET Framework - Dictionaries"
 description: "Initializing a Dictionary with a Collection Initializer, Adding to a Dictionary, Getting a value from a dictionary, Make a Dictionary<string, T> with Case-Insensivitve keys., Enumerating a Dictionary, ConcurrentDictionary<TKey, TValue> (from .NET 4.0), IEnumerable to Dictionary (≥ .NET 3.5), Removing from a Dictionary, ContainsKey(TKey), Dictionary to List, ConcurrentDictionary augmented with Lazy'1 reduces duplicated computation"
 ---
 

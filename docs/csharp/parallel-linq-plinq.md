@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parallel LINQ (PLINQ)"
+metaTitle: "C# | Parallel LINQ (PLINQ)"
 description: "Simple example, WithDegreeOfParallelism, AsOrdered, AsUnordered"
 ---
 

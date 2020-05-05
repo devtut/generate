@@ -1,5 +1,5 @@
 ---
-metaTitle: "Regular Expressions (regexp/PCRE)"
+metaTitle: "PHP - Regular Expressions (regexp/PCRE)"
 description: "Global RegExp match, String matching with regular expressions, Split string into array by a regular expression, String replacing with regular expression, String replace with callback"
 ---
 

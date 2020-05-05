@@ -1,5 +1,5 @@
 ---
-metaTitle: "Functional Programming"
+metaTitle: "PHP - Functional Programming"
 description: "Closures, Assignment to variables, Objects as a function, Using outside variables, Using built-in functions as callbacks, Anonymous function, Pure functions, Common functional methods in PHP, Scope, Passing a callback function as a parameter"
 ---
 

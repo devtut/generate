@@ -1,5 +1,5 @@
 ---
-metaTitle: "EXPLAIN and DESCRIBE"
+metaTitle: "SQL - EXPLAIN and DESCRIBE"
 description: "EXPLAIN Select query, DESCRIBE tablename;"
 ---
 

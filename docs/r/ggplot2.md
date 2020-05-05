@@ -1,5 +1,5 @@
 ---
-metaTitle: "ggplot2"
+metaTitle: "R - ggplot2"
 description: "Displaying multiple plots, Prepare your data for plotting, Add horizontal and vertical lines to plot, Scatter Plots, Produce basic plots with qplot, Vertical and Horizontal Bar Chart, Violin plot"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "I/O for foreign tables (Excel, SAS, SPSS, Stata)"
+metaTitle: "R - I/O for foreign tables (Excel, SAS, SPSS, Stata)"
 description: "Importing data with rio, Read and write Stata, SPSS and SAS files, Importing Excel files, Import or Export of Feather file"
 ---
 

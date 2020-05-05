@@ -1,5 +1,5 @@
 ---
-metaTitle: "Performance challenges"
+metaTitle: "Node.js - Performance challenges"
 description: "Processing long running queries with Node"
 ---
 

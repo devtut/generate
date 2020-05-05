@@ -1,5 +1,5 @@
 ---
-metaTitle: "Simple Mathematical Operators"
+metaTitle: "Python - Simple Mathematical Operators"
 description: "Division, Addition, Exponentation, Trigonometric Functions, Inplace Operations, Subtraction, Multiplication, Logarithms, Modulus"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::map"
+metaTitle: "C++ | std::map"
 description: "Accessing elements, Inserting elements, Searching in std::map or in std::multimap, Initializing a std::map or std::multimap, Checking number of elements, Types of Maps, Deleting elements, Iterating over std::map or std::multimap, Creating std::map with user-defined types as key"
 ---
 

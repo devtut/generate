@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lambda Expressions"
+metaTitle: "C# | Lambda Expressions"
 description: "Using lambda syntax to create a closure, Basic lambda expressions, Basic lambda expressions with LINQ, Lambda syntax with statement block body, Lambda expressions with System.Linq.Expressions"
 ---
 

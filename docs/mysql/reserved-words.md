@@ -1,5 +1,5 @@
 ---
-metaTitle: "Reserved Words"
+metaTitle: "MySQL - Reserved Words"
 description: "Errors due to reserved words"
 ---
 

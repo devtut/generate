@@ -1,5 +1,5 @@
 ---
-metaTitle: "Regular expressions"
+metaTitle: "JavsScript - Regular expressions"
 description: "Creating a RegExp Object, RegExp Flags, Check if string contains pattern using .test(), Matching With .exec(), Using RegExp With Strings, RegExp Groups, Replacing string match with a callback function, Using Regex.exec() with parentheses regex to extract matches of a string"
 ---
 

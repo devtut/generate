@@ -1,5 +1,5 @@
 ---
-metaTitle: "Decorators"
+metaTitle: "Python - Decorators"
 description: "Decorator function, Decorator class, Decorator with arguments (decorator factory), Making a decorator look like the decorated function, Using a decorator to time a function, Create singleton class with a decorator"
 ---
 

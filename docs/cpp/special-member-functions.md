@@ -1,5 +1,5 @@
 ---
-metaTitle: "Special Member Functions"
+metaTitle: "C++ | Special Member Functions"
 description: "Default Constructor, Copy and swap, Destructor, Implicit Move and Copy, Virtual and Protected Destructors"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dates, Timestamps, and Intervals"
+metaTitle: "PostgreSQL - Dates, Timestamps, and Intervals"
 description: "Cast a timestamp or interval to a string, SELECT the last day of month, Count the number of records per week"
 ---
 

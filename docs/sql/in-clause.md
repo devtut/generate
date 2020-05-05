@@ -1,5 +1,5 @@
 ---
-metaTitle: "IN clause"
+metaTitle: "SQL - IN clause"
 description: "Simple IN clause, Using IN clause with a subquery"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "SCOPE_IDENTITY()"
+metaTitle: "Microsoft SQL Server - SCOPE_IDENTITY()"
 description: "Introduction with Simple Example"
 ---
 

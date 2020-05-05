@@ -1,5 +1,5 @@
 ---
-metaTitle: "Windows authentication under node.js"
+metaTitle: "Node.js - Windows authentication under node.js"
 description: "Using activedirectory"
 ---
 

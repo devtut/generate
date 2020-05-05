@@ -1,5 +1,5 @@
 ---
-metaTitle: "Migrating to Git"
+metaTitle: "Git - Migrating to Git"
 description: "SubGit, Migrate from SVN to Git using Atlassian conversion utility, Migrate from Team Foundation Version Control (TFVC) to Git, Migrating Mercurial to Git, Migrate from SVN to Git using svn2git"
 ---
 

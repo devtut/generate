@@ -1,5 +1,5 @@
 ---
-metaTitle: "Work with SHA1 in C#"
+metaTitle: ".NET Framework - Work with SHA1 in C#"
 description: "#Generate SHA1 checksum of a file, #Generate hash of a text"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with MySQL"
+metaTitle: "MySQL - Getting started with MySQL"
 description: "Getting Started, Information Schema Examples"
 ---
 

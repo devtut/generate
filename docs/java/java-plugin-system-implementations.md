@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java plugin system implementations"
+metaTitle: "Java - Java plugin system implementations"
 description: "Using URLClassLoader"
 ---
 

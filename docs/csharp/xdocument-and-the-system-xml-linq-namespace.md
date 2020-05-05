@@ -1,5 +1,5 @@
 ---
-metaTitle: "XDocument and the System.Xml.Linq namespace"
+metaTitle: "C# | XDocument and the System.Xml.Linq namespace"
 description: "Generate an XML document, Modify XML File, Generate an XML document using fluent syntax"
 ---
 

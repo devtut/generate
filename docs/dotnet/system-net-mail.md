@@ -1,5 +1,5 @@
 ---
-metaTitle: "System.Net.Mail"
+metaTitle: ".NET Framework - System.Net.Mail"
 description: "MailMessage, Mail with Attachment"
 ---
 

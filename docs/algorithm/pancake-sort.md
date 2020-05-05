@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pancake Sort"
+metaTitle: "Algorithm - Pancake Sort"
 description: "Pancake Sort Basic Information, C# Implementation"
 ---
 

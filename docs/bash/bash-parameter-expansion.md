@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bash Parameter Expansion"
+metaTitle: "Bash - Bash Parameter Expansion"
 description: "Modifying the case of alphabetic characters, Length of parameter, Replace pattern in string, Substrings and subarrays, Delete a pattern from the beginning of a string, Parameter indirection, Default value substitution, Delete a pattern from the end of a string, Parameter expansion and filenames, Error if variable is empty or unset, Munging during expansion"
 ---
 

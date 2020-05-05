@@ -1,5 +1,5 @@
 ---
-metaTitle: "Refactoring Techniques"
+metaTitle: "C++ | Refactoring Techniques"
 description: "Goto Cleanup, Refactoring walk through"
 ---
 

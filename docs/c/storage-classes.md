@@ -1,5 +1,5 @@
 ---
-metaTitle: "Storage Classes"
+metaTitle: "C - Storage Classes"
 description: "auto, register, static, typedef, extern, _Thread_local"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Distribution Functions"
+metaTitle: "R - Distribution Functions"
 description: "Normal distribution, Binomial Distribution"
 ---
 

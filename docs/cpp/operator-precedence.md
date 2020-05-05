@@ -1,5 +1,5 @@
 ---
-metaTitle: "operator precedence"
+metaTitle: "C++ | operator precedence"
 description: "Logical && and || operators: short-circuit, Arithmetic operators, Logical AND and OR operators, Unary Operators"
 ---
 

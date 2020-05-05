@@ -1,5 +1,5 @@
 ---
-metaTitle: "urllib"
+metaTitle: "Python - urllib"
 description: "HTTP GET, HTTP POST, Decode received bytes according to content type encoding"
 ---
 

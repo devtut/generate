@@ -1,5 +1,5 @@
 ---
-metaTitle: "Callable Objects"
+metaTitle: "C++ | Callable Objects"
 description: "Function Pointers, Classes with operator()  (Functors)"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Maximum Path Sum Algorithm"
+metaTitle: "Algorithm - Maximum Path Sum Algorithm"
 description: "Maximum Path Sum Basic Information, C# Implementation"
 ---
 

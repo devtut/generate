@@ -1,5 +1,5 @@
 ---
-metaTitle: "Triggers"
+metaTitle: "SQL - Triggers"
 description: "CREATE TRIGGER, Use Trigger to manage a Recycle Bin for deleted items"
 ---
 

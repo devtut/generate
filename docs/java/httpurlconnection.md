@@ -1,5 +1,5 @@
 ---
-metaTitle: "HttpURLConnection"
+metaTitle: "Java - HttpURLConnection"
 description: "Get response body from a URL as a String, POST data, Delete resource, Check if resource exists"
 ---
 

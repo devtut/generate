@@ -1,5 +1,5 @@
 ---
-metaTitle: "std::variant"
+metaTitle: "C++ | std::variant"
 description: "Create pseudo-method pointers, Basic std::variant use, Constructing a `std::variant`"
 ---
 

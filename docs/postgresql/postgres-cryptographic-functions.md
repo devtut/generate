@@ -1,5 +1,5 @@
 ---
-metaTitle: "Postgres cryptographic functions"
+metaTitle: "PostgreSQL - Postgres cryptographic functions"
 description: "digest"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "xgboost"
+metaTitle: "R - xgboost"
 description: "Cross Validation and Tuning with xgboost"
 ---
 

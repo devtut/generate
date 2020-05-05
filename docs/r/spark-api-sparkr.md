@@ -1,5 +1,5 @@
 ---
-metaTitle: "Spark API (SparkR)"
+metaTitle: "R - Spark API (SparkR)"
 description: "Setup Spark context, Cache data, Create RDDs (Resilient Distributed Datasets)"
 ---
 

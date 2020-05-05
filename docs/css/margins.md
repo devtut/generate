@@ -1,5 +1,5 @@
 ---
-metaTitle: "Margins"
+metaTitle: "CSS - Margins"
 description: "Margin Collapsing, Apply Margin on a Given Side, Margin property simplification, Horizontally center elements on a page using margin, Negative margins, Example 1:"
 ---
 

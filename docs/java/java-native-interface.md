@@ -1,5 +1,5 @@
 ---
-metaTitle: "Java Native Interface"
+metaTitle: "Java - Java Native Interface"
 description: "Calling C++ methods from Java, Calling Java methods from C++ (callback), Loading native libraries"
 ---
 

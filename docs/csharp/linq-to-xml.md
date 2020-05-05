@@ -1,5 +1,5 @@
 ---
-metaTitle: "LINQ to XML"
+metaTitle: "C# | LINQ to XML"
 description: "Read XML using LINQ to XML"
 ---
 

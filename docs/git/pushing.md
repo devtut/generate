@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pushing"
+metaTitle: "Git - Pushing"
 description: "Push a specific object to a remote branch, Push, Force Pushing, Push tags, Changing the default push behavior"
 ---
 

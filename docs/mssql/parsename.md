@@ -1,5 +1,5 @@
 ---
-metaTitle: "Parsename"
+metaTitle: "Microsoft SQL Server - Parsename"
 description: "PARSENAME"
 ---
 

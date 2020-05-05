@@ -1,5 +1,5 @@
 ---
-metaTitle: "Events"
+metaTitle: "C# | Events"
 description: "Declaring and Raising Events, Creating cancelable event, Event Properties, Standard Event Declaration, Anonymous Event Handler Declaration, Non-Standard Event Declaration, Creating custom EventArgs containing additional data"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Floyd-Warshall Algorithm"
+metaTitle: "Algorithm - Floyd-Warshall Algorithm"
 description: "All Pair Shortest Path Algorithm"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Creating databases"
+metaTitle: "MySQL - Creating databases"
 description: "Create database, users, and grants, MyDatabase, System Databases, Creating and Selecting a Database"
 ---
 

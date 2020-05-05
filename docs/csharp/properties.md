@@ -1,5 +1,5 @@
 ---
-metaTitle: "Properties"
+metaTitle: "C# | Properties"
 description: "Auto-implemented properties, Public Get, Public Set, Accessing Properties, Default Values for Properties, Various Properties in Context, Read-only properties"
 ---
 

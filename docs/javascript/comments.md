@@ -1,5 +1,5 @@
 ---
-metaTitle: "Comments"
+metaTitle: "JavsScript - Comments"
 description: "Using Comments, Using HTML comments in JavaScript (Bad practice)"
 ---
 

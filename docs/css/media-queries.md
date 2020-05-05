@@ -1,5 +1,5 @@
 ---
-metaTitle: "Media Queries"
+metaTitle: "CSS - Media Queries"
 description: "Basic Example, mediatype, Terminology and Structure, Width vs Viewport, Media Queries for Retina and Non Retina Screens, Using Media Queries to Target Different Screen Sizes, Use on link tag, Media queries and IE8"
 ---
 

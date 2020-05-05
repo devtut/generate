@@ -1,5 +1,5 @@
 ---
-metaTitle: "Relational Algebra"
+metaTitle: "SQL - Relational Algebra"
 description: "Overview"
 ---
 

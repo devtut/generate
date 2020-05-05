@@ -1,5 +1,5 @@
 ---
-metaTitle: "Trailing return type"
+metaTitle: "C++ | Trailing return type"
 description: "Avoid qualifying a nested type name, Lambda expressions"
 ---
 

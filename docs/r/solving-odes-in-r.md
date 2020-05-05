@@ -1,5 +1,5 @@
 ---
-metaTitle: "Solving ODEs in R"
+metaTitle: "R - Solving ODEs in R"
 description: "The Lorenz model, Lotka-Volterra or: Prey vs. predator, ODEs in compiled languages - definition in R, ODEs in compiled languages - definition in C, ODEs in compiled languages - definition in fortran, ODEs in compiled languages - a benchmark test"
 ---
 

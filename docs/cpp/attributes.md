@@ -1,5 +1,5 @@
 ---
-metaTitle: "Attributes"
+metaTitle: "C++ | Attributes"
 description: "[[fallthrough]], [[deprecated]] and [[deprecated(reason)]], [[nodiscard]], [[noreturn]], [[maybe_unused]]"
 ---
 

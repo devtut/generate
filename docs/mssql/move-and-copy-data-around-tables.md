@@ -1,5 +1,5 @@
 ---
-metaTitle: "Move and copy data around tables"
+metaTitle: "Microsoft SQL Server - Move and copy data around tables"
 description: "Copy data from one table to another, Copy data into a table, creating that table on the fly, Move data into a table (assuming unique keys method)"
 ---
 

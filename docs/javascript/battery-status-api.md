@@ -1,5 +1,5 @@
 ---
-metaTitle: "Battery Status API"
+metaTitle: "JavsScript - Battery Status API"
 description: "Battery Events, Getting current battery level, Is battery charging?, Get time left until battery is empty, Get time left until battery is fully charged"
 ---
 

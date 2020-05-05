@@ -1,5 +1,5 @@
 ---
-metaTitle: "Polymorphism"
+metaTitle: "Python - Polymorphism"
 description: "Duck Typing, Basic Polymorphism"
 ---
 

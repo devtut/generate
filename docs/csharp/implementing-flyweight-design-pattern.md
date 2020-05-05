@@ -1,5 +1,5 @@
 ---
-metaTitle: "Implementing Flyweight Design Pattern"
+metaTitle: "C# | Implementing Flyweight Design Pattern"
 description: "Implementing map in RPG game"
 ---
 

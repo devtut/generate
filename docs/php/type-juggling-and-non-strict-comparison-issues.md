@@ -1,5 +1,5 @@
 ---
-metaTitle: "Type juggling and Non-Strict Comparison Issues"
+metaTitle: "PHP - Type juggling and Non-Strict Comparison Issues"
 description: "What is Type Juggling?, Reading from a file, Switch surprises, Strict typing"
 ---
 

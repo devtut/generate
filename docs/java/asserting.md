@@ -1,5 +1,5 @@
 ---
-metaTitle: "Asserting"
+metaTitle: "Java - Asserting"
 description: "Checking arithmetic with assert"
 ---
 

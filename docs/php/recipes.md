@@ -1,5 +1,5 @@
 ---
-metaTitle: "Recipes"
+metaTitle: "PHP - Recipes"
 description: "Create a site visit counter"
 ---
 

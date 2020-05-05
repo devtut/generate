@@ -1,5 +1,5 @@
 ---
-metaTitle: "C++11 Memory Model"
+metaTitle: "C++ | C++11 Memory Model"
 description: "Need for Memory Model, Fence example"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Regular Expressions (System.Text.RegularExpressions)"
+metaTitle: ".NET Framework - Regular Expressions (System.Text.RegularExpressions)"
 description: "Check if pattern matches input, Passing Options, Match into groups, Remove non alphanumeric characters from string, Simple match and replace, Find all matches"
 ---
 

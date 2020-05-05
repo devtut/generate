@@ -1,5 +1,5 @@
 ---
-metaTitle: "OPENJSON"
+metaTitle: "Microsoft SQL Server - OPENJSON"
 description: "Get key:value pairs from JSON text, Transform JSON array into set of rows, Transform nested JSON fields into set of rows, Extracting inner JSON sub-objects, Working with nested JSON sub-arrays"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "type deduction"
+metaTitle: "C++ | type deduction"
 description: "Template parameter deduction for constructors, Auto Type Deduction, Template Type Deduction"
 ---
 

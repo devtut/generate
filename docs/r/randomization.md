@@ -1,5 +1,5 @@
 ---
-metaTitle: "Randomization"
+metaTitle: "R - Randomization"
 description: "Random draws and permutations, Setting the seed"
 ---
 

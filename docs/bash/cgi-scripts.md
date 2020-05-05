@@ -1,5 +1,5 @@
 ---
-metaTitle: "CGI Scripts"
+metaTitle: "Bash - CGI Scripts"
 description: "Request Method: GET, Request Method: POST /w JSON"
 ---
 

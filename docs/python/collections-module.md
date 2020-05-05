@@ -1,5 +1,5 @@
 ---
-metaTitle: "Collections module"
+metaTitle: "Python - Collections module"
 description: "collections.Counter, collections.defaultdict, collections.OrderedDict, collections.namedtuple, collections.deque, collections.ChainMap"
 ---
 

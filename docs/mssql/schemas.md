@@ -1,5 +1,5 @@
 ---
-metaTitle: "Schemas"
+metaTitle: "Microsoft SQL Server - Schemas"
 description: "Purpose, Creating a Schema, Alter Schema, Dropping Schemas"
 ---
 

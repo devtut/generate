@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with PHP"
+metaTitle: "PHP - Getting started with PHP"
 description: "HTML output from web server, Hello, World!, Non-HTML output from web server, PHP built-in server, PHP CLI, Instruction Separation, PHP Tags"
 ---
 

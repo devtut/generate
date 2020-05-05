@@ -1,5 +1,5 @@
 ---
-metaTitle: "Pulling"
+metaTitle: "Git - Pulling"
 description: "Updating with local changes, Pull, overwrite local, Pull code from remote, Keeping linear history when pulling, Pulling changes to a local repository, Pull, permission denied"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Rebasing"
+metaTitle: "Git - Rebasing"
 description: "Local Branch Rebasing, Rebase: ours and theirs, local and remote, Interactive Rebase, Rebase down to the initial commit, Rebasing before a code review, Testing all commits during rebase, Configuring autostash, Aborting an Interactive Rebase, Setup git-pull for automatically perform a rebase instead of a merge, Pushing after a rebase"
 ---
 

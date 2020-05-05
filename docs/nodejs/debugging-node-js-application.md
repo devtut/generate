@@ -1,5 +1,5 @@
 ---
-metaTitle: "Debugging Node.js application"
+metaTitle: "Node.js - Debugging Node.js application"
 description: "Core node.js debugger and node inspector"
 ---
 

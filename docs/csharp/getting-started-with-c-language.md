@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with C# Language"
+metaTitle: "C# | Getting started with C# Language"
 description: "Creating a new console application (Visual Studio), Creating a new project in Visual Studio (console application) and Running it in Debug mode, Creating a new program using Mono, Creating a new program using .NET Core, Creating a new query using LinqPad, Creating a new project using Xamarin Studio"
 ---
 

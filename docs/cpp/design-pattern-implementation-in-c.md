@@ -1,5 +1,5 @@
 ---
-metaTitle: "Design pattern implementation in C++"
+metaTitle: "C++ | Design pattern implementation in C++"
 description: "Adapter Pattern, Observer pattern, Factory Pattern, Builder Pattern with Fluent API"
 ---
 

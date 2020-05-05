@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aliasing and effective type"
+metaTitle: "C - Aliasing and effective type"
 description: "Effective type, restrict qualification, Changing bytes, Character types cannot be accessed through non-character types., Violating the strict aliasing rules"
 ---
 

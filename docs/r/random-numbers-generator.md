@@ -1,5 +1,5 @@
 ---
-metaTitle: "Random Numbers Generator"
+metaTitle: "R - Random Numbers Generator"
 description: "Random permutations, Random number generator's reproducibility, Generating random numbers using various density functions"
 ---
 

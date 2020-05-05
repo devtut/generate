@@ -1,5 +1,5 @@
 ---
-metaTitle: "Multi-Character Character Sequence"
+metaTitle: "C - Multi-Character Character Sequence"
 description: "Trigraphs, Digraphs"
 ---
 

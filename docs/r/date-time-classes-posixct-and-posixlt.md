@@ -1,5 +1,5 @@
 ---
-metaTitle: "Date-time classes (POSIXct and POSIXlt)"
+metaTitle: "R - Date-time classes (POSIXct and POSIXlt)"
 description: "Formatting and printing date-time objects, Date-time arithmetic, Parsing strings into date-time objects"
 ---
 

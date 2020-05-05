@@ -1,5 +1,5 @@
 ---
-metaTitle: "Bellman–Ford Algorithm"
+metaTitle: "Algorithm - Bellman–Ford Algorithm"
 description: "Single Source Shortest Path Algorithm (Given there is a negative cycle in a graph), Detecting Negative Cycle in a Graph, Why do we need to relax all the edges at most (V-1) times"
 ---
 

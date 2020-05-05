@@ -1,5 +1,5 @@
 ---
-metaTitle: "Fluent Interface"
+metaTitle: "Java - Fluent Interface"
 description: "Fluent programming style, Truth - Fluent Testing Framework"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Export data in txt file by using SQLCMD"
+metaTitle: "Microsoft SQL Server - Export data in txt file by using SQLCMD"
 description: "By using SQLCMD on Command Prompt"
 ---
 

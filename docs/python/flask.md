@@ -1,5 +1,5 @@
 ---
-metaTitle: "Flask"
+metaTitle: "Python - Flask"
 description: "Files and Templates, The basics, Routing URLs, HTTP Methods, Jinja Templating, The Request Object"
 ---
 

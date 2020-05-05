@@ -1,5 +1,5 @@
 ---
-metaTitle: "Friend keyword"
+metaTitle: "C++ | Friend keyword"
 description: "Friend function, Friend method, Friend class"
 ---
 

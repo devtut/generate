@@ -1,5 +1,5 @@
 ---
-metaTitle: "Change Password"
+metaTitle: "MySQL - Change Password"
 description: "Change MySQL root password in Linux, Change MySQL root password in Windows, Process"
 ---
 

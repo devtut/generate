@@ -1,5 +1,5 @@
 ---
-metaTitle: "Extract values from JSON type"
+metaTitle: "MySQL - Extract values from JSON type"
 description: "Read JSON Array value, JSON Extract Operators"
 ---
 

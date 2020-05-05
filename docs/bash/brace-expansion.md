@@ -1,5 +1,5 @@
 ---
-metaTitle: "Brace Expansion"
+metaTitle: "Bash - Brace Expansion"
 description: "Modifying filename extension, Create directories to group files by month and year, Create a backup of dotfiles, Use increments, Using brace expansion to create lists, Make Multiple Directories with Sub-Directories"
 ---
 

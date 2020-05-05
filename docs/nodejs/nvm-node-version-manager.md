@@ -1,5 +1,5 @@
 ---
-metaTitle: "nvm - Node Version Manager"
+metaTitle: "Node.js - nvm - Node Version Manager"
 description: "Install NVM, Check NVM version, Installing an specific Node version, Using an already installed node version, Install nvm on Mac OSX, Setting alias for node version, Run any arbitrary command in a subshell with the desired version of node"
 ---
 

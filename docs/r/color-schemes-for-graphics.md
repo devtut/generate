@@ -1,5 +1,5 @@
 ---
-metaTitle: "Color schemes for graphics"
+metaTitle: "R - Color schemes for graphics"
 description: "A handy function to glimse a vector of colors, colorspace - click&drag interface for colors, Colorblind-friendly palettes, viridis - print and colorblind friendly palettes, RColorBrewer, basic R color functions"
 ---
 

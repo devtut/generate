@@ -1,5 +1,5 @@
 ---
-metaTitle: "Dequeue Interface"
+metaTitle: "Java - Dequeue Interface"
 description: "Adding Elements to Deque, Removing Elements from Deque, Retrieving Element without Removing, Iterating through Deque"
 ---
 

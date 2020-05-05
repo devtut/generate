@@ -1,5 +1,5 @@
 ---
-metaTitle: "EXCEPT"
+metaTitle: "SQL - EXCEPT"
 description: "Select dataset except where values are in this other dataset"
 ---
 

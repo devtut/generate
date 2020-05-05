@@ -1,5 +1,5 @@
 ---
-metaTitle: "cross apply"
+metaTitle: "Microsoft SQL Server - cross apply"
 description: "Join table rows with dynamically generated rows from a cell, Join table rows with JSON array stored in cell, Filter rows by array values"
 ---
 

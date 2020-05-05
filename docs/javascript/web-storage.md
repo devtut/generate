@@ -1,5 +1,5 @@
 ---
-metaTitle: "Web Storage"
+metaTitle: "JavsScript - Web Storage"
 description: "Using localStorage, Simpler way of handling Storage, Storage events, sessionStorage, Clearing storage, Error conditions, Remove Storage Item, localStorage length"
 ---
 

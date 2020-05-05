@@ -1,5 +1,5 @@
 ---
-metaTitle: "Lambdas"
+metaTitle: "C++ | Lambdas"
 description: "What is a lambda expression?, Specifying the return type, Capture by value, Recursive lambdas, Default capture, Capture by reference, Generic lambdas, Class lambdas and capture of this, Generalized capture, Conversion to function pointer, Using lambdas for inline parameter pack unpacking, Porting lambda functions to C++03 using functors"
 ---
 

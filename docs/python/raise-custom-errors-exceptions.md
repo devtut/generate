@@ -1,5 +1,5 @@
 ---
-metaTitle: "Raise Custom Errors / Exceptions"
+metaTitle: "Python - Raise Custom Errors / Exceptions"
 description: "Custom Exception, Catch custom Exception"
 ---
 

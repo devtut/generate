@@ -1,5 +1,5 @@
 ---
-metaTitle: "MySQL Admin"
+metaTitle: "MySQL - MySQL Admin"
 description: "Atomic RENAME & Table Reload, Change root password, Drop database"
 ---
 

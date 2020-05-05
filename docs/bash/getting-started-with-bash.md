@@ -1,5 +1,5 @@
 ---
-metaTitle: "Getting started with Bash"
+metaTitle: "Bash - Getting started with Bash"
 description: "Hello World, Hello World Using Variables, Hello World with User Input, Importance of Quoting in Strings, Viewing information for Bash built-ins, Hello World in Debug mode, Handling Named Arguments"
 ---
 

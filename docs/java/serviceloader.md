@@ -1,5 +1,5 @@
 ---
-metaTitle: "ServiceLoader"
+metaTitle: "Java - ServiceLoader"
 description: "Logger Service, Simple ServiceLoader Example"
 ---
 

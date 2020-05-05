@@ -1,5 +1,5 @@
 ---
-metaTitle: "Positioning"
+metaTitle: "CSS - Positioning"
 description: "Overlapping Elements with z-index, Absolute Position, Fixed position, Relative Position, Static positioning"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Nullable types"
+metaTitle: "C# | Nullable types"
 description: "Initialising a nullable, Check if a Nullable has a value, Get the value of a nullable type, Getting a default value from a nullable, Check if a generic type parameter is a nullable type, Default value of nullable types is null, Effective usage of underlying Nullable<T> argument"
 ---
 

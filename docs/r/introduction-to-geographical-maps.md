@@ -1,5 +1,5 @@
 ---
-metaTitle: "Introduction to Geographical Maps"
+metaTitle: "R - Introduction to Geographical Maps"
 description: "Basic map-making with map() from the package maps, 50 State Maps and Advanced Choropleths with Google Viz, Interactive plotly maps, Making Dynamic HTML Maps with Leaflet, Dynamic Leaflet maps in Shiny applications"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Aggregate Functions"
+metaTitle: "PostgreSQL - Aggregate Functions"
 description: "Simple statistics: min(), max(), avg(), string_agg(expression, delimiter), regr_slope(Y, X) : slope of the least-squares-fit linear equation determined by the (X, Y) pairs"
 ---
 

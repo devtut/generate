@@ -1,5 +1,5 @@
 ---
-metaTitle: "Garbage Collection"
+metaTitle: ".NET Framework - Garbage Collection"
 description: "A basic example of (garbage) collection, Live objects and dead objects - the basics, Multiple dead objects, Weak References, Dispose() vs. finalizers, Proper disposal and finalization of objects"
 ---
 

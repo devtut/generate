@@ -1,5 +1,5 @@
 ---
-metaTitle: "Abstract syntax tree"
+metaTitle: "Python - Abstract syntax tree"
 description: "Analyze functions in a python script"
 ---
 

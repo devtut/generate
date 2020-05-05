@@ -1,5 +1,5 @@
 ---
-metaTitle: "Verbatim Strings"
+metaTitle: "C# | Verbatim Strings"
 description: "Interpolated Verbatim Strings, Escaping Double Quotes, Verbatim strings instruct the compiler to not use character escapes, Multiline Strings"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Methods"
+metaTitle: "C# | Methods"
 description: "Calling a Method, Anonymous method, Declaring a Method, Parameters and Arguments, Return Types, Default Parameters, Method overloading, Access rights"
 ---
 

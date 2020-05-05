@@ -1,5 +1,5 @@
 ---
-metaTitle: "Using the static keyword"
+metaTitle: "Java - Using the static keyword"
 description: "Reference to non-static member from static context, Using static to declare constants, Using static with this"
 ---
 

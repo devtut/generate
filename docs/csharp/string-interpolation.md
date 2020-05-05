@@ -1,5 +1,5 @@
 ---
-metaTitle: "String Interpolation"
+metaTitle: "C# | String Interpolation"
 description: "Format dates in strings, Padding the output, Expressions, Simple Usage, Formatting numbers in strings"
 ---
 

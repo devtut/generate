@@ -1,5 +1,5 @@
 ---
-metaTitle: "Namespace"
+metaTitle: "Bash - Namespace"
 description: "There are no such things as namespaces"
 ---
 

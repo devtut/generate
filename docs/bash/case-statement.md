@@ -1,5 +1,5 @@
 ---
-metaTitle: "Case statement"
+metaTitle: "Bash - Case statement"
 description: "Simple case statement, Case statement with fall through, Fall through only if subsequent pattern(s) match"
 ---
 
