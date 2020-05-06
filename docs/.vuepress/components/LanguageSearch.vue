@@ -39,7 +39,8 @@ export default {
         { id: 16, name: ".NET Framework", topics: 59, url: "/dotnet/" },
         { id: 17, name: "Bash", topics: 71, url: "/bash/" },
         { id: 18, name: "CSS", topics: 56, url: "/css/" },
-        { id: 18, name: "HTML", topics: 59, url: "/html/" },
+        { id: 19, name: "HTML", topics: 59, url: "/html/" },
+        { id: 20, name: "jQuery", topics: 59, url: "/jquery/" },
       ]
     };
   },
