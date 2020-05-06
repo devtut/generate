@@ -42,6 +42,7 @@ export default {
         { id: 19, name: "HTML", topics: 59, url: "/html/" },
         { id: 20, name: "jQuery", topics: 18, url: "/jquery/" },
         { id: 21, name: "TypeScript", topics: 30, url: "/typescript/" },
+        { id: 22, name: "Haskell", topics: 78, url: "/haskell/" },
       ]
     };
   },
