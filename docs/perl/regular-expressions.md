@@ -1,6 +1,6 @@
 ---
 metaTitle: "Perl - Regular Expressions"
-description: "Matching strings, Replace a string using regular expressions, Usage of \Q and \E in pattern matching, Parsing a string with a regex"
+description: "Matching strings, Replace a string using regular expressions, Usage of &#92;Q and &#92;E in pattern matching, Parsing a string with a regex"
 ---
 
 # Regular Expressions
@@ -62,10 +62,10 @@ s/foo/bar/g;        # replace all instances
 
 
 
-## Usage of \Q and \E in pattern matching
+## Usage of &#92;Q and &#92;E in pattern matching
 
 
-### What's between \Q and \E is treated as normal characters
+### What's between &#92;Q and &#92;E is treated as normal characters
 
 ```perl
 #!/usr/bin/perl
