@@ -49,6 +49,7 @@ export default {
         { id: 26, name: "Oracle Database", topics: 47, url: "/oracle/" },
         { id: 27, name: "MongoDB", topics: 27, url: "/mongodb/" },
         { id: 28, name: "Kotlin", topics: 38, url: "/kotlin/" },
+        { id: 29, name: "Ruby on Rails", topics: 74, url: "/rubyonrails/" },
       ]
     };
   },
