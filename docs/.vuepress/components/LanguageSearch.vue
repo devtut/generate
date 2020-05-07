@@ -48,6 +48,7 @@ export default {
         { id: 25, name: "Entity Framework", topics: 23, url: "/entityframework/" },
         { id: 26, name: "Oracle Database", topics: 47, url: "/oracle/" },
         { id: 27, name: "MongoDB", topics: 27, url: "/mongodb/" },
+        { id: 28, name: "Kotlin", topics: 38, url: "/kotlin/" },
       ]
     };
   },
