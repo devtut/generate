@@ -45,6 +45,7 @@ export default {
         { id: 22, name: "Haskell", topics: 78, url: "/haskell/" },
         { id: 23, name: "Perl", topics: 40, url: "/perl/" },
         { id: 24, name: "Ruby", topics: 72, url: "/ruby/" },
+        { id: 25, name: "Entity Framework", topics: 23, url: "/entityframework/" },
       ]
     };
   },
