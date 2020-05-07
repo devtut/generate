@@ -32,9 +32,18 @@ The HTML `<table>` element allows web authors to display tabular data (such as t
 ```
 
 This will render a `<table>` consisting of three total rows (`<tr>`): one row of header cells (`<th>`) and two rows of content cells (`<td>`). `<th>` elements are **tabular headers** and `<td>` elements are **tabular data**. You can put whatever you want inside a `<td>` or `<th>`.
-    |Heading 1/Column 1    |Heading 2/Column 2  
-    |Row 1 Data Column 1    |Row 1 Data Column 2  
-    |Row 2 Data Column 1    |Row 2 Data Column 2  
+
+    |Heading 1/Column 1
+    |Heading 2/Column 2
+  
+
+    |Row 1 Data Column 1
+    |Row 1 Data Column 2
+  
+
+    |Row 2 Data Column 1
+    |Row 2 Data Column 2
+  
 
 
 
@@ -127,7 +136,7 @@ The following CSS styles can be applied to `<colgroup>` and `<col>` elements:
 </li>
 <li>
 `display` (as in `display: none`)
-<ul>
+</li>
 - `display: none;` will actually remove the columns from the display, causing the table to render as if those cells don't exist
 
 For more information, see [HTML5 Tabular data](https://www.w3.org/TR/html5/tabular-data.html).

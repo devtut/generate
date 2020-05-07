@@ -14,7 +14,7 @@ Draw stars with flexible styling (size, colors, number-of-points).
 
 [<img src="http://i.stack.imgur.com/L5lAt.png" alt="enter image description here" />](http://i.stack.imgur.com/L5lAt.png)
 
-```html
+```js
 // Usage:
 drawStar(75,75,5,50,25,'mediumseagreen','gray',9);
 drawStar(150,200,8,50,25,'skyblue','gray',3);
@@ -57,7 +57,7 @@ A regular polygon has all sides equal length.
 
 [<img src="http://i.stack.imgur.com/Gz6te.png" alt="enter image description here" />](http://i.stack.imgur.com/Gz6te.png)
 
-```html
+```js
 // Usage:
 drawRegularPolygon(3,25,75,50,6,'gray','red',0);
 drawRegularPolygon(5,25,150,50,6,'gray','gold',0);
@@ -97,7 +97,7 @@ Creates a path from a set of points `[{x:?,y:?},{x:?,y:?},...,{x:?,y:?}]` with r
 
 **Usage Example**
 
-```html
+```js
 var triangle = [
     { x: 200, y : 50 },
     { x: 300, y : 200 },
@@ -116,7 +116,7 @@ ctx.stroke();
 
 **Render function**
 
-```html
+```js
 var roundedPoly = function(points,radius){
     var i, x, y, len, p1, p2, p3, v1, v2, sinA, sinA90, radDirection, drawDirection, angle, halfAngle, cRadius, lenOut;
     var asVec = function (p, pp, v) { // convert points to a line with len and normalised

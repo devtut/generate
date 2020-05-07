@@ -18,7 +18,7 @@ This is an image of a circular beach ball, and of course, you can't drag the bal
 
 It may surprise you that just like an image, if you draw a circle on a Canvas you cannot drag that circle around the canvas. That's because the canvas won't remember where it drew the circle.
 
-```html
+```js
 // this arc (==circle) is not draggable!!
 context.beginPath();
 context.arc(20, 30, 15, 0, Math.PI*2);
@@ -68,7 +68,7 @@ Repeat, repeat, repeat ...
 
 This code gives the **illusion of movement** by continuously redrawing a circle in new positions.
 
-```html
+```js
 // create a canvas
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
@@ -115,7 +115,7 @@ Of course, you're not really saving shapes. Instead, you're saving the definitio
 
 Then put every shape-object into an array for easy reference.
 
-```html
+```js
 // save relevant information about shapes drawn on the canvas
 var shapes=[];
 
@@ -147,7 +147,7 @@ The user is intending to stop the drag operation, so clear the "isDragging" flag
 
 This demo drags circles & rectangles on the canvas by responding to mouse events and giving the illusion of movement by clearing and redrawing.
 
-```html
+```js
 // canvas related vars
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
@@ -323,7 +323,7 @@ The irregular shape doesn't need to be as common as the everyday triangle. You c
 
 This annotated example shows how to drag irregular Path shapes as well as circles and rectangles:
 
-```html
+```js
 // canvas related vars
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
@@ -516,7 +516,7 @@ See this [Example](http://stackoverflow.com/documentation/html5-canvas/5318/drag
 
 This annotated example shows how to drag images around the Canvas
 
-```html
+```js
 // canvas related vars
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");

@@ -25,7 +25,7 @@ The above will create a transparent HTML`<canvas>` element of 300×150 px in siz
 You can use the **canvas** element to draw amazing stuff like shapes, graphs, manipulate images, create engaging games etc. with **JavaScript**.<br />
 The `canvas`'s 2D **drawable layer** surface Object is referred to as `CanvasRenderingContext2D`; or from a `HTMLCanvasElement` using the `.getContext("2d")` method:
 
-```html
+```js
 var ctx = document.getElementById("myCanvas").getContext("2d");
 // now we can refer to the canvas's 2D layer context using `ctx`
 

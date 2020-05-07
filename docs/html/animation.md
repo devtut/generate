@@ -155,7 +155,7 @@ window.onload=(function(){
 
 This example will show you how to create a simple animation using the canvas and the 2D context. It is assumed you know how to create and add a canvas to the DOM and obtain the context
 
-```html
+```js
 // this example assumes ctx and canvas have been created
 const textToDisplay = "This is an example that uses the canvas to animate some text.";
 const textStyle     = "white";
@@ -476,7 +476,7 @@ Attribution: Robert Penner has created the "gold standard" of easing functions.
 
 Cite: [https://github.com/danro/jquery-easing/blob/master/jquery.easing.js](https://github.com/danro/jquery-easing/blob/master/jquery.easing.js)
 
-```html
+```js
 // t: elapsed time inside duration (currentTime-startTime), 
 // b: beginning value,
 // c: total change from beginning value (endingValue-startingValue),
@@ -612,7 +612,7 @@ var Easings={
 
 **Example Usage:**
 
-```html
+```js
 // include the Easings object from above
 var Easings = ...
 
@@ -660,7 +660,7 @@ Using requestAnimationFrame may on some systems update at more frames per second
 
 If you use the following method you should only use frame rates that are integer divisions of 60 so that `(60 / FRAMES_PER_SECOND) % 1 === 0` is `true` or you will get inconsistent frame rates.
 
-```html
+```js
 const FRAMES_PER_SECOND = 30;  // Valid values are 60,30,20,15,10...
 // set the mim time to render the next frame
 const FRAME_MIN_TIME = (1000/60) * (60 / FRAMES_PER_SECOND) - (1000/60) * 0.5;
@@ -685,7 +685,7 @@ requestAnimationFrame(update); // start animation
 
 Use vectors to calculate incremental [x,y] from [startX,startY] to [endX,endY]
 
-```html
+```js
 // dx is the total distance to move in the X direction
 var dx = endX - startX;
 
@@ -705,7 +705,7 @@ var y = startY + dx * pct/100;
 
 **Example Code:**
 
-```html
+```js
 // canvas vars
 var canvas=document.createElement("canvas");
 document.body.appendChild(canvas);

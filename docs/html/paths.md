@@ -16,7 +16,7 @@ description: "Ellipse, Line without blurryness"
 
 Draw an ellipse given it's desired top-left coordinate:
 
-```html
+```js
 // draws an ellipse based on x,y being top-left coordinate
 function drawEllipse(x,y,width,height){
     var PI2=Math.PI*2;
@@ -45,7 +45,7 @@ function drawEllipse(x,y,width,height){
 
 Draw an ellipse given it's desired center point coordinate:
 
-```html
+```js
 // draws an ellipse based on cx,cy being ellipse's centerpoint coordinate
 function drawEllipse2(cx,cy,width,height){
     var PI2=Math.PI*2;
@@ -83,7 +83,7 @@ This function draws a line between 2 points without anti-aliasing using [Bresenh
 
 [<img src="http://i.stack.imgur.com/DktZn.png" alt="enter image description here" />](http://i.stack.imgur.com/DktZn.png)
 
-```html
+```js
 // Usage:
 bresenhamLine(50,50,250,250);
 

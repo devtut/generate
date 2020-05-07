@@ -37,7 +37,7 @@ The `imageData` object has a `.data` property that contains the pixel color info
 
 The `data` property is a `Uint8ClampedArray` containing the Red, Green, Blue & Alpha (opacity) color data for all requested pixels.
 
-```html
+```js
 // determine which pixels to fetch (this fetches all pixels on the canvas)
 var x=0;
 var y=0;
@@ -54,7 +54,7 @@ var pixelDataArray = imageData.data;
 
 You can get position of any [x,y] pixel within `data` array like this:
 
-```html
+```js
 // the data[] array position for pixel [x,y]
 var n = y * canvas.width + x;
 
@@ -62,7 +62,7 @@ var n = y * canvas.width + x;
 
 And then you can fetch that pixel's red, green, blue & alpha values like this:
 
-```html
+```js
 // the RGBA info for pixel [x,y]
 var red=data[n];
 var green=data[n+1];

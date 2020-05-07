@@ -104,7 +104,7 @@ Adding a video that will autoplay on a loop and has no controls or sound. Perfec
 
 This CSS provides a fallback if the video cannot be loaded. Note that is it recomended to use the first frame of the video as the poster video.jpg.
 
-```html
+```css
 #videobg {
   background: url(video.jpg) no-repeat;
   background-size: cover;

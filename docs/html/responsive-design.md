@@ -12,7 +12,7 @@ description: "Creating a responsive full page canvas, Mouse coordinates after re
 
 Starter code to create and remove a full page canvas that responds to resize events via javascript.
 
-```html
+```js
 var canvas;    // Global canvas reference
 var ctx;       // Global 2D context reference
 // Creates a canvas
@@ -65,7 +65,7 @@ Canvas apps often rely heavily on user interaction with the mouse, but when the 
 
 This code listens for window resizing events and recalculates the offsets used in mouse event handlers:
 
-```html
+```js
 // variables holding the current canvas offset position
 //    relative to the window
 var offsetX,offsetY;
@@ -105,8 +105,7 @@ The problem with the resize event is that when the mouse is used to resize the w
 
 A common way to deal with the high firing rates of the resize event is to debounce the resize event.
 
-```
-
+```js
 // Assume canvas is in scope
  addEventListener.("resize", debouncedResize );
 
@@ -145,7 +144,7 @@ Just resize the canvas from within the main animation loop. It stays in sync wit
 
 You add the resize where you would normally clear the canvas by checking if the canvas size matches the window size. If not resize it.
 
-```html
+```js
 // Assumes canvas element is in scope as canvas
 
 // Standard main loop function callback from requestAnimationFrame

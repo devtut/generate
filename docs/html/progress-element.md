@@ -28,7 +28,7 @@ Progress bars can be styled with the `progress[value]` selector.
 
 This example gives a progress bar a width of `250px` and a height of `20px`
 
-```html
+```css
 progress[value] {
   width: 250px;
   height: 20px;
@@ -42,7 +42,7 @@ Progress bars can be especially difficult to style.
 
 These browsers use the `-webkit-appearance` selector to style the progress tag. To override this, we can reset the appearance.
 
-```html
+```css
 progress[value] {
   -webkit-appearance: none;
   appearance: none;
@@ -52,7 +52,7 @@ progress[value] {
 
 Now, we can style the container itself
 
-```html
+```css
 progress[value]::-webkit-progress-bar {
   background-color: "green";
 }
@@ -63,7 +63,7 @@ progress[value]::-webkit-progress-bar {
 
 Firefox styles the progress bar a little differently. We have to use these styles
 
-```html
+```css
 progress[value] {
   -moz-appearance: none;
   appearance: none;
@@ -76,7 +76,7 @@ progress[value] {
 
 Internet Explorer 10+ supports the `progress` element. However, it does not support the `background-color` property. You'll need to use the color property instead.
 
-```html
+```css
 progress[value]  {
   -webkit-appearance: none;
      -moz-appearance: none;

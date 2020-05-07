@@ -10,14 +10,14 @@ description: "Draw behind existing shapes with destination-over, Erase existing 
 ## Draw behind existing shapes with "destination-over"
 
 
-```html
+```js
 context.globalCompositeOperation = "destination-over"
 
 ```
 
 "destination-over" compositing places new drawing **under existing drawings**.
 
-```html
+```js
 context.drawImage(rainy,0,0);
 context.globalCompositeOperation='destination-over';  // sunny UNDER rainy
 context.drawImage(sunny,0,0);
@@ -31,7 +31,7 @@ context.drawImage(sunny,0,0);
 ## Erase existing shapes with "destination-out"
 
 
-```html
+```js
 context.globalCompositeOperation = "destination-out"
 
 ```
@@ -40,7 +40,7 @@ context.globalCompositeOperation = "destination-out"
 
 The new shape is not actually drawn -- it is just used as a "cookie-cutter" to erase existing pixels.
 
-```html
+```js
 context.drawImage(apple,0,0);
 context.globalCompositeOperation = 'destination-out';   // bitemark erases
 context.drawImage(bitemark,100,40);
@@ -54,14 +54,14 @@ context.drawImage(bitemark,100,40);
 ## Default compositing: New shapes are drawn over Existing shapes
 
 
-```html
+```js
 context.globalCompositeOperation = "source-over"
 
 ```
 
 "source-over" compositing **[default]**, places all new drawings over any existing drawings.
 
-```html
+```js
 context.globalCompositeOperation='source-over';  // the default
 context.drawImage(background,0,0);
 context.drawImage(parachuter,0,0);
@@ -75,7 +75,7 @@ context.drawImage(parachuter,0,0);
 ## Clip images inside shapes with "destination-in"
 
 
-```html
+```js
 context.globalCompositeOperation = "destination-in"
 
 ```
@@ -84,7 +84,7 @@ context.globalCompositeOperation = "destination-in"
 
 **Note: Any part of the existing drawing that falls outside the new drawing is erased.**
 
-```html
+```js
 context.drawImage(picture,0,0);
 context.globalCompositeOperation='destination-in';  // picture clipped inside oval
 context.drawImage(oval,0,0);
@@ -98,7 +98,7 @@ context.drawImage(oval,0,0);
 ## Clip images inside shapes with "source-in"
 
 
-```html
+```js
 context.globalCompositeOperation = "source-in";
 
 ```
@@ -107,7 +107,7 @@ context.globalCompositeOperation = "source-in";
 
 **Note: Any part of the new drawing that falls outside the existing drawing is erased.**
 
-```html
+```js
 context.drawImage(oval,0,0);
 context.globalCompositeOperation='source-in';  // picture clipped inside oval
 context.drawImage(picture,0,0);
@@ -121,14 +121,14 @@ context.drawImage(picture,0,0);
 ## Inner shadows with "source-atop"
 
 
-```html
+```js
 context.globalCompositeOperation = 'source-atop'
 
 ```
 
 `source-atop` compositing clips new image inside an existing shape.
 
-```html
+```js
 // gold filled rect
 ctx.fillStyle='gold';
 ctx.fillRect(100,100,100,75);
@@ -153,14 +153,14 @@ ctx.strokeRect(100,100,100,75);
 
 Render a white rectangle over an image with the composite operation
 
-```html
+```js
 ctx.globalCompositeOperation = 'difference';
 
 ```
 
 The amount of the effect can be controled with the alpha setting
 
-```html
+```js
 // Render the image
 ctx.globalCompositeOperation='source-atop';
 ctx.drawImage(image, 0, 0);
@@ -182,14 +182,14 @@ ctx.fillRect(0, 0, image.width, image.height);
 
 Remove color from an image via
 
-```html
+```js
 ctx.globalCompositeOperation = 'color';
 
 ```
 
 The amount of the effect can be controled with the alpha setting
 
-```html
+```js
 // Render the image
 ctx.globalCompositeOperation='source-atop';
 ctx.drawImage(image, 0, 0);
@@ -211,14 +211,14 @@ ctx.fillRect(0, 0, image.width, image.height);
 
 Increase the saturation level of an image with
 
-```html
+```js
 ctx.globalCompositeOperation = 'saturation';
 
 ```
 
 The amount of the effect can be controled with the alpha setting or the amount of saturation in the fill overlay
 
-```html
+```js
 // Render the image
 ctx.globalCompositeOperation='source-atop';
 ctx.drawImage(image, 0, 0);
@@ -240,7 +240,7 @@ ctx.fillRect(0, 0, image.width, image.height);
 
 Create a colored sepia FX with
 
-```html
+```js
 ctx.globalCompositeOperation = 'luminosity';
 
 ```
@@ -249,7 +249,7 @@ In this case the sepia colour is rendered first the the image.
 
 The amount of the effect can be controled with the alpha setting or the amount of saturation in the fill overlay
 
-```html
+```js
 // Render the image
 ctx.globalCompositeOperation='source-atop';
 ctx.fillStyle = "#F80";  // the color of the sepia FX
@@ -270,7 +270,7 @@ ctx.drawImage(image, 0, 0);
 ## Change opacity with "globalAlpha"
 
 
-```html
+```js
 context.globalAlpha=0.50
 
 ```
@@ -281,7 +281,7 @@ The default `globalAlpha` is 1.00 (fully opaque).
 
 Existing drawings are not affected by `globalAlpha`.
 
-```html
+```js
 // draw an opaque rectangle
 context.fillRect(10,10,50,50);
 

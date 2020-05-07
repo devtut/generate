@@ -12,7 +12,7 @@ description: "Rectangles, Raw image data, Complex shapes, Clear canvas with grad
 
 You can use the `clearRect` method to clear any rectangular section of the canvas.
 
-```html
+```js
 // Clear the entire canvas
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -24,7 +24,7 @@ ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 To deal with this, it's possible to reset the transformation matrix before you clear the canvas.
 
-```html
+```js
 ctx.save();                                       // Save the current context state
 ctx.setTransform(1, 0, 0, 1, 0, 0);               // Reset the transformation matrix
 ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
@@ -44,7 +44,7 @@ ctx.restore();                                    // Revert context state includ
 
 It's possible to write directly to the rendered image data using `putImageData`. By creating new image data then assigning it to the canvas, you will clear the entire screen.
 
-```html
+```js
 var imageData = ctx.createImageData(canvas.width, canvas.height);
 ctx.putImageData(imageData, 0, 0);
 
@@ -59,7 +59,7 @@ ctx.putImageData(imageData, 0, 0);
 
 It's possible to clear complex shaped regions by changing the `globalCompositeOperation` property.
 
-```html
+```js
 // All pixels being drawn will be transparent
 ctx.globalCompositeOperation = 'destination-out';
 
@@ -86,7 +86,7 @@ Rather than use `clearRect` which makes all pixels transparent you may want a ba
 
 To clear with a gradient
 
-```html
+```js
 // create the background gradient once
 var bgGrad = ctx.createLinearGradient(0,0,0,canvas.height);
 bgGrad.addColorStop(0,"#0FF");
@@ -107,7 +107,7 @@ This is about half as quick `0.008ms` as clearRect `0.004ms` but the 4millions o
 
 Clear the canvas using compositing operation. This will clear the canvas independent of transforms but is not as fast as `clearRect()`.
 
-```html
+```js
 ctx.globalCompositeOperation = 'copy';
 
 ```

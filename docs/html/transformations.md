@@ -12,7 +12,7 @@ description: "Drawing many translated, scaled, and rotated  images quickly, Rota
 
 There are many situation where you want to draw an image that is rotated, scaled, and translated. The rotation should occur around the center of the image. This is the quickest way to do so on the 2D canvas. These functions a well suited to 2D games where the expectation is to render a few hundred even up to a 1000+ images every 60th of a second. (dependent on the hardware)
 
-```html
+```js
 // assumes that the canvas context is in ctx and in scope
 function drawImageRST(image, x, y, scale, rotation){
     ctx.setTransform(scale, 0, 0, scale, x, y); // set the scale and translation
@@ -24,7 +24,7 @@ function drawImageRST(image, x, y, scale, rotation){
 
 A variant can also include the alpha value which is useful for particle systems.
 
-```html
+```js
 function drawImageRST_Alpha(image, x, y, scale, rotation, alpha){
     ctx.setTransform(scale, 0, 0, scale, x, y); // set the scale and translation
     ctx.rotate(rotation);                       // add the rotation
@@ -36,14 +36,14 @@ function drawImageRST_Alpha(image, x, y, scale, rotation, alpha){
 
 It is important to note that both functions leave the canvas context in a random state. Though the functions will not be affected other rendering my be. When you are done rendering images you may need to restore the default transform
 
-```html
+```js
 ctx.setTransform(1, 0, 0, 1, 0, 0); // set the context transform back to the default 
 
 ```
 
 If you use the alpha version (second example) and then the standard version you will have to ensure that the global alpha state is restored
 
-```html
+```js
 ctx.globalAlpha = 1;
 
 ```
@@ -149,7 +149,7 @@ Always clean up! Set the transformation state back to where it was before #1
 
 **Example code demo:**
 
-```html
+```js
 // canvas references & canvas styling
 var canvas=document.createElement("canvas");
 canvas.style.border='1px solid red';
@@ -276,7 +276,7 @@ Methods:
 
 **Code:**
 
-```html
+```js
 var TransformationMatrix=( function(){
     // private
     var self;

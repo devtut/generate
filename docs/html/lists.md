@@ -117,7 +117,7 @@ You can easily change the type of numeral shown in the list item marker by using
 <p>You should use `ol` to display a list of items, where the items have
 been intentionally ordered and order should be emphasized. If changing
 the order of the items does NOT make the list incorrect, you should
-use [`<ul>`](http://stackoverflow.com/documentation/html/393/lists/1306/unordered-list).</p>
+use `ul`</p>
 
 
 
@@ -149,7 +149,7 @@ This will produce a bulleted list (which is the default style):
 > 
 <p>You should use `ul` to display a list of items, where the order of the items is
 not important. If changing the order of the items makes the list
-incorrect, you should use [`<ol>`](http://stackoverflow.com/documentation/html/393/lists/1307/ordered-list).</p>
+incorrect, you should use `ol`
 
 
 
@@ -173,17 +173,6 @@ You can nest lists to represent sub-items of a list item.
 
 ```
 
-> 
-<ul>
- - item 1
- <li>item 2
-   <ul>
-     - sub-item 2.1
-     - sub-item 2.2
-   </ul>
- </li>
- - item 3
-</ul>
 
 
 The nested list has to be a child of the `li` element.

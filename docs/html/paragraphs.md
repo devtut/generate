@@ -31,8 +31,7 @@ With HTML, you cannot change the output by adding extra spaces or extra lines in
 
 The browser will remove any extra spaces and extra lines when the page is displayed:
 
-```
-
+```html
    <p>This is          another     paragraph, extra spaces   will be   removed  by browsers</p>
 
 ```

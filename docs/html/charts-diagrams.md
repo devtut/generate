@@ -12,7 +12,7 @@ description: "Line with arrowheads, Cubic & Quadratic Bezier curve with arrowhea
 
 [<img src="http://i.stack.imgur.com/JEU9r.png" alt="enter image description here" />](http://i.stack.imgur.com/JEU9r.png)
 
-```html
+```js
 // Usage: 
 drawLineWithArrows(50,50,150,50,5,8,true,true);
 
@@ -58,7 +58,7 @@ function drawLineWithArrows(x0,y0,x1,y1,aWidth,aLength,arrowStart,arrowEnd){
 
 [<img src="http://i.stack.imgur.com/IewJn.png" alt="enter image description here" />](http://i.stack.imgur.com/IewJn.png)
 
-```html
+```js
 // Usage:
 var p0={x:50,y:100};
 var p1={x:100,y:0};
@@ -148,7 +148,7 @@ The code draws only the wedge ... circle drawn here for perspective only.
 
 [<img src="http://i.stack.imgur.com/J1ecU.png" alt="enter image description here" />](http://i.stack.imgur.com/J1ecU.png)
 
-```html
+```js
 // Usage
 var wedge={
     cx:150, cy:150,
@@ -180,7 +180,7 @@ function drawWedge(w,fill,stroke,strokewidth){
 
 [<img src="http://i.stack.imgur.com/JNTzO.png" alt="enter image description here" />](http://i.stack.imgur.com/JNTzO.png)
 
-```html
+```js
 // Usage:
 var arc={
     cx:150, cy:150,

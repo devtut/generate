@@ -20,7 +20,7 @@ A video is just an image as far as the canvas is concerned. You can draw it like
 
 ### Get canvas and basic setup
 
-```html
+```js
 // It is assumed you know how to add a canvas and correctly size it.
 var canvas = document.getElementById("myCanvas"); // get the canvas from the page
 var ctx = canvas.getContext("2d");
@@ -30,7 +30,7 @@ var videoContainer; // object to hold video and associated info
 
 ### Creating and loading the video
 
-```html
+```js
 var video = document.createElement("video"); // create a video element
 video.src = "urlOffVideo.webm"; 
 // the video will now begin to load.
@@ -49,7 +49,7 @@ Unlike images elements videos don't have to be fully loaded to be displayed on t
 
 In this case we wish to know when the video is ready to play. `oncanplay` means that enough of the video has loaded to play some of it, but there may not be enough to play to the end.
 
-```html
+```js
 video.oncanplay = readyToPlayVideo; // set the event to the play function that 
                                   // can be found below
 
@@ -57,7 +57,7 @@ video.oncanplay = readyToPlayVideo; // set the event to the play function that
 
 Alternatively you can use `oncanplaythrough` which will fire when enough of the video has loaded so that it can be played to the end.
 
-```html
+```js
 video.oncanplaythrough = readyToPlayVideo; // set the event to the play function that
                                          // can be found below
 
@@ -67,7 +67,7 @@ Only use one of the canPlay events not both.
 
 ### The can play event (equivalent to image onload)
 
-```html
+```js
 function readyToPlayVideo(event){ // this is a referance to the video
     // the video may not match the canvas size so find a scale to fit
     videoContainer.scale = Math.min(
@@ -86,7 +86,7 @@ The video will not play itself on the canvas. You need to draw it for every new 
 
 The video element is just a image element and can be draw like any image, you can scale, rotate, pan the video, mirror it, fade it, clip it and display only parts, draw it twice the second time with a global composite mode to add FX like lighten, screen, etc..
 
-```html
+```js
 function updateCanvas(){
     ctx.clearRect(0,0,canvas.width,canvas.height); // Though not always needed 
                                                      // you may get bad pixels from 
@@ -117,7 +117,7 @@ function updateCanvas(){
 
 Now we have the video loaded and displayed all we need is the play control. We will make it as a click toggle play on the screen. When the video is playing and the user clicks the video is paused. When paused the click resumes play. We will add a function to darken the video and draw an play icon (triangle)
 
-```html
+```js
 function drawPayIcon(){
      ctx.fillStyle = "black";  // darken display
      ctx.globalAlpha = 0.5;
@@ -138,7 +138,7 @@ function drawPayIcon(){
 
 ### Now the play pause event
 
-```html
+```js
 function playPauseClick(){
      if(videoContainer !== undefined && videoContainer.ready){
           if(videoContainer.video.paused){                                 
@@ -170,7 +170,7 @@ Happy videoing.
 
 To load an image and place it on the canvas
 
-```html
+```js
 var image = new Image();  // see note on creating an image
 image.src = "imageURL";
 image.onload = function(){
@@ -210,7 +210,7 @@ If you get an image from the page (for example `document.getElementById("myImage
 
 If the image is from an unreliable source and may not be accessible for a variety of reasons it will generate an error event. When this happens the image will be in a broken state. If you then attempt to draw it onto the canvas it will throw the following error
 
-```html
+```js
 Uncaught DOMException: Failed to execute 'drawImage' on 'CanvasRenderingContext2D': The HTMLImageElement provided is in the 'broken' state.
 
 ```
@@ -225,7 +225,7 @@ By supplying the `image.onerror = myImgErrorHandler` event you can take appropri
 To draw a vector SVG image, the operation is not different from a raster image :<br />
 You first need to load your SVG image into an HTMLImage element, then use the `drawImage()` method.
 
-```html
+```js
 var image = new Image();
 image.onload = function(){
     ctx.drawImage(this, 0,0);
@@ -264,7 +264,7 @@ Creating a WebM video from canvas frames and playing in canvas, or upload, or do
 
 ### Example capture and play canvas
 
-```html
+```js
 name = "CanvasCapture"; // Placed into the Mux and Write Application Name fields of the WebM header
 quality = 0.7; // good quality 1 Best < 0.7 ok to poor
 fps = 30; // I have tried all sorts of frame rates and all seem to work
@@ -298,7 +298,7 @@ This was inspired by [Wammy](https://github.com/antimatter15/whammy) but is a co
 
 The webM encoder inspired by [Whammy: A Real Time Javascript WebM](https://github.com/antimatter15/whammy)
 
-```html
+```js
 var Groover = (function(){
     // ensure webp is supported 
     function canEncode(){

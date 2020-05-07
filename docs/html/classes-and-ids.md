@@ -49,14 +49,14 @@ For example, we have two elements, both with the class `highlight`:
 
 If our CSS is as below, then the color green will be applied to the text within both elements:
 
-```html
+```css
 .highlight { color: green; }
 
 ```
 
 However, if we only want to target `div`'s with the class `highlight` then we can add specificity like below:
 
-```html
+```css
 div.highlight { color: green; }
 
 ```
@@ -65,7 +65,7 @@ Nevertheless, when styling with CSS, it is generally recommended that only class
 
 As with any other selector, classes can can be nested:
 
-```html
+```css
 .main .highlight { color: red; } /* Descendant combinator */ 
 .footer > .highlight { color: blue; } /* Child combinator */ 
 
@@ -80,7 +80,7 @@ You can also chain the class selector to only select elements that have a combin
 
 And we want to colour this specific piece of text pink, we can do the following in our CSS:
 
-```html
+```css
 .special.left.menu { color: pink; } 
 
 ```
@@ -266,7 +266,7 @@ In this example:
 
 CSS selectors still work
 
-```html
+```css
 #aDiv {
     color: red;
 }
@@ -275,7 +275,7 @@ CSS selectors still work
 
 But JavaScript fails to handle both elements:
 
-```html
+```js
 var html = document.getElementById("aDiv").innerHTML;
 
 ```

@@ -12,7 +12,7 @@ description: "Detecting mouse position on the canvas, Canvas size and resolution
 
 This example will show how to get the mouse position relative to the canvas, such that `(0,0)` will be the top-left hand corner of the HTML5 Canvas. The `e.clientX` and `e.clientY` will get the mouse positions relative to the top of the document, to change this to be based on the top of the canvas we subtract the `left` and `right` positions of the canvas from the client X and Y.
 
-```html
+```js
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 ctx.font = "16px Arial";
@@ -38,7 +38,7 @@ The use of `Math.round` is due to ensure the `x,y` positions are integers, as th
 
 The size of a canvas is the area it occupies on the page and is defined by the CSS width and height properties.
 
-```html
+```css
 canvas {
    width : 1000px;
    height : 1000px;
@@ -120,7 +120,7 @@ Many times when working with the canvas you will need to have a canvas to hold s
 
 The following code simply creates a canvas and fills it with blue pixels.
 
-```html
+```js
 function createCanvas(width, height){
     var canvas = document.createElement("canvas"); // create a canvas element
     canvas.width = width;
@@ -137,7 +137,7 @@ ctx.fillRect(0,0,256,256);
 
 Many times the offscreen canvas will be used for many tasks, and you may have many canvases. To simplify the use of the canvas you can attach the canvas context to the canvas.
 
-```html
+```js
 function createCanvasCTX(width, height){
     var canvas = document.createElement("canvas"); // create a canvas element
     canvas.width = width;
@@ -166,7 +166,7 @@ myCanvas.ctx.fillRect(0,0,256,256);
 
 **Javascript**
 
-```html
+```js
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.font = "34px serif";
@@ -259,7 +259,7 @@ The `rotate(r)` method of the 2D context rotates the canvas by the specified amo
 
 **Javascript**
 
-```html
+```js
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var ox = canvas.width / 2;
@@ -307,7 +307,7 @@ Here we draw a canvas and attach the canvas' data URI to the "Download to myImag
 
 **Javascript**
 
-```html
+```js
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var ox = canvas.width / 2;

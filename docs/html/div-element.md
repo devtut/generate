@@ -24,7 +24,7 @@ The `<div>` element usually has no specific semantic meaning by itself, simply r
 
 The `div` element is typically a [block-level element](http://stackoverflow.com/documentation/css/1473/layout-control/4804/the-display-property#t=201607220740232806457), meaning that it separates a block of an HTML document and occupying the maximum width of the page. Browsers typically have the following default CSS rule:
 
-```html
+```css
 div {
   display: block;
 }

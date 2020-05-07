@@ -1342,7 +1342,7 @@ Arguments:
 </li>
 <li>
 **gradientPercentPosition** is a float number between 0.00 and 1.00 assigned to a color stop. It is basically a percentage waypoint along the line where this particular color stop applies.
-<ul>
+</li>
 - The gradient begins at percentage 0.00 which is [startX,startY] on the canvas.
 - The gradient ends at percentage 1.00 which is [endX,endY] on the canvas.
 - **Technical note:** The term "percentage" is not technically correct since the values go from 0.00 to 1.00 rather than 0% to 100%.
@@ -1364,7 +1364,7 @@ When you `stroke()` or `fill()` a path, the invisible gradient is revealed, but 
 <li>
 If you create a red-to-magenta linear gradient like this:
 
-```html
+```js
  // create a linearGradient
  var gradient=ctx.createLinearGradient(100,0,canvas.width-100,0);
  gradient.addColorStop(0,'red');
@@ -1456,7 +1456,7 @@ window.onload=(function(){
 ## createRadialGradient (creates a path styling object)
 
 
-```html
+```js
 var gradient = createRadialGradient( 
       centerX1, centerY1, radius1,     // this is the "display' circle
       centerX2, centerY2, radius2      // this is the "light casting" circle
@@ -1497,7 +1497,8 @@ Arguments:
 </li>
 <li>
 **gradientPercentPosition** is a float number between 0.00 and 1.00 assigned to a color stop. It is basically a percentage waypoint defining where this particular color stop applies along the gradient.
-<ul>
+</li>
+
 - The gradient begins at percentage 0.00.
 - The gradient ends at percentage 1.00.
 - **Technical note:** The term "percentage" is not technically correct since the values go from 0.00 to 1.00 rather than 0% to 100%.
@@ -1517,7 +1518,7 @@ When you `stroke()` or `fill()` a path, the invisible gradient is revealed, but 
 <li>
 If you create a green-to-red radial gradient like this:
 
-```html
+```js
  // create a radialGradient
  var x1=150;
  var y1=150;
@@ -1643,7 +1644,7 @@ earlier circles in this step for this rendering of the gradient.</li>
 ## createPattern (creates a path styling object)
 
 
-```html
+```js
 var pattern = createPattern(imageObject,repeat)
 
 ```
@@ -1773,7 +1774,7 @@ Prior to executing `context.stroke` (or `context.fill`) the Path exists in memor
 
 Consider this example Path that draws a 1 pixel black line from `[0,5]` to `[5,5]`:
 
-```html
+```js
 // draw a 1 pixel black line from [0,5] to [5,5]
 context.strokeStyle='black';
 context.lineWidth=1;

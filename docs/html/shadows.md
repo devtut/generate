@@ -19,7 +19,7 @@ This code adds outwardly increasing shadows to an image to create a "sticker" ve
 
 [<img src="http://i.stack.imgur.com/6SzZZ.png" alt="enter image description here" />](http://i.stack.imgur.com/6SzZZ.png)
 
-```html
+```js
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
 document.body.appendChild(canvas);
@@ -67,7 +67,7 @@ Once shadowing is turned on, every new drawing to the canvas will be shadowed.
 
 Turn off further shadowing by setting `context.shadowColor` to a transparent color.
 
-```html
+```js
 // start shadowing
 context.shadowColor='black';
 
@@ -98,7 +98,7 @@ Whenever you need the shadowed version, draw that pre-shadowed image from the in
 
 [<img src="http://i.stack.imgur.com/aBT01.png" alt="enter image description here" />](http://i.stack.imgur.com/aBT01.png)
 
-```html
+```js
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
 var cw=canvas.width;
@@ -144,7 +144,7 @@ This example shows the same "button" with and without shadowing
 
 [<img src="http://i.stack.imgur.com/yoaof.png" alt="enter image description here" />](http://i.stack.imgur.com/yoaof.png)
 
-```html
+```js
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
 document.body.appendChild(canvas);
@@ -196,7 +196,7 @@ To create strokes with an inner-shadow, use `destination-in` compositing which c
 1. **Set compositing to `destination-in`** which keeps the existing stroked shadow only where it is overlapped by any new drawings.
 1. **Fill the shape.** This causes the stroke and inner-shadow to remain while the outer shadow is erased. **Well, not exactly! Since a stroke is half-inside and half-outside the filled shape, the outside half of the stroke will be erased also. The fix is to double the `context.lineWidth` so half of the double-sized stroke is still inside the filled shape.**
 
-```html
+```js
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
 document.body.appendChild(canvas);
@@ -246,7 +246,7 @@ To create fills with an inner-shadow, follow steps #1-3 above but further use `d
 1. **Turn off shadowing** by setting `context.shadowColor` to a transparent color.
 1. **Fill the shape** with the desired color. The shape will be filled underneath the existing inner-shadow.
 
-```html
+```js
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
 document.body.appendChild(canvas);
@@ -299,7 +299,7 @@ function defineRoundedRect(x,y,width,height,radius) {
 
 To draw a filled shape with an inner-shadow, but with no stroke, you can draw the stroke off-canvas and use `shadowOffsetX` to push the shadow back onto the canvas.
 
-```html
+```js
 var canvas=document.createElement("canvas");
 var ctx=canvas.getContext("2d");
 document.body.appendChild(canvas);

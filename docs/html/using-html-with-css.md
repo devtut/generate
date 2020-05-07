@@ -103,7 +103,7 @@ It's possible to load multiple stylesheets:
 
 Note that **later files and declarations will override earlier ones**. So if `general.css` contains:
 
-```html
+```css
 body {
     background-color: red;
 }
@@ -112,7 +112,7 @@ body {
 
 and `specific.css` contains:
 
-```html
+```css
 body { 
     background-color: blue;
 }

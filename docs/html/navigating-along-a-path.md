@@ -18,7 +18,7 @@ The last optional argument is the returned vector (point). If not given it will 
 
 ### Example usage
 
-```html
+```js
 var p1 = {x : 10 , y : 100};
 var p2 = {x : 100, y : 200};
 var p3 = {x : 200, y : 0};
@@ -53,7 +53,7 @@ var point1 = getPointOnCurve(0.5, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
 **Note:** `x4`,`y4` if `null`, or `undefined` means that the curve is a quadratic bezier. `vec` is optional and will hold the returned point if supplied. If not it will be created.
 
 
-```html
+```js
 var getPointOnCurve = function(position, x1, y1, x2, y2, x3, y3, x4, y4, vec){ 
     var vec, quad;
     quad = false;
@@ -113,7 +113,7 @@ This example finds an array of approximately evenly spaced points along a cubic 
 
 It decomposes Path segments created with `context.bezierCurveTo` into points along that curve.
 
-```html
+```js
 // Return: an array of approximately evenly spaced points along a cubic Bezier curve
 //
 // Attribution: Stackoverflow's @Blindman67
@@ -173,7 +173,7 @@ This example finds an array of approximately evenly spaced points along a quadra
 
 It decomposes Path segments created with `context.quadraticCurveTo` into points along that curve.
 
-```html
+```js
 // Return: an array of approximately evenly spaced points along a Quadratic curve
 //
 // Attribution: Stackoverflow's @Blindman67
@@ -222,7 +222,7 @@ This example finds an array of approximately evenly spaced points along a line.
 
 It decomposes Path segments created with `context.lineTo` into points along that line.
 
-```html
+```js
 // Return: an array of approximately evenly spaced points along a line
 //
 // pxTolerance: approximate spacing allowed between points
@@ -264,7 +264,7 @@ It decomposes all Path segments created with `context.lineTo`, `context.quadrati
 
 **Usage**
 
-```html
+```js
 // Path related variables
 var A={x:50,y:100};
 var B={x:125,y:25};
@@ -336,7 +336,7 @@ If you draw multiple Paths with the modified Context, the points-array will cont
 
 If, instead, you want to get separate points-arrays, you can fetch the current array with `getPathPoints` and then clear those points from the array with the supplied `clearPathPoints` function.
 
-```html
+```js
 // Modify the Canvas' Context to calculate a set of approximately
 //     evenly spaced waypoints as it draws path(s).
 function plotPathCommands(ctx,sampleCount,pointSpacing){
@@ -402,7 +402,7 @@ function plotPathCommands(ctx,sampleCount,pointSpacing){
 
 **A complete Demo:**
 
-```html
+```js
 // Path related variables
 var A={x:50,y:100};
 var B={x:125,y:25};
@@ -643,7 +643,7 @@ function plotLine(pxTolerance,Ax,Ay,Bx,By){
 
 Given the 3 points of a quadratic curve the following function returns the length.
 
-```html
+```js
 function quadraticBezierLength(x1,y1,x2,y2,x3,y3)
     var a, e, c, d, u, a1, e1, c1, d1, u1, v1x, v1y;
 
@@ -681,7 +681,7 @@ The function `splitCurveAt` splits the curve at `position` where `0.0` = start, 
 
 Splitting quadratic bezier curve in two
 
-```html
+```js
 var p1 = {x : 10 , y : 100};
 var p2 = {x : 100, y : 200};
 var p3 = {x : 200, y : 0};
@@ -703,7 +703,7 @@ ctx.stroke();
 
 Splitting cubic bezier curve in two
 
-```html
+```js
 var p1 = {x : 10 , y : 100};
 var p2 = {x : 100, y : 200};
 var p3 = {x : 200, y : 0};
@@ -736,7 +736,7 @@ ctx.stroke();
 **Note:** The function has some optional commented `/* */` code that deals with edge cases where the resulting curves may have zero length, or fall outside the start or ends of the original curve. As is attempting to split a curve outside the valid range for `position >= 0` or `position >= 1` will throw a range error. This can be removed and will work just fine, though you may have resulting curves that have zero length.
 
 
-```html
+```js
 // With throw RangeError if not 0 < position < 1
 // x1, y1, x2, y2, x3, y3 for quadratic curves
 // x1, y1, x2, y2, x3, y3, x4, y4 for cubic curves
@@ -857,7 +857,7 @@ The trimmed curve is returned as an array of points. 6 points for quadratic curv
 
 Trimming a quadratic curve.
 
-```html
+```js
 var p1 = {x : 10 , y : 100};
 var p2 = {x : 100, y : 200};
 var p3 = {x : 200, y : 0};
@@ -878,7 +878,7 @@ ctx.stroke();
 
 Trimming a cubic curve.
 
-```html
+```js
 var p1 = {x : 10 , y : 100};
 var p2 = {x : 100, y : 200};
 var p3 = {x : 200, y : 0};
@@ -910,7 +910,7 @@ ctx.stroke();
 **Note:** This function requires the function in the example Split Bezier Curves At in this section
 
 
-```html
+```js
 var trimBezier = function(fromPos, toPos, x1, y1, x2, y2, x3, y3, x4, y4){
     var quad, i, s, retBez;
     quad = false;
@@ -994,7 +994,7 @@ Given the 4 points of a cubic Bezier curve the following function returns its le
 
 **Accuracy:** The approximate length is 99+% accurate using the default sampling size of 40.
 
-```html
+```js
 // Return: Close approximation of the length of a Cubic Bezier curve
 //
 // Ax,Ay,Bx,By,Cx,Cy,Dx,Dy: the 4 control points of the curve
@@ -1057,7 +1057,7 @@ function cubicQxy(t,ax,ay,bx,by,cx,cy,dx,dy) {
 
 When you need to find the bounding rectangle of a quadratic bezier curve you can use the following performant method.
 
-```html
+```js
 // This method was discovered by Blindman67 and solves by first normalising the control point thereby reducing the algorithm complexity 
 // x1,y1, x2,y2, x3,y3 Start, Control, and End coords of bezier
 // [extent] is optional and if provided the extent will be added to it allowing you to use the function

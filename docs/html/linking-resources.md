@@ -62,16 +62,14 @@ The `<noscript>` element defines content to be displayed if the user has scripts
 The standard practice is to place CSS `<link>` tags inside the `<head>` tag at the top of your HTML. This way the CSS will be loaded first and will apply to your page as it is loading, rather than showing unstyled HTML until the CSS is loaded.
 The `type`attribute is not necessary in HTML5, because HTML5 usually supports CSS.
 
-```
-
+```html
 <link rel="stylesheet" href="path/to.css" type="text/css">
 
 ```
 
 and
 
-```
-
+```html
 <link rel="stylesheet" href="path/to.css">
 
 ```

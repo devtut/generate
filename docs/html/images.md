@@ -12,7 +12,7 @@ description: "Image cropping using canvas, The Tained canvas, Is context.drawIma
 
 This example shows a simple image cropping function that takes an image and cropping coordinates and returns the cropped image.
 
-```html
+```js
 function cropImage(image, croppingCoords) {
     var cc = croppingCoords;
     var workCan = document.createElement("canvas"); // create a canvas
@@ -28,7 +28,7 @@ function cropImage(image, croppingCoords) {
 
 To use
 
-```html
+```js
 var image = new Image();
 image.src = "image URL"; // load the image
 image.onload = function () {  // when loaded
@@ -51,7 +51,7 @@ image.onload = function () {  // when loaded
 
 When adding content from sources outside your domain, or from the local file system the canvas is marked as tainted. Attempt to access the pixel data, or convert to a dataURL will throw a security error.
 
-```html
+```js
 vr image = new Image();
 image.src = "file://myLocalImage.png";
 image.onload = function(){
@@ -74,7 +74,7 @@ In JavaScript, images are not loaded immediately. Instead, images are loaded asy
 
 **Example making sure the image is fully loaded before trying to draw it with .drawImage**
 
-```html
+```js
 var img=new Image();
 img.onload=start;
 img.onerror=function(){alert(img.src+' failed');} 
@@ -90,7 +90,7 @@ function start(){
 
 **There are more full-functioned image loaders, but this example illustrates how to do it**
 
-```html
+```js
 // first image
 var img1=new Image();
 img1.onload=start;
@@ -134,7 +134,7 @@ Means that the image is scaled so that all the canvas pixels will be covered by 
 
 ### Example Scale to fit
 
-```html
+```js
 var image = new Image();
 image.src = "imgURL";
 image.onload = function(){
@@ -154,7 +154,7 @@ function scaleToFit(img){
 
 ### Example Scale to fill
 
-```html
+```js
 var image = new Image();
 image.src = "imgURL";
 image.onload = function(){

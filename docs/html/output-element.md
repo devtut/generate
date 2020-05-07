@@ -14,8 +14,7 @@ The following demo features an `<output>` element's use of the `[for]` and `[for
 
 [**Live Demo**](http://pagedemos.com/jhvyqchzm29u/2)
 
-```
-
+```html
    <!--form1 will collect the values of in1 and in2 on 'input' event.-->
     <!--out1 value will be the sum of in1 and in2 values.-->    
 

@@ -14,7 +14,7 @@ Drawing to canvas isn't just limited to shapes and images. You can also draw tex
 
 To draw text on the canvas, get a reference to the canvas and then call the `fillText` method on the context.
 
-```html
+```js
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 ctx.fillText("My text", 0, 0);
@@ -29,7 +29,7 @@ The three **required** arguments that are passed into `fillText` are:
 
 Additionally, there is a fourth **optional** argument, which you can use to specify the maximum width of your text in pixels. In the example below the value of `200` restricts the maximum width of the text to 200px:
 
-```html
+```js
 ctx.fillText("My text", 0, 0, 200);
 
 ```
@@ -40,7 +40,7 @@ Result:
 
 You can also draw text without a fill, and just an outline instead, using the `strokeText` method:
 
-```html
+```js
 ctx.strokeText("My text", 0, 0);
 
 ```
@@ -68,7 +68,7 @@ Using the `font` property you can specify:
 
 For example:
 
-```html
+```js
 ctx.font = "italic small-caps bold 40px Helvetica, Arial, sans-serif";
 ctx.fillText("My text", 20, 50);
 
@@ -88,7 +88,7 @@ Using the `textAlign` property you can also change text alignment to either:
 
 For example:
 
-```html
+```js
 ctx.textAlign = "center";
 
 ```
@@ -100,7 +100,7 @@ ctx.textAlign = "center";
 
 Native Canvas API does not have a method to wrap text onto the next line when a desired maximum width is reached. This example wraps text into paragraphs.
 
-```html
+```js
 function wrapText(text, x, y, maxWidth, fontSize, fontFace){
   var firstY=y;
   var words = text.split(' ');
@@ -265,7 +265,7 @@ Important! The specified image must be fully loaded before calling this function
 
 [<img src="http://i.stack.imgur.com/58KTX.png" alt="enter image description here" />](http://i.stack.imgur.com/58KTX.png)
 
-```html
+```js
 function drawImageInsideText(canvas,x,y,img,text,font){
     var c=canvas.cloneNode();
     var ctx=c.getContext('2d');
@@ -299,7 +299,7 @@ The example adds 3 new text rendering functions to the 2D context prototype.
 - **ctx.strokeCircleText(text, x, y, radius, start, end, forward);**
 - **ctx.measureCircleText(text, radius);**
 
-```html
+```js
 (function(){
     const FILL = 0;        // const to indicate filltext render
     const STROKE = 1;
@@ -478,7 +478,7 @@ Returns a Object containing various size metrics for rendering circular text
 
 ### **Usage examples**
 
-```html
+```js
 const rad = canvas.height * 0.4;
 const text = "Hello circle TEXT!";
 const fontSize = 40;
@@ -559,7 +559,7 @@ Renders text on quadratic and cubic curves.
 
 ### Example usage:
 
-```html
+```js
 textOnCurve("Hello world!",50,100,100,200,200,300,100); // draws text on quadratic curve
                                                         // 50 pixels from start of curve
 
@@ -572,7 +572,7 @@ textOnCurve("Hello world!",50,100,100,200,200,300,100,400,200);
 
 The Function and curver helper function
 
-```html
+```js
 // pass 8 values for cubic bezier
 // pass 6 values for quadratic
 // Renders text from start of curve
@@ -603,7 +603,7 @@ var textOnCurve = function(text,offset,x1,y1,x2,y2,x3,y3,x4,y4){
 
 The curve helper function is designed to increase the performance of finding points on the bezier.
 
-```html
+```js
 // helper function locates points on bezier curves.
 function curveHelper(x1, y1, x2, y2, x3, y3, x4, y4){
     var tx1, ty1, tx2, ty2, tx3, ty3, tx4, ty4;
@@ -723,7 +723,7 @@ This example renders justified text. It adds extra functionality to the `CanvasR
 
 The function as a anonymous immediately invoked function.
 
-```html
+```js
 (function(){
     const FILL = 0;        // const to indicate filltext render
     const STROKE = 1;
@@ -891,7 +891,7 @@ The following rules are applied, min and max must be numbers. If not then the as
 
 Example setting object with defaults
 
-```html
+```js
 settings = { 
     maxSpaceSize : 6;   // Multiplier for max space size. 
     minSpaceSize : 0.5; // Multiplier for minimum space size
@@ -909,7 +909,7 @@ settings = {
 
 ### USAGE Examples
 
-```html
+```js
 var i = 0;
 text[i++] = "This text is aligned from the left of the canvas."; 
 text[i++] = "This text is near the max spacing size"; 
@@ -1001,8 +1001,7 @@ Renders text as justified paragraphs. **REQUIRES** the example **Justified text*
 
 ### Example code
 
-```
-
+```js
 // Requires justified text extensions 
 (function(){
     // code point A
@@ -1189,7 +1188,7 @@ As this example is dependent on the **Justified text** example the code is very 
 
 ### Usage example
 
-```html
+```js
 ctx.font = "25px arial";
 ctx.textAlign = "center"
 

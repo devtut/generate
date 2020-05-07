@@ -10,7 +10,7 @@ description: "Are 2 circles colliding?, Are 2 rectangles colliding?, Are a circl
 ## Are 2 circles colliding?
 
 
-```html
+```js
 // circle objects: { x:, y:, radius: }
 // return true if the 2 circles are colliding
 // c1 and c2 are circles as defined above
@@ -29,7 +29,7 @@ function CirclesColliding(c1,c2){
 ## Are 2 rectangles colliding?
 
 
-```html
+```js
 // rectangle objects { x:, y:, width:, height: }
 // return true if the 2 rectangles are colliding
 // r1 and r2 are rectangles as defined above
@@ -50,7 +50,7 @@ function RectsColliding(r1,r2){
 ## Are a circle and rectangle colliding?
 
 
-```html
+```js
 // rectangle object: { x:, y:, width:, height: }
 // circle object: { x:, y:, radius: }
 // return true if the rectangle and circle are colliding
@@ -81,7 +81,7 @@ The function in this example returns `true` if two line segments are intersectin
 
 The example is designed for performance and uses closure to hold working variables
 
-```html
+```js
 var p1 = {x: 100, y: 0};   // line 1
 var p2 = {x: 120, y: 200};
 var p3 = {x: 0,   y: 100}; // line 2
@@ -92,7 +92,7 @@ var areIntersepting = lineSegmentsIntercept (p1, p2, p3, p4); // true
 
 The example is easily modified to return the point of intercept. Replace the code between `code point A` and `A end` with
 
-```html
+```js
 if(u1 >= 0 && u1 <= 1){
     return {
         x : p0.x + v1.x * u1,
@@ -104,7 +104,7 @@ if(u1 >= 0 && u1 <= 1){
 
 Or if you want to get the intercept point on the lines, ignoring the line segments start and ends replace the code between `code point B` and `B end` with
 
-```html
+```js
 return {
     x : p2.x + v2.x * u2,
     y : p2.y + v2.y * u2,
@@ -119,7 +119,7 @@ Both modifications will return false if there is no intercept or return the poin
 ## Are a line segment and circle colliding?
 
 
-```html
+```js
 // [x0,y0] to [x1,y1] define a line segment
 // [cx,cy] is circle centerpoint, cr is circle radius 
 function isCircleSegmentColliding(x0,y0,x1,y1,cx,cy,cr){
@@ -154,7 +154,7 @@ function isCircleSegmentColliding(x0,y0,x1,y1,cx,cy,cr){
 ## Are line segment and rectangle colliding?
 
 
-```html
+```js
 // var rect={x:,y:,width:,height:};
 // var line={x1:,y1:,x2:,y2:};
 // Get interseting point of line segment & rectangle (if any)
@@ -226,7 +226,7 @@ Use the Separating Axis Theorem to determine if 2 convex polygons are intersecti
 
 Attribution: Markus Jarderot @ [How to check intersection between 2 rotated rectangles?](http://stackoverflow.com/questions/10962379/how-to-check-intersection-between-2-rotated-rectangles)
 
-```html
+```js
 // polygon objects are an array of vertices forming the polygon
 //     var polygon1=[{x:100,y:100},{x:150,y:150},{x:50,y:150},...];
 // THE POLYGONS MUST BE CONVEX
@@ -296,7 +296,7 @@ function convexPolygonsCollide(a, b){
 
 Tests all polygon sides for intersections to determine if 2 polygons are colliding.
 
-```html
+```js
 // polygon objects are an array of vertices forming the polygon
 //     var polygon1=[{x:100,y:100},{x:150,y:150},{x:50,y:150},...];
 // The polygons can be both concave and convex
@@ -376,7 +376,7 @@ Tests if the [x,y] point is inside a closed arc.
 
 [<img src="http://i.stack.imgur.com/38qOQ.png" alt="enter image description here" />](http://i.stack.imgur.com/38qOQ.png)
 
-```html
+```js
 var arc={
     cx:150, cy:150,
     innerRadius:75, outerRadius:100,
@@ -405,7 +405,7 @@ Tests if the [x,y] point is inside a wedge.
 
 [<img src="http://i.stack.imgur.com/MiCFr.png" alt="enter image description here" />](http://i.stack.imgur.com/MiCFr.png)
 
-```html
+```js
 // wedge objects: {cx:,cy:,radius:,startAngle:,endAngle:}
 // var wedge={
 //     cx:150, cy:150,  // centerpoint
@@ -456,7 +456,7 @@ function isPointInCircle(x,y,circle){
 
 Tests if an [x,y] point is inside a rectangle.
 
-```html
+```js
 // rectangle objects: {x:, y:, width:, height: }
 // var rect={x:10, y:15, width:25, height:20}
 // Return true if the x,y point is inside the rectangle
