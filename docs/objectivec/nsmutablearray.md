@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSMutableArray"
+metaTitle: "Objective C - NSMutableArray"
 description: "Sorting Arrays, Creating an NSMutableArray, Adding elements, Insert Elements, Deleting Elements, Move object to another index, Filtering Array content with Predicate"
 ---
 
@@ -11,7 +11,7 @@ description: "Sorting Arrays, Creating an NSMutableArray, Adding elements, Inser
 ## Sorting Arrays
 
 
-```objc
+```objectivec
 NSMutableArray *myColors = [NSMutableArray arrayWithObjects: @"red", @"green", @"blue", @"yellow", nil];
 NSArray *sortedArray;
 sortedArray = [myColors sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
@@ -25,7 +25,7 @@ sortedArray = [myColors sortedArrayUsingSelector:@selector(localizedCaseInsensit
 
 `NSMutableArray` can be initialized as an empty array like this:
 
-```objc
+```objectivec
 NSMutableArray *array = [[NSMutableArray alloc] init];
 // or
 NSMutableArray *array2 = @[].mutableCopy;
@@ -36,7 +36,7 @@ NSMutableArray *array3 = [NSMutableArray array];
 
 `NSMutableArray` can be initialized with another array like this:
 
-```objc
+```objectivec
 NSMutableArray *array4 = [[NSMutableArray alloc] initWithArray:anotherArray];
 // or
 NSMutableArray *array5 = anotherArray.mutableCopy; 
@@ -48,7 +48,7 @@ NSMutableArray *array5 = anotherArray.mutableCopy;
 ## Adding elements
 
 
-```objc
+```objectivec
 NSMutableArray *myColors;
 myColors = [NSMutableArray arrayWithObjects: @"Red", @"Green", @"Blue", @"Yellow", nil];
 [myColors addObject: @"Indigo"];
@@ -65,7 +65,7 @@ NSArray *myArray = @[@"Purple",@"Orange"];
 ## Insert Elements
 
 
-```objc
+```objectivec
 NSMutableArray *myColors;
 int i;
 int count;
@@ -82,35 +82,35 @@ myColors = [NSMutableArray arrayWithObjects: @"Red", @"Green", @"Blue", @"Yellow
 
 Remove at specific index:
 
-```objc
+```objectivec
 [myColors removeObjectAtIndex: 3];
 
 ```
 
 Remove the first instance of a specific object:
 
-```objc
+```objectivec
 [myColors removeObject: @"Red"];
 
 ```
 
 Remove all instances of a specific object:
 
-```objc
+```objectivec
 [myColors removeObjectIdenticalTo: @"Red"];
 
 ```
 
 Remove all objects:
 
-```objc
+```objectivec
 [myColors removeAllObjects];
 
 ```
 
 Remove last object:
 
-```objc
+```objectivec
 [myColors removeLastObject];
 
 ```
@@ -122,7 +122,7 @@ Remove last object:
 
 **Move **Blue** to the beginning of the array:**
 
-```objc
+```objectivec
 NSMutableArray *myColors = [NSMutableArray arrayWithObjects: @"Red", @"Green", @"Blue", @"Yellow", nil];
 
 NSUInteger fromIndex = 2;

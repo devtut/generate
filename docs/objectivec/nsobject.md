@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSObject"
+metaTitle: "Objective C - NSObject"
 description: "NSObject"
 ---
 
@@ -25,7 +25,7 @@ superclass (superclass of current class).
 
 **You can use below methods for allocation of string class:**
 
-```objc
+```objectivec
 - (instancetype)init
 
 + (instancetype)new
@@ -36,7 +36,7 @@ superclass (superclass of current class).
 
 **For Copy any object :**
 
-```objc
+```objectivec
 - (id)copy;
 
 - (id)mutableCopy;
@@ -45,28 +45,28 @@ superclass (superclass of current class).
 
 **For compare objects :**
 
-```objc
+```objectivec
 - (BOOL)isEqual:(id)object
 
 ```
 
 **To get superclass of current class :**
 
-```objc
+```objectivec
 superclass
 
 ```
 
 **To check which kind of class is this ?**
 
-```objc
+```objectivec
 - (BOOL)isKindOfClass:(Class)aClass
 
 ```
 
 **Some property of NON-ARC classes:**
 
-```objc
+```objectivec
 - (instancetype)retain OBJC_ARC_UNAVAILABLE;
 
 - (oneway void)release OBJC_ARC_UNAVAILABLE;

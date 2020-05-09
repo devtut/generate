@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSCache"
+metaTitle: "Objective C - NSCache"
 description: "NSCache"
 ---
 

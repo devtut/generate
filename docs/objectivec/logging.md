@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Logging"
+metaTitle: "Objective C - Logging"
 description: "Logging, NSLog Output Format, Logging Variable Values, Removing Log Statements from Release Builds, Empty message is not printed, Using __FUNCTION __, NSLog vs printf, Logging NSLog meta data, NSLog and BOOL type, Logging by Appending to a File"
 ---
 
@@ -11,7 +11,7 @@ description: "Logging, NSLog Output Format, Logging Variable Values, Removing Lo
 ## Logging
 
 
-```objc
+```objectivec
 NSLog(@"Log Message!");
 NSLog(@"NSString value: %@", stringValue);
 NSLog(@"Integer value: %d", intValue);
@@ -22,14 +22,14 @@ The first argument of `NSLog` is an `NSString` containing the log message format
 
 The formatting works exactly the same as `printf`, except for the additional format specifier `%@` for an arbitrary Objective-C object. This:
 
-```objc
+```objectivec
 NSLog(@"%@", object);
 
 ```
 
 is equivalent to:
 
-```objc
+```objectivec
 NSLog(@"%s", [object description].UTF8String);
 
 ```
@@ -39,7 +39,7 @@ NSLog(@"%s", [object description].UTF8String);
 ## NSLog Output Format
 
 
-```objc
+```objectivec
 NSLog(@"NSLog message");
 
 ```
@@ -57,7 +57,7 @@ The message that gets printed by calling `NSLog` has the following format when v
 
 You shouldn't call `NSLog` without a literal format string like this:
 
-```objc
+```objectivec
 NSLog(variable);    // Dangerous code!
 
 ```
@@ -68,7 +68,7 @@ If the variable is an `NSString`, it will work unless your string contains a `%`
 
 Instead, always make the first argument a format specifier, like this:
 
-```objc
+```objectivec
 NSLog(@"%@", anObjectVariable);
 NSLog(@"%d", anIntegerVariable);
 
@@ -81,7 +81,7 @@ NSLog(@"%d", anIntegerVariable);
 
 Messages printed from `NSLog` are displayed on Console.app even in the release build of your app, which doesn't make sense for printouts that are only useful for debugging. To fix this, you can use this macro for debug logging instead of `NSLog`.
 
-```objc
+```objectivec
 #ifdef DEBUG
 #define DLog(...) NSLog(__VA_ARGS__)
 #else
@@ -92,7 +92,7 @@ Messages printed from `NSLog` are displayed on Console.app even in the release b
 
 To use:
 
-```objc
+```objectivec
 NSString *value = @"value 1";
 DLog(@"value = %@", value);
 // little known fact: programmers look for job postings in Console.app
@@ -109,7 +109,7 @@ In debug builds, `DLog` will call `NSLog`. In release builds, `DLog` will do not
 
 When `NSLog` is asked to print empty string, it omits the log completely.
 
-```objc
+```objectivec
 NSString *name = @"";
 NSLog(@"%@", name);  // Resolves to @""
 
@@ -119,7 +119,7 @@ The above code will print **nothing**.
 
 It is a good practice to prefix logs with labels:
 
-```objc
+```objectivec
 NSString *name = @"";
 NSLog(@"Name: %@", name);  // Resolves to @"Name: "
 
@@ -132,14 +132,14 @@ The above code will print:
 ## Using __FUNCTION __
 
 
-```objc
+```objectivec
 NSLog(@"%s %@",__FUNCTION__, @"etc etc");
 
 ```
 
 Inserts the class and method name into the output:
 
-```objc
+```objectivec
 2016-07-22 12:51:30.099 loggingExample[18132:2971471] -[ViewController viewDidLoad] etc etc
 
 ```
@@ -149,7 +149,7 @@ Inserts the class and method name into the output:
 ## NSLog vs printf
 
 
-```objc
+```objectivec
 NSLog(@"NSLog message");
 printf("printf message\n");
 
@@ -157,7 +157,7 @@ printf("printf message\n");
 
 Output:
 
-```objc
+```objectivec
 2016-07-16 08:58:04.681 test[46259:1244773] NSLog message
 printf message
 
@@ -171,7 +171,7 @@ printf message
 
 Some `format-specifiers` in `printf` vs `NSLog` are different. For example when including a nested string, the following differences incur:
 
-```objc
+```objectivec
 NSLog(@"My string: %@", (NSString *)myString);
 printf("My string: %s", [(NSString *)myString UTF8String]);
 
@@ -182,7 +182,7 @@ printf("My string: %s", [(NSString *)myString UTF8String]);
 ## Logging NSLog meta data
 
 
-```objc
+```objectivec
 NSLog(@"%s %d %s, yourVariable: %@", __FILE__, __LINE__, __PRETTY_FUNCTION__, yourVariable);
 
 ```
@@ -191,14 +191,14 @@ Will log the file, line number and function data along with any variables you wa
 
 You can also wrap this in a Macro (store this in a Singleton or where you'll need it most);
 
-```objc
+```objectivec
 #define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 ```
 
 Then when you want to log, simply call
 
-```objc
+```objectivec
 ALog(@"name: %@", firstName);
 
 ```
@@ -218,7 +218,7 @@ Which will give you something like;
 
 There is no format specifier to print boolean type using NSLog. One way to print boolean value is to convert it to a string.
 
-```objc
+```objectivec
 BOOL boolValue = YES;
 NSLog(@"Bool value %@", boolValue ? @"YES" : @"NO");
 
@@ -226,14 +226,14 @@ NSLog(@"Bool value %@", boolValue ? @"YES" : @"NO");
 
 Output:
 
-```objc
+```objectivec
 2016-07-30 22:53:18.269 Test[4445:64129] Bool value YES
 
 ```
 
 Another way to print boolean value is to cast it to integer, achieving a binary output (1=yes, 0=no).
 
-```objc
+```objectivec
 BOOL boolValue = YES;
 NSLog(@"Bool value %i", boolValue);
 
@@ -241,7 +241,7 @@ NSLog(@"Bool value %i", boolValue);
 
 Output:
 
-```objc
+```objectivec
 2016-07-30 22:53:18.269 Test[4445:64129] Bool value 1
 
 ```
@@ -253,7 +253,7 @@ Output:
 
 NSLog is good, but you can also log by appending to a file instead, using code like:
 
-```objc
+```objectivec
 NSFileHandle* fh = [NSFileHandle fileHandleForWritingAtPath:path];
 if ( !fh ) {
     [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Protocols"
+metaTitle: "Objective C - Protocols"
 description: "Optional and required methods, Checking existance of optional method implementations, Basic Protocol Definition, Conforming to Protocols, Forward Declarations, Check conforms Protocol"
 ---
 
@@ -16,7 +16,7 @@ It is also possible to declare **optional** methods. These method can be impleme
 
 You mark optional methods with the `@optional` directive.
 
-```objc
+```objectivec
 @protocol NewProtocol
 - (void)protocolMethod:(id)argument;
 @optional
@@ -29,7 +29,7 @@ In this case, only `anotherMethod` is marked as optional; the methods without th
 
 The `@optional` directive applies to methods that follow, until the end of the protocol definition or, until another directive is found.
 
-```objc
+```objectivec
 @protocol NewProtocol
 - (void)protocolMethod:(id)argument;
 @optional
@@ -48,7 +48,7 @@ This last example defines a protocol with two optional methods and two required 
 ## Checking existance of optional method implementations
 
 
-```objc
+```objectivec
 if ([object respondsToSelector:@selector(someOptionalMethodInProtocol:)])
 {
     [object someOptionalMethodInProtocol:argument];
@@ -63,7 +63,7 @@ if ([object respondsToSelector:@selector(someOptionalMethodInProtocol:)])
 
 Defining a new protocol:
 
-```objc
+```objectivec
 @protocol NewProtocol
 
 - (void)protocolMethod:(id)argument;
@@ -81,7 +81,7 @@ Defining a new protocol:
 
 The following syntax indicate that a class adopts a protocol, using angle brackets.
 
-```objc
+```objectivec
 @interface NewClass : NSObject <NewProtocol>
 ...
 @end
@@ -92,7 +92,7 @@ This means that any instance of NewClass will respond to methods declared in its
 
 It is also possible for a class to conform to multiple protocols, by separating them with comma.
 
-```objc
+```objectivec
 @interface NewClass : NSObject <NewProtocol, AnotherProtocol, MyProtocol>
 ...
 @end
@@ -108,14 +108,14 @@ Like when conforming to a single protocol, the class must implement each require
 
 It's possible to declare protocol name without methods:
 
-```objc
+```objectivec
 @protocol Person;
 
 ```
 
 use it your code (class definition, etc):
 
-```objc
+```objectivec
 @interface World : NSObject
 @property (strong, nonatomic) NSArray<id<some>> *employees;
 @end
@@ -124,7 +124,7 @@ use it your code (class definition, etc):
 
 and later define protocol's method somewhere in your code:
 
-```objc
+```objectivec
 @protocol Person
 - (NSString *)gender;
 - (NSString *)name;

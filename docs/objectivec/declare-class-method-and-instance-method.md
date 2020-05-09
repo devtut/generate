@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Declare class method and instance method"
+metaTitle: "Objective C - Declare class method and instance method"
 description: "How to declare class method and instance method."
 ---
 
@@ -17,7 +17,7 @@ Class methods can be called by class name itself .Class methods are declared and
 
 **instance methods use an instance of a class.**
 
-```objc
+```objectivec
 @interface MyTestClass : NSObject
 
 - (void)testInstanceMethod;
@@ -28,7 +28,7 @@ Class methods can be called by class name itself .Class methods are declared and
 
 **They could then be used like so:**
 
-```objc
+```objectivec
 MyTestClass *object = [[MyTestClass alloc] init];
 [object testInstanceMethod];
 
@@ -36,7 +36,7 @@ MyTestClass *object = [[MyTestClass alloc] init];
 
 Class method can be used with just the class name.
 
-```objc
+```objectivec
 @interface MyClass : NSObject
 
 + (void)aClassMethod;
@@ -47,7 +47,7 @@ Class method can be used with just the class name.
 
 **They could then be used like so:**
 
-```objc
+```objectivec
 [MyClass aClassMethod];
 
 ```

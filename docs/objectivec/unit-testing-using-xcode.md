@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Unit testing using Xcode"
+metaTitle: "Objective C - Unit testing using Xcode"
 description: "Testing a block of code or some method:, Testing asynchronous block of code: , Measuring Performance of a block of code:, Running Test Suits:, Note:"
 ---
 
@@ -14,7 +14,7 @@ description: "Testing a block of code or some method:, Testing asynchronous bloc
 - Perform the operation with dummy data.
 - Now compare the result of operation with expected result.
 
-```objc
+```objectivec
 - (void)testReverseString{
 NSString *originalString = @"hi_my_name_is_siddharth";
 NSString *reversedString = [self.someObject reverseString:originalString];
@@ -33,7 +33,7 @@ XCTAssertEqualObjects(expectedReversedString, reversedString, @"The reversed str
 ## Testing asynchronous block of code: 
 
 
-```objc
+```objectivec
 - (void)testDoSomethingThatTakesSomeTime{
 XCTestExpectation *completionExpectation = [self expectationWithDescription:@"Long method"];
 [self.someObject doSomethingThatTakesSomeTimesWithCompletionBlock:^(NSString *result) {
@@ -57,7 +57,7 @@ XCTestExpectation *completionExpectation = [self expectationWithDescription:@"Lo
 
 **1. For Synchronous methods :**
 
-```objc
+```objectivec
 - (void)testPerformanceReverseString {
     NSString *originalString = @"hi_my_name_is_siddharth";
     [self measureBlock:^{
@@ -69,7 +69,7 @@ XCTestExpectation *completionExpectation = [self expectationWithDescription:@"Lo
 
 **2. For Asynchronous methods :**
 
-```objc
+```objectivec
 - (void)testPerformanceOfAsynchronousBlock {
    [self measureMetrics:@[XCTPerformanceMetric_WallClockTime] automaticallyStartMeasuring:YES forBlock:^{
     

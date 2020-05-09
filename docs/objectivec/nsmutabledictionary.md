@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSMutableDictionary"
+metaTitle: "Objective C - NSMutableDictionary"
 description: "NSMutableDictionary Example, Removing Entries From a Mutable Dictionary"
 ---
 
@@ -14,7 +14,7 @@ description: "NSMutableDictionary Example, Removing Entries From a Mutable Dicti
 
 Creates and returns a mutable dictionary, initially giving it enough allocated memory to hold a given number of entries.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [NSMutableDictionary dictionaryWithCapacity:1];
 NSLog(@"%@",dict);
 
@@ -24,7 +24,7 @@ NSLog(@"%@",dict);
 
 Initializes a newly allocated mutable dictionary.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [[NSMutableDictionary alloc] init];        
 NSLog(@"%@",dict);
 
@@ -34,7 +34,7 @@ NSLog(@"%@",dict);
 
 Creates a mutable dictionary which is optimized for dealing with a known set of keys.
 
-```objc
+```objectivec
 id sharedKeySet = [NSDictionary sharedKeySetForKeys:@[@"key1", @"key2"]]; // returns NSSharedKeySet
 NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithSharedKeySet:sharedKeySet];
 dict[@"key1"] = @"Easy";
@@ -49,7 +49,7 @@ NSLog(@"%@",dict);
 OUTPUT
 
 
-```objc
+```objectivec
 {
     key1 = Eezy;
     key2 = Tutorials;
@@ -64,7 +64,7 @@ Adding Entries to a Mutable Dictionary
 
 Adds a given key-value pair to the dictionary.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [NSMutableDictionary dictionary];
 [dict setObject:@"Easy" forKey:@"Key1"];
 NSLog(@"%@",dict);
@@ -75,7 +75,7 @@ NSLog(@"%@",dict);
 OUTPUT
 
 
-```objc
+```objectivec
 {
     Key1 = Eezy;
 }
@@ -86,7 +86,7 @@ OUTPUT
 
 Adds a given key-value pair to the dictionary.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [NSMutableDictionary dictionary];
 [dict setObject:@"Easy" forKeyedSubscript:@"Key1"];
 NSLog(@"%@",dict);  
@@ -111,7 +111,7 @@ Key1 = Easy;
 
 Removes a given key and its associated value from the dictionary.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [NSMutableDictionary dictionaryWithDictionary:@{@"key1":@"Easy",@"key2": @"Tutorials"}];
 [dict removeObjectForKey:@"key1"];
 NSLog(@"%@",dict);
@@ -122,7 +122,7 @@ NSLog(@"%@",dict);
 OUTPUT
 
 
-```objc
+```objectivec
 {
     key2 = Tutorials;
 } 
@@ -133,7 +133,7 @@ OUTPUT
 
 Empties the dictionary of its entries.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [NSMutableDictionary dictionaryWithDictionary:@{@"key1":@"Eezy",@"key2": @"Tutorials"}];
 [dict removeAllObjects];
 NSLog(@"%@",dict);
@@ -144,7 +144,7 @@ NSLog(@"%@",dict);
 OUTPUT
 
 
-```objc
+```objectivec
 {
 }
 
@@ -154,7 +154,7 @@ OUTPUT
 
 Removes from the dictionary entries specified by elements in a given array.
 
-```objc
+```objectivec
 NSMutableDictionary *dict =  [NSMutableDictionary dictionaryWithDictionary:@{@"key1":@"Easy",@"key2": @"Tutorials"}];
 [dict removeObjectsForKeys:@[@"key1"]];
 NSLog(@"%@",dict);
@@ -165,7 +165,7 @@ NSLog(@"%@",dict);
 OUTPUT
 
 
-```objc
+```objectivec
 {
     key2 = Tutorials;
 }

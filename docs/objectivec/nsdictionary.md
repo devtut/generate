@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSDictionary"
+metaTitle: "Objective C - NSDictionary"
 description: "Creating using literals, Creating using dictionaryWithObjectsAndKeys:, Creating using plists, Setting a Value in NSDictionary, Getting a Value from NSDictionary, Check if NSDictionary already has a key or not"
 ---
 
@@ -10,7 +10,7 @@ description: "Creating using literals, Creating using dictionaryWithObjectsAndKe
 ## Creating using literals
 
 
-```objc
+```objectivec
 NSDictionary *inventory = @{
     @"Mercedes-Benz SLK250" : @(13),
     @"BMW M3 Coupe" : @(self.BMWM3CoupeInventory.count),
@@ -25,7 +25,7 @@ NSDictionary *inventory = @{
 ## Creating using dictionaryWithObjectsAndKeys:
 
 
-```objc
+```objectivec
 NSDictionary *inventory = [NSDictionary dictionaryWithObjectsAndKeys:
     [NSNumber numberWithInt:13], @"Mercedes-Benz SLK250",
     [NSNumber numberWithInt:22], @"Mercedes-Benz E350",
@@ -45,7 +45,7 @@ While this is not incorrect, the more modern way of instantiating dictionaries (
 ## Creating using plists
 
 
-```objc
+```objectivec
 NSString *pathToPlist = [[NSBundle mainBundle] pathForResource:@"plistName" 
     ofType:@"plist"];
 NSDictionary *plistDict = [[NSDictionary alloc] initWithContentsOfFile:pathToPlist];
@@ -61,7 +61,7 @@ There are multiple ways to set a key's object in an NSDictionary, corresponding 
 
 ### Standard
 
-```objc
+```objectivec
 [cars setObject:lamborghini forKey:@"Lamborghini"];
 
 ```
@@ -70,7 +70,7 @@ Just like any other object, call the method of NSDictionary that sets an object 
 
 ### Shorthand
 
-```objc
+```objectivec
 cars[@"Lamborghini"] = lamborghini;
 
 ```
@@ -86,7 +86,7 @@ There are multiple ways to get an object from an NSDictionary with a key. For in
 
 ### Standard
 
-```objc
+```objectivec
 Car * lamborghini = [cars objectForKey:@"Lamborghini"];
 
 ```
@@ -95,7 +95,7 @@ Just like any other object, call the method of NSDictionary that gives you an ob
 
 ### Shorthand
 
-```objc
+```objectivec
 Car * lamborghini = cars[@"Lamborghini"];
 
 ```

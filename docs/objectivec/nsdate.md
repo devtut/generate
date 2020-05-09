@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSDate"
+metaTitle: "Objective C - NSDate"
 description: "Creating an NSDate, Date Comparison, Convert NSDate that is composed from hour and minute (only) to a full NSDate, Converting NSDate to NSString"
 ---
 
@@ -16,21 +16,21 @@ The `NSDate` class provides methods for creating `NSDate` objects corresponding 
 Returns an `NSDate` object initialized relative to 00:00:00 UTC on 1 January 2001 by a given number of seconds.
 
 
-```objc
+```objectivec
 NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:100.0];
 
 ```
 
 `NSDate` also provides an easy way to create an `NSDate` equal to the current date and time:
 
-```objc
+```objectivec
 NSDate *now = [NSDate date];
 
 ```
 
 It is also possible to create an `NSDate` a given amount of seconds from the current date and time:
 
-```objc
+```objectivec
 NSDate *tenSecondsFromNow = [NSDate dateWithTimeIntervalSinceNow:10.0];
 
 ```
@@ -49,7 +49,7 @@ There are 4 methods for comparing `NSDate`s in Objective-C:
 
 Consider the following example using 2 dates, `NSDate date1 = July 7, 2016` and `NSDate date2 = July 2, 2016`:
 
-```objc
+```objectivec
 NSDateComponents *comps1 = [[NSDateComponents alloc]init];
 comps.year = 2016;
 comps.month = 7;
@@ -67,7 +67,7 @@ NSDate* date2 = [calendar dateFromComponents:comps2]; //Initialized as July 2, 2
 
 Now that the `NSDate`s are created, they can be compared:
 
-```objc
+```objectivec
 if ([date1 isEqualToDate:date2]) {
     //Here it returns false, as both dates are not equal
 }
@@ -76,7 +76,7 @@ if ([date1 isEqualToDate:date2]) {
 
 We can also use the `earlierDate:` and `laterDate:` methods of the `NSDate` class:
 
-```objc
+```objectivec
 NSDate *earlierDate = [date1 earlierDate:date2];//Returns the earlier of 2 dates. Here earlierDate will equal date2.
 NSDate *laterDate = [date1 laterDate:date2];//Returns the later of 2 dates. Here laterDate will equal date1.
 
@@ -84,7 +84,7 @@ NSDate *laterDate = [date1 laterDate:date2];//Returns the later of 2 dates. Here
 
 Lastly, we can use `NSDate`'s `compare:` method:
 
-```objc
+```objectivec
 NSComparisonResult result = [date1 compare:date2];
     if (result == NSOrderedAscending) {
         //Fails
@@ -111,7 +111,7 @@ The downside for this situation is that your NSDate is almost completely "naked"
 
 For the sake of the example let's say that hourAndMinute is the NSDate type that is composed from hour and minute format:
 
-```objc
+```objectivec
 NSDateComponents *hourAndMintuteComponents = [calendar components:NSCalendarUnitHour | NSCalendarUnitMinute
                                                          fromDate:hourAndMinute];
 NSDateComponents *componentsOfDate = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
@@ -160,7 +160,7 @@ If ww have NSDate object, and we want to convert it into NSString. There are dif
 <li>
 Now, get the formatted string
 
-```objc
+```objectivec
  NSDate *date = [NSDate date]; // your NSDate object
  NSString *dateString = [dateFormatter stringFromDate:date];
 

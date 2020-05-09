@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSUserDefaults"
+metaTitle: "Objective C - NSUserDefaults"
 description: "Simple example, Clear NSUserDefaults"
 ---
 
@@ -44,7 +44,7 @@ FOR RETRIEVING
 ## Clear NSUserDefaults
 
 
-```objc
+```objectivec
 NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
 [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 

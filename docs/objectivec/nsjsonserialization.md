@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSJSONSerialization"
+metaTitle: "Objective C - NSJSONSerialization"
 description: "JSON Parsing using NSJSONSerialization Objective c"
 ---
 
@@ -10,7 +10,7 @@ description: "JSON Parsing using NSJSONSerialization Objective c"
 ## JSON Parsing using NSJSONSerialization Objective c
 
 
-```objc
+```objectivec
 NSError *e = nil;
 NSString *jsonString = @"[{\"id\": \"1\", \"name\":\"sam\"}]";
 NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
@@ -29,7 +29,7 @@ if (!jsonArray) {
 
 **Output:**
 
-```objc
+```objectivec
 Item: {
     id = 1;
     name = sam;
@@ -39,7 +39,7 @@ Item: {
 
 **Example 2:Using contents of url:**
 
-```objc
+```objectivec
 //Parsing:
 
 NSData *data = [NSData dataWithContentsOfURL:@“URL HERE”];
@@ -51,7 +51,7 @@ NSLog(@“json :%@”,json);
 
 Sample response:
 
-```objc
+```objectivec
 json: {
     MESSAGE = “Test Message";
     RESPONSE =(

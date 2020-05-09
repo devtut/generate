@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Structs"
+metaTitle: "Objective C - Structs"
 description: "CGPoint, Defining a Structure and Accessing Structure Members"
 ---
 
@@ -12,7 +12,7 @@ description: "CGPoint, Defining a Structure and Accessing Structure Members"
 
 One really good example of a struct is `CGPoint`; it's a simple value that represents a 2-dimensional point. It has 2 properties, `x` and `y`, and can be written as
 
-```objc
+```objectivec
 typedef struct {
     CGFloat x;
     CGFloat y;
@@ -24,7 +24,7 @@ If you used Objective-C for Mac or iOS app development before, you've almost cer
 
 Points like `CGPoint` could easily be represented as objects, like
 
-```objc
+```objectivec
 @interface CGPoint {
     CGFloat x;
     CGFloat y;
@@ -56,7 +56,7 @@ However, if `CGPoint` was used in this way it would take a lot longer to create 
 
 The format of the struct statement is this:
 
-```objc
+```objectivec
 struct [structure tag]
 {
    member definition;

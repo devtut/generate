@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Inheritance"
+metaTitle: "Objective C - Inheritance"
 description: "Car is inherited from Vehicle"
 ---
 
@@ -12,7 +12,7 @@ description: "Car is inherited from Vehicle"
 
 Consider a base class **Vehicle** and its derived class **Car** as follows:
 
-```objc
+```objectivec
 #import <Foundation/Foundation.h>
  
 @interface Vehicle : NSObject

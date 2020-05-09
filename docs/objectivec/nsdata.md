@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSData"
+metaTitle: "Objective C - NSData"
 description: "Create, Get NSData lengh, Encoding and decoding a string using NSData Base64, NSData and Hexadecimal String"
 ---
 
@@ -12,7 +12,7 @@ description: "Create, Get NSData lengh, Encoding and decoding a string using NSD
 
 **From NSString:**
 
-```objc
+```objectivec
 NSString *str = @"Hello world";
 NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
 
@@ -20,7 +20,7 @@ NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
 
 **From Int:**
 
-```objc
+```objectivec
 int i = 1;
 NSData *data = [NSData dataWithBytes: &i length: sizeof(i)];
 
@@ -28,7 +28,7 @@ NSData *data = [NSData dataWithBytes: &i length: sizeof(i)];
 
 **You can also use the following methods:**
 
-```objc
+```objectivec
 + dataWithContentsOfURL:
 + dataWithContentsOfURL:options:error:
 + dataWithData:
@@ -52,7 +52,7 @@ NSData *data = [NSData dataWithBytes: &i length: sizeof(i)];
 ## Get NSData lengh
 
 
-```objc
+```objectivec
 NSString *filePath = [[NSFileManager defaultManager] pathForRessorce: @"data" ofType:@"txt"];
 NSData *data = [NSData dataWithContentsOfFile:filePath]; 
 int len = [data length]; 
@@ -80,7 +80,7 @@ Encoding
 
 Decoding:
 
-```objc
+```objectivec
 // NSData from the Base64 encoded str
 NSData *nsdataFromBase64String = [[NSData alloc]initWithBase64EncodedString:base64Encoded options:0];
 
@@ -97,7 +97,7 @@ NSLog(@"Decoded: %@", base64Decoded);
 
 **Get NSData from Hexadecimal String**
 
-```objc
+```objectivec
 + (NSData *)dataFromHexString:(NSString *)string
 {
     string = [string lowercaseString];
@@ -122,7 +122,7 @@ NSLog(@"Decoded: %@", base64Decoded);
 
 **Get Hexadecimal String from data:**
 
-```objc
+```objectivec
 + (NSString *)hexStringForData:(NSData *)data
 {
     if (data == nil) {

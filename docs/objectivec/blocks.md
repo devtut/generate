@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Blocks"
+metaTitle: "Objective C - Blocks"
 description: "Block Typedefs, Blocks as Properties, Blocks as Method Parameters, Blocks as local variables, Defining and Assigning"
 ---
 
@@ -10,7 +10,7 @@ description: "Block Typedefs, Blocks as Properties, Blocks as Method Parameters,
 ## Block Typedefs
 
 
-```objc
+```objectivec
 typedef double (^Operation)(double first, double second);
 
 ```
@@ -19,7 +19,7 @@ If you declare a block type as a typedef, you can then use the new type name ins
 
 The type can be used for the parameter of a method:
 
-```objc
+```objectivec
 - (double)doWithOperation:(Operation)operation 
                     first:(double)first 
                    second:(double)second;
@@ -28,7 +28,7 @@ The type can be used for the parameter of a method:
 
 or as a variable type:
 
-```objc
+```objectivec
 Operation addition = ^double(double first, double second){
     return first + second;
 };
@@ -42,7 +42,7 @@ Operation addition = ^double(double first, double second){
 
 Without the typedef, this is much messier:
 
-```objc
+```objectivec
 - (double)doWithOperation:(double (^)(double, double))operation
                     first:(double)first
                    second:(double)second;
@@ -56,7 +56,7 @@ double (^addition)(double, double) = // ...
 ## Blocks as Properties
 
 
-```objc
+```objectivec
 @interface MyObject : MySuperclass
 
 @property (copy) void (^blockProperty)(NSString *string);
@@ -67,7 +67,7 @@ double (^addition)(double, double) = // ...
 
 When assigning, since `self` retains `blockProperty`, block should not contain a strong reference to self.  Those mutual strong references are called a "retain cycle" and will prevent the release of either object.
 
-```objc
+```objectivec
 __weak __typeof(self) weakSelf = self;
 self.blockProperty = ^(NSString *string) {
     // refer only to weakSelf here.  self will cause a retain cycle
@@ -77,7 +77,7 @@ self.blockProperty = ^(NSString *string) {
 
 It is highly unlikely, but `self` might be deallocated inside the block, somewhere during the execution. In this case `weakSelf` becomes `nil` and all messages to it have no desired effect. This might leave the app in an unknown state. This can be avoided by retaining `weakSelf` with a `__strong` ivar during block execution and clean up afterward.
 
-```objc
+```objectivec
 __weak __typeof(self) weakSelf = self;
 self.blockProperty = ^(NSString *string) {
     __strong __typeof(weakSelf) strongSelf = weakSelf;
@@ -94,7 +94,7 @@ self.blockProperty = ^(NSString *string) {
 ## Blocks as Method Parameters
 
 
-```objc
+```objectivec
 - (void)methodWithBlock:(returnType (^)(paramType1, paramType2, ...))name;
 
 ```
@@ -104,7 +104,7 @@ self.blockProperty = ^(NSString *string) {
 ## Blocks as local variables
 
 
-```objc
+```objectivec
 returnType (^blockName)(parameterType1, parameterType2, ...) = ^returnType(argument1, argument2, ...) {...};    
 
 float (^square)(float) = ^(float x) {return x*x;};
@@ -116,7 +116,7 @@ square(-7); // resolves to 49
 
 Here's an example with no return and no parameters:
 
-```objc
+```objectivec
 NSMutableDictionary *localStatus;
 void (^logStatus)() = ^(void){ [MYUniversalLogger logCurrentStatus:localStatus]};
 
@@ -134,7 +134,7 @@ logStatus(); // this will call the block with the current localStatus
 
 A block that performs addition of two double precision numbers, assigned to variable `addition`:
 
-```objc
+```objectivec
 double (^addition)(double, double) = ^double(double first, double second){
     return first + second;
 };
@@ -143,7 +143,7 @@ double (^addition)(double, double) = ^double(double first, double second){
 
 The block can be subsequently called like so:
 
-```objc
+```objectivec
 double result = addition(1.0, 2.0); // result == 3.0
 
 ```

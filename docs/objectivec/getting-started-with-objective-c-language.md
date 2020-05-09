@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Getting started with Objective-C Language"
+metaTitle: "Objective C - Getting started with Objective-C Language"
 description: "Hello World"
 ---
 
@@ -12,7 +12,7 @@ description: "Hello World"
 
 This program will output "Hello World!"
 
-```objc
+```objectivec
 #import <Foundation/Foundation.h>
 
 int main(int argc, char * argv[]) {
@@ -35,21 +35,21 @@ Technically, NSLog() is part of Apple's Foundation Framework and is not actually
 
 Assuming we want to compile our Hello World program, which consist of a single `hello.m` file, the command to compile the executable is:
 
-```objc
+```objectivec
 clang -framework Foundation hello.m -o hello
 
 ```
 
 Then you can run it:
 
-```objc
+```objectivec
 ./hello
 
 ```
 
 This will output:
 
-```objc
+```objectivec
 Hello World!
 
 ```

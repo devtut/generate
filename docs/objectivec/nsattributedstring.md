@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSAttributedString"
+metaTitle: "Objective C - NSAttributedString"
 description: "Creating a string that has custom kerning (letter spacing) editshare,  Create a string with text struck through, Using Enumerating over Attributes in a String and underline part of string, How you create a tri-color attributed string."
 ---
 
@@ -16,7 +16,7 @@ A common application is to use this to display a string and adding custom kernin
 
 This would be achieved as follows (where label is a `UILabel`), giving a different kerning for the word "kerning"
 
-```objc
+```objectivec
 NSMutableAttributedString *attributedString;
 attributedString = [[NSMutableAttributedString alloc] initWithString:@"Apply kerning"];
 [attributedString addAttribute:NSKernAttributeName value:@5 range:NSMakeRange(6, 7)];
@@ -29,7 +29,7 @@ attributedString = [[NSMutableAttributedString alloc] initWithString:@"Apply ker
 ##  Create a string with text struck through
 
 
-```objc
+```objectivec
 NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:@"Your String here"];
 [attributeString addAttribute:NSStrikethroughStyleAttributeName
                     value:@2

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Random Integer"
+metaTitle: "Objective C - Random Integer"
 description: "Basic Random Integer, Random Integer within a Range"
 ---
 
@@ -17,7 +17,7 @@ arc4random_uniform(upper_bound) will return a uniformly distributed random numbe
 arc4random_uniform() is recommended over constructions like ''arc4random() % upper_bound'' as it avoids "modulo bias" when the upper bound is not a power of two.
 
 
-```objc
+```objectivec
 uint32_t randomInteger = arc4random_uniform(5); // A random integer between 0 and 4
 
 ```
@@ -29,7 +29,7 @@ uint32_t randomInteger = arc4random_uniform(5); // A random integer between 0 an
 
 The following code demonstrates usage of `arc4random_uniform()` to generate a random integer between 3 and 12:
 
-```objc
+```objectivec
 uint32_t randomIntegerWithinRange = arc4random_uniform(10) + 3; // A random integer between 3 and 12
 
 ```

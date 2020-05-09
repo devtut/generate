@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Basic Data Types"
+metaTitle: "Objective C - Basic Data Types"
 description: "BOOL, SEL, id, IMP (implementation pointer), NSInteger and NSUInteger"
 ---
 
@@ -15,7 +15,7 @@ The `BOOL` type is used for boolean values in Objective-C. It has two values, `Y
 
 Its behavior is straightforward and identical to the C language's.
 
-```objc
+```objectivec
 BOOL areEqual = (1 == 1);    // areEqual is YES
 BOOL areNotEqual = !areEqual    // areNotEqual is NO
 NSCAssert(areEqual, "Mathematics is a lie");    // Assertion passes
@@ -29,7 +29,7 @@ if (shouldFlatterReader) {
 
 A `BOOL` is a primitive, and so it cannot be stored directly in a Foundation collection. It must be wrapped in an `NSNumber`. Clang provides special syntax for this:
 
-```objc
+```objectivec
 NSNumber * yes = @YES;    // Equivalent to [NSNumber numberWithBool:YES]
 NSNumber * no = @NO;    // Equivalent to [NSNumber numberWithBool:NO]
 
@@ -46,7 +46,7 @@ Selectors are used as method identifiers in Objective-C.
 
 In the example below, there are two selectors. `new` and `setName:`
 
-```objc
+```objectivec
 Person* customer = [Person new];
 [customer setName:@"John Doe"];
 
@@ -58,14 +58,14 @@ Most of the time, message passing using the bracket syntax is sufficient, but oc
 
 If the selector is available at compile time, you can use `@selector()` to get a reference to it.
 
-```objc
+```objectivec
 SEL s = @selector(setName:);
 
 ```
 
 And if you need to find the selector at runtime, use NSSelectorFromString.
 
-```objc
+```objectivec
 SEL s NSSelectorFromString(@"setName:");
 
 ```
@@ -74,7 +74,7 @@ When using NSSelectorFromString, make sure to wrap the selector name in a NSStri
 
 It is commonly used to check if a delegate implements an optional method.
 
-```objc
+```objectivec
 if ([self.myDelegate respondsToSelector:@selector(doSomething)]) {
     [self.myDelegate doSomething];
 }
@@ -88,7 +88,7 @@ if ([self.myDelegate respondsToSelector:@selector(doSomething)]) {
 
 `id` is the generic object pointer, an Objective-C type representing "any object". An instance of any Objective-C class can be stored in an `id` variable. An `id` and any other class type can be assigned back and forth without casting:
 
-```objc
+```objectivec
 id anonymousSurname = @"Doe";
 NSString * surname = anonymousSurname;
 id anonymousFullName = [NSString stringWithFormat:@"%@, John", surname];
@@ -97,7 +97,7 @@ id anonymousFullName = [NSString stringWithFormat:@"%@, John", surname];
 
 This becomes relevant when retrieving objects from a collection. The return types of methods like `objectAtIndex:` are `id` for exactly this reason.
 
-```objc
+```objectivec
 DataRecord * record = [records objectAtIndex:anIndex];  
 
 ```
@@ -106,7 +106,7 @@ It also means that a method or function parameter typed as `id` can accept any o
 
 When an object is typed as `id`, any known message can be passed to it: method dispatch does not depend on the compile-time type.
 
-```objc
+```objectivec
 NSString * extinctBirdMaybe = 
                [anonymousSurname stringByAppendingString:anonymousSurname];
 
@@ -114,7 +114,7 @@ NSString * extinctBirdMaybe =
 
 A message that the object does not actually respond to will still cause an exception at runtime, of course.
 
-```objc
+```objectivec
 NSDate * nope = [anonymousSurname addTimeInterval:10];
 // Raises "Does not respond to selector" exception
 
@@ -122,7 +122,7 @@ NSDate * nope = [anonymousSurname addTimeInterval:10];
 
 Guarding against exception.
 
-```objc
+```objectivec
 NSDate * nope;
 if([anonymousSurname isKindOfClass:[NSDate class]]){
     nope = [anonymousSurname addTimeInterval:10];
@@ -132,7 +132,7 @@ if([anonymousSurname isKindOfClass:[NSDate class]]){
 
 The `id` type is defined in objc.h
 
-```objc
+```objectivec
 typedef struct objc_object {
     Class isa;
 } *id;
@@ -148,14 +148,14 @@ IMP is a C type referring to the implementation of a method, also known as an im
 
 Syntax:
 
-```objc
+```objectivec
 id (*IMP)(id, SEL, …)
 
 ```
 
 IMP is defined by:
 
-```objc
+```objectivec
 typedef id (*IMP)(id self,SEL _cmd,…);
 
 ```
@@ -164,14 +164,14 @@ To access this IMP, the message **“methodForSelector”** can be used.
 
 **Example 1:**
 
-```objc
+```objectivec
 IMP ImpDoSomething = [myObject methodForSelector:@selector(doSomething)];
 
 ```
 
 The method adressed by the IMP can be called by dereferencing the IMP.
 
-```objc
+```objectivec
 ImpDoSomething(myObject, @selector(doSomething));
 
 ```
@@ -190,7 +190,7 @@ myImpDoSomething(myObject, @selector(doSomething));
 
 **Example :2:**
 
-```objc
+```objectivec
 SEL otherWaySelector = NSSelectorFromString(@“methodWithFirst:andSecond:andThird:");
 
 IMP methodImplementation  = [self methodForSelector:otherWaySelector];
@@ -214,7 +214,7 @@ Here, we call [NSObject methodForSelector which returns us a pointer to the C fu
 
 The NSInteger is just a typedef for either an int or a long depending on the architecture. The same goes for a NSUInteger which is a typedef for the unsigned variants. If you check the NSInteger you will see the following:
 
-```objc
+```objectivec
 #if __LP64__ || (TARGET_OS_EMBEDDED && !TARGET_OS_IPHONE) || TARGET_OS_WIN32 || NS_BUILD_32_LIKE_64
 typedef long NSInteger;
 typedef unsigned long NSUInteger;
@@ -229,7 +229,7 @@ The difference between an signed and an unsigned int or long is that a signed in
 
 Most methods Apple provides are returning an NS(U)Integer over the normal int. You'll get a warning if you try to cast it to a normal int because you will lose precision if you are running on a 64-bit architecture. Not that it would matter in most cases, but it is easier to use NS(U)Integer. For example, the count method on a array will return an NSUInteger.
 
-```objc
+```objectivec
 NSNumber *iAmNumber = @0;
 
 NSInteger iAmSigned = [iAmNumber integerValue];
@@ -242,7 +242,7 @@ NSLog(@"%lu", iAmUnsigned); // The way to print a NSUInteger.
 
 Just like a BOOL, the NS(U)Integer is a primitive datatype, so you sometimes need to wrap it in a NSNumber you can use the @ before the integer to cast it like above and retrieve it using the methods below. But to cast it to NSNumber, you could also use the following methods:
 
-```objc
+```objectivec
 [NSNumber numberWithInteger:0];
 [NSNumber numberWithUnsignedInteger:0];
 

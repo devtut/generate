@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Classes  and Objects"
+metaTitle: "Objective C - Classes  and Objects"
 description: "Difference between allocation and initialization, Creating classes with initialization values, Singleton Class, The instancetype return type, Specifying Generics"
 ---
 
@@ -12,7 +12,7 @@ description: "Difference between allocation and initialization, Creating classes
 
 In most object oriented languages, allocating memory for an object and initializing it is an atomic operation:
 
-```objc
+```objectivec
 // Both allocates memory and calls the constructor
 MyClass object = new MyClass();
 
@@ -22,7 +22,7 @@ In Objective-C, these are separate operations. The class methods `alloc` (and it
 
 The object then is already "valid" but we always want to call a method to actually set up the object, which we call an **initializer**. These serve the same purpose as **constructors** in other languages. By convention, these methods start with `init`. From a language point of view, they are just normal methods.
 
-```objc
+```objectivec
 // Allocate memory and set all properties and variables to 0/NO/nil.
 MyClass *object = [MyClass alloc];
 // Initialize the object.
@@ -38,7 +38,7 @@ object = [[MyClass alloc] init];
 ## Creating classes with initialization values
 
 
-```objc
+```objectivec
 #import <Foundation/Foundation.h>
 @interface Car:NSObject {
     NSString *CarMotorCode;
@@ -87,7 +87,7 @@ First, create a New file and subclass it from `NSObject`. Name it anything, we w
 
 In your `CommonClass.h` file:
 
-```objc
+```objectivec
 #import <Foundation/Foundation.h>
 
 @interface CommonClass : NSObject {
@@ -100,7 +100,7 @@ In your `CommonClass.h` file:
 
 In your `CommonClass.m` File:
 
-```objc
+```objectivec
 #import "CommonClass.h"
 
 @implementation CommonClass
@@ -129,14 +129,14 @@ In your `CommonClass.m` File:
 
 The Singleton Class that we created earlier will be accessible from anywhere in the project as long as you have imported `CommonClass.h` file in the relevant module. To modify and access the shared data in Singleton Class, you will have to access the shared Object of that class which can be accessed by using `sharedObject` method like following:
 
-```objc
+```objectivec
 [CommonClass sharedObject]
 
 ```
 
 To read or modify the elements in Shared Class, do the following:
 
-```objc
+```objectivec
 NSString *commonString = [[CommonClass sharedObject].commonString; //Read the string in singleton class
 
 NSString *newString = @"New String";
@@ -153,7 +153,7 @@ Objective-C supports a special type called `instancetype that can only be used a
 
 Consider the following class hierarchy:
 
-```objc
+```objectivec
 @interface Foo : NSObject
 
 - (instancetype)initWithString:(NSString *)string;
@@ -181,7 +181,7 @@ Due to this issue, **initializers should always use `instancetype` instead of `i
 
 You can enhance your own classes with **generics** just like `NSArray` or `NSDictionary`.
 
-```objc
+```objectivec
 @interface MyClass<__covariant T>
 
 @property (nonnull, nonatomic, strong, readonly) NSArray<T>* allObjects;

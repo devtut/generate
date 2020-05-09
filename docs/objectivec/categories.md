@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Categories"
+metaTitle: "Objective C - Categories"
 description: "Conforming to protocol, Simple Category, Declaring a class method, Adding a property with a category, Create a Category on XCode"
 ---
 
@@ -12,7 +12,7 @@ description: "Conforming to protocol, Simple Category, Declaring a class method,
 
 You can add protocols to standard classes to extends their functionality:
 
-```objc
+```objectivec
 @protocol EncodableToString <NSObject>
 - (NSString *)toString;
 @end
@@ -39,7 +39,7 @@ Interface and implementation of a simple category on NSArray, named Filter, with
 
 It is good practice to add a prefix (`PF`) to the method to ensure we don't overwrite any future `NSArray` methods.
 
-```objc
+```objectivec
 @interface NSArray (PFFilter)
 
 - (NSArray *)pf_filterSmaller:(double)number;
@@ -72,7 +72,7 @@ It is good practice to add a prefix (`PF`) to the method to ensure we don't over
 
 Header file `UIColor+XYZPalette.h`:
 
-```objc
+```objectivec
 @interface UIColor (XYZPalette)
 
 +(UIColor *)xyz_indigoColor;
@@ -83,7 +83,7 @@ Header file `UIColor+XYZPalette.h`:
 
 and implementation `UIColor+XYZPalette.m`:
 
-```objc
+```objectivec
 @implementation UIColor (XYZPalette)
 
 +(UIColor *)xyz_indigoColor
@@ -104,7 +104,7 @@ Properties can be added with categories using associated objects, a feature of t
 
 Note that the property declaration of `retain, nonatomic` matches the last argument to `objc_setAssociatedObject`. See [Attach object to another existing object](http://stackoverflow.com/documentation/objective-c/1180/low-level-runtime-environment/3821/attach-object-to-another-existing-object-association#t=201607240747195415023) for explanations.
 
-```objc
+```objectivec
 #import <objc/runtime.h>
 
 @interface UIViewController (ScreenName)
@@ -147,7 +147,7 @@ Let's create a category that add functionality to `UIFont` class. Open your XCod
 
 Click "UIFont+CustomFonts.h" to view the new category's header file. Add the following code to the interface to declare the method.
 
-```objc
+```objectivec
 @interface UIFont (CustomFonts)
 
 +(UIFont *)productSansRegularFontWithSize:(CGFloat)size;
@@ -160,7 +160,7 @@ Click "UIFont+CustomFonts.h" to view the new category's header file. Add the fol
 
 Click "UIFont+CustomFonts.m" to view the category's implementation file. Add the following code to create a method that will set ProductSansRegular Font.
 
-```objc
+```objectivec
 +(UIFont *)productSansRegularFontWithSize:(CGFloat)size{
     
     return [UIFont fontWithName:@"ProductSans-Regular" size:size];
@@ -171,14 +171,14 @@ Click "UIFont+CustomFonts.m" to view the category's implementation file. Add the
 
 **Import your category**
 
-```objc
+```objectivec
 #import "UIFont+CustomFonts.h"
 
 ```
 
 Now set the Label font
 
-```objc
+```objectivec
 [self.label setFont:[UIFont productSansRegularFontWithSize:16.0]];
 
 ```

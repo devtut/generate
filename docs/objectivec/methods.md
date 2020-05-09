@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Methods"
+metaTitle: "Objective C - Methods"
 description: "Class methods, Method parameters, Create a basic method, Return values, Calling methods, Instance methods, Pass by value parameter passing, Pass by reference parameter passing"
 ---
 
@@ -12,7 +12,7 @@ description: "Class methods, Method parameters, Create a basic method, Return va
 
 A class method is called on the class the method belongs to, not an instance of it. This is possible because Objective-C classes are also objects. To denote a method as a class method, change the `-` to a `+`:
 
-```objc
+```objectivec
 + (void)hello {
   NSLog(@"Hello World");
 }
@@ -26,7 +26,7 @@ A class method is called on the class the method belongs to, not an instance of 
 
 If you want to pass in values to a method when it is called, you use parameters:
 
-```objc
+```objectivec
 - (int)addInt:(int)intOne toInt:(int)intTwo {
   return intOne + intTwo;
 }
@@ -46,7 +46,7 @@ The parameter name goes after the parameter type.
 
 This is how to create a basic method that logs 'Hello World" to the console:
 
-```objc
+```objectivec
 - (void)hello {
   NSLog(@"Hello World");
 }
@@ -68,7 +68,7 @@ Everything in the `{}` is the code run when the method is called.
 
 When you want to return a value from a method, you put the type you want to return in the first set of parentheses.
 
-```objc
+```objectivec
 - (NSString)returnHello {
   return @"Hello World";
 }
@@ -84,7 +84,7 @@ The value you want to return goes after the `return` keyword;
 
 Calling an instance method:
 
-```objc
+```objectivec
 [classInstance hello];
 
  @interface Sample
@@ -101,7 +101,7 @@ Calling an instance method:
 
 Calling an instance method on the current instance:
 
-```objc
+```objectivec
 [self hello];
 
 @implementation Sample
@@ -119,7 +119,7 @@ Calling an instance method on the current instance:
 
 Calling a method that takes arguments:
 
-```objc
+```objectivec
 [classInstance addInt:1 toInt:2];
 
  @implementation Sample
@@ -132,7 +132,7 @@ Calling a method that takes arguments:
 
 Calling a class method:
 
-```objc
+```objectivec
 [Class hello];
 
  @interface Sample
@@ -154,7 +154,7 @@ Calling a class method:
 
 An instance method is a method that's available on a particular instance of a class, after the instance has been instantiated:
 
-```objc
+```objectivec
 MyClass *instance = [MyClass new];
 [instance someInstanceMethod];
 
@@ -162,7 +162,7 @@ MyClass *instance = [MyClass new];
 
 Here's how you define one:
 
-```objc
+```objectivec
 @interface MyClass : NSObject
 
 - (void)someInstanceMethod; // "-" denotes an instance method
@@ -186,7 +186,7 @@ Here's how you define one:
 
 In pass by value of parameter passing to a method, actual parameter value is copied to formal parameter value. So actual parameter value will not change after returning from called function.
 
-```objc
+```objectivec
 @interface SwapClass : NSObject
 
 -(void) swap:(NSInteger)num1 andNum2:(NSInteger)num2;
@@ -207,7 +207,7 @@ In pass by value of parameter passing to a method, actual parameter value is cop
 
 Calling the methods:
 
-```objc
+```objectivec
 NSInteger a = 10, b =20;
 SwapClass *swap = [[SwapClass alloc]init];
 NSLog(@"Before calling swap: a=%d,b=%d",a,b);
@@ -218,7 +218,7 @@ NSLog(@"After calling swap: a=%d,b=%d",a,b);
 
 Output:
 
-```objc
+```objectivec
 2016-07-30 23:55:41.870 Test[5214:81162] Before calling swap: a=10,b=20
 2016-07-30 23:55:41.871 Test[5214:81162] After calling swap: a=10,b=20
 
@@ -231,7 +231,7 @@ Output:
 
 In pass by reference of parameter passing to a method, address of actual parameter is passed to formal parameter. So actual parameter value will be changed after returning from called function.
 
-```objc
+```objectivec
 @interface SwapClass : NSObject
 
 -(void) swap:(int)num1 andNum2:(int)num2;
@@ -252,7 +252,7 @@ In pass by reference of parameter passing to a method, address of actual paramet
 
 Calling the methods:
 
-```objc
+```objectivec
 int a = 10, b =20;
 SwapClass *swap = [[SwapClass alloc]init];
 NSLog(@"Before calling swap: a=%d,b=%d",a,b);
@@ -263,7 +263,7 @@ NSLog(@"After calling swap: a=%d,b=%d",a,b);
 
 Output:
 
-```objc
+```objectivec
 2016-07-31 00:01:47.067 Test[5260:83491] Before calling swap: a=10,b=20
 2016-07-31 00:01:47.070 Test[5260:83491] After calling swap: a=20,b=10
 

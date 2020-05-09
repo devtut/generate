@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Low-level Runtime Environment"
+metaTitle: "Objective C - Low-level Runtime Environment"
 description: "Augmenting methods using Method Swizzling, Attach object to another existing object (association), Calling methods directly"
 ---
 
@@ -18,7 +18,7 @@ In the following example, the `-[NSUserDefaults synchronize]` method is augmente
 
 **IMPORTANT:** Many people try to do swizzling using `method_exchangeImplementations`. However, this approach is dangerous if you need to call the method you're replacing, because you'll be calling it using a different selector than it is expecting to receive. As a result, your code can break in strange and unexpected ways—particularly if multiple parties swizzle an object in this way.  Instead, you should always do swizzling using `setImplementation` in conjunction with a C function, allowing you to call the method with the original selector.
 
-```objc
+```objectivec
 #import "NSUserDefaults+Timing.h"
 #import <objc/runtime.h> // Needed for method swizzling
 
@@ -59,7 +59,7 @@ static void new_synchronize(id self, SEL _cmd);
 
 If you need to swizzle a method that takes parameters, you just add them as additional parameters to the function.  For example:
 
-```objc
+```objectivec
 static IMP old_viewWillAppear_animated = NULL;
 static void new_viewWillAppear_animated(id self, SEL _cmd, BOOL animated);
 
@@ -91,7 +91,7 @@ It's possible to attach an object to an existing object as if there was a new pr
 
 The associated object is automatically released by the runtime once the target object is deallocated.
 
-```objc
+```objectivec
 #import <objc/runtime.h>
 
 // "Key" for association. Its value is never used and doesn't
@@ -117,7 +117,7 @@ id queryPayload = objc_getAssociatedObject(target, &key);
 
 If you need to call an Objective-C method from C code, you have two ways: using `objc_msgSend`, or obtaining the `IMP` (method implementation function pointer) and calling that.
 
-```objc
+```objectivec
 #import <objc/objc.h>
 
 @implementation Example
@@ -175,7 +175,7 @@ int main() {
 
 In order to use the Objective-C runtime, you need to import it.
 
-```objc
+```objectivec
 #import <objc/objc.h>
 
 ```

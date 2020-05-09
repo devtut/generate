@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSURL"
+metaTitle: "Objective C - NSURL"
 description: "Create, Compare NSURL, Modifying and Converting a File URL with removing and appending path"
 ---
 
@@ -12,7 +12,7 @@ description: "Create, Compare NSURL, Modifying and Converting a File URL with re
 
 **From NSString:**
 
-```objc
+```objectivec
 NSString *urlString = @"https://www.stackoverflow.com";
 NSURL *myUrl = [NSURL URLWithString: urlString]; 
 
@@ -20,7 +20,7 @@ NSURL *myUrl = [NSURL URLWithString: urlString];
 
 **You can also use the following methods:**
 
-```objc
+```objectivec
 - initWithString:
 + URLWithString:relativeToURL:
 - initWithString:relativeToURL:
@@ -44,7 +44,7 @@ NSURL *myUrl = [NSURL URLWithString: urlString];
 ## Compare NSURL
 
 
-```objc
+```objectivec
 NSString *urlString = @"https://www.stackoverflow.com";
 
 NSURL *myUrl = [NSURL URLWithString: urlString]; 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Protocols and Delegates"
+metaTitle: "Objective C - Protocols and Delegates"
 description: "Implementation of Protocols and Delegation mechanism."
 ---
 
@@ -19,7 +19,7 @@ Follow these steps to implement the delegation
 <li>
 In `ViewB` create protocol as
 
-```objc
+```objectivec
  @protocol ViewBDelegate 
 
 -(void) exampleDelegateMethod;
@@ -33,7 +33,7 @@ In `ViewB` create protocol as
 <li>
 Declare the delegate in the sender class
 
-```objc
+```objectivec
  @interface ViewB : UIView
  @property (nonatomic, weak) id< ViewBDelegate > delegate;
  @end
@@ -49,7 +49,7 @@ Adopt the protocol in Class ViewA
 <li>
 Set the delegate
 
-```objc
+```objectivec
 -(void) anyFunction   
 {
     // create Class ViewB's instance and set the delegate
@@ -63,7 +63,7 @@ Set the delegate
 <li>
 Implement the delegate method in class `ViewA`
 
-```objc
+```objectivec
 -(void) exampleDelegateMethod
 {
     // will be called by Class ViewB's instance
@@ -76,7 +76,7 @@ Implement the delegate method in class `ViewA`
 <li>
 Use the method in class `ViewB` to call the delegate method as
 
-```objc
+```objectivec
 -(void) callDelegateMethod
 {
     [delegate exampleDelegateMethod];

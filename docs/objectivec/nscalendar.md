@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSCalendar"
+metaTitle: "Objective C - NSCalendar"
 description: "System Locale Information, Initializing a Calendar, Calendrical Calculations"
 ---
 
@@ -21,7 +21,7 @@ description: "System Locale Information, Initializing a Calendar, Calendrical Ca
 
 `+autoupdatingCurrentCalendar` returns the current logical calendar for the current user.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 NSLog(@"%@",calender); 
 
@@ -34,7 +34,7 @@ NSLog(@"%@",calender);
 
 `- initWithCalendarIdentifier:` Initializes a newly-allocated NSCalendar object for the calendar specified by a given identifier.
 
-```objc
+```objectivec
 NSCalendar *calender = [[NSCalendar alloc]initWithCalendarIdentifier:@"gregorian"];
 NSLog(@"%@",calender);
 
@@ -42,7 +42,7 @@ NSLog(@"%@",calender);
 
 `- setFirstWeekday:` Sets the index of the first weekday for the receiver.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 [calender setFirstWeekday:1];
 NSLog(@"%d",[calender firstWeekday]);
@@ -51,7 +51,7 @@ NSLog(@"%d",[calender firstWeekday]);
 
 `- setLocale:` Sets the locale for the receiver.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 [calender setLocale:[NSLocale currentLocale]];
 NSLog(@"%@",[calender locale]);
@@ -60,7 +60,7 @@ NSLog(@"%@",[calender locale]);
 
 `- setMinimumDaysInFirstWeek:` Sets the minimum number of days in the first week of the receiver.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 [calender setMinimumDaysInFirstWeek:7];
 NSLog(@"%d",[calender minimumDaysInFirstWeek]);     
@@ -69,7 +69,7 @@ NSLog(@"%d",[calender minimumDaysInFirstWeek]);
 
 `- setTimeZone:` Sets the time zone for the receiver.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 [calender setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 NSLog(@"%@",[calender timeZone]);
@@ -83,7 +83,7 @@ NSLog(@"%@",[calender timeZone]);
 
 `- components:fromDate:` Returns a NSDateComponents object containing a given date decomposed into specified components
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 [calender setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 NSLog(@"%@",[calender components:NSCalendarUnitDay fromDate:[NSDate date]]);
@@ -104,7 +104,7 @@ NSLog(@"%@",[calender components:NSCalendarUnitYear fromDate:[NSDate dateWithTim
 
 `- dateByAddingComponents:toDate:options:` Returns a new NSDate object representing the absolute time calculated by adding given components to a given date.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 NSDateComponents *dateComponent = [[NSDateComponents alloc]init];
 [dateComponent setYear:10];
@@ -114,7 +114,7 @@ NSLog(@"%@",[calender dateByAddingComponents:dateComponent toDate:[NSDate       
 
 `- dateFromComponents:` Returns a new NSDate object representing the absolute time calculated from given components.
 
-```objc
+```objectivec
 NSCalendar *calender = [NSCalendar autoupdatingCurrentCalendar];
 NSDateComponents *dateComponent = [[NSDateComponents alloc]init];
 [dateComponent setYear:2020];

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSTimer"
+metaTitle: "Objective C - NSTimer"
 description: "Creating a Timer, Invalidating a timer, Manually firing a timer, Storing information in the Timer"
 ---
 
@@ -13,7 +13,7 @@ description: "Creating a Timer, Invalidating a timer, Manually firing a timer, S
 
 This will create a timer to call the `doSomething` method on `self` in `5.0` seconds.
 
-```objc
+```objectivec
 [NSTimer scheduledTimerWithTimeInterval:5.0
          target:self 
          selector:@selector(doSomething) 
@@ -29,7 +29,7 @@ Setting the `repeats` parameter to `false/NO` indicates that we want the timer t
 ## Invalidating a timer
 
 
-```objc
+```objectivec
 [timer invalidate];
 timer = nil;
 
@@ -43,7 +43,7 @@ You must send this message from the thread on which the timer was installed. If 
 
 Setting `nil` will help you next to check whether it's running or not.
 
-```objc
+```objectivec
 if(timer) {
     [timer invalidate];
     timer = nil;
@@ -58,7 +58,7 @@ if(timer) {
 ## Manually firing a timer
 
 
-```objc
+```objectivec
 [timer fire];
 
 ```
@@ -78,7 +78,7 @@ When creating a timer, you can set the `userInfo` parameter to include informati
 
 By taking a timer as a parameter in said function, you can access the `userInfo` property.
 
-```objc
+```objectivec
 NSDictionary *dictionary = @{
                              @"Message" : @"Hello, world!"
                             }; //this dictionary contains a message

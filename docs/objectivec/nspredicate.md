@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSPredicate"
+metaTitle: "Objective C - NSPredicate"
 description: "Filter By Name, Find movies except given ids, Find all the objects which is of type movie, Find Distinct object ids of array, Find movies with specific ids, Case Insensitive comparison with exact title match, Case sensitive with exact title match, Case Insensitive comparison with matching subset"
 ---
 
@@ -10,7 +10,7 @@ description: "Filter By Name, Find movies except given ids, Find all the objects
 ## Filter By Name
 
 
-```objc
+```objectivec
 NSArray *array = @[
                     @{
                         @"id": @"7CDF6D22-8D36-49C2-84FE-E31EECCECB71",
@@ -88,7 +88,7 @@ NSLog(@"Filter By Name(CIS) : %@",[array filteredArrayUsingPredicate:filterByNam
 ## Find movies except given ids
 
 
-```objc
+```objectivec
 // *** Find movies except given ids ***
 NSPredicate *filterByNotInIds = [NSPredicate predicateWithFormat:@"NOT (self.id IN %@)",@[@"7CDF6D22-8D36-49C2-84FE-E31EECCECB79", @"7CDF6D22-8D36-49C2-84FE-E31EECCECB76"]];
 NSLog(@"Filter movies except given Ids : %@",[array filteredArrayUsingPredicate:filterByNotInIds]);
@@ -100,7 +100,7 @@ NSLog(@"Filter movies except given Ids : %@",[array filteredArrayUsingPredicate:
 ## Find all the objects which is of type movie
 
 
-```objc
+```objectivec
 // *** Find all the objects which is of type movie, Both the syntax are valid ***
 NSPredicate *filterByMovieType = [NSPredicate predicateWithFormat:@"self.isMovie = %@",@1];
 // OR
@@ -114,7 +114,7 @@ NSLog(@"Filter By Movie Type : %@",[array filteredArrayUsingPredicate:filterByMo
 ## Find Distinct object ids of array
 
 
-```objc
+```objectivec
 // *** Find Distinct object ids of array ***
 NSLog(@"Distinct id : %@",[array valueForKeyPath:@"@distinctUnionOfObjects.id"]);
 
@@ -125,7 +125,7 @@ NSLog(@"Distinct id : %@",[array valueForKeyPath:@"@distinctUnionOfObjects.id"])
 ## Find movies with specific ids
 
 
-```objc
+```objectivec
 // *** Find movies with specific ids ***
 NSPredicate *filterByIds = [NSPredicate predicateWithFormat:@"self.id IN %@",@[@"7CDF6D22-8D36-49C2-84FE-E31EECCECB79", @"7CDF6D22-8D36-49C2-84FE-E31EECCECB76"]];
 NSLog(@"Filter By Ids : %@",[array filteredArrayUsingPredicate:filterByIds]);
@@ -137,7 +137,7 @@ NSLog(@"Filter By Ids : %@",[array filteredArrayUsingPredicate:filterByIds]);
 ## Case Insensitive comparison with exact title match
 
 
-```objc
+```objectivec
 // *** Case Insensitive comparison with exact title match ***
 NSPredicate *filterByNameCIS = [NSPredicate predicateWithFormat:@"self.title LIKE[cd] %@",@"Tom and Jerry"];
 NSLog(@"Filter By Name(CIS) : %@",[array filteredArrayUsingPredicate:filterByNameCIS]);
@@ -149,7 +149,7 @@ NSLog(@"Filter By Name(CIS) : %@",[array filteredArrayUsingPredicate:filterByNam
 ## Case sensitive with exact title match
 
 
-```objc
+```objectivec
 // *** Case sensitive with exact title match ***
 NSPredicate *filterByNameCS = [NSPredicate predicateWithFormat:@"self.title = %@",@"Tom and Jerry"];
 NSLog(@"Filter By Name(CS) : %@",[array filteredArrayUsingPredicate:filterByNameCS]);
@@ -161,7 +161,7 @@ NSLog(@"Filter By Name(CS) : %@",[array filteredArrayUsingPredicate:filterByName
 ## Case Insensitive comparison with matching subset
 
 
-```objc
+```objectivec
 // *** Case Insensitive comparison with matching subset ***
 NSPredicate *filterByName = [NSPredicate predicateWithFormat:@"self.title CONTAINS[cd] %@",@"Tom"];
 NSLog(@"Filter By Containing Name : %@",[array filteredArrayUsingPredicate:filterByName]);

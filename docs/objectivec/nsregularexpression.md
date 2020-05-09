@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSRegularExpression"
+metaTitle: "Objective C - NSRegularExpression"
 description: "Check whether a string matches a pattern, Find all the numbers in a string"
 ---
 
@@ -10,7 +10,7 @@ description: "Check whether a string matches a pattern, Find all the numbers in 
 ## Check whether a string matches a pattern
 
 
-```objc
+```objectivec
 NSString *testString1 = @"(555) 123-5678";
 NSString *testString2 = @"not a phone number";
 
@@ -33,7 +33,7 @@ The output will show that the first string is a phone number and the second one 
 ## Find all the numbers in a string
 
 
-```objc
+```objectivec
 NSString *testString = @"There are 42 sheep and 8672 cows.";
 NSError *error = nil;
 NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(\\d+)"

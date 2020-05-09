@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Memory Management"
+metaTitle: "Objective C - Memory Management"
 description: "Automatic Reference Counting, Strong and weak references, Manual Memory Management, Memory management rules when using manual reference counting."
 ---
 
@@ -14,7 +14,7 @@ With automatic reference counting (ARC), the compiler inserts `retain`, `release
 
 The sample program from Manual Memory Management looks like this with ARC:
 
-```objc
+```objectivec
 @interface MyObject : NSObject {
     NSString *_property;
 }
@@ -42,7 +42,7 @@ The sample program from Manual Memory Management looks like this with ARC:
 
 ```
 
-```objc
+```objectivec
 int main() {
     MyObject *obj = [[MyObject alloc] init];
     
@@ -56,7 +56,7 @@ int main() {
 
 You are still able to override the dealloc method to clean up resources not handled by ARC. Unlike when using manual memory management you do not call `[super dealloc]`.
 
-```objc
+```objectivec
 -(void)dealloc {
    //clean up
 }
@@ -70,7 +70,7 @@ You are still able to override the dealloc method to clean up resources not hand
 
 A weak reference looks like one of these:
 
-```objc
+```objectivec
 @property (weak) NSString *property;
 NSString *__weak variable;
 
@@ -83,7 +83,7 @@ If you have a weak reference to an object, then under the hood:
 
 Object references are always strong by default. But you can explicitly specify that they're strong:
 
-```objc
+```objectivec
 @property (strong) NSString *property;
 NSString *__strong variable;
 
@@ -98,7 +98,7 @@ A strong reference means that while that reference exists, you are retaining the
 
 This is an example of a program written with manual memory management. You really shouldn't write your code like this, unless for some reason you can't use ARC (like if you need to support 32-bit). The example avoids `@property` notation to illustrate how you used to have to write getters and setters.
 
-```objc
+```objectivec
 @interface MyObject : NSObject {
     NSString *_property;
 }
@@ -136,7 +136,7 @@ This is an example of a program written with manual memory management. You reall
 
 ```
 
-```objc
+```objectivec
 int main() {
     // create object
     // obj is a reference that we need to release
@@ -166,7 +166,7 @@ int main() {
 <p>By calling a method whose name begins with `alloc`, `new`, `copy` or `mutableCopy`.
 For example:</p>
 
-```objc
+```objectivec
 NSObject *object1 = [[NSObject alloc] init];
 NSObject *object2 = [NSObject new];
 NSObject *object3 = [object2 copy];
@@ -181,7 +181,7 @@ That means that you are responsible for releasing these objects when you are don
 To take ownership for an object you call the retain method.
 For example:
 
-```objc
+```objectivec
 NSObject *object = [NSObject new]; // object already has a retain count of 1
 [object retain]; // retain count is now 2
 
@@ -191,7 +191,7 @@ NSObject *object = [NSObject new]; // object already has a retain count of 1
 This makes only sense in some rare situations.
 For example when you implement an accessor or an init method to take ownership:
 
-```objc
+```objectivec
 - (void)setStringValue:(NSString *)stringValue {
     [_privateStringValue release]; // Release the old value, you no longer need it
     [stringValue retain]; // You make sure that this object does not get deallocated outside of your scope.
@@ -205,7 +205,7 @@ For example when you implement an accessor or an init method to take ownership:
 <li>
 **When you no longer need it, you must relinquish ownership of an object you own**
 
-```objc
+```objectivec
 NSObject* object = [NSObject new]; // The retain count is now 1
 [object performAction1]; // Now we are done with the object
 [object release]; // Release the object
@@ -223,7 +223,7 @@ That means when you didn't take ownership of an object you don't release it.
 The autoreleasepool is a block of code that releases every object in the block that received an autorelease message.
 Example:
 
-```objc
+```objectivec
 @autoreleasepool {
     NSString* string = [NSString stringWithString:@"We don't own this object"];
 }
@@ -234,7 +234,7 @@ Example:
 We have created a string without taking ownership. The `NSString` method `stringWithString:` has to make sure that the string is correctly deallocated after it is no longer needed. Before the method returns the newly created string calls the autorelease method so it does not have to take ownership of the string.
 This is how the `stringWithString:` is implemented:
 
-```objc
+```objectivec
 + (NSString *)stringWithString:(NSString *)string {
     NSString *createdString = [[NSString alloc] initWithString:string];
     [createdString autorelease];

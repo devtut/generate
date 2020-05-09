@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - BOOL / bool / Boolean / NSCFBoolean"
+metaTitle: "Objective C - BOOL / bool / Boolean / NSCFBoolean"
 description: "BOOL/Boolean/bool/NSCFBoolean, BOOL VS Boolean"
 ---
 
@@ -22,7 +22,7 @@ YES and NO to represent true and false</li>
 
 From the definition in objc.h:
 
-```objc
+```objectivec
 #if (TARGET_OS_IPHONE && __LP64__)  ||  TARGET_OS_WATCH
 typedef bool BOOL;
 #else

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Predefined Macros"
+metaTitle: "Objective C - Predefined Macros"
 description: "Predefined Macros"
 ---
 
@@ -11,7 +11,7 @@ description: "Predefined Macros"
 ## Predefined Macros
 
 
-```objc
+```objectivec
 #import <Foundation/Foundation.h>
 
 int main()
@@ -29,7 +29,7 @@ int main()
 
 **When the above code in a file main.m is compiled and executed, it produces the following result:**
 
-```objc
+```objectivec
 2013-09-14 04:46:14.859 demo[20683] File :main.m
 2013-09-14 04:46:14.859 demo[20683] Date :Sep 14 2013
 2013-09-14 04:46:14.859 demo[20683] Time :04:46:14

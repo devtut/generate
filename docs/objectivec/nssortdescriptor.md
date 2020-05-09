@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSSortDescriptor"
+metaTitle: "Objective C - NSSortDescriptor"
 description: "Sorted by combinations of NSSortDescriptor"
 ---
 
@@ -10,7 +10,7 @@ description: "Sorted by combinations of NSSortDescriptor"
 ## Sorted by combinations of NSSortDescriptor
 
 
-```objc
+```objectivec
 NSArray *aryFName = @[ @"Alice", @"Bob", @"Charlie", @"Quentin" ];
 NSArray *aryLName = @[ @"Smith", @"Jones", @"Smith", @"Alberts" ];
 NSArray *aryAge = @[ @24, @27, @33, @31 ];

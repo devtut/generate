@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - XML parsing"
+metaTitle: "Objective C - XML parsing"
 description: "XML Parsing"
 ---
 
@@ -17,7 +17,7 @@ We will parse the highlighted tag data through `NSXMLParser`
 
 We have declared few properties as follows
 
-```objc
+```objectivec
 @property(nonatomic, strong)NSMutableArray *results;
 @property(nonatomic, strong)NSMutableString *parsedString;
 @property(nonatomic, strong)NSXMLParser *xmlParser;
@@ -44,7 +44,7 @@ if([self.xmlParser parse]){
 
 Then we define the `NSXMLParserDelegate`
 
-```objc
+```objectivec
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict{
     
     if([elementName isEqualToString:@"GeocodeResponse"]){

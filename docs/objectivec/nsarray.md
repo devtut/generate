@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSArray"
+metaTitle: "Objective C - NSArray"
 description: "Creating NSArray instances, Sorting Arrays, Filter  NSArray and NSMutableArray"
 ---
 
@@ -10,7 +10,7 @@ description: "Creating NSArray instances, Sorting Arrays, Filter  NSArray and NS
 ## Creating NSArray instances
 
 
-```objc
+```objectivec
 NSArray *array1 = [NSArray arrayWithObjects:@"one", @"two", @"three", nil];
 NSArray *array2 = @[@"one", @"two", @"three"];
 
@@ -59,7 +59,7 @@ Example:
 ## Filter  NSArray and NSMutableArray
 
 
-```objc
+```objectivec
 NSMutableArray *array =
     [NSMutableArray arrayWithObjects:@"Ken", @"Tim", @"Chris", @"Steve",@"Charlie",@"Melissa", nil];
 

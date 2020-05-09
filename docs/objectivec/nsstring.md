@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSString"
+metaTitle: "Objective C - NSString"
 description: "Encoding and Decoding, String Length, Comparing Strings, Splitting, Creation, Searching for a Substring, Changing Case, Joining an Array of Strings, Removing Leading and Trailing Whitespace, Formatting, Working with C Strings, Reversing a  NSString Objective-C"
 ---
 
@@ -13,7 +13,7 @@ The **NSString** class is a part of Foundation framework to work with strings (s
 ## Encoding and Decoding
 
 
-```objc
+```objectivec
 // decode
 NSString *string = [[NSString alloc] initWithData:utf8Data
                                          encoding:NSUTF8StringEncoding];
@@ -31,7 +31,7 @@ Some supported encodings are:
 
 Note that `utf8Data.bytes` does not include a terminating null character, which is necessary for C strings. If you need a C string, use `UTF8String`:
 
-```objc
+```objectivec
 const char *cString = [string UTF8String];
 printf("%s", cString);
 
@@ -44,7 +44,7 @@ printf("%s", cString);
 
 NSString has a `length` property to get the number of characters.
 
-```objc
+```objectivec
 NSString *string = @"example";
 NSUInteger length = string.length;       // length equals 7
 
@@ -54,7 +54,7 @@ As in the [Splitting Example](http://stackoverflow.com/documentation/objective-c
 
 Here are some cases that might be surprising:
 
-```objc
+```objectivec
 @"é".length == 1   // LATIN SMALL LETTER E WITH ACUTE (U+00E9)
 @"é".length == 2   // LATIN SMALL LETTER E (U+0065) + COMBINING ACUTE ACCENT (U+0301)
 @"❤️".length == 2  // HEAVY BLACK HEART (U+2764) + VARIATION SELECTOR-16 (U+FE0F)
@@ -73,7 +73,7 @@ Strings are compared for equality using `isEqualToString:`
 
 The `==` operator just tests for object identity and does not compare the logical values of objects, so it can't be used:
 
-```objc
+```objectivec
 NSString *stringOne = @"example";
 NSString *stringTwo = [stringOne mutableCopy];
 
@@ -86,7 +86,7 @@ The expression `(stringOne == stringTwo)` tests to see if the memory addresses o
 
 If the string variables can be `nil` you have to take care about this case as well:
 
-```objc
+```objectivec
 BOOL equalValues = stringOne == stringTwo || [stringOne isEqualToString:stringTwo];
 
 ```
@@ -95,7 +95,7 @@ This condition returns `YES` when strings have equal values or both are `nil`.
 
 To order two strings alphabetically, use `compare`:.
 
-```objc
+```objectivec
 NSComparisonResult result = [firstString compare:secondString];
 
 ```
@@ -108,14 +108,14 @@ NSComparisonResult result = [firstString compare:secondString];
 
 To compare two strings equality, use `isEqualToString:`.
 
-```objc
+```objectivec
 BOOL result = [firstString isEqualToString:secondString];
 
 ```
 
 To compare with the empty string (`@""`), better use `length`.
 
-```objc
+```objectivec
 BOOL result = string.length == 0;
 
 ```
@@ -127,7 +127,7 @@ BOOL result = string.length == 0;
 
 You can split a string into an array of parts, divided by **a separator character**.
 
-```objc
+```objectivec
 NSString * yourString = @"Stack,Exchange,Network";
 NSArray * yourWords = [yourString componentsSeparatedByString:@","]; 
 // Output: @[@"Stack", @"Exchange", @"Network"]
@@ -136,7 +136,7 @@ NSArray * yourWords = [yourString componentsSeparatedByString:@","];
 
 If you need to split on a set of **several different delimiters**, use `-[NSString componentsSeparatedByCharactersInSet:]`.
 
-```objc
+```objectivec
 NSString * yourString = @"Stack Overflow+Documentation/Objective-C";
 NSArray * yourWords = [yourString componentsSeparatedByCharactersInSet:
                       [NSCharacterSet characterSetWithCharactersInString:@"+/"]];
@@ -147,7 +147,7 @@ NSArray * yourWords = [yourString componentsSeparatedByCharactersInSet:
 If you need to break a string into its **individual characters**, loop
 over the length of the string and convert each character into a new string.
 
-```objc
+```objectivec
 NSMutableArray * characters = [[NSMutableArray alloc] initWithCapacity:[yourString length]];
 for (int i = 0; i < [myString length]; i++) {
     [characters addObject: [NSString stringWithFormat:@"%C", 
@@ -160,7 +160,7 @@ As in the [Length Example](http://stackoverflow.com/documentation/objective-c/83
 
 In order to get a list of the user-perceived characters, use [`-enumerateSubstringsInRange:options:usingBlock:`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/#//apple_ref/occ/instm/NSString/enumerateSubstringsInRange:options:usingBlock:).
 
-```objc
+```objectivec
 NSMutableArray * characters = [NSMutableArray array];
 [yourString enumerateSubstringsInRange:(NSRange){0, [yourString length]}
                                options:NSStringEnumerationByComposedCharacterSequences
@@ -179,14 +179,14 @@ This preserves [grapheme clusters](https://developer.apple.com/library/mac/docum
 
 **Simple:**
 
-```objc
+```objectivec
 NSString *newString = @"My String";
 
 ```
 
 **From multiple strings:**
 
-```objc
+```objectivec
 NSString *stringOne = @"Hello";
 NSString *stringTwo = @"world";
 NSString *newString = [NSString stringWithFormat:@"My message: %@ %@",
@@ -196,7 +196,7 @@ NSString *newString = [NSString stringWithFormat:@"My message: %@ %@",
 
 ****Using Mutable String****
 
-```objc
+```objectivec
 NSString *stringOne = @"Hello";
 NSString *stringTwo = @"World";
 NSMutableString *mutableString = [NSMutableString new];
@@ -211,14 +211,14 @@ When initializing from `NSData`, an explicit encoding must be provided as `NSStr
 
 Avoid using `+[NSString stringWithUTF8String:]` since it expects an explicitly NULL-terminated C-string, which `-[NSData bytes]` does **not** provide.
 
-```objc
+```objectivec
 NSString *newString = [[NSString alloc] initWithData:myData encoding:NSUTF8StringEncoding];
 
 ```
 
 **From NSArray:**
 
-```objc
+```objectivec
 NSArray *myArray = [NSArray arrayWithObjects:@"Apple", @"Banana", @"Strawberry", @"Kiwi", nil];
 NSString *newString = [myArray componentsJoinedByString:@" "];
 
@@ -231,7 +231,7 @@ NSString *newString = [myArray componentsJoinedByString:@" "];
 
 To search if a String contains a substring, do the following:
 
-```objc
+```objectivec
 NSString *myString = @"This is for checking substrings";
 NSString *subString = @"checking"; 
 
@@ -241,7 +241,7 @@ BOOL doesContainSubstring = [myString containsString:subString];  // YES
 
 If targeting iOS 7 or OS X 10.9 (or earlier):
 
-```objc
+```objectivec
 BOOL doesContainSubstring = ([myString rangeOfString:subString].location != NSNotFound);  // YES
 
 ```
@@ -253,7 +253,7 @@ BOOL doesContainSubstring = ([myString rangeOfString:subString].location != NSNo
 
 To convert a String to uppercase, use `uppercaseString`:
 
-```objc
+```objectivec
 NSString *myString = @"Emphasize this";
 NSLog(@"%@", [myString uppercaseString]; // @"EMPHASIZE THIS"
 
@@ -261,7 +261,7 @@ NSLog(@"%@", [myString uppercaseString]; // @"EMPHASIZE THIS"
 
 To convert a String to lowercase, use `lowercaseString`:
 
-```objc
+```objectivec
 NSString *myString = @"NORMALIZE this";
 NSLog(@"%@", [myString lowercaseString]; // @"normalize this"
 
@@ -269,7 +269,7 @@ NSLog(@"%@", [myString lowercaseString]; // @"normalize this"
 
 To capitalize the first letter character of each word in a string, use `capitalizedString`:
 
-```objc
+```objectivec
 NSString *myString = @"firstname lastname";
 NSLog(@"%@", [myString capitalizedString]); // @"Firstname Lastname"
 
@@ -282,7 +282,7 @@ NSLog(@"%@", [myString capitalizedString]); // @"Firstname Lastname"
 
 To combine an `NSArray` of `NSString` into a new `NSString`:
 
-```objc
+```objectivec
 NSArray *yourWords = @[@"Objective-C", @"is", @"just", @"awesome"];
 NSString *sentence = [yourWords componentsJoinedByString:@" "];
 
@@ -295,7 +295,7 @@ NSString *sentence = [yourWords componentsJoinedByString:@" "];
 ## Removing Leading and Trailing Whitespace
 
 
-```objc
+```objectivec
 NSString *someString = @"   Objective-C Language  \n";
 NSString *trimmedString = [someString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 //Output will be - "Objective-C Language"
@@ -306,7 +306,7 @@ Method stringByTrimmingCharactersInSet returns a new string made by removing fro
 
 We can also just remove only whitespace or newline
 
-```objc
+```objectivec
 // Removing only WhiteSpace
 NSString *trimmedWhiteSpace = [someString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 //Output will be - "Objective-C Language  \n"
@@ -326,7 +326,7 @@ The `NSString` formatting supports all the format strings available on the `prin
 
 It is possible to format integers
 
-```objc
+```objectivec
 int myAge = 21;
 NSString *formattedAge = [NSString stringWithFormat:@"I am %d years old", my_age];
 
@@ -334,7 +334,7 @@ NSString *formattedAge = [NSString stringWithFormat:@"I am %d years old", my_age
 
 Or any object subclassed from NSObject
 
-```objc
+```objectivec
 NSDate *now = [NSDate date];
 NSString *formattedDate = [NSString stringWithFormat:@"The time right now is: %@", now];
 
@@ -349,7 +349,7 @@ For a complete list of Format Specifiers, please see: [Objective-C, Format Speci
 
 To convert `NSString` to `const char` use [`-[NSString UTF8String]`](http://developer.apple.com/mac/library/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html#//apple_ref/occ/instm/NSString/UTF8String):
 
-```objc
+```objectivec
 NSString *myNSString = @"Some string";
 const char *cString = [myNSString UTF8String];
 
@@ -359,7 +359,7 @@ You could also use [`-[NSString cStringUsingEncoding:]`](http://developer.apple.
 
 For the reverse path use [`-[NSString stringWithUTF8String:]`](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html#//apple_ref/occ/clm/NSString/stringWithUTF8String:):
 
-```objc
+```objectivec
 const *char cString = "Some string";
 NSString *myNSString = [NSString stringWithUTF8String:cString];
 myNSString = @(cString); // Equivalent to the above.
@@ -368,14 +368,14 @@ myNSString = @(cString); // Equivalent to the above.
 
 Once you have the `const char *`, you can work with it similarly to an array of `chars`:
 
-```objc
+```objectivec
 printf("%c\n", cString[5]);
 
 ```
 
 If you want to modify the string, make a copy:
 
-```objc
+```objectivec
 char *cpy = calloc(strlen(cString)+1, 1);
 strncpy(cpy, cString, strlen(cString));
 // Do stuff with cpy
@@ -388,7 +388,7 @@ free(cpy);
 ## Reversing a  NSString Objective-C
 
 
-```objc
+```objectivec
 // myString is "hi"
 NSMutableString *reversedString = [NSMutableString string];
 NSInteger charIndex = [myString length];

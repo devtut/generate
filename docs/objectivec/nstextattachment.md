@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSTextAttachment"
+metaTitle: "Objective C - NSTextAttachment"
 description: "NSTextAttachment Example"
 ---
 
@@ -10,7 +10,7 @@ description: "NSTextAttachment Example"
 ## NSTextAttachment Example
 
 
-```objc
+```objectivec
 NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
 attachment.image = [UIImage imageNamed:@"imageName"];
 attachment.bounds = CGRectMake(0, 0, 35, 35);

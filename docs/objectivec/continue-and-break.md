@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Continue and Break!"
+metaTitle: "Objective C - Continue and Break!"
 description: "Continue and Break Statement"
 ---
 
@@ -15,7 +15,7 @@ The continue statement in Objective-C programming language works somewhat like t
 
 For the for loop, continue statement causes the conditional test and increment portions of the loop to execute. For the while and do...while loops, continue statement causes the program control pass to the conditional tests.
 
-```objc
+```objectivec
 #import <Foundation/Foundation.h>
  
 int main ()
@@ -44,7 +44,7 @@ int main ()
 
 **Output:**
 
-```objc
+```objectivec
 2013-09-07 22:20:35.647 demo[29998] value of a: 10
 2013-09-07 22:20:35.647 demo[29998] value of a: 11
 2013-09-07 22:20:35.647 demo[29998] value of a: 12

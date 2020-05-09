@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Fast Enumeration"
+metaTitle: "Objective C - Fast Enumeration"
 description: "Fast enumeration of an NSArray, Fast enumeration of an NSArray with index."
 ---
 
@@ -14,14 +14,14 @@ This example shows how to use fast enumeration in order to traverse through an N
 
 When you have an array, such as
 
-```objc
+```objectivec
 NSArray *collection = @[@"fast", @"enumeration", @"in objc"];
 
 ```
 
 You can use the `for ... in` syntax to go through each item of the array, automatically starting with the first at index `0` and stopping with the last item:
 
-```objc
+```objectivec
 for (NSString *item in collection) {
     NSLog(@"item: %@", item);
 }
@@ -30,7 +30,7 @@ for (NSString *item in collection) {
 
 In this example, the output generated would look like
 
-```objc
+```objectivec
 // item: fast
 // item: enumeration
 // item: in objc
@@ -46,14 +46,14 @@ This example shows how to use fast enumeration in order to traverse through an N
 
 Suppose you have an array,
 
-```objc
+```objectivec
 NSArray *weekDays = @[@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", @"Sunday"];
 
 ```
 
 Now you can traverse through the array like below,
 
-```objc
+```objectivec
 [weekDays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 
     //... Do your usual stuff here

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Error Handling"
+metaTitle: "Objective C - Error Handling"
 description: "Asserting, Error & Exception handling with try catch block"
 ---
 
@@ -10,7 +10,7 @@ description: "Asserting, Error & Exception handling with try catch block"
 ## Asserting
 
 
-```objc
+```objectivec
 @implemenetation Triangle
 
 ...

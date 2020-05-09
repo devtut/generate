@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Key Value Coding / Key Value Observing"
+metaTitle: "Objective C - Key Value Coding / Key Value Observing"
 description: "Most Common Real Life Key Value Coding Example, Key Value Observing, Querying KVC Data, Collection Operators"
 ---
 
@@ -20,7 +20,7 @@ It also means that any id object can invoke setValue method and its various vari
 
 **Example:**
 
-```objc
+```objectivec
 id obj = [[MyClass alloc] init];
 id value = [obj valueForKey:@"myNumber"];
 
@@ -35,7 +35,7 @@ myNumberAsInt = 53;
 Above example assumes that MyClass has an NSNumber Property called myNumber.
 If myNumber does not appear in MyClass interface definition, an NSUndefinedKeyException can be raised at possibly both lines 2 and 5 - popularly known as:
 
-```objc
+```objectivec
 this class is not key value coding-compliant for the key myNumber.
 
 ```
@@ -55,7 +55,7 @@ Setting up key value observing.
 
 In this case, we want to observe the `contentOffset` on an object that our observer owns
 
-```objc
+```objectivec
 //
 // Class to observe
 //
@@ -155,7 +155,7 @@ static void *XYZObserverContext = &XYZObserverContext;
 ## Querying KVC Data
 
 
-```objc
+```objectivec
 if ([[dataObject objectForKey:@"yourVariable"] isEqualToString:"Hello World"]) {
     return YES;
 } else {
@@ -173,7 +173,7 @@ You can query values stored using KVC quickly and easily, without needing to ret
 
 **Collection Operators** can be used in a KVC key path to perform an operation on a “collection-type” property (i.e. `NSArray`, `NSSet` and similar). For example, a common operation to perform is to count the objects in a collection. To achieve this, you use the `@count` **collection operator**:
 
-```objc
+```objectivec
 self.array = @[@5, @4, @3, @2, @1];
 NSNumber *count = [self.array valueForKeyPath:@"@count"];
 NSNumber *countAlt = [self valueForKeyPath:@"array.@count"];
@@ -198,7 +198,7 @@ While this is completely redundant here (we could have just accessed the `count`
 
 `@max` and `@min` will return the highest or lowest value, respectively, of a property of objects in the collection. For example, look at the following code:
 
-```objc
+```objectivec
 // “Point” class used in our collection
 @interface Point : NSObject
 
@@ -234,7 +234,7 @@ It is important to note that these comparisons are made by invoking the `compare
 
 `@sum` will, as you can probably guess, add up all the values of a property.
 
-```objc
+```objectivec
 @interface Expense : NSObject
 
 @property NSNumber *price;
@@ -258,14 +258,14 @@ NSNumber *totalExpenses = [self valueForKeyPath:@"expenses.@sum.price"];
 
 Here, we used `@sum` to find the total price of all the expenses in the array. If we instead wanted to find the average price we're paying for each expense, we can use `@avg`:
 
-```objc
+```objectivec
 NSNumber *averagePrice = [self valueForKeyPath:@"expenses.@avg.price"];
 
 ```
 
 Finally, there's the `@unionOf` family. There are five different operators in this family, but they all work mostly the same, with only small differences between each. First, there's `@unionOfObjects` which will return an array of the properties of objects in an array:
 
-```objc
+```objectivec
 // See "expenses" array above
 
 NSArray<NSNumber*> *allPrices = [self valueForKeyPath:
@@ -277,7 +277,7 @@ NSArray<NSNumber*> *allPrices = [self valueForKeyPath:
 
 `@distinctUnionOfObjects` functions the same as `@unionOfObjects`, but it removes duplicates:
 
-```objc
+```objectivec
 NSArray<NSNumber*> *differentPrices = [self valueForKeyPath:
     @"expenses.@distinctUnionOfObjects.price"];
 
@@ -287,7 +287,7 @@ NSArray<NSNumber*> *differentPrices = [self valueForKeyPath:
 
 And finally, the last 3 operators in the `@unionOf` family will go one step deeper and return an array of values found for a property contained inside dually-nested arrays:
 
-```objc
+```objectivec
 NSArray<NSArray<Expense*,Expense*>*> *arrayOfArrays =
     @[
         @[ [Expense expenseWithPrice:@19.99],
@@ -319,7 +319,7 @@ And that's it! Collection operators can be really powerful if used correctly, an
 
 One last note: you can also use the standard collection operators on arrays of `NSNumber`s (without additional property access). To do this, you access the `self` pseudo-property that just returns the object:
 
-```objc
+```objectivec
 NSArray<NSNumber*> *numbers = @[@0, @1, @5, @27, @1337, @2048];
 
 NSNumber *largest = [numbers valueForKeyPath:@"@max.self"];

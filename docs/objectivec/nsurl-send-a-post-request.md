@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - NSUrl send a post request"
+metaTitle: "Objective C - NSUrl send a post request"
 description: "Simple POST request, Simple Post Request With Timeout"
 ---
 
@@ -10,7 +10,7 @@ description: "Simple POST request, Simple Post Request With Timeout"
 ## Simple POST request
 
 
-```objc
+```objectivec
 // Create the request.
 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://google.com"]];
     
@@ -35,7 +35,7 @@ NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegat
 ## Simple Post Request With Timeout
 
 
-```objc
+```objectivec
 // Create the request.
 NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://google.com"]];
     

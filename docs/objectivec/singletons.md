@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Singletons"
+metaTitle: "Objective C - Singletons"
 description: "Using Grand Central Dispatch (GCD), Creating Singleton and also preventing it from having multiple instance using alloc/init, new., Creating Singleton class and also preventing it from having multiple instances using alloc/init."
 ---
 
@@ -15,7 +15,7 @@ Just make sure you read this thread ( [What is so bad about singletons?](http://
 
 GCD will guarantee that your singleton only gets instantiated once, even if called from multiple threads. Insert this into any class for a singleton instance called `shared`.
 
-```objc
+```objectivec
 + (instancetype)shared {
 
     // Variable that will point to the singleton instance. The `static`
@@ -41,7 +41,7 @@ GCD will guarantee that your singleton only gets instantiated once, even if call
 ## Creating Singleton and also preventing it from having multiple instance using alloc/init, new.
 
 
-```objc
+```objectivec
 //MySingletonClass.h
 @interface MYSingletonClass : NSObject
 
@@ -87,7 +87,7 @@ GCD will guarantee that your singleton only gets instantiated once, even if call
 
 We can create Singleton class in such a way that developers are forced to used the shared instance (singleton object) instead of creating their own instances.
 
-```objc
+```objectivec
 @implementation MySingletonClass
 
 + (instancetype)sharedInstance

@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Format-Specifiers"
+metaTitle: "Objective C - Format-Specifiers"
 description: "Integer Example - %i"
 ---
 
@@ -13,7 +13,7 @@ Format-Specifiers are used in Objective-c to implant object-values into a string
 ## Integer Example - %i
 
 
-```objc
+```objectivec
 int highScore = 57;
 NSString *scoreBoard = [NSString stringWithFormat:@"HighScore: %i", (int)highScore];
 
@@ -59,7 +59,7 @@ Due to the nature of format-specifiers, if you wish to include the percentage sy
 
 Example:
 
-```objc
+```objectivec
 int progress = 45;//percent
 NSString *progressString = [NSString stringWithFormat:@"Progress: %i%%", (int)progress];
 
@@ -71,7 +71,7 @@ No Format Specifier for BOOL-type exists.
 
 Common-use solutions include:
 
-```objc
+```objectivec
 BOOL myBool = YES;
 NSString *boolState = [NSString stringWithFormat:@"BOOL state: %@", myBool?@"true":@"false"];
 
@@ -81,7 +81,7 @@ NSLog(boolState);//logs "true"
 
 Which utilizes a ternary operator for casting a string-equivalent.
 
-```objc
+```objectivec
 BOOL myBool = YES;
 NSString *boolState = [NSString stringWithFormat:@"BOOL state: %i", myBool];
 

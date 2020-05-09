@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Multi-Threading"
+metaTitle: "Objective C - Multi-Threading"
 description: "Creating a simple thread, Create more complex thread, Thread-local storage"
 ---
 
@@ -12,7 +12,7 @@ description: "Creating a simple thread, Create more complex thread, Thread-local
 
 The most simple way to create a thread is by calling a selector "in the background". This means a new thread is created to execute the selector. The receiving object can be any object, not just `self`, but it needs to respond to the given selector.
 
-```objc
+```objectivec
 - (void)createThread {
     [self performSelectorInBackground:@selector(threadMainWithOptionalArgument:)
                            withObject:someObject];
@@ -38,7 +38,7 @@ class). Additionally, the `NSThread` instance can be saved in a property or vari
 
 The `NSThread` class supports a method called `cancel` that can be called from any thread, which then sets the `cancelled` property to `YES` in a thread-safe way. The thread implementation can query (and/or observe) the `cancelled` property and exit its `main` method. This can be used to gracefully shut down a worker thread.
 
-```objc
+```objectivec
 // Create a new NSThread subclass
 @interface MyThread : NSThread
 
@@ -75,7 +75,7 @@ thread.someProperty = 42;
 
 Every thread has access to a mutable dictionary that is local to the current thread. This allows to cache informations in an easy way without the need for locking, as each thread has its own dedicated mutable dictionary:
 
-```objc
+```objectivec
 NSMutableDictionary *localStorage = [NSThread currentThread].threadDictionary;
 localStorage[someKey] = someValue;
 

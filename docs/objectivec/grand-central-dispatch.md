@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Grand Central Dispatch"
+metaTitle: "Objective C - Grand Central Dispatch"
 description: "What is Grand central dispatch."
 ---
 

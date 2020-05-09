@@ -1,5 +1,5 @@
 ---
-metaTitle: "Objective-C - Enums"
+metaTitle: "Objective C - Enums"
 description: "typedef enum declaration in Objective-C, Defining an enum, Converting C++ std::vector<Enum> to an Objective-C Array"
 ---
 
@@ -32,7 +32,7 @@ typedef enum {
 
 Enums are defined by the following the syntax above.
 
-```objc
+```objectivec
 typedef NS_ENUM(NSUInteger, MyEnum) {
     MyEnumValueA,
     MyEnumValueB,
@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
 
 You also can set your own raw-values to the enumeration types.
 
-```objc
+```objectivec
 typedef NS_ENUM(NSUInteger, MyEnum) {
     MyEnumValueA = 0,
     MyEnumValueB = 5,
@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, MyEnum) {
 
 You can also specify on the first value and all the following will use it with increment:
 
-```objc
+```objectivec
 typedef NS_ENUM(NSUInteger, MyEnum) {
     MyEnumValueA = 0,
     MyEnumValueB,
@@ -74,7 +74,7 @@ Many C++ libraries use enums and return/receive data using vectors that contain 
 
 Here is the C enum & Objective-C equivalent object:
 
-```objc
+```objectivec
 typedef enum 
 {  
   Error0 = 0,
@@ -111,7 +111,7 @@ typedef enum
 
 And here is a possible use of it in Objective-C++ (the resulting NSArray can be used in Objective-C only files as no C++ is used).
 
-```objc
+```objectivec
 class ListenerImpl : public Listener
 {
 public:
