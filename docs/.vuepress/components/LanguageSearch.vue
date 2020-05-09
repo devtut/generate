@@ -62,6 +62,7 @@ export default {
         { id: 39, name: "PowerShell", topics: 74, url: "/powershell/" },
         { id: 40, name: "ReactJS", topics: 31, url: "/reactjs/" },
         { id: 41, name: "React Native", topics: 32, url: "/reactnative/" },
+        { id: 42, name: "Swift", topics: 60, url: "/swift/" },
       ]
     };
   },
