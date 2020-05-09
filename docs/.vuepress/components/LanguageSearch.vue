@@ -65,6 +65,7 @@ export default {
         { id: 42, name: "Swift", topics: 60, url: "/swift/" },
         { id: 43, name: "Visual Basic .NET", topics: 51, url: "/vbnet/" },
         { id: 44, name: "VBA", topics: 46, url: "/vba/" },
+        { id: 45, name: "Excel VBA", topics: 31, url: "/excelvba/" },
       ]
     };
   },

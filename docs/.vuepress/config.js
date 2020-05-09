@@ -3874,9 +3874,9 @@ module.exports = {
           ],
         },
       ],
-      "/Visual Basic .NET/": [
+      "/vbnet/": [
         {
-          title: "vbnet",
+          title: "Visual Basic .NET",
           collapsable: false,
           children: [
             ["", "Disclaimer"],
@@ -3934,9 +3934,9 @@ module.exports = {
           ],
         },
       ],
-      "/VBA/": [
+      "/vba/": [
         {
-          title: "vba",
+          title: "VBA",
           collapsable: false,
           children: [
             ["", "Disclaimer"],
@@ -3986,6 +3986,46 @@ module.exports = {
             "copying-returning-and-passing-arrays",
             "non-latin-characters",
             "api-calls",
+          ],
+        },
+      ],
+      "/excelvba/": [
+        {
+          title: "Excel VBA",
+          collapsable: false,
+          children: [
+            ["", "Disclaimer"],
+            "getting-started-with-excel-vba",
+            "debugging-and-troubleshooting",
+            "methods-for-finding-the-last-used-row-or-column-in-a-worksheet",
+            "user-defined-functions-udfs",
+            "vba-best-practices",
+            "loop-through-all-sheets-in-active-workbook",
+            "ranges-and-cells",
+            "common-mistakes",
+            "arrays",
+            "excel-vba-tips-and-tricks",
+            "powerpoint-integration-through-vba",
+            "workbooks",
+            "pivot-tables",
+            "binding",
+            "charts-and-charting",
+            "application-object",
+            "merged-cells-ranges",
+            "vba-security",
+            "how-to-record-a-macro",
+            "locating-duplicate-values-in-a-range",
+            "named-ranges",
+            "autofilter-uses-and-best-practices",
+            "creating-a-drop-down-menu-in-the-active-worksheet-with-a-combo-box",
+            "conditional-statements",
+            "working-with-excel-tables-in-vba",
+            "excel-vba-optimization",
+            "conditional-formatting-using-vba",
+            "file-system-object",
+            "sql-in-excel-vba-best-practices",
+            "use-worksheet-object-and-not-sheet-object",
+            "customdocumentproperties-in-practice",
           ],
         },
       ],
