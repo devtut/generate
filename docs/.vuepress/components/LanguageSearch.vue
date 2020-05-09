@@ -56,6 +56,7 @@ export default {
         { id: 33, name: "AngularJS", topics: 52, url: "/angularjs/" },
         { id: 34, name: "iOS", topics: 210, url: "/ios/" },
         { id: 34, name: "LaTex", topics: 17, url: "/latex/" },
+        { id: 35, name: "Linux", topics: 21, url: "/linux/" },
       ]
     };
   },
