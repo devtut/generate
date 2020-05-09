@@ -64,6 +64,7 @@ export default {
         { id: 41, name: "React Native", topics: 32, url: "/reactnative/" },
         { id: 42, name: "Swift", topics: 60, url: "/swift/" },
         { id: 43, name: "Visual Basic .NET", topics: 51, url: "/vbnet/" },
+        { id: 44, name: "VBA", topics: 46, url: "/vba/" },
       ]
     };
   },
