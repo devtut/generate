@@ -60,6 +60,7 @@ export default {
         { id: 36, name: "MATLAB", topics: 34, url: "/matlab/" },
         { id: 37, name: "Objective-C", topics: 34, url: "/objectivec/" },
         { id: 38, name: "PowerShell", topics: 74, url: "/powershell/" },
+        { id: 38, name: "ReactJS", topics: 31, url: "/reactjs/" },
       ]
     };
   },
