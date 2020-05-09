@@ -58,6 +58,7 @@ export default {
         { id: 34, name: "LaTex", topics: 17, url: "/latex/" },
         { id: 35, name: "Linux", topics: 21, url: "/linux/" },
         { id: 36, name: "MATLAB", topics: 34, url: "/matlab/" },
+        { id: 36, name: "Objective C", topics: 34, url: "/objectivec/" },
       ]
     };
   },
