@@ -54,6 +54,7 @@ export default {
         { id: 31, name: "Android", topics: 268, url: "/android/" },
         { id: 32, name: "Angular 2", topics: 70, url: "/angular2/" },
         { id: 33, name: "AngularJS", topics: 52, url: "/angularjs/" },
+        { id: 34, name: "iOS", topics: 210, url: "/ios/" },
       ]
     };
   },
