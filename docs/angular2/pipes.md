@@ -78,11 +78,12 @@ export class MyModule { }
 
 |Pipe|Usage|Example
 |---|---|---|---|---|---|---|---|---|---
-|[`DatePipe`](https://angular.io/docs/ts/latest/api/common/index/DatePipe-pipe.html)|`date`|`{{ dateObj | date }} // output is 'Jun 15, 2015'`
-|[`UpperCasePipe`](https://angular.io/docs/ts/latest/api/common/index/UpperCasePipe-pipe.html)|`uppercase`|`{{ value | uppercase }} // output is 'SOMETEXT'`
-|[`LowerCasePipe`](https://angular.io/docs/ts/latest/api/common/index/LowerCasePipe-pipe.html)|`lowercase`|`{{ value | lowercase }} // output is 'sometext'`
-|[`CurrencyPipe`](https://angular.io/docs/ts/latest/api/common/index/CurrencyPipe-pipe.html)|`currency`|`{{ 31.00 | currency:'USD':true }} // output is '$31'`
-|[`PercentPipe`](https://angular.io/docs/ts/latest/api/common/index/PercentPipe-pipe.html)|`percent`|`{{ 0.03 | percent }} //output is %3`
+|[`DatePipe`](https://angular.io/docs/ts/latest/api/common/index/DatePipe-pipe.html)|`date`|`{ { dateObj | date } } // output is 'Jun 15, 2015'`
+|[`UpperCasePipe`](https://angular.io/docs/ts/latest/api/common/index/UpperCasePipe-pipe.html)|`uppercase`|`{ { value | uppercase } } // output is 'SOMETEXT'`
+|[`LowerCasePipe`](https://angular.io/docs/ts/latest/api/common/index/LowerCasePipe-pipe.html)|`lowercase`|`{ { value | lowercase } } // output is 'sometext'`
+|[`CurrencyPipe`](https://angular.io/docs/ts/latest/api/common/index/CurrencyPipe-pipe.html)|`currency`|`{ { 31.00 | currency:'USD':true } } // output is '$31'`
+|[`PercentPipe`](https://angular.io/docs/ts/latest/api/common/index/PercentPipe-pipe.html)|`percent`|`{ { 0.03 | percent } } //output is %3`
+
 
 There are others. Look [here](https://angular.io/docs/ts/latest/api/#!?apiFilter=pipe) for their documentation.
 
