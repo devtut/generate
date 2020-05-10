@@ -13,7 +13,7 @@ description: "Strict null checks in action, Non-null assertions"
 
 By default, all types in TypeScript allow `null`:
 
-```js
+```ts
 function getId(x: Element) {
   return x.id;
 }
@@ -23,7 +23,7 @@ getId(null);  // TypeScript does not complain, but this is a runtime error.
 
 TypeScript 2.0 adds support for strict null checks. If you set `--strictNullChecks` when running `tsc` (or set this flag in your `tsconfig.json`), then types no longer permit `null`:
 
-```js
+```ts
 function getId(x: Element) {
   return x.id;
 }
@@ -33,7 +33,7 @@ getId(null);  // error: Argument of type 'null' is not assignable to parameter o
 
 You must permit `null` values explicitly:
 
-```js
+```ts
 function getId(x: Element|null) {
   return x.id;  // error TS2531: Object is possibly 'null'.
 }
@@ -43,7 +43,7 @@ getId(null);
 
 With a proper guard, the code type checks and runs correctly:
 
-```js
+```ts
 function getId(x: Element|null) {
   if (x) {
     return x.id;  // In this branch, x's type is Element
@@ -62,7 +62,7 @@ getId(null);
 
 The non-null assertion operator, `!`, allows you to assert that an expression isn't `null` or `undefined` when the TypeScript compiler can't infer that automatically:
 
-```js
+```ts
 type ListNode = { data: number; next?: ListNode; };
 
 function addNext(node: ListNode) {

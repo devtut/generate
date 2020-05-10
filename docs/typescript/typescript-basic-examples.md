@@ -12,7 +12,7 @@ description: "1 basic class inheritance example using extends and super keyword,
 
 A generic Car class has some car property and a description method
 
-```js
+```ts
 class Car{
     name:string;
     engineCapacity:string;
@@ -33,7 +33,7 @@ new Car("maruti ciaz","1500cc").describeCar();
 
 HondaCar extends the existing generic car class and adds new property.
 
-```js
+```ts
 class HondaCar extends Car{
     seatingCapacity:number;
 
@@ -58,7 +58,7 @@ new HondaCar("honda jazz","1200cc",4).describeHondaCar();
 
 here countInstance is a static class variable
 
-```js
+```ts
 class StaticTest{
     static countInstance : number= 0;
     constructor(){

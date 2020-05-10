@@ -16,7 +16,7 @@ In TypeScript, every parameter is assumed to be required by the function. You ca
 
 For example, the `lastName` parameter of this function is optional:
 
-```js
+```ts
 function buildName(firstName: string, lastName?: string) {
     // ...
 }
@@ -25,7 +25,7 @@ function buildName(firstName: string, lastName?: string) {
 
 Optional parameters must come after all non-optional parameters:
 
-```js
+```ts
 function buildName(firstName?: string, lastName: string) // Invalid
 
 ```
@@ -36,7 +36,7 @@ If the user passes `undefined` or doesn't specify an argument, the default value
 
 For example, "Smith" is the default value for the `lastName` parameter.
 
-```js
+```ts
 function buildName(firstName: string, lastName = "Smith") {
     // ...
 }
@@ -53,7 +53,7 @@ buildName('foo', undefined);  // firstName == 'foo', lastName == 'Smith'
 
 **Named functions**
 
-```js
+```ts
 function multiply(a, b) {
     return a * b;
 }
@@ -62,14 +62,14 @@ function multiply(a, b) {
 
 **Anonymous functions**
 
-```js
+```ts
 let multiply = function(a, b) { return a * b; };
 
 ```
 
 **Lambda / arrow functions**
 
-```js
+```ts
 let multiply = (a, b) => { return a * b; };
 
 ```
@@ -81,7 +81,7 @@ let multiply = (a, b) => { return a * b; };
 
 Suppose we want to receive a function as a parameter, we can do it like this:
 
-```js
+```ts
 function foo(otherFunc: Function): void {
     ...
 }
@@ -90,7 +90,7 @@ function foo(otherFunc: Function): void {
 
 If we want to receive a constructor as a parameter:
 
-```js
+```ts
 function foo(constructorFunc: { new() }) {
     new constructorFunc();
 }
@@ -103,7 +103,7 @@ function foo(constructorWithParamsFunc: { new(num: number) }) {
 
 Or to make it easier to read we can define an interface describing the constructor:
 
-```js
+```ts
 interface IConstructor {
     new();
 }
@@ -116,7 +116,7 @@ function foo(contructorFunc: IConstructor) {
 
 Or with parameters:
 
-```js
+```ts
 interface INumberConstructor {
     new(num: number);
 }
@@ -129,7 +129,7 @@ function foo(contructorFunc: INumberConstructor) {
 
 Even with generics:
 
-```js
+```ts
 interface ITConstructor<T, U> {
     new(item: T): U;
 }
@@ -142,7 +142,7 @@ function foo<T, U>(contructorFunc: ITConstructor<T, U>, item: T): U {
 
 If we want to receive a simple function and not a constructor it's almost the same:
 
-```js
+```ts
 function foo(func: { (): void }) {
     func();
 }
@@ -155,7 +155,7 @@ function foo(constructorWithParamsFunc: { (num: number): void }) {
 
 Or to make it easier to read we can define an interface describing the function:
 
-```js
+```ts
 interface IFunction {
     (): void;
 }
@@ -168,7 +168,7 @@ function foo(func: IFunction ) {
 
 Or with parameters:
 
-```js
+```ts
 interface INumberFunction {
     (num: number): string;
 }
@@ -181,7 +181,7 @@ function foo(func: INumberFunction ) {
 
 Even with generics:
 
-```js
+```ts
 interface ITFunc<T, U> {
     (item: T): U;
 }
@@ -199,7 +199,7 @@ function foo<T, U>(contructorFunc: ITFunc<T, U>, item: T): U {
 
 A TypeScript function can take in parameters of multiple, predefined types using union types.
 
-```js
+```ts
 function whatTime(hour:number|string, minute:number|string):string{
     return hour+':'+minute;
 }
@@ -213,7 +213,7 @@ whatTime('1','30')     //'1:30'
 
 Typescript treats these parameters as a single type that is a union of the other types, so your function must be able to handle parameters of any type that is in the union.
 
-```js
+```ts
 function addTen(start:number|string):number{
     if(typeof number === 'string'){
         return parseInt(number)+10;

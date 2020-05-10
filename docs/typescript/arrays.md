@@ -13,7 +13,7 @@ description: "Finding Object in Array"
 
 ### Using find()
 
-```js
+```ts
 const inventory = [
     {name: 'apples', quantity: 2},
     {name: 'bananas', quantity: 0},

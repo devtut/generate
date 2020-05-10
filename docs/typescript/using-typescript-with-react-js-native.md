@@ -12,7 +12,7 @@ description: "ReactJS component written in Typescript, Typescript & react & webp
 
 You can use ReactJS's components easily in TypeScript. Just rename the 'jsx' file extension to 'tsx':
 
-```js
+```ts
 //helloMessage.tsx:
 var HelloMessage = React.createClass({
   render: function() {
@@ -28,7 +28,7 @@ But in order to make full use of TypeScript's main feature (static type checking
 
 **1) convert React.createClass to an ES6 Class:**
 
-```js
+```ts
 //helloMessage.tsx:
 class HelloMessage extends React.Component {
   render() {
@@ -44,7 +44,7 @@ For more info on converting to ES6 look [here](http://www.newmediacampaigns.com/
 
 **2) Add Props and State interfaces:**
 
-```js
+```ts
 interface Props {
     name:string;
     optionalParam?:number;
@@ -87,7 +87,7 @@ Linking TypeScript allows ts-loader to use your global installation of TypeScrip
 
 installing `.d.ts` files with typescript 2.x
 
-```js
+```ts
 npm i @types/react --save-dev
 npm i @types/react-dom --save-dev
 
@@ -95,7 +95,7 @@ npm i @types/react-dom --save-dev
 
 installing `.d.ts` files with typescript 1.x
 
-```js
+```ts
 typings install --global --save dt~react
 typings install --global --save dt~react-dom
 
@@ -103,7 +103,7 @@ typings install --global --save dt~react-dom
 
 `tsconfig.json` configuration file
 
-```js
+```ts
 {
   "compilerOptions": {
     "sourceMap": true,
@@ -118,7 +118,7 @@ typings install --global --save dt~react-dom
 
 `webpack.config.js` configuration file
 
-```js
+```ts
 module.exports = {
     entry: "<path to entry point>",// for example ./src/helloMessage.tsx
     output: {

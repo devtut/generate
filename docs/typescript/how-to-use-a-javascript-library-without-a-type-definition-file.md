@@ -19,7 +19,7 @@ For more complicated projects, or in cases where you intend to gradually type a 
 
 Using JQuery (although it [does have typings available](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jquery)) as an example:
 
-```js
+```ts
 // place in jquery.d.ts
 declare let $: any;
 export default $;
@@ -28,7 +28,7 @@ export default $;
 
 And then in any file in your project, you can import this definition with:
 
-```js
+```ts
 // some other .ts file
 import $ from "jquery";
 
@@ -38,7 +38,7 @@ After this import, `$` will be typed as `any`.
 
 If the library has multiple top-level variables, export and import by name instead:
 
-```js
+```ts
 // place in jquery.d.ts
 declare module "jquery" {
    let $: any;
@@ -52,7 +52,7 @@ declare module "jquery" {
 
 You can then import and use both names:
 
-```js
+```ts
 // some other .ts file
 import {$, jQuery} from "jquery";
 
@@ -70,7 +70,7 @@ It is sometimes easiest to just declare a global of type `any`, especially in si
 
 If jQuery didn't have type declarations ([it does](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/jquery)), you could put
 
-```js
+```ts
 declare var $: any;
 
 ```
@@ -84,7 +84,7 @@ Now any use of $ will be typed `any`.
 
 If you just want to indicate the **intent** of an import (so you don't want to declare a global) but don't wish to bother with any explicit definitions, you can import an ambient module.
 
-```js
+```ts
 // in a declarations file (like declarations.d.ts)
 declare module "jquery";    // note that there are no defined exports
 
@@ -92,7 +92,7 @@ declare module "jquery";    // note that there are no defined exports
 
 You can then import from the ambient module.
 
-```js
+```ts
 // some other .ts file
 import {$, jQuery} from "jquery";
 

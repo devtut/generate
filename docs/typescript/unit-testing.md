@@ -15,21 +15,21 @@ description: "tape, jest (ts-jest), Alsatian, chai-immutable plugin"
 
 To install `tape` using `npm` run command
 
-```js
+```ts
 npm install --save-dev tape @types/tape
 
 ```
 
 To use `tape` with Typescript you need to install `ts-node` as global package, to do this run command
 
-```js
+```ts
 npm install -g ts-node
 
 ```
 
 Now you are ready to write your first test
 
-```js
+```ts
 //math.test.ts
 import * as test from "tape";
 
@@ -44,14 +44,14 @@ test("Math test", (t) => {
 
 To execute test run command
 
-```js
+```ts
 ts-node node_modules/tape/bin/tape math.test.ts
 
 ```
 
 In output you should see
 
-```js
+```ts
 TAP version 13
 # Math test
 ok 1 should be equal
@@ -72,7 +72,7 @@ Good job, you just ran your TypeScript test.
 You can run multiple test files at once using path wildcards.
 To execute all Typescript tests in `tests` directory run command
 
-```js
+```ts
 ts-node node_modules/tape/bin/tape tests/**/*.ts
 
 ```
@@ -86,21 +86,21 @@ ts-node node_modules/tape/bin/tape tests/**/*.ts
 
 To install jest using npm run command
 
-```js
+```ts
 npm install --save-dev jest @types/jest ts-jest typescript
 
 ```
 
 For ease of use install `jest` as global package
 
-```js
+```ts
 npm install -g jest
 
 ```
 
 To make `jest` work with TypeScript you need to add configuration to `package.json`
 
-```js
+```ts
 //package.json
 {
 ...
@@ -118,7 +118,7 @@ To make `jest` work with TypeScript you need to add configuration to `package.js
 Now `jest` is ready.
 Assume we have sample fizz buz to test
 
-```js
+```ts
 //fizzBuzz.ts
 export function fizzBuzz(n: number): string {
     let output = "";
@@ -140,7 +140,7 @@ export function fizzBuzz(n: number): string {
 
 Example test could look like
 
-```js
+```ts
 //FizzBuzz.test.ts
 /// <reference types="jest" />
 
@@ -154,7 +154,7 @@ test("FizzBuzz test", () =>{
 
 To execute test run
 
-```js
+```ts
 jest
 
 ```
@@ -180,7 +180,7 @@ Ran all test suites.
 
 To use code coverage with TypeScript you need to add another configuration line to `package.json`.
 
-```js
+```ts
 {
 ...
   "jest": {
@@ -193,7 +193,7 @@ To use code coverage with TypeScript you need to add another configuration line 
 
 To run tests with generation of coverage report run
 
-```js
+```ts
 jest --coverage
 
 ```
@@ -232,14 +232,14 @@ Ran all test suites.
 
 To use it, install it from `npm`:
 
-```js
+```ts
 npm install alsatian --save-dev
 
 ```
 
 Then set up a test file:
 
-```js
+```ts
 import { Expect, Test, TestCase } from "alsatian";
 import { SomeModule } from "../src/some-module";    
 
@@ -283,7 +283,7 @@ For a full documentation, see [alsatian's GitHub repo](https://github.com/alsati
 <li>
 Install from npm chai, chai-immutable, and ts-node
 
-```js
+```ts
 npm install --save-dev chai chai-immutable ts-node
 
 ```
@@ -294,7 +294,7 @@ npm install --save-dev chai chai-immutable ts-node
 <li>
 Install types for mocha and chai
 
-```js
+```ts
 npm install --save-dev @types/mocha @types/chai
 
 ```
@@ -304,7 +304,7 @@ npm install --save-dev @types/mocha @types/chai
 <li>
 Write simple test file:
 
-```js
+```ts
   import {List, Set} from 'immutable';
   import * as chai from 'chai';
   import * as chaiImmutable from 'chai-immutable';
@@ -327,7 +327,7 @@ Write simple test file:
 <li>
 Run it in the console:
 
-```js
+```ts
 mocha --compilers ts:ts-node/register,tsx:ts-node/register 'test/**/*.spec.@(ts|tsx)'
 
 ```

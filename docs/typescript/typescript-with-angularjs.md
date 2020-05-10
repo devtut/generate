@@ -15,7 +15,7 @@ description: "Directive, Simple example, Component"
 ## Simple example
 
 
-```js
+```ts
 export function myDirective($location: ng.ILocationService): ng.IDirective {
     return {
 
@@ -55,7 +55,7 @@ For an easier transition to Angular 2, it's recommended to use `Component`, avai
 
 **myModule.ts**
 
-```js
+```ts
 import { MyModuleComponent } from "./components/myModuleComponent";
 import { MyModuleService } from "./services/MyModuleService";
 
@@ -68,7 +68,7 @@ angular
 
 **components/myModuleComponent.ts**
 
-```js
+```ts
 import IComponentOptions = angular.IComponentOptions;
 import IControllerConstructor = angular.IControllerConstructor;
 import Injectable = angular.Injectable;
@@ -84,7 +84,7 @@ export class MyModuleComponent implements IComponentOptions {
 
 **templates/myModuleComponent.html**
 
-```js
+```ts
 <div class="my-module-component">
     {{$ctrl.someContent}}
 </div>
@@ -93,7 +93,7 @@ export class MyModuleComponent implements IComponentOptions {
 
 **controller/MyModuleController.ts**
 
-```js
+```ts
 import IController = angular.IController;
 import { MyModuleService } from "../services/MyModuleService";
 
@@ -114,7 +114,7 @@ export class MyModuleController implements IController {
 
 **services/MyModuleService.ts**
 
-```js
+```ts
 export class MyModuleService {
     public static readonly $inject: string[] = [];
 
@@ -130,7 +130,7 @@ export class MyModuleService {
 
 **somewhere.html**
 
-```js
+```ts
 <my-module-component></my-module-component>
 
 ```

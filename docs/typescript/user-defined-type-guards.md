@@ -15,7 +15,7 @@ You can declare functions that serve as type guards using any logic you'd like.
 
 They take the form:
 
-```js
+```ts
 function functionName(variableName: any): variableName is DesiredType {
     // body that returns boolean
 }
@@ -26,7 +26,7 @@ If the function returns true, TypeScript will narrow the type to `DesiredType` i
 
 For example ([try it](https://goo.gl/xV4pLK)):
 
-```js
+```ts
 function isString(test: any): test is string {
     return typeof test === "string";
 }
@@ -52,7 +52,7 @@ Type guard functions don't have to use `typeof` or `instanceof`, they can use mo
 
 For example, this code determines if you've got a jQuery object by checking for it's version string.
 
-```js
+```ts
 function isJQuery(foo): foo is JQuery {
     // test for jQuery's version string
     return foo.jquery !== undefined;
@@ -76,7 +76,7 @@ function example(foo) {
 
 This code ([try it](https://goo.gl/p7Ywos)):
 
-```js
+```ts
 class Pet { }
 class Dog extends Pet {
     bark() {
@@ -108,7 +108,7 @@ example(new Cat());
 
 prints
 
-```js
+```ts
 woof
 meom
 
@@ -127,7 +127,7 @@ Unlike `instanceof`, `typeof` will work with a variable of any type.  In the exa
 
 This code ([try it](https://goo.gl/a9zg07)):
 
-```js
+```ts
 function example(foo: any) {
     if (typeof foo === "number") {
         // foo is type number in this block
@@ -147,7 +147,7 @@ example("foo");
 
 prints
 
-```js
+```ts
 123
 not a number: foo
 

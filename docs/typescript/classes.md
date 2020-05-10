@@ -17,7 +17,7 @@ Also similar to those languages, TypeScript classes may implement interfaces or 
 ## Abstract Classes
 
 
-```js
+```ts
 abstract class Machine {
     constructor(public manufacturer: string) {
     }
@@ -66,7 +66,7 @@ For this reason, abstract classes can conceptually be considered a **combination
 ## Simple class
 
 
-```js
+```ts
 class Car {
     public position: number = 0;
     private speed: number = 42;
@@ -80,7 +80,7 @@ class Car {
 
 In this example, we declare a simple class `Car`. The class has three members: a private property `speed`, a public property `position` and a public method `move`. Note that each member is public by default. That's why `move()` is public, even if we didn't use the `public` keyword.
 
-```js
+```ts
 var car = new Car();        // create an instance of Car
 car.move();                 // call a method
 console.log(car.position);  // access a public property
@@ -92,7 +92,7 @@ console.log(car.position);  // access a public property
 ## Basic Inheritance
 
 
-```js
+```ts
 class Car {
     public position: number = 0;
     protected speed: number = 42;
@@ -124,7 +124,7 @@ In this example we use the `constructor` to declare a public property `position`
 
 One of the best things in TypeScript, is automatic assignment of constructor parameters to the relevant property.
 
-```js
+```ts
 class Car {
     public position: number;        
     protected speed: number;
@@ -143,7 +143,7 @@ class Car {
 
 All this code can be resumed in one single constructor:
 
-```js
+```ts
 class Car {
     constructor(public position: number, protected speed: number) {}
     
@@ -156,7 +156,7 @@ class Car {
 
 And both of them will be transpiled from TypeScript (design time and compile time) to JavaScript with same result, but writing significantly less code:
 
-```js
+```ts
 var Car = (function () {
     function Car(position, speed) {
         this.position = position;
@@ -172,7 +172,7 @@ var Car = (function () {
 
 Constructors of derived classes have to call the base class constructor with `super()`.
 
-```js
+```ts
 class SelfDrivingCar extends Car {
     constructor(startAutoPilot: boolean) {
         super(0, 42);
@@ -194,7 +194,7 @@ console.log(car.position);  // access the public property position
 
 In this example, we modify the "Simple class" example to allow access to the `speed` property. Typescript accessors allow us to add additional code in getters or setters.
 
-```js
+```ts
 class Car {
     public position: number = 0;
     private _speed: number = 42;
@@ -226,7 +226,7 @@ console.log(car.speed);  // 100
 
 Sometimes it's useful to be able to extend a class with new functions. For example let's suppose that a string should be converted to a camel case string. So we need to tell TypeScript, that `String` contains a function called `toCamelCase`, which returns a `string`.
 
-```js
+```ts
 interface String {
     toCamelCase(): string;
 }
@@ -235,7 +235,7 @@ interface String {
 
 Now we can patch this function into the `String` implementation.
 
-```js
+```ts
 String.prototype.toCamelCase = function() : string {
     return this.replace(/[^a-z ]/ig, '')
         .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match: any, index: number) => {
@@ -247,7 +247,7 @@ String.prototype.toCamelCase = function() : string {
 
 If this extension of `String` is loaded, it's usable like this:
 
-```js
+```ts
 "This is an example".toCamelCase();    // => "thisIsAnExample"
 
 ```
@@ -261,7 +261,7 @@ Given a class `SomeClass`, let's see how the TypeScript is transpiled into JavaS
 
 ### TypeScript source
 
-```js
+```ts
 class SomeClass {
 
     public static SomeStaticValue: string = "hello";
@@ -294,7 +294,7 @@ class SomeClass {
 
 When transpiled using TypeScript `v2.2.2`, the output is like so:
 
-```js
+```ts
 var SomeClass = (function () {
     function SomeClass() {
         this.someMemberValue = 15;

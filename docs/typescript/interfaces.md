@@ -17,7 +17,7 @@ The primary benefit of using interfaces, is that it allows one to use objects of
 
 Suppose we have an interface:
 
-```js
+```ts
 interface IPerson {
     name: string;
     age: number;
@@ -29,7 +29,7 @@ interface IPerson {
 
 And we want to create more specific interface that has the same properties of the person, we can do it using the `extends` keyword:
 
-```js
+```ts
 interface IManager extends IPerson {
     managerId: number;
 
@@ -47,7 +47,7 @@ In addition it is possible to extend multiple interfaces.
 
 Declare `public` variables and methods type in the interface to define how other typescript code can interact with it.
 
-```js
+```ts
 interface ISampleClassInterface {
   sampleVariable: string;
 
@@ -60,7 +60,7 @@ interface ISampleClassInterface {
 
 Here we create a class that implements the interface.
 
-```js
+```ts
 class SampleClass implements ISampleClassInterface {
   public sampleVariable: string;
   private answerToLifeTheUniverseAndEverything: number;
@@ -89,7 +89,7 @@ The example shows how to create an interface `ISampleClassInterface` and a class
 
 Let's suppose we have a reference to the `JQuery` type definition and we want to extend it to have additional functions from a plugin we included and which doesn't have an official type definition. We can easily extend it by declaring functions added by plugin in a separate interface declaration with the same `JQuery` name:
 
-```js
+```ts
 interface JQuery {
   pluginFunctionThatDoesNothing(): void;
 
@@ -110,7 +110,7 @@ Like classes, interfaces can receive polymorphic parameters (aka Generics) too.
 
 ### Declaring Generic Parameters on Interfaces
 
-```js
+```ts
 interface IStatus<U> {
     code: U;
 }
@@ -129,7 +129,7 @@ Here, you can see that our two interfaces take some generic parameters, **T** an
 
 We will create a simple class in order to implements the interface **IEvents**.
 
-```js
+```ts
 class State<T> implements IEvents<T> {
     
     list: T[];
@@ -154,7 +154,7 @@ Let's create some instances of our **State** class.
 
 In our example, the `State` class will handle a generic status by using `IStatus<T>`. In this way, the interface `IEvent<T>` will also handle a `IStatus<T>`.
 
-```js
+```ts
 const s = new State<IStatus<number>>();
 
 // The 'code' property is expected to be a number, so:
@@ -167,7 +167,7 @@ s.getAll().forEach(event => console.log(event.code));
 
 Here our `State` class is typed as `ISatus<number>`.
 
-```js
+```ts
 const s2 = new State<IStatus<Code>>();
 
 //We are able to emit code as the type Code
@@ -193,7 +193,7 @@ The primary reason to use interfaces to achieve polymorphism and provide develop
 
 Suppose we have an interface and three classes:
 
-```js
+```ts
 interface Connector{
     doConnect(): boolean;
 }
@@ -202,7 +202,7 @@ interface Connector{
 
 This is connector interface. Now we will implement that for Wifi communication.
 
-```js
+```ts
 export class WifiConnector implements Connector{
 
     public doConnect(): boolean{
@@ -221,7 +221,7 @@ Here we have developed our concrete class named `WifiConnector` that has its own
 
 Now we are creating our `System` that has a component `Connector`. This is called dependency injection.
 
-```js
+```ts
 export class System {
     constructor(private connector: Connector){ #inject Connector type
         connector.doConnect()
@@ -232,7 +232,7 @@ export class System {
 
 `constructor(private connector: Connector)` this line is very important here. `Connector` is an interface and must have `doConnect()`. As `Connector` is an interface this class `System` has much more flexibility. We can pass any Type which has implemented `Connector` interface. In future developer achieves more flexibility. For example, now developer want to add Bluetooth Connection module:
 
-```js
+```ts
 export class BluetoothConnector implements Connector{
 
     public doConnect(): boolean{
@@ -263,7 +263,7 @@ Let's say you're making a pet dating application.
 
 You have this simple function that checks if two pets are compatible with each other...
 
-```js
+```ts
 checkCompatible(petOne, petTwo) {
   if (petOne.species === petTwo.species &&
       Math.abs(petOne.age - petTwo.age) <= 5) {
@@ -277,7 +277,7 @@ This is completely functional code, but it would be far too easy for someone, es
 
 One way we can prevent this from happening is to specify the properties we want on the pet parameters:
 
-```js
+```ts
 checkCompatible(petOne: {species: string, age: number}, petTwo: {species: string, age: number}) {
     //...
 } 
@@ -288,7 +288,7 @@ In this case, Typescript will make sure everything passed to the function has 's
 
 First we define our interface:
 
-```js
+```ts
 interface Pet {
   species: string;
   age: number;
@@ -299,7 +299,7 @@ interface Pet {
 
 Now all we have to do is specify the type of our parameters as our new interface, like so...
 
-```js
+```ts
 checkCompatible(petOne: Pet, petTwo: Pet) {
   //...
 }
@@ -315,7 +315,7 @@ checkCompatible(petOne: Pet, petTwo: Pet) {
 
 TypeScript supports interfaces, but the compiler outputs JavaScript, which doesn't. Therefore, interfaces are effectively lost in the compile step. This is why type checking on interfaces relies on the **shape** of the object - meaning whether the object supports the fields and functions on the interface - and not on whether the interface is actually implemented or not.
 
-```js
+```ts
 interface IKickable {
   kick(distance: number): void;
 }
@@ -350,7 +350,7 @@ So even if `Ball` doesn't explicitly implement `IKickable`, a `Ball` instance ma
 
 Interfaces are good for specifying the shape of an object, eg for a person object you could specify
 
-```js
+```ts
 interface person {
     id?: number;
     name: string;
@@ -363,7 +363,7 @@ However what if you want to represent, say, the way a person is stored in an SQL
 
 This is an occasion where types come in useful. Instead of specifying in every function that accepts a row parameter `function processRow(row: [string, string, number])`, you can create a separate type alias for a row and then use that in every function:
 
-```js
+```ts
 type Row = [string, string, number];
 function processRow(row: Row)
 

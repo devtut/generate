@@ -24,7 +24,7 @@ All examples presume that your main file is **index.ts**.
 
 Add this script to your `package.json`:
 
-```js
+```ts
 "start:idea": "ts-node %NODE_DEBUG_OPTION% --ignore false index.ts",
 
 ```
@@ -44,21 +44,21 @@ Start the debugger using this configuration:
 
 Add ts-node to your TypeScript project:
 
-```js
+```ts
 npm i ts-node
 
 ```
 
 Add a script to your `package.json`:
 
-```js
+```ts
 "start:debug": "ts-node --inspect=5858 --debug-brk --ignore false index.ts"
 
 ```
 
 The `launch.json` needs to be configured to use the **node2** type and start npm running the `start:debug` script:
 
-```js
+```ts
 {
     "version": "0.2.0",
     "configurations": [
@@ -91,7 +91,7 @@ The `launch.json` needs to be configured to use the **node2** type and start npm
 
 In the `tsconfig.json` set
 
-```js
+```ts
 "sourceMap": true,
 
 ```
@@ -99,7 +99,7 @@ In the `tsconfig.json` set
 to generate mappings alongside with js-files from the TypeScript sources using the `tsc` command.<BR>
 The [launch.json](https://code.visualstudio.com/Docs/editor/debugging) file:
 
-```js
+```ts
 {
     "version": "0.2.0",
     "configurations": [

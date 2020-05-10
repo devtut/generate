@@ -14,14 +14,14 @@ The presence of a **tsconfig.json** file indicates that the current directory is
 
 Initializing a TypeScript project, or better put tsconfig.json file, can be done through the following command:
 
-```js
+```ts
 tsc --init
 
 ```
 
 As of TypeScript v2.3.0 and higher this will create the following tsconfig.json by default:
 
-```js
+```ts
 {
   "compilerOptions": {
     /* Basic Options */                       
@@ -82,7 +82,7 @@ Most, if not all, options are generated automatically with only the bare necessi
 
 Older versions of TypeScript, like for example v2.0.x and lower, would generate a tsconfig.json like this:
 
-```js
+```ts
 {
     "compilerOptions": {
         "module": "commonjs",
@@ -101,7 +101,7 @@ Older versions of TypeScript, like for example v2.0.x and lower, would generate 
 
 There are very good configurations to force typings and get more helpful errors which are not activated by default.
 
-```js
+```ts
 {
   "compilerOptions": {
 
@@ -140,7 +140,7 @@ Not enough? If you are a hard coder and want more, then you may be interested to
 
 Setting a top-level property `compileOnSave` signals to the IDE to generate all files for a given **tsconfig.json** upon saving.
 
-```js
+```ts
 {
     "compileOnSave": true,
     "compilerOptions": {
@@ -166,7 +166,7 @@ This feature is available since TypeScript 1.8.4 and onward, but needs to be dir
 
 A tsconfig.json file can contain both line and block comments, using the same rules as ECMAScript.
 
-```js
+```ts
 //Leading comment
 {
     "compilerOptions": {
@@ -193,7 +193,7 @@ This is usually just syntax sugar as the costant enums are inlined in compiled J
 
 For instance the following code
 
-```js
+```ts
 const enum Tristate {
     True,
     False,
@@ -206,14 +206,14 @@ var something = Tristate.True;
 
 compiles to
 
-```js
+```ts
 var something = 0;
 
 ```
 
 Although the perfomance benefit from inlining, you may prefer to keep enums even if costant (ie: you may wish readability on development code), to do this you have to set in **tsconfig.json** the `preserveConstEnums` clausole into the `compilerOptions` to `true`.
 
-```js
+```ts
 {
     "compilerOptions": {
         "preserveConstEnums" = true,
@@ -228,7 +228,7 @@ Although the perfomance benefit from inlining, you may prefer to keep enums even
 
 By this way the previous example would be compiled as any other enums, as shown in following snippet.
 
-```js
+```ts
 var Tristate;
 (function (Tristate) {
     Tristate[Tristate["True"] = 0] = "True";

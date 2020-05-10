@@ -17,7 +17,7 @@ It brings many of the advantages of type system (safety, readability, improved t
 
 TypeScript catches type errors early through static analysis:
 
-```js
+```ts
 function double(x: number): number {
   return 2 * x;
 }

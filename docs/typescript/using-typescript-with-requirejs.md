@@ -15,7 +15,7 @@ Using TypeScript with RequireJS requires configuration of tsconfig.json, and inc
 ## HTML example using requireJS CDN to include an already compiled TypeScript file.
 
 
-```js
+```ts
 <body onload="__init();">
     ...
     <script src="http://requirejs.org/docs/release/2.3.2/comments/require.js"></script>
@@ -33,7 +33,7 @@ Using TypeScript with RequireJS requires configuration of tsconfig.json, and inc
 ## tsconfig.json example to compile to view folder using requireJS import style.
 
 
-```js
+```ts
 {
   "module": "amd",    // Using AMD module code generator which works with requireJS
   "rootDir": "./src", // Change this to your source folder

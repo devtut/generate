@@ -12,7 +12,7 @@ description: "Example of Mixins"
 
 To create mixins, simply declare lightweight classes that can be used as "behaviours".
 
-```js
+```ts
 class Flies {
     fly() {
         alert('Is it a bird? Is it a plane?');
@@ -35,7 +35,7 @@ class Bulletproof {
 
 You can then apply these behaviours to a composition class:
 
-```js
+```ts
 class BeetleGuy implements Climbs, Bulletproof {
         climb: () => void;
         deflect: () => void;
@@ -46,7 +46,7 @@ applyMixins (BeetleGuy, [Climbs, Bulletproof]);
 
 The `applyMixins` function is needed to do the work of composition.
 
-```js
+```ts
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {

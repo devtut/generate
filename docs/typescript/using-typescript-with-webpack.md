@@ -14,7 +14,7 @@ install loaders `npm install --save-dev ts-loader source-map-loader`
 
 **tsconfig.json**
 
-```js
+```ts
 {
   "compilerOptions": {
     "sourceMap": true,
@@ -27,7 +27,7 @@ install loaders `npm install --save-dev ts-loader source-map-loader`
 
 ```
 
-```js
+```ts
 module.exports = {
     entry: "./src/index.ts",
     output: {

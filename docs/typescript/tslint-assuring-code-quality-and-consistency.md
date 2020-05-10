@@ -17,7 +17,7 @@ This tslint.json example contains a set of configuration to enforce more typings
 
 To enforce this rules, include tslint in your build process and check your code before compiling it with tsc.
 
-```js
+```ts
 {
   "rules": {
      // TypeScript Specific
@@ -57,7 +57,7 @@ This is a basic `tslint.json` setup which
 - requires curly braces for `if`/`else`/`for`/`do`/`while` statements
 - requires double quotes (`"`) to be used for strings
 
-```js
+```ts
 {
     "rules": {
         "no-any": true,
@@ -84,7 +84,7 @@ This is a basic `tslint.json` setup which
 
 So one can simply use:
 
-```js
+```ts
 {
   "extends": "tslint:recommended"
 }
@@ -95,7 +95,7 @@ to have a sensible starting configuration.
 
 One can then overwrite rules from that preset via `rules`, e.g. for node developers it made sense to set `no-console` to `false`:
 
-```js
+```ts
 {
   "extends": "tslint:recommended",
   "rules": {
@@ -112,21 +112,21 @@ One can then overwrite rules from that preset via `rules`, e.g. for node develop
 
 To install [tslint](https://github.com/palantir/tslint) run command
 
-```js
+```ts
 npm install -g tslint
 
 ```
 
 Tslint is configured via file `tslint.json`. To initialize default configuration run command
 
-```js
+```ts
 tslint --init
 
 ```
 
 To check file for possible errors in file run command
 
-```js
+```ts
 tslint filename.ts
 
 ```

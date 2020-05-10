@@ -12,7 +12,7 @@ description: "Generic Interfaces, Generic Class, Type parameters as constraints,
 
 ### Declaring a generic interface
 
-```js
+```ts
 interface IResult<T> {
     wasSuccessfull: boolean;
     error: T;
@@ -25,7 +25,7 @@ var error: string = result.error;
 
 ### Generic interface with multiple type parameters
 
-```js
+```ts
 interface IRunnable<T, U> {
     run(input: T): U;
 }
@@ -38,7 +38,7 @@ var result: number = runnable.run(input);
 
 ### Implementing a generic interface
 
-```js
+```ts
 interface IResult<T>{
     wasSuccessfull: boolean;
     error: T;
@@ -50,7 +50,7 @@ interface IResult<T>{
 
 Implement it with generic class:
 
-```js
+```ts
 class Result<T> implements IResult<T> {
     constructor(public result: boolean, public error: T) {
     }
@@ -64,7 +64,7 @@ class Result<T> implements IResult<T> {
 
 Implement it with non generic class:
 
-```js
+```ts
 class StringResult implements IResult<string> {
     constructor(public result: boolean, public error: string) {
     }
@@ -81,7 +81,7 @@ class StringResult implements IResult<string> {
 ## Generic Class
 
 
-```js
+```ts
 class Result<T> {
     constructor(public wasSuccessful: boolean, public error: T) {
     }
@@ -127,7 +127,7 @@ assign(x, { e: 0 });  // Error
 
 Simple constraint:
 
-```js
+```ts
 interface IRunnable {
     run(): void;
 }
@@ -140,7 +140,7 @@ interface IRunner<T extends IRunnable> {
 
 More complex constraint:
 
-```js
+```ts
 interface IRunnble<U> {
     run(): U;
 }
@@ -153,7 +153,7 @@ interface IRunner<T extends IRunnable<U>, U> {
 
 Even more complex:
 
-```js
+```ts
 interface IRunnble<V> {
     run(parameter: U): V;
 }
@@ -166,7 +166,7 @@ interface IRunner<T extends IRunnable<U, V>, U, V> {
 
 Inline type constraints:
 
-```js
+```ts
 interface IRunnable<T extends { run(): void }> {
     runSafe(runnable: T): void;
 }
@@ -180,7 +180,7 @@ interface IRunnable<T extends { run(): void }> {
 
 In interfaces:
 
-```js
+```ts
 interface IRunner {
     runSafe<T extends IRunnable>(runnable: T): void;
 }
@@ -189,7 +189,7 @@ interface IRunner {
 
 In classes:
 
-```js
+```ts
 class Runner implements IRunner {
 
     public runSafe<T extends IRunnable>(runnable: T): void {
@@ -205,7 +205,7 @@ class Runner implements IRunner {
 
 Simple functions:
 
-```js
+```ts
 function runSafe<T extends IRunnable>(runnable: T): void {
     try {
         runnable.run();
@@ -222,14 +222,14 @@ function runSafe<T extends IRunnable>(runnable: T): void {
 
 Create generic class instance:
 
-```js
+```ts
 var stringRunnable = new Runnable<string>();
 
 ```
 
 Run generic function:
 
-```js
+```ts
 function runSafe<T extends Runnable<U>, U>(runnable: T);
 
 // Specify the generic types:
@@ -256,7 +256,7 @@ runSafe(stringRunnable);
 The generic parameters are not available at runtime, they are just for the compile time.
 This means you can't do something like this:
 
-```js
+```ts
 class Executor<T, U> {
     public execute(executable: T): void {
         if (T instanceof Executable1) {    // Compilation error
@@ -271,7 +271,7 @@ class Executor<T, U> {
 
 However, class information is still preserved, so you can still test for the type of a variable as you have always been able to:
 
-```js
+```ts
 class Executor<T, U> {
     public execute(executable: T): void {
         if (executable instanceof Executable1) {

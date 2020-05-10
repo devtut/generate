@@ -12,7 +12,7 @@ description: "String Literal Types, Tuple, Boolean, Intersection Types, Number, 
 
 String literal types allow you to specify the exact value a string can have.
 
-```js
+```ts
 let myFavoritePet: "dog";
 myFavoritePet = "dog";
 
@@ -20,7 +20,7 @@ myFavoritePet = "dog";
 
 Any other string will give a error.
 
-```js
+```ts
 // Error: Type '"rock"' is not assignable to type '"dog"'.
 // myFavoritePet = "rock";
 
@@ -28,7 +28,7 @@ Any other string will give a error.
 
 Together with Type Aliases and Union Types you get a enum-like behavior.
 
-```js
+```ts
 type Species = "cat" | "dog" | "bird";
 
 function buyPet(pet: Species, name: string) : Pet { /*...*/ }
@@ -42,7 +42,7 @@ buyPet(myFavoritePet /* "dog" as defined above */, "Rocky");
 
 String Literal Types can be used to distinguish overloads.
 
-```js
+```ts
 function buyPet(pet: Species, name: string) : Pet;
 function buyPet(pet: "cat", name: string): Cat;
 function buyPet(pet: "dog", name: string): Dog;
@@ -56,7 +56,7 @@ let dog = buyPet(myFavoritePet /* "dog" as defined above */, "Rocky");
 
 They works well for User-Defined Type Guards.
 
-```js
+```ts
 interface Pet {
     species: Species;
     eat();
@@ -97,7 +97,7 @@ function playWithPet(pet: Pet){
 
 Full example code
 
-```js
+```ts
 let myFavoritePet: "dog";
 myFavoritePet = "dog";
 
@@ -246,7 +246,7 @@ playWithPet(dog);
 
 Array type with known and possibly different types:
 
-```js
+```ts
 let day: [number, string];
 day = [0, 'Monday'];      // valid
 day = ['zero', 'Monday']; // invalid: 'zero' is not numeric
@@ -265,7 +265,7 @@ day[3] = false;      // invalid: must be union type of 'number | string'
 
 A boolean represents the most basic datatype in TypeScript, with the purpose of assigning true/false values.
 
-```js
+```ts
 // set with initial value (either true or false)
 let isTrue: boolean = true;        
 
@@ -284,7 +284,7 @@ let nullableBool: boolean = null;
 
 A Intersection Type combines the member of two or more types.
 
-```js
+```ts
 interface Knife {
     cut();
 }
@@ -316,7 +316,7 @@ function use(tool: SwissArmyKnife){
 
 Like JavaScript, numbers are floating point values.
 
-```js
+```ts
 let pi: number = 3.14;           // base 10 decimal by default
 let hexadecimal: number = 0xFF;  // 255 in decimal
 
@@ -324,7 +324,7 @@ let hexadecimal: number = 0xFF;  // 255 in decimal
 
 ECMAScript 2015 allows binary and octal.
 
-```js
+```ts
 let binary: number = 0b10;   // 2 in decimal
 let octal: number = 0o755;   // 493 in decimal
 
@@ -337,7 +337,7 @@ let octal: number = 0o755;   // 493 in decimal
 
 Textual data type:
 
-```js
+```ts
 let singleQuotes: string = 'single';
 let doubleQuotes: string = "double";
 let templateString: string = `I am ${ singleQuotes }`; // I am single
@@ -351,7 +351,7 @@ let templateString: string = `I am ${ singleQuotes }`; // I am single
 
 An array of values:
 
-```js
+```ts
 let threePigs: number[] = [1, 2, 3];
 let genericStringArray: Array<string> = ['first', '2nd', '3rd'];
 
@@ -366,7 +366,7 @@ A type to name a set of numeric values:
 
 Number values default to 0:
 
-```js
+```ts
 enum Day { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
 let bestDay: Day = Day.Saturday;
 
@@ -374,14 +374,14 @@ let bestDay: Day = Day.Saturday;
 
 Set a default starting number:
 
-```js
+```ts
 enum TenPlus { Ten = 10, Eleven, Twelve }
 
 ```
 
 or assign values:
 
-```js
+```ts
 enum MyOddSet { Three = 3, Five = 5, Seven = 7, Nine = 9 } 
 
 ```
@@ -393,7 +393,7 @@ enum MyOddSet { Three = 3, Five = 5, Seven = 7, Nine = 9 }
 
 When unsure of a type, `any` is available:
 
-```js
+```ts
 let anything: any = 'I am a string';
 anything = 5; // but now I am the number 5
 
@@ -406,7 +406,7 @@ anything = 5; // but now I am the number 5
 
 If you have no type at all, commonly used for functions that do not return anything:
 
-```js
+```ts
 function log(): void {
     console.log('I return nothing');
 }
@@ -424,7 +424,7 @@ When you create a function in TypeScript you can specify the data type of the fu
 
 Example:
 
-```js
+```ts
 function sum(x: number, y: number): number {
     return x + y;
 }
@@ -435,7 +435,7 @@ Here the syntax `x: number, y: number` means that the function can accept two ar
 
 Usage:
 
-```js
+```ts
 sum(84 + 76) // will be return 160
 
 ```
@@ -444,7 +444,7 @@ Note:
 
 You can not do so
 
-```js
+```ts
 function sum(x: string, y: string): number {
     return x + y;
 }
@@ -453,7 +453,7 @@ function sum(x: string, y: string): number {
 
 or
 
-```js
+```ts
 function sum(x: number, y: number): string {
     return x + y;
 }
@@ -471,7 +471,7 @@ it will receive the following errors:
 
 Example:
 
-```js
+```ts
 function hello(name: string): string {
     return `Hello ${name}!`;
 }
@@ -482,7 +482,7 @@ Here the syntax `name: string` means that the function can accept one `name` arg
 
 Usage:
 
-```js
+```ts
 hello('StackOverflow Documentation') // will be return Hello StackOverflow Documentation!
 
 ```
@@ -494,7 +494,7 @@ hello('StackOverflow Documentation') // will be return Hello StackOverflow Docum
 
 A const Enum is the same as a normal Enum. Except that no Object is generated at compile time. Instead, the literal values are substituted where the const Enum is used.
 
-```js
+```ts
 // Typescript: A const Enum can be defined like a normal Enum (with start value, specifig values, etc.)
 const enum NinjaActivity {
     Espionage, 
@@ -526,7 +526,7 @@ console.log(NinjaActivity["Sabotage"]); // 1
 
 For comparison, a normal Enum
 
-```js
+```ts
 // Typescript: A normal Enum
 enum PirateActivity {
     Boarding,

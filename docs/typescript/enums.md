@@ -11,7 +11,7 @@ description: "How to get all enum values, Enums with explicit values, Extending 
 ## How to get all enum values
 
 
-```js
+```ts
 enum SomeEnum { A, B }
 
 let enumValues:Array<string>= [];
@@ -35,7 +35,7 @@ enumValues.forEach(v=> console.log(v))
 
 By default all `enum` values are resolved to numbers. Let's say if you have something like
 
-```js
+```ts
 enum MimeType {
   JPEG,
   PNG,
@@ -48,7 +48,7 @@ the real value behind e.g. `MimeType.PDF` will be `2`.
 
 But some of the time it is important to have the enum resolve to a different type. E.g. you receive the value from backend / frontend / another system which is definitely a string. This could be a pain, but luckily there is this method:
 
-```js
+```ts
 enum MimeType {
   JPEG = <any>'image/jpeg',
   PNG = <any>'image/png',
@@ -61,7 +61,7 @@ This resolves the `MimeType.PDF` to `application/pdf`.
 
 Since TypeScript 2.4 it's possible to declare [string enums](https://blogs.msdn.microsoft.com/typescript/2017/06/27/announcing-typescript-2-4/#string-enums):
 
-```js
+```ts
 enum MimeType {
   JPEG = 'image/jpeg',
   PNG = 'image/png',
@@ -72,7 +72,7 @@ enum MimeType {
 
 You can explicitly provide numeric values using the same method
 
-```js
+```ts
 enum MyType {
    Value = 3,
    ValueEx = 30,
@@ -83,7 +83,7 @@ enum MyType {
 
 Fancier types also work, since non-const enums are real objects at runtime, for example
 
-```js
+```ts
 enum FancyType {
    OneArr = <any>[1],
    TwoArr = <any>[2, 2],
@@ -94,7 +94,7 @@ enum FancyType {
 
 becomes
 
-```js
+```ts
 var FancyType;
 (function (FancyType) {
     FancyType[FancyType["OneArr"] = [1]] = "OneArr";
@@ -109,7 +109,7 @@ var FancyType;
 ## Extending enums without custom enum implementation
 
 
-```js
+```ts
 enum SourceEnum {
   value1 = <any>'value1',
   value2 = <any>'value2'
@@ -145,7 +145,7 @@ console.log(check(TestEnum.value3));
 
 Sometimes it is required to implement Enum on your own. E.g. there is no clear way to extend other enums. Custom implementation allows this:
 
-```js
+```ts
 class Enum {
   constructor(protected value: string) {}
 

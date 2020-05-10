@@ -17,14 +17,14 @@ How to install TypeScript and run the TypeScript compiler against a .ts file fro
 
 **To install Typescript Comiler**
 
-```js
+```ts
 npm install -g typescript
 
 ```
 
 **To check with the typescript version**
 
-```js
+```ts
 tsc -v
 
 ```

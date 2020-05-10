@@ -12,7 +12,7 @@ description: "Include definition file with library on npm"
 
 Add typings to your package.json
 
-```js
+```ts
 {
 ...
 "typings": "path/file.d.ts"

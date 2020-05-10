@@ -12,21 +12,21 @@ description: "Browserify, Webpack, Grunt, Gulp, MSBuild, NuGet, Install and conf
 
 ### Install
 
-```js
+```ts
 npm install tsify
 
 ```
 
 ### Using Command Line Interface
 
-```js
+```ts
 browserify main.ts -p [ tsify --noImplicitAny ] > bundle.js
 
 ```
 
 ### Using API
 
-```js
+```ts
 var browserify = require("browserify");
 var tsify = require("tsify");
 
@@ -47,7 +47,7 @@ More details: [smrq/tsify](https://github.com/smrq/tsify)
 
 ### Install
 
-```js
+```ts
 npm install ts-loader --save-dev
 
 ```
@@ -56,7 +56,7 @@ npm install ts-loader --save-dev
 
 ### webpack 2.x, 3.x
 
-```js
+```ts
 module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
@@ -97,7 +97,7 @@ Alternatives:
 
 ### Install
 
-```js
+```ts
 npm install grunt-ts
 
 ```
@@ -113,7 +113,7 @@ More details: [TypeStrong/grunt-ts](https://github.com/TypeStrong/grunt-ts)
 
 ### Install
 
-```js
+```ts
 npm install gulp-typescript
 
 ```
@@ -152,14 +152,14 @@ More details can be found at [Package Manager Dialog](http://docs.nuget.org/Cons
 
 Installation
 
-```js
+```ts
 npm install -D webpack typescript ts-loader
 
 ```
 
 webpack.config.js
 
-```js
+```ts
 module.exports = {
   entry: {
     app: ['./src/'],

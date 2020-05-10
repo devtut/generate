@@ -13,7 +13,7 @@ description: "Re-export, Hello world module, Exporting/Importing declarations"
 
 Typescript allow to re-export declarations.
 
-```js
+```ts
 //Operator.ts
 interface Operator {
     eval(a: number, b: number): number;
@@ -22,7 +22,7 @@ export default Operator;
 
 ```
 
-```js
+```ts
 //Add.ts
 import Operator from "./Operator";
 export class Add implements Operator {
@@ -33,7 +33,7 @@ export class Add implements Operator {
 
 ```
 
-```js
+```ts
 //Mul.ts
 import Operator from "./Operator";
 export class Mul implements Operator {
@@ -46,7 +46,7 @@ export class Mul implements Operator {
 
 You can bundle all operations in single library
 
-```js
+```ts
 //Operators.ts
 import {Add} from "./Add";
 import {Mul} from "./Mul";
@@ -57,7 +57,7 @@ export {Add, Mul};
 
 **Named declarations** can be re-exported using shorter syntax
 
-```js
+```ts
 //NamedOperators.ts
 export {Add} from "./Add";
 export {Mul} from "./Mul";
@@ -66,7 +66,7 @@ export {Mul} from "./Mul";
 
 **Default exports** can also be exported, but no short syntax is available. Remember, only one default export per module is possible.
 
-```js
+```ts
 //Calculator.ts
 export {Add} from "./Add";
 export {Mul} from "./Mul";
@@ -78,7 +78,7 @@ export default Operator;
 
 Possible is re-export of **bundled import**
 
-```js
+```ts
 //RepackedCalculator.ts
 export * from "./Operators";
 
@@ -86,7 +86,7 @@ export * from "./Operators";
 
 When re-exporting bundle, declarations may be overridden when declared explicitly.
 
-```js
+```ts
 //FixedCalculator.ts
 export * from "./Calculator"
 import Operator from "./Calculator";
@@ -100,7 +100,7 @@ export class Add implements Operator {
 
 Usage example
 
-```js
+```ts
 //run.ts
 import {Add, Mul} from "./FixedCalculator";
 

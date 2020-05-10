@@ -49,7 +49,7 @@ TypeScript is a typed superset of JavaScript that compiles directly to JavaScrip
 
 You can install TypeScript globally to have access to it from any directory.
 
-```js
+```ts
 npm install -g typescript
 
 ```
@@ -60,7 +60,7 @@ npm install -g typescript
 
 You can install TypeScript locally and save to package.json to restrict to a directory.
 
-```js
+```ts
 npm install typescript --save-dev
 
 ```
@@ -77,7 +77,7 @@ You can install from:
 
 The `tsc` compilation command comes with `typescript`, which can be used to compile code.
 
-```js
+```ts
 tsc my-code.ts
 
 ```
@@ -108,7 +108,7 @@ The type is written after a colon following the variable name, like this:
 `var num: number = 5;`
 The compiler will then check the types (where possible) during compilation and report type errors.
 
-```js
+```ts
 var num: number = 5;
 num = "this is a string";  // error: Type 'string' is not assignable to type 'number'.
 
@@ -143,7 +143,7 @@ The basic types are :
 
 You can perform explicit casting through angle brackets, for instance:
 
-```js
+```ts
 var derived: MyInterface;
 (<ImplementingClass>derived).someSpecificMethod();
 
@@ -154,7 +154,7 @@ Without the casting on the second line the compiler would thrown an exception as
 
 Another way of casting in Typescript is using the `as` keyword:
 
-```js
+```ts
 var derived: MyInterface;
 (derived as ImplementingClass).someSpecificMethod();
 
@@ -171,7 +171,7 @@ Classes can be defined and used in TypeScript code. To learn more about classes,
 ## Hello World
 
 
-```js
+```ts
 class Greeter {
     greeting: string;
 
@@ -199,7 +199,7 @@ For use TypeScript REPL in Node.js you can use [tsun package](https://www.npmjs.
 
 Install it globally with
 
-```js
+```ts
 npm install -g tsun
 
 ```
@@ -208,7 +208,7 @@ and run in your terminal or command prompt with `tsun` command
 
 Usage example:
 
-```js
+```ts
 $ tsun
 TSUN : TypeScript Upgraded Node
 type in TypeScript expression to evaluate
@@ -231,14 +231,14 @@ $ multiply(3, 4)
 
 Install ts-node globally using
 
-```js
+```ts
 npm install -g ts-node
 
 ```
 
 ts-node does not bundle typescript compiler, so you might need to install it.
 
-```js
+```ts
 npm install -g typescript
 
 ```
@@ -247,12 +247,12 @@ npm install -g typescript
 
 To execute a script named **main.ts**,  run
 
-```js
+```ts
 ts-node main.ts
 
 ```
 
-```js
+```ts
 $ ts-node main.ts
 Hello world
 
@@ -264,7 +264,7 @@ To run REPL run command `ts-node`
 
 Example usage
 
-```js
+```ts
 $ ts-node
 > const sum = (a, b): number => a + b;
 undefined

@@ -12,7 +12,7 @@ description: "Hello World in the browser with SystemJS"
 
 **Install systemjs and plugin-typescript**
 
-```js
+```ts
 npm install systemjs
 npm install plugin-typescript
 
@@ -24,7 +24,7 @@ For TypeScript 1.8 you have to use plugin-typescript 4.0.16
 
 **Create `hello.ts` file**
 
-```js
+```ts
 export function greeter(person: String) {
     return 'Hello, ' + person;
 }
@@ -33,7 +33,7 @@ export function greeter(person: String) {
 
 **Create `hello.html` file**
 
-```js
+```ts
 <!doctype html>
 <html>
 <head>
@@ -60,7 +60,7 @@ export function greeter(person: String) {
 
 **Create `config.js` - SystemJS configuration file**
 
-```js
+```ts
 System.config({
     packages: {
         "plugin-typescript": {
@@ -100,7 +100,7 @@ NOTE: if you don't want type checking, remove `loader: "plugin-typescript"` and 
 
 **Test it**
 
-```js
+```ts
 npm install live-server
 ./node_modules/.bin/live-server --open=hello.html
 
@@ -108,14 +108,14 @@ npm install live-server
 
 **Build it for production**
 
-```js
+```ts
 npm install systemjs-builder
 
 ```
 
 Create `build.js` file:
 
-```js
+```ts
 var Builder = require('systemjs-builder');
 var builder = new Builder();
 builder.loadConfig('./config.js').then(function() {
@@ -126,7 +126,7 @@ builder.loadConfig('./config.js').then(function() {
 
 build hello.js from hello.ts
 
-```js
+```ts
 node build.js
 
 ```
@@ -137,7 +137,7 @@ Just load hello.js with a script tag before first use
 
 `hello-production.html` file:
 
-```js
+```ts
 <!doctype html>
 <html>
 <head>

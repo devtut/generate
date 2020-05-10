@@ -12,7 +12,7 @@ description: "Generating metadata using a class decorator, Passing arguments to 
 
 This time we are going to declare a class decorator that will add some metadata to a class when we applied to it:
 
-```js
+```ts
 function addMetadata(target: any) {
     
     // Add some metadata
@@ -29,7 +29,7 @@ function addMetadata(target: any) {
 
 We can then apply the class decorator:
 
-```js
+```ts
 @addMetadata
 class Person {
     private _name: string;
@@ -51,7 +51,7 @@ console.log(getMetadataFromClass(Person));
 
 The decorator is applied when the class is declared not when we create instances of the class. This means that the metadata is shared across all the instances of a class:
 
-```js
+```ts
 function getMetadataFromInstance(target: any) {
     return target.constructor.__customMetadata;
 }
@@ -71,7 +71,7 @@ console.log(getMetadataFromInstance(person2));
 
 We can wrap a class decorator with another function to allow customization:
 
-```js
+```ts
 function addMetadata(metadata: any) {
     return function log(target: any) {
     
@@ -90,7 +90,7 @@ The `addMetadata` takes some arguments used as configuration and then returns an
 
 We can then invoke the decorator passing some configuration values:
 
-```js
+```ts
 @addMetadata({ guid: "417c6ec7-ec05-4954-a3c6-73a0d7f9f5bf" })
 class Person {
     private _name: string;
@@ -106,7 +106,7 @@ class Person {
 
 We can use the following function to access the generated metadata:
 
-```js
+```ts
 function getMetadataFromClass(target: any) {
     return target.__customMetadata;
 }
@@ -117,7 +117,7 @@ console.log(getMetadataFromInstance(Person));
 
 If everything went right the console should display:
 
-```js
+```ts
 { guid: "417c6ec7-ec05-4954-a3c6-73a0d7f9f5bf" } 
 
 ```
@@ -129,7 +129,7 @@ If everything went right the console should display:
 
 A class decorator is just a function that takes the class as its only argument and returns it after doing something with it:
 
-```js
+```ts
 function log<T>(target: T) {
     
     // Do something with target
@@ -144,7 +144,7 @@ function log<T>(target: T) {
 
 We can then apply the class decorator to a class:
 
-```js
+```ts
 @log
 class Person {
     private _name: string;
