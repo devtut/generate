@@ -70,7 +70,7 @@ module.exports = {
     },
     smoothScroll: true,
     editLinkText: "Edit this page on GitHub",
-    lastUpdated: "Last Updated",
+    lastUpdated: false,
     searchPlaceholder: "Ex. python dictionary",
     sidebar: {
       "/python/": [
