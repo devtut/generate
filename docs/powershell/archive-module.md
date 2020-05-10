@@ -61,8 +61,7 @@ Expand-Archive -Path C:\Archives\Documents.zip -DestinationPath C:\Documents
 
 
 - **Expand-Archive** / **Compress-Archive**
-<li>**-Path**
-<ul>
+<li>**-Path**</li>
 <li>the path of the file(s) to compress (Compress-Archive) or
 the path of the archive to extract the file(s) form (Expand-Archive)</li>
 - there are several other Path related options, please see below.

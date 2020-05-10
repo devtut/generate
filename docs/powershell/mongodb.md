@@ -47,9 +47,8 @@ Which require the output look like this.
 ## I have 3 sets of array in Powershell
 
 
-```
-
-       $MachinesList  # Array 
+```powershell
+        $MachinesList  # Array 
         $ResourceList # Array
         $MachineTags  # Array
     
@@ -59,8 +58,8 @@ Which require the output look like this.
         Add-Type -Path "$($mongoDriverPath)\MongoDB.Bson.dll";
         Add-Type -Path "$($mongoDriverPath)\MongoDB.Driver.dll";
 
- $db = [MongoDB.Driver.MongoDatabase]::Create('mongodb://127.0.0.1:2701/RGrpMachines');
-    [System.Collections.ArrayList]$TagList = $vm.tags 
+      $db = [MongoDB.Driver.MongoDatabase]::Create('mongodb://127.0.0.1:2701/RGrpMachines');
+      [System.Collections.ArrayList]$TagList = $vm.tags 
       $A1 = $Taglist.key
       $A2 = $Taglist.value 
     foreach ($Machine in $MachinesList) 
