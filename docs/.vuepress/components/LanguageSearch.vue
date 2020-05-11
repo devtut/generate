@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="search">
-      <input type="text" v-model="search" placeholder="Seach topic" />
+      <input type="text" v-model="search" placeholder="Seach a subject" />
     </div>
 
     <div v-for="(section, index) in filteredSectionWise" :key="index">
