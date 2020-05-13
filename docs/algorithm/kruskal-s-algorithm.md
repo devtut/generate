@@ -57,18 +57,17 @@ This makes the entire Kruskal's algorithm `O(m log m + m) = O(m log m)`, because
 
 Path compression may reduce the height of the tree, hence comparing heights of the trees during union operation might not be a trivial task. Hence to avoid the complexity of storing and calculating the height of the trees the resulting parent can be picked randomly:
 
-```
+```cpp
+subalgo unionSet(u, v: nodes):
+    vRoot = findSet(v)
+    uRoot = findSet(u)
 
-   subalgo unionSet(u, v: nodes):
-        vRoot = findSet(v)
-        uRoot = findSet(u)
-
-        if vRoot == uRoot:
-            return
-        if random() % 2 == 0:
-            vRoot.parent = uRoot
-        else:
-            uRoot.parent = vRoot
+    if vRoot == uRoot:
+        return
+    if random() % 2 == 0:
+        vRoot.parent = uRoot
+    else:
+        uRoot.parent = vRoot
 
 ```
 

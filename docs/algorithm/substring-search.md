@@ -65,8 +65,7 @@ Now, how do we efficiently compute if suffix is same as prefix and at what point
 
 We'll generate an array containing the required information. Let's call the array **S**. The size of the array will be same as the length of the pattern. Since the first letter of the **Pattern** can't be the suffix of any prefix, we'll put **S[0]** = **0**. We take **i** = **1** and **j** = **0** at first. At each step we compare **Pattern[i]** and **Pattern[j]** and increment **i**. If there is a match we put **S[i]** = **j** + **1** and increment **j**, if there is a mismatch, we check the previous value position of **j** (if available) and set **j** = **S[j-1]** (if **j** is not equal to **0**), we keep doing this until **S[j]** doesn't match with **S[i]** or **j** doesn't become **0**. For the later one, we put **S[i]** = **0**. For our example:
 
-```
-
+```cpp
            j   i
 +---------+---+---+---+---+---+---+---+---+
 |  Index  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
@@ -78,8 +77,7 @@ We'll generate an array containing the required information. Let's call the arra
 
 **Pattern[j]** and **Pattern[i]** don't match, so we increment **i** and since **j** is **0**, we don't check the previous value and put **Pattern[i]** = **0**. If we keep incrementing **i**, for **i** = **4**, we'll get a match, so we put **S[i]** = **S[4]** = **j** + **1** = **0** + **1** = **1** and increment **j** and **i**. Our array will look like:
 
-```
-
+```cpp
                j               i
 +---------+---+---+---+---+---+---+---+---+
 |  Index  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
@@ -358,20 +356,18 @@ Pattern found at index 10
 
 **Input:**
 
-```
-
- txt[] =  "AABAACAADAABAAABAA"
-  pat[] = "AABA"
+```cpp
+txt[] =  "AABAACAADAABAAABAA"
+pat[] = "AABA"
 
 ```
 
 **output:**
 
-```
-
-  Pattern found at index 0
-   Pattern found at index 9
-   Pattern found at index 13
+```cpp
+Pattern found at index 0
+Pattern found at index 9
+Pattern found at index 13
 
 ```
 

@@ -514,11 +514,10 @@ Lets assume the jobs are numbered so that `d1<=d2<=...<=dn`. We say a **inversio
 
 Clearly it is `Mi<=Li` since job `i` got scheduled earlier. if job `j` is late, so follows from the definition:
 
-```
-
-                        Mj = fi-dj    (definition)
-                           <= fi-di    (since i and j are exchanged)
-                           <= Li
+```cpp
+Mj = fi-dj    (definition)
+    <= fi-di    (since i and j are exchanged)
+    <= Li
 
 ```
 

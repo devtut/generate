@@ -109,27 +109,26 @@ void pointer_bubble_sort(long * list, long n)
 ## Implementation in Javascript
 
 
-```
-
-       function bubbleSort(a)
-          {
-                var swapped;
-                do {
-                    swapped = false;
-                    for (var i=0; i < a.length-1; i++) {
-                        if (a[i] > a[i+1]) {
-                            var temp = a[i];
-                            a[i] = a[i+1];
-                            a[i+1] = temp;
-                            swapped = true;
-                        }
-                    }
-                } while (swapped);
+```cpp
+function bubbleSort(a)
+    {
+        var swapped;
+        do {
+            swapped = false;
+            for (var i=0; i < a.length-1; i++) {
+                if (a[i] > a[i+1]) {
+                    var temp = a[i];
+                    a[i] = a[i+1];
+                    a[i+1] = temp;
+                    swapped = true;
+                }
             }
-    
-   var a = [3, 203, 34, 746, 200, 984, 198, 764, 9];
-   bubbleSort(a);
-   console.log(a); //logs [ 3, 9, 34, 198, 200, 203, 746, 764, 984 ]
+        } while (swapped);
+    }
+
+var a = [3, 203, 34, 746, 200, 984, 198, 764, 9];
+bubbleSort(a);
+console.log(a); //logs [ 3, 9, 34, 198, 200, 203, 746, 764, 984 ]
 
 ```
 

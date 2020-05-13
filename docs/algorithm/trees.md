@@ -45,8 +45,7 @@ If necessary back pointers can be kept to allow the tree to be ascended. These a
 
 Note that it is typical to have one function to call on the root and a recursive function with extra parameters, in this case tree depth.
 
-```
-
+```cpp
  struct node
   {
      struct node *next;

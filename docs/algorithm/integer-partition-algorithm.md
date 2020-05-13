@@ -37,8 +37,7 @@ The partition function is inherently recursive in nature since the results of sm
 ## Implementation of Interger Partition Algorithm in C#
 
 
-```
-
+```cpp
 public class IntegerPartition
 {
     public static int[,] Result = new int[100,100];
