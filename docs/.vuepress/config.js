@@ -1,6 +1,7 @@
 module.exports = {
   title: "DevTut",
-  description: "Example based programming tutorials for solid developers",
+  description:
+    "Example based programming tutorials for solid developers. Master 45+ programming topics.",
   head: [
     [
       "link",
@@ -61,6 +62,7 @@ module.exports = {
   ],
   shouldPrefetch: () => false,
   themeConfig: {
+    image: "/logo.png",
     repo: "devtut/generate",
     editLinks: true,
     docsDir: "docs",
@@ -4039,6 +4041,16 @@ module.exports = {
       "sitemap",
       {
         hostname: "https://devtut.github.io",
+      },
+    ],
+    [
+      "seo",
+      {
+        title: ($page) => $page.frontmatter.metaTitle,
+        description: ($page) => $page.frontmatter.description,
+        twitterCard: (_) => "summary_large_image",
+        type: ($page) => "article",
+        image: ($page, $site) => $site.themeConfig.image,
       },
     ],
   ],
