@@ -53,8 +53,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
 Override `onConnectionStateChange` in BluetoothGattCallback to receive connection an disconnection events:
 
-```
-
+```java
    BluetoothGattCallback bluetoothGattCallback =
         new BluetoothGattCallback() {
     @Override
@@ -79,8 +78,7 @@ Override `onConnectionStateChange` in BluetoothGattCallback to receive connectio
 
 Once you are connected to a Gatt Server, you're going to be interacting with it by writing and reading from the server's characteristics. To do this, first you have to discover what services are available on this server and which characteristics are avaiable in each service:
 
-```
-
+```java
 @Override
  public void onConnectionStateChange(BluetoothGatt gatt, int status,
         int newState) {
@@ -118,8 +116,7 @@ gatt.writeCharacteristic(characteristic);
 
 When the write process has finished, the `onCharacteristicWrite` method of your `BluetoothGattCallback` will be called:
 
-```
-
+```java
    @Override
     public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
         super.onCharacteristicWrite(gatt, characteristic, status);
@@ -164,8 +161,7 @@ mBluetoothGatt.writeDescriptor(descriptor);
 
 All notifications from the server will be received in the `onCharacteristicChanged` method of your BluetoothGattCallback:
 
-```
-
+```java
    @Override
     public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
         super.onCharacteristicChanged(gatt, characteristic);
@@ -183,41 +179,40 @@ You can use Bluetooth LE Advertising to broadcast data packages to all nearby de
 
 Since not all devices support Bluetooth LE Advertising, the first step is to check that your device has all the necessary requirements to support it. Afterwards, you can initialize a `BluetoothLeAdvertiser` object and with it, you can start advertising operations:
 
-```
+```java
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && bluetoothAdapter.isMultipleAdvertisementSupported())
+{
+    BluetoothLeAdvertiser advertiser = bluetoothAdapter.getBluetoothLeAdvertiser();
 
-       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && bluetoothAdapter.isMultipleAdvertisementSupported())
-        {
-            BluetoothLeAdvertiser advertiser = bluetoothAdapter.getBluetoothLeAdvertiser();
-
-            AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
-           //Define a service UUID according to your needs                
-           dataBuilder.addServiceUuid(SERVICE_UUID);
-            dataBuilder.setIncludeDeviceName(true);
+    AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
+    //Define a service UUID according to your needs                
+    dataBuilder.addServiceUuid(SERVICE_UUID);
+    dataBuilder.setIncludeDeviceName(true);
 
 
-             AdvertiseSettings.Builder settingsBuilder = new AdvertiseSettings.Builder();
-             settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER);
-             settingsBuilder.setTimeout(0);
+        AdvertiseSettings.Builder settingsBuilder = new AdvertiseSettings.Builder();
+        settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_POWER);
+        settingsBuilder.setTimeout(0);
 
-             //Use the connectable flag if you intend on opening a Gatt Server
-             //to allow remote connections to your device.
-             settingsBuilder.setConnectable(true);
+        //Use the connectable flag if you intend on opening a Gatt Server
+        //to allow remote connections to your device.
+        settingsBuilder.setConnectable(true);
 
-            AdvertiseCallback advertiseCallback=new AdvertiseCallback() {
-            @Override
-            public void onStartSuccess(AdvertiseSettings settingsInEffect) {
-                super.onStartSuccess(settingsInEffect);
-                Log.i(TAG, "onStartSuccess: ");
-            }
+    AdvertiseCallback advertiseCallback=new AdvertiseCallback() {
+    @Override
+    public void onStartSuccess(AdvertiseSettings settingsInEffect) {
+        super.onStartSuccess(settingsInEffect);
+        Log.i(TAG, "onStartSuccess: ");
+    }
 
-            @Override
-            public void onStartFailure(int errorCode) {
-                super.onStartFailure(errorCode);
-                Log.e(TAG, "onStartFailure: "+errorCode );
-            }
-          };
+    @Override
+    public void onStartFailure(int errorCode) {
+        super.onStartFailure(errorCode);
+        Log.e(TAG, "onStartFailure: "+errorCode );
+    }
+    };
 advertising.startAdvertising(settingsBuilder.build(),dataBuilder.build(),advertiseCallback);
-        }
+}
 
 ```
 
@@ -255,30 +250,30 @@ The `BluetoothGattServerCallback` is responsible for receiving all events relate
 
 ```java
 BluetoothGattServerCallback bluetoothGattServerCallback= new BluetoothGattServerCallback() {
-                @Override
-                public void onConnectionStateChange(BluetoothDevice device, int status, int newState) {
-                    super.onConnectionStateChange(device, status, newState);
-                }
+    @Override
+    public void onConnectionStateChange(BluetoothDevice device, int status, int newState) {
+        super.onConnectionStateChange(device, status, newState);
+    }
 
-                @Override
-                public void onCharacteristicReadRequest(BluetoothDevice device, int requestId, int offset, BluetoothGattCharacteristic characteristic) {
-                    super.onCharacteristicReadRequest(device, requestId, offset, characteristic);
-                }
+    @Override
+    public void onCharacteristicReadRequest(BluetoothDevice device, int requestId, int offset, BluetoothGattCharacteristic characteristic) {
+        super.onCharacteristicReadRequest(device, requestId, offset, characteristic);
+    }
 
-                @Override
-                public void onCharacteristicWriteRequest(BluetoothDevice device, int requestId, BluetoothGattCharacteristic characteristic, boolean preparedWrite, boolean responseNeeded, int offset, byte[] value) {
-                    super.onCharacteristicWriteRequest(device, requestId, characteristic, preparedWrite, responseNeeded, offset, value);
-                }
+    @Override
+    public void onCharacteristicWriteRequest(BluetoothDevice device, int requestId, BluetoothGattCharacteristic characteristic, boolean preparedWrite, boolean responseNeeded, int offset, byte[] value) {
+        super.onCharacteristicWriteRequest(device, requestId, characteristic, preparedWrite, responseNeeded, offset, value);
+    }
 
-                @Override
-                public void onDescriptorReadRequest(BluetoothDevice device, int requestId, int offset, BluetoothGattDescriptor descriptor) {
-                    super.onDescriptorReadRequest(device, requestId, offset, descriptor);
-                }
+    @Override
+    public void onDescriptorReadRequest(BluetoothDevice device, int requestId, int offset, BluetoothGattDescriptor descriptor) {
+        super.onDescriptorReadRequest(device, requestId, offset, descriptor);
+    }
 
-                @Override
-                public void onDescriptorWriteRequest(BluetoothDevice device, int requestId, BluetoothGattDescriptor descriptor, boolean preparedWrite, boolean responseNeeded, int offset, byte[] value) {
-                    super.onDescriptorWriteRequest(device, requestId, descriptor, preparedWrite, responseNeeded, offset, value);
-                }
+    @Override
+    public void onDescriptorWriteRequest(BluetoothDevice device, int requestId, BluetoothGattDescriptor descriptor, boolean preparedWrite, boolean responseNeeded, int offset, byte[] value) {
+        super.onDescriptorWriteRequest(device, requestId, descriptor, preparedWrite, responseNeeded, offset, value);
+    }
 
 ```
 

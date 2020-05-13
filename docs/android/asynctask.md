@@ -199,17 +199,16 @@ This tutorial explains how to download Image using AsyncTask in Android. The exa
 <h3>Understanding Android AsyncTask</h3>
 Async task enables you to implement MultiThreading without get Hands dirty into threads. AsyncTask enables proper and easy use of the UI thread. It allows performing background operations and passing the results on the UI thread. If you are doing something isolated related to UI, for example downloading data to present in a list, go ahead and use AsyncTask.
 
-     - AsyncTasks should ideally be used for short operations (a few seconds at the most.)
-     - An asynchronous task is defined by 3 generic types, called Params, Progress and Result, and 4 steps, called `onPreExecute()`, `doInBackground()`, `onProgressUpdate()` and `onPostExecute()`.
-     - In `onPreExecute()` you can define code, which need to be executed before background processing starts.
-     - doInBackground have code which needs to be executed in background, here in `doInBackground()` we can send results to multiple times to event thread by publishProgress() method, to notify background processing has been completed we can return results simply.
-     - `onProgressUpdate()` method receives progress updates from `doInBackground()` method, which is published via `publishProgress()` method, and this method can use this progress update to update event thread
-     - `onPostExecute()` method handles results returned by `doInBackground()` method.
-     <li>The generic types used are
-<ul>
-     - Params, the type of the parameters sent to the task upon execution
-     - Progress, the type of the progress units published during the background computation.
-     - Result, the type of the result of the background computation.
+- AsyncTasks should ideally be used for short operations (a few seconds at the most.)
+- An asynchronous task is defined by 3 generic types, called Params, Progress and Result, and 4 steps, called `onPreExecute()`, `doInBackground()`, `onProgressUpdate()` and `onPostExecute()`.
+- In `onPreExecute()` you can define code, which need to be executed before background processing starts.
+- doInBackground have code which needs to be executed in background, here in `doInBackground()` we can send results to multiple times to event thread by publishProgress() method, to notify background processing has been completed we can return results simply.
+- `onProgressUpdate()` method receives progress updates from `doInBackground()` method, which is published via `publishProgress()` method, and this method can use this progress update to update event thread
+- `onPostExecute()` method handles results returned by `doInBackground()` method.
+<li>The generic types used are
+- Params, the type of the parameters sent to the task upon execution
+- Progress, the type of the progress units published during the background computation.
+- Result, the type of the result of the background computation.
 
 ### Downloading image using Android AsyncTask
 

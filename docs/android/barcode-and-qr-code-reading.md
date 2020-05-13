@@ -29,8 +29,7 @@ dependencies{
 
 - Add to your layout a `QRCodeReaderView`
 
-```
-
+```java
 <com.dlazaro66.qrcodereaderview.QRCodeReaderView
         android:id="@+id/qrdecoderview"
         android:layout_width="match_parent"
@@ -44,8 +43,7 @@ dependencies{
 
 Then in your Activity, you can use it as follows:
 
-```
-
+```java
    public class DecoderActivity extends Activity implements OnQRCodeReadListener {
 
     private TextView resultTextView;

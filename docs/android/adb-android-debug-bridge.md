@@ -49,13 +49,13 @@ adb connect 192.168.0.101:5555
 
 
 If you don't know your device's IP you can:
-<ul>
-1. check the IP in the WiFi settings of your device.
-<li>use ADB to discover IP (via USB):
-<ol>
-1. Connect the device to the computer via USB
-1. In a command line, type `adb shell ifconfig` and copy your device's IP address
 
+1. check the IP in the WiFi settings of your device.
+
+use ADB to discover IP (via USB):
+
+- Connect the device to the computer via USB
+- In a command line, type `adb shell ifconfig` and copy your device's IP address
 - Type `adb tcpip <port>` (switch to TCP/IP mode).
 - Disconnect the USB cable from the target device.
 - Type `adb connect <ip address>:<port>` (port is optional; default 5555).

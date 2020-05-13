@@ -16,15 +16,15 @@ Image:
 
 ```java
 if (Build.VERSION.SDK_INT <= 19) {
-                        Intent i = new Intent();
-                        i.setType("image/*");
-                        i.setAction(Intent.ACTION_GET_CONTENT);
-                        i.addCategory(Intent.CATEGORY_OPENABLE);
-                        startActivityForResult(i, 10);
-                    } else if (Build.VERSION.SDK_INT > 19) {
-                        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(intent, 10);
-                    }
+    Intent i = new Intent();
+    i.setType("image/*");
+    i.setAction(Intent.ACTION_GET_CONTENT);
+    i.addCategory(Intent.CATEGORY_OPENABLE);
+    startActivityForResult(i, 10);
+} else if (Build.VERSION.SDK_INT > 19) {
+    Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    startActivityForResult(intent, 10);
+}
 
 ```
 
@@ -46,35 +46,34 @@ if (Build.VERSION.SDK_INT <= 19) {
 
 .
 
-```
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-           
-            if (requestCode == 10) {
-                Uri selectedImageUri = data.getData();
-                String selectedImagePath = getRealPathFromURI(selectedImageUri);
-            } else if (requestCode == 20) {
-                Uri selectedVideoUri = data.getData();
-                String selectedVideoPath = getRealPathFromURI(selectedVideoUri);
-            }
-
-     public String getRealPathFromURI(Uri uri) {
-            if (uri == null) {
-                return null;
-            }
-            String[] projection = {MediaStore.Images.Media.DATA};
-            Cursor cursor = getActivity().getContentResolver().query(uri, projection, null, null, null);
-            if (cursor != null) {
-                int column_index = cursor
-                        .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-                cursor.moveToFirst();
-                return cursor.getString(column_index);
-            }
-            return uri.getPath();
+```java
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (resultCode == Activity.RESULT_OK) {
+        
+        if (requestCode == 10) {
+            Uri selectedImageUri = data.getData();
+            String selectedImagePath = getRealPathFromURI(selectedImageUri);
+        } else if (requestCode == 20) {
+            Uri selectedVideoUri = data.getData();
+            String selectedVideoPath = getRealPathFromURI(selectedVideoUri);
         }
+
+    public String getRealPathFromURI(Uri uri) {
+        if (uri == null) {
+            return null;
+        }
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getActivity().getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null) {
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        }
+        return uri.getPath();
+    }
 
 ```
 

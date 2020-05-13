@@ -59,8 +59,7 @@ This is the best way to initizlize VKSdk.  Don't use the methid where VK_ID shou
 
 1. Final step is to login using vksdk.
 
-```
-
+```java
    public static final String[] VK_SCOPES = new String[]{
             VKScope.FRIENDS,
             VKScope.MESSAGES,

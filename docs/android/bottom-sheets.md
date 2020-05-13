@@ -523,8 +523,7 @@ BottomSheet DialogFragment opens up in `STATE_COLLAPSED` by default. Which can b
 @NonNull @Override
 public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-```
-
+```java
    BottomSheetDialog dialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
 
     dialog.setOnShowListener(new DialogInterface.OnShowListener() {

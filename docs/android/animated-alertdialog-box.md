@@ -63,8 +63,7 @@ android:padding="16dp">
 
 AnimatedAndroidDialogExample.java
 
-```
-
+```java
   public class AnimatedAndroidDialogExample extends AppCompatActivity {
 
     NiftyDialogBuilder materialDesignAnimatedDialog;
@@ -132,8 +131,7 @@ Add the below lines in your build.gradle to include the NifyBuilder(CustomView)
 
 **build.gradle**
 
-```
-
+```java
 dependencies {
 
      compile 'com.nineoldandroids:library:2.4.0'

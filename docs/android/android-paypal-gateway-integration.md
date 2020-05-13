@@ -70,37 +70,36 @@ PayPalPayment thingToBuy = new PayPalPayment(new BigDecimal(1),"USD", "androidhu
 
 8)And finally from the onActivityResult get the payment response-
 
-```
-
+```java
 @Override
-           protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-               if (requestCode == REQUEST_PAYPAL_PAYMENT) {
-                   if (resultCode == Activity.RESULT_OK) {
-                       PaymentConfirmation confirm = data
-                               .getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
-                       if (confirm != null) {
-                           try {
-                           System.out.println("Responseeee"+confirm);
-                               Log.i("paymentExample", confirm.toJSONObject().toString());
-                            
-                               JSONObject jsonObj=new JSONObject(confirm.toJSONObject().toString());
-                              
-                               String paymentId=jsonObj.getJSONObject("response").getString("id");
-                               System.out.println("payment id:-=="+paymentId);
-                               Toast.makeText(getApplicationContext(), paymentId, Toast.LENGTH_LONG).show(); 
-                           } catch (JSONException e) {
-                               Log.e("paymentExample", "an extremely unlikely failure occurred: ", e);
-                           }
-                       }
-                   } else if (resultCode == Activity.RESULT_CANCELED) {
-                       Log.i("paymentExample", "The user canceled.");
-                   } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
-                       Log.i("paymentExample", "An invalid Payment was submitted. Please see the docs.");
-                   }
-               }
-              
-               
-         }
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_PAYPAL_PAYMENT) {
+        if (resultCode == Activity.RESULT_OK) {
+            PaymentConfirmation confirm = data
+                    .getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+            if (confirm != null) {
+                try {
+                System.out.println("Responseeee"+confirm);
+                    Log.i("paymentExample", confirm.toJSONObject().toString());
+                
+                    JSONObject jsonObj=new JSONObject(confirm.toJSONObject().toString());
+                    
+                    String paymentId=jsonObj.getJSONObject("response").getString("id");
+                    System.out.println("payment id:-=="+paymentId);
+                    Toast.makeText(getApplicationContext(), paymentId, Toast.LENGTH_LONG).show(); 
+                } catch (JSONException e) {
+                    Log.e("paymentExample", "an extremely unlikely failure occurred: ", e);
+                }
+            }
+        } else if (resultCode == Activity.RESULT_CANCELED) {
+            Log.i("paymentExample", "The user canceled.");
+        } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+            Log.i("paymentExample", "An invalid Payment was submitted. Please see the docs.");
+        }
+    }
+    
+    
+}
 
 ```
 
