@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="search">
-      <input type="text" v-model="search" placeholder="Seach a subject" />
+      <input type="text" v-model="search" placeholder="Seach a topic" />
     </div>
 
     <div v-for="(section, index) in filteredSectionWise" :key="index">
@@ -11,7 +11,7 @@
           <div class="card" v-for="language in section" :key="language.id">
             <div class="title">{{ language.name }}</div>
             <router-link :to="{ path: `${language.url}` }">
-              <div class="topics">Master {{ language.topics }} topics →</div>
+              <div class="topics">Master {{ language.topics }} lessons →</div>
             </router-link>
           </div>
         </div>
