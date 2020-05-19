@@ -106,6 +106,7 @@ Current nest level: 1
 
 
 ```php
+<?php
 ob_start();
 
 $user_count = 0;
