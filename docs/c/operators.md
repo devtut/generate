@@ -210,7 +210,7 @@ Below is a list of all six bitwise operators supported in C:
 |Symbol|Operator
 |---|---|---|---|---|---|---|---|---|---
 |&|bitwise AND
-|||bitwise inclusive OR
+|`|`|bitwise inclusive OR
 |^|bitwise exclusive OR (XOR)
 |~|bitwise not (one's complement)
 |<<|logical left shift
