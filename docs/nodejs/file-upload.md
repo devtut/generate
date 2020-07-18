@@ -20,7 +20,7 @@ Remember to
 ```js
 var express =   require("express");
 var multer  =   require('multer');
-var app         =   express();
+var app     =   express();
 var fs = require('fs');
 
 app.get('/',function(req,res){
@@ -61,10 +61,10 @@ app.listen(3000,function(){
 **`index.html`**:
 
 ```js
-<form id        =  "uploadForm"
-     enctype   =  "multipart/form-data"
-     action    =  "/api/file"
-     method    =  "post"
+<form id      =  "uploadForm"
+    enctype   =  "multipart/form-data"
+    action    =  "/api/file"
+    method    =  "post"
 >
 <input type="file" name="userFile" />
 <input type="submit" value="Upload File" name="submit">
