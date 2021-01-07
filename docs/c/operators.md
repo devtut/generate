@@ -227,7 +227,7 @@ int main(void)
    unsigned int b = 48;    /* 48 = 0011 0000 */
    int c = 0;           
 
-   c = a & b;              /* 32 = 0001 0000 */ 
+   c = a & b;              /* 16 = 0001 0000 */ 
    printf("%d & %d = %d\n", a, b, c );
 
    c = a | b;              /* 61 = 0011 1101 */
