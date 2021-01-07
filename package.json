@@ -14,12 +14,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vuepress": "^1.4.1",
+    "vuepress": "^1.8.0",
     "vuepress-plugin-sitemap": "^2.3.1"
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.4.1",
-    "@vuepress/plugin-google-analytics": "^1.4.1",
-    "vuepress-plugin-seo": "^0.1.2"
+    "@vuepress/plugin-back-to-top": "^1.8.0",
+    "@vuepress/plugin-google-analytics": "^1.8.0",
+    "vuepress-plugin-seo": "^0.1.4"
   }
 }
