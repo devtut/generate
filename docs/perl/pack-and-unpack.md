@@ -131,13 +131,13 @@ The template first specifies `H2`, a **2-character hex string, high nybble first
 
 That's the first 32 bits of the header. The rest can be built similarly:
 
-|Template|Argument|Remarks
-|---|---|---|---|---|---|---|---|---|---
-|`n`|`$id`|
-|`B16`|`sprintf("%03b%013b", $flags, $frag_off)`|Same as DSCP/ECN
-|`C2`|`$ttl, $proto`|Two consecutive unsigned octets
-|`n`|`0` / `$checksum`|`x` could be used to insert a null byte but `n` lets us specify an argument should we choose to calculate a checksum
-|`N2`|`$src_ip, $dst_ip`|use `a4a4` to pack the result of two `gethostbyname()` calls as it is in Network Byte Order already!
+| Template | Argument | Remarks |
+| --- | --- | --- |
+| `n` | `$id` | |
+| `B16` | `sprintf("%03b%013b", $flags, $frag_off)` | Same as DSCP/ECN |
+| `C2` | `$ttl, $proto` | Two consecutive unsigned octets |
+| `n` | `0` / `$checksum` | `x` could be used to insert a null byte but `n` lets us specify an argument should we choose to calculate a checksum |
+| `N2` | `$src_ip, $dst_ip` | use `a4a4` to pack the result of two `gethostbyname()` calls as it is in Network Byte Order already! |
 
 So the complete call to pack an IPv4 header would be:
 
