@@ -17,27 +17,27 @@ To parse lots of parameters, the prefered way of doing this is using a **while**
 # Load the user defined parameters
 while [[ $# > 0 ]]
 do
-        case "$1" in
+    case "$1" in
 
-                -a|--valueA)
-                        valA="$2"
-                        shift
-                        ;;
+        -a|--valueA)
+            valA="$2"
+            shift
+            ;;
 
-                -b|--valueB)
-                        valB="$2"
-                        shift
-                        ;;
+        -b|--valueB)
+            valB="$2"
+            shift
+            ;;
 
-                --help|*)
-                        echo "Usage:"
-                        echo "    --valueA \"value\""
-                        echo "    --valueB \"value\""
-                        echo "    --help"
-                        exit 1
-                        ;;
-        esac
-        shift
+        --help|*)
+            echo "Usage:"
+            echo "    --valueA \"value\""
+            echo "    --valueB \"value\""
+            echo "    --help"
+            exit 1
+            ;;
+    esac
+    shift
 done
 
 echo "A: $valA"
