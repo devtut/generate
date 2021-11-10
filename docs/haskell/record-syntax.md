@@ -13,10 +13,10 @@ description: "Basic Syntax, Defining a data type with field labels, Copying Reco
 Records are an extension of sum algebraic `data` type that allow fields to be named:
 
 ```hs
-data StandardType = StandardType String Int Bool --standard way to create a sum type
+data StandardType = StandardType String Int Bool --standard way to create a product type
 
-data RecordType = RecordType { -- the same sum type with record syntax
-    aString :: String
+data RecordType = RecordType -- the same product type with record syntax
+  { aString :: String
   , aNumber :: Int
   , isTrue  :: Bool
   }
