@@ -52,16 +52,13 @@ For writing:
 
 For editing:
 
-<li>Libraries
-<ul>
 - [ASM](http://asm.ow2.org/)
 - [Javassist](http://jboss-javassist.github.io/javassist/)
 - [BCEL](https://commons.apache.org/proper/commons-bcel/) - **Doesn't support Java 8+**
 
+Graphical Editors:
 - [Bytecode-Viewer](https://github.com/Konloch/bytecode-viewer)
-- [JBytedit](https://github.com/QMatt/JBytedit)
 - [reJ](http://rejava.sourceforge.net/features.html) - **Doesn't support Java 8+**
-- [JBE](http://www.cs.ioc.ee/%7Eando/jbe/) - **Doesn't support Java 8+**
 
 ### I'd like to learn more about bytecode!
 
@@ -69,7 +66,7 @@ There's probably a specific documentation page specificially for bytecode. This 
 
 
 
-## How to edit jar files with ASM
+## How to modify jars with the ASM library
 
 
 Firstly the classes from the jar need to be loaded. We'll use three methods for this process:
