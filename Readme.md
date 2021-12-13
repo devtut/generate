@@ -2,13 +2,13 @@
 
 ``` bash
 # Install all dependencies
-npm install
+yarn
 
 # Run development server
-npm run docs:dev
+yarn docs:dev
 
 # Generate static files
-npm run docs:build
+yarn docs:build
 
 # Deploy static site
 sh deploy.sh
