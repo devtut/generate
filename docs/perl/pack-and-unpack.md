@@ -14,7 +14,7 @@ If you're ever dealing with C Binary API's from Perl Code, via the `syscall`, `i
 
 For instance, if you were ever dealing with some function that expected a `timespec`, you'd look into `/usr/include/time.h` and find:
 
-```perl
+```c
 struct timespec
 {
     __time_t tv_sec;            /* Seconds.  */
@@ -25,7 +25,7 @@ struct timespec
 
 You do a dance with `cpp` to find what that really means:
 
-```perl
+```
 cpp -E /usr/include/time.h -o /dev/stdout | grep __time_t
 # typedef long int __time_t;
 cpp -E /usr/include/time.h -o /dev/stdout | grep __syscall_slong_t
@@ -35,8 +35,8 @@ cpp -E /usr/include/time.h -o /dev/stdout | grep __syscall_slong_t
 
 So its a (signed) int
 
-```perl
-echo 'void main(){ printf("%#lx\n", sizeof(__syscall_slong_t)); }' | 
+```
+echo 'void main(){ printf("%#lx\n", sizeof(__syscall_slong_t)); }' | \
   gcc -x c -include stdio.h -include time.h - -o /tmp/a.out && /tmp/a.out
 # 0x8
 
@@ -46,9 +46,8 @@ And it takes 8 bytes. So 64bit signed int. And I'm on a 64Bit Processor. =)
 
 Perldoc `pack` says
 
-> 
-<pre class="lang-none prettyprint-override"><code>            q  A signed quad (64-bit) value.
-
+```
+                q  A signed quad (64-bit) value.
 ```
 
 
@@ -58,7 +57,7 @@ So to pack a timespec:
 
 ```perl
 sub packtime {
-    my ( $config ) = @_; 
+    my ( $config ) = @_;
     return pack 'qq', @{$config}{qw( tv_sec tv_nsec )};
 }
 
@@ -82,7 +81,7 @@ Now you can just use those functions instead.
 my $timespec = packtime({ tv_sec => 0, tv_nsec => 0 });
 syscall(  ..., $timespec ); # some syscall that reads timespec
 
-later ...
+# later ...
 syscall( ..., $timespec ); # some syscall that writes timespec
 print Dumper( unpacktime( $timespec ));
 
@@ -132,13 +131,13 @@ The template first specifies `H2`, a **2-character hex string, high nybble first
 
 That's the first 32 bits of the header. The rest can be built similarly:
 
-|Template|Argument|Remarks
-|---|---|---|---|---|---|---|---|---|---
-|`n`|`$id`|
-|`B16`|`sprintf("%03b%013b", $flags, $frag_off)`|Same as DSCP/ECN
-|`C2`|`$ttl, $proto`|Two consecutive unsigned octets
-|`n`|`0` / `$checksum`|`x` could be used to insert a null byte but `n` lets us specify an argument should we choose to calculate a checksum
-|`N2`|`$src_ip, $dst_ip`|use `a4a4` to pack the result of two `gethostbyname()` calls as it is in Network Byte Order already!
+| Template | Argument | Remarks |
+| --- | --- | --- |
+| `n` | `$id` | |
+| `B16` | `sprintf("%03b%013b", $flags, $frag_off)` | Same as DSCP/ECN |
+| `C2` | `$ttl, $proto` | Two consecutive unsigned octets |
+| `n` | `0` / `$checksum` | `x` could be used to insert a null byte but `n` lets us specify an argument should we choose to calculate a checksum |
+| `N2` | `$src_ip, $dst_ip` | use `a4a4` to pack the result of two `gethostbyname()` calls as it is in Network Byte Order already! |
 
 So the complete call to pack an IPv4 header would be:
 
