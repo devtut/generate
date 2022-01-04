@@ -47,13 +47,20 @@ Elizabeth Moon 946
 #### Syntax
 
 
-<li># Only replace email addresses<br />
-<primary@example.org> <alias@example.org></li>
-<li># Replace name by email address<br />
-Contributor <primary@example.org></li>
-<li># Merge multiple aliases under one name and email<br />
+<li>Only replace email addresses<br />
+
+`<primary@example.org> <alias@example.org>`
+</li>
+<li>Replace name by email address<br />
+  
+`Contributor <primary@example.org>`
+</li>
+  
+<li>Merge multiple aliases under one name and email<br />
 # Note this will not associate 'Other <alias2@example.org>'.<br />
-Contributor <primary@example.org> <alias1@example.org> Contributor <alias2@example.org></li>
+
+`Contributor <primary@example.org> <alias1@example.org> Contributor <alias2@example.org>`
+</li>
 
 
 
