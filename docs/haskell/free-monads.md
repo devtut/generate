@@ -58,7 +58,7 @@ Finally, we write an "interpreter" turning `Teletype a` values into something we
 interpretTeletype :: Teletype a -> IO a
 interpretTeletype = foldFree run where
   run :: TeletypeF a -> IO a
-  run (PrintLine str x) = putStrLn *> return x
+  run (PrintLine str x) = (putStrLn str ) *> return x
   run (ReadLine f) = fmap f getLine
 
 ```
