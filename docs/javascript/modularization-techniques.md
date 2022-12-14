@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Modularization Techniques"
+metaTitle: "JavaScript - Modularization Techniques"
 description: "Universal Module Definition (UMD), Immediately invoked function expressions (IIFE), Asynchronous Module Definition (AMD), CommonJS - Node.js, ES6 Modules"
 ---
 

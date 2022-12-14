@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - File API, Blobs and FileReaders"
+metaTitle: "JavaScript - File API, Blobs and FileReaders"
 description: "Read file as string, Read file as dataURL, Slice a file, Client side csv download using Blob, Selecting multiple files and restricting file types, Get the properties of the file"
 ---
 

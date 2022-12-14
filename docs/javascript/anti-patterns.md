@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Anti-patterns"
+metaTitle: "JavaScript - Anti-patterns"
 description: "Chaining assignments in var declarations."
 ---
 

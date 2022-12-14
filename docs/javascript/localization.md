@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Localization"
+metaTitle: "JavaScript - Localization"
 description: "Number formatting, Currency formatting, Date and time formatting"
 ---
 

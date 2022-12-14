@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Linters - Ensuring code quality"
+metaTitle: "JavaScript - Linters - Ensuring code quality"
 description: "JSHint, ESLint / JSCS, JSLint"
 ---
 

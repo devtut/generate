@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Scope"
+metaTitle: "JavaScript - Scope"
 description: "Closures, Hoisting, Difference between var and let, Apply and Call syntax and invocation., Arrow function invocation, Bound invocation, Method invocation, Anonymous invocation, Constructor invocation, Using let in loops instead of var (click handlers example)"
 ---
 

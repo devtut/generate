@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Date Comparison"
+metaTitle: "JavaScript - Date Comparison"
 description: "Comparing Date values, Date Difference Calculation"
 ---
 

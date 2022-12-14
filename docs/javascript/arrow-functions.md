@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Arrow Functions"
+metaTitle: "JavaScript - Arrow Functions"
 description: "Introduction, Lexical Scoping & Binding (Value of this), Arguments Object, Implicit Return, Arrow functions as a constructor, Explicit Return"
 ---
 

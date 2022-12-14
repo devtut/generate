@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Setters and Getters"
+metaTitle: "JavaScript - Setters and Getters"
 description: "Defining a Setter/Getter Using Object.defineProperty, Defining an Setter/Getter in a Newly Created Object, Defining getters and setters in ES6 class"
 ---
 

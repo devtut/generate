@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Namespacing"
+metaTitle: "JavaScript - Namespacing"
 description: "Namespace by direct assignment, Nested Namespaces"
 ---
 

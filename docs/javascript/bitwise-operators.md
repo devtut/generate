@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Bitwise operators"
+metaTitle: "JavaScript - Bitwise operators"
 description: "Bitwise operators, Shift Operators"
 ---
 

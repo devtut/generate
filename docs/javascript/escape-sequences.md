@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Escape Sequences"
+metaTitle: "JavaScript - Escape Sequences"
 description: "Entering special characters in strings and regular expressions, Escape sequence types"
 ---
 

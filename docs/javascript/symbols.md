@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Symbols"
+metaTitle: "JavaScript - Symbols"
 description: "Basics of symbol primitive type, Using Symbol.for() to create global, shared symbols, Converting a symbol into a string"
 ---
 

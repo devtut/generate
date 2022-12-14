@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Datatypes in Javascript"
+metaTitle: "JavaScript - Datatypes in Javascript"
 description: "typeof, Getting object type by constructor name, Finding an object's class"
 ---
 

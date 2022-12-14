@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Conditions"
+metaTitle: "JavaScript - Conditions"
 description: "Ternary operators, Switch statement, If / Else If / Else Control, Strategy, Using || and && short circuiting"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Tail Call Optimization"
+metaTitle: "JavaScript - Tail Call Optimization"
 description: "What is Tail Call Optimization (TCO), Recursive loops "
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Data attributes"
+metaTitle: "JavaScript - Data attributes"
 description: "Accessing data attributes"
 ---
 

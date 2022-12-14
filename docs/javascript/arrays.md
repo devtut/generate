@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Arrays"
+metaTitle: "JavaScript - Arrays"
 description: "Converting Array-like Objects to Arrays, Reducing values, Mapping values, Filtering Object Arrays, Sorting Arrays, Iteration, Destructuring an array, Removing duplicate elements, Array comparison, Reversing arrays, Array spread / rest, Concatenating Arrays, Shallow cloning an array, Merge two array as key value pair, Standard array initialization, Filtering values, Removing items from an array, Searching an Array, Removing all elements, Convert a String to an Array, Finding the minimum or maximum element, Joining array elements in a string, Removing/Adding elements using splice(), The entries() method, Logical connective of values, Append / Prepend items to Array, Object keys and values to array, Remove value from array, Checking if an object is an Array, Flattening Arrays, Sorting multidimensional array, Insert an item into an array at a specific index, Test all array items for equality, Copy part of an Array, Using map to reformat objects in an array"
 ---
 

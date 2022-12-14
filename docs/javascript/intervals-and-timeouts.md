@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Intervals and Timeouts"
+metaTitle: "JavaScript - Intervals and Timeouts"
 description: "Recursive setTimeout, Intervals, Removing intervals, Removing timeouts, Intervals, setTimeout, order of operations, clearTimeout"
 ---
 

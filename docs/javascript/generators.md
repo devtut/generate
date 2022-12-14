@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Generators"
+metaTitle: "JavaScript - Generators"
 description: "Generator Functions, Sending Values to Generator, Delegating to other Generator, Iteration, Async flow with generators, Iterator-Observer interface"
 ---
 

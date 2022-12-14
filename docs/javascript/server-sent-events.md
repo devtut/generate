@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Server-sent events"
+metaTitle: "JavaScript - Server-sent events"
 description: "Setting up a basic event stream to the server, Closing an event stream, Binding event listeners to EventSource"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Performance Tips"
+metaTitle: "JavaScript - Performance Tips"
 description: "Avoid try/catch in performance-critical functions, Limit DOM Updates, Benchmarking your code - measuring execution time, Use a memoizer for heavy-computing functions, Initializing object properties with null, Reuse objects rather than recreate, Prefer local variables to globals, attributes, and indexed values, Be consistent in use of Numbers"
 ---
 

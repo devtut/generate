@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Proxy"
+metaTitle: "JavaScript - Proxy"
 description: "Very simple proxy (using the set trap), Proxying property lookup"
 ---
 

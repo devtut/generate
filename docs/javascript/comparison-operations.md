@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Comparison Operations"
+metaTitle: "JavaScript - Comparison Operations"
 description: "Abstract equality / inequality and type conversion, NaN Property of the Global Object, Short-circuiting in boolean operators, Abstract Equality (==), Null and Undefined, Logic Operators with Booleans, Logic Operators with Non-boolean values (boolean coercion), Empty Array, Automatic Type Conversions, Equality comparison operations, Relational operators (<, <=, >, >=), Inequality, Grouping multiple logic statements, List of Comparison Operators, Bit fields to optimise comparison of multi state data"
 ---
 
