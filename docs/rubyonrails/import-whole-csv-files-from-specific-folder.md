@@ -21,7 +21,7 @@ rake db:migrate
 
 ```
 
-Lates create controller.
+Let's create a controller.
 
 Terminal Commands:
 
