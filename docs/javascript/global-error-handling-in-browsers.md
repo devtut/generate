@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Global error handling in browsers"
+metaTitle: "JavaScript - Global error handling in browsers"
 description: "Handling window.onerror to report all errors back to the server-side"
 ---
 

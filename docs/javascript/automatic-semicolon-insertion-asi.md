@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Automatic Semicolon Insertion - ASI"
+metaTitle: "JavaScript - Automatic Semicolon Insertion - ASI"
 description: "Avoid semicolon insertion on return statements, Rules of Automatic Semicolon Insertion, Statements affected by automatic semicolon insertion"
 ---
 

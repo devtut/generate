@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Arithmetic (Math)"
+metaTitle: "JavaScript - Arithmetic (Math)"
 description: "Constants, Remainder / Modulus (%), Rounding, Trigonometry, Incrementing (++), Exponentiation (Math.pow() or **), Bitwise operators, Addition (+), Random Integers and Floats, Subtraction (-), Multiplication (*), Get Random Between Two Numbers, Simulating events with different probabilities, Little / Big endian for typed arrays when using bitwise operators, Division (/), Decrementing (--), Random  with gaussian distribution, Ceiling and Floor, Math.atan2 to find direction, Sin & Cos to create a vector given direction & distance, Math.hypot, Periodic functions using Math.sin, Getting  maximum and minimum, Restrict Number to Min/Max Range, Getting roots of a number"
 ---
 

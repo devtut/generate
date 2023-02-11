@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - The Event Loop"
+metaTitle: "JavaScript - The Event Loop"
 description: "The event loop in a web browser, Asynchronous operations and the event loop"
 ---
 

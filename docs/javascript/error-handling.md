@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Error Handling"
+metaTitle: "JavaScript - Error Handling"
 description: "Error objects, Interaction with Promises, Order of operations plus advanced thoughts, Error types"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Workers"
+metaTitle: "JavaScript - Workers"
 description: "A simple service worker, Web Worker, Register a service worker, Terminate a worker, Populating your cache, Communicating with a Web Worker, Dedicated Workers and Shared Workers"
 ---
 

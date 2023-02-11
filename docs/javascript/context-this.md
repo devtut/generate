@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Context (this)"
+metaTitle: "JavaScript - Context (this)"
 description: "this with simple objects, Saving this for use in nested functions / objects, Binding function context, this in constructor functions"
 ---
 

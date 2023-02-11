@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Template Literals"
+metaTitle: "JavaScript - Template Literals"
 description: "Basic interpolation and multiline strings, Tagged strings, Raw strings, Templating HTML With Template Strings, Introduction"
 ---
 

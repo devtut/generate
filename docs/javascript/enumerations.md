@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Enumerations"
+metaTitle: "JavaScript - Enumerations"
 description: "Enum definition using Object.freeze(), Alternate definition, Printing an enum variable, Implementing Enums Using Symbols, Automatic Enumeration Value"
 ---
 

@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Evaluating JavaScript"
+metaTitle: "JavaScript - Evaluating JavaScript"
 description: "Introduction, Evaluation and Math, Evaluate a string of JavaScript statements"
 ---
 

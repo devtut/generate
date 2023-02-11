@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - .postMessage() and MessageEvent"
+metaTitle: "JavaScript - .postMessage() and MessageEvent"
 description: "Getting Started"
 ---
 

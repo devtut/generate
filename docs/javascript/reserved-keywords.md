@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Reserved Keywords"
+metaTitle: "JavaScript - Reserved Keywords"
 description: "Reserved Keywords, Identifiers & Identifier Names"
 ---
 

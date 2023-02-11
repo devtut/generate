@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Screen"
+metaTitle: "JavaScript - Screen"
 description: "Getting the screen resolution, Getting the “available” area of the screen, Getting color information about the screen, Window innerWidth and innerHeight Properties, Page width and height"
 ---
 

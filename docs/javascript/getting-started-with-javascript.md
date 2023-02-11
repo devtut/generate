@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Getting started with JavaScript"
+metaTitle: "JavaScript - Getting started with JavaScript"
 description: "Using console.log(), Using the DOM API, Using window.alert(), Using window.prompt(), Using window.confirm(), Using the DOM API (with graphical text: Canvas, SVG, or image file)"
 ---
 

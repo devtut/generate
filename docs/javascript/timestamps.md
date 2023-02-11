@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Timestamps"
+metaTitle: "JavaScript - Timestamps"
 description: "High-resolution timestamps, Low-resolution timestamps, Get Timestamp in Seconds, Support for legacy browsers"
 ---
 

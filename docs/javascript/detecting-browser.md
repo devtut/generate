@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Detecting browser"
+metaTitle: "JavaScript - Detecting browser"
 description: "Feature Detection Method, User Agent Detection, Library Method"
 ---
 

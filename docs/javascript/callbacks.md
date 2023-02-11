@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Callbacks"
+metaTitle: "JavaScript - Callbacks"
 description: "Simple Callback Usage Examples, What is a callback?, Continuation (synchronous and asynchronous), Callbacks and `this`, Error handling and control-flow branching, Callback using Arrow function"
 ---
 

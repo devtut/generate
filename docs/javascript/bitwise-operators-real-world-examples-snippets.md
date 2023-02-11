@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Bitwise Operators - Real World Examples (snippets)"
+metaTitle: "JavaScript - Bitwise Operators - Real World Examples (snippets)"
 description: "Swapping Two Integers with Bitwise XOR (without additional memory allocation), Number's Parity Detection with Bitwise AND, Faster multiplication or division by powers of 2"
 ---
 

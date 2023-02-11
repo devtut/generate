@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Fluent API"
+metaTitle: "JavaScript - Fluent API"
 description: "Fluent API capturing construction of HTML articles with JS"
 ---
 

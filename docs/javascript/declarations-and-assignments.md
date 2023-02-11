@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Declarations and Assignments"
+metaTitle: "JavaScript - Declarations and Assignments"
 description: "Modifying constants, Declaring and initializing constants, Declaration, Data Types, Undefined, Assignment, Mathematic operations and assignment, Reassigning constants"
 ---
 

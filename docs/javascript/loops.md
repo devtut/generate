@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Loops"
+metaTitle: "JavaScript - Loops"
 description: "Standard for loops, for ... of loop, for ... in loop, while Loops, continue a loop, do ... while loop, Break specific nested loops, Break and continue labels, Break out of a loop"
 ---
 

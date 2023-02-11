@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Selection API"
+metaTitle: "JavaScript - Selection API"
 description: "Get the text of the selection, Deselect everything that is selected, Select the contents of an element"
 ---
 

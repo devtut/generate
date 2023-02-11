@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Unit Testing Javascript"
+metaTitle: "JavaScript - Unit Testing Javascript"
 description: "Unit Testing Promises with Mocha, Sinon, Chai and Proxyquire, Basic Assertion"
 ---
 

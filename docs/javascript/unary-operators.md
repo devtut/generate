@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Unary Operators"
+metaTitle: "JavaScript - Unary Operators"
 description: "The typeof operator, Overview, The delete operator, The unary plus operator (+), The void operator, The unary negation operator (-), The bitwise NOT operator (~), The logical NOT operator (!)"
 ---
 

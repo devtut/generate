@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - requestAnimationFrame"
+metaTitle: "JavaScript - requestAnimationFrame"
 description: "Use requestAnimationFrame to fade in element, Cancelling an Animation, Keeping Compatability"
 ---
 

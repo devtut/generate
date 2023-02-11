@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - IndexedDB"
+metaTitle: "JavaScript - IndexedDB"
 description: "Opening a database, Testing for IndexedDB availability, Adding objects, Retrieving data"
 ---
 

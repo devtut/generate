@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Fetch"
+metaTitle: "JavaScript - Fetch"
 description: "Getting JSON data, Set Request Headers, POST Data, GlobalFetch, Send cookies, Using Fetch to Display Questions from the Stack Overflow API"
 ---
 

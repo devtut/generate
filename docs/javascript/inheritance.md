@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Inheritance"
+metaTitle: "JavaScript - Inheritance"
 description: "Standard function prototype, Difference between Object.key and Object.prototype.key, Prototypal inheritance, Pseudo-classical inheritance, Setting an Object's prototype, New object from prototype"
 ---
 

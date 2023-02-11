@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Same Origin Policy & Cross-Origin Communication"
+metaTitle: "JavaScript - Same Origin Policy & Cross-Origin Communication"
 description: "Safe cross-origin communication with messages, Ways to circumvent Same-Origin Policy"
 ---
 

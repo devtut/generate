@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Modules"
+metaTitle: "JavaScript - Modules"
 description: "Defining a module, Default exports, Importing named members from another module, Importing an entire module, Importing named members with aliases, Importing with side effects, Exporting multiple named members"
 ---
 

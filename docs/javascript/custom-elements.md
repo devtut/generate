@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Custom Elements"
+metaTitle: "JavaScript - Custom Elements"
 description: "Extending Native Elements, Registering New Elements"
 ---
 

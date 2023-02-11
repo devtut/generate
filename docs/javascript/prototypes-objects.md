@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Prototypes, objects"
+metaTitle: "JavaScript - Prototypes, objects"
 description: "Creation and initialising Prototype"
 ---
 

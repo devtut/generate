@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Binary Data"
+metaTitle: "JavaScript - Binary Data"
 description: "Getting binary representation of an image file, Converting between Blobs and ArrayBuffers, Manipulating ArrayBuffers with DataViews, Creating a TypedArray from a Base64 string, Using TypedArrays, Iterating through an arrayBuffer"
 ---
 

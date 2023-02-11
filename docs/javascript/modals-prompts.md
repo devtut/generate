@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Modals - Prompts"
+metaTitle: "JavaScript - Modals - Prompts"
 description: "About User Prompts, Persistent Prompt Modal, Confirm to Delete element, Usage of alert(), Usage of prompt()"
 ---
 

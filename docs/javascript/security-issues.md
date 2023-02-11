@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Security issues"
+metaTitle: "JavaScript - Security issues"
 description: "Reflected Cross-site scripting (XSS), Persistent Cross-site scripting (XSS), Persistent Cross-site scripting from JavaScript string literals, Why scripts from other people can harm your website and its visitors, Evaled JSON injection"
 ---
 

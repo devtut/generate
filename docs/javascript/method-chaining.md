@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Method Chaining"
+metaTitle: "JavaScript - Method Chaining"
 description: "Chainable object design and chaining, Method Chaining"
 ---
 

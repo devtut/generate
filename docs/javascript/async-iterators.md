@@ -1,5 +1,5 @@
 ---
-metaTitle: "JavsScript - Async Iterators"
+metaTitle: "JavaScript - Async Iterators"
 description: "Basics"
 ---
 
