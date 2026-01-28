@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Searching"
+title: "Algorithm - Searching"
 description: "Binary Search, Binary Search: On Sorted Numbers, Linear search, Rabin Karp, Analysis of Linear search (Worst, Average and Best Cases)"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Searching
 
-
-
-
 ## Binary Search
-
 
 ### Introduction
 
@@ -19,7 +17,7 @@ Binary Search works by halving the search space at each iteration after comparin
 
 To use Binary Search, the search space must be ordered (sorted) in some way. Duplicate entries (ones that compare as equal according to the comparison function) cannot be distinguished, though they don't violate the Binary Search property.
 
-Conventionally, we use less than (<) as the comparison function. If a < b, it will return true. if a is not less than b and b is not less than a, a and b are equal.
+Conventionally, we use less than (&lt;) as the comparison function. If a &lt; b, it will return true. if a is not less than b and b is not less than a, a and b are equal.
 
 ### Example Question
 
@@ -41,7 +39,7 @@ However, notice that as the `k` goes up, `getSupply(k)` increases and `getDemand
 
 The following psuedocode demonstrates the usage of Binary Search:
 
-```cpp
+```text
 high = 100000000000000000     <- Upper bound of search space
 low = 1                       <- Lower bound of search space
 while high - low > 1
@@ -54,7 +52,6 @@ while high - low > 1
         low = mid              <- Solution is in upper half of search space
     else                       <- supply==demand condition
         return mid             <- Found solution
-
 ```
 
 This algorithm runs in `~O(log 10^17)` time. This can be generalized to `~O(log S)` time where S is the size of the search space since at every iteration of the `while` loop, we halved the search space (**from [low:high] to either [low:mid] or [mid:high]**).
@@ -79,13 +76,9 @@ int binsearch(int a[], int x, int low, int high) {
         binsearch(a, x, mid + 1, high);
     }
 }
-
 ```
 
-
-
 ## Binary Search: On Sorted Numbers
-
 
 It's easiest to show a binary search on numbers using pseudo-code
 
@@ -109,14 +102,13 @@ if(array[low] == x)
     // found, index is low
 else
     // not found
-
 ```
 
 Do not attempt to return early by comparing array[mid] to x for equality. The extra comparison can only slow the code down. Note you need to add one to low to avoid becoming trapped by integer division always rounding down.
 
 Interestingly, the above version of binary search allows you to find the smallest occurrence of x in the array. If the array contains duplicates of x, the algorithm can be modified slightly in order for it to return the largest occurrence of x by simply adding to the if conditional:
 
-```cpp
+```text
 while(low < high)
     {
         mid = low + ((high - low) / 2);
@@ -125,15 +117,11 @@ while(low < high)
         else
             high = mid;  
     }
-
 ```
 
 Note that instead of doing `mid = (low + high) / 2`, it may also be a good idea to try `mid = low + ((high - low) / 2)` for implementations such as Java implementations to lower the risk of getting an overflow for really large inputs.
 
-
-
 ## Linear search
-
 
 Linear search is a simple algorithm. It loops through items until the query has been found, which makes it a linear algorithm - the complexity is O(n), where n is the number of items to go through.
 
@@ -143,7 +131,7 @@ It can be compared to looking for a book in a stack of books - you go through th
 
 Below is a Python implementation:
 
-```cpp
+```python
 def linear_search(searchable_list, query):
     for x in searchable_list:
         if query == x:
@@ -151,19 +139,15 @@ def linear_search(searchable_list, query):
     return False
 
 linear_search(['apple', 'banana', 'carrot', 'fig', 'garlic'], 'fig') #returns True
-
 ```
 
-
-
 ## Rabin Karp
-
 
 The Rabin–Karp algorithm or Karp–Rabin algorithm is a string searching algorithm that uses  hashing to find any one of a set of pattern strings in a text.Its average and best case running time is O(n+m) in space O(p), but its worst-case time is O(nm) where n is the length of the text and m is the length of the pattern.
 
 Algorithm implementation in java for string matching
 
-```cpp
+```java
 void RabinfindPattern(String text,String pattern){
     /*
     q a prime number
@@ -202,7 +186,6 @@ void RabinfindPattern(String text,String pattern){
         }    
     }                                
 }
-
 ```
 
 While calculating hash value we are dividing it by a prime number in order to avoid collision.After dividing by prime number the chances of collision will be less, but still ther is a chance that the hash value can be same for two strings,so when we get a match we have to check it character by character to make sure that we got a proper match.
@@ -211,23 +194,25 @@ t =(d*(t - text.charAt(i)*h) + text.charAt(i+m))%q;
 
 This is to recalculate the hash value for pattern,first by removing the left most character and then adding the new character from the text.
 
-
-
 ## Analysis of Linear search (Worst, Average and Best Cases)
-
 
 We can have three cases to analyze an algorithm:
 
-&lt;li>
+
+- 
 Worst Case
-&lt;/li>
-&lt;li>
+
+
+
+- 
 Average Case
-&lt;/li>
-&lt;li>
+
+
+
+- 
 Best Case
 
-```cpp
+```c
 #include <stdio.h>
 
 // Linearly search x in arr[].  If x is present then return the index,
@@ -244,13 +229,11 @@ int search(int arr[], int n, int x)
 
     return -1;
 }
-
 ```
-
 
 /* Driver program to test above functions*/
 
-```cpp
+```c
 int main()
 {
     int arr[] = {1, 10, 30, 15};
@@ -261,11 +244,10 @@ int main()
     getchar();
     return 0;
 }   
-
 ```
 
 
-&lt;/li>
+
 
 ****Worst Case Analysis (Usually Done)****
 

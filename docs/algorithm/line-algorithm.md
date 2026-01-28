@@ -1,71 +1,81 @@
 ---
-metaTitle: "Algorithm - Line Algorithm"
+title: "Algorithm - Line Algorithm"
 description: "Bresenham Line Drawing Algorithm"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Line Algorithm
-
 
 Line drawing is accomplished by calculating intermediate positions along the line path between
 two specified endpoint positions. An output device is then directed to fill in these positions
 between the endpoints.
 
-
-
 ## Bresenham Line Drawing Algorithm
-
 
 Background Theory:
 Bresenham’s Line Drawing Algorithm is an efficient and accurate raster line generating algorithm developed by Bresenham. It involves only integer calculation so it is accurate and fast. It can also be extended to display circles another curves.
 
-In Bresenham line drawing algorithm:<br>
+In Bresenham line drawing algorithm:<br />
 
-For Slope |m|&lt;1:<br>
-Either value of x is increased<br>
-OR both x and y is increased using decision parameter.  <br>
+For Slope |m|&lt;1:<br />
+Either value of x is increased <br />
+OR both x and y is increased using decision parameter.  <br />
 
-For Slope |m|>1:<br>
-Either value of y is increased<br>
-OR both x and y is increased using decision parameter.  <br>
+For Slope |m|>1:<br />
+Either value of y is increased <br />
+OR both x and y is increased using decision parameter.  <br />
 
-**Algorithm for slope |m|&lt;1:<br>**
+**Algorithm for slope |m|&lt;1:<br />**
 
-&lt;li>
+
+- 
 Input two end points (x1,y1) and (x2,y2) of the line.
-&lt;/li>
-&lt;li>
+
+
+
+- 
 Plot the first point (x1,y1).
-&lt;/li>
-&lt;li>
-<p>Calculate<br>
+
+
+
+- 
+<p>Calculate <br />
 Delx =| x2 – x1 |
-<br>    Dely = | y2 – y1 |</p>
-&lt;/li>
-&lt;li>
-<p>Obtain the initial decision parameter as <br>
+<br />    Dely = | y2 – y1 |</p>
+
+
+
+- 
+<p>Obtain the initial decision parameter as <br />
 P = 2 * dely – delx</p>
-&lt;/li>
-&lt;li>
-<p>For I = 0 to delx in step of 1<br><br>
-If p < 0 then<br>
-X1 = x1 + 1<br>
-Pot(x1,y1)<br>
-P = p+ 2<em>dely<br><br>
-Else<br>
-X1 = x1 + 1<br>
-Y1 = y1 + 1<br>
-Plot(x1,y1)<br>
-P = p + 2</em>dely – 2 * delx<br><br>
-End if<br><br>
-End for<br></p>
-&lt;/li>
-&lt;li>
+
+
+
+- 
+<p>For I = 0 to delx in step of 1 <br /><br />
+If p &lt; 0 then <br />
+X1 = x1 + 1 <br />
+Pot(x1,y1)<br />
+P = p+ 2 <em>dely <br /><br />
+Else <br />
+X1 = x1 + 1 <br />
+Y1 = y1 + 1 <br />
+Plot(x1,y1)<br />
+P = p + 2</em>dely – 2 * delx <br /><br />
+End if <br /><br />
+End for <br /></p>
+
+
+
+- 
 END
-&lt;/li>
+
+
 
 **Source Code:**
 
-```cpp
+```c
 /* A C program to implement Bresenham line drawing algorithm for |m|<1 */
 #include<stdio.h>
 #include<conio.h>
@@ -109,35 +119,39 @@ else
  closegraph();
  return 0;
 }
-
 ```
 
 **Algorithm for slope |m|>1:**
 
 1. Input two end points (x1,y1) and (x2,y2) of the line.
 1. Plot the first point (x1,y1).
-&lt;li>Calculate<br>
-Delx =| x2 – x1 |<br>
-Dely = | y2 – y1 |&lt;/li>
-&lt;li>Obtain the initial decision parameter as
-<br>P = 2 * delx – dely&lt;/li>
-&lt;li>For I = 0 to dely in step of 1<br><br>
-If p < 0 then<br>
-y1 = y1 + 1<br>
-Pot(x1,y1)<br>
-P = p+ 2<em>delx<br><br>
-Else<br>
-X1 = x1 + 1<br>
-Y1 = y1 + 1<br>
-Plot(x1,y1)<br>
-P = p + 2</em>delx – 2 * dely<br><br>
-End if<br><br>
-End for<br><br>&lt;/li>
+
+- Calculate <br />
+Delx =| x2 – x1 |<br />
+Dely = | y2 – y1 |
+
+
+- Obtain the initial decision parameter as <br />P = 2 * delx – dely
+
+
+- For I = 0 to dely in step of 1 <br /><br />
+If p &lt; 0 then <br />
+y1 = y1 + 1 <br />
+Pot(x1,y1)<br />
+P = p+ 2 <em>delx <br /><br />
+Else <br />
+X1 = x1 + 1 <br />
+Y1 = y1 + 1 <br />
+Plot(x1,y1)<br />
+P = p + 2</em>delx – 2 * dely <br /><br />
+End if <br /><br />
+End for <br /><br />
+
 1. END
 
 **Source Code:**
 
-```cpp
+```c
 /* A C program to implement Bresenham line drawing algorithm for |m|>1 */
 #include<stdio.h>
 #include<conio.h>
@@ -177,6 +191,5 @@ getch();
 closegraph();
  return 0;
 }
-
 ```
 

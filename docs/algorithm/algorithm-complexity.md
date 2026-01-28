@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Algorithm Complexity"
+title: "Algorithm - Algorithm Complexity"
 description: "Big-Theta notation, Comparison of the asymptotic notations, Big-Omega Notation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Algorithm Complexity
 
-
-
-
 ## Big-Theta notation
-
 
 Unlike Big-O notation, which represents only upper bound of the running time for some algorithm, Big-Theta is a tight bound; both upper and lower bound. Tight bound is more precise, but also more difficult to compute.
 
@@ -18,7 +16,7 @@ The Big-Theta notation is symmetric: `f(x) = Ө(g(x)) <=> g(x) = Ө(f(x))`
 An intuitive way to grasp it is that `f(x) = Ө(g(x))` means that the graphs of f(x) and g(x) grow in the same rate, or that the graphs 'behave' similarly for big enough values of x.
 
 The full mathematical expression of the Big-Theta notation is as follows:<br />
-Ө(f(x)) = {g: N<sub>0</sub> -> R and c<sub>1</sub>, c<sub>2</sub>, n<sub>0</sub> > 0, where c<sub>1</sub> < abs(g(n) / f(n)), for every n > n<sub>0</sub> and abs is the absolute value }
+Ө(f(x)) = &#123;g: N <sub>0</sub> -> R and c <sub>1</sub>, c <sub>2</sub>, n <sub>0</sub> &gt; 0, where c <sub>1</sub> &lt; abs(g(n) / f(n)), for every n &gt; n <sub>0</sub> and abs is the absolute value &#125;
 
 **An example**
 
@@ -50,29 +48,26 @@ if `limit(x->infinity) f(x)/g(x) = c ∈ (0,∞)` i.e. the limit exists and it's
 
 **Common Complexity Classes**
 
-|Name|Notation|n = 10|n = 100
-|---|---|---|---
-|Constant|Ө(1)|1|1
-|Logarithmic|Ө(log(n))|3|7
-|Linear|Ө(n)|10|100
-|Linearithmic|Ө(n*log(n))|30|700
-|Quadratic|Ө(n^2)|100|10 000
-|Exponential|Ө(2^n)|1 024|1.267650e+ 30
-|Factorial|Ө(n!)|3 628 800|9.332622e+157
-
-
+| Name         | Notation    | n = 10    | n = 100       |
+| ------------ | ----------- | --------- | ------------- |
+| Constant     | Ө(1)        | 1         | 1             |
+| Logarithmic  | Ө(log(n))   | 3         | 7             |
+| Linear       | Ө(n)        | 10        | 100           |
+| Linearithmic | Ө(n*log(n)) | 30        | 700           |
+| Quadratic    | Ө(n^2)      | 100       | 10 000        |
+| Exponential  | Ө(2^n)      | 1 024     | 1.267650e+ 30 |
+| Factorial    | Ө(n!)       | 3 628 800 | 9.332622e+157 |
 
 ## Comparison of the asymptotic notations
 
-
 Let `f(n)` and `g(n)` be two functions defined on the set of the positive real numbers, `c, c1, c2, n0` are positive real constants.
 
-|Notation|f(n) = O(g(n))|f(n) = Ω(g(n))|f(n) = Θ(g(n))|f(n) = o(g(n))|f(n) = ω(g(n))
-|---|---|---|---|---|---|---|---
-|Formal definition|`∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) ≤ c g(n)`|`∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) ≤ f(n)`|`∃ c1, c2 > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c1 g(n) ≤ f(n) ≤ c2 g(n)`|`∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) < c g(n)`|`∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) < f(n)`
-|Analogy between the asymptotic comparison of `f, g` and real numbers `a, b`|`a ≤ b`|`a ≥ b`|`a = b`|`a < b`|`a > b`
-|Example|`7n + 10 = O(n^2 + n - 9)`|`n^3 - 34 = Ω(10n^2 - 7n + 1)`|`1/2 n^2 - 7n = Θ(n^2)`|`5n^2 = o(n^3)`|`7n^2 = ω(n)`
-|Graphic interpretation|[<img src="https://i.stack.imgur.com/AkEKr.png" alt="O-notation" />](https://i.stack.imgur.com/AkEKr.png)|[<img src="https://i.stack.imgur.com/5qDtj.png" alt="Ω-notation" />](https://i.stack.imgur.com/5qDtj.png)|[<img src="https://i.stack.imgur.com/RPdzC.png" alt="Θ-notation" />](https://i.stack.imgur.com/RPdzC.png)||
+| Notation                                                                    | f(n) = O(g(n))                                                                                            | f(n) = Ω(g(n))                                                                                            | f(n) = Θ(g(n))                                                                                            | f(n) = o(g(n))                                    | f(n) = ω(g(n))                                    |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |  |  |
+| Formal definition                                                           | `∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) ≤ c g(n)`                                                         | `∃ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) ≤ f(n)`                                                         | `∃ c1, c2 > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c1 g(n) ≤ f(n) ≤ c2 g(n)`                                         | `∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ f(n) < c g(n)` | `∀ c > 0, ∃ n0 > 0 : ∀ n ≥ n0, 0 ≤ c g(n) < f(n)` |
+| Analogy between the asymptotic comparison of `f, g` and real numbers `a, b` | `a ≤ b`                                                                                                   | `a ≥ b`                                                                                                   | `a = b`                                                                                                   | `a < b`                                           | `a > b`                                           |
+| Example                                                                     | `7n + 10 = O(n^2 + n - 9)`                                                                                | `n^3 - 34 = Ω(10n^2 - 7n + 1)`                                                                            | `1/2 n^2 - 7n = Θ(n^2)`                                                                                   | `5n^2 = o(n^3)`                                   | `7n^2 = ω(n)`                                     |
+| Graphic interpretation                                                      | [<img src="https://i.stack.imgur.com/AkEKr.png" alt="O-notation" />](https://i.stack.imgur.com/AkEKr.png) | [<img src="https://i.stack.imgur.com/5qDtj.png" alt="Ω-notation" />](https://i.stack.imgur.com/5qDtj.png) | [<img src="https://i.stack.imgur.com/RPdzC.png" alt="Θ-notation" />](https://i.stack.imgur.com/RPdzC.png) |                                                   |
 
 The asymptotic notations can be represented on a Venn diagram as follows:
 [<img src="https://i.stack.imgur.com/v2eH3.png" alt="Asymptotic notations" />](https://i.stack.imgur.com/v2eH3.png)
@@ -81,10 +76,7 @@ The asymptotic notations can be represented on a Venn diagram as follows:
 
 Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms.
 
-
-
 ## Big-Omega Notation
-
 
 Ω-notation is used for asymptotic lower bound.
 
@@ -118,10 +110,7 @@ We would like to say the algorithm requires exponential time but in fact you can
 
 Formal definition and theorem are taken from the book "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms".
 
-
-
 #### Remarks
-
 
 All algorithms are a list of steps to solve a problem.  Each step has dependencies on some set of previous steps, or the start of the algorithm.  A small problem might look like the following:
 
@@ -131,11 +120,10 @@ This structure is called a directed acyclic graph, or DAG for short.  The links 
 
 How do dependencies happen?  Take for example the following code:
 
-```cpp
+```text
 total = 0
 for(i = 1; i < 10; i++)
     total = total + i
-
 ```
 
 In this psuedocode, each iteration of the for loop is dependent on the result from the previous iteration because we are using the value calculated in the previous iteration in this next iteration.  The DAG for this code might look like this:

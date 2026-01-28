@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Online algorithms"
+title: "Algorithm - Online algorithms"
 description: "Paging (Online Caching)"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Online algorithms
 
-
-
-
 ## Paging (Online Caching)
-
 
 ### Preface
 
@@ -77,7 +75,6 @@ public:
         }
     }
 };
-
 ```
 
 The full sourcecode is available [here](http://pastebin.com/AF7EC2xJ). If we reuse the example from the topic, we get the following output:
@@ -106,7 +103,6 @@ Request cache 0 cache 1 cache 2 cache miss
   c       c       X       X       x
 
 Total cache misses: 5
-
 ```
 
 Even though **LFD** is optimal, **FWF** has fewer cache misses. But the main goal was to minimize the number of evictions and for **FWF** five misses mean 15 evictions, which makes it the poorest choice for this example.
@@ -115,21 +111,19 @@ Even though **LFD** is optimal, **FWF** has fewer cache misses. But the main goa
 
 Now we want to approach the online problem of paging. But first we need an understanding how to do it. Obviously an online algorithm cannot be better than the optimal offline algorithm. But how much worse it is? We need formal definitions to answer that question:
 
-**Definition 1.1:** An **optimization problem** Π consists of a set of **instances** Σ<sub>Π</sub>. For every instance σ∈Σ<sub>Π</sub> there is a set Ζ<sub>σ</sub> of **solutions** and a **objective function** f<sub>σ</sub> : Ζ<sub>σ</sub> → ℜ<sub>≥0</sub> which assigns apositive real value to every solution.<br> We say OPT(σ) is the value of an optimal solution, A(σ) is the solution of an Algorithm A for the problem  Π and w<sub>A</sub>(σ)=f<sub>σ</sub>(A(σ)) its value.
+**Definition 1.1:** An **optimization problem** Π consists of a set of **instances** Σ <sub>Π</sub>. For every instance σ∈Σ <sub>Π</sub> there is a set Ζ <sub>σ</sub> of **solutions** and a **objective function** f <sub>σ</sub> : Ζ <sub>σ</sub> → ℜ <sub>≥0</sub> which assigns apositive real value to every solution.<br /> We say OPT(σ) is the value of an optimal solution, A(σ) is the solution of an Algorithm A for the problem  Π and w <sub>A</sub>(σ)=f <sub>σ</sub>(A(σ)) its value.
 
 **Definition 1.2:** An online algorithm A for a minimization problem Π has a **competetive ratio** of r ≥ 1 if there is a constant τ∈ℜ with
 
-> 
-w<sub>A</sub>(σ) = f<sub>σ</sub>(A(σ)) ≤ r ⋅ OPT(σ) + τ
+&gt; 
+w <sub>A</sub>(σ) = f <sub>σ</sub>(A(σ)) ≤ r ⋅ OPT(σ) + τ
 
+for all instances σ∈Σ <sub>Π</sub>. A is called a **r-competitive** online algorithm. Is even
 
-for all instances σ∈Σ<sub>Π</sub>. A is called a **r-competitive** online algorithm. Is even
+&gt; 
+w <sub>A</sub>(σ) ≤ r ⋅ OPT(σ)
 
-> 
-w<sub>A</sub>(σ) ≤ r ⋅ OPT(σ)
-
-
-for all instances σ∈Σ<sub>Π</sub> then A is called a **strictly r-competitive** online algorithm.
+for all instances σ∈Σ <sub>Π</sub> then A is called a **strictly r-competitive** online algorithm.
 
 So the question is how **competitive** is our online algorithm compared to an optimal offline algorithm. In their famous [book](http://www.cs.technion.ac.il/%7Erani/book.html) Allan Borodin and Ran El-Yaniv used another scenario to describe the online paging situation:
 
@@ -139,34 +133,32 @@ There is an **evil adversary** who knows your algorithm and the optimal offline 
 
 Instead of analysing every algorithm separately, let's look at a special online algorithm family for the paging problem called **marking algorithms**.
 
-Let σ=(σ<sub>1</sub>,...,σ<sub>p</sub>) an instance for our problem and k our cache size, than σ can be divided into phases:
+Let σ=(σ <sub>1</sub>,...,σ <sub>p</sub>) an instance for our problem and k our cache size, than σ can be divided into phases:
 
 - Phase 1 is the maximal subsequence of σ from the start till maximal k different pages are requested
 - Phase i ≥ 2 is the maximal subsequence of σ from the end of pase i-1 till maximal k different pages are requested
 
 For example with  k = 3:
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/u4VjA.png" alt="enter image description here" />](https://i.stack.imgur.com/u4VjA.png)
-
 
 A marking algorithm (implicitly or explicitly) maintains whether a page is marked or not. At the beginning of each phase are all pages unmarked. Is a page requested during a phase it gets marked. An algorithm is a marking algorithm **iff** it never evicts a marked page from cache. That means pages which are used during a phase will not be evicted.
 
 **Proposition 1.3:** **LRU** and **FWF** are marking algorithm.
 
-**Proof:** At the beginning of each phase (except for the first one) **FWF** has a cache miss and cleared the cache. that means we have k empty pages. In every phase are maximal k different pages requested, so there will be now eviction during the phase. So **FWF** is a marking algorithm. <br>
-Let's assume **LRU** is not a marking algorithm. Then there is an instance σ where **LRU** a marked page x in phase i evicted. Let σ<sub>t</sub> the request in phase i where x is evicted. Since x is marked there has to be a earlier request σ<sub>t*</sub> for x in the same phase, so t* < t. After t* x is the caches newest page, so to got evicted at t the sequence σ<sub>t*+1</sub>,...,σ<sub>t</sub> has to request at least k from x different pages. That implies the phase i has requested at least k+1 different pages which is a contradictory to the phase definition. So **LRU** has to be a marking algorithm.
+**Proof:** At the beginning of each phase (except for the first one) **FWF** has a cache miss and cleared the cache. that means we have k empty pages. In every phase are maximal k different pages requested, so there will be now eviction during the phase. So **FWF** is a marking algorithm. <br />
+Let's assume **LRU** is not a marking algorithm. Then there is an instance σ where **LRU** a marked page x in phase i evicted. Let σ <sub>t</sub> the request in phase i where x is evicted. Since x is marked there has to be a earlier request σ <sub>t*</sub> for x in the same phase, so t* &lt; t. After t* x is the caches newest page, so to got evicted at t the sequence σ<sub>t*+1</sub>,...,σ <sub>t</sub> has to request at least k from x different pages. That implies the phase i has requested at least k+1 different pages which is a contradictory to the phase definition. So **LRU** has to be a marking algorithm.
 
 **Proposition 1.4:** Every marking algorithm **is strictly k-competitive**.
 
-**Proof:** Let σ be an instance for the paging problem and l the number of phases for σ. Is l = 1 then is every marking algorithm optimal and the optimal offline algorithm cannot be better. <br>
-We assume l ≥ 2. the cost of every marking algorithm, for instance, σ is bounded from above with l ⋅ k because in every phase a marking algorithm cannot evict more than k pages without evicting one marked page. <br>
-Now we try to show that the optimal offline algorithm evicts at least k+l-2 pages for σ, k in the first phase and at least one for every following phase except for the last one. For proof lets define l-2 disjunct subsequences of σ. Subsequence i ∈ {1,...,l-2} starts at the second position of phase i+1 and end with the first position of phase i+2.<br>
+**Proof:** Let σ be an instance for the paging problem and l the number of phases for σ. Is l = 1 then is every marking algorithm optimal and the optimal offline algorithm cannot be better. <br />
+We assume l ≥ 2. the cost of every marking algorithm, for instance, σ is bounded from above with l ⋅ k because in every phase a marking algorithm cannot evict more than k pages without evicting one marked page. <br />
+Now we try to show that the optimal offline algorithm evicts at least k+l-2 pages for σ, k in the first phase and at least one for every following phase except for the last one. For proof lets define l-2 disjunct subsequences of σ. Subsequence i ∈ &#123;1,...,l-2&#125; starts at the second position of phase i+1 and end with the first position of phase i+2.<br />
 Let x be the first page of phase i+1. At the beginning of subsequence i there is page x and at most k-1 different pages in the optimal offline algorithms cache. In subsequence i are k page request different from x, so the optimal offline algorithm has to evict at least one page for every subsequence. Since at phase 1 beginning the cache is still empty, the optimal offline algorithm causes k evictions during the first phase. That shows that
 
-> 
-w<sub>A</sub>(σ) ≤ l⋅k ≤ (k+l-2)k ≤ OPT(σ) ⋅ k
-
+&gt; 
+w <sub>A</sub>(σ) ≤ l⋅k ≤ (k+l-2)k ≤ OPT(σ) ⋅ k
 
 **Corollary 1.5:** **LRU** and **FWF** are **strictly k-competitive**.
 
@@ -178,27 +170,24 @@ Is there no constant r for which an online algorithm A is r-competitive, we call
 
 **Proof:** Let l ≥ 2 a constant, k ≥ 2 the cache size. The different cache pages are nubered 1,...,k+1. We look at the following sequence:
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/zS05d.png" alt="enter image description here" />](https://i.stack.imgur.com/zS05d.png)
 
-
-The first page 1 is requested l times than page 2 and so one. At the end, there are (l-1) alternating requests for page k and k+1. <br>
-**LFU** and **LIFO** fill their cache with pages 1-k. When page k+1 is requested page k is evicted and vice versa. That means every request of subsequence (k,k+1)<sup>l-1</sup> evicts one page. In addition, their are k-1 cache misses for the first time use of pages 1-(k-1). So **LFU** and **LIFO** evict exact k-1+2(l-1) pages.<br>
+The first page 1 is requested l times than page 2 and so one. At the end, there are (l-1) alternating requests for page k and k+1. <br />
+**LFU** and **LIFO** fill their cache with pages 1-k. When page k+1 is requested page k is evicted and vice versa. That means every request of subsequence (k,k+1)<sup>l-1</sup> evicts one page. In addition, their are k-1 cache misses for the first time use of pages 1-(k-1). So **LFU** and **LIFO** evict exact k-1+2(l-1) pages.<br />
 Now we must show that for every constant τ∈ℜ and every constant r ≤ 1 there exists an l so that
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/lUOxY.png" alt="enter image description here" />](https://i.stack.imgur.com/lUOxY.png)
-
 
 which is equal to
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/arDFI.png" alt="enter image description here" />](https://i.stack.imgur.com/arDFI.png)
-
 
 To satisfy this inequality you just have to choose l sufficient big. So **LFU** and **LIFO** are not competitive.
 
-**Proposition 1.7:** There is **no r-competetive** deterministic online algorithm for paging with **r < k**.
+**Proposition 1.7:** There is **no r-competetive** deterministic online algorithm for paging with **r &lt; k**.
 
 The proof for this last proposition is rather long and based of the statement that **LFD** is an optimal offline algorithm. The interested reader can look it up in the book of Borodin and El-Yaniv (see sources below).
 
@@ -206,44 +195,38 @@ The Question is whether we could do better. For that, we have to leave the deter
 
 **Randomized paging will be discussed in one of next examples...**
 
-
-
 #### Remarks
-
 
 ### Theory
 
-**Definition 1:** An **optimization problem** Π consists of a set of **instances** Σ<sub>Π</sub>. For every instance σ∈Σ<sub>Π</sub> there is a set Ζ<sub>σ</sub> of **solutions** and a **objective function** f<sub>σ</sub> : Ζ<sub>σ</sub> → ℜ<sub>≥0</sub> which assigns apositive real value to every solution.<br> We say OPT(σ) is the value of an optimal solution, A(σ) is the solution of an Algorithm A for the problem  Π and w<sub>A</sub>(σ)=f<sub>σ</sub>(A(σ)) its value.
+**Definition 1:** An **optimization problem** Π consists of a set of **instances** Σ<sub>Π</sub>. For every instance σ∈Σ <sub>Π</sub> there is a set Ζ <sub>σ</sub> of **solutions** and a **objective function** f <sub>σ</sub> : Ζ <sub>σ</sub> → ℜ <sub>≥0</sub> which assigns apositive real value to every solution.<br /> We say OPT(σ) is the value of an optimal solution, A(σ) is the solution of an Algorithm A for the problem  Π and w <sub>A</sub>(σ)=f <sub>σ</sub>(A(σ)) its value.
 
 **Definition 2:** An online algorithm A for a minimization problem Π has a **competetive ratio** of r ≥ 1 if there is a constant τ∈ℜ with
 
-> 
-w<sub>A</sub>(σ) = f<sub>σ</sub>(A(σ)) ≤ r ⋅ OPT(&sigma) + τ
+&gt; 
+w <sub>A</sub>(σ) = f <sub>σ</sub>(A(σ)) ≤ r ⋅ OPT(&sigma) + τ
 
+for all instances σ∈Σ <sub>Π</sub>. A is called a **r-competitive** online algorithm. Is even
 
-for all instances σ∈Σ<sub>Π</sub>. A is called a **r-competitive** online algorithm. Is even
+&gt; 
+w <sub>A</sub>(σ) ≤ r ⋅ OPT(&sigma)
 
-> 
-w<sub>A</sub>(σ) ≤ r ⋅ OPT(&sigma)
-
-
-for all instances σ∈Σ<sub>Π</sub> then A is called a **strictly r-competitive** online algorithm.
+for all instances σ∈Σ <sub>Π</sub> then A is called a **strictly r-competitive** online algorithm.
 
 **Proposition 1.3:** **LRU** and **FWF** are marking algorithm.
 
-**Proof:** At the beginning of each phase (except for the first one) **FWF** has a cache miss and cleared the cache. that means we have k empty pages. In every phase are maximal k different pages requested, so there will be now eviction during the phase. So **FWF** is a marking algorithm. <br>
-Lets assume **LRU** is not a marking algorithm. Then there is an instance σ where **LRU** a marked page x in phase i evicted. Let σ<sub>t</sub> the request in phase i where x is evicted. Since x is marked there has to be a earlier request σ<sub>t*</sub> for x in the same phase, so t* < t. After t* x is the caches newest page, so to got evicted at t the sequence σ<sub>t*+1</sub>,...,σ<sub>t</sub> has to request at least k from x different pages. That implies the phase i has requested at least k+1 different pages which is a contradictory to the phase definition. So **LRU** has to be a marking algorithm.
+**Proof:** At the beginning of each phase (except for the first one) **FWF** has a cache miss and cleared the cache. that means we have k empty pages. In every phase are maximal k different pages requested, so there will be now eviction during the phase. So **FWF** is a marking algorithm. <br />
+Lets assume **LRU** is not a marking algorithm. Then there is an instance σ where **LRU** a marked page x in phase i evicted. Let σ <sub>t</sub> the request in phase i where x is evicted. Since x is marked there has to be a earlier request σ <sub>t*</sub> for x in the same phase, so t* &lt; t. After t* x is the caches newest page, so to got evicted at t the sequence σ<sub>t*+1</sub>,...,σ <sub>t</sub> has to request at least k from x different pages. That implies the phase i has requested at least k+1 different pages which is a contradictory to the phase definition. So **LRU** has to be a marking algorithm.
 
 **Proposition 1.4:** Every marking algorithm **is strictly k-competitive**.
 
-**Proof:** Let σ be an instance for the paging problem and l the number of phases for σ. Is l = 1 then is every marking algorithm optimal and the optimal offline algorithm cannot be better. <br>
-We assume l ≥ 2. the cost of every marking algorithm for instance σ is bounded from above with l ⋅ k because in every phase a marking algorithm cannot evict more than k pages without evicting one marked page. <br>
-Now  we try to show that the optimal offline algorithm evicts at least k+l-2 pages for σ, k in the first phase and at least one for every following phase except for the last one. For proof lets define l-2 disjunct subsequences of σ. Subsequence i ∈ {1,...,l-2} starts at the second position of phase i+1 and end with the first position of phase i+2.<br>
+**Proof:** Let σ be an instance for the paging problem and l the number of phases for σ. Is l = 1 then is every marking algorithm optimal and the optimal offline algorithm cannot be better. <br />
+We assume l ≥ 2. the cost of every marking algorithm for instance σ is bounded from above with l ⋅ k because in every phase a marking algorithm cannot evict more than k pages without evicting one marked page. <br />
+Now  we try to show that the optimal offline algorithm evicts at least k+l-2 pages for σ, k in the first phase and at least one for every following phase except for the last one. For proof lets define l-2 disjunct subsequences of σ. Subsequence i ∈ &#123;1,...,l-2&#125; starts at the second position of phase i+1 and end with the first position of phase i+2.<br />
 Let x be the first page of phase i+1. At the beginning of subsequence i there is page x and at most k-1 different pages in the optimal offline algorithms cache. In subsequence i are k page request different from x, so the optimal offline algorithm has to evict at least one page for every subsequence. Since at phase 1 beginning the cache is still empty, the optimal offline algorithm causes k evictions during the first phase. That shows that
 
-> 
-w<sub>A</sub>(σ) ≤ l⋅k ≤ (k+l-2)k ≤ OPT(σ) ⋅ k
-
+&gt; 
+w <sub>A</sub>(σ) ≤ l⋅k ≤ (k+l-2)k ≤ OPT(σ) ⋅ k
 
 **Corollary 1.5:** **LRU** and **FWF** are **strictly k-competitive**.
 
@@ -253,27 +236,24 @@ Is there no constant r for which an online algorithm A is r-competitive, we call
 
 **Proof:** Let l ≥ 2 a constant, k ≥ 2 the cache size. The different cache pages are nubered 1,...,k+1. We look at the following sequence:
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/zS05d.png" alt="enter image description here" />](https://i.stack.imgur.com/zS05d.png)
 
-
-First page 1 is requested l times than page 2 and so one. At the end there are (l-1) alternating requests for page k and k+1. <br>
-**LFU** and **LIFO** fill their cache with pages 1-k. When page k+1 is requested page k is evicted and vice versa. That means every request of subsequence (k,k+1)<sup>l-1</sup> evicts one page. In addition their are k-1 cache misses for the first time use of pages 1-(k-1). So **LFU** and **LIFO** evict exact k-1+2(l-1) pages.<br>
+First page 1 is requested l times than page 2 and so one. At the end there are (l-1) alternating requests for page k and k+1. <br />
+**LFU** and **LIFO** fill their cache with pages 1-k. When page k+1 is requested page k is evicted and vice versa. That means every request of subsequence (k,k+1)<sup>l-1</sup> evicts one page. In addition their are k-1 cache misses for the first time use of pages 1-(k-1). So **LFU** and **LIFO** evict exact k-1+2(l-1) pages.<br />
 Now we must show that for every constant τ∈ℜ and every constan r ≤ 1 there exists an l so that
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/lUOxY.png" alt="enter image description here" />](https://i.stack.imgur.com/lUOxY.png)
-
 
 which is equal to
 
-> 
+&gt; 
 [<img src="https://i.stack.imgur.com/arDFI.png" alt="enter image description here" />](https://i.stack.imgur.com/arDFI.png)
-
 
 To satisfy this inequality you just have to choose l sufficient big. So **LFU** and **LIFO** are not competetive.
 
-**Proposition 1.7:** There is **no r-competetive** deterministic online algorithm for paging with **r < k**.
+**Proposition 1.7:** There is **no r-competetive** deterministic online algorithm for paging with **r &lt; k**.
 
 ### Sources
 

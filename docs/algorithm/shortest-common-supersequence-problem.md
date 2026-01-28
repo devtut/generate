@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Shortest Common Supersequence Problem"
+title: "Algorithm - Shortest Common Supersequence Problem"
 description: "Shortest Common Supersequence Problem Basic Information, Implementation of Shortest Common Supersequence Problem in C#"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Shortest Common Supersequence Problem
 
-
-
 ## Shortest Common Supersequence Problem Basic Information
-
 
 The [Shortest Common Super Sequence](https://en.wikipedia.org/wiki/Shortest_common_supersequence_problem) is a problem closely related to the longest common subsequence, which you can use as an external function for this task. The shortest common super sequence problem is a problem closely related to the longest common subsequence problem.
 
@@ -28,12 +27,9 @@ For the more general problem of finding a string, `S` which is a superstring of 
 
 **Time Complexity:** `O(max(m,n))`
 
-
-
 ## Implementation of Shortest Common Supersequence Problem in C#
 
-
-```cpp
+```java
 public class ShortestCommonSupersequence
 {
     private static int Max(int a, int b)
@@ -68,6 +64,5 @@ public class ShortestCommonSupersequence
         return Scs(x, y);
     }
 }
-
 ```
 

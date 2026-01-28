@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Counting Sort"
+title: "Algorithm - Counting Sort"
 description: "Counting Sort Basic Information, Psuedocode Implementation, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Counting Sort
 
-
-
 ## Counting Sort Basic Information
-
 
 [Counting sort](https://en.wikipedia.org/wiki/Counting_sort) is an integer sorting algorithm for a collection of objects that sorts according to the keys of the objects.
 
@@ -23,13 +22,10 @@ description: "Counting Sort Basic Information, Psuedocode Implementation, C# Imp
 
 [<img src="http://i.stack.imgur.com/ccdTK.jpg" alt="Counting Sort" />](http://i.stack.imgur.com/ccdTK.jpg)
 
-**Auxiliary Space:** `O(n+k)` <br>
+**Auxiliary Space:** `O(n+k)` <br />
 **Time Complexity:** Worst-case: `O(n+k)`, Best-case: `O(n)`, Average-case `O(n+k)`
 
-
-
 ## Psuedocode Implementation
-
 
 Constraints:
 
@@ -52,15 +48,11 @@ for x in input:
     output[count[key(x)]] = x
     count[key(x)] += 1
 return output
-
 ```
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class CountingSort
 {
     public static void SortCounting(int[] input, int min, int max)
@@ -90,6 +82,5 @@ public class CountingSort
         return input;
     }
 }
-
 ```
 

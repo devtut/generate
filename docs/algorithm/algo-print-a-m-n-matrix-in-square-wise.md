@@ -1,17 +1,15 @@
 ---
-metaTitle: "Algorithm - Algo:- Print a m*n matrix in square wise"
+title: "Algorithm - Algo:- Print a m*n matrix in square wise"
 description: "Sample Example, Write the generic code"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Algo:- Print a m*n matrix in square wise
 
-
 Check sample input and output below.
 
-
-
 ## Sample Example
-
 
 ```cpp
 Input :-
@@ -27,15 +25,11 @@ print value in index
 
 or print index
 00 01 02 03 04 05 15 25 35 34 33 32 31 30 20 10 11 12 13 14 24 23 22 21
-
 ```
-
-
 
 ## Write the generic code
 
-
-```cpp
+```javascript
 function noOfLooping(m,n) {
     if(m > n) {
         smallestValue = n;
@@ -69,6 +63,5 @@ function squarePrint(m,n) {
 }
 
 squarePrint(6,4);
-
 ```
 

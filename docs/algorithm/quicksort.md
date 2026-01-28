@@ -1,22 +1,21 @@
 ---
-metaTitle: "Algorithm - Quicksort"
+title: "Algorithm - Quicksort"
 description: "Quicksort Basics, Quicksort in Python, Lomuto partition java implementation, Haskell Implementation, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Quicksort
 
-
-
 ## Quicksort Basics
-
 
 [**Quicksort**](https://en.wikipedia.org/wiki/Quicksort) is a sorting algorithm that picks an element ("the pivot") and reorders the array forming two partitions such that all elements less than the pivot come before it and all elements greater come after. The algorithm is then applied recursively to the partitions until the list is sorted.
 
-**1. Lomuto partition scheme mechanism :<br>**
+**1. Lomuto partition scheme mechanism :<br />**
 
 This scheme chooses a pivot which is typically the last element in the array. The algorithm maintains the index to put the pivot in variable i and each time it finds an element less than or equal to pivot, this index is incremented and that element would be placed before the pivot.
 
-```cpp
+```text
 partition(A, low, high) is
 pivot := A[high]
 i := low
@@ -26,35 +25,32 @@ for j := low to high – 1 do
         i := i + 1
 swap A[i] with A[high]
 return i
-
 ```
 
 Quick Sort mechanism :
 
-```cpp
+```text
 quicksort(A, low, high) is
 if low < high then
     p := partition(A, low, high)
     quicksort(A, low, p – 1)
     quicksort(A, p + 1, high)
-
 ```
 
 **Example of quick sort:**
 [<img src="https://i.stack.imgur.com/UWJZY.gif" alt="Example of Quick Sort" />](https://i.stack.imgur.com/UWJZY.gif)
 
-**2. Hoare partition scheme: <br>**
+**2. Hoare partition scheme: <br />**
 
 It uses two indices that start at the ends of the array being partitioned, then move toward each other, until they detect an inversion: a pair of elements, one greater or equal than the pivot, one lesser or equal, that are in the wrong order relative to each other. The inverted elements are then swapped. When the indices meet, the algorithm stops and returns the final index.
 Hoare's scheme is more efficient than Lomuto's partition scheme because it does three times fewer swaps on average, and it creates efficient partitions even when all values are equal.
 
-```cpp
+```text
 quicksort(A, lo, hi) is
 if lo < hi then
     p := partition(A, lo, hi)
     quicksort(A, lo, p)
     quicksort(A, p + 1, hi)
-
 ```
 
 Partition :
@@ -77,15 +73,11 @@ loop forever
         return j
     
     swap A[i] with A[j]
-
 ```
-
-
 
 ## Quicksort in Python
 
-
-```cpp
+```python
 def quicksort(arr):
     if len(arr) <= 1:
         return arr
@@ -96,17 +88,13 @@ def quicksort(arr):
     return quicksort(left) + middle + quicksort(right)
 
 print quicksort([3,6,8,10,1,2,1])
-
 ```
 
 ### Prints "[1, 1, 2, 3, 6, 8, 10]"
 
-
-
 ## Lomuto partition java implementation
 
-
-```cpp
+```java
 public class Solution {
 
 public static void main(String[] args) {
@@ -147,29 +135,21 @@ public static int partition(int[] ar, int l, int r)
  
     return i;
 } 
-
 ```
-
-
 
 ## Haskell Implementation
 
-
-```cpp
+```text
 quickSort :: Ord a => [a] -> [a]
 quickSort [] = []
 quickSort (x:xs) = quickSort [ y | y <- xs, y <= x ] 
                    ++ [x] 
                    ++ quickSort [ z | z <- xs, z > x ]
-
 ```
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class QuickSort
 {
     private static int Partition(int[] input, int low, int high)
@@ -213,15 +193,11 @@ public class QuickSort
         return input;
     }
 }
-
 ```
-
-
 
 #### Remarks
 
-
-Sometimes Quicksort is also known as Partition-Exchange sort.<br>
-**Auxiliary Space:** `O(n)`<br>
+Sometimes Quicksort is also known as Partition-Exchange sort.<br />
+**Auxiliary Space:** `O(n)`<br />
 **Time complexity:** worst `O(n²)`, best`O(nlogn)`
 

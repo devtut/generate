@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Cycle Sort"
+title: "Algorithm - Cycle Sort"
 description: "Pseudocode Implementation, Cycle Sort Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Cycle Sort
 
-
-
 ## Pseudocode Implementation
-
 
 ```cpp
 (input)
@@ -35,13 +34,9 @@ for cycleStart from 0 to length(array) - 2
         array[pos], item = item, array[pos]
         writes += 1
 return outout
-
 ```
 
-
-
 ## Cycle Sort Basic Information
-
 
 [Cycle Sort](https://en.wikipedia.org/wiki/Cycle_sort) is sorting algorithm which uses [comparison sort](https://en.wikipedia.org/wiki/Comparison_sort) that is theoretically optimal in terms of the total number of writes to original array, unlike any other in-place sorting algorithm. Cycle sort is unstable sorting algorithm. It is based on idea of permutation in which permutations are factored into cycles, which individually rotate and return a sorted output.
 
@@ -49,15 +44,12 @@ return outout
 
 [<img src="http://i.stack.imgur.com/KvtRX.gif" alt="Cycle Sort" />](http://i.stack.imgur.com/KvtRX.gif)
 
-**Auxiliary Space:** `O(1)`<br>
+**Auxiliary Space:** `O(1)`<br />
 **Time Complexity:** `O(n^2)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class CycleSort
 {
     public static void SortCycle(int[] input)
@@ -88,6 +80,5 @@ public class CycleSort
         return input;
     }
 }
-
 ```
 

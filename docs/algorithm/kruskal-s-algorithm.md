@@ -1,31 +1,31 @@
 ---
-metaTitle: "Algorithm - Kruskal's Algorithm"
+title: "Algorithm - Kruskal's Algorithm"
 description: "Optimal, disjoint-set based implementation, Simple, more detailed implementation, Simple, disjoint-set based implementation, Simple, high level implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Kruskal's Algorithm
 
-
-
 ## Optimal, disjoint-set based implementation
-
 
 We can do two things to improve the simple and sub-optimal disjoint-set subalgorithms:
 
-&lt;li>
+
+- 
 **Path compression heuristic**: `findSet` does not need to ever handle a tree with height bigger than `2`. If it ends up iterating such a tree, it can link the lower nodes directly to the root, optimizing future traversals;
 
-```cpp
+```text
 subalgo findSet(v: a node):
     if v.parent != v
         v.parent = findSet(v.parent)
     return v.parent
-
 ```
 
 
-&lt;/li>
-&lt;li>
+
+
+- 
 **Height-based merging heuristic**: for each node, store the height of its subtree. When merging, make the taller tree the parent of the smaller one, thus not increasing anyone's height.
 
 ```cpp
@@ -43,11 +43,10 @@ subalgo unionSet(u, v: nodes):
     else:
         uRoot.parent = vRoot
         uRoot.height =  uRoot.height + 1
-
 ```
 
 
-&lt;/li>
+
 
 This leads to `O(alpha(n))` time for each operation, where `alpha` is the inverse of the fast-growing Ackermann function, thus it is very slow growing, and can be considered `O(1)` for practical purposes.
 
@@ -68,19 +67,15 @@ subalgo unionSet(u, v: nodes):
         vRoot.parent = uRoot
     else:
         uRoot.parent = vRoot
-
 ```
 
 In practice this randomised algorithm together with path compression for `findSet` operation will result in comparable performance, yet much simpler to implement.
 
-
-
 ## Simple, more detailed implementation
-
 
 In order to efficiently handle cycle detection, we consider each node as part of a tree. When adding an edge, we check if its two component nodes are part of distinct trees. Initially, each node makes up a one-node tree.
 
-```cpp
+```text
 algorithm kruskalMST'(G: a graph)
     sort G's edges by their value
     MST = a forest of trees, initially each tree is a node in the graph
@@ -90,17 +85,13 @@ algorithm kruskalMST'(G: a graph)
             connect one of the roots to the other, thus merging two trees
     
     return MST, which now a single-tree forest
-
 ```
-
-
 
 ## Simple, disjoint-set based implementation
 
-
 The above forest methodology is actually a disjoint-set data structure, which involves three main operations:
 
-```cpp
+```text
 subalgo makeSet(v: a node):
     v.parent = v    <- make a new tree rooted at v
     
@@ -123,19 +114,15 @@ algorithm kruskalMST''(G: a graph):
     for each edge e in G:
         if findSet(e.first) != findSet(e.second):
             unionSet(e.first, e.second)
-
 ```
 
 This naive implementation leads to `O(n log n)` time for managing the disjoint-set data structure, leading to `O(m*n log n)` time for the entire Kruskal's algorithm.
 
-
-
 ## Simple, high level implementation
-
 
 Sort the edges by value and add each one to the MST in sorted order, if it doesn't create a cycle.
 
-```cpp
+```text
 algorithm kruskalMST(G: a graph)
     sort G's edges by their value
     MST = an empty graph
@@ -144,13 +131,9 @@ algorithm kruskalMST(G: a graph)
             add e to MST
 
     return MST
-
 ```
 
-
-
 #### Remarks
-
 
 Kruskal's Algorithm is a **greedy** algorithm used to find **Minimum Spanning Tree (MST)** of a graph. A minimum spanning tree is a tree which connects all the vertices of the graph and has the minimum total edge weight.
 

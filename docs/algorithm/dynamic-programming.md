@@ -1,23 +1,21 @@
 ---
-metaTitle: "Algorithm - Dynamic Programming"
+title: "Algorithm - Dynamic Programming"
 description: "Edit Distance, Weighted Job Scheduling Algorithm, Longest Common Subsequence, Fibonacci Number, Longest Common Substring, Knapsack Problem"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Dynamic Programming
 
-
 Dynamics programming is a widely used  concept and its often used for optimization. It refers to simplifying a complicated problem by breaking it down into simpler sub-problems in a recursive manner usually Bottom up  approach. There are two key attributes that a problem must have in order for dynamic programming to be applicable "Optimal substructure" and "Overlapping sub-problems".To achieve its optimization, Dynamics programming uses a concept called Memorization
 
-
-
 ## Edit Distance
-
 
 The problem statement is like if we are given two string str1 and str2 then how many minimum number of operations can be performed on the str1 that it gets converted to str2.
 
 **Implementation in Java**
 
-```cpp
+```java
 public class EditDistance {
 
 public static void main(String[] args) {
@@ -46,19 +44,15 @@ public int getMinConversions(String str1, String str2){
     }
     return dp[str1.length()][str2.length()];
 }
-
 ```
 
-}
+&#125;
 
 **Output**
 
 `3`
 
-
-
 ## Weighted Job Scheduling Algorithm
-
 
 Weighted Job Scheduling Algorithm can also be denoted as Weighted Activity Selection Algorithm.
 
@@ -68,7 +62,7 @@ This one looks like Activity Selection using Greedy Algorithm, but there's an ad
 
 Let's look at an example:
 
-```cpp
+```text
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |          Name           |    A    |    B    |    C    |    D    |    E    |    F    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
@@ -76,14 +70,13 @@ Let's look at an example:
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |         Profit          |    6    |    4    |    2    |    5    |    11   |    5    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
-
 ```
 
 The jobs are denoted with a name, their start and finishing time and profit. After a few iterations, we can find out if we perform **Job-A** and **Job-E**, we can get the maximum profit of 17. Now how to find this out using an algorithm?
 
 The first thing we do is sort the jobs by their finishing time in non-decreasing order. Why do we do this? It's because if we select a job that takes less time to finish, then we leave the most amount of time for choosing other jobs. We have:
 
-```cpp
+```text
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |          Name           |    D    |    A    |    F    |    B    |    E    |    C    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
@@ -91,16 +84,14 @@ The first thing we do is sort the jobs by their finishing time in non-decreasing
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |         Profit          |    5    |    6    |    5    |    4    |    11   |    2    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
-
 ```
 
 We'll have an additional temporary array **Acc_Prof** of size **n** (Here, **n** denotes the total number of jobs). This will contain the maximum accumulated profit of performing the jobs. Don't get it? Wait and watch. We'll initialize the values of the array with the profit of each jobs. That means, **Acc_Prof[i]** will at first hold the profit of performing **i-th** job.
 
-```cpp
+```text
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |         Acc_Prof        |    5    |    6    |    5    |    4    |    11   |    2    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
-
 ```
 
 Now let's denote **position 2** with **i**, and **position 1** will be denoted with **j**. Our strategy will be to iterate **j** from **1** to **i-1** and after each iteration, we will increment **i** by 1, until **i** becomes **n+1**.
@@ -121,15 +112,14 @@ Now let's denote **position 2** with **i**, and **position 1** will be denoted w
 
 ```
 
-We check if **Job[i]** and **Job[j]** overlap, that is, if the **finish time** of **Job[j]** is greater than **Job[i]**'s start time, then these two jobs can't be done together. However, if they don't overlap, we'll check if **Acc_Prof[j] + Profit[i] > Acc_Prof[i]**. If this is the case, we will update **Acc_Prof[i] = Acc_Prof[j] + Profit[i]**. That is:
+We check if **Job[i]** and **Job[j]** overlap, that is, if the **finish time** of **Job[j]** is greater than **Job[i]**'s start time, then these two jobs can't be done together. However, if they don't overlap, we'll check if **Acc_Prof[j] + Profit[i] &gt; Acc_Prof[i]**. If this is the case, we will update **Acc_Prof[i] = Acc_Prof[j] + Profit[i]**. That is:
 
-```cpp
+```text
 if Job[j].finish_time <= Job[i].start_time
     if Acc_Prof[j] + Profit[i] > Acc_Prof[i]
         Acc_Prof[i] = Acc_Prof[j] + Profit[i]
     endif
 endif
-
 ```
 
 Here **Acc_Prof[j] + Profit[i]** represents the accumulated profit of doing these two jobs toegther. Let's check it for our example:
@@ -226,7 +216,7 @@ Again **Job[j]** and **Job[i]** don't overlap. The accumulated profit is: **6 + 
 
 If we continue this process, after iterating through the whole table using **i**, our table will finally look like:
 
-```cpp
+```text
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |          Name           |    D    |    A    |    F    |    B    |    E    |    C    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
@@ -236,14 +226,13 @@ If we continue this process, after iterating through the whole table using **i**
 +-------------------------+---------+---------+---------+---------+---------+---------+
 |         Acc_Prof        |    5    |    6    |    10   |    14   |    17   |    8    |
 +-------------------------+---------+---------+---------+---------+---------+---------+
-
 ```
 
 <sub>* A few steps have been skipped to make the document shorter.</sub>
 
 If we iterate through the array **Acc_Prof**, we can find out the maximum profit to be **17**! The pseudo-code:
 
-```cpp
+```text
 Procedure WeightedJobScheduling(Job)
 sort Job according to finish time in non-decreasing order
 for i -> 2 to n
@@ -261,14 +250,13 @@ for i -> 1 to n
     if maxProfit < Acc_Prof[i]
         maxProfit = Acc_Prof[i]
 return maxProfit
-
 ```
 
-The complexity of populating the **Acc_Prof** array is **O(n<sup>2</sup>).** The array traversal takes **O(n)**. So the total complexity of this algorithm is **O(n<sup>2</sup>).**
+The complexity of populating the **Acc_Prof** array is **O(n <sup>2</sup>).** The array traversal takes **O(n)**. So the total complexity of this algorithm is **O(n <sup>2</sup>).**
 
-Now, If we want to find out which jobs were performed to get the maximum profit, we need to traverse the array in reverse order and if the **Acc_Prof** matches the **maxProfit**, we will push the **name** of the job in a **stack** and subtract **Profit** of that job from **maxProfit**. We will do this until our **maxProfit > 0** or we reach the beginning point of the **Acc_Prof** array. The pseudo-code will look like:
+Now, If we want to find out which jobs were performed to get the maximum profit, we need to traverse the array in reverse order and if the **Acc_Prof** matches the **maxProfit**, we will push the **name** of the job in a **stack** and subtract **Profit** of that job from **maxProfit**. We will do this until our **maxProfit &gt; 0** or we reach the beginning point of the **Acc_Prof** array. The pseudo-code will look like:
 
-```cpp
+```text
 Procedure FindingPerformedJobs(Job, Acc_Prof, maxProfit):
 S = stack()
 for i -> n down to 0 and maxProfit > 0
@@ -277,17 +265,13 @@ for i -> n down to 0 and maxProfit > 0
         maxProfit = maxProfit - Job[i].profit
     endif
 endfor
-
 ```
 
 The complexity of this procedure is: **O(n)**.
 
 One thing to remember, if there are multiple job schedules that can give us maximum profit, we can only find one job schedule via this procedure.
 
-
-
 ## Longest Common Subsequence
-
 
 If we are given with the two strings we have to find the longest common sub-sequence  present in both of them.
 
@@ -299,7 +283,7 @@ LCS for input Sequences “AGGTAB” and “GXTXAYB” is “GTAB” of length 4
 
 **Implementation in Java**
 
-```cpp
+```java
 public class LCS {
 
     public static void main(String[] args) {
@@ -342,20 +326,15 @@ public class LCS {
     }
 
 }
-
 ```
 
 **Output**
 
-```cpp
+```text
 4
-
 ```
 
-
-
 ## Fibonacci Number
-
 
 Bottom up approach for printing the nth Fibonacci number using Dynamic Programming.
 
@@ -390,17 +369,13 @@ public int fib(int n){
         }
         return f[n];
     }
-
 ```
 
 **Time Complexity**
 
 O(n)
 
-
-
 ## Longest Common Substring
-
 
 Given 2 string str1 and str2 we have to find the length of the longest common substring between them.
 
@@ -437,17 +412,13 @@ public int getLongestCommonSubstring(String str1,String str2){
         }
         return max;
     }
-
 ```
 
 **Time Complexity**
 
 O(m*n)
 
-
-
 ## Knapsack Problem
-
 
 ****0-1 Knapsack****
 
@@ -471,24 +442,21 @@ int knapsack(vector<int> &value, vector<int> &weight, int N, int C){
     }
     return dp[C];
 }
-
 ```
 
 **Test**:
 
-```cpp
+```text
 3 5
 5 2
 2 1
 3 2
-
 ```
 
 **Output**:
 
-```cpp
+```text
 3
-
 ```
 
 That means the maximum value can be achieved is 3, which is achieved by choosing (2,1) and (3,2).
@@ -501,7 +469,7 @@ The Unbounded Knapsack Problem is a problem which given a set of items, each wit
 
 **Implementation**:
 
-```cpp
+```python
 def unbounded_knapsack(w, v, c): # weight, value and capactiy
     m = [0]
     for r in range(1, c+1):
@@ -512,7 +480,6 @@ def unbounded_knapsack(w, v, c): # weight, value and capactiy
             val = max(val, v[i] + m[r-wi])
         m.append(val)
     return m[c] # return the maximum value can be achieved
-
 ```
 
 The complexity of that implementation is `O(nC)`, which n is number of items.
@@ -524,33 +491,32 @@ w = [2, 3, 4, 5, 6]
 v = [2, 4, 6, 8, 9]
 
 print unbounded_knapsack(w, v, 13)
-
 ```
 
 **Output**:
 
-```cpp
+```text
 20
-
 ```
 
 That means the maximum value can be achieved is 20, which is achieved by choosing (5, 8), (5, 8) and (3, 4).
 
-
-
 #### Remarks
-
 
 Dynamic Programming is an improvement on Brute Force, see [this example](http://stackoverflow.com/documentation/algorithm/6631/travelling-salesman#t=201609131112194041679) to understand how one can obtain a Dynamic Programming solution from Brute Force.
 
 A Dynamic Programming Solution has 2 main requirements:
 
-&lt;li>
+
+- 
 Overlapping Problems
-&lt;/li>
-&lt;li>
+
+
+
+- 
 Optimal Substructure
-&lt;/li>
+
+
 
 ****Overlapping Subproblems**** means that results of smaller versions of the problem are reused multiple times in order to arrive at the solution to the original problem
 

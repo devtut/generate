@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Merge Sort"
+title: "Algorithm - Merge Sort"
 description: "Merge Sort Basics, Merge Sort Implementation in Go, Merge Sort Implementation in  C & C#, Merge Sort Implementation in Java, Merge Sort Implementation in Python, Bottoms-up Java Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Merge Sort
 
-
-
 ## Merge Sort Basics
-
 
 Merge Sort is a divide-and-conquer algorithm. It divides the input list of length n in half successively until there are n lists of size 1. Then, pairs of lists are merged together with the smaller first element among the pair of lists being added in each step. Through successive merging and through comparison of first elements, the sorted list is built.
 
@@ -29,10 +28,7 @@ Time complexity of **Merge Sort** is `Θ(nLogn)` in all 3 cases (**worst, averag
 
 **Stable**: Yes
 
-
-
 ## Merge Sort Implementation in Go
-
 
 ```cpp
 package main
@@ -84,13 +80,9 @@ func main() {
     fmt.Println(a)
     fmt.Println(mergeSort(a))
 }
-
 ```
 
-
-
 ## Merge Sort Implementation in  C & C#
-
 
 **C Merge Sort**
 
@@ -137,12 +129,11 @@ int merge_sort(int arr[],int low,int high)
 
   return 0;
 }
-
 ```
 
 C# Merge Sort
 
-```cpp
+```java
 public class MergeSort
     {
         static void Merge(int[] input, int l, int m, int r)
@@ -215,23 +206,17 @@ public class MergeSort
             return input;
         }
     }
-
 ```
-
-
 
 ## Merge Sort Implementation in Java
 
-
 Below there is the implementation in Java using a generics approach. It is the same algorithm, which is presented above.
 
-```cpp
+```java
 public interface InPlaceSort<T extends Comparable<T>> {
 void sort(final T[] elements); }
 
-
 public class MergeSort < T extends Comparable < T >> implements InPlaceSort < T > {
-
 
 @Override
 public void sort(T[] elements) {
@@ -247,7 +232,6 @@ private void sort(T[] elements, T[] arr, int low, int high) {
     sort(elements, arr, mid + 1, high);
     merge(elements, arr, low, high, mid);
 }
-
 
 private void merge(T[] a, T[] b, int low, int high, int mid) {
     int i = low;
@@ -272,15 +256,11 @@ private void merge(T[] a, T[] b, int low, int high, int mid) {
     for (int n = low; n <= high; n++) {
         a[n] = b[n];
     }}}
-
 ```
-
-
 
 ## Merge Sort Implementation in Python
 
-
-```cpp
+```python
 def merge(X, Y):
     " merge two sorted lists "
     p1 = p2 = 0
@@ -308,16 +288,11 @@ if __name__ == "__main__":
     # Generate 20 random numbers and sort them
     A = [randint(1, 100) for i in xrange(20)]
     print mergeSort(A)
-
-
 ```
-
-
 
 ## Bottoms-up Java Implementation
 
-
-```cpp
+```java
 public class MergeSortBU {
     private static Integer[] array = { 4, 3, 1, 8, 9, 15, 20, 2, 5, 6, 30, 70, 60,80,0,9,67,54,51,52,24,54,7 };
 
@@ -377,6 +352,5 @@ public class MergeSortBU {
         MergeSortBU.sort(array, aux, 0, array.length - 1);
     }
 }
-
 ```
 

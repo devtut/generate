@@ -1,26 +1,24 @@
 ---
-metaTitle: "Algorithm - Odd-Even Sort"
+title: "Algorithm - Odd-Even Sort"
 description: "Odd-Even Sort Basic Information"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Odd-Even Sort
 
-
-
 ## Odd-Even Sort Basic Information
-
 
 An [Odd-Even Sort](https://en.wikipedia.org/wiki/Odd%E2%80%93even_sort) or brick sort is a simple sorting algorithm, which is developed for use on parallel processors with local interconnection. It works by comparing all odd/even indexed pairs of adjacent elements in the list and, if a pair is in the wrong order the elements are switched. The next step repeats this for even/odd indexed pairs. Then it alternates between odd/even and even/odd steps until the list is sorted.
 
 **Pseudo code for Odd-Even Sort:**
 
-```cpp
+```text
 if n>2 then
     1. apply odd-even merge(n/2) recursively to the even subsequence a0, a2, ..., an-2 and to the odd subsequence a1, a3, , ..., an-1
     2. comparison [i : i+1] for all i element {1, 3, 5, 7, ..., n-3}
 else
     comparison [0 : 1]
-
 ```
 
 **Wikipedia has best illustration of Odd-Even sort:**
@@ -35,7 +33,7 @@ else
 
 I used C# language to implement Odd-Even Sort Algorithm.
 
-```cpp
+```java
 public class OddEvenSort
 {
     private static void SortOddEven(int[] input, int n)
@@ -70,9 +68,8 @@ public class OddEvenSort
         return input;
     }
 }
-
 ```
 
-**Auxiliary Space:** `O(n)`<br>
+**Auxiliary Space:** `O(n)`<br />
 **Time Complexity:** `O(n)`
 

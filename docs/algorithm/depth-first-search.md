@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Depth First Search"
+title: "Algorithm - Depth First Search"
 description: "Introduction To Depth-First Search"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Depth First Search
 
-
-
 ## Introduction To Depth-First Search
-
 
 [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) is an algorithm for traversing or searching tree or graph data structures. One starts at the root and explores as far as possible along each branch before backtracking. A version of depth-first search was investigated in the 19th century French mathematician Charles Pierre Trémaux as a strategy for solving mazes.
 
@@ -41,7 +40,7 @@ In DFS, we can also keep timestamps for each node, which can be used in many way
 
 Here **d[]** means **discovery time** and **f[]** means **finishing time**. Our pesudo-code will look like:
 
-```cpp
+```text
 Procedure DFS(G):
 for each node u in V[G]
     color[u] := white
@@ -67,7 +66,6 @@ end for
 color[u] := black
 time := time + 1
 f[u] := time
-
 ```
 
 **Complexity:**

@@ -1,10 +1,11 @@
 ---
-metaTitle: "Algorithm - Check two strings are anagrams"
+title: "Algorithm - Check two strings are anagrams"
 description: "Sample input and output, Generic Code for Anagrams"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Check two strings are anagrams
-
 
 Two string with same set of character is called anagram. I have used javascript here.
 
@@ -12,17 +13,13 @@ We will create an hash of str1 and increase count +1.
 We will loop on 2nd string and check all characters are there in hash and decrease value of hash key.
 Check all value of hash key are zero will be anagram.
 
-
-
 ## Sample input and output
-
 
 Ex1:-
 
-```cpp
+```text
 let str1 = 'stackoverflow';
 let str2 = 'flowerovstack';
-
 ```
 
 These strings are anagrams.
@@ -44,7 +41,6 @@ hashMap = {
     l : 1,
     w : 1
 }
-
 ```
 
 You can see hashKey 'o' is containing value 2 because o is 2 times in string.
@@ -66,19 +62,15 @@ hashMap = {
     l : 0,
     w : 0
 }
-
 ```
 
 Now, loop over hashMap object and check all values are zero in the key of hashMap.
 
 In our case all values are zero so its a anagram.
 
-
-
 ## Generic Code for Anagrams
 
-
-```cpp
+```javascript
 (function(){
 
     var hashMap = {};
@@ -138,7 +130,6 @@ In our case all values are zero so its a anagram.
     isAnagram('stackoverflow', 'flowervvstack'); // false
     
 })();
-
 ```
 
 Time complexity :- 3n i.e O(n).

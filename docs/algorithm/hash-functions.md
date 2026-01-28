@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Hash Functions"
+title: "Algorithm - Hash Functions"
 description: "Hash codes for common types in C#, Introduction to hash functions"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Hash Functions
 
-
-
 ## Hash codes for common types in C#
-
 
 The hash codes produced by `GetHashCode()` method for [built-in](https://msdn.microsoft.com/en-us/library/ya5y69ds.aspx) and common C# types from the `System` namespace are shown below.
 
@@ -22,53 +21,46 @@ Value (if necessary casted to Int32).
 
 ### [SByte](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/SByte.cs#L70)
 
-```cpp
+```text
 ((int)m_value ^ (int)m_value << 8);
-
 ```
 
 ### [Char](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Char.cs#L102)
 
-```cpp
+```text
 (int)m_value ^ ((int)m_value << 16);
-
 ```
 
 ### [Int16](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Int16.cs#L69)
 
-```cpp
+```text
 ((int)((ushort)m_value) ^ (((int)m_value) << 16));
-
 ```
 
 ### [Int64](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Int64.cs#L75), [Double](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Double.cs#L191)
 
 Xor between lower and upper 32 bits of 64 bit number
 
-```cpp
+```text
 (unchecked((int)((long)m_value)) ^ (int)(m_value >> 32));
-
 ```
 
 ### [UInt64](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/UInt64.cs#L74), [DateTime](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/DateTime.cs#L824), [TimeSpan](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/TimeSpan.cs#L215)
 
-```cpp
+```text
 ((int)m_value) ^ (int)(m_value >> 32);
-
 ```
 
 ### [Decimal](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/classlibnative/bcltype/decimal.cpp#L102)
 
-```cpp
+```text
 ((((int *)&dbl)[0]) & 0xFFFFFFF0) ^ ((int *)&dbl)[1];
-
 ```
 
 ### [Object](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Object.cs#L92)
 
-```cpp
+```text
 RuntimeHelpers.GetHashCode(this);
-
 ```
 
 The default implementation is used [sync block index](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/classlibnative/bcltype/objectnative.cpp#L103).
@@ -91,7 +83,6 @@ while ((c = s[0]) != 0) {
     s += 2;
 }
 return hash1 + (hash2 * 1566083941);
-
 ```
 
 ### [ValueType](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/ValueType.cs#L83)
@@ -101,42 +92,43 @@ The hashcode of a static member can't be taken because if that member is of the 
 
 ### [Nullable&lt;T>](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Nullable.cs#L69)
 
-```cpp
+```text
 return hasValue ? value.GetHashCode() : 0;
-
 ```
 
 ### [Array](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Array.cs#L800)
 
-```cpp
+```text
 int ret = 0;
 for (int i = (Length >= 8 ? Length - 8 : 0); i < Length; i++) 
 {
     ret = ((ret << 5) + ret) ^ comparer.GetHashCode(GetValue(i));
 }
-
 ```
 
 ### References
 
 - [GitHub .Net Core CLR](https://github.com/dotnet/coreclr)
 
-
-
 ## Introduction to hash functions
-
 
 Hash function `h()` is an arbitrary function which mapped data `x ∈ X` of arbitrary size to value `y ∈ Y` of fixed size: `y = h(x)`. Good hash functions have follows restrictions:
 
-&lt;li>
+
+- 
 hash functions behave likes uniform distribution
-&lt;/li>
-&lt;li>
+
+
+
+- 
 hash functions is deterministic. `h(x)` should always return the same value for a given `x`
-&lt;/li>
-&lt;li>
+
+
+
+- 
 fast calculating (has runtime O(1))
-&lt;/li>
+
+
 
 In general case size of hash function less then size of input data: `|y| < |x|`. Hash functions are not reversible or in other words it may be collision: `∃ x1, x2 ∈ X, x1 ≠ x2: h(x1) = h(x2)`. `X` may be finite or infinite set and `Y` is finite set.
 
@@ -157,12 +149,16 @@ There are several approaches for determinig hash function. Without loss of gener
 
 Hash functions used in hash tables for computing index into an array of slots. Hash table is data structure for implementing dictionaries (key-value structure). Good implemented hash tables have O(1) time for the next operations: insert, search and delete data by key. More than one keys may hash to the same slot. There are two ways for resolving collision:
 
-&lt;li>
+
+- 
 Chaining: linked list is used for storing elements with the same hash value in slot
-&lt;/li>
-&lt;li>
+
+
+
+- 
 Open addressing: zero or one element is stored in each slot
-&lt;/li>
+
+
 
 The next methods are used to compute the probe sequences required for open addressing
 
@@ -196,15 +192,19 @@ Lets `x ∈ U{1, 1000}, h = x mod m`. The next table shows the hash values in ca
 |831|31|23
 |619|19|13
 
-### Links
-
-&lt;li>
+### Links 
+- 
 Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms.
-&lt;/li>
-&lt;li>
+
+
+
+- 
 [Overview of Hash Tables](https://courses.csail.mit.edu/6.006/spring11/rec/rec05.pdf)
-&lt;/li>
-&lt;li>
+
+
+
+- 
 [Wolfram MathWorld - Hash Function](http://mathworld.wolfram.com/HashFunction.html)
-&lt;/li>
+
+
 

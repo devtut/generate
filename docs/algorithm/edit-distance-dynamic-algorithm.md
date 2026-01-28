@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Edit Distance Dynamic Algorithm"
+title: "Algorithm - Edit Distance Dynamic Algorithm"
 description: "Minimum Edits required to convert string 1 to string 2"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Edit Distance Dynamic Algorithm
 
-
-
-
 ## Minimum Edits required to convert string 1 to string 2
-
 
 The problem statement is like if we are given two string str1 and str2 then how many minimum number of operations can be performed on the str1 that it gets converted to str2.The Operations can be:
 
@@ -19,7 +17,7 @@ The problem statement is like if we are given two string str1 and str2 then how 
 
 **For Example**
 
-```cpp
+```text
 Input: str1 = "geek", str2 = "gesek"
 Output: 1
 We only need to insert s in first string
@@ -27,7 +25,6 @@ We only need to insert s in first string
 Input: str1 = "march", str2 = "cart"
 Output: 3
 We need to replace m with c and remove character c and then replace h with t
-
 ```
 
 To solve this problem we will use a 2D array dp[n+1][m+1] where n is the length of the first string and m is the length of the second string. For our example, if str1 is **azcef** and str2 is **abcdef** then our array will be dp[6][7]and our final answer will be stored at dp[5][6].
@@ -97,12 +94,11 @@ For **dp[2][1]** we have to check that to convert **az** to **a** we need to rem
 
 So our **formula** will look like
 
-```cpp
+```text
 if characters are same
     dp[i][j] = dp[i-1][j-1];
 else
     dp[i][j] = 1 + Min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
-
 ```
 
 After last iteration our dp[] array will look like
@@ -146,13 +142,11 @@ public int getMinConversions(String str1, String str2){
     }
     return dp[str1.length()][str2.length()];
 }
-
 ```
 
 **Time Complexity**
 
-```cpp
+```text
 O(n^2)
-
 ```
 

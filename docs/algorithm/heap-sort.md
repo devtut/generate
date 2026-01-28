@@ -1,20 +1,19 @@
 ---
-metaTitle: "Algorithm - Heap Sort"
+title: "Algorithm - Heap Sort"
 description: "Heap Sort Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Heap Sort
 
-
-
 ## Heap Sort Basic Information
-
 
 [Heap sort](https://en.wikipedia.org/wiki/Heapsort) is a comparison based sorting technique on binary heap data structure. It is similar to selection sort in which we first find the maximum element and put it at the end of the data structure. Then repeat the same process for the remaining items.
 
 **Pseudo code for Heap Sort:**
 
-```cpp
+```text
 function heapsort(input, count)
     heapify(a,count)
     end <- count - 1
@@ -28,22 +27,18 @@ function heapify(a, count)
     while start >= 0 do
         restore(a, start, count - 1)
         start <- start - 1
-
 ```
 
 **Example of Heap Sort:**
 
 [<img src="http://i.stack.imgur.com/rxRGq.png" alt="Heap Sort" />](http://i.stack.imgur.com/rxRGq.png)
 
-**Auxiliary Space:** `O(1)`<br>
+**Auxiliary Space:** `O(1)`<br />
 **Time Complexity:** `O(nlogn)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class HeapSort
 {
     public static void Heapify(int[] input, int n, int i)
@@ -88,6 +83,5 @@ public class HeapSort
         return input;
     }
 }
-
 ```
 

@@ -1,18 +1,16 @@
 ---
-metaTitle: "Algorithm - Binary Search Trees"
+title: "Algorithm - Binary Search Trees"
 description: "Binary Search Tree - Insertion (Python), Binary Search Tree - Deletion(C++), Lowest common ancestor in a BST, Binary Search Tree - Python"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Binary Search Trees
 
-
 Binary tree is a tree that each node in it has maximum of two children.
 Binary search tree (BST) is a binary tree which its elements positioned in special order. In each BST all values(i.e key) in left sub tree are less than values in right sub tree.
 
-
-
 ## Binary Search Tree - Insertion (Python)
-
 
 This is a simple implementation of Binary Search Tree Insertion using Python.
 
@@ -22,18 +20,17 @@ An example is shown below:
 
 Following the code snippet each image shows the execution visualization which makes it easier to visualize how this code works.
 
-```cpp
+```python
 class Node:
     def __init__(self, val):
         self.l_child = None
         self.r_child = None
         self.data = val
-
 ```
 
 [<img src="http://i.stack.imgur.com/GlqkB.png" alt="enter image description here" />](http://i.stack.imgur.com/GlqkB.png)
 
-```cpp
+```python
 def insert(root, node):
     if root is None:
         root = node
@@ -48,39 +45,33 @@ def insert(root, node):
                 root.r_child = node
             else:
                 insert(root.r_child, node)
-
 ```
 
 [<img src="http://i.stack.imgur.com/zwGtx.png" alt="enter image description here" />](http://i.stack.imgur.com/zwGtx.png)
 
-```cpp
+```python
 def in_order_print(root):
     if not root:
         return
     in_order_print(root.l_child)
     print root.data
     in_order_print(root.r_child)
-
 ```
 
 [<img src="http://i.stack.imgur.com/5fGHu.png" alt="enter image description here" />](http://i.stack.imgur.com/5fGHu.png)
 
-```cpp
+```python
 def pre_order_print(root):
     if not root:
         return        
     print root.data
     pre_order_print(root.l_child)
     pre_order_print(root.r_child)    
-
 ```
 
 [<img src="http://i.stack.imgur.com/lOXwz.png" alt="enter image description here" />](http://i.stack.imgur.com/lOXwz.png)
 
-
-
 ## Binary Search Tree - Deletion(C++)
-
 
 Before starting with deletion I just want to put some lights on what is a Binary search tree(BST), Each node in a BST can have maximum of two nodes(left and right child).The left sub-tree of a node has a key less than or equal to its parent node's key. The right sub-tree of a node has a key greater than to its parent node's key.
 
@@ -149,15 +140,11 @@ node* delete_node(node *root, int data)
   }
   return root;
 }
-
 ```
 
 Time complexity of above code is O(**h**), where **h** is the height of the tree.
 
-
-
 ## Lowest common ancestor in a BST
-
 
 Consider the BST:
 
@@ -179,8 +166,6 @@ lowestCommonAncestor(root,node1, node2){
 if(root == NULL)    
 return NULL;
 
-
-
  else if(node1->data == root->data || node2->data== root->data)    
     return root;
     
@@ -198,21 +183,16 @@ return NULL;
             return lowestCommonAncestor(root->right, node1, node2);
       }
         }
-
 ```
-
-
 
 ## Binary Search Tree - Python
 
-
-```cpp
+```python
 class Node(object):
     def __init__(self, val):
         self.l_child = None
         self.r_child = None
         self.val = val
-
 
 class BinarySearchTree(object):
     def insert(self, root, node):
@@ -225,7 +205,6 @@ class BinarySearchTree(object):
             root.l_child = self.insert(root.l_child, node)
 
         return root
-
 
     def in_order_place(self, root):
         if not root:
@@ -250,7 +229,6 @@ class BinarySearchTree(object):
             self.post_order_place(root.l_child)
             self.post_order_place(root.r_child)
             print root.val
-
 ```
 
 """ Create different node and insert data into it"""
@@ -269,6 +247,5 @@ print "------Pre order ---------"
 print (node.pre_order_place(r))
 print "------Post order ---------"
 print (node.post_order_place(r))
-
 ```
 

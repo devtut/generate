@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Pancake Sort"
+title: "Algorithm - Pancake Sort"
 description: "Pancake Sort Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Pancake Sort
 
-
-
 ## Pancake Sort Basic Information
-
 
 [Pancake Sort](https://en.wikipedia.org/wiki/Pancake_sorting) is a the colloquial term for the mathematical problem of sorting a disordered stack of pancakes in order of size when a spatula can be inserted at any point in the stack and used to flip all pancakes above it. A pancake number is the minimum number of flips required for a given number of pancakes.
 
@@ -25,29 +24,32 @@ The idea is to do something similar to Selection Sort. We one by one place maxim
 
 **Intuitive Algorithm:**
 
-&lt;li>
+
+- 
 Find the largest out of order pancake and flip it to the bottom (you may need to flip it to the top of the stack first).
-&lt;/li>
-&lt;li>
+
+
+
+- 
 Repeat step one until the stack is ordered.
-&lt;/li>
-&lt;li>
+
+
+
+- 
 That’s it, a two step algorithm will work.
-&lt;/li>
+
+
 
 **Example of Pancake sort algorithm:**
 
 [<img src="https://i.stack.imgur.com/SDjwT.gif" alt="Pancake Sort Example" />](https://i.stack.imgur.com/SDjwT.gif)
 
-**Auxiliary Space:** `O(1)`<br>
+**Auxiliary Space:** `O(1)`<br />
 **Time Complexity:** `O(n^2)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class PancakeSort
 {
     private static void SortPancake(int[] input, int n)
@@ -90,6 +92,5 @@ public class PancakeSort
         return input;
     }
 }
-
 ```
 

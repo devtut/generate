@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Floyd-Warshall Algorithm"
+title: "Algorithm - Floyd-Warshall Algorithm"
 description: "All Pair Shortest Path Algorithm"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Floyd-Warshall Algorithm
 
-
-
 ## All Pair Shortest Path Algorithm
-
 
 [Floyd-Warshall](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)'s algorithm is for finding shortest paths in a weighted graph with positive or negative edge weights. A single execution of the algorithm will find the lengths (summed weights) of the shortest paths between all pair of vertices. With a little variation, it can print the shortest path and can detect negative cycles in a graph. Floyd-Warshall is a Dynamic-Programming algorithm.
 
@@ -29,19 +28,17 @@ First thing we do is, we take two 2D matrices. These are [adjacency matrices](ht
 |  4  |  1  | inf | inf |  0  |            |  4  |  4  |  N  |  N  |  N  |
 +-----+-----+-----+-----+-----+            +-----+-----+-----+-----+-----+
             distance                                     path
-
 ```
 
 Since there is no loop, the diagonals are set **N**. And the distance from the vertex itself is **0**.
 
 To apply Floyd-Warshall algorithm, we're going to select a middle vertex **k**. Then for each vertex **i**, we're going to check if we can go from **i** to **k** and then **k** to **j**, where **j** is another vertex and minimize the cost of going from **i** to **j**. If the current **distance[i][j]** is greater than **distance[i][k]** + **distance[k][j]**, we're going to put **distance[i][j]** equals to the summation of those two distances. And the **path[i][j]** will be set to **path[k][j]**, as it is better to go from **i** to **k**, and then **k** to **j**. All the vertices will be selected as **k**. We'll have 3 nested loops: for **k** going from 1 to 4, **i** going from 1 to 4 and **j** going from 1 to 4. We're going check:
 
-```cpp
+```text
 if distance[i][j] > distance[i][k] + distance[k][j]
     distance[i][j] := distance[i][k] + distance[k][j]
     path[i][j] := path[k][j]
 end if
-
 ```
 
 So what we're basically checking is, **for every pair of vertices, do we get a shorter distance by going through another vertex?** The total number of operations for our graph will be **4 * 4 * 4** = **64**. That means we're going to do this check **64** times. Let's look at a few of them:
@@ -61,12 +58,11 @@ When **k** = **1**, **i** = **2** and **j** = **3**, **distance[i][j]** is **-2*
 |  4  |  1  |  4  |  2  |  0  |            |  4  |  4  |  1  |  2  |  N  |
 +-----+-----+-----+-----+-----+            +-----+-----+-----+-----+-----+
             distance                                     path
-
 ```
 
 This is our shortest distance matrix. For example, the shortest distance from **1** to **4** is **3** and the shortest distance between **4** to **3** is **2**. Our pseudo-code will be:
 
-```cpp
+```text
 Procedure Floyd-Warshall(Graph):
 for k from 1 to V     // V denotes the number of vertex
     for i from 1 to V
@@ -78,14 +74,13 @@ for k from 1 to V     // V denotes the number of vertex
        end for
     end for
 end for
-
 ```
 
 **Printing the path:**
 
 To print the path, we'll check the **Path** matrix. To print the path from **u** to **v**, we'll start from **path[u][v]**. We'll set keep changing **v** = **path[u][v]** until we find **path[u][v]** = **u** and push every values of **path[u][v]** in a stack. After finding **u**, we'll print **u** and start popping items from the stack and print them. This works because the **path** matrix stores the value of the vertex which shares the shortest path to **v** from any other node. The pseudo-code will be:
 
-```cpp
+```text
 Procedure PrintPath(source, destination):
 s = Stack()
 S.push(destination)
@@ -97,7 +92,6 @@ print -> source
 while S is not empty
     print -> S.pop
 end while
-
 ```
 
 **Finding Negative Edge Cycle:**

@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Maximum Subarray Algorithm"
+title: "Algorithm - Maximum Subarray Algorithm"
 description: "Maximum Subarray Algorithm Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Maximum Subarray Algorithm
 
-
-
 ## Maximum Subarray Algorithm Basic Information
-
 
 [Maximum subarray problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem) is the method to find the contiguous subarray within a one-dimensional array of numbers which has the largest sum.
 
@@ -22,7 +21,7 @@ This method is most inefficient to find out the solution. In this, we will end u
 
 **Pseudo code for Brute-Force Approach:**
 
-```cpp
+```text
 MaxSubarray(array)
   maximum = 0
   for i in input
@@ -32,7 +31,6 @@ MaxSubarray(array)
        if current > maximum
          maximum = current
   return maximum
-
 ```
 
 **Time complexity for Brute-Force method is** `O(n^2)`. So let's move to divide and conquer approach.
@@ -43,14 +41,13 @@ Find the sum of the subarrays on the left side, the subarrays on the right. Then
 
 First is divide step,
 
-```cpp
+```text
 maxSubarray(array)
   if start = end
     return array[start]
   else
     middle = (start + end) / 2
     return max(maxSubarray(array(From start to middle)), maxSubarray(array(From middle + 1 to end)), maxCrossover(array))
-
 ```
 
 In second part, separate the different part that are created in first part.
@@ -70,7 +67,6 @@ maxCrossover(array)
     if currentRightSum > rightSum
       rightSum = currentRightSum
   return leftSum + rightSum
-
 ```
 
 **Time complexity for Divide and Conquer method is** `O(nlogn)`. So let's move to dynamic programming approach.
@@ -94,17 +90,13 @@ MaxSubArray(array)
     if max < currentMax
       max = currentMax
   return max
-
 ```
 
 **Time complexity for Kadane's Algorithm is** `O(n)`.
 
-
-
 ## C# Implementation
 
-
-```cpp
+```java
 public class MaximumSubarray
 {
     private static int Max(int a, int b)
@@ -130,6 +122,5 @@ public class MaximumSubarray
         return MaxSubArray(input, n);
     }
 }
-
 ```
 

@@ -1,20 +1,19 @@
 ---
-metaTitle: "Algorithm - Longest Common Subsequence"
+title: "Algorithm - Longest Common Subsequence"
 description: "Longest Common Subsequence Explanation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Longest Common Subsequence
 
-
-
 ## Longest Common Subsequence Explanation
-
 
 One of the most important implementations of Dynamic Programming is finding out the [Longest Common Subsequence](https://en.wikipedia.org/wiki/Longest_common_subsequence_problem). Let's define some of the basic terminologies first.
 
 **Subsequence:**
 
-A subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements. Let's say we have a string **ABC**. If we erase zero or one or more than one character from this string we get the subsequence of this string. So the subsequences of string **ABC** will be {**"A"**, **"B"**, **"C"**, **"AB"**, **"AC"**, **"BC"**, **"ABC"**, **" "**}. Even if we remove all the characters, the empty string will also be a subsequence. To find out the subsequence, for each characters in a string, we have two options - either we take the character, or we don't. So if the length of the string is **n**, there are **2<sup>n</sup>** subsequences of that string.
+A subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements. Let's say we have a string **ABC**. If we erase zero or one or more than one character from this string we get the subsequence of this string. So the subsequences of string **ABC** will be &#123;**"A"**, **"B"**, **"C"**, **"AB"**, **"AC"**, **"BC"**, **"ABC"**, **" "**&#125;. Even if we remove all the characters, the empty string will also be a subsequence. To find out the subsequence, for each characters in a string, we have two options - either we take the character, or we don't. So if the length of the string is **n**, there are **2 <sup>n</sup>** subsequences of that string.
 
 **Longest Common Subsequence:**
 
@@ -22,7 +21,7 @@ As the name suggest, of all the common subsequencesbetween two strings, the long
 
 **Brute-Force Method:**
 
-We can generate all the subsequences of two strings using **backtracking**. Then we can compare them to find out the common subsequences. After we'll need to find out the one with the maximum length. We have already seen that, there are **2<sup>n</sup>** subsequences of a string of length **n**. It would take years to solve the problem if our **n** crosses **20-25**.
+We can generate all the subsequences of two strings using **backtracking**. Then we can compare them to find out the common subsequences. After we'll need to find out the one with the maximum length. We have already seen that, there are **2 <sup>n</sup>** subsequences of a string of length **n**. It would take years to solve the problem if our **n** crosses **20-25**.
 
 **Dynamic Programming Method:**
 
@@ -124,11 +123,10 @@ For row 2, which will now include **c**. For **Table[2][1]** we have **ac** on o
 
 So our first formula will be:
 
-```cpp
+```text
 if s2[i] is not equal to s1[j]
     Table[i][j] = max(Table[i-1][j], Table[i][j-1]
 endif
-
 ```
 
 Moving on, for **Table[2][2]** we have string **ab** and **ac**. Since **c** and **b** are not same, we put the maximum of the top or left here. In this case, it's again 1. After that, for **Table[2][3]** we have string **abc** and **ac**. This time current values of both row and column are same. Now the length of the LCS will be equal to the maximum length of LCS so far + 1. How do we get the maximum length of LCS so far? We check the diagonal value, which represents the best match between **ab** and **a**. From this state, for the current values, we added one more character to **s1** and **s2** which happened to be the same. So the length of LCS will of course increase. We'll put **1 + 1 = 2** in **Table[2][3]**. We get,
@@ -156,11 +154,10 @@ Moving on, for **Table[2][2]** we have string **ab** and **ac**. Since **c** and
 
 So our second formula will be:
 
-```cpp
+```text
 if s2[i] equals to s1[j]
     Table[i][j] = Table[i-1][j-1] + 1
 endif
-
 ```
 
 We have defined both the cases. Using these two formulas, we can populate the whole table. After filling up the table, it will look like this:
@@ -188,7 +185,7 @@ We have defined both the cases. Using these two formulas, we can populate the wh
 
 The length of the LCS between **s1** and **s2** will be **Table[5][6] = 4**. Here, 5 and 6 are the length of **s2** and **s1** respectively. Our pseudo-code will be:
 
-```cpp
+```text
 Procedure LCSlength(s1, s2):
 Table[0][0] = 0
 for i from 1 to s1.length
@@ -207,14 +204,13 @@ for i from 1 to s2.length
     endfor
 endfor
 Return Table[s2.length][s1.length]
-
 ```
 
 The time complexity for this algorithm is: **O(mn)** where **m** and **n** denotes the length of each strings.
 
 How do we find out the longest common subsequence? We'll start from the bottom-right corner. We will check from where the value is coming. If the value is coming from the diagonal, that is if **Table[i-1][j-1]** is equal to **Table[i][j] - 1**, we push either **s2[i]** or **s1[j]** (both are the same) and move diagonally. If the value is coming from top, that means, if **Table[i-1][j]** is equal to **Table[i][j]**, we move to the top. If the value is coming from left, that means, if **Table[i][j-1]** is equal to **Table[i][j]**, we move to the left. When we reach the leftmost or topmost column, our search ends. Then we pop the values from the stack and print them. The pseudo-code:
 
-```cpp
+```text
 Procedure PrintLCS(LCSlength, s1, s2)
 temp := LCSlength
 S = stack()
@@ -234,7 +230,6 @@ endwhile
 while S is not empty
     print(S.pop)
 endwhile
-
 ```
 
 Point to be noted: if both **Table[i-1][j]** and **Table[i][j-1]** is equal to **Table[i][j]** and **Table[i-1][j-1]** is not equal to **Table[i][j] - 1**, there can be two LCS for that moment. This pseudo-code doesn't consider this situation. You'll have to solve this recursively to find multiple LCSs.

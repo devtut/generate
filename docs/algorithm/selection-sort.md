@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Selection Sort"
+title: "Algorithm - Selection Sort"
 description: "Selection Sort Basic Information, Implementation of Selection sort in C#, Elixir Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Selection Sort
 
-
-
-
 ## Selection Sort Basic Information
-
 
 [Selection sort](https://en.wikipedia.org/wiki/Selection_sort) is a sorting algorithm, specifically an in-place comparison sort. It has O(n2) time complexity, making it inefficient on large lists, and generally performs worse than the similar insertion sort. Selection sort is noted for its simplicity, and it has performance advantages over more complicated algorithms in certain situations, particularly where auxiliary memory is limited.
 
@@ -28,7 +26,6 @@ function select(list[1..n], k)
              minValue = list[j]
      swap list[i] and list[minIndex]
  return list[k]
-
 ```
 
 **Visualization of selection sort:**
@@ -39,17 +36,14 @@ function select(list[1..n], k)
 
 [<img src="https://i.stack.imgur.com/CaSlf.jpg" alt="Example of Selection sort" />](https://i.stack.imgur.com/CaSlf.jpg)
 
-**Auxiliary Space:** `O(n)`<br>
+**Auxiliary Space:** `O(n)`<br />
 **Time Complexity:** `O(n^2)`
-
-
 
 ## Implementation of Selection sort in C#
 
-
 I used C# language to implement Selection sort algorithm.
 
-```cpp
+```java
 public class SelectionSort
 {
     private static void SortSelection(int[] input, int n)
@@ -74,13 +68,9 @@ public class SelectionSort
         return input;
     }
 }
-
 ```
 
-
-
 ## Elixir Implementation
-
 
 ```cpp
 defmodule Selection do
@@ -117,6 +107,5 @@ end
 
 Selection.sort([100,4,10,6,9,3])
 |> IO.inspect
-
 ```
 

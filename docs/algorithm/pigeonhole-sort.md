@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Pigeonhole Sort"
+title: "Algorithm - Pigeonhole Sort"
 description: "Pigeonhole Sort Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Pigeonhole Sort
 
-
-
 ## Pigeonhole Sort Basic Information
-
 
 [Pigeonhole Sort](https://en.wikipedia.org/wiki/Pigeonhole_sort) is a sorting algorithm that is suitable for sorting lists of elements where the number of elements (n) and the number of possible key values (N) are approximately the same. It requires O(n + Range) time where n is number of elements in input array and ‘Range’ is number of possible values in array.
 
@@ -27,15 +26,12 @@ Pigeonhole sort is similar to counting sort, so here is a comparison between Pig
 
 [<img src="http://i.stack.imgur.com/VKhzI.jpg" alt="Example of Pigeonhole Sort" />](http://i.stack.imgur.com/VKhzI.jpg)
 
-**Space Auxiliary:** `O(n)` <br>
+**Space Auxiliary:** `O(n)` <br />
 **Time Complexity:** `O(n + N)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class PigeonholeSort
 {
     private static void SortPigeonhole(int[] input, int n)
@@ -70,6 +66,5 @@ public class PigeonholeSort
         return input;
     }
 }
-
 ```
 

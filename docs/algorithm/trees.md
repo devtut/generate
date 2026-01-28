@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Trees"
+title: "Algorithm - Trees"
 description: "Introduction, Typical anary tree representation, To check if two Binary trees are same or not"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Trees
 
-
-
 ## Introduction
-
 
 [Trees](https://en.wikipedia.org/wiki/Tree_(graph_theory)) are a sub-type of the more general node-edge graph data structure.
 
@@ -23,19 +22,15 @@ The tree data structure is quite common within computer science. Trees are used 
 
 it is common to refer to a Tree as a `Rooted Tree` by:
 
-```cpp
+```text
 choosing 1 cell to be called `Root`
 painting the `Root` at the top
 creating lower layer for each cell in the graph depending on their distance from the root -the bigger the distance, the lower the cells (example above)
-
 ```
 
 common symbol for trees: `T`
 
-
-
 ## Typical anary tree representation
-
 
 Typically we represent an anary tree (one with potentially unlimited children per node) as a binary tree, (one with exactly two children per node). The "next" child is regarded as a sibling. Note that if a tree is binary, this representation creates extra nodes.
 
@@ -82,13 +77,9 @@ Note that it is typical to have one function to call on the root and a recursive
   {
      printree_r(root, 0);
   }
-
 ```
 
-
-
 ## To check if two Binary trees are same or not
-
 
 1. For example if the inputs are:
 
@@ -135,13 +126,9 @@ if(root1->data == root2->data
 return true;
 
 }
-
 ```
 
-
-
 #### Remarks
-
 
 Trees are a sub-category or sub-type of node-edge graphs. They are ubiquitous within computer science because of their prevalence as a model for many different algorithmic structures that are, in turn, applied in many different algorithms
 

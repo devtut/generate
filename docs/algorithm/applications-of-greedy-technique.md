@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Applications of Greedy technique"
+title: "Algorithm - Applications of Greedy technique"
 description: "Ticket automat, Interval Scheduling, Minimizing Lateness, Offline Caching"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Applications of Greedy technique
 
-
-
-
 ## Ticket automat
-
 
 First simple Example:
 
@@ -19,11 +17,11 @@ Let `M` in `[1,50]` be the price for the ticket `T` and `P` in `[1,50]` the mone
 
 The **Greedy Technique** for the exchange is the following pseudo algorithmic approach:
 
-**Step 1:** while `D > 20` dispense a 20 coin and set `D = D - 20` <br/>
-**Step 2:** while `D > 10` dispense a 10 coin and set `D = D - 10`  <br/>
-**Step 3:** while `D > 5` dispense a 5 coin and set `D = D - 5`  <br/>
-**Step 4:** while `D > 2` dispense a 2 coin and set `D = D - 2`  <br/>
-**Step 5:** while `D > 1` dispense a 1 coin and set `D = D - 1` <br/>
+**Step 1:** while `D > 20` dispense a 20 coin and set `D = D - 20` <br />
+**Step 2:** while `D > 10` dispense a 10 coin and set `D = D - 10`  <br />
+**Step 3:** while `D > 5` dispense a 5 coin and set `D = D - 5`  <br />
+**Step 4:** while `D > 2` dispense a 2 coin and set `D = D - 2`  <br />
+**Step 5:** while `D > 1` dispense a 1 coin and set `D = D - 1` <br />
 
 Afterwards the sum of all coins clearly equals `D`. Its a **greedy algorithm** because after each step and after each repitition of a step the benefit is maximized. We cannot dispense another coin with a higher benefit.
 
@@ -137,7 +135,6 @@ std::vector<unsigned int> readInCoinValues()
     
     return coinValues;
 }
-
 ```
 
 Be aware there is now input checking to keep the example simple. One example output:
@@ -157,7 +154,6 @@ the difference 33 is paid with:
 2 coins with value 14
 1 coins with value 4
 1 coins with value 1
-
 ```
 
 As long as `1` is in the coin values we now, that the algorithm will terminate, because:
@@ -172,10 +168,7 @@ But the algorithm has two pitfalls:
 
 A simple counter example: the coins are `1,3,4` and `D=6`. The optimal solution is clearly two coins of value `3` but greedy chooses `4` in the first step so it has to choose `1` in step two and three. So it gives no optimal soution. A possible optimal Algorithm for this example is based on **dynamic programming**.
 
-
-
 ## Interval Scheduling
-
 
 We have a set of jobs `J={a,b,c,d,e,f,g}`. Let `j in J` be a job than its start at `sj` and ends at `fj`. Two jobs are compatible if they don't overlap. A picture as example:
 [<img src="https://s16.postimg.org/6rl9pa2hx/intervall_scheduling.png" alt="intervall_scheduling.png" />](https://postimg.org/image/6etvj3k81/)
@@ -222,7 +215,7 @@ int main()
 {
     vector<pair<int,int>> jobs;
     
-    for(int i=0; i&lt;jobCnt; ++i)
+    for(int i=0; i<jobCnt; ++i)
         jobs.push_back(make_pair(startTimes[i], endTimes[i]));
     
     // step 1: sort
@@ -233,7 +226,7 @@ int main()
     vector<int> A;
     
     // step 3:
-    for(int i=0; i&lt;jobCnt; ++i)
+    for(int i=0; i<jobCnt; ++i)
     {
         auto job = jobs[i];
         bool isCompatible = true;
@@ -262,7 +255,6 @@ int main()
     
     return 0;
 }
-
 ```
 
 The output for this example is: `Compatible: (1,3) (4,5) (6,8) (9,10)`
@@ -283,7 +275,7 @@ This second example demonstrates that there are usually many possible greedy str
 
 Below is a Java program that runs in Θ(n log n)
 
-```cpp
+```java
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -298,7 +290,6 @@ class Job
         this.profit = profit;
     }
 }
-
 
 class JobComparator implements Comparator<Job>
 {
@@ -360,20 +351,15 @@ public class WeightedIntervalScheduling
         System.out.println("Optimal profit is " + schedule(jobs));
     }
 }
-
 ```
 
 And the expected output is:
 
-```cpp
+```text
 Optimal profit is 250
-
 ```
 
-
-
 ## Minimizing Lateness
-
 
 There are numerous problems minimizing lateness, here we have a single resource which can only process one job at a time. Job `j` requires `tj` units of processing time and is due at time `dj`. if `j` starts at time `sj` it will finish at time `fj=sj+tj`. We define lateness `L=max{0,fj-dh}` for all `j`. The goal is to minimize the **maximum lateness** L.
 
@@ -411,13 +397,17 @@ the last strategy looks valid so we start with some pseudo code:
 
 1. Sort `n` jobs by due time so that `d1<=d2<=...<=dn`
 1. Set `t=0`
-&lt;li>for `j=1` to `n`
-&lt;ul>
+
+- for `j=1` to `n`
+
+
 1. Assign job `j` to interval `[t,t+tj]`
 1. set `sj=t` and `fj=t+tj`
 1. set `t=t+tj`
-&lt;/ul>
-&lt;/li>
+
+
+
+
 1. return intervals `[s1,f1],[s2,f2],...,[sn,fn]`
 
 And as implementation in C++:
@@ -443,7 +433,7 @@ int main()
 {
     vector<pair<int,int>> jobs;
     
-    for(int i=0; i&lt;jobCnt; ++i)
+    for(int i=0; i<jobCnt; ++i)
         jobs.push_back(make_pair(processTimes[i], dueTimes[i]));
     
     // step 1: sort
@@ -456,7 +446,7 @@ int main()
     // step 3:
     vector<pair<int,int>> jobIntervals;
     
-    for(int i=0; i&lt;jobCnt; ++i)
+    for(int i=0; i<jobCnt; ++i)
     {
         jobIntervals.push_back(make_pair(t,t+jobs[i].first));
         t += jobs[i].first;
@@ -467,7 +457,7 @@ int main()
     
     int lateness = 0;
     
-    for(int i=0; i&lt;jobCnt; ++i)
+    for(int i=0; i<jobCnt; ++i)
     {
         auto pair = jobIntervals[i];
         
@@ -481,7 +471,6 @@ int main()
     
     return 0;
 }
-
 ```
 
 And the output for this program is:
@@ -501,12 +490,11 @@ Intervals:
 (25,26) Lateness: 1
 
 maximal lateness is 8
-
 ```
 
 The runtime of the algorithm is obviously Θ(n log n) because sorting is the dominating operation of this algorithm. Now we need to show that it is optimal. Clearly an optimal schedule has no **idle time**. the **earliest deadline first** schedule has also no idle time.
 
-Lets assume the jobs are numbered so that `d1<=d2<=...<=dn`. We say a **inversion** of a schedule is a pair of jobs `i` and `j` so that `i&lt;j` but j is scheduled before `i`. Due to its definition the **earliest deadline first** schedule has no inversions. Of course if a schedule has an inversion it has one with a pair of inverted jobs scheduled consecutively.
+Lets assume the jobs are numbered so that `d1<=d2<=...<=dn`. We say a **inversion** of a schedule is a pair of jobs `i` and `j` so that `i<j` but j is scheduled before `i`. Due to its definition the **earliest deadline first** schedule has no inversions. Of course if a schedule has an inversion it has one with a pair of inverted jobs scheduled consecutively.
 
 **Proposition:** Swapping two adjacent, inverted jobs reduces the number of inversions by **one** and **does not increase** the maximal lateness.
 
@@ -514,11 +502,10 @@ Lets assume the jobs are numbered so that `d1<=d2<=...<=dn`. We say a **inversio
 
 Clearly it is `Mi<=Li` since job `i` got scheduled earlier. if job `j` is late, so follows from the definition:
 
-```cpp
+```text
 Mj = fi-dj    (definition)
     <= fi-di    (since i and j are exchanged)
     <= Li
-
 ```
 
 That means the lateness after swap is less or equal than before. This concludes the proof.
@@ -533,10 +520,7 @@ The minimizing lateness problem and its near related **minimum makespan** proble
 
 Another interesting question arises if we don't look at the **offline** problem, where we have all tasks and data at hand but at the **online** variant, where tasks appear during execution.
 
-
-
 ## Offline Caching
-
 
 The caching problem arises from the limitation of finite space. Lets assume our cache `C` has `k` pages. Now we want to process a sequence  of `m` item requests which must have been placed in the cache before they are processed.Of course if `m<=k` then we just put all elements in the cache and it will work, but usually is `m>>k`.
 
@@ -598,7 +582,6 @@ char cache[]            = {'a','b','c'};
 
 // for reset
 char originalCache[]    = {'a','b','c'};
-
 
 class Strategy {
 
@@ -668,7 +651,6 @@ int main()
 
     for(int i=0; i<5; ++i) delete selectedStrategy[i];
 }
-
 ```
 
 The basic idea is simple: for every request I have two calls two my strategy:
@@ -724,7 +706,6 @@ public:
 private:
     int age[cacheSize];
 };
-
 ```
 
 **FIFO** just needs the information how long a page is in the cache (and of course only relative to the other pages). So the only thing to do is wait for a miss and then make the pages, which where not evicted older. For our example above the program solution is:
@@ -753,7 +734,6 @@ Request    cache 0    cache 1    cache 2    cache miss
   c          c          b          e          x
 
 Total cache misses: 13
-
 ```
 
 Thats exact the solution from above.
@@ -804,7 +784,6 @@ public:
 private:
     int age[cacheSize];
 };
-
 ```
 
 The implementation of **LIFO** is more or less the same as by **FIFO** but we evict the youngest not the oldest page. The program results are:
@@ -833,7 +812,6 @@ Request    cache 0    cache 1    cache 2    cache miss
   c          e          b          c    
 
 Total cache misses: 9
-
 ```
 
 ### LRU
@@ -879,7 +857,6 @@ public:
 private:
     int age[cacheSize];
 };
-
 ```
 
 In case of **LRU** the strategy is independent from what is at the cache page, its only interest is the last usage. The programm results are:
@@ -908,7 +885,6 @@ Request    cache 0    cache 1    cache 2    cache miss
   c          e          c          b          x
 
 Total cache misses: 13
-
 ```
 
 ### LFU
@@ -951,7 +927,6 @@ private:
     // how frequently was the page used
     int requestFrequency[cacheSize];
 };
-
 ```
 
 **LFU** evicts the page uses least often. So the update strategy is just to count every access. Of course after a miss the count resets. The program results are:
@@ -980,7 +955,6 @@ Request    cache 0    cache 1    cache 2    cache miss
   c          a          b          c          x
 
 Total cache misses: 10
-
 ```
 
 ### LFD
@@ -1031,7 +1005,6 @@ private:
     // next usage of page
     int nextUse[cacheSize];
 };
-
 ```
 
 The **LFD** strategy is different from everyone before. Its the only strategy that uses the future requests for its decission who to evict. The implementation uses the function `calcNextUse` to get the page which next use is farthest away in the future. The program solution is equal to the solution by hand from above:
@@ -1060,7 +1033,6 @@ Request    cache 0    cache 1    cache 2    cache miss
   c          c          d          e          x
 
 Total cache misses: 8 
-
 ```
 
 The greedy strategy **LFD** is indeed the only optimal strategy of the five presented. The proof is rather long and can be found [here](https://blog.henrypoon.com/blog/2014/02/02/proof-of-the-farthest-in-future-optimal-caching-algorithm/) or in the book by Jon Kleinberg and Eva Tardos (see sources in remarks down below).
@@ -1069,14 +1041,11 @@ The greedy strategy **LFD** is indeed the only optimal strategy of the five pres
 
 The **LFD** strategy is optimal, but there is a big problem. Its an optimal **offline** solution. In praxis caching is usually an **online** problem, that means the strategy is useless because we cannot now the next time we need a particular item. The other four strategies are also **online** strategies. For online problems we need a general different approach.
 
-
-
 #### Remarks
-
 
 ### Sources
 
 1. The examples above are from lecture notes frome a lecture which was taught 2008 in Bonn, Germany. They in term are based on the book [Algorithm Design](https://www.pearsonhighered.com/program/Kleinberg-Algorithm-Design/PGM319216.html) by Jon Kleinberg and Eva Tardos:
 
-<img src="https://s14.postimg.org/qiq7yjyv5/tardos.png">
+<img src="https://s14.postimg.org/qiq7yjyv5/tardos.png" />
 

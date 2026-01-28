@@ -1,17 +1,15 @@
 ---
-metaTitle: "Algorithm - Binary Tree traversals"
+title: "Algorithm - Binary Tree traversals"
 description: "Level Order traversal - Implementation, Pre-order, Inorder and Post Order traversal of a Binary Tree"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Binary Tree traversals
 
-
 Visiting a node of a binary tree in some particular order is called traversals.
 
-
-
 ## Level Order traversal - Implementation
-
 
 For example if the given tree is:
 
@@ -25,7 +23,7 @@ Printing node data level by level.
 
 Code:
 
-```cpp
+```c
 #include<iostream>
 #include<queue>
 #include<malloc.h>
@@ -86,15 +84,11 @@ int main(){
     
     
 }
-
 ```
 
 Queue data structure is used to achieve the above objective.
 
-
-
 ## Pre-order, Inorder and Post Order traversal of a Binary Tree
-
 
 Consider the Binary Tree:
 

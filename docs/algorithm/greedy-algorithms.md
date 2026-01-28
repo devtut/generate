@@ -1,27 +1,24 @@
 ---
-metaTitle: "Algorithm - Greedy Algorithms"
+title: "Algorithm - Greedy Algorithms"
 description: "Huffman Coding, Activity Selection Problem, Change-making problem, Continuous knapsack problem"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Greedy Algorithms
 
-
-
-
 ## Huffman Coding
-
 
 [Huffman code](https://en.wikipedia.org/wiki/Huffman_coding) is a particular type of optimal prefix code that is commonly used for lossless data compression. It compresses data very effectively saving from 20% to 90% memory, depending on the characteristics of the data being compressed. We consider the data to be a sequence of characters. Huffman's greedy algorithm uses a table giving how often each character occurs (i.e., its frequency) to build up an optimal way of representing each character as a binary string. Huffman code was proposed by [David A. Huffman](https://en.wikipedia.org/wiki/David_A._Huffman) in 1951.
 
 Suppose we have a 100,000-character data file that we wish to store compactly. We assume that there are only 6 different characters in that file. The frequency of the characters are given by:
 
-```cpp
+```text
 +------------------------+-----+-----+-----+-----+-----+-----+
 |        Character       |  a  |  b  |  c  |  d  |  e  |  f  |
 +------------------------+-----+-----+-----+-----+-----+-----+
 |Frequency (in thousands)|  45 |  13 |  12 |  16 |  9  |  5  |
 +------------------------+-----+-----+-----+-----+-----+-----+
-
 ```
 
 We have many options for how to represent such a file of information. Here, we consider the problem of designing a **Binary Character Code** in which each character is represented by a unique binary string, which we call a **codeword**.
@@ -30,7 +27,7 @@ We have many options for how to represent such a file of information. Here, we c
 
 The constructed tree will provide us with:
 
-```cpp
+```text
 +------------------------+-----+-----+-----+-----+-----+-----+
 |        Character       |  a  |  b  |  c  |  d  |  e  |  f  |
 +------------------------+-----+-----+-----+-----+-----+-----+
@@ -38,7 +35,6 @@ The constructed tree will provide us with:
 +------------------------+-----+-----+-----+-----+-----+-----+
 |Variable-length Codeword|  0  | 101 | 100 | 111 | 1101| 1100|
 +------------------------+-----+-----+-----+-----+-----+-----+
-
 ```
 
 If we use a **fixed-length code**, we need three bits to represent 6 characters. This method requires 300,000 bits to code the entire file. Now the question is, can we do better?
@@ -54,8 +50,10 @@ Prefix codes are desirable because they simplify decoding. Since no codeword is 
 The technique works by creating a **binary tree** of nodes. These can stored in a regular array, the size of which depends on the number of symbols, **n**. A node can either be a **leaf node** or an **internal node**. Initially all nodes are leaf nodes, which contain the symbol itself, its frequency and optionally, a link to its child nodes. As a convention, bit '0' represents left child and bit '1' represents right child. **Priority queue** is used to store the nodes, which provides the node with lowest frequency when popped. The process is described below:
 
 1. Create a leaf node for each symbol and add it to the priority queue.
-&lt;li>While there is more than one node in the queue:
-&lt;ol>
+
+- While there is more than one node in the queue:
+
+
 1. Remove the two nodes of highest priority from the queue.
 1. Create a new internal node with these two nodes as children and with frequency equal to the sum of the two nodes' frequency.
 1. Add the new node to the queue.
@@ -65,7 +63,7 @@ For our example:
 
 The pseudo-code looks like:
 
-```cpp
+```text
 Procedure Huffman(C):     // C is the set of n characters and related information
 n = C.size
 Q = priority_queue()
@@ -81,7 +79,6 @@ while Q.size() is not equal to 1
     Q.push(Z)
 end while
 Return Q
-
 ```
 
 Although linear-time given sorted input, in general cases of arbitrary input, using this algorithm requires pre-sorting. Thus, since sorting takes **O(nlogn)** time in general cases, both methods have same complexity.
@@ -92,7 +89,7 @@ Since **n** here is the number of symbols in the alphabet, which is typically ve
 
 The process of decompression is simply a matter of translating the stream of prefix codes to individual byte value, usually by traversing the Huffman tree node by node as each bit is read from the input stream. Reaching a leaf node necessarily terminates the search for that particular byte value. The leaf value represents the desired character. Usually the Huffman Tree is constructed using statistically adjusted data on each compression cycle, thus the reconstruction is fairly simple. Otherwise, the information to reconstruct the tree must be sent separately. The pseudo-code:
 
-```cpp
+```text
 Procedure HuffmanDecompression(root, S):   // root represents the root of Huffman Tree
 n := S.length                              // S refers to bit-stream to be decompressed
 for i := 1 to n
@@ -107,7 +104,6 @@ for i := 1 to n
     endwhile
     print current.symbol
 endfor
-
 ```
 
 **Greedy Explanation:**<br />
@@ -119,10 +115,7 @@ Huffman coding looks at the occurrence of each character and stores it as a bina
 - [Huffman Coding](https://en.wikipedia.org/wiki/Huffman_coding) - Wikipedia
 - Discrete Mathematics and Its Applications - Kenneth H. Rosen
 
-
-
 ## Activity Selection Problem
-
 
 ### **The Problem**
 
@@ -178,11 +171,12 @@ if we sort the activity by time duration the sort order will be 2--> 3 --->1 . a
 
 - **Sort the Activity by ending time** that means the activity finishes first that come first. the algorithm is given below
 
-> 
-&lt;ol>
+&gt; 
+
+
 - Sort the activities by its ending times.
 - If the activity to be performed do not share a common time with the activities that previously performed, perform the activity.
-&lt;/ol>
+
 
 
 Lets analyse the first example
@@ -199,24 +193,22 @@ sort the activity by its ending times , So sort order will be 1-->5-->2-->4-->3.
 the answer is 1-->3 these two activities will be performed. ans that's the answer.
 here is the sudo code.
 
-> 
-&lt;ol>
+&gt; 
+
+
 - sort: activities
 - perform first activity from the sorted list of activities.
 - Set : Current_activity := first activity
 - set: end_time := end_time of Current activity
 - go to next activity if exist, if not exist terminate .
-- if start_time of current activity <= end_time  : perform the activity and go to 4
+- if start_time of current activity &lt;= end_time  : perform the activity and go to 4
 - else:   got to 5.
-&lt;/ol>
+
 
 
 see here for coding help [http://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/](http://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/)
 
-
-
 ## Change-making problem
-
 
 Given a money system, is it possible to give an amount of coins and how to find a minimal set of coins corresponding to this amount.
 
@@ -226,7 +218,7 @@ For example, if the different euro coins and bills (excluding cents) are 1€, 2
 
 We can do that recursively with OCaml :
 
-```cpp
+```text
 (* assuming the money system is sorted in decreasing order *)
 let change_make money_system amount =
   let rec loop given amount =
@@ -236,7 +228,6 @@ let change_make money_system amount =
       let coin = List.find ((>=) amount) money_system in
       loop (coin::given) (amount - coin)
   in loop [] amount
-
 ```
 
 These systems are made so that change-making is easy. The problem gets harder when it comes to arbitrary money system.
@@ -245,7 +236,7 @@ These systems are made so that change-making is easy. The problem gets harder wh
 Worse than that a solution may not exist. This problem is in fact np-hard, but acceptable solutions mixing **greediness** and **memoization** exist.
 The idea is to explore all the possibilies and pick the one with the minimal number of coins.
 
-To give an amount X > 0, we choose a piece P in the money system, and then solve the sub-problem corresponding to X-P. We try this for all the pieces of the system. The solution, if it exists, is then the smallest path that led to 0.
+To give an amount X &gt; 0, we choose a piece P in the money system, and then solve the sub-problem corresponding to X-P. We try this for all the pieces of the system. The solution, if it exists, is then the smallest path that led to 0.
 
 Here an OCaml recursive function corresponding to this method. It returns None, if no solution exists.
 
@@ -277,32 +268,26 @@ let change_make money_system amount =
     (*we call onepiece forall the pieces*)
     List.fold_left onepiece None money_system
   in loop amount
-
 ```
 
 **Note**: We can remark that this procedure may compute several times the change set for the same value. In practice, using memoization to avoid these repetitions leads to faster (way faster) results.
 
-
-
 ## Continuous knapsack problem
-
 
 Given items as `(value, weight)` we need to place them in a knapsack (container) of a capacity `k`. Note! We can break items to maximize value!
 
 Example input:
 
-```cpp
+```text
 values[] = [1, 4, 5, 2, 10]
 weights[] = [3, 2, 1, 2, 4]
 k = 8
-
 ```
 
 Expected output:
 
-```cpp
+```text
 maximumValueOfItemsInK = 20;
-
 ```
 
 Algorithm:
@@ -322,13 +307,9 @@ Algorithm:
        END_IF
    END_FOR
    PRINT "maximumValueOfItemsInK = " + currentValue;
-
 ```
 
-
-
 #### Remarks
-
 
 A greedy algorithm is an algorithm in which in each step we choose the most beneficial option in every step without looking into the future. The choice depends only on current profit.
 

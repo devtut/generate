@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Shell Sort"
+title: "Algorithm - Shell Sort"
 description: "Shell Sort Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Shell Sort
 
-
-
 ## Shell Sort Basic Information
-
 
 [Shell sort](https://en.wikipedia.org/wiki/Shellsort), also known as the diminishing increment sort, is one of the oldest sorting algorithms, named after its inventor [Donald. L. Shell](https://en.wikipedia.org/wiki/Donald_Shell) (1959). It is fast, easy to understand and easy to implement. However, its complexity analysis is a little more sophisticated.
 
@@ -42,18 +41,14 @@ foreach element in input
         a[j] = temp
     }
 }
-
 ```
 
-**Auxiliary Space:** `O(n) total, O(1) auxiliary`<br>
+**Auxiliary Space:** `O(n) total, O(1) auxiliary`<br />
 **Time Complexity:** `O(nlogn)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class ShellSort
 {
     static void SortShell(int[] input, int n)
@@ -88,6 +83,5 @@ public class ShellSort
         return input;
     }
 }
-
 ```
 

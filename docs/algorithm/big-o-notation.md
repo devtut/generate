@@ -1,19 +1,17 @@
 ---
-metaTitle: "Algorithm - Big-O Notation"
+title: "Algorithm - Big-O Notation"
 description: "A Simple Loop, A Nested Loop, An O(log n) example, O(log n) types of Algorithms"
+tags: ["algorithm", "complexity", "big-o"]
+date: 2026-01-27
 ---
 
 # Big-O Notation
 
-
-
-
 ## A Simple Loop
-
 
 The following function finds the maximal element in an array:
 
-```cpp
+```c
 int find_max(const int *array, size_t len) {
     int max = INT_MIN;
     for (size_t i = 0; i < len; i++) {
@@ -30,33 +28,28 @@ The input size is the size of the array, which I called `len` in the code.
 
 Let's count the operations.
 
-```cpp
+```text
 int max = INT_MIN;
 size_t i = 0;
-
 ```
 
 These two assignments are done only once, so that's 2 operations. The operations that are looped are:
 
-```cpp
+```text
 if (max < array[i])
 i++;
 max = array[i]
-
 ```
 
 Since there are 3 operations in the loop, and the loop is done n times, we add `3n`  to our already existing 2 operations to get `3n + 2`. So our function takes `3n + 2` operations to find the max (its complexity is `3n + 2`). This is a polynomial where the fastest growing term is a factor of n, so it is O(n).
 
 You probably have noticed that "operation" is not very well defined. For instance I said that `if (max < array[i])` was one operation, but depending on the architecture this statement can compile to for instance three instructions : one memory read, one comparison and one branch. I have also considered all operations as the same, even though for instance the memory operations will be slower than the others, and their performance will vary wildly due for instance to cache effects. I also have completely ignored the return statement, the fact that a frame will be created for the function, etc. In the end it doesn't matter to complexity analysis, because whatever way I choose to count operations, it will only change the coefficient of the n factor and the constant, so the result will still be O(n). Complexity shows how the algorithm scales with the size of the input, but it isn't the only aspect of performance!
 
-
-
 ## A Nested Loop
-
 
 The following function checks if an array has any duplicates by taking each element, then iterating over the whole array to see if the element is there
 
-```cpp
+```c
 _Bool contains_duplicates(const int *array, size_t len) {
     for (int i = 0; i < len - 1; i++) {
         for (int j = 0; j < len; j++) {
@@ -85,15 +78,11 @@ _Bool faster_contains_duplicates(const int *array, size_t len) {
     }
     return 0;
 }
-
 ```
 
 Obviously, this second version does less operations and so is more efficient. How does that translate to Big-O notation? Well, now the inner loop body is run `1 + 2 + ... + n - 1 = n(n-1)/2` times. This is **still** a polynomial of the second degree, and so is still only `O(n^2)`. We have clearly lowered the complexity, since we roughly divided by 2 the number of operations that we are doing, but we are still in the same complexity **class** as defined by Big-O. In order to lower the complexity to a lower class we would need to divide the number of operations by something that **tends to infinity** with `n`.
 
-
-
 ## An O(log n) example
-
 
 ### Introduction
 
@@ -111,7 +100,7 @@ This works fine for small values of `n`, but is there a more efficient way ?
 
 Consider the following algorithm (Python3):
 
-```cpp
+```python
 a = 0
 b = n-1
 while True:
@@ -141,63 +130,40 @@ So 2^x = n, then x = log n
 
 When faced with successive divisions (be it by two or by any number), remember that the complexity is logarithmic.
 
-
-
 ## O(log n) types of Algorithms
-
 
 Let's say we have a problem of size n. Now for each step of our algorithm(which we need write), our original problem becomes half of its previous size(n/2).
 
 So at each step, our problem becomes half.
 
-|Step|Problem
-|---|---|---|---
-|1|n/2
-|2|n/4
-|3|n/8
-|4|n/16
+| Step | Problem |
+| ---- | ------- ||  |
+| 1    | n/2     |
+| 2    | n/4     |
+| 3    | n/8     |
+| 4    | n/16    |
 
 When the problem space is reduced(i.e solved completely), it cannot be reduced any further(n becomes equal to 1) after exiting check condition.
 
-&lt;li>
-Let's say at kth step or number of operations:
-**problem-size** = 1
-&lt;/li>
-&lt;li>
-But we know at kth step, our problem-size should be:
-**problem-size** = n/2<sup>k</sup>
-&lt;/li>
-&lt;li>
-From 1 and 2:
-n/2<sup>k</sup> = 1 or
-n = 2<sup>k</sup>
-&lt;/li>
-&lt;li>
-Take log on both sides
-log<sub>e</sub> n = k log<sub>e</sub>2
-or
-k = log<sub>e</sub> n / log<sub>e</sub> 2
-&lt;/li>
-&lt;li>
-Using formula **log<sub>x</sub> m / log<sub>x</sub> n = log<sub>n</sub> m**
-k = log<sub>2</sub> n
-or simply    k = log n
-&lt;/li>
+- Let's say at kth step or number of operations: **problem-size** = 1
+- But we know at kth step, our problem-size should be: **problem-size** = n/2 <sup>k</sup>
+- From 1 and 2: n/2 <sup>k</sup> = 1 or n = 2 <sup>k</sup>
+- Take log on both sides: log <sub>e</sub> n = k log <sub>e</sub>2 or k = log <sub>e</sub> n / log <sub>e</sub> 2
+- Using formula **log <sub>x</sub> m / log <sub>x</sub> n = log <sub>n</sub> m**: k = log <sub>2</sub> n or simply k = log n
 
-> 
-<p>Now we know that our algorithm can run maximum up to log n, hence
-time complexity comes as<br />
-O( log n)</p>
-
+&gt; 
+Now we know that our algorithm can run maximum up to log n, hence
+time complexity comes as
+O( log n)
 
 A very simple example in code to support above text is :
 
-```cpp
+```c
 for(int i=1; i<=n; i=i*2)
 {
     // perform some operation
 }
-
+```
 ```
 
 So now if some one asks you if n is 256 how many steps that loop( or any other algorithm that cuts down it's problem size into half) will run you can very easily calculate.
@@ -210,28 +176,25 @@ k = 8
 
 Another very good example for similar case is **Binary Search Algorithm**.
 
-```cpp
-int bSearch(int arr[],int size,int item){
+```c
+int bSearch(int arr[],int size,int item)&#123;
  int low=0;
  int high=size-1;
 
- while(low<=high){                 
+ while(low&lt;=high)&#123;                 
      mid=low+(high-low)/2;                 
      if(arr[mid]==item)                        
          return mid;                 
      else if(arr[mid]<item)                         
          low=mid+1;                
      else  high=mid-1;      
-     }  
-  return –1;// Unsuccessful result
-}
+     &#125;  
+  return -1;// Unsuccessful result
+&#125;
 
 ```
 
-
-
 #### Remarks
-
 
 **Definition**
 

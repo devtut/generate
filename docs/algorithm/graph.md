@@ -1,19 +1,17 @@
 ---
-metaTitle: "Algorithm - Graph"
+title: "Algorithm - Graph"
 description: "Storing Graphs (Adjacency Matrix), Introduction To Graph Theory, Storing Graphs (Adjacency List), Topological Sort, Thorup's algorithm, Detecting a cycle in a directed graph using Depth First Traversal"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Graph
 
-
 A graph is a collection of points and lines connecting some (possibly empty) subset of them. The points of a graph are called graph vertices, "nodes" or simply "points." Similarly, the lines connecting the vertices of a graph are called graph edges, "arcs" or "lines."
 
-A graph G can be defined as a pair (V,E), where V is a set of vertices, and E is a set of edges between the vertices E ⊆ {(u,v) | u, v ∈ V}.
-
-
+A graph G can be defined as a pair (V,E), where V is a set of vertices, and E is a set of edges between the vertices E ⊆ &#123;(u,v) | u, v ∈ V&#125;.
 
 ## Storing Graphs (Adjacency Matrix)
-
 
 To store a graph, two methods are common:
 
@@ -38,7 +36,7 @@ We represent the nodes that don't share edge by **infinity**. One thing to be no
 
 The pseudo-code to create the matrix:
 
-```cpp
+```text
 Procedure AdjacencyMatrix(N):    //N represents the number of nodes
 Matrix[N][N]
 for i from 1 to N
@@ -46,12 +44,11 @@ for i from 1 to N
         Take input -> Matrix[i][j]
     endfor
 endfor
-
 ```
 
 We can also populate the Matrix using this common way:
 
-```cpp
+```text
 Procedure AdjacencyMatrix(N, E):    // N -> number of nodes
 Matrix[N][E]                        // E -> number of edges
 for i from 1 to E
@@ -59,7 +56,6 @@ for i from 1 to E
     Matrix[n1][n2] = cost
     Matrix[n2][n1] = cost
 endfor
-
 ```
 
 For directed graphs, we can remove **Matrix[n2][n1] = cost** line.
@@ -75,7 +71,7 @@ The only benefit is that, we can easily find the connection between **u-v** node
 
 Java code implemented using above pseudo-code:
 
-```cpp
+```java
 import java.util.Scanner;
  
 public class Represent_Graph_Adjacency_Matrix 
@@ -161,7 +157,6 @@ public class Represent_Graph_Adjacency_Matrix
         sc.close();
     }
 }
-
 ```
 
 Running the code:
@@ -188,13 +183,9 @@ The adjacency matrix for the given graph is:
 2 0 0 1 1
 3 0 0 0 1
 4 0 0 0 0
-
 ```
 
-
-
 ## Introduction To Graph Theory
-
 
 [Graph Theory](https://en.wikipedia.org/wiki/Graph_theory) is the study of graphs, which are mathematical structures used to model pairwise relations between objects.
 
@@ -268,10 +259,7 @@ For undirected graphs, they are simply called degree.
 - Depth-first search
 - Breadth-first search
 
-
-
 ## Storing Graphs (Adjacency List)
-
 
 [Adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a vertex in a graph. It takes less memory to store graphs.
 
@@ -287,7 +275,7 @@ Many languages support **Vector** or **List** which we can use to store adjacenc
 
 The pseudo-code will be:
 
-```cpp
+```text
 Procedure Adjacency-List(maxN, E):       // maxN denotes the maximum number of nodes
 edge[maxN] = Vector()                    // E denotes the number of edges
 for i from 1 to E
@@ -296,12 +284,11 @@ for i from 1 to E
     edge[y].push(x)
 end for
 Return edge
-
 ```
 
 Since this one is an undirected graph, it there is an edge from **x** to **y**, there is also an edge from **y** to **x**. If it was a directed graph, we'd omit the second one. For weighted graphs, we need to store the cost too. We'll create another **vector** or **list** named **cost[]** to store these. The pseudo-code:
 
-```cpp
+```text
 Procedure Adjacency-List(maxN, E):
 edge[maxN] = Vector()
 cost[maxN] = Vector()
@@ -311,15 +298,11 @@ for i from 1 to E
     cost[x].push(w)
 end for
 Return edge, cost
-
 ```
 
 From this one, we can easily find out the total number of nodes connected to any node, and what these nodes are. It takes less time than Adjacency Matrix. But if we needed to find out if there's an edge between **u** and **v**, it'd have been easier if we kept an adjacency matrix.
 
-
-
 ## Topological Sort
-
 
 A topological ordering, or a topological sort, orders the vertices
 in a directed acyclic graph on a line, i.e. in a list, such that all directed
@@ -360,13 +343,12 @@ Let a vertice `v` describe a `Task(hours_to_complete: int)`, i. e. `Task(4)` des
 
 Let our graph be called `dag` (since it is a directed acyclic graph), and let it contain 5 vertices:
 
-```cpp
+```text
 A <- dag.add_vertex(Task(4)); 
 B <- dag.add_vertex(Task(5));
 C <- dag.add_vertex(Task(3)); 
 D <- dag.add_vertex(Task(2));
 E <- dag.add_vertex(Task(7));
-
 ```
 
 where we connect the vertices with directed edges such that the graph is acyclic,
@@ -382,7 +364,6 @@ dag.add_edge(B, D, Cooldown(1));
 dag.add_edge(C, D, Cooldown(1));
 dag.add_edge(C, E, Cooldown(1));
 dag.add_edge(D, E, Cooldown(3));
-
 ```
 
 then there are three possible topological orderings between `A` and `E`,
@@ -391,10 +372,7 @@ then there are three possible topological orderings between `A` and `E`,
 1. `A -> C -> D -> E`
 1. `A -> C -> E`
 
-
-
 ## Thorup's algorithm
-
 
 Thorup's algorithm for single source shortest path for undirected graph has the time complexity O(m), lower than Dijkstra.
 
@@ -409,16 +387,13 @@ Basic ideas are the following. (Sorry, I didn't try implementing it yet, so I mi
 
 It is based on the fact that, there isn't an edge with length less than l between two connected components of the spanning forest with length limitation l, so, starting at distance x, you could focus only on one connected component until you reach the distance x + l. You'll visit some vertices before vertices with shorter distance are all visited, but that doesn't matter because it is known there won't be a shorter path to here from those vertices. Other parts work like the bucket sort / MSD radix sort, and of course, it requires the O(m) spanning tree.
 
-
-
 ## Detecting a cycle in a directed graph using Depth First Traversal
-
 
 A cycle in a directed graph exists if there's a back edge discovered during a DFS. A back edge is an edge from a node to itself or one of the ancestors in a DFS tree. For a disconnected graph, we get a DFS forest, so you have to iterate through all vertices in the graph to find disjoint DFS trees.
 
 C++ implementation:
 
-```cpp
+```c
 #include <iostream>
 #include <list>
     
@@ -479,17 +454,13 @@ int main()
     bool res = isCyclic(graph, NUM_V);
     cout<<res<<endl;
 }
-
 ```
 
 Result:
 As shown below, there are three back edges in the graph. One between vertex 0 and 2; between vertice 0, 1, and 2; and vertex 3. Time complexity of search is O(V+E) where V is the number of vertices and E is the number of edges.
 [<img src="http://i.stack.imgur.com/UHwvp.png" alt="enter image description here" />](http://i.stack.imgur.com/UHwvp.png)
 
-
-
 #### Remarks
-
 
 Graphs are a mathematical structure that model sets of objects that may or may not be connected with members from sets of edges or links.
 

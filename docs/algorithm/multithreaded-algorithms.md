@@ -1,19 +1,17 @@
 ---
-metaTitle: "Algorithm - Multithreaded Algorithms"
+title: "Algorithm - Multithreaded Algorithms"
 description: "Square matrix multiplication multithread, Multiplication matrix vector multithread, merge-sort multithread"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Multithreaded Algorithms
 
-
 Examples for some multithreaded algorithms.
-
-
 
 ## Square matrix multiplication multithread
 
-
-```cpp
+```text
 multiply-square-matrix-parallel(A, B)
     n = A.lines         
     C = Matrix(n,n) //create a new matrix n*n
@@ -23,15 +21,11 @@ multiply-square-matrix-parallel(A, B)
             pour k = 1 to n
                 C[i][j] = C[i][j] + A[i][k]*B[k][j]
     return C
-
 ```
-
-
 
 ## Multiplication matrix vector multithread
 
-
-```cpp
+```text
 matrix-vector(A,x)
     n = A.lines
     y = Vector(n) //create a new vector of length n
@@ -41,13 +35,9 @@ matrix-vector(A,x)
         for j = 1 to n
             y[i] = y[i] + A[i][j]*x[j]
     return y
-
 ```
 
-
-
 ## merge-sort multithread
-
 
 **A** is an array and **p** and **q** indexes of the array such as you gonna sort the sub-array **A[p..r]**. **B** is a sub-array which will be populated by the sort.
 
@@ -66,7 +56,6 @@ p-merge-sort(A,p,r,B,s)
         p-merge-sort(A,q+1,r,T,q_prime+1)
         sync
         p-merge(T,1,q_prime,q_prime+1,n,B,s)
-
 ```
 
 Here is the auxiliary function that performs the merge in parallel.<br/>
@@ -90,7 +79,6 @@ p-merge(T,p1,r1,p2,r2,A,p3)
         spawn p-merge(T,p1,q1-1,p2,q2-1,A,p3)
         p-merge(T,q1+1,r1,q2,r2,A,q3+1)
         sync
-
 ```
 
 And here is the auxiliary function dichotomic-search.
@@ -108,13 +96,9 @@ dichotomic-search(x,T,p,r)
         else
             inf = half+1
     return sup
-
 ```
 
-
-
 #### Syntax
-
 
 - **parallel** before a loop means each iteration of the loop are independant from each other and can be run in parallel.
 - **spawn** is to indicate creation of a new thread.

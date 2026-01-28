@@ -1,19 +1,17 @@
 ---
-metaTitle: "Algorithm - A* Pathfinding Algorithm"
+title: "Algorithm - A* Pathfinding Algorithm"
 description: "Simple Example of A* Pathfinding: A maze with no obstacles"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # A* Pathfinding Algorithm
-
 
 This topic is going to focus on the A* Pathfinding algorithm, how it's used, and why it works.
 
 Note to future contributors: I have added an example for A* Pathfinding without any obstacles, on a 4x4 grid. An example with obstacles is still needed.
 
-
-
 ## Simple Example of A* Pathfinding: A maze with no obstacles
-
 
 Let's say we have the following 4 by 4 grid:
 
@@ -58,7 +56,7 @@ Whichever one has the lowest f value.
 However, in this case, we have 2 nodes with the same f value, 5. How do we pick between them?
 
 Simply, either choose one at random, or have a priority set. I usually prefer to have a priority like so:
-"Right > Up > Down > Left"
+"Right &gt; Up &gt; Down &gt; Left"
 
 One of the nodes with the f value of 5 takes us in the "Down" direction, and the other takes us "Left". Since Down is at a higher priority than Left, we choose the square which takes us "Down".
 

@@ -1,71 +1,59 @@
 ---
-metaTitle: "Algorithm - Pseudocode"
+title: "Algorithm - Pseudocode"
 description: "Variable affectations, Functions"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Pseudocode
 
-
-
 ## Variable affectations
-
 
 You could describe variable affectation in different ways.
 
 ### Typed
 
-```cpp
+```text
 int a = 1
 int a := 1
 let int a = 1
 int a <- 1
-
 ```
 
 ### No type
 
-```cpp
+```text
 a = 1
 a := 1
 let a = 1
 a <- 1
-
 ```
-
-
 
 ## Functions
 
-
 As long as the function name, return statement and parameters are clear, you're fine.
 
-```cpp
+```text
 def incr n
     return n + 1
-
 ```
 
 or
 
-```cpp
+```text
 let incr(n) = n + 1
-
 ```
 
 or
 
-```cpp
+```text
 function incr (n)
     return n + 1
-
 ```
 
 are all quite clear, so you may use them. Try not to be ambiguous with a variable affectation
 
-
-
 #### Remarks
-
 
 Pseudocode is by definition informal. This topic is meant to describe ways to translate language-specific code into something everyone with a programming background can understand.
 

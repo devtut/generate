@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Dijkstra’s Algorithm"
+title: "Algorithm - Dijkstra’s Algorithm"
 description: "Dijkstra's Shortest Path Algorithm"
+tags: ["algorithm", "graph", "dijkstra"]
+date: 2026-01-27
 ---
 
 # Dijkstra’s Algorithm
 
-
-
 ## Dijkstra's Shortest Path Algorithm
-
 
 **Before proceeding, it is recommended to have a brief idea about Adjacency Matrix and BFS**
 
@@ -24,34 +23,30 @@ Let's say, the distance of each node from the source is kept in **d[]** array. A
 
 We need to understand Edge Relaxation. Let's say, from your house, that is **source**, it takes **10** minutes to go to place **A**. And it takes **25** minutes to go to place **B**. We have,
 
-```cpp
+```text
 d[A] = 10
 d[B] = 25
-
 ```
 
 Now let's say it takes **7** minutes to go from place **A** to place **B**, that means:
 
-```cpp
+```text
 cost[A][B] = 7
-
 ```
 
 Then we can go to place **B** from **source** by going to place **A** from **source** and then from place **A**, going to place **B**, which will take **10 + 7 = 17** minutes, instead of **25** minutes. So,
 
-```cpp
+```text
 d[A] + cost[A][B] < d[B]
-
 ```
 
 Then we update,
 
-```cpp
+```text
 d[B] = d[A] + cost[A][B]
-
 ```
 
-This is called relaxation. We will go from node **u** to node **v** and if **d[u] + cost[u][v] < d[v]** then we will update **d[v] = d[u] + cost[u][v]**.
+This is called relaxation. We will go from node **u** to node **v** and if **d[u] + cost[u][v] &lt; d[v]** then we will update **d[v] = d[u] + cost[u][v]**.
 
 In BFS, we didn't need to visit any node twice. We only checked if a node is visited or not. If it was not visited, we pushed the node in queue, marked it as visited and incremented the distance by 1. In Dijkstra, we can push a node in queue and instead of updating it with visited, we **relax** or update the new edge. Let's look at one example:
 
@@ -59,19 +54,18 @@ In BFS, we didn't need to visit any node twice. We only checked if a node is vis
 
 Let's assume, **Node 1** is the **Source**. Then,
 
-```cpp
+```text
 d[1] = 0
 d[2] = d[3] = d[4] = infinity (or a large value)
-
 ```
 
-We set, **d[2], d[3]** and **d[4]**  to **infinity** because we don't know the distance yet. And the distance of **source** is of course **0**. Now, we go to other nodes from **source** and if we can update them, then we'll push them in the queue. Say for example, we'll traverse **edge 1-2**. As **d[1] + 2 < d[2]** which will make **d[2] = 2**. Similarly, we'll traverse **edge 1-3** which makes **d[3] = 5**.
+We set, **d[2], d[3]** and **d[4]**  to **infinity** because we don't know the distance yet. And the distance of **source** is of course **0**. Now, we go to other nodes from **source** and if we can update them, then we'll push them in the queue. Say for example, we'll traverse **edge 1-2**. As **d[1] + 2 &lt; d[2]** which will make **d[2] = 2**. Similarly, we'll traverse **edge 1-3** which makes **d[3] = 5**.
 
 We can clearly see that **5** is not the shortest distance we can cross to go to **node 3**. So traversing a node only once, like BFS, doesn't work here. If we go from **node 2** to **node 3** using **edge 2-3**, we can update **d[3] = d[2] + 1 = 3**. So we can see that one node can be updated many times. How many times you ask? The maximum number of times a node can be updated is the number of in-degree of a node.
 
 Let's see the pseudo-code for visiting any node multiple times. We will simply modify BFS:
 
-```cpp
+```text
 procedure BFSmodified(G, source):
 Q = queue()
 distance[] = infinity
@@ -97,7 +91,7 @@ In BFS, when we go from **node 1** to all other nodes, we follow **first come, f
 
 Let's see the pseudo-code:
 
-```cpp
+```text
 procedure dijkstra(G, source):
 Q = priority_queue()
 distance[] = infinity
@@ -127,7 +121,7 @@ The complexity of BFS is **O(log(V+E))** where **V** is the number of nodes and 
 
 Below is a Java example to solve Dijkstra's Shortest Path Algorithm using Adjacency Matrix
 
-```cpp
+```java
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -207,7 +201,7 @@ class ShortestPath
 
 Expected output of the program is
 
-```cpp
+```text
 Vertex   Distance from Source
 0                0
 1                4

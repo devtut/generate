@@ -1,16 +1,15 @@
 ---
-metaTitle: "Algorithm - Bucket Sort"
+title: "Algorithm - Bucket Sort"
 description: "C# Implementation, Bucket Sort Basic Information"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Bucket Sort
 
-
-
 ## C# Implementation
 
-
-```cpp
+```java
 public class BucketSort
 {
     public static void SortBucket(ref int[] input)
@@ -56,13 +55,9 @@ public class BucketSort
         return input;
     }
 }
-
 ```
 
-
-
 ## Bucket Sort Basic Information
-
 
 **Bucket Sort** is a sorting algorithm in which elements of input array are distributed in buckets. After distributing all the elements, buckets are sorted individually by another sorting algorithm. Sometimes it is also sorted by recursive method.
 
@@ -78,6 +73,6 @@ public class BucketSort
 **Example of bucket sort:**
 [<img src="http://i.stack.imgur.com/3I54p.png" alt="Bucket Sort Example" />](http://i.stack.imgur.com/3I54p.png)
 
-Mostly people uses insertion paradigm for little bit of optimization.<br>
+Mostly people uses insertion paradigm for little bit of optimization.<br />
 **Auxiliary Space:** `O{n}`
 

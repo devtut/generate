@@ -1,17 +1,15 @@
 ---
-metaTitle: "Algorithm - Fast Fourier Transform"
+title: "Algorithm - Fast Fourier Transform"
 description: "Radix 2 FFT, Radix 2 Inverse FFT"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Fast Fourier Transform
 
-
 The Real and Complex form of DFT (**D**iscrete **F**ourier **T**ransforms) can be used to perform frequency analysis or synthesis for any discrete and periodic signals. The  FFT (**F**ast **F**ourier **T**ransform) is an implementation of the DFT which may be performed quickly on modern CPUs.
 
-
-
 ## Radix 2 FFT
-
 
 The simplest and perhaps best-known method for computing the FFT is the Radix-2 Decimation in Time algorithm. The Radix-2 FFT works by decomposing an N point time domain signal into N time domain signals each composed of a single point[<img src="https://i.stack.imgur.com/KNiJM.png" alt="Signal Decomposition in the FFT prior to spectral reconstruction [Steven. W. Smith, 1997]" />](https://i.stack.imgur.com/KNiJM.png).
 
@@ -37,7 +35,7 @@ The value of R (the exponential weighting power) is determined the current stage
 
 A C/C++ code sample for computing the Radix 2 FFT can be found below. This is a simple implementation which works for any size N where N is a power of 2. It is approx 3x slower than the fastest FFTw implementation, but still a very good basis for future optimisation or for learning about how this algorithm works.
 
-```cpp
+```c
 #include <math.h>
 
 #define PI       3.1415926535897932384626433832795    // PI for sine/cos calculations
@@ -100,7 +98,6 @@ void rad2FFT(int N, complex *x, complex *DFT)
     complex *pLo;             // Pointer for lo / hi value of butterfly calcs
     complex *pHi;
     complex *pX;              // Pointer to x[n]
-
 
     // Decimation In Time - x[n] sample sorting
     for (i = 0; i < nMax; i++, DFT++)
@@ -175,20 +172,15 @@ void rad2FFT(int N, complex *x, complex *DFT)
         }
     }
 
-
     pLo = 0;    // Null all pointers
     pHi = 0;
     pDFT = 0;
     DFT = 0;
     pX = 0;
 }
-
 ```
 
-
-
 ## Radix 2 Inverse FFT
-
 
 Due to the strong duality of the Fourier Transform, adjusting the output of a forward transform can produce the inverse FFT. Data in the frequency domain can be converted to the time domain by the following method:
 
@@ -201,7 +193,7 @@ Due to the strong duality of the Fourier Transform, adjusting the output of a fo
 
 **Code Example (C/C++)**
 
-```cpp
+```c
 #include <math.h>
 
 #define PI       3.1415926535897932384626433832795    // PI for sine/cos calculations
@@ -248,6 +240,5 @@ void rad2InverseFFT(int N, complex *x, complex *DFT)
         x->Im *= -1;    // Change the sign of ImX
     }    
 }
-
 ```
 

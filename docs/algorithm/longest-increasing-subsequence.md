@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Longest Increasing Subsequence"
+title: "Algorithm - Longest Increasing Subsequence"
 description: "Longest Increasing Subsequence Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Longest Increasing Subsequence
 
-
-
 ## Longest Increasing Subsequence Basic Information
-
 
 The [Longest Increasing Subsequence](https://en.wikipedia.org/wiki/Longest_increasing_subsequence) problem is to find subsequence from the give input sequence in which subsequence's elements are sorted in lowest to highest order. All subsequence are not contiguous or unique.
 
@@ -29,10 +28,14 @@ The easiest approach is to sort input elements in increasing order, and apply th
 
 **Pseudo Code:**
 
-&lt;li>Describe an array of values we want to compute.<br>
-For `1 <= i <= n`, let **A(i)** be the length of a longest increasing sequence of input. Note that the length we are ultimately interested in is `max{A(i)|1 ≤ i ≤ n}`.&lt;/li>
-&lt;li>Give a recurrence.<br>
-For `1 <= i <= n`, `A(i) = 1 + max{A(j)|1 ≤ j < i` and `input(j) < input(i)}.`&lt;/li>
+
+- Describe an array of values we want to compute.<br />
+For `1 <= i <= n`, let **A(i)** be the length of a longest increasing sequence of input. Note that the length we are ultimately interested in is `max{A(i)|1 ≤ i ≤ n}`.
+
+
+- Give a recurrence.<br />
+For `1 <= i <= n`, `A(i) = 1 + max{A(j)|1 ≤ j < i` and `input(j) < input(i)}.`
+
 1. Compute the values of A.
 1. Find the optimal solution.
 
@@ -40,19 +43,18 @@ The following program uses A to compute an optimal solution. The first part comp
 
 **Part 1:**
 
-```cpp
+```text
 m ← 1 
 for i : 2..n 
     if A(i) > A(m) then 
         m ← i 
     end if 
 end for
-
 ```
 
 **Part 2:**
 
-```cpp
+```text
 put a
 while A(m) > 1 do 
     i ← m−1 
@@ -62,14 +64,13 @@ while A(m) > 1 do
     m ← i 
     put a
  end while
-
 ```
 
 **Recursive Solution:**
 
 **Approach 1:**
 
-```cpp
+```text
 LIS(A[1..n]):
     if (n = 0) then return 0
     m = LIS(A[1..(n − 1)])
@@ -77,14 +78,13 @@ LIS(A[1..n]):
     (* let h be size of B, h ≤ n-1 *)
     m = max(m, 1 + LIS(B[1..h]))
     Output m
-
 ```
 
 **Time complexity in Approach 1 :** `O(n*2^n)`
 
 **Approach 2:**
 
-```cpp
+```text
 LIS(A[1..n], x):
     if (n = 0) then return 0
     m = LIS(A[1..(n − 1)], x)
@@ -94,7 +94,6 @@ LIS(A[1..n], x):
 
 MAIN(A[1..n]):
     return LIS(A[1..n], ∞)
-
 ```
 
 **Time Complexity in Approach 2:** `O(n^2)`
@@ -112,7 +111,6 @@ LIS(A[1..n]):
 
 MAIN(A[1..n]):
     return LIS(A[1..i])
-
 ```
 
 **Time Complexity in Approach 3:** `O(n^2)`
@@ -135,21 +133,17 @@ LIS(A[1..n]):
 MAIN(A[1..n]):
     L = LIS(A[1..n])
         return the maximum value in L
-
 ```
 
 **Time complexity in Iterative approach:** `O(n^2)`
 
 **Auxiliary Space:** `O(n)`
 
-Lets take **{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15}** as input. So, Longest Increasing Subsequence for the given input is **{0, 2, 6, 9, 11, 15}**.
-
-
+Lets take **&#123;0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15&#125;** as input. So, Longest Increasing Subsequence for the given input is **&#123;0, 2, 6, 9, 11, 15&#125;**.
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class LongestIncreasingSubsequence
 {
     private static int Lis(int[] input, int n)
@@ -182,6 +176,5 @@ public class LongestIncreasingSubsequence
         return Lis(input, n);
     }
 }
-
 ```
 

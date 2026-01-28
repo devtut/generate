@@ -1,27 +1,30 @@
 ---
-metaTitle: "Algorithm - Equation Solving"
+title: "Algorithm - Equation Solving"
 description: "Linear Equation, Non-Linear Equation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Equation Solving
 
-
-
 ## Linear Equation
-
 
 There are two classes of methods for solving Linear Equations:
 
-&lt;li>
+
+- 
 **Direct Methods**: Common characteristics of direct methods are that they transform the original equation into equivalent equations that can be solved more easily, means we get solve directly from an equation.
-&lt;/li>
-&lt;li>
+
+
+
+- 
 **Iterative Method**: Iterative or Indirect Methods, start with a guess of the solution and then repeatedly refine the solution until a certain convergence criterion is reached. Iterative methods are generally less efficient than direct methods because large number of operations required. Example- Jacobi's Iteration Method, Gauss-Seidal Iteration Method.
-&lt;/li>
+
+
 
 Implementation in C-
 
-```cpp
+```c
 //Implementation of Jacobi's Method
 void JacobisMethod(int n, double x[n], double b[n], double a[n][n]){
     double Nx[n]; //modified form of variables
@@ -115,7 +118,6 @@ int main(){
     a[1][0]=1; a[1][1]=-8; a[1][2]=3; b[1]=-4;   //x₁-8x₂+3x₃-4=0
     a[2][0]=2; a[2][1]=1; a[2][2]=9; b[2]=12;    //2x₁+x₂+9x₃+12=0
 
-
     int i;
 
     for(i=0; i<n; i++){                         //initialization
@@ -123,7 +125,6 @@ int main(){
     }
     JacobisMethod(n, x, b, a);
     print(n, x);
-
 
     for(i=0; i<n; i++){                         //initialization
         x[i]=0;
@@ -133,39 +134,44 @@ int main(){
 
     return 0;
 }
-
 ```
-
-
 
 ## Non-Linear Equation
 
-
 An equation of the type `f(x)=0` is either algebraic or transcendental. These types of equations can be solved by using two types of methods-
 
-&lt;li>
+
+- 
 **Direct Method**: This method gives the exact value of all the roots directly in a finite number of steps.
-&lt;/li>
-&lt;li>
+
+
+
+- 
 **Indirect or Iterative Method**: Iterative methods are best suited for computer programs to solve an equation. It is based on the concept of successive approximation. In Iterative Method there are two ways to solve an equation-
-&lt;ul>
-&lt;li>
+
+
+
+- 
 **Bracketing Method**: We take two initial points where the root lies in between them. Example- Bisection Method, False Position Method.
-&lt;/li>
-&lt;li>
+
+
+
+- 
 **Open End Method**: We take one or two initial values where the root may be any-where. Example- Newton-Raphson Method, Successive Approximation Method, Secant Method.
-&lt;/li>
-&lt;/ul>
-&lt;/li>
+
+
+
+
+
+
 
 Implementation in C-
 
-```cpp
+```c
 /// Here define different functions to work with
 #define f(x) ( ((x)*(x)*(x)) - (x) - 2 )
 #define f2(x) ( (3*(x)*(x)) - 1 )
 #define g(x) ( cbrt( (x) + 2 ) )
-
 
 /**
 * Takes two initial values and shortens the distance by both side.
@@ -318,7 +324,6 @@ double Secant(){
     return root;
 }
 
-
 int main(){
     double root;
 
@@ -339,6 +344,5 @@ int main(){
 
     return 0;
 }
-
 ```
 

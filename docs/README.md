@@ -8,4 +8,4 @@ heroText: DevTut
 footer: MIT Licensed | Copyright © 2020-present
 ---
 
-<LanguageSearch />
+&lt;LanguageSearch />

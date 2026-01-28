@@ -1,16 +1,15 @@
 ---
-metaTitle: "Algorithm - Pascal's Triangle"
+title: "Algorithm - Pascal's Triangle"
 description: "Pascal triangle in C, Pascal's Triagle Basic Information, Implementation of Pascal's Triangle in C#"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Pascal's Triangle
 
-
-
 ## Pascal triangle in C
 
-
-```cpp
+```c
 int i, space, rows, k=0, count = 0, count1 = 0;
 row=5;
 for(i=1; i<=rows; ++i)
@@ -39,7 +38,6 @@ for(i=1; i<=rows; ++i)
 
     printf("\n");
 }
-
 ```
 
 **Output**
@@ -54,10 +52,7 @@ for(i=1; i<=rows; ++i)
 
 ```
 
-
-
 ## Pascal's Triagle Basic Information
-
 
 One of the most interesting Number Patterns is [Pascal's Triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle). The Name "Pascal's Triangle" named after [Blaise Pascal](https://en.wikipedia.org/wiki/Blaise_Pascal), a famous French Mathematician and Philosopher.
 
@@ -80,12 +75,9 @@ for any non-negative integer n and any integer k between 0 and n, inclusive. Thi
 
 [<img src="https://i.stack.imgur.com/chhsE.gif" alt="Pascal's Triangle Example" />](https://i.stack.imgur.com/chhsE.gif)
 
-
-
 ## Implementation of Pascal's Triangle in C#
 
-
-```cpp
+```java
 public class PascalsTriangle
 {
     static void PascalTriangle(int n)
@@ -108,6 +100,5 @@ public class PascalsTriangle
         return input;
     }
 }
-
 ```
 

@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Sliding Window Algorithm"
+title: "Algorithm - Sliding Window Algorithm"
 description: "Sliding Window Algorithm Basic Information, Implementation of Sliding Window Algorithm in C#"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Sliding Window Algorithm
 
-
-
 ## Sliding Window Algorithm Basic Information
-
 
 Sliding window algorithm is used to perform required operation on specific window size of given large buffer or array. Window starts from the 1st element and keeps shifting right by one element. The objective is to find the minimum k numbers present in each window. This is commonly know as Sliding window problem or algorithm.
 
@@ -38,7 +37,6 @@ For example to find the maximum or minimum element from every `n` element in giv
 +---+---+----+----+-----------+---+---------+
 | 1 | 3 | -1 | -3 | 5 |[3   6   7]|    7    |
 +---+---+----+----+---+-----------+---------+
-
 ```
 
 **Minimum** element from every 3 element of input array:
@@ -59,7 +57,6 @@ For example to find the maximum or minimum element from every `n` element in giv
 +---+---+----+----+-----------+---+---------+
 | 1 | 3 | -1 | -3 | 5 |[3   6   7]|    3    |
 +---+---+----+----+---+-----------+---------+
-
 ```
 
 **Methods to find the sum of 3 element:**
@@ -82,12 +79,9 @@ Great! In O(1) we would get the max element among K elements already chose as sm
 
 **Time Complexity:** `O(n)`
 
-
-
 ## Implementation of Sliding Window Algorithm in C#
 
-
-```cpp
+```java
 public class SlidingWindow
 {
     public static int[] MaxSlidingWindow(int[] input, int k)
@@ -130,6 +124,5 @@ public class SlidingWindow
         return MinSlidingWindow(input, n);
     }
 }
-
 ```
 

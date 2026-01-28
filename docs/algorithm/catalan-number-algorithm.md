@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Catalan Number Algorithm"
+title: "Algorithm - Catalan Number Algorithm"
 description: "Catalan Number Algorithm Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Catalan Number Algorithm
 
-
-
 ## Catalan Number Algorithm Basic Information
-
 
 Catalan numbers algorithm is Dynamic Programming algorithm.
 
@@ -30,15 +29,12 @@ Here value of n = 4.(Best Example - From Wikipedia)
 
 [<img src="https://i.stack.imgur.com/VBGLB.png" alt="Catalan Number Example" />](https://i.stack.imgur.com/VBGLB.png)
 
-**Auxiliary Space:** `O(n)`<br>
+**Auxiliary Space:** `O(n)`<br />
 **Time Complexity:** `O(n^2)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class CatalanNumber
 {
     public static int Main(int number)
@@ -52,6 +48,5 @@ public class CatalanNumber
         return result;
     }
 }
-
 ```
 

@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Breadth-First Search"
+title: "Algorithm - Breadth-First Search"
 description: "Finding the Shortest Path from Source to other Nodes, Finding Shortest Path from Source in a  2D graph, Connected Components Of Undirected Graph Using BFS."
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Breadth-First Search
 
-
-
-
 ## Finding the Shortest Path from Source to other Nodes
-
 
 [Breadth-first-search](https://en.wikipedia.org/wiki/Breadth-first_search) (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors. BFS was invented in the late 1950s by [Edward Forrest Moore](https://en.wikipedia.org/wiki/Edward_F._Moore), who used it to find the shortest path out of a maze and discovered independently by C. Y. Lee as a wire routing algorithm in 1961.
 
@@ -87,7 +85,7 @@ From **node 3**, we can go to **node 7** and **node 8**. Since we've already mar
 
 This process will continue till we reach our destination or the queue becomes empty. The **level** array will provide us with the distance of the shortest path from **source**. We can initialize **level** array with **infinity** value, which will mark that the nodes are not yet visited. Our pseudo-code will be:
 
-```cpp
+```text
 Procedure BFS(Graph, source):
 Q = queue();
 level[] = infinity
@@ -103,14 +101,13 @@ while Q is not empty
     end for
 end while
 Return level
-
 ```
 
 By iterating through the **level** array, we can find out the distance of each node from source. For example: the distance of **node 10** from **source** will be stored in **level[10]**.
 
 Sometimes we might need to print not only the shortest distance, but also the path via which we can go to our destined node from the **source**. For this we need to keep a **parent** array. **parent[source]** will be NULL. For each update in **level** array, we'll simply add `parent[v] := u` in our pseudo code inside the for loop. After finishing BFS, to find the path, we'll traverse back the **parent** array until we reach **source** which will be denoted by NULL value. The pseudo-code will be:
 
-```cpp
+```text
 Procedure PrintPath(u):  //recursive    |   Procedure PrintPath(u):   //iterative
 if parent[u] is not equal to null       |   S =  Stack()
     PrintPath(parent[u])                |   while parent[u] is not equal to null    
@@ -120,29 +117,24 @@ print -> u                              |       u := parent[u]
                                         |   while S is not empty
                                         |       print -> S.pop
                                         |   end while
-
 ```
 
 **Complexity:**
 
 We've visited every node once and every edges once. So the complexity will be **O(V + E)** where **V** is the number of nodes and **E** is the number of edges.
 
-
-
 ## Finding Shortest Path from Source in a  2D graph
-
 
 Most of the time, we'll need to find out the shortest path from single source to all other nodes or a specific node in a 2D graph. Say for example: we want to find out how many moves are required for a knight to reach a certain square in a chessboard, or we have an array where some cells are blocked, we have to find out the shortest path from one cell to another. We can move only horizontally and vertically. Even diagonal moves can be possible too. For these cases, we can convert the squares or cells in nodes and solve these problems easily using BFS. Now our **visited**, **parent** and **level** will be 2D arrays. For each node, we'll consider all possible moves. To find the distance to a specific node, we'll also check whether we have reached our destination.
 
 There will be one additional thing called direction array. This will simply store the all possible combinations of directions we can go to. Let's say, for horizontal and vertical moves, our direction arrays will be:
 
-```cpp
+```text
 +----+-----+-----+-----+-----+
 | dx |  1  |  -1 |  0  |  0  |
 +----+-----+-----+-----+-----+
 | dy |  0  |   0 |  1  |  -1 |
 +----+-----+-----+-----+-----+
-
 ```
 
 Here **dx** represents move in x-axis and **dy** represents move in y-axis. Again this part is optional. You can also write all the possible combinations separately. But it's easier to handle it using direction array. There can be more and even different combinations for diagonal moves or knight moves.
@@ -155,7 +147,7 @@ The additional part we need to keep in mind is:
 
 Our pseudo-code will be:
 
-```cpp
+```text
 Procedure BFS2D(Graph, blocksign, row, column):
 for i from 1 to row
     for j from 1 to column
@@ -180,22 +172,17 @@ while Q is not empty
     end for
 end while
 Return level
-
 ```
 
 As we have discussed earlier, BFS only works for unweighted graphs. For weighted graphs, we'll need [Dijkstra](http://stackoverflow.com/documentation/algorithm/7151/dijkstra-s-algorithm/23947/dijkstras-shortest-path-algorithm)'s algorithm. For negative edge cycles, we need [Bellman-Ford](http://stackoverflow.com/documentation/algorithm/4791/bellman-ford-algorithm)'s algorithm. Again this algorithm is single source shortest path algorithm. If we need to find out distance from each nodes to all other nodes, we'll need [Floyd-Warshall](http://stackoverflow.com/documentation/algorithm/7193/floyd-warshall-algorithm)'s algorithm.
 
-
-
 ## Connected Components Of Undirected Graph Using BFS.
-
 
 **BFS** can be used to find the connected components of an [undirected graph](http://mathinsight.org/definition/undirected_graph). We can also find if the given graph is connected or not. Our subsequent discussion assumes we are dealing with undirected graphs.The definition of a connected graph is:
 
-> 
+&gt; 
 <p>A graph is connected if there is a path between every pair of
 vertices.</p>
-
 
 Following is a **connected graph**.
 
@@ -203,8 +190,8 @@ Following is a **connected graph**.
 
 Following graph is **not connected** and has 2 connected components:
 
-1. Connected Component 1: {a,b,c,d,e}
-1. Connected Component 2: {f}
+1. Connected Component 1: &#123;a,b,c,d,e&#125;
+1. Connected Component 2: &#123;f&#125;
 
 [<img src="https://i.stack.imgur.com/gbTR8.png" alt="enter image description here" />](https://i.stack.imgur.com/gbTR8.png)
 
@@ -212,7 +199,7 @@ BFS is a graph traversal algorithm. So starting from a random source node, if on
 
 PseudoCode for the algorithm.
 
-```cpp
+```text
 boolean isConnected(Graph g)
 {     
  BFS(v)//v is a random source node.
@@ -222,12 +209,11 @@ boolean isConnected(Graph g)
  }
  else return false;
 }
-
 ```
 
 C implementation for finding the whether an undirected graph is connected or not:
 
-```cpp
+```c
 #include<stdio.h>
 #include<stdlib.h>
 #define MAXVERTICES 100    
@@ -366,26 +352,23 @@ void BFS(char **graph,int v,int noOfVertices)
             }
     }
 }
-
 ```
 
 For Finding all the Connected components of an undirected graph, we only need to add 2 lines of code to the BFS function. The idea is to call BFS function until all vertices are visited.
 
 The lines to be added are:
 
-```cpp
+```c
 printf("\nConnected component %d\n",++count);    
 //count is a global variable initialized to 0
 //add this as first line to BFS function    
-
 ```
 
 AND
 
-```cpp
+```c
 printf("%d ",vertex+1);
 add this as first line of while loop in BFS
-
 ```
 
 and we define the following function:
@@ -401,6 +384,5 @@ void listConnectedComponents(char **graph,int noOfVertices)
 
     }
 }
-
 ```
 

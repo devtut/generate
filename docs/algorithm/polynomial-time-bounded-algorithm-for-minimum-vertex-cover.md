@@ -1,18 +1,16 @@
 ---
-metaTitle: "Algorithm - polynomial-time bounded algorithm for Minimum Vertex Cover"
+title: "Algorithm - polynomial-time bounded algorithm for Minimum Vertex Cover"
 description: "Algorithm Pseudo Code"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # polynomial-time bounded algorithm for Minimum Vertex Cover
 
-
 This is a polynomial algorithm for getting the minimum vertex cover of connected undirected graph.
 The time complexity of this algorithm is O(n2)
 
-
-
 ## Algorithm Pseudo Code
-
 
 ### Algorithm PMinVertexCover (graph G)
 
@@ -20,7 +18,7 @@ The time complexity of this algorithm is O(n2)
 
 ### Output Minimum Vertex Cover Set C
 
-```cpp
+```text
 Set C <- new Set<Vertex>() 
 
 Set X <- new Set<Vertex>() 
@@ -44,21 +42,15 @@ for vertex in C do
 
         
 return C
-
 ```
 
-> 
+&gt; 
 C is the minimum vertex cover of graph G
 
-
-> 
+&gt; 
 we can use bucket sort for sorting the vertices according to its degree because the maximum value of degrees is (n-1) where n is the number of vertices then the time complexity of the sorting will be O(n)
 
-
-
-
 #### Parameters
-
 
 |Variable|Meaning
 |---|---|---|---
@@ -66,10 +58,7 @@ we can use bucket sort for sorting the vertices according to its degree because 
 |X|Set of vertices
 |C|Final set of vertices
 
-
-
 #### Remarks
-
 
 The first thing you have to do in this algorithm to get all of the vertices of the graph sorted in descending order according to its degree.
 

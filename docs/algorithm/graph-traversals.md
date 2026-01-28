@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Graph Traversals"
+title: "Algorithm - Graph Traversals"
 description: "Depth First Search traversal function"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Graph Traversals
 
-
-
-
 ## Depth First Search traversal function
-
 
 The function takes the argument of the current node index, adjacency list (stored in vector of vectors in this example), and vector of boolean to keep track of which node has been visited.
 
@@ -29,6 +27,5 @@ void dfs(int node, vector<vector<int>>* graph, vector<bool>* visited) {
     for(int i = 0; i < (*graph)[node].size(); ++i)
         dfs((*graph)[node][i], graph, visited);
 }
-
 ```
 

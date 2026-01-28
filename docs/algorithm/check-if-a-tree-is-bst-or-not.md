@@ -1,15 +1,13 @@
 ---
-metaTitle: "Algorithm - Check if a tree is BST or not"
+title: "Algorithm - Check if a tree is BST or not"
 description: "Algorithm to check if a given binary tree is BST, If a given input tree follows Binary search tree property or not"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Check if a tree is BST or not
 
-
-
-
 ## Algorithm to check if a given binary tree is BST
-
 
 A binary tree is BST if it satisfies any one of the following condition:
 
@@ -37,7 +35,6 @@ is_BST(root):
         return false
 
   return is_BST(root->left) && is_BST(root->right)
-
 ```
 
 The above recursive algorithm is correct but inefficient, because it traverses each node mutiple times.
@@ -55,22 +52,17 @@ is_BST(root, min, max):
 
     // check if left and right subtree is BST
     return is_BST(root->left,min,root->key-1) && is_BST(root->right,root->key+1,max)
-
 ```
 
 It will be initially called as:
 
-```cpp
+```text
 is_BST(my_tree_root,KEY_MIN,KEY_MAX)
-
 ```
 
 Another approach will be to do inorder traversal of the Binary tree. If the inorder traversal produces a sorted sequence of keys then the given tree is a BST. To check if the inorder sequence is sorted remember the value of previously visited node and compare it  against the current node.
 
-
-
 ## If a given input tree follows Binary search tree property or not
-
 
 For example
 

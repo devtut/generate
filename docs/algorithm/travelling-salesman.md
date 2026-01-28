@@ -1,20 +1,19 @@
 ---
-metaTitle: "Algorithm - Travelling Salesman"
+title: "Algorithm - Travelling Salesman"
 description: "Brute Force Algorithm, Dynamic Programming Algorithm"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Travelling Salesman
 
-
-
 ## Brute Force Algorithm
-
 
 A path through every vertex exactly once is the same as ordering the vertex in some way. Thus, to calculate the minimum cost of travelling through every vertex exactly once, we can brute force every single one of the `N!` permutations of the numbers from `1` to `N`.
 
 **Psuedocode**
 
-```cpp
+```text
 minimum = INF
 for all permutations P
 
@@ -29,43 +28,36 @@ for all permutations P
         minimum = current
     
 output minimum
-
 ```
 
 **Time Complexity**
 
 There are `N!` permutations to go through and the cost of each path is calculated in `O(N)`, thus this algorithm takes `O(N * N!)` time to output the exact answer.
 
-
-
 ## Dynamic Programming Algorithm
-
 
 Notice that if we consider the path (in order):
 
-```cpp
+```text
 (1,2,3,4,6,0,5,7)
-
 ```
 
 and the path
 
-```cpp
+```text
 (1,2,3,5,0,6,7,4) 
-
 ```
 
 The cost of going from vertex `1` to vertex `2` to vertex `3` remains the same, so why must it be recalculated? This result can be saved for later use.
 
 Let `dp[bitmask][vertex]` represent the minimum cost of travelling through all the vertices whose corresponding bit in `bitmask` is set to `1` ending at `vertex`. For example:
 
-```cpp
+```text
 dp[12][2] 
 
    12   =   1 1 0 0
             ^ ^ 
 vertices:   3 2 1 0
-
 ```
 
 Since `12` represents `1100` in binary, `dp[12][2]` represents going through vertices `2` and `3` in the graph with the path ending at vertex 2.
@@ -92,14 +84,12 @@ int TSP(int bitmask, int pos){
     return cost;
 }
 //Call TSP(1,0)
-
 ```
 
 This line may be a little confusing, so lets go through it slowly:
 
-```cpp
+```text
 cost = min(cost,TSP(bitmask | (1 << i) , i) + cost[pos][i]);
-
 ```
 
 Here, `bitmask | (1 << i)` sets the ith bit of `bitmask` to 1, which represents that the ith vertex has been visited. The `i` after the comma represents the new `pos` in that function call, which represents the new "last" vertex. `cost[pos][i]` is to add the cost of travelling from vertex `pos` to vertex `i`.
@@ -110,10 +100,7 @@ Thus, this line is to update the value of `cost` to the minimum possible value o
 
 The function `TSP(bitmask,pos)` has `2^N` values for `bitmask` and `N` values for `pos`. Each function takes `O(N)` time to run (the `for` loop). Thus this implementation takes `O(N^2 * 2^N)` time to output the exact answer.
 
-
-
 #### Remarks
-
 
 The Travelling Salesman Problem is the problem of finding the minimum cost of travelling through `N` vertices exactly once per vertex. There is a cost `cost[i][j]` to travel from vertex `i` to vertex `j`.
 

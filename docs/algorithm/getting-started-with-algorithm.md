@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Getting started with algorithm"
+title: "Algorithm - Getting started with algorithm"
 description: "A sample algorithmic problem, Getting Started with Simple Fizz Buzz Algorithm in Swift"
+tags: ["algorithm", "swift", "fizzbuzz"]
+date: 2026-01-27
 ---
 
 # Getting started with algorithm
 
-
-
 ## A sample algorithmic problem
-
 
 An algorithmic problem is specified by describing the complete set of **instances** it must work on and of its output after running on one of these instances. This distinction, between a problem and an instance of a problem, is fundamental. The algorithmic **problem** known as **sorting** is defined as follows: [Skiena:2008:ADM:1410219]
 
@@ -18,10 +17,7 @@ An algorithmic problem is specified by describing the complete set of **instance
 
 An **instance** of sorting might be an array of strings, such as `{ Haskell, Emacs }` or a sequence of numbers such as `{ 154, 245, 1337 }`.
 
-
-
 ## Getting Started with Simple Fizz Buzz Algorithm in Swift
-
 
 For those of you that are new to programming in Swift and those of you coming from different programming bases, such as Python or Java, this article should be quite helpful. In this post, we will discuss a simple solution for implementing swift algorithms.
 
@@ -33,7 +29,7 @@ This is a common question that comes up in job interviews.
 
 Imagine a series of a number from 1 to 10.
 
-```cpp
+```swift
 1 2 3 4 5 6 7 8 9 10
 
 ```
@@ -42,7 +38,7 @@ Fizz and Buzz refer to any number that's a multiple of 3 and 5 respectively. In 
 
 To work on this problem, open up Xcode to create a new playground and initialize an array like below:
 
-```cpp
+```swift
 // for example 
 let number  = [1,2,3,4,5]
 // here 3 is fizz and 5 is buzz
@@ -51,7 +47,7 @@ let number  = [1,2,3,4,5]
 
 To find all the fizz and buzz, we must iterate through the array and check which numbers are fizz and which are buzz. To do this, create a for loop to iterate through the array we have initialised:
 
-```cpp
+```swift
 for num in number {
   // Body and calculation goes here
 }
@@ -60,7 +56,7 @@ for num in number {
 
 After this, we can simply use the "if else" condition and module operator in swift ie - % to locate the fizz and buzz
 
-```cpp
+```swift
 for num in number {
   if num % 3 == 0 {
     print("\(num) fizz")
@@ -75,7 +71,7 @@ Great! You can go to the debug console in Xcode playground to see the output. Yo
 
 For the Buzz part, we will use the same technique. Let's give it a try before scrolling through the article — you can check your results against this article once you've finished doing this.
 
-```cpp
+```swift
 for num in number {
   if num % 3 == 0 {
     print("\(num) fizz")
@@ -92,7 +88,7 @@ Check the output!
 
 It's rather straight forward — you divided the number by 3, fizz and divided the number by 5, buzz. Now, increase the numbers in the array
 
-```cpp
+```swift
 let number = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 
 ```
@@ -101,7 +97,7 @@ We increased the range of numbers from 1-10 to 1-15 in order to demonstrate the 
 
 Here is the solution:
 
-```cpp
+```swift
 for num in number {
   if num % 3 == 0 && num % 5 == 0 {
     print("\(num) fizz buzz")
@@ -120,7 +116,7 @@ Wait...it's not over though! The whole purpose of the algorithm is to customize 
 
 Here is the final code:
 
-```cpp
+```swift
 for num in number {
   if num % 15 == 0 {
     print("\(num) fizz buzz")
@@ -135,14 +131,28 @@ for num in number {
 
 ```
 
+### Modern Alternative: Rust
+
+For a more modern, type-safe approach, here's how you might implement FizzBuzz in Rust using an iterator:
+
+```rust
+fn main() {
+    for i in 1..=100 {
+        match (i % 3, i % 5) {
+            (0, 0) => println!("FizzBuzz"),
+            (0, _) => println!("Fizz"),
+            (_, 0) => println!("Buzz"),
+            _ => println!("{}", i),
+        }
+    }
+}
+```
+
 As Simple as that, you can use any language of your choice and get started
 
 Enjoy Coding
 
-
-
 #### Remarks
-
 
 ### Introduction to Algorithms
 

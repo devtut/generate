@@ -1,17 +1,15 @@
 ---
-metaTitle: "Algorithm - Lowest common ancestor of a Binary Tree"
+title: "Algorithm - Lowest common ancestor of a Binary Tree"
 description: "Finding lowest common ancestor"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Lowest common ancestor of a Binary Tree
 
-
 Lowest common ancestor between two nodes n1 and n2 is defined as the lowest node in the tree that has both n1 and n2 as descendants.
 
-
-
 ## Finding lowest common ancestor
-
 
 Consider the tree:
 

@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Maximum Path Sum Algorithm"
+title: "Algorithm - Maximum Path Sum Algorithm"
 description: "Maximum Path Sum Basic Information, C# Implementation"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Maximum Path Sum Algorithm
 
-
-
 ## Maximum Path Sum Basic Information
-
 
 Maximum Path Sum is an algorithm to find out a path such that sum of element(node) of that path is greater than any other path.
 
@@ -43,15 +42,12 @@ For each and every node in a triangle or in a binary tree there can be four ways
 
 [<img src="https://i.stack.imgur.com/2Hq2e.png" alt="Example of Maximum Path Sum" />](https://i.stack.imgur.com/2Hq2e.png)
 
-**Space Auxiliary:** `O(n)`<br>
+**Space Auxiliary:** `O(n)`<br />
 **Time Complexity:** `O(n)`
-
-
 
 ## C# Implementation
 
-
-```cpp
+```java
 public class Node
 {
 
@@ -116,6 +112,5 @@ public class MaximumPathSum
         return tree.FindMaxSum();
     }
 }
-
 ```
 

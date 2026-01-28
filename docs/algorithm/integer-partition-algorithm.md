@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Integer Partition Algorithm"
+title: "Algorithm - Integer Partition Algorithm"
 description: "Basic Information of Integer Partition Algorithm, Implementation of Interger Partition Algorithm in C#"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Integer Partition Algorithm
 
-
-
 ## Basic Information of Integer Partition Algorithm
-
 
 The [partition of an integer](https://en.wikipedia.org/wiki/Partition_(number_theory)) is a way of writing it as a sum of positive integers. For example, the partitions of the number 5 are:
 
@@ -21,7 +20,7 @@ The [partition of an integer](https://en.wikipedia.org/wiki/Partition_(number_th
 
 Notice that changing the order of the summands will not create a different partition.
 
-The partition function is inherently recursive in nature since the results of smaller numbers appear as components in the result of a larger number. Let **p(n,m)** be the number of partitions of **n** using only positive integers that are less than or equal to **m**. It may be seen that **p(n)** = **p(n,n)**, and also **p(n,m)** = **p(n,n)** = **p(n)** for **m** > **n**.
+The partition function is inherently recursive in nature since the results of smaller numbers appear as components in the result of a larger number. Let **p(n,m)** be the number of partitions of **n** using only positive integers that are less than or equal to **m**. It may be seen that **p(n)** = **p(n,n)**, and also **p(n,m)** = **p(n,n)** = **p(n)** for **m** &gt; **n**.
 
 [<img src="https://i.stack.imgur.com/CteBS.png" alt="Equation" />](https://i.stack.imgur.com/CteBS.png)
 
@@ -29,15 +28,12 @@ The partition function is inherently recursive in nature since the results of sm
 
 [<img src="https://i.stack.imgur.com/5kiXt.jpg" alt="Example of Integer Partition Algorithm" />](https://i.stack.imgur.com/5kiXt.jpg)
 
-**Auxiliary Space:** `O(n^2)`<br>
+**Auxiliary Space:** `O(n^2)`<br />
 **Time Complexity:** `O(n(logn))`
-
-
 
 ## Implementation of Interger Partition Algorithm in C#
 
-
-```cpp
+```java
 public class IntegerPartition
 {
     public static int[,] Result = new int[100,100];
@@ -73,6 +69,5 @@ public class IntegerPartition
         return Partition(number, target);
     }
 }
-
 ```
 

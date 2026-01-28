@@ -1,14 +1,13 @@
 ---
-metaTitle: "Algorithm - Prim's Algorithm"
+title: "Algorithm - Prim's Algorithm"
 description: "Introduction To Prim's Algorithm"
+date: 2026-01-27
+tags: ["algorithm"]
 ---
 
 # Prim's Algorithm
 
-
-
 ## Introduction To Prim's Algorithm
-
 
 Let's say we have **8** houses. We want to setup telephone lines between these houses. The edge between the houses represent the cost of setting line between two houses.
 
@@ -48,7 +47,7 @@ This is our **minimum spanning tree** (MST). So the cost of setting up the telep
 
 The pseudo-code of the algorithm is given below:
 
-```cpp
+```text
 Procedure PrimsMST(Graph):     // here Graph is a non-empty connected weighted graph
 Vnew[] = {x}                   // New subgraph Vnew with source node x
 Enew[] = {}
@@ -60,7 +59,6 @@ while Vnew is not equal to V
     add edge (u, v) to Enew
 end while
 Return Vnew and Enew
-
 ```
 
 **Complexity:**
@@ -69,7 +67,7 @@ Time complexity of the above naive approach is **O(V²)**. It uses adjacency mat
 
 The pseudo-code using Priority Queue is given below:
 
-```cpp
+```text
 Procedure MSTPrim(Graph, source):
 for each u in V
     key[u] := inf
@@ -88,14 +86,13 @@ while Q is not empty
         end if
     end for
 end while
-
 ```
 
 Here **key[]** stores the minimum cost of traversing **node-v**. **parent[]** is used to store the parent node. It is useful for traversing and printing the tree.
 
 Below is a simple program in Java:
 
-```cpp
+```java
 import java.util.*;
 
 public class Graph
@@ -197,7 +194,6 @@ public class Graph
       G.Prim();
    }
 }
-
 ```
 
 Compile the above code using `javac Graph.java`
@@ -240,6 +236,5 @@ ReachSet = 0 1 2 3 4 5 6 7 8
 5 --> 6
 1 --> 7
 0 --> 8
-
 ```
 
