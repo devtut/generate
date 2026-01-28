@@ -20,7 +20,7 @@ Bresenham’s Line Drawing Algorithm is an efficient and accurate raster line ge
 
 In Bresenham line drawing algorithm:<br>
 
-For Slope |m|<1:<br>
+For Slope |m|&lt;1:<br>
 Either value of x is increased<br>
 OR both x and y is increased using decision parameter.  <br>
 
@@ -28,24 +28,24 @@ For Slope |m|>1:<br>
 Either value of y is increased<br>
 OR both x and y is increased using decision parameter.  <br>
 
-**Algorithm for slope |m|<1:<br>**
+**Algorithm for slope |m|&lt;1:<br>**
 
-<li>
+&lt;li>
 Input two end points (x1,y1) and (x2,y2) of the line.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Plot the first point (x1,y1).
-</li>
-<li>
+&lt;/li>
+&lt;li>
 <p>Calculate<br>
 Delx =| x2 – x1 |
 <br>    Dely = | y2 – y1 |</p>
-</li>
-<li>
+&lt;/li>
+&lt;li>
 <p>Obtain the initial decision parameter as <br>
 P = 2 * dely – delx</p>
-</li>
-<li>
+&lt;/li>
+&lt;li>
 <p>For I = 0 to delx in step of 1<br><br>
 If p < 0 then<br>
 X1 = x1 + 1<br>
@@ -58,10 +58,10 @@ Plot(x1,y1)<br>
 P = p + 2</em>dely – 2 * delx<br><br>
 End if<br><br>
 End for<br></p>
-</li>
-<li>
+&lt;/li>
+&lt;li>
 END
-</li>
+&lt;/li>
 
 **Source Code:**
 
@@ -116,12 +116,12 @@ else
 
 1. Input two end points (x1,y1) and (x2,y2) of the line.
 1. Plot the first point (x1,y1).
-<li>Calculate<br>
+&lt;li>Calculate<br>
 Delx =| x2 – x1 |<br>
-Dely = | y2 – y1 |</li>
-<li>Obtain the initial decision parameter as
-<br>P = 2 * delx – dely</li>
-<li>For I = 0 to dely in step of 1<br><br>
+Dely = | y2 – y1 |&lt;/li>
+&lt;li>Obtain the initial decision parameter as
+<br>P = 2 * delx – dely&lt;/li>
+&lt;li>For I = 0 to dely in step of 1<br><br>
 If p < 0 then<br>
 y1 = y1 + 1<br>
 Pot(x1,y1)<br>
@@ -132,7 +132,7 @@ Y1 = y1 + 1<br>
 Plot(x1,y1)<br>
 P = p + 2</em>delx – 2 * dely<br><br>
 End if<br><br>
-End for<br><br></li>
+End for<br><br>&lt;/li>
 1. END
 
 **Source Code:**

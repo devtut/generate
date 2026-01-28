@@ -29,10 +29,10 @@ The easiest approach is to sort input elements in increasing order, and apply th
 
 **Pseudo Code:**
 
-<li>Describe an array of values we want to compute.<br>
-For `1 <= i <= n`, let **A(i)** be the length of a longest increasing sequence of input. Note that the length we are ultimately interested in is `max{A(i)|1 ≤ i ≤ n}`.</li>
-<li>Give a recurrence.<br>
-For `1 <= i <= n`, `A(i) = 1 + max{A(j)|1 ≤ j < i` and `input(j) < input(i)}.`</li>
+&lt;li>Describe an array of values we want to compute.<br>
+For `1 <= i <= n`, let **A(i)** be the length of a longest increasing sequence of input. Note that the length we are ultimately interested in is `max{A(i)|1 ≤ i ≤ n}`.&lt;/li>
+&lt;li>Give a recurrence.<br>
+For `1 <= i <= n`, `A(i) = 1 + max{A(j)|1 ≤ j < i` and `input(j) < input(i)}.`&lt;/li>
 1. Compute the values of A.
 1. Find the optimal solution.
 

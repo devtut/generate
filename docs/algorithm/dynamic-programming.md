@@ -545,12 +545,12 @@ Dynamic Programming is an improvement on Brute Force, see [this example](http://
 
 A Dynamic Programming Solution has 2 main requirements:
 
-<li>
+&lt;li>
 Overlapping Problems
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Optimal Substructure
-</li>
+&lt;/li>
 
 ****Overlapping Subproblems**** means that results of smaller versions of the problem are reused multiple times in order to arrive at the solution to the original problem
 

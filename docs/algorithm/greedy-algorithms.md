@@ -54,8 +54,8 @@ Prefix codes are desirable because they simplify decoding. Since no codeword is 
 The technique works by creating a **binary tree** of nodes. These can stored in a regular array, the size of which depends on the number of symbols, **n**. A node can either be a **leaf node** or an **internal node**. Initially all nodes are leaf nodes, which contain the symbol itself, its frequency and optionally, a link to its child nodes. As a convention, bit '0' represents left child and bit '1' represents right child. **Priority queue** is used to store the nodes, which provides the node with lowest frequency when popped. The process is described below:
 
 1. Create a leaf node for each symbol and add it to the priority queue.
-<li>While there is more than one node in the queue:
-<ol>
+&lt;li>While there is more than one node in the queue:
+&lt;ol>
 1. Remove the two nodes of highest priority from the queue.
 1. Create a new internal node with these two nodes as children and with frequency equal to the sum of the two nodes' frequency.
 1. Add the new node to the queue.
@@ -179,10 +179,10 @@ if we sort the activity by time duration the sort order will be 2--> 3 --->1 . a
 - **Sort the Activity by ending time** that means the activity finishes first that come first. the algorithm is given below
 
 > 
-<ol>
+&lt;ol>
 - Sort the activities by its ending times.
 - If the activity to be performed do not share a common time with the activities that previously performed, perform the activity.
-</ol>
+&lt;/ol>
 
 
 Lets analyse the first example
@@ -200,7 +200,7 @@ the answer is 1-->3 these two activities will be performed. ans that's the answe
 here is the sudo code.
 
 > 
-<ol>
+&lt;ol>
 - sort: activities
 - perform first activity from the sorted list of activities.
 - Set : Current_activity := first activity
@@ -208,7 +208,7 @@ here is the sudo code.
 - go to next activity if exist, if not exist terminate .
 - if start_time of current activity <= end_time  : perform the activity and go to 4
 - else:   got to 5.
-</ol>
+&lt;/ol>
 
 
 see here for coding help [http://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/](http://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/)

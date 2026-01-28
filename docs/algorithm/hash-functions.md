@@ -99,7 +99,7 @@ return hash1 + (hash2 * 1566083941);
 The first non-static field is look for and get it's hashcode. If the type has no non-static fields, the hashcode of the type returns.
 The hashcode of a static member can't be taken because if that member is of the same type as the original type, the calculating ends up in an infinite loop.
 
-### [Nullable<T>](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Nullable.cs#L69)
+### [Nullable&lt;T>](https://github.com/dotnet/coreclr/blob/release/1.1.0/src/mscorlib/src/System/Nullable.cs#L69)
 
 ```cpp
 return hasValue ? value.GetHashCode() : 0;
@@ -128,15 +128,15 @@ for (int i = (Length >= 8 ? Length - 8 : 0); i < Length; i++)
 
 Hash function `h()` is an arbitrary function which mapped data `x ∈ X` of arbitrary size to value `y ∈ Y` of fixed size: `y = h(x)`. Good hash functions have follows restrictions:
 
-<li>
+&lt;li>
 hash functions behave likes uniform distribution
-</li>
-<li>
+&lt;/li>
+&lt;li>
 hash functions is deterministic. `h(x)` should always return the same value for a given `x`
-</li>
-<li>
+&lt;/li>
+&lt;li>
 fast calculating (has runtime O(1))
-</li>
+&lt;/li>
 
 In general case size of hash function less then size of input data: `|y| < |x|`. Hash functions are not reversible or in other words it may be collision: `∃ x1, x2 ∈ X, x1 ≠ x2: h(x1) = h(x2)`. `X` may be finite or infinite set and `Y` is finite set.
 
@@ -157,12 +157,12 @@ There are several approaches for determinig hash function. Without loss of gener
 
 Hash functions used in hash tables for computing index into an array of slots. Hash table is data structure for implementing dictionaries (key-value structure). Good implemented hash tables have O(1) time for the next operations: insert, search and delete data by key. More than one keys may hash to the same slot. There are two ways for resolving collision:
 
-<li>
+&lt;li>
 Chaining: linked list is used for storing elements with the same hash value in slot
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Open addressing: zero or one element is stored in each slot
-</li>
+&lt;/li>
 
 The next methods are used to compute the probe sequences required for open addressing
 
@@ -198,13 +198,13 @@ Lets `x ∈ U{1, 1000}, h = x mod m`. The next table shows the hash values in ca
 
 ### Links
 
-<li>
+&lt;li>
 Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein. Introduction to Algorithms.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 [Overview of Hash Tables](https://courses.csail.mit.edu/6.006/spring11/rec/rec05.pdf)
-</li>
-<li>
+&lt;/li>
+&lt;li>
 [Wolfram MathWorld - Hash Function](http://mathworld.wolfram.com/HashFunction.html)
-</li>
+&lt;/li>
 

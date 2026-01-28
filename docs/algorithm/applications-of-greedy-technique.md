@@ -222,7 +222,7 @@ int main()
 {
     vector<pair<int,int>> jobs;
     
-    for(int i=0; i<jobCnt; ++i)
+    for(int i=0; i&lt;jobCnt; ++i)
         jobs.push_back(make_pair(startTimes[i], endTimes[i]));
     
     // step 1: sort
@@ -233,7 +233,7 @@ int main()
     vector<int> A;
     
     // step 3:
-    for(int i=0; i<jobCnt; ++i)
+    for(int i=0; i&lt;jobCnt; ++i)
     {
         auto job = jobs[i];
         bool isCompatible = true;
@@ -411,13 +411,13 @@ the last strategy looks valid so we start with some pseudo code:
 
 1. Sort `n` jobs by due time so that `d1<=d2<=...<=dn`
 1. Set `t=0`
-<li>for `j=1` to `n`
-<ul>
+&lt;li>for `j=1` to `n`
+&lt;ul>
 1. Assign job `j` to interval `[t,t+tj]`
 1. set `sj=t` and `fj=t+tj`
 1. set `t=t+tj`
-</ul>
-</li>
+&lt;/ul>
+&lt;/li>
 1. return intervals `[s1,f1],[s2,f2],...,[sn,fn]`
 
 And as implementation in C++:
@@ -443,7 +443,7 @@ int main()
 {
     vector<pair<int,int>> jobs;
     
-    for(int i=0; i<jobCnt; ++i)
+    for(int i=0; i&lt;jobCnt; ++i)
         jobs.push_back(make_pair(processTimes[i], dueTimes[i]));
     
     // step 1: sort
@@ -456,7 +456,7 @@ int main()
     // step 3:
     vector<pair<int,int>> jobIntervals;
     
-    for(int i=0; i<jobCnt; ++i)
+    for(int i=0; i&lt;jobCnt; ++i)
     {
         jobIntervals.push_back(make_pair(t,t+jobs[i].first));
         t += jobs[i].first;
@@ -467,7 +467,7 @@ int main()
     
     int lateness = 0;
     
-    for(int i=0; i<jobCnt; ++i)
+    for(int i=0; i&lt;jobCnt; ++i)
     {
         auto pair = jobIntervals[i];
         
@@ -506,7 +506,7 @@ maximal lateness is 8
 
 The runtime of the algorithm is obviously Θ(n log n) because sorting is the dominating operation of this algorithm. Now we need to show that it is optimal. Clearly an optimal schedule has no **idle time**. the **earliest deadline first** schedule has also no idle time.
 
-Lets assume the jobs are numbered so that `d1<=d2<=...<=dn`. We say a **inversion** of a schedule is a pair of jobs `i` and `j` so that `i<j` but j is scheduled before `i`. Due to its definition the **earliest deadline first** schedule has no inversions. Of course if a schedule has an inversion it has one with a pair of inverted jobs scheduled consecutively.
+Lets assume the jobs are numbered so that `d1<=d2<=...<=dn`. We say a **inversion** of a schedule is a pair of jobs `i` and `j` so that `i&lt;j` but j is scheduled before `i`. Due to its definition the **earliest deadline first** schedule has no inversions. Of course if a schedule has an inversion it has one with a pair of inverted jobs scheduled consecutively.
 
 **Proposition:** Swapping two adjacent, inverted jobs reduces the number of inversions by **one** and **does not increase** the maximal lateness.
 

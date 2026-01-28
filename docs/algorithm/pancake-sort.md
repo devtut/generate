@@ -25,15 +25,15 @@ The idea is to do something similar to Selection Sort. We one by one place maxim
 
 **Intuitive Algorithm:**
 
-<li>
+&lt;li>
 Find the largest out of order pancake and flip it to the bottom (you may need to flip it to the top of the stack first).
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Repeat step one until the stack is ordered.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 That’s it, a two step algorithm will work.
-</li>
+&lt;/li>
 
 **Example of Pancake sort algorithm:**
 

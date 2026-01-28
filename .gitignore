@@ -1,6 +1,18 @@
-# ignore the dependencies for node
+# Node.js
 node_modules/
-# ignore the generated production build files
-docs/.vuepress/dist/
+yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
 
+# VuePress
+.temp/
+.cache/
+docs/.vuepress/dist/
+docs/.vuepress/.temp/
+docs/.vuepress/.cache/
+
+# OS misc
 .DS_Store
+Thumbs.db

@@ -218,13 +218,13 @@ This is to recalculate the hash value for pattern,first by removing the left mos
 
 We can have three cases to analyze an algorithm:
 
-<li>
+&lt;li>
 Worst Case
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Average Case
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Best Case
 
 ```cpp
@@ -265,7 +265,7 @@ int main()
 ```
 
 
-</li>
+&lt;/li>
 
 ****Worst Case Analysis (Usually Done)****
 

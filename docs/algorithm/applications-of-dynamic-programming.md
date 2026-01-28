@@ -92,11 +92,11 @@ I add both indexes of the array together because we know that addition is commut
 
 ### Notes
 
-<li>It is important to note that sometimes it may be best to come up with
+&lt;li>It is important to note that sometimes it may be best to come up with
 a iterative memoized solution for functions that perform large
 calculations repeatedly as you will build up a cache of the answer to
 the function calls and subsequent calls may be `O(1)` if it has
-already been computed.</li>
+already been computed.&lt;/li>
 
 
 

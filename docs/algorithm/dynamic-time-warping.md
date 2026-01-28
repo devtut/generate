@@ -133,8 +133,8 @@ We'll continue this till we reach **(0, 0)**. Each move has its own meaning:
 
 - A horizontal move represents deletion. That means our **Test** sequence accelerated during this interval.
 - A vertical move represents insertion. That means out **Test** sequence decelerated during this interval.
-<li>A diagonal move represents match. During this period **Test** and **Sample** were same.
-[<img src="https://i.stack.imgur.com/2Bfjj.jpg" alt="Backtracking Result" />](https://i.stack.imgur.com/2Bfjj.jpg)</li>
+&lt;li>A diagonal move represents match. During this period **Test** and **Sample** were same.
+[<img src="https://i.stack.imgur.com/2Bfjj.jpg" alt="Backtracking Result" />](https://i.stack.imgur.com/2Bfjj.jpg)&lt;/li>
 
 Our pseudo-code will be:
 

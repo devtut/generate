@@ -159,30 +159,30 @@ So at each step, our problem becomes half.
 
 When the problem space is reduced(i.e solved completely), it cannot be reduced any further(n becomes equal to 1) after exiting check condition.
 
-<li>
+&lt;li>
 Let's say at kth step or number of operations:
 **problem-size** = 1
-</li>
-<li>
+&lt;/li>
+&lt;li>
 But we know at kth step, our problem-size should be:
 **problem-size** = n/2<sup>k</sup>
-</li>
-<li>
+&lt;/li>
+&lt;li>
 From 1 and 2:
 n/2<sup>k</sup> = 1 or
 n = 2<sup>k</sup>
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Take log on both sides
 log<sub>e</sub> n = k log<sub>e</sub>2
 or
 k = log<sub>e</sub> n / log<sub>e</sub> 2
-</li>
-<li>
+&lt;/li>
+&lt;li>
 Using formula **log<sub>x</sub> m / log<sub>x</sub> n = log<sub>n</sub> m**
 k = log<sub>2</sub> n
 or simply    k = log n
-</li>
+&lt;/li>
 
 > 
 <p>Now we know that our algorithm can run maximum up to log n, hence

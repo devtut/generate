@@ -19,20 +19,20 @@ This algorithm is a two step process.First we create a auxiliary array lps[] and
 
 **Preprocessing** :
 
-<li>We pre-process the pattern and create an auxiliary array lps[] which
-is used to skip characters while matching.</li>
-<li>Here lps[] indicates longest proper prefix which is also suffix.A proper prefix is prefix in which whole string is not
+&lt;li>We pre-process the pattern and create an auxiliary array lps[] which
+is used to skip characters while matching.&lt;/li>
+&lt;li>Here lps[] indicates longest proper prefix which is also suffix.A proper prefix is prefix in which whole string is not
 included.For example, prefixes of string **ABC** are **“ ”**,
-**“A”**, **“AB”** and **“ABC”**. Proper prefixes are **“ ”**, **“A”** and **“AB”**. Suffixes of the string are **“ ”**, **“C”**, **“BC”** and **“ABC”**.</li>
+**“A”**, **“AB”** and **“ABC”**. Proper prefixes are **“ ”**, **“A”** and **“AB”**. Suffixes of the string are **“ ”**, **“C”**, **“BC”** and **“ABC”**.&lt;/li>
 
 **Searching**
 
-<li>
+&lt;li>
 We keep matching characters **txt[i]** and **pat[j]** and keep incrementing i and j while **pat[j]** and **txt[i]** keep matching.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 When we see a mismatch,we know that characters **pat[0..j-1]** match with **txt[i-j+1…i-1]**.We also know that lps[j-1] is count of characters of **pat[0…j-1]** that are both proper prefix and suffix.From this we can conclude that we do not need to match these **lps[j-1]** characters with **txt[i-j…i-1]** because we know that these characters will match anyway.
-</li>
+&lt;/li>
 
 **Implementaion in Java**
 

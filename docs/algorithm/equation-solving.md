@@ -12,12 +12,12 @@ description: "Linear Equation, Non-Linear Equation"
 
 There are two classes of methods for solving Linear Equations:
 
-<li>
+&lt;li>
 **Direct Methods**: Common characteristics of direct methods are that they transform the original equation into equivalent equations that can be solved more easily, means we get solve directly from an equation.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 **Iterative Method**: Iterative or Indirect Methods, start with a guess of the solution and then repeatedly refine the solution until a certain convergence criterion is reached. Iterative methods are generally less efficient than direct methods because large number of operations required. Example- Jacobi's Iteration Method, Gauss-Seidal Iteration Method.
-</li>
+&lt;/li>
 
 Implementation in C-
 
@@ -143,20 +143,20 @@ int main(){
 
 An equation of the type `f(x)=0` is either algebraic or transcendental. These types of equations can be solved by using two types of methods-
 
-<li>
+&lt;li>
 **Direct Method**: This method gives the exact value of all the roots directly in a finite number of steps.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 **Indirect or Iterative Method**: Iterative methods are best suited for computer programs to solve an equation. It is based on the concept of successive approximation. In Iterative Method there are two ways to solve an equation-
-<ul>
-<li>
+&lt;ul>
+&lt;li>
 **Bracketing Method**: We take two initial points where the root lies in between them. Example- Bisection Method, False Position Method.
-</li>
-<li>
+&lt;/li>
+&lt;li>
 **Open End Method**: We take one or two initial values where the root may be any-where. Example- Newton-Raphson Method, Successive Approximation Method, Secant Method.
-</li>
-</ul>
-</li>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
 
 Implementation in C-
 

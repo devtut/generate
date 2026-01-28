@@ -12,7 +12,7 @@ description: "Optimal, disjoint-set based implementation, Simple, more detailed 
 
 We can do two things to improve the simple and sub-optimal disjoint-set subalgorithms:
 
-<li>
+&lt;li>
 **Path compression heuristic**: `findSet` does not need to ever handle a tree with height bigger than `2`. If it ends up iterating such a tree, it can link the lower nodes directly to the root, optimizing future traversals;
 
 ```cpp
@@ -24,8 +24,8 @@ subalgo findSet(v: a node):
 ```
 
 
-</li>
-<li>
+&lt;/li>
+&lt;li>
 **Height-based merging heuristic**: for each node, store the height of its subtree. When merging, make the taller tree the parent of the smaller one, thus not increasing anyone's height.
 
 ```cpp
@@ -47,7 +47,7 @@ subalgo unionSet(u, v: nodes):
 ```
 
 
-</li>
+&lt;/li>
 
 This leads to `O(alpha(n))` time for each operation, where `alpha` is the inverse of the fast-growing Ackermann function, thus it is very slow growing, and can be considered `O(1)` for practical purposes.
 
