@@ -1,0 +1,46 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Sidebar.astro';
+
+const currentPath = Astro.url.pathname;
+const pathSegments = currentPath.split('/').filter(Boolean);
+const activeModule = pathSegments[0]; // e.g., "javascript" or "python"
+
+const starlightRoute = Astro.locals.starlightRoute;
+let filteredSidebar = starlightRoute ? (starlightRoute.sidebar || []) : [];
+
+if (activeModule && activeModule !== 'docs' && starlightRoute && starlightRoute.sidebar) {
+  // Dynamically filter the sidebar groups
+  filteredSidebar = starlightRoute.sidebar.filter((group: any) => {
+    // Helper function to recursively check if an entry matches the active module path
+    const hasMatchingLink = (item: any): boolean => {
+      if (item.type === 'link' && item.href) {
+        const hrefSegments = item.href.split('/').filter(Boolean);
+        return hrefSegments[0] === activeModule;
+      }
+      if (item.type === 'group' && item.entries) {
+        return item.entries.some(hasMatchingLink);
+      }
+      return false;
+    };
+
+    // Check if the group itself or any of its entries match the active module
+    if (group.type === 'group' && group.entries) {
+      return group.entries.some(hasMatchingLink);
+    }
+    return hasMatchingLink(group);
+  });
+  
+  // Mutate the global route context to override Starlight's internal state
+  starlightRoute.sidebar = filteredSidebar;
+} else {
+  // If we are on the homepage (no active language subfolder), show nothing in the sidebar
+  filteredSidebar = [];
+  if (starlightRoute) {
+    starlightRoute.sidebar = [];
+  }
+}
+
+---
+
+<Default {...Astro.props} sidebar={filteredSidebar}><slot /></Default>
