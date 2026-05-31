@@ -3,18 +3,15 @@
 # abort on errors
 set -e
 
-# increase node space allocation
-export NODE_OPTIONS="--max-old-space-size=16384"
-
 # build
 yarn docs:build
 
 # navigate into the build output directory
-cd docs/.vuepress/dist
+cd dist
 
 echo 'User-agent: *
 Disallow:
-Sitemap: https://devtut.github.io/sitemap.xml
+Sitemap: https://devtut.github.io/sitemap-index.xml
 Host: https://devtut.github.io' > robots.txt
 
 git init

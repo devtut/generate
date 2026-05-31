@@ -1,0 +1,72 @@
+/* Custom Brand Theme for DevTut (Signature Vue Green Accent) */
+
+:root {
+  /* Brand Accent Colors */
+  --sl-color-accent-low: #153728;
+  --sl-color-accent: #42b983;
+  --sl-color-accent-high: #66d9a3;
+  
+  /* Text and BG tweaks for a sleeker dark/light appearance */
+  --sl-color-text-accent: #42b983;
+  --sl-color-text-invert: #0b1611;
+}
+
+/* Dark mode specific style overrides */
+:root[data-theme='dark'] {
+  --sl-color-bg: #0b0f12;
+  --sl-color-bg-nav: #0e1418;
+  --sl-color-bg-sidebar: #0b0f12;
+  --sl-color-border: #1d262d;
+  --sl-color-text: #e1e7ec;
+  --sl-color-text-muted: #8b9bb0;
+}
+
+/* Light mode specific style overrides */
+:root[data-theme='light'] {
+  --sl-color-bg: #f8fafc;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #f1f5f9;
+  --sl-color-border: #e2e8f0;
+  --sl-color-text: #0f172a;
+  --sl-color-text-muted: #475569;
+}
+
+/* General Layout Tweaks */
+.page {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Smooth Scrolling & Custom Scrollbar */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--sl-color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sl-color-border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sl-color-accent);
+}
+
+/* Cards & Search Customisations */
+.language-search-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.language-search-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(66, 185, 131, 0.15);
+  border-color: var(--sl-color-accent);
+}

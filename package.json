@@ -1,25 +1,22 @@
 {
-  "name": "check",
+  "name": "devtut",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "type": "module",
+  "description": "Example based programming tutorials for solid developers. Master 45+ programming topics.",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "docs:dev": "astro dev",
+    "docs:build": "astro build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vuepress": "^1.8.0",
-    "vuepress-plugin-sitemap": "^2.3.1"
-  },
-  "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.8.0",
-    "@vuepress/plugin-google-analytics": "^1.8.0",
-    "vuepress-plugin-seo": "^0.1.4"
+    "@astrojs/starlight": "^0.39.2",
+    "@astrojs/vue": "^6.0.1",
+    "astro": "^6.4.2",
+    "vue": "^3.5.35"
   }
 }

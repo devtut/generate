@@ -1,6 +1,16 @@
-# ignore the dependencies for node
+# Dependency directories
 node_modules/
-# ignore the generated production build files
-docs/.vuepress/dist/
 
+# Production build output
+dist/
+
+# Astro development and build cache
+.astro/
+
+# Development utilities and temp backup folders
+temp-backup-docs/
+sidebars.full.json
+
+# Operating System files
 .DS_Store
+Thumbs.db
