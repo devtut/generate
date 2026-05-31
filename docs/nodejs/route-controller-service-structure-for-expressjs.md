@@ -34,12 +34,12 @@ For modular code structure the logic should be divided into these directories an
 
 
 > 
-<p>**Controllers** - The controllers handles all the logic behind validating
+<p><strong>Controllers</strong> - The controllers handles all the logic behind validating
 request parameters, query, Sending Responses with correct codes.</p>
 
 
 > 
-<p>**Services** - The services contains the database queries and returning
+<p><strong>Services</strong> - The services contains the database queries and returning
 objects or throwing errors</p>
 
 
