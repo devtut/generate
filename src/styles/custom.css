@@ -5,7 +5,7 @@
   --sl-color-accent-low: #153728;
   --sl-color-accent: #42b983;
   --sl-color-accent-high: #66d9a3;
-  
+
   /* Text and BG tweaks for a sleeker dark/light appearance */
   --sl-color-text-accent: #42b983;
   --sl-color-text-invert: #0b1611;
@@ -29,6 +29,22 @@
   --sl-color-border: #e2e8f0;
   --sl-color-text: #0f172a;
   --sl-color-text-muted: #475569;
+}
+
+html[data-theme='dark'] .homepage-dashboard {
+  --homepage-surface: rgba(15, 23, 42, 0.72);
+  --homepage-surface-strong: rgba(15, 23, 42, 0.88);
+  --homepage-surface-elevated: rgba(17, 24, 39, 0.96);
+  --homepage-border: rgba(148, 163, 184, 0.18);
+  --homepage-border-strong: rgba(148, 163, 184, 0.28);
+  --homepage-text: #e5edf5;
+  --homepage-text-muted: #a5b2c2;
+  --homepage-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --homepage-shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.38);
+  --homepage-accent-soft: rgba(66, 185, 131, 0.16);
+  --homepage-accent-soft-2: rgba(66, 185, 131, 0.12);
+  --homepage-accent-line: rgba(66, 185, 131, 0.32);
+  --homepage-accent-shadow: rgba(66, 185, 131, 0.22);
 }
 
 /* General Layout Tweaks */

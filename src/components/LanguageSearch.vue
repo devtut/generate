@@ -237,6 +237,36 @@ export default {
   margin: 0 auto;
   padding: 10px 20px 80px 20px;
   font-family: inherit;
+  --homepage-accent: #42b983;
+  --homepage-surface: var(--sl-color-bg-subtle, #f3f4f6);
+  --homepage-surface-strong: var(--sl-color-bg, #ffffff);
+  --homepage-surface-elevated: var(--sl-color-bg, #ffffff);
+  --homepage-border: var(--sl-color-hairline, #e5e7eb);
+  --homepage-border-strong: var(--sl-color-hairline, #cfd4db);
+  --homepage-text: var(--sl-color-text, #111827);
+  --homepage-text-muted: var(--sl-color-text-muted, #6b7280);
+  --homepage-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --homepage-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --homepage-accent-soft: rgba(66, 185, 131, 0.1);
+  --homepage-accent-soft-2: rgba(66, 185, 131, 0.08);
+  --homepage-accent-line: rgba(66, 185, 131, 0.25);
+  --homepage-accent-shadow: rgba(66, 185, 131, 0.35);
+}
+
+:global(:root[data-theme='dark']) .homepage-dashboard {
+  --homepage-surface: rgba(15, 23, 42, 0.72);
+  --homepage-surface-strong: rgba(15, 23, 42, 0.88);
+  --homepage-surface-elevated: rgba(17, 24, 39, 0.96);
+  --homepage-border: rgba(148, 163, 184, 0.18);
+  --homepage-border-strong: rgba(148, 163, 184, 0.28);
+  --homepage-text: #e5edf5;
+  --homepage-text-muted: #a5b2c2;
+  --homepage-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --homepage-shadow-hover: 0 16px 32px rgba(0, 0, 0, 0.38);
+  --homepage-accent-soft: rgba(66, 185, 131, 0.16);
+  --homepage-accent-soft-2: rgba(66, 185, 131, 0.12);
+  --homepage-accent-line: rgba(66, 185, 131, 0.32);
+  --homepage-accent-shadow: rgba(66, 185, 131, 0.22);
 }
 
 /* 📊 Stats Grid Styling */
@@ -253,34 +283,34 @@ export default {
   gap: 1.25rem;
   padding: 1.5rem;
   border-radius: 1rem;
-  background: var(--sl-color-bg-subtle, #f3f4f6);
-  border: 1px solid var(--sl-color-hairline, #e5e7eb);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  background: var(--homepage-surface);
+  border: 1px solid var(--homepage-border);
+  box-shadow: var(--homepage-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--homepage-shadow-hover);
 }
 
 .stat-icon {
   font-size: 2.25rem;
   padding: 0.75rem;
-  background: rgba(66, 185, 131, 0.1);
+  background: var(--homepage-accent-soft);
   border-radius: 0.75rem;
 }
 
 .stat-value {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--sl-color-text, #111827);
+  color: var(--homepage-text);
   line-height: 1.2;
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: var(--sl-color-text-muted, #6b7280);
+  color: var(--homepage-text-muted);
   font-weight: 500;
 }
 
@@ -311,17 +341,17 @@ export default {
   font-size: 1.125rem;
   font-weight: 500;
   border-radius: 9999px;
-  border: 2px solid var(--sl-color-hairline, #cfd4db);
-  background: var(--sl-color-bg, #fff);
-  color: var(--sl-color-text, #000);
+  border: 2px solid var(--homepage-border-strong);
+  background: var(--homepage-surface-strong);
+  color: var(--homepage-text);
   outline: none;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--homepage-shadow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search-input-container input:focus {
-  border-color: #42b983;
-  box-shadow: 0 10px 25px -5px rgba(66, 185, 131, 0.25);
+  border-color: var(--homepage-accent);
+  box-shadow: 0 10px 25px -5px var(--homepage-accent-shadow);
   transform: scale(1.01);
 }
 
@@ -341,6 +371,7 @@ export default {
 /* 🏷️ Category Tabs Switcher */
 .category-tabs {
   display: flex;
+  align-items: center;
   gap: 0.75rem;
   overflow-x: auto;
   padding: 0.25rem 0.25rem 1.25rem 0.25rem;
@@ -362,33 +393,44 @@ export default {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  height: 3.25rem;
+  min-width: 9.25rem;
   padding: 0.625rem 1.25rem;
   border-radius: 9999px;
   font-size: 0.9375rem;
   font-weight: 600;
-  background: var(--sl-color-bg-subtle, #f3f4f6);
-  border: 1px solid var(--sl-color-hairline, #e5e7eb);
-  color: var(--sl-color-text-muted, #4b5563);
+  line-height: 1;
+  background: var(--homepage-surface);
+  border: 1px solid var(--homepage-border);
+  color: var(--homepage-text-muted);
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
+.category-tabs > .category-tab {
+  margin-top: 0;
+}
+
 .category-tab:hover {
-  background: var(--sl-color-hairline, #e5e7eb);
-  color: var(--sl-color-text, #111827);
+  background: var(--homepage-border);
+  color: var(--homepage-text);
   transform: translateY(-1px);
 }
 
 .category-tab.active {
-  background: #42b983;
+  background: var(--homepage-accent);
   color: #fff;
-  border-color: #42b983;
-  box-shadow: 0 4px 12px rgba(66, 185, 131, 0.35);
+  border-color: var(--homepage-accent);
+  box-shadow: 0 4px 12px var(--homepage-accent-shadow);
 }
 
 .tab-icon {
   font-size: 1.05rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* 🗂️ Language Categories Sections */
@@ -408,9 +450,9 @@ export default {
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--sl-color-text, #1f2937);
-  background: rgba(66, 185, 131, 0.08);
-  border: 1px solid rgba(66, 185, 131, 0.25);
+  color: var(--homepage-text);
+  background: var(--homepage-accent-soft-2);
+  border: 1px solid var(--homepage-accent-line);
   padding: 0.375rem 0.875rem;
   border-radius: 0.5rem;
 }
@@ -418,22 +460,28 @@ export default {
 .section-line {
   flex-grow: 1;
   height: 2px;
-  background: linear-gradient(90deg, rgba(66, 185, 131, 0.25) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--homepage-accent-line) 0%, transparent 100%);
 }
 
 /* 🎴 Cards Grid and 3D Hover Card Styles */
 .cards-grid {
   display: grid;
+  align-items: stretch;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+}
+
+.cards-grid > .lang-card {
+  margin-top: 0;
+  height: 100%;
 }
 
 .lang-card {
   position: relative;
   border-radius: 1rem;
-  background: var(--sl-color-bg-subtle, #ffffff);
-  border: 1px solid var(--sl-color-hairline, #e5e7eb);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  background: var(--homepage-surface-elevated);
+  border: 1px solid var(--homepage-border);
+  box-shadow: var(--homepage-shadow);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
@@ -482,7 +530,7 @@ export default {
 .card-title {
   font-size: 1.625rem;
   font-weight: 800;
-  color: var(--sl-color-text, #111827);
+  color: var(--homepage-text);
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
 }
@@ -495,9 +543,9 @@ export default {
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 700;
-  color: var(--accent-color, #42b983);
+  color: var(--accent-color, var(--homepage-accent));
   padding-top: 0.75rem;
-  border-top: 1px dashed var(--sl-color-hairline, #f3f4f6);
+  border-top: 1px dashed var(--homepage-border);
   transition: color 0.3s ease;
 }
 
@@ -508,12 +556,12 @@ export default {
 /* Hover Animations */
 .lang-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 25px -4px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--homepage-shadow-hover);
   border-color: var(--accent-color, #42b983);
 }
 
 .lang-card:hover .lessons-badge {
-  background: var(--accent-color, #42b983);
+  background: var(--accent-color, var(--homepage-accent));
   color: #fff;
 }
 
@@ -525,8 +573,8 @@ export default {
 .empty-state {
   text-align: center;
   padding: 5rem 2rem;
-  background: var(--sl-color-bg-subtle, #f9fafb);
-  border: 1px dashed var(--sl-color-hairline, #e5e7eb);
+  background: var(--homepage-surface);
+  border: 1px dashed var(--homepage-border);
   border-radius: 1.5rem;
 }
 
@@ -538,13 +586,13 @@ export default {
 .empty-state h3 {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--sl-color-text, #111827);
+  color: var(--homepage-text);
   margin-bottom: 0.5rem;
 }
 
 .empty-state p {
   font-size: 1rem;
-  color: var(--sl-color-text-muted, #6b7280);
+  color: var(--homepage-text-muted);
   max-width: 480px;
   margin: 0 auto 1.5rem auto;
 }
@@ -553,17 +601,17 @@ export default {
   padding: 0.75rem 1.5rem;
   font-size: 0.9375rem;
   font-weight: 700;
-  background: #42b983;
+  background: var(--homepage-accent);
   color: #fff;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(66, 185, 131, 0.35);
+  box-shadow: 0 4px 12px var(--homepage-accent-shadow);
   transition: all 0.2s ease;
 }
 
 .reset-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(66, 185, 131, 0.45);
+  box-shadow: 0 6px 16px var(--homepage-accent-shadow);
 }
 </style>
