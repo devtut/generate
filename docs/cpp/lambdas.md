@@ -508,16 +508,19 @@ A strong reason to use generic lambdas is for visiting syntax.
 
 ```cpp
 boost::variant<int, double> value;
-apply_visitor(value, [&](auto&& e){
-  std::cout << e;
-});
+boost::apply_visitor(
+  [&](auto&& e){
+    std::cout << e;
+  }, 
+  value
+);
 
 ```
 
 Here we are visiting in a polymorphic manner; but in other contexts, the names of the type we are passing isn't interesting:
 
 ```cpp
-mutex_wrapped<std::ostream&> os = std::cout;
+mutex_wrapped<std::ostream&> os(std::cout);
 os.write([&](auto&& os){
   os << "hello world\n";
 });
