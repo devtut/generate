@@ -13,9 +13,9 @@ description: "Download Tweets, Get text of tweets"
 ## Download Tweets
 
 
-The first think you need to do is to download tweets. You need to Setup your tweeter account. Much Information can be found in Internet on how to do it. The following two links were useful for my Setup (last checked in May 2017)
+The first thing you need to do is to download tweets. You need to Setup your tweeter account. Much Information can be found in Internet on how to do it. The following two links were useful for my Setup (last checked in May 2017)
 
-In particular I found the following two links useful (last checked in May 2017):
+In particular, I found the following two links useful (last checked in May 2017):
 
 [Link 1](https://www.credera.com/blog/business-intelligence/twitter-analytics-using-r-part-1-extract-tweets/)
 
